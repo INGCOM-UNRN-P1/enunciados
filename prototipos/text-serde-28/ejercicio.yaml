@@ -1,0 +1,32 @@
+id: text-serde-28
+titulo: Serializador de Grafos de Objetos con Manejo de Referencias
+tema: serializacion_texto_json_csv
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_28
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serializador de Grafos de Objetos con
+    Manejo de Referencias
+tests_funciones:
+- nombre: test_ejecutar_text_serde_28_positivo
+  funcion: ejecutar_text_serde_28
+  codigo: 'int res = ejecutar_text_serde_28(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_28_cero
+  funcion: ejecutar_text_serde_28
+  codigo: 'int res = ejecutar_text_serde_28(0);
+
+    assert(res == 0);'

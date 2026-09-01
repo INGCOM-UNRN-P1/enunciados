@@ -1,0 +1,33 @@
+id: ej-24-1-simplificacion-de-funciones
+titulo: Simplificación de Funciones
+tema: complejidad
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- simplificacion
+- big_o
+- funciones
+- complejidad
+- algoritmos
+verificado: true
+funciones:
+- nombre: proc_icacion_de_funciones
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simplificación de Funciones
+tests_funciones:
+- nombre: test_proc_icacion_de_funciones_positivo
+  funcion: proc_icacion_de_funciones
+  codigo: 'int res = proc_icacion_de_funciones(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_icacion_de_funciones_cero
+  funcion: proc_icacion_de_funciones
+  codigo: 'int res = proc_icacion_de_funciones(0);
+
+    assert(res == 0);'

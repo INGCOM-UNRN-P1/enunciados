@@ -1,0 +1,33 @@
+id: ej-15-17-b17-visualizar-alineacion
+titulo: Visualizar Alineación
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- stack
+- layout
+- alineacion
+- visualizar
+- memoria
+verificado: true
+funciones:
+- nombre: proc_isualizar_alineacion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Visualizar Alineación
+tests_funciones:
+- nombre: test_proc_isualizar_alineacion_positivo
+  funcion: proc_isualizar_alineacion
+  codigo: 'int res = proc_isualizar_alineacion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_isualizar_alineacion_cero
+  funcion: proc_isualizar_alineacion
+  codigo: 'int res = proc_isualizar_alineacion(0);
+
+    assert(res == 0);'

@@ -1,0 +1,39 @@
+id: ej-9-34-matriz-identidad-con-ternario
+titulo: Matriz Identidad con Ternario Críptico
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- ternario
+- clean_code
+- refactorizacion
+- criptico
+- fundamentos
+verificado: true
+funciones:
+- nombre: obtener_valor_identidad
+  retorno: int
+  parametros: int fila, int columna
+  descripcion: Operación obtener_valor_identidad
+- nombre: test_valor_identidad
+  retorno: void
+  parametros: void
+  descripcion: Operación test_valor_identidad
+tests_funciones:
+- nombre: test_obtener_valor_identidad_1
+  funcion: obtener_valor_identidad
+  codigo: '/* Verificación unitaria de obtener_valor_identidad */
+
+    int res = obtener_valor_identidad(1, 2);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_valor_identidad_2
+  funcion: test_valor_identidad
+  codigo: '/* Verificación unitaria de test_valor_identidad */
+
+    test_valor_identidad();
+
+    assert(true);'

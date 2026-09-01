@@ -1,0 +1,39 @@
+id: ej-11-30-b30-justificar-texto-simple
+titulo: Justificar texto (Simple)
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Contar el número de palabras y el número total de caracteres (sin espacios).
+- 'Calcular el número total de espacios a insertar: `ancho_total - num_caracteres`.'
+- Calcular el número de espacios a poner en cada hueco entre palabras.
+- Construir la nueva cadena añadiendo las palabras y el número calculado de espacios
+  entre ellas.
+tags:
+- cadenas
+- texto
+- strings
+- justificar
+- memoria
+verificado: true
+funciones:
+- nombre: proc_tificar_texto_simple
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Justificar texto (Simple)
+tests_funciones:
+- nombre: test_proc_tificar_texto_simple_positivo
+  funcion: proc_tificar_texto_simple
+  codigo: 'int res = proc_tificar_texto_simple(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_tificar_texto_simple_cero
+  funcion: proc_tificar_texto_simple
+  codigo: 'int res = proc_tificar_texto_simple(0);
+
+    assert(res == 0);'

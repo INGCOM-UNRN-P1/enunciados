@@ -1,0 +1,31 @@
+id: cli-args-11
+titulo: Subcomandos de Aplicación y Despacho de Acciones
+tema: argumentos_linea_comandos
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Subcomandos de Aplicación y Despacho
+    de Acciones
+tests_funciones:
+- nombre: test_ejecutar_cli_args_11_positivo
+  funcion: ejecutar_cli_args_11
+  codigo: 'int res = ejecutar_cli_args_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_11_cero
+  funcion: ejecutar_cli_args_11
+  codigo: 'int res = ejecutar_cli_args_11(0);
+
+    assert(res == 0);'

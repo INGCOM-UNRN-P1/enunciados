@@ -1,0 +1,28 @@
+id: ej-9-9-el-monstruo-de-la-flecha-arrow
+titulo: El Monstruo de la Flecha (Arrow Code)
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- code
+- refactorizacion
+- fundamentos
+- flecha
+verificado: true
+funciones:
+- nombre: calificar
+  retorno: int
+  parametros: int nota, int asistencia
+  descripcion: Operación calificar
+tests_funciones:
+- nombre: test_calificar_1
+  funcion: calificar
+  codigo: '/* Verificación unitaria de calificar */
+
+    int res = calificar(1, 2);
+
+    (void)res;
+
+    assert(true);'

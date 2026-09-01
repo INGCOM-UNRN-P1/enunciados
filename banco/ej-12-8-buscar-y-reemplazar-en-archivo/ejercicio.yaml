@@ -1,0 +1,33 @@
+id: ej-12-8-buscar-y-reemplazar-en-archivo
+titulo: Buscar y Reemplazar en Archivo
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- archivo
+- memoria
+- buscar
+- reemplazar
+- io_disco
+verificado: true
+funciones:
+- nombre: proc_eemplazar_en_archivo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Buscar y Reemplazar en Archivo
+tests_funciones:
+- nombre: test_proc_eemplazar_en_archivo_positivo
+  funcion: proc_eemplazar_en_archivo
+  codigo: 'int res = proc_eemplazar_en_archivo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eemplazar_en_archivo_cero
+  funcion: proc_eemplazar_en_archivo
+  codigo: 'int res = proc_eemplazar_en_archivo(0);
+
+    assert(res == 0);'

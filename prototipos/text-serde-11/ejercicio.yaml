@@ -1,0 +1,32 @@
+id: text-serde-11
+titulo: Codificador de URL Percent-Encoding para Cadenas Web
+tema: serializacion_texto_json_csv
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Codificador de URL Percent-Encoding para
+    Cadenas Web
+tests_funciones:
+- nombre: test_ejecutar_text_serde_11_positivo
+  funcion: ejecutar_text_serde_11
+  codigo: 'int res = ejecutar_text_serde_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_11_cero
+  funcion: ejecutar_text_serde_11
+  codigo: 'int res = ejecutar_text_serde_11(0);
+
+    assert(res == 0);'

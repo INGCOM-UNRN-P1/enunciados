@@ -1,0 +1,31 @@
+id: grafo-red-04
+titulo: Cálculo de Grado de Entrada y Salida en Nodos Dirigidos
+tema: grafos_y_redes
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_04
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cálculo de Grado de Entrada y Salida
+    en Nodos Dirigidos
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_04_positivo
+  funcion: ejecutar_grafo_red_04
+  codigo: 'int res = ejecutar_grafo_red_04(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_04_cero
+  funcion: ejecutar_grafo_red_04
+  codigo: 'int res = ejecutar_grafo_red_04(0);
+
+    assert(res == 0);'

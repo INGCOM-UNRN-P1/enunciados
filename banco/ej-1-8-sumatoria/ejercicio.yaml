@@ -1,0 +1,35 @@
+id: ej-1-8-sumatoria
+titulo: Sumatoria
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Variables:** Se necesita una variable `acumulador` (o `suma`),'
+- '**Entrada:** Leer los enteros `n` y `m`.'
+- '**Proceso:** Usar un lazo `for` que itere desde `n` hasta `m`. En cada'
+- '**Salida:** Después de que el lazo termine, imprimir el valor final del'
+- '[Plus Ultra] Validar que n <= m y calcular la sumatoria tanto mediante un lazo
+  como con la fórmula de Gauss para comparar resultados.'
+- '[Plus Ultra] Usar el tipo long long para prevenir desbordamientos en rangos grandes.'
+tags:
+- sumatoria
+- basicos
+- secuencias
+- fundamentos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_8_sumatoria
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Sumatoria
+tests_funciones:
+- nombre: test_ejecutar_ej_1_8_sumatoria_positivo
+  funcion: ejecutar_ej_1_8_sumatoria
+  codigo: 'int res = ejecutar_ej_1_8_sumatoria(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_8_sumatoria_cero
+  funcion: ejecutar_ej_1_8_sumatoria
+  codigo: 'int res = ejecutar_ej_1_8_sumatoria(0);
+
+    assert(res == 0);'

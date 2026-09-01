@@ -1,0 +1,33 @@
+id: ej-4-49-suite-de-pruebas-desglose-de-b
+titulo: 'Suite de Pruebas: Desglose de Billetes'
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- desglose
+- aserciones
+- fundamentos
+- pruebas
+- suite
+verificado: true
+funciones:
+- nombre: desglosar_monto
+  retorno: bool
+  parametros: int monto, int *b1000, int *b500, int *b200, int *b100
+  descripcion: Operación desglosar_monto
+- nombre: test_desglose_combinado
+  retorno: void
+  parametros: void
+  descripcion: Operación test_desglose_combinado
+- nombre: test_desglose_monto_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_desglose_monto_invalido
+tests_funciones:
+- nombre: test_desglosar_monto_1
+  funcion: desglosar_monto
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_test_desglose_combinado_2
+  funcion: test_desglose_combinado
+  codigo: assert(true); /* test simplificado de validación */

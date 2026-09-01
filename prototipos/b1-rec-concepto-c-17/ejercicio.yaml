@@ -1,0 +1,29 @@
+id: b1-rec-concepto-c-17
+titulo: Evaluación de Cortocircuito en Expresiones Lógicas
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_17
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Evaluación de Cortocircuito en Expresiones
+    Lógicas
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_17_positivo
+  funcion: ejecutar_b1_rec_concepto_c_17
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_17(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_17_cero
+  funcion: ejecutar_b1_rec_concepto_c_17
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_17(0);
+
+    assert(res == 0);'

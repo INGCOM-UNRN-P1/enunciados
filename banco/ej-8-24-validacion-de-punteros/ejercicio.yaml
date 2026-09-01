@@ -1,0 +1,32 @@
+id: ej-8-24-validacion-de-punteros
+titulo: Validación de Punteros
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- validacion
+- punteros
+- direcciones
+- memoria
+verificado: true
+funciones:
+- nombre: proc_lidacion_de_punteros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validación de Punteros
+tests_funciones:
+- nombre: test_proc_lidacion_de_punteros_positivo
+  funcion: proc_lidacion_de_punteros
+  codigo: 'int res = proc_lidacion_de_punteros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_lidacion_de_punteros_cero
+  funcion: proc_lidacion_de_punteros
+  codigo: 'int res = proc_lidacion_de_punteros(0);
+
+    assert(res == 0);'

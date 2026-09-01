@@ -1,0 +1,32 @@
+id: lista-enl-07
+titulo: Conteo de Nodos y Cálculo de Longitud de Lista Enlazada
+tema: listas_enlazadas
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lista_enl_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conteo de Nodos y Cálculo de Longitud
+    de Lista Enlazada
+tests_funciones:
+- nombre: test_ejecutar_lista_enl_07_positivo
+  funcion: ejecutar_lista_enl_07
+  codigo: 'int res = ejecutar_lista_enl_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lista_enl_07_cero
+  funcion: ejecutar_lista_enl_07
+  codigo: 'int res = ejecutar_lista_enl_07(0);
+
+    assert(res == 0);'

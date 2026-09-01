@@ -1,0 +1,29 @@
+id: b1-rec-concepto-c-01
+titulo: Precedencia y Asociatividad de Operadores Aritméticos
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_01
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Precedencia y Asociatividad de Operadores
+    Aritméticos
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_01_positivo
+  funcion: ejecutar_b1_rec_concepto_c_01
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_01(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_01_cero
+  funcion: ejecutar_b1_rec_concepto_c_01
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_01(0);
+
+    assert(res == 0);'

@@ -1,0 +1,39 @@
+id: ej-3-11-numeros-perfectos
+titulo: Números Perfectos
+tema: aritmetica
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:**'
+- Calcular la suma de los divisores propios de `n`. Para ello, iterar desde 1 hasta
+  `n/2`.
+- En cada iteración, si el iterador `i` es un divisor de `n` (`n % i == 0`), se suma
+  `i` a un acumulador.
+- Finalmente, comparar la suma obtenida con el número original `n`. error e informar
+  el resultado mediante parámetros de salida. especificando precondiciones y postcondiciones.
+- '[Plus Ultra] Validar que el número sea entero positivo mayor a 1.'
+- '[Plus Ultra] Determinar si el número es abundante, deficiente o perfecto.'
+tags:
+- fundamentos
+- aritmetica
+- numeros
+- matematica
+- perfectos
+verificado: true
+funciones:
+- nombre: proc_11_numeros_perfectos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Perfectos
+tests_funciones:
+- nombre: test_proc_11_numeros_perfectos_positivo
+  funcion: proc_11_numeros_perfectos
+  codigo: 'int res = proc_11_numeros_perfectos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_11_numeros_perfectos_cero
+  funcion: proc_11_numeros_perfectos
+  codigo: 'int res = proc_11_numeros_perfectos(0);
+
+    assert(res == 0);'

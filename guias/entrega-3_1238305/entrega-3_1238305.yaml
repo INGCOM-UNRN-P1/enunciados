@@ -1,0 +1,41 @@
+nombre: Entrega 3 — Modularización y Funciones en C
+identificador: entrega-3_1238305
+moodle_id: 1238305
+minutos_totales: 160
+distribucion_bloom:
+  COMPRENDER: 5
+  APLICAR: 2
+  ANALIZAR: 1
+ejercicios:
+  - id: ej-5-1-doble-de-un-numero
+    minutos: 15
+    bloom: 2
+    tema: funciones
+  - id: ej-5-2-mayor-de-dos-numeros
+    minutos: 15
+    bloom: 2
+    tema: funciones
+  - id: ej-3-1-suma-lenta
+    minutos: 15
+    bloom: 2
+    tema: aritmetica
+  - id: ej-3-2-division-lenta
+    minutos: 15
+    bloom: 2
+    tema: aritmetica
+  - id: ej-5-8-factorial-recursivo-e-iterativo
+    minutos: 15
+    bloom: 2
+    tema: funciones
+  - id: ej-5-10-validacion-de-entrada
+    minutos: 25
+    bloom: 3
+    tema: funciones
+  - id: ej-5-12-numeros-de-fibonacci
+    minutos: 25
+    bloom: 3
+    tema: funciones
+  - id: ej-5-17-combinatoria
+    minutos: 35
+    bloom: 4
+    tema: funciones

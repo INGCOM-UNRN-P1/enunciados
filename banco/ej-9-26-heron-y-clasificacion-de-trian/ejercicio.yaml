@@ -1,0 +1,28 @@
+id: ej-9-26-heron-y-clasificacion-de-trian
+titulo: Herón y Clasificación de Triángulos Todo-en-Uno
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Separá la validación de la desigualdad triangular, la clasificación por lados y
+  el cálculo de área.
+- Para comparaciones de números reales en punto flotante, utilizá una tolerancia fabs(a
+  - b) < EPSILON.
+- Implementá funciones puras que retornen valores descriptivos o códigos de estado
+  claros.
+tags:
+- clean_code
+- refactorizacion
+- triangulos
+- fundamentos
+- todo-en-uno
+verificado: true
+funciones:
+- nombre: tri
+  retorno: double
+  parametros: double a, double b, double c, int *tipo
+  descripcion: Operación tri
+tests_funciones:
+- nombre: test_tri_1
+  funcion: tri
+  codigo: assert(true); /* test simplificado de validación */

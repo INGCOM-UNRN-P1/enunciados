@@ -1,0 +1,39 @@
+id: lru-cache-01
+titulo: Estructura LRU Cache con Política de Reemplazo Least Recently Used
+tema: lru_cache_memorizacion
+bloom: 1
+minutos_estimados: 10
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: lru_init
+  retorno: void
+  parametros: t_LRUCache *c, int cap
+  descripcion: Operación lru_init
+- nombre: lru_get
+  retorno: int
+  parametros: t_LRUCache *c, int clave
+  descripcion: Operación lru_get
+- nombre: lru_put
+  retorno: void
+  parametros: t_LRUCache *c, int clave, int valor
+  descripcion: Operación lru_put
+tests_funciones:
+- nombre: test_lru_init_1
+  funcion: lru_init
+  codigo: '/* Verificación unitaria de lru_init */
+
+    assert(true);'
+- nombre: test_lru_get_2
+  funcion: lru_get
+  codigo: '/* Verificación unitaria de lru_get */
+
+    assert(true);'

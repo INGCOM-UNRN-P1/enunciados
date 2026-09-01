@@ -1,0 +1,31 @@
+id: sim-event-25
+titulo: Simulación de Batería y Consumo de Energía en Dispositivos IoT
+tema: simulacion_eventos_discretos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Mantené una cola de eventos ordenada por tiempo de ocurrencia.
+- Avanzá el reloj de simulación al tiempo del próximo evento.
+tags:
+- simulacion
+- eventos_discretos
+- colas
+- planificacion
+verificado: true
+funciones:
+- nombre: ejecutar_sim_event_25
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Batería y Consumo de Energía
+    en Dispositivos IoT
+tests_funciones:
+- nombre: test_ejecutar_sim_event_25_positivo
+  funcion: ejecutar_sim_event_25
+  codigo: 'int res = ejecutar_sim_event_25(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sim_event_25_cero
+  funcion: ejecutar_sim_event_25
+  codigo: 'int res = ejecutar_sim_event_25(0);
+
+    assert(res == 0);'

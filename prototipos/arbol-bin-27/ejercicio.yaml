@@ -1,0 +1,33 @@
+id: arbol-bin-27
+titulo: Serialización de Árbol Binario a Cadena de Texto y Deserialización
+tema: arboles_binarios
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serialización de Árbol Binario a Cadena
+    de Texto y Deserialización
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_27_positivo
+  funcion: ejecutar_arbol_bin_27
+  codigo: 'int res = ejecutar_arbol_bin_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_27_cero
+  funcion: ejecutar_arbol_bin_27
+  codigo: 'int res = ejecutar_arbol_bin_27(0);
+
+    assert(res == 0);'

@@ -1,0 +1,29 @@
+id: b2-comp-traza-control-12
+titulo: Comparación de Ciclos Do-While frente a While
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_12
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Comparación de Ciclos Do-While frente
+    a While
+tests_funciones:
+- nombre: test_proc_omp_traza_control_12_positivo
+  funcion: proc_omp_traza_control_12
+  codigo: 'int res = proc_omp_traza_control_12(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_12_cero
+  funcion: proc_omp_traza_control_12
+  codigo: 'int res = proc_omp_traza_control_12(0);
+
+    assert(res == 0);'

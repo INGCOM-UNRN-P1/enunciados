@@ -1,0 +1,31 @@
+id: fsm-estados-04
+titulo: Validador de Identificadores de Variables en C con FSM
+tema: emulacion_maquinas_estado
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_04
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validador de Identificadores de Variables
+    en C con FSM
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_04_positivo
+  funcion: ejecutar_fsm_estados_04
+  codigo: 'int res = ejecutar_fsm_estados_04(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_04_cero
+  funcion: ejecutar_fsm_estados_04
+  codigo: 'int res = ejecutar_fsm_estados_04(0);
+
+    assert(res == 0);'

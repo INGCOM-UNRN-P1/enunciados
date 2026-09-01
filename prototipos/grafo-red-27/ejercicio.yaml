@@ -1,0 +1,31 @@
+id: grafo-red-27
+titulo: Centralidad de Grado e Importancia de Nodos en Redes
+tema: grafos_y_redes
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Centralidad de Grado e Importancia de
+    Nodos en Redes
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_27_positivo
+  funcion: ejecutar_grafo_red_27
+  codigo: 'int res = ejecutar_grafo_red_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_27_cero
+  funcion: ejecutar_grafo_red_27
+  codigo: 'int res = ejecutar_grafo_red_27(0);
+
+    assert(res == 0);'

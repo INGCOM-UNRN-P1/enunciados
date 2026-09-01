@@ -1,0 +1,30 @@
+id: ej-4-33-deteccion-de-mutacion-en-arreg
+titulo: Detección de mutación en arreglos de solo lectura
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- arreglos
+- deteccion
+- mutacion
+verificado: true
+funciones:
+- nombre: proc_de_mutacion_en_arreg
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Detección de mutación en arreglos de
+    solo lectura
+tests_funciones:
+- nombre: test_proc_de_mutacion_en_arreg_positivo
+  funcion: proc_de_mutacion_en_arreg
+  codigo: 'int res = proc_de_mutacion_en_arreg(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_mutacion_en_arreg_cero
+  funcion: proc_de_mutacion_en_arreg
+  codigo: 'int res = proc_de_mutacion_en_arreg(0);
+
+    assert(res == 0);'

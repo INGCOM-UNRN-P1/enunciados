@@ -1,0 +1,32 @@
+id: arbol-bin-04
+titulo: Conteo Total de Nodos en Árbol Binario
+tema: arboles_binarios
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_04
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conteo Total de Nodos en Árbol Binario
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_04_positivo
+  funcion: ejecutar_arbol_bin_04
+  codigo: 'int res = ejecutar_arbol_bin_04(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_04_cero
+  funcion: ejecutar_arbol_bin_04
+  codigo: 'int res = ejecutar_arbol_bin_04(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: ej-12-1-es-correcto-el-formato
+titulo: ¿Es correcto el formato?
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- memoria
+- correcto
+- formato
+- io_disco
+- archivos
+verificado: true
+funciones:
+- nombre: proc__correcto_el_formato
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de ¿Es correcto el formato?
+tests_funciones:
+- nombre: test_proc__correcto_el_formato_positivo
+  funcion: proc__correcto_el_formato
+  codigo: 'int res = proc__correcto_el_formato(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__correcto_el_formato_cero
+  funcion: proc__correcto_el_formato
+  codigo: 'int res = proc__correcto_el_formato(0);
+
+    assert(res == 0);'

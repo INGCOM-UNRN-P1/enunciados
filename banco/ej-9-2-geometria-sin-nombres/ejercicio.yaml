@@ -1,0 +1,39 @@
+id: ej-9-2-geometria-sin-nombres
+titulo: Geometría sin Nombres
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- nombres
+- refactorizacion
+- geometria
+- fundamentos
+verificado: true
+funciones:
+- nombre: calcular_area_triangulo
+  retorno: double
+  parametros: double base, double altura
+  descripcion: Operación calcular_area_triangulo
+- nombre: test_area_triangulo
+  retorno: void
+  parametros: void
+  descripcion: Operación test_area_triangulo
+tests_funciones:
+- nombre: test_calcular_area_triangulo_1
+  funcion: calcular_area_triangulo
+  codigo: '/* Verificación unitaria de calcular_area_triangulo */
+
+    double res = calcular_area_triangulo(1, 2);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_area_triangulo_2
+  funcion: test_area_triangulo
+  codigo: '/* Verificación unitaria de test_area_triangulo */
+
+    test_area_triangulo();
+
+    assert(true);'

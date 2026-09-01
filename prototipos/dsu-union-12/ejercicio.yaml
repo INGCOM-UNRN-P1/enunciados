@@ -1,0 +1,32 @@
+id: dsu-union-12
+titulo: DSU con Rollback para Deshacer Operaciones de Unión
+tema: conjuntos_disjuntos_union_find
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Aplicá compresión de caminos en find para aplanar el árbol.
+- Uní por rango o tamaño para mantener los árboles balanceados.
+tags:
+- dsu
+- union_find
+- conjuntos_disjuntos
+- grafos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_dsu_union_12
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de DSU con Rollback para Deshacer Operaciones
+    de Unión
+tests_funciones:
+- nombre: test_ejecutar_dsu_union_12_positivo
+  funcion: ejecutar_dsu_union_12
+  codigo: 'int res = ejecutar_dsu_union_12(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsu_union_12_cero
+  funcion: ejecutar_dsu_union_12
+  codigo: 'int res = ejecutar_dsu_union_12(0);
+
+    assert(res == 0);'

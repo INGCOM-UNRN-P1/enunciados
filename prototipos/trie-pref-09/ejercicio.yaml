@@ -1,0 +1,32 @@
+id: trie-pref-09
+titulo: Trie Ternario de Búsqueda TST Ternary Search Tree
+tema: trie_arboles_prefijo
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Cada nodo tiene un arreglo de punteros indexados por caracteres.
+- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+tags:
+- trie
+- prefijos
+- arboles
+- cadenas
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_trie_pref_09
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Trie Ternario de Búsqueda TST Ternary
+    Search Tree
+tests_funciones:
+- nombre: test_ejecutar_trie_pref_09_positivo
+  funcion: ejecutar_trie_pref_09
+  codigo: 'int res = ejecutar_trie_pref_09(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_trie_pref_09_cero
+  funcion: ejecutar_trie_pref_09
+  codigo: 'int res = ejecutar_trie_pref_09(0);
+
+    assert(res == 0);'

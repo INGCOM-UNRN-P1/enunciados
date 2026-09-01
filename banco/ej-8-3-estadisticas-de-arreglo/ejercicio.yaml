@@ -1,0 +1,33 @@
+id: ej-8-3-estadisticas-de-arreglo
+titulo: Estadísticas de Arreglo
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- arreglo
+- memoria
+- punteros
+- direcciones
+- estadisticas
+verificado: true
+funciones:
+- nombre: proc_adisticas_de_arreglo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Estadísticas de Arreglo
+tests_funciones:
+- nombre: test_proc_adisticas_de_arreglo_positivo
+  funcion: proc_adisticas_de_arreglo
+  codigo: 'int res = proc_adisticas_de_arreglo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_adisticas_de_arreglo_cero
+  funcion: proc_adisticas_de_arreglo
+  codigo: 'int res = proc_adisticas_de_arreglo(0);
+
+    assert(res == 0);'

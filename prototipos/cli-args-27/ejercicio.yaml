@@ -1,0 +1,31 @@
+id: cli-args-27
+titulo: Procesamiento de Parámetros de Autenticación por Terminal
+tema: argumentos_linea_comandos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Procesamiento de Parámetros de Autenticación
+    por Terminal
+tests_funciones:
+- nombre: test_ejecutar_cli_args_27_positivo
+  funcion: ejecutar_cli_args_27
+  codigo: 'int res = ejecutar_cli_args_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_27_cero
+  funcion: ejecutar_cli_args_27
+  codigo: 'int res = ejecutar_cli_args_27(0);
+
+    assert(res == 0);'

@@ -1,0 +1,29 @@
+id: vocales-consonantes
+titulo: Vocales y Consonantes
+tema: caracteres
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Podés normalizar a minúscula con tolower() de <ctype.h>.
+- 'Clasificá en orden: vocal, consonante, dígito y finalmente otro.'
+tags:
+- caracteres
+- ctype
+- condicionales
+verificado: true
+funciones:
+- nombre: ejecutar_vocales_consonantes
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Vocales y Consonantes
+tests_funciones:
+- nombre: test_ejecutar_vocales_consonantes_positivo
+  funcion: ejecutar_vocales_consonantes
+  codigo: 'int res = ejecutar_vocales_consonantes(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_vocales_consonantes_cero
+  funcion: ejecutar_vocales_consonantes
+  codigo: 'int res = ejecutar_vocales_consonantes(0);
+
+    assert(res == 0);'

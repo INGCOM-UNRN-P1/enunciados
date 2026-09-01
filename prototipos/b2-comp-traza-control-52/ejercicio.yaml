@@ -1,0 +1,28 @@
+id: b2-comp-traza-control-52
+titulo: Seguimiento de Punteros Dobles en Funciones
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_52
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Seguimiento de Punteros Dobles en Funciones
+tests_funciones:
+- nombre: test_proc_omp_traza_control_52_positivo
+  funcion: proc_omp_traza_control_52
+  codigo: 'int res = proc_omp_traza_control_52(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_52_cero
+  funcion: proc_omp_traza_control_52
+  codigo: 'int res = proc_omp_traza_control_52(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: ej-25-6-mostrar-arreglo
+titulo: Mostrar arreglo
+tema: recursividad
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- recursividad
+- arreglo
+- induccion
+- algoritmos
+- mostrar
+verificado: true
+funciones:
+- nombre: proc_25_6_mostrar_arreglo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Mostrar arreglo
+tests_funciones:
+- nombre: test_proc_25_6_mostrar_arreglo_positivo
+  funcion: proc_25_6_mostrar_arreglo
+  codigo: 'int res = proc_25_6_mostrar_arreglo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_25_6_mostrar_arreglo_cero
+  funcion: proc_25_6_mostrar_arreglo
+  codigo: 'int res = proc_25_6_mostrar_arreglo(0);
+
+    assert(res == 0);'

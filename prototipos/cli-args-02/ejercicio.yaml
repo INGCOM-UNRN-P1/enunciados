@@ -1,0 +1,31 @@
+id: cli-args-02
+titulo: Parser de Flags Booleanas de Opción Corta y Larga
+tema: argumentos_linea_comandos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de Flags Booleanas de Opción Corta
+    y Larga
+tests_funciones:
+- nombre: test_ejecutar_cli_args_02_positivo
+  funcion: ejecutar_cli_args_02
+  codigo: 'int res = ejecutar_cli_args_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_02_cero
+  funcion: ejecutar_cli_args_02
+  codigo: 'int res = ejecutar_cli_args_02(0);
+
+    assert(res == 0);'

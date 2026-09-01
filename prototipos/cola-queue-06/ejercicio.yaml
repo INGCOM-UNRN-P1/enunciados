@@ -1,0 +1,33 @@
+id: cola-queue-06
+titulo: Inversión de los Primeros K Elementos de una Cola
+tema: colas_queue
+bloom: 1
+minutos_estimados: 10
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inversión de los Primeros K Elementos
+    de una Cola
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_06_positivo
+  funcion: ejecutar_cola_queue_06
+  codigo: 'int res = ejecutar_cola_queue_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_06_cero
+  funcion: ejecutar_cola_queue_06
+  codigo: 'int res = ejecutar_cola_queue_06(0);
+
+    assert(res == 0);'

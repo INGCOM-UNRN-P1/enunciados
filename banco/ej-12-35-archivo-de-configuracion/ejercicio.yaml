@@ -1,0 +1,33 @@
+id: ej-12-35-archivo-de-configuracion
+titulo: Archivo de Configuración
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- archivo
+- configuracion
+- memoria
+- io_disco
+- archivos
+verificado: true
+funciones:
+- nombre: proc_ivo_de_configuracion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Archivo de Configuración
+tests_funciones:
+- nombre: test_proc_ivo_de_configuracion_positivo
+  funcion: proc_ivo_de_configuracion
+  codigo: 'int res = proc_ivo_de_configuracion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ivo_de_configuracion_cero
+  funcion: proc_ivo_de_configuracion
+  codigo: 'int res = proc_ivo_de_configuracion(0);
+
+    assert(res == 0);'

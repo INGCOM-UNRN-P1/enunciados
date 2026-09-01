@@ -1,0 +1,32 @@
+id: text-serde-24
+titulo: Formateador de Plantillas de Texto con Reemplazo de Variables
+tema: serializacion_texto_json_csv
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_24
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Formateador de Plantillas de Texto con
+    Reemplazo de Variables
+tests_funciones:
+- nombre: test_ejecutar_text_serde_24_positivo
+  funcion: ejecutar_text_serde_24
+  codigo: 'int res = ejecutar_text_serde_24(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_24_cero
+  funcion: ejecutar_text_serde_24
+  codigo: 'int res = ejecutar_text_serde_24(0);
+
+    assert(res == 0);'

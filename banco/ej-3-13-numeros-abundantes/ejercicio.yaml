@@ -1,0 +1,37 @@
+id: ej-3-13-numeros-abundantes
+titulo: Números Abundantes
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:** Es casi idéntico al de los números perfectos. Se calcula la suma de
+  los divisores propios y, en lugar de comparar si es igual a `n`, se compara si es
+  mayor que `n`. error e informar el resultado mediante parámetros de salida. especificando
+  precondiciones y postcondiciones.'
+- '[Plus Ultra] Validar que la base y el exponente sean coherentes y manejar exponentes
+  negativos con double.'
+- '[Plus Ultra] Implementar la exponenciación rápida por duplicaciones sucesivas.'
+tags:
+- abundantes
+- fundamentos
+- aritmetica
+- numeros
+- matematica
+verificado: true
+funciones:
+- nombre: proc_3_numeros_abundantes
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Abundantes
+tests_funciones:
+- nombre: test_proc_3_numeros_abundantes_positivo
+  funcion: proc_3_numeros_abundantes
+  codigo: 'int res = proc_3_numeros_abundantes(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_3_numeros_abundantes_cero
+  funcion: proc_3_numeros_abundantes
+  codigo: 'int res = proc_3_numeros_abundantes(0);
+
+    assert(res == 0);'

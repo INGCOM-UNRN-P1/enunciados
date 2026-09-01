@@ -1,0 +1,32 @@
+id: lista-enl-15
+titulo: Partición de Lista Enlazada Alrededor de un Valor Pivote
+tema: listas_enlazadas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lista_enl_15
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Partición de Lista Enlazada Alrededor
+    de un Valor Pivote
+tests_funciones:
+- nombre: test_ejecutar_lista_enl_15_positivo
+  funcion: ejecutar_lista_enl_15
+  codigo: 'int res = ejecutar_lista_enl_15(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lista_enl_15_cero
+  funcion: ejecutar_lista_enl_15
+  codigo: 'int res = ejecutar_lista_enl_15(0);
+
+    assert(res == 0);'

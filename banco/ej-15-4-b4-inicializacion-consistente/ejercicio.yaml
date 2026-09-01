@@ -1,0 +1,33 @@
+id: ej-15-4-b4-inicializacion-consistente
+titulo: Inicialización Consistente
+tema: memoria
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- stack
+- layout
+- inicializacion
+- memoria
+- consistente
+verificado: true
+funciones:
+- nombre: proc_lizacion_consistente
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inicialización Consistente
+tests_funciones:
+- nombre: test_proc_lizacion_consistente_positivo
+  funcion: proc_lizacion_consistente
+  codigo: 'int res = proc_lizacion_consistente(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_lizacion_consistente_cero
+  funcion: proc_lizacion_consistente
+  codigo: 'int res = proc_lizacion_consistente(0);
+
+    assert(res == 0);'

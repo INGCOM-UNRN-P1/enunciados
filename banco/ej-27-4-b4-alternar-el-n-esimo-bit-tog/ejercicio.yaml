@@ -1,0 +1,36 @@
+id: ej-27-4-b4-alternar-el-n-esimo-bit-tog
+titulo: Alternar el n-ésimo bit (Toggle)
+tema: operaciones_bits
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Proceso: Crear la máscara (`1 << n`) y aplicar un XOR a nivel de bits. El XOR con
+  1 invierte un bit, mientras que el XOR con 0 lo deja igual.'
+- '`numero = numero ^ (1 << n);`'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- toggle
+- alternar
+- bitwise
+- avanzados
+- n-esimo
+verificado: true
+funciones:
+- nombre: proc_r_el_n_esimo_bit_tog
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Alternar el n-ésimo bit (Toggle)
+tests_funciones:
+- nombre: test_proc_r_el_n_esimo_bit_tog_positivo
+  funcion: proc_r_el_n_esimo_bit_tog
+  codigo: 'int res = proc_r_el_n_esimo_bit_tog(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_r_el_n_esimo_bit_tog_cero
+  funcion: proc_r_el_n_esimo_bit_tog
+  codigo: 'int res = proc_r_el_n_esimo_bit_tog(0);
+
+    assert(res == 0);'

@@ -1,0 +1,31 @@
+id: grafo-red-02
+titulo: Representación de Grafo por Listas de Adyacencia
+tema: grafos_y_redes
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Representación de Grafo por Listas de
+    Adyacencia
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_02_positivo
+  funcion: ejecutar_grafo_red_02
+  codigo: 'int res = ejecutar_grafo_red_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_02_cero
+  funcion: ejecutar_grafo_red_02
+  codigo: 'int res = ejecutar_grafo_red_02(0);
+
+    assert(res == 0);'

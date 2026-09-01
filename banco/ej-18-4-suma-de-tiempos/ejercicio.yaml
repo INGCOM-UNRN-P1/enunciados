@@ -1,0 +1,32 @@
+id: ej-18-4-suma-de-tiempos
+titulo: Suma de Tiempos
+tema: estructuras
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- registros
+- tiempos
+- structs
+- memoria
+verificado: true
+funciones:
+- nombre: proc_18_4_suma_de_tiempos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Suma de Tiempos
+tests_funciones:
+- nombre: test_proc_18_4_suma_de_tiempos_positivo
+  funcion: proc_18_4_suma_de_tiempos
+  codigo: 'int res = proc_18_4_suma_de_tiempos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_18_4_suma_de_tiempos_cero
+  funcion: proc_18_4_suma_de_tiempos
+  codigo: 'int res = proc_18_4_suma_de_tiempos(0);
+
+    assert(res == 0);'

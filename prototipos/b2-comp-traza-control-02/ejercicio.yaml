@@ -1,0 +1,29 @@
+id: b2-comp-traza-control-02
+titulo: Traza de Variables en Lazos While con Salto Condicional
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Traza de Variables en Lazos While con
+    Salto Condicional
+tests_funciones:
+- nombre: test_proc_omp_traza_control_02_positivo
+  funcion: proc_omp_traza_control_02
+  codigo: 'int res = proc_omp_traza_control_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_02_cero
+  funcion: proc_omp_traza_control_02
+  codigo: 'int res = proc_omp_traza_control_02(0);
+
+    assert(res == 0);'

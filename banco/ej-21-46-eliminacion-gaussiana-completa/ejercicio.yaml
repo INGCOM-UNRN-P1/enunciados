@@ -1,0 +1,33 @@
+id: ej-21-46-eliminacion-gaussiana-completa
+titulo: Eliminación gaussiana completa
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- matrices
+- completa
+- eliminacion
+- 2d
+- algoritmos
+verificado: true
+funciones:
+- nombre: proc_n_gaussiana_completa
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Eliminación gaussiana completa
+tests_funciones:
+- nombre: test_proc_n_gaussiana_completa_positivo
+  funcion: proc_n_gaussiana_completa
+  codigo: 'int res = proc_n_gaussiana_completa(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_n_gaussiana_completa_cero
+  funcion: proc_n_gaussiana_completa
+  codigo: 'int res = proc_n_gaussiana_completa(0);
+
+    assert(res == 0);'

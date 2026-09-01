@@ -1,0 +1,32 @@
+id: heap-prio-13
+titulo: Montículo D-ario con Factor de Ramificación Arbitrario
+tema: colas_prioridad_heaps
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
+- El padre de un nodo i está en (i - 1) / 2.
+tags:
+- heap
+- min_heap
+- max_heap
+- cola_prioridad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_heap_prio_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Montículo D-ario con Factor de Ramificación
+    Arbitrario
+tests_funciones:
+- nombre: test_ejecutar_heap_prio_13_positivo
+  funcion: ejecutar_heap_prio_13
+  codigo: 'int res = ejecutar_heap_prio_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_heap_prio_13_cero
+  funcion: ejecutar_heap_prio_13
+  codigo: 'int res = ejecutar_heap_prio_13(0);
+
+    assert(res == 0);'

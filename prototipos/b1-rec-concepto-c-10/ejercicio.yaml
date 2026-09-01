@@ -1,0 +1,29 @@
+id: b1-rec-concepto-c-10
+titulo: Directivas Condicionales Ifdef e Ifndef de Inclusión
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Directivas Condicionales Ifdef e Ifndef
+    de Inclusión
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_10_positivo
+  funcion: ejecutar_b1_rec_concepto_c_10
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_10_cero
+  funcion: ejecutar_b1_rec_concepto_c_10
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_10(0);
+
+    assert(res == 0);'

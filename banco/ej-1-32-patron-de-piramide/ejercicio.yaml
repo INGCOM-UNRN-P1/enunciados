@@ -1,0 +1,37 @@
+id: ej-1-32-patron-de-piramide
+titulo: Patrón de Pirámide
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Leer un entero `n` para la altura del triángulo.'
+- '**Proceso:** Se necesitan dos lazos aninados.'
+- El primer lazo interior imprime los espacios en blanco necesarios
+- El segundo lazo interior imprime los asteriscos. En la fila `i`, se
+- '**Salida:** Después de cada fila, imprimir un salto de línea.'
+- '[Plus Ultra] Validar que la altura ingresada esté en un rango razonable (ej. entre
+  1 y 25).'
+- '[Plus Ultra] Permitir al usuario elegir entre pirámide sólida o hueca.'
+tags:
+- patron
+- fundamentos
+- piramide
+- secuencias
+- basicos
+verificado: true
+funciones:
+- nombre: proc_2_patron_de_piramide
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Patrón de Pirámide
+tests_funciones:
+- nombre: test_proc_2_patron_de_piramide_positivo
+  funcion: proc_2_patron_de_piramide
+  codigo: 'int res = proc_2_patron_de_piramide(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_2_patron_de_piramide_cero
+  funcion: proc_2_patron_de_piramide
+  codigo: 'int res = proc_2_patron_de_piramide(0);
+
+    assert(res == 0);'

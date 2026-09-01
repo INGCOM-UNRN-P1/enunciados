@@ -1,0 +1,33 @@
+id: ej-14-20-historial-de-comandos
+titulo: Historial de Comandos
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- historial
+- comandos
+- memoria
+- malloc
+verificado: true
+funciones:
+- nombre: proc_istorial_de_comandos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Historial de Comandos
+tests_funciones:
+- nombre: test_proc_istorial_de_comandos_positivo
+  funcion: proc_istorial_de_comandos
+  codigo: 'int res = proc_istorial_de_comandos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_istorial_de_comandos_cero
+  funcion: proc_istorial_de_comandos
+  codigo: 'int res = proc_istorial_de_comandos(0);
+
+    assert(res == 0);'

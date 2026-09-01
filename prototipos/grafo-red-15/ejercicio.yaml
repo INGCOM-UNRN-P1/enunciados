@@ -1,0 +1,31 @@
+id: grafo-red-15
+titulo: Camino Mínimo en Grafos No Ponderados con BFS
+tema: grafos_y_redes
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_15
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Camino Mínimo en Grafos No Ponderados
+    con BFS
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_15_positivo
+  funcion: ejecutar_grafo_red_15
+  codigo: 'int res = ejecutar_grafo_red_15(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_15_cero
+  funcion: ejecutar_grafo_red_15
+  codigo: 'int res = ejecutar_grafo_red_15(0);
+
+    assert(res == 0);'

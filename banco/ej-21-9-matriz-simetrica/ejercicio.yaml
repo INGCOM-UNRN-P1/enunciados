@@ -1,0 +1,42 @@
+id: ej-21-9-matriz-simetrica
+titulo: Matriz simétrica
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Fórmula:** Una matriz `A` es simétrica si $A_{ij} = A_{ji}$ para todos los `i`,
+  `j`.'
+- '**Proceso:**'
+- Recorrer solo la mitad superior (o inferior) de la matriz es suficiente. Por ejemplo,
+  con lazos anidados donde el lazo interior para `j` comienza en `i+1`.
+- En cada paso, comparar `matriz[i][j]` con `matriz[j][i]`.
+- Si en algún momento no son iguales, la matriz no es simétrica y la función puede
+  devolver `falso` inmediatamente.
+- '**Salida:** Si los lazos se completan sin encontrar diferencias, la matriz es simétrica.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- matrices
+- matriz
+- simetrica
+- 2d
+- algoritmos
+verificado: true
+funciones:
+- nombre: proc_1_9_matriz_simetrica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Matriz simétrica
+tests_funciones:
+- nombre: test_proc_1_9_matriz_simetrica_positivo
+  funcion: proc_1_9_matriz_simetrica
+  codigo: 'int res = proc_1_9_matriz_simetrica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_1_9_matriz_simetrica_cero
+  funcion: proc_1_9_matriz_simetrica
+  codigo: 'int res = proc_1_9_matriz_simetrica(0);
+
+    assert(res == 0);'

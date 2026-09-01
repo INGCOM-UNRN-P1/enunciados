@@ -1,0 +1,33 @@
+id: ej-14-13-leer-archivo-a-cadena-dinamica
+titulo: Leer Archivo a Cadena Dinámica
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- archivo
+- memoria
+- dinamica
+- malloc
+verificado: true
+funciones:
+- nombre: proc_vo_a_cadena_dinamica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Leer Archivo a Cadena Dinámica
+tests_funciones:
+- nombre: test_proc_vo_a_cadena_dinamica_positivo
+  funcion: proc_vo_a_cadena_dinamica
+  codigo: 'int res = proc_vo_a_cadena_dinamica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_vo_a_cadena_dinamica_cero
+  funcion: proc_vo_a_cadena_dinamica
+  codigo: 'int res = proc_vo_a_cadena_dinamica(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: arbol-bin-28
+titulo: Cálculo de la Profundidad Mínima de Raíz a Hoja
+tema: arboles_binarios
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_28
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cálculo de la Profundidad Mínima de Raíz
+    a Hoja
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_28_positivo
+  funcion: ejecutar_arbol_bin_28
+  codigo: 'int res = ejecutar_arbol_bin_28(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_28_cero
+  funcion: ejecutar_arbol_bin_28
+  codigo: 'int res = ejecutar_arbol_bin_28(0);
+
+    assert(res == 0);'

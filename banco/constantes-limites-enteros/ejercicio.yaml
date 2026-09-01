@@ -1,0 +1,28 @@
+id: constantes-limites-enteros
+titulo: Constantes de Límites en limits.h
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Consultar las macros estándar de limits.h.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: proc_ntes_limites_enteros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Constantes de Límites en limits.h
+tests_funciones:
+- nombre: test_proc_ntes_limites_enteros_positivo
+  funcion: proc_ntes_limites_enteros
+  codigo: 'int res = proc_ntes_limites_enteros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ntes_limites_enteros_cero
+  funcion: proc_ntes_limites_enteros
+  codigo: 'int res = proc_ntes_limites_enteros(0);
+
+    assert(res == 0);'

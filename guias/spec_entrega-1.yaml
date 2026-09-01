@@ -1,0 +1,12 @@
+nombre: Entrega 1 — Primeros Programas en C
+duracion_min: 165
+margen_carga: 0.8
+temas:
+- sintaxis
+- lazos
+- condicionales
+- aritmetica
+- caracteres
+bloom_min: 1
+bloom_max: 3
+cantidad_maxima: 7

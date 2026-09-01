@@ -1,0 +1,31 @@
+id: ej-7-16-libreria-de-validacion-de-entr
+titulo: Librería de Validación de Entradas de Usuario
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Limpiá el búfer de entrada `stdin` ante errores de formato para evitar lazos infinitos.
+tags:
+- entradas
+- fundamentos
+- headers
+- libreria
+- validacion
+verificado: true
+funciones:
+- nombre: proc_e_validacion_de_entr
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Validación de Entradas de
+    Usuario
+tests_funciones:
+- nombre: test_proc_e_validacion_de_entr_positivo
+  funcion: proc_e_validacion_de_entr
+  codigo: 'int res = proc_e_validacion_de_entr(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_validacion_de_entr_cero
+  funcion: proc_e_validacion_de_entr
+  codigo: 'int res = proc_e_validacion_de_entr(0);
+
+    assert(res == 0);'

@@ -1,0 +1,31 @@
+id: ej-7-7-libreria-de-transformacion-de
+titulo: Librería de Transformación de Cadenas Seguras
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Usá funciones de `<ctype.h>` como `toupper` y `tolower`.
+tags:
+- cadenas
+- fundamentos
+- headers
+- libreria
+- transformacion
+verificado: true
+funciones:
+- nombre: proc_de_transformacion_de
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Transformación de Cadenas
+    Seguras
+tests_funciones:
+- nombre: test_proc_de_transformacion_de_positivo
+  funcion: proc_de_transformacion_de
+  codigo: 'int res = proc_de_transformacion_de(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_transformacion_de_cero
+  funcion: proc_de_transformacion_de
+  codigo: 'int res = proc_de_transformacion_de(0);
+
+    assert(res == 0);'

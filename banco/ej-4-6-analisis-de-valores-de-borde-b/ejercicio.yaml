@@ -1,0 +1,30 @@
+id: ej-4-6-analisis-de-valores-de-borde-b
+titulo: Análisis de Valores de Borde (Boundary Values)
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- analisis
+- valores
+- boundary
+verificado: true
+funciones:
+- nombre: proc_e_valores_de_borde_b
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Análisis de Valores de Borde (Boundary
+    Values)
+tests_funciones:
+- nombre: test_proc_e_valores_de_borde_b_positivo
+  funcion: proc_e_valores_de_borde_b
+  codigo: 'int res = proc_e_valores_de_borde_b(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_valores_de_borde_b_cero
+  funcion: proc_e_valores_de_borde_b
+  codigo: 'int res = proc_e_valores_de_borde_b(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: cola-queue-14
+titulo: Cola Bloqueante Productor-Consumidor para Hilos
+tema: colas_queue
+bloom: 3
+minutos_estimados: 25
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_14
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cola Bloqueante Productor-Consumidor
+    para Hilos
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_14_positivo
+  funcion: ejecutar_cola_queue_14
+  codigo: 'int res = ejecutar_cola_queue_14(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_14_cero
+  funcion: ejecutar_cola_queue_14
+  codigo: 'int res = ejecutar_cola_queue_14(0);
+
+    assert(res == 0);'

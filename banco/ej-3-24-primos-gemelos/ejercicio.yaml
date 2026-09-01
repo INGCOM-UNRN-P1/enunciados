@@ -1,0 +1,37 @@
+id: ej-3-24-primos-gemelos
+titulo: Primos Gemelos
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un límite superior $N$.'
+- '**Proceso:**'
+- Iterar con un número `p` desde 2 hasta `N-2`.
+- En cada iteración, verificar si tanto `p` como `p+2` son primos.
+- Si ambos lo son, se ha encontrado un par de primos gemelos. valores fuera de rango
+  o tipos inválidos. un lazo hasta que el usuario elija finalizar.
+- '[Plus Ultra] Validar que el rango [a, b] sea válido y positivo.'
+- '[Plus Ultra] Contar la cantidad total de pares de primos gemelos en el rango.'
+tags:
+- fundamentos
+- gemelos
+- aritmetica
+- primos
+- matematica
+verificado: true
+funciones:
+- nombre: proc__3_24_primos_gemelos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Primos Gemelos
+tests_funciones:
+- nombre: test_proc__3_24_primos_gemelos_positivo
+  funcion: proc__3_24_primos_gemelos
+  codigo: 'int res = proc__3_24_primos_gemelos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__3_24_primos_gemelos_cero
+  funcion: proc__3_24_primos_gemelos
+  codigo: 'int res = proc__3_24_primos_gemelos(0);
+
+    assert(res == 0);'

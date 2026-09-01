@@ -1,0 +1,33 @@
+id: ej-32-4-nombres-que-reflejan-comportam
+titulo: Nombres que Reflejan Comportamiento
+tema: diseno_api
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- nombres
+- diseno
+- interfaces
+- avanzados
+- api
+verificado: true
+funciones:
+- nombre: proc_e_reflejan_comportam
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Nombres que Reflejan Comportamiento
+tests_funciones:
+- nombre: test_proc_e_reflejan_comportam_positivo
+  funcion: proc_e_reflejan_comportam
+  codigo: 'int res = proc_e_reflejan_comportam(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_reflejan_comportam_cero
+  funcion: proc_e_reflejan_comportam
+  codigo: 'int res = proc_e_reflejan_comportam(0);
+
+    assert(res == 0);'

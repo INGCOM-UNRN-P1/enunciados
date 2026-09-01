@@ -1,0 +1,29 @@
+id: b1-rec-concepto-c-38
+titulo: Uso de Variables Locales Automáticas en el Stack
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_38
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Uso de Variables Locales Automáticas
+    en el Stack
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_38_positivo
+  funcion: ejecutar_b1_rec_concepto_c_38
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_38(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_38_cero
+  funcion: ejecutar_b1_rec_concepto_c_38
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_38(0);
+
+    assert(res == 0);'

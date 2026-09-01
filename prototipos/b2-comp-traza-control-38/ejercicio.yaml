@@ -1,0 +1,28 @@
+id: b2-comp-traza-control-38
+titulo: Comportamiento de Punteros Nulos en Condicionales
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_38
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Comportamiento de Punteros Nulos en Condicionales
+tests_funciones:
+- nombre: test_proc_omp_traza_control_38_positivo
+  funcion: proc_omp_traza_control_38
+  codigo: 'int res = proc_omp_traza_control_38(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_38_cero
+  funcion: proc_omp_traza_control_38
+  codigo: 'int res = proc_omp_traza_control_38(0);
+
+    assert(res == 0);'

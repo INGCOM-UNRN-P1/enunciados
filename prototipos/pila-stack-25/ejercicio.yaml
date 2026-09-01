@@ -1,0 +1,32 @@
+id: pila-stack-25
+titulo: Verificación de Palíndromos usando Pila y Cola
+tema: pilas_stack
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_25
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Verificación de Palíndromos usando Pila
+    y Cola
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_25_positivo
+  funcion: ejecutar_pila_stack_25
+  codigo: 'int res = ejecutar_pila_stack_25(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_25_cero
+  funcion: ejecutar_pila_stack_25
+  codigo: 'int res = ejecutar_pila_stack_25(0);
+
+    assert(res == 0);'

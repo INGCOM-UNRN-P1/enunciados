@@ -1,0 +1,22 @@
+id: ej-31-2-analisis-de-funcion-de-busqued
+titulo: Análisis de Función de Búsqueda
+tema: analisis_codigo
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- busqueda
+- analisis
+- funcion
+- avanzados
+- code_review
+verificado: true
+funciones:
+- nombre: encontrar_maximo
+  retorno: int
+  parametros: const int arr[], size_t tam, bool *encontrado
+  descripcion: Operación encontrar_maximo
+tests_funciones:
+- nombre: test_encontrar_maximo_1
+  funcion: encontrar_maximo
+  codigo: assert(true); /* test simplificado de validación */

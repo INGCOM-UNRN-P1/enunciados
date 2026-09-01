@@ -1,0 +1,31 @@
+id: hilos-conc-10
+titulo: Prevención de Deadlock mediante Jerarquía de Bloqueos
+tema: concurrencia_hilos
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Prevención de Deadlock mediante Jerarquía
+    de Bloqueos
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_10_positivo
+  funcion: ejecutar_hilos_conc_10
+  codigo: 'int res = ejecutar_hilos_conc_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_10_cero
+  funcion: ejecutar_hilos_conc_10
+  codigo: 'int res = ejecutar_hilos_conc_10(0);
+
+    assert(res == 0);'

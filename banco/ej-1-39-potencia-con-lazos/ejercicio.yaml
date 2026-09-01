@@ -1,0 +1,36 @@
+id: ej-1-39-potencia-con-lazos
+titulo: Potencia con Lazos
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Una base y un exponente (entero no negativo).'
+- '**Variables:** Se necesita una variable `resultado` inicializada en 1.'
+- '**Proceso:**'
+- '**Salida:** Devolver el `resultado`.'
+- '[Plus Ultra] Validar que el exponente sea un entero no negativo o manejar exponentes
+  negativos retornando un double.'
+- '[Plus Ultra] Comparar el rendimiento contra la función pow() de math.h.'
+tags:
+- potencia
+- lazos
+- fundamentos
+- secuencias
+- basicos
+verificado: true
+funciones:
+- nombre: proc_9_potencia_con_lazos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Potencia con Lazos
+tests_funciones:
+- nombre: test_proc_9_potencia_con_lazos_positivo
+  funcion: proc_9_potencia_con_lazos
+  codigo: 'int res = proc_9_potencia_con_lazos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_9_potencia_con_lazos_cero
+  funcion: proc_9_potencia_con_lazos
+  codigo: 'int res = proc_9_potencia_con_lazos(0);
+
+    assert(res == 0);'

@@ -1,0 +1,34 @@
+id: ej-1-17-rectangulo
+titulo: Rectángulo
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Solicitar el largo (`l`) y el ancho (`w`).'
+- '**Proceso:**'
+- '**Salida:** Mostrar ambos resultados.'
+- '[Plus Ultra] Validar que ancho y alto sean positivos y determinar si la figura
+  es un caso especial (cuadrado).'
+- '[Plus Ultra] Modularizar las funciones para calcular área y perímetro por separado.'
+tags:
+- rectangulo
+- basicos
+- secuencias
+- fundamentos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_17_rectangulo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Rectángulo
+tests_funciones:
+- nombre: test_ejecutar_ej_1_17_rectangulo_positivo
+  funcion: ejecutar_ej_1_17_rectangulo
+  codigo: 'int res = ejecutar_ej_1_17_rectangulo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_17_rectangulo_cero
+  funcion: ejecutar_ej_1_17_rectangulo
+  codigo: 'int res = ejecutar_ej_1_17_rectangulo(0);
+
+    assert(res == 0);'

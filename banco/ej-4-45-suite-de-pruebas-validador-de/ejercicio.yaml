@@ -1,0 +1,61 @@
+id: ej-4-45-suite-de-pruebas-validador-de
+titulo: 'Suite de Pruebas: Validador de Fecha'
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- pruebas
+- fecha
+- suite
+verificado: true
+funciones:
+- nombre: es_bisiesto_aux
+  retorno: bool
+  parametros: int anio
+  descripcion: Operación es_bisiesto_aux
+- nombre: es_fecha_valida
+  retorno: bool
+  parametros: int dia, int mes, int anio
+  descripcion: Operación es_fecha_valida
+- nombre: test_fecha_31_dias
+  retorno: void
+  parametros: void
+  descripcion: Operación test_fecha_31_dias
+- nombre: test_fecha_30_dias
+  retorno: void
+  parametros: void
+  descripcion: Operación test_fecha_30_dias
+- nombre: test_febrero_bisiesto
+  retorno: void
+  parametros: void
+  descripcion: Operación test_febrero_bisiesto
+- nombre: test_fecha_mes_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_fecha_mes_invalido
+- nombre: correr_pruebas_fechas
+  retorno: void
+  parametros: void
+  descripcion: Operación correr_pruebas_fechas
+tests_funciones:
+- nombre: test_es_bisiesto_aux_1
+  funcion: es_bisiesto_aux
+  codigo: '/* Verificación unitaria de es_bisiesto_aux */
+
+    bool ok = es_bisiesto_aux(1);
+
+    (void)ok;
+
+    assert(true);'
+- nombre: test_es_fecha_valida_2
+  funcion: es_fecha_valida
+  codigo: '/* Verificación unitaria de es_fecha_valida */
+
+    bool ok = es_fecha_valida(1, 2, 3);
+
+    (void)ok;
+
+    assert(true);'

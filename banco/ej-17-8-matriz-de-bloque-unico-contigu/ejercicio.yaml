@@ -1,0 +1,33 @@
+id: ej-17-8-matriz-de-bloque-unico-contigu
+titulo: Matriz de Bloque Único (Contigua)
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- contigua
+- estructuras
+- unico
+- memoria
+- punteros
+verificado: true
+funciones:
+- nombre: proc_bloque_unico_contigu
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Matriz de Bloque Único (Contigua)
+tests_funciones:
+- nombre: test_proc_bloque_unico_contigu_positivo
+  funcion: proc_bloque_unico_contigu
+  codigo: 'int res = proc_bloque_unico_contigu(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_bloque_unico_contigu_cero
+  funcion: proc_bloque_unico_contigu
+  codigo: 'int res = proc_bloque_unico_contigu(0);
+
+    assert(res == 0);'

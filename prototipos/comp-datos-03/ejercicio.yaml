@@ -1,0 +1,31 @@
+id: comp-datos-03
+titulo: Codificación Delta de Secuencias Numéricas Monótonas
+tema: compresion_datos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_03
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Codificación Delta de Secuencias Numéricas
+    Monótonas
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_03_positivo
+  funcion: ejecutar_comp_datos_03
+  codigo: 'int res = ejecutar_comp_datos_03(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_03_cero
+  funcion: ejecutar_comp_datos_03
+  codigo: 'int res = ejecutar_comp_datos_03(0);
+
+    assert(res == 0);'

@@ -1,0 +1,32 @@
+id: ej-12-9-comparar-archivos
+titulo: Comparar Archivos
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+tags:
+- comparar
+- io_disco
+- archivos
+- memoria
+verificado: true
+funciones:
+- nombre: proc__9_comparar_archivos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Comparar Archivos
+tests_funciones:
+- nombre: test_proc__9_comparar_archivos_positivo
+  funcion: proc__9_comparar_archivos
+  codigo: 'int res = proc__9_comparar_archivos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__9_comparar_archivos_cero
+  funcion: proc__9_comparar_archivos
+  codigo: 'int res = proc__9_comparar_archivos(0);
+
+    assert(res == 0);'

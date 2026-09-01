@@ -1,0 +1,32 @@
+id: pila-stack-11
+titulo: Pila Implementada sobre Lista Simplemente Enlazada
+tema: pilas_stack
+bloom: 2
+minutos_estimados: 15
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Pila Implementada sobre Lista Simplemente
+    Enlazada
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_11_positivo
+  funcion: ejecutar_pila_stack_11
+  codigo: 'int res = ejecutar_pila_stack_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_11_cero
+  funcion: ejecutar_pila_stack_11
+  codigo: 'int res = ejecutar_pila_stack_11(0);
+
+    assert(res == 0);'

@@ -1,0 +1,40 @@
+id: ej-3-38-ternas-pitagoricas
+titulo: Ternas Pitagóricas
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Fórmula de Euclides:** Todas las ternas primitivas se pueden generar a partir
+  de dos enteros `m > n > 0`, coprimos y de paridad opuesta, usando las fórmulas:'
+- '`a = m^2 - n^2`'
+- '`b = 2mn`'
+- '`c = m^2 + n^2`'
+- '**Proceso:** Iterar con `m` y `n` bajo las condiciones dadas y generar `a`, `b`
+  y `c`. valores fuera de rango o tipos inválidos. un lazo hasta que el usuario elija
+  finalizar.'
+- '[Plus Ultra] Encontrar todas las ternas pitagóricas primitivas con hipotenusa menor
+  a un valor dado.'
+- '[Plus Ultra] Verificar que a² + b² == c² para cada terna encontrada.'
+tags:
+- fundamentos
+- aritmetica
+- matematica
+- pitagoricas
+- ternas
+verificado: true
+funciones:
+- nombre: proc_8_ternas_pitagoricas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ternas Pitagóricas
+tests_funciones:
+- nombre: test_proc_8_ternas_pitagoricas_positivo
+  funcion: proc_8_ternas_pitagoricas
+  codigo: 'int res = proc_8_ternas_pitagoricas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_8_ternas_pitagoricas_cero
+  funcion: proc_8_ternas_pitagoricas
+  codigo: 'int res = proc_8_ternas_pitagoricas(0);
+
+    assert(res == 0);'

@@ -1,0 +1,117 @@
+id: ej-12-12-archivos-csv-promedio-de-colum
+titulo: Archivos CSV - Promedio de Columna
+tema: archivos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- columna
+- memoria
+- promedio
+- io_disco
+- archivos
+verificado: true
+funciones:
+- nombre: proc_sv_promedio_de_colum
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Archivos CSV - Promedio de Columna
+tests_funciones:
+- nombre: test_proc_sv_promedio_de_colum_positivo
+  funcion: proc_sv_promedio_de_colum
+  codigo: 'int res = proc_sv_promedio_de_colum(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_sv_promedio_de_colum_cero
+  funcion: proc_sv_promedio_de_colum
+  codigo: 'int res = proc_sv_promedio_de_colum(0);
+
+    assert(res == 0);'

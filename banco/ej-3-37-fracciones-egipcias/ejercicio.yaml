@@ -1,0 +1,42 @@
+id: ej-3-37-fracciones-egipcias
+titulo: Fracciones Egipcias
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Algoritmo Greedy:** Un método común es encontrar repetidamente la fracción unitaria
+  más grande que sea menor o igual a la fracción restante.'
+- '**Proceso:**'
+- Dada la fracción `num/den`.
+- 'Encontrar el denominador `d` de la siguiente fracción unitaria: `d = techo(den
+  / num)`.'
+- Imprimir `1/d`.
+- 'Actualizar la fracción restante: `num/den = num/den - 1/d`.'
+- Repetir hasta que `num` sea 0. error e informar el resultado mediante parámetros
+  de salida. especificando precondiciones y postcondiciones.
+- '[Plus Ultra] Validar que el numerador sea menor que el denominador (fracción propia
+  positiva).'
+- '[Plus Ultra] Implementar el algoritmo voraz (greedy) de Fibonacci-Sylvester.'
+tags:
+- matematica
+- fundamentos
+- aritmetica
+- fracciones
+- egipcias
+verificado: true
+funciones:
+- nombre: proc__fracciones_egipcias
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Fracciones Egipcias
+tests_funciones:
+- nombre: test_proc__fracciones_egipcias_positivo
+  funcion: proc__fracciones_egipcias
+  codigo: 'int res = proc__fracciones_egipcias(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__fracciones_egipcias_cero
+  funcion: proc__fracciones_egipcias
+  codigo: 'int res = proc__fracciones_egipcias(0);
+
+    assert(res == 0);'

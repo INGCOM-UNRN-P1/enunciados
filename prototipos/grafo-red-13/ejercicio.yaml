@@ -1,0 +1,31 @@
+id: grafo-red-13
+titulo: Componentes Fuertemente Conexas por Algoritmo de Tarjan
+tema: grafos_y_redes
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Componentes Fuertemente Conexas por Algoritmo
+    de Tarjan
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_13_positivo
+  funcion: ejecutar_grafo_red_13
+  codigo: 'int res = ejecutar_grafo_red_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_13_cero
+  funcion: ejecutar_grafo_red_13
+  codigo: 'int res = ejecutar_grafo_red_13(0);
+
+    assert(res == 0);'

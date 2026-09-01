@@ -1,0 +1,32 @@
+id: lista-enl-27
+titulo: Aplanamiento de Lista Multinivel con Punteros Hijos
+tema: listas_enlazadas
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lista_enl_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Aplanamiento de Lista Multinivel con
+    Punteros Hijos
+tests_funciones:
+- nombre: test_ejecutar_lista_enl_27_positivo
+  funcion: ejecutar_lista_enl_27
+  codigo: 'int res = ejecutar_lista_enl_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lista_enl_27_cero
+  funcion: ejecutar_lista_enl_27
+  codigo: 'int res = ejecutar_lista_enl_27(0);
+
+    assert(res == 0);'

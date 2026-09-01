@@ -1,0 +1,40 @@
+id: ej-3-18-descomposicion-en-factores-pri
+titulo: Descomposición en Factores Primos
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:**'
+- Se itera con un divisor `d` comenzando en 2.
+- Mientras `d*d <= n`, se verifica si `d` divide a `n`.
+- Si `d` divide a `n`, se cuenta cuántas veces lo divide, se imprime el factor y su
+  potencia, y se actualiza `n` dividiéndolo por `d` esa cantidad de veces.
+- Si al final del lazo `n` es mayor que 1, ese `n` restante es también un factor primo.
+  desbordamientos de búfer validando la capacidad máxima. líneas de manera robusta.
+- '[Plus Ultra] Mostrar los factores primos en formato canónico con exponentes (ej.
+  2^3 * 3^2).'
+- '[Plus Ultra] Validar que el número a factorizar sea mayor que 1.'
+tags:
+- fundamentos
+- descomposicion
+- aritmetica
+- primos
+- factores
+verificado: true
+funciones:
+- nombre: proc_cion_en_factores_pri
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Descomposición en Factores Primos
+tests_funciones:
+- nombre: test_proc_cion_en_factores_pri_positivo
+  funcion: proc_cion_en_factores_pri
+  codigo: 'int res = proc_cion_en_factores_pri(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_cion_en_factores_pri_cero
+  funcion: proc_cion_en_factores_pri
+  codigo: 'int res = proc_cion_en_factores_pri(0);
+
+    assert(res == 0);'

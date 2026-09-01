@@ -1,0 +1,46 @@
+id: ej-3-2-division-lenta
+titulo: División lenta
+tema: aritmetica
+bloom: 2
+minutos_estimados: 15
+starter_code: ''
+pistas:
+- '**Entrada:** Dos enteros positivos, `dividendo` y `divisor`.'
+- '**Proceso:** Se resta el `divisor` del `dividendo` de forma repetida hasta que
+  el `dividendo` sea menor que el `divisor`. Se necesita un contador (`cociente`)
+  que se incrementa en cada resta exitosa.'
+- El lazo (preferiblemente `while`) se ejecuta mientras `dividendo >= divisor`.
+- '**Salida:** El valor final del contador es el cociente, y el valor final del `dividendo`
+  (lo que sobra) es el resto. definición interna oculta en el archivo `.c`. para copiar
+  la estructura de forma segura.'
+- '[Plus Ultra] Validar que el divisor sea estrictamente mayor que cero retornando
+  un código de error si es cero.'
+- '[Plus Ultra] Calcular simultáneamente el cociente y el resto sin usar los operadores
+  / ni %.'
+tags:
+- fundamentos
+- lenta
+- aritmetica
+- matematica
+- division
+verificado: true
+funciones:
+- nombre: division_lenta
+  retorno: int
+  parametros: int dividendo, int divisor
+  descripcion: Calcula cociente de division mediante restas sucesivas
+tests_funciones:
+- nombre: test_div_exacta
+  funcion: division_lenta
+  codigo: assert(division_lenta(12, 3) == 4);
+- nombre: test_div_inexacta
+  funcion: division_lenta
+  codigo: assert(division_lenta(14, 3) == 4);
+- nombre: test_div_cero
+  funcion: division_lenta
+  codigo: assert(division_lenta(0, 5) == 0);
+diagramas: []
+tipo_entrega: archivos_individuales
+dependencias: []
+archivos_adicionales: []
+archivos: {}

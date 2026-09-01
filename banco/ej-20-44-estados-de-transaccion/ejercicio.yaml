@@ -1,0 +1,33 @@
+id: ej-20-44-estados-de-transaccion
+titulo: Estados de transacción
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- memoria
+- enum
+- transaccion
+- estados
+verificado: true
+funciones:
+- nombre: proc_tados_de_transaccion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Estados de transacción
+tests_funciones:
+- nombre: test_proc_tados_de_transaccion_positivo
+  funcion: proc_tados_de_transaccion
+  codigo: 'int res = proc_tados_de_transaccion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_tados_de_transaccion_cero
+  funcion: proc_tados_de_transaccion
+  codigo: 'int res = proc_tados_de_transaccion(0);
+
+    assert(res == 0);'

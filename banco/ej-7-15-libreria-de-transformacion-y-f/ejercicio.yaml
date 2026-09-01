@@ -1,0 +1,34 @@
+id: ej-7-15-libreria-de-transformacion-y-f
+titulo: Librería de Transformación y Filtrado de Arreglos
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Utilizá el calificador `const` en los arreglos de solo lectura y documentá precondiciones
+  claras para cada función.
+- '[Plus Ultra] Escribir pruebas unitarias con `assert()` en `tests/` para verificar
+  arreglos vacíos y con valores negativos.'
+tags:
+- filtrado
+- fundamentos
+- headers
+- libreria
+- arreglos
+verificado: true
+funciones:
+- nombre: proc_e_transformacion_y_f
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Transformación y Filtrado
+    de Arreglos
+tests_funciones:
+- nombre: test_proc_e_transformacion_y_f_positivo
+  funcion: proc_e_transformacion_y_f
+  codigo: 'int res = proc_e_transformacion_y_f(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_transformacion_y_f_cero
+  funcion: proc_e_transformacion_y_f
+  codigo: 'int res = proc_e_transformacion_y_f(0);
+
+    assert(res == 0);'

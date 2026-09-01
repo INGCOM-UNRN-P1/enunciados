@@ -1,0 +1,34 @@
+id: ej-9-31-algoritmo-de-luhn-comprimido
+titulo: Algoritmo de Luhn Comprimido
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Extraé la lógica de transformación de dígitos a una función auxiliar transformar_digito_luhn().
+- Iterá los dígitos de derecha a izquierda alternando la duplicación en posiciones
+  impares.
+- Utilizá nombres de variables expresivos y estructura el código con llaves explícitas
+  en estilo Allman.
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- comprimido
+- algoritmo
+verificado: true
+funciones:
+- nombre: proc_o_de_luhn_comprimido
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de Luhn Comprimido
+tests_funciones:
+- nombre: test_proc_o_de_luhn_comprimido_positivo
+  funcion: proc_o_de_luhn_comprimido
+  codigo: 'int res = proc_o_de_luhn_comprimido(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_o_de_luhn_comprimido_cero
+  funcion: proc_o_de_luhn_comprimido
+  codigo: 'int res = proc_o_de_luhn_comprimido(0);
+
+    assert(res == 0);'

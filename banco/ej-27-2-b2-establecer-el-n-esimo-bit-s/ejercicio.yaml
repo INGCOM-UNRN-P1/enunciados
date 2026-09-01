@@ -1,0 +1,36 @@
+id: ej-27-2-b2-establecer-el-n-esimo-bit-s
+titulo: Establecer el n-ésimo bit (Set)
+tema: operaciones_bits
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Proceso: Crear la misma máscara (`1 << n`) y aplicar un OR a nivel de bits entre
+  el número y la máscara.'
+- '`numero = numero | (1 << n);`'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- establecer
+- set
+- bitwise
+- avanzados
+- n-esimo
+verificado: true
+funciones:
+- nombre: proc_cer_el_n_esimo_bit_s
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Establecer el n-ésimo bit (Set)
+tests_funciones:
+- nombre: test_proc_cer_el_n_esimo_bit_s_positivo
+  funcion: proc_cer_el_n_esimo_bit_s
+  codigo: 'int res = proc_cer_el_n_esimo_bit_s(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_cer_el_n_esimo_bit_s_cero
+  funcion: proc_cer_el_n_esimo_bit_s
+  codigo: 'int res = proc_cer_el_n_esimo_bit_s(0);
+
+    assert(res == 0);'

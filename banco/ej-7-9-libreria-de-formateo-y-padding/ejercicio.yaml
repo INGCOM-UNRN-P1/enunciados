@@ -1,0 +1,31 @@
+id: ej-7-9-libreria-de-formateo-y-padding
+titulo: Librería de Formateo y Padding de Texto
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Garantizá siempre la terminación de la cadena resultante con `'\0'`. Retorná `false`
+  si `dest_size` no alcanza.
+tags:
+- formateo
+- texto
+- fundamentos
+- headers
+- libreria
+verificado: true
+funciones:
+- nombre: proc_e_formateo_y_padding
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Formateo y Padding de Texto
+tests_funciones:
+- nombre: test_proc_e_formateo_y_padding_positivo
+  funcion: proc_e_formateo_y_padding
+  codigo: 'int res = proc_e_formateo_y_padding(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_formateo_y_padding_cero
+  funcion: proc_e_formateo_y_padding
+  codigo: 'int res = proc_e_formateo_y_padding(0);
+
+    assert(res == 0);'

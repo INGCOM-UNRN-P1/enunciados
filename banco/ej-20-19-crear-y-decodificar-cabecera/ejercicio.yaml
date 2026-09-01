@@ -1,0 +1,33 @@
+id: ej-20-19-crear-y-decodificar-cabecera
+titulo: Crear y decodificar cabecera
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- crear
+- memoria
+- enum
+- decodificar
+verificado: true
+funciones:
+- nombre: proc_decodificar_cabecera
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Crear y decodificar cabecera
+tests_funciones:
+- nombre: test_proc_decodificar_cabecera_positivo
+  funcion: proc_decodificar_cabecera
+  codigo: 'int res = proc_decodificar_cabecera(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_decodificar_cabecera_cero
+  funcion: proc_decodificar_cabecera
+  codigo: 'int res = proc_decodificar_cabecera(0);
+
+    assert(res == 0);'

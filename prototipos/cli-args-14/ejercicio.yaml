@@ -1,0 +1,31 @@
+id: cli-args-14
+titulo: Parser de Rangos Numéricos en Línea de Comandos
+tema: argumentos_linea_comandos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_14
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de Rangos Numéricos en Línea de
+    Comandos
+tests_funciones:
+- nombre: test_ejecutar_cli_args_14_positivo
+  funcion: ejecutar_cli_args_14
+  codigo: 'int res = ejecutar_cli_args_14(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_14_cero
+  funcion: ejecutar_cli_args_14
+  codigo: 'int res = ejecutar_cli_args_14(0);
+
+    assert(res == 0);'

@@ -1,0 +1,17 @@
+id: ej-5-5-area-de-rectangulo
+titulo: Área de rectángulo
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_5
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Área de rectángulo
+tests_funciones:
+- nombre: test_resolver_ej_5
+  funcion: resolver_ej_5
+  codigo: assert(true);

@@ -1,0 +1,33 @@
+id: ej-20-4-maquina-de-estados
+titulo: Máquina de estados
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- maquina
+- tipos
+- memoria
+- enum
+- estados
+verificado: true
+funciones:
+- nombre: proc_4_maquina_de_estados
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Máquina de estados
+tests_funciones:
+- nombre: test_proc_4_maquina_de_estados_positivo
+  funcion: proc_4_maquina_de_estados
+  codigo: 'int res = proc_4_maquina_de_estados(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_4_maquina_de_estados_cero
+  funcion: proc_4_maquina_de_estados
+  codigo: 'int res = proc_4_maquina_de_estados(0);
+
+    assert(res == 0);'

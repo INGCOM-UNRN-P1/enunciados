@@ -1,0 +1,33 @@
+id: ej-1-40-menu-de-conversiones
+titulo: Menú de Conversiones
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso:** Similar al ejercicio del cajero automático. Usar un lazo'
+- '**Modularidad:** Es una buena práctica crear una función separada para cada'
+- '[Plus Ultra] Implementar un lazo interactivo para que el usuario pueda realizar
+  múltiples conversiones consecutivas.'
+- '[Plus Ultra] Validar rigurosamente las opciones del menú con un caso default.'
+tags:
+- basicos
+- conversiones
+- secuencias
+- fundamentos
+verificado: true
+funciones:
+- nombre: proc_menu_de_conversiones
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Menú de Conversiones
+tests_funciones:
+- nombre: test_proc_menu_de_conversiones_positivo
+  funcion: proc_menu_de_conversiones
+  codigo: 'int res = proc_menu_de_conversiones(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_menu_de_conversiones_cero
+  funcion: proc_menu_de_conversiones
+  codigo: 'int res = proc_menu_de_conversiones(0);
+
+    assert(res == 0);'

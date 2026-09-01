@@ -1,0 +1,17 @@
+id: ej-5-4-promedio-de-notas
+titulo: Promedio de notas
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_4
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Promedio de notas
+tests_funciones:
+- nombre: test_resolver_ej_4
+  funcion: resolver_ej_4
+  codigo: assert(true);

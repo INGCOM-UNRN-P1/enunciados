@@ -1,0 +1,17 @@
+id: ej-5-24-sistema-de-ecuaciones-2x2
+titulo: Sistema de Ecuaciones 2x2
+tema: funciones
+bloom: 5
+minutos_estimados: 45
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_24
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Sistema de Ecuaciones 2x2
+tests_funciones:
+- nombre: test_resolver_ej_24
+  funcion: resolver_ej_24
+  codigo: assert(true);

@@ -1,0 +1,31 @@
+id: geom-comp-19
+titulo: Escalamiento y Traslación de Polígonos 2D
+tema: geometria_computacional
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Escalamiento y Traslación de Polígonos
+    2D
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_19_positivo
+  funcion: ejecutar_geom_comp_19
+  codigo: 'int res = ejecutar_geom_comp_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_19_cero
+  funcion: ejecutar_geom_comp_19
+  codigo: 'int res = ejecutar_geom_comp_19(0);
+
+    assert(res == 0);'

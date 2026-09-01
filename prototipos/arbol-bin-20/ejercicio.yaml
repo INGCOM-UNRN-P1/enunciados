@@ -1,0 +1,33 @@
+id: arbol-bin-20
+titulo: Conversión de Árbol Binario a Lista Doblemente Enlazada Inorder
+tema: arboles_binarios
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_20
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conversión de Árbol Binario a Lista Doblemente
+    Enlazada Inorder
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_20_positivo
+  funcion: ejecutar_arbol_bin_20
+  codigo: 'int res = ejecutar_arbol_bin_20(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_20_cero
+  funcion: ejecutar_arbol_bin_20
+  codigo: 'int res = ejecutar_arbol_bin_20(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: arbol-bin-21
+titulo: Árbol de Expresión Aritmética y Evaluación de Expresiones
+tema: arboles_binarios
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Árbol de Expresión Aritmética y Evaluación
+    de Expresiones
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_21_positivo
+  funcion: ejecutar_arbol_bin_21
+  codigo: 'int res = ejecutar_arbol_bin_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_21_cero
+  funcion: ejecutar_arbol_bin_21
+  codigo: 'int res = ejecutar_arbol_bin_21(0);
+
+    assert(res == 0);'

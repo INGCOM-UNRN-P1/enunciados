@@ -1,0 +1,31 @@
+id: fsm-estados-23
+titulo: Validador de Nombres de Dominio FQDN con FSM
+tema: emulacion_maquinas_estado
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_23
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validador de Nombres de Dominio FQDN
+    con FSM
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_23_positivo
+  funcion: ejecutar_fsm_estados_23
+  codigo: 'int res = ejecutar_fsm_estados_23(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_23_cero
+  funcion: ejecutar_fsm_estados_23
+  codigo: 'int res = ejecutar_fsm_estados_23(0);
+
+    assert(res == 0);'

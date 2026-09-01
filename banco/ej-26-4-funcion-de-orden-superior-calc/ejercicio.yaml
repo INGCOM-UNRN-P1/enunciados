@@ -1,0 +1,33 @@
+id: ej-26-4-funcion-de-orden-superior-calc
+titulo: Función de Orden Superior (Calculadora)
+tema: punteros_avanzados
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- orden
+- doble_puntero
+- funcion
+- punteros_funcion
+- avanzados
+verificado: true
+funciones:
+- nombre: proc__orden_superior_calc
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Función de Orden Superior (Calculadora)
+tests_funciones:
+- nombre: test_proc__orden_superior_calc_positivo
+  funcion: proc__orden_superior_calc
+  codigo: 'int res = proc__orden_superior_calc(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__orden_superior_calc_cero
+  funcion: proc__orden_superior_calc
+  codigo: 'int res = proc__orden_superior_calc(0);
+
+    assert(res == 0);'

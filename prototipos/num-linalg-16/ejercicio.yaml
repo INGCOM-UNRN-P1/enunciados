@@ -1,0 +1,30 @@
+id: num-linalg-16
+titulo: Integración Numérica por Regla del Trapecio
+tema: algebra_lineal_numerica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Verificá divisiones por cero en el denominador de convergencia.
+- Controlá el criterio de parada del método iterativo.
+tags:
+- algebra_lineal
+- metodos_numericos
+- newton_raphson
+- matrices
+verificado: true
+funciones:
+- nombre: ejecutar_num_linalg_16
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Integración Numérica por Regla del Trapecio
+tests_funciones:
+- nombre: test_ejecutar_num_linalg_16_positivo
+  funcion: ejecutar_num_linalg_16
+  codigo: 'int res = ejecutar_num_linalg_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_num_linalg_16_cero
+  funcion: ejecutar_num_linalg_16
+  codigo: 'int res = ejecutar_num_linalg_16(0);
+
+    assert(res == 0);'

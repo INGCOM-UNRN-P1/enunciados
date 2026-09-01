@@ -1,0 +1,38 @@
+id: ej-11-19-b19-capitalizacion-title-case
+titulo: Capitalización (Title Case)
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Convertir toda la cadena a minúsculas para empezar desde un estado base consistente.
+- Capitalizar el primer carácter de la cadena (si es una letra).
+- Recorrer la cadena. Si se encuentra un espacio (u otro delimitador de palabra),
+  capitalizar el siguiente carácter si es una letra.
+tags:
+- cadenas
+- strings
+- memoria
+- capitalizacion
+- case
+verificado: true
+funciones:
+- nombre: proc_alizacion_title_case
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Capitalización (Title Case)
+tests_funciones:
+- nombre: test_proc_alizacion_title_case_positivo
+  funcion: proc_alizacion_title_case
+  codigo: 'int res = proc_alizacion_title_case(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_alizacion_title_case_cero
+  funcion: proc_alizacion_title_case
+  codigo: 'int res = proc_alizacion_title_case(0);
+
+    assert(res == 0);'

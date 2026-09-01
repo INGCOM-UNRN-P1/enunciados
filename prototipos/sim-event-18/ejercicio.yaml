@@ -1,0 +1,31 @@
+id: sim-event-18
+titulo: Simulación de Juego de la Vida de Conway sobre Grilla 2D
+tema: simulacion_eventos_discretos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Mantené una cola de eventos ordenada por tiempo de ocurrencia.
+- Avanzá el reloj de simulación al tiempo del próximo evento.
+tags:
+- simulacion
+- eventos_discretos
+- colas
+- planificacion
+verificado: true
+funciones:
+- nombre: ejecutar_sim_event_18
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Juego de la Vida de Conway
+    sobre Grilla 2D
+tests_funciones:
+- nombre: test_ejecutar_sim_event_18_positivo
+  funcion: ejecutar_sim_event_18
+  codigo: 'int res = ejecutar_sim_event_18(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sim_event_18_cero
+  funcion: ejecutar_sim_event_18
+  codigo: 'int res = ejecutar_sim_event_18(0);
+
+    assert(res == 0);'

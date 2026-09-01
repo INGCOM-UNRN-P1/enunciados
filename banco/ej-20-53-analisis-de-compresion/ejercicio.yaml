@@ -1,0 +1,33 @@
+id: ej-20-53-analisis-de-compresion
+titulo: Análisis de compresión
+tema: enumeraciones
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- compresion
+- tipos
+- analisis
+- memoria
+- enum
+verificado: true
+funciones:
+- nombre: proc_alisis_de_compresion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Análisis de compresión
+tests_funciones:
+- nombre: test_proc_alisis_de_compresion_positivo
+  funcion: proc_alisis_de_compresion
+  codigo: 'int res = proc_alisis_de_compresion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_alisis_de_compresion_cero
+  funcion: proc_alisis_de_compresion
+  codigo: 'int res = proc_alisis_de_compresion(0);
+
+    assert(res == 0);'

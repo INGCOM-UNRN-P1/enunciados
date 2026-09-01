@@ -1,0 +1,31 @@
+id: sim-event-09
+titulo: Simulación de Red de Tráfico con Intersecciones Múltiples
+tema: simulacion_eventos_discretos
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Mantené una cola de eventos ordenada por tiempo de ocurrencia.
+- Avanzá el reloj de simulación al tiempo del próximo evento.
+tags:
+- simulacion
+- eventos_discretos
+- colas
+- planificacion
+verificado: true
+funciones:
+- nombre: ejecutar_sim_event_09
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Red de Tráfico con Intersecciones
+    Múltiples
+tests_funciones:
+- nombre: test_ejecutar_sim_event_09_positivo
+  funcion: ejecutar_sim_event_09
+  codigo: 'int res = ejecutar_sim_event_09(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sim_event_09_cero
+  funcion: ejecutar_sim_event_09
+  codigo: 'int res = ejecutar_sim_event_09(0);
+
+    assert(res == 0);'

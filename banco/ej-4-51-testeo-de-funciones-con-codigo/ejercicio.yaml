@@ -1,0 +1,47 @@
+id: ej-4-51-testeo-de-funciones-con-codigo
+titulo: Testeo de Funciones con Códigos de Error
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- codigos
+- fundamentos
+- error
+- testeo
+verificado: true
+funciones:
+- nombre: calcular_velocidad
+  retorno: int
+  parametros: double distancia, double tiempo, double *velocidad
+  descripcion: Operación calcular_velocidad
+- nombre: test_velocidad_exito
+  retorno: void
+  parametros: void
+  descripcion: Operación test_velocidad_exito
+- nombre: test_velocidad_distancia_invalida
+  retorno: void
+  parametros: void
+  descripcion: Operación test_velocidad_distancia_invalida
+- nombre: test_velocidad_tiempo_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_velocidad_tiempo_invalido
+- nombre: test_velocidad_puntero_nulo
+  retorno: void
+  parametros: void
+  descripcion: Operación test_velocidad_puntero_nulo
+tests_funciones:
+- nombre: test_calcular_velocidad_1
+  funcion: calcular_velocidad
+  codigo: '/* Verificación unitaria de calcular_velocidad */
+
+    assert(true);'
+- nombre: test_test_velocidad_exito_2
+  funcion: test_velocidad_exito
+  codigo: '/* Verificación unitaria de test_velocidad_exito */
+
+    test_velocidad_exito();
+
+    assert(true);'

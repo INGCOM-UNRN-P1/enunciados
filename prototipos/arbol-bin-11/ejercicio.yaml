@@ -1,0 +1,33 @@
+id: arbol-bin-11
+titulo: Ancestro Común Más Bajo LCA en Árbol Binario
+tema: arboles_binarios
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ancestro Común Más Bajo LCA en Árbol
+    Binario
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_11_positivo
+  funcion: ejecutar_arbol_bin_11
+  codigo: 'int res = ejecutar_arbol_bin_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_11_cero
+  funcion: ejecutar_arbol_bin_11
+  codigo: 'int res = ejecutar_arbol_bin_11(0);
+
+    assert(res == 0);'

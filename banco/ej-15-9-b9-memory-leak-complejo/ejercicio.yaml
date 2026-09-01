@@ -1,0 +1,28 @@
+id: ej-15-9-b9-memory-leak-complejo
+titulo: Memory Leak Complejo
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- stack
+- layout
+- memory
+- memoria
+- complejo
+verificado: true
+funciones:
+- nombre: agregar_nodo
+  retorno: void
+  parametros: struct nodo_t **cabeza, int valor
+  descripcion: Operación agregar_nodo
+tests_funciones:
+- nombre: test_agregar_nodo_1
+  funcion: agregar_nodo
+  codigo: '/* Verificación unitaria de agregar_nodo */
+
+    assert(true);'

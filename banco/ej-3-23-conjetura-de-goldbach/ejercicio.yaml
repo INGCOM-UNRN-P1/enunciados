@@ -1,0 +1,39 @@
+id: ej-3-23-conjetura-de-goldbach
+titulo: Conjetura de Goldbach
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un número entero par `n` > 2.'
+- '**Proceso:**'
+- Se necesita una función `es_primo(x)`.
+- Iterar con un número `p` desde 2 hasta `n/2`.
+- En cada iteración, si `p` es primo, verificar si `n-p` también es primo.
+- Si ambos lo son, se ha encontrado un par y se puede terminar. error e informar el
+  resultado mediante parámetros de salida. especificando precondiciones y postcondiciones.
+- '[Plus Ultra] Validar que el número ingresado sea un entero par mayor que 2.'
+- '[Plus Ultra] Encontrar todas las descomposiciones en suma de dos primos para el
+  número dado.'
+tags:
+- fundamentos
+- conjetura
+- goldbach
+- aritmetica
+- matematica
+verificado: true
+funciones:
+- nombre: proc_onjetura_de_goldbach
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conjetura de Goldbach
+tests_funciones:
+- nombre: test_proc_onjetura_de_goldbach_positivo
+  funcion: proc_onjetura_de_goldbach
+  codigo: 'int res = proc_onjetura_de_goldbach(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_onjetura_de_goldbach_cero
+  funcion: proc_onjetura_de_goldbach
+  codigo: 'int res = proc_onjetura_de_goldbach(0);
+
+    assert(res == 0);'

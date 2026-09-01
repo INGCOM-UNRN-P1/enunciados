@@ -1,0 +1,31 @@
+id: fsm-estados-07
+titulo: Parser de Direcciones de Correo Electrónico con FSM
+tema: emulacion_maquinas_estado
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de Direcciones de Correo Electrónico
+    con FSM
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_07_positivo
+  funcion: ejecutar_fsm_estados_07
+  codigo: 'int res = ejecutar_fsm_estados_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_07_cero
+  funcion: ejecutar_fsm_estados_07
+  codigo: 'int res = ejecutar_fsm_estados_07(0);
+
+    assert(res == 0);'

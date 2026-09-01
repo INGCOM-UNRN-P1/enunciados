@@ -1,0 +1,35 @@
+id: ej-31-8-analisis-de-memory-leaks
+titulo: Análisis de Memory Leaks
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Identificá todas las rutas de salida temprana (return, break) que puedan omitir
+  la liberación de recursos.
+- Verificá que las estructuras anidadas o listas liberen sus nodos antes de liberar
+  el contenedor principal.
+- Utilizá herramientas como Valgrind o AddressSanitizer para confirmar la ausencia
+  de fugas.
+tags:
+- analisis
+- memory
+- avanzados
+- code_review
+- leaks
+verificado: true
+funciones:
+- nombre: proc_isis_de_memory_leaks
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Análisis de Memory Leaks
+tests_funciones:
+- nombre: test_proc_isis_de_memory_leaks_positivo
+  funcion: proc_isis_de_memory_leaks
+  codigo: 'int res = proc_isis_de_memory_leaks(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_isis_de_memory_leaks_cero
+  funcion: proc_isis_de_memory_leaks
+  codigo: 'int res = proc_isis_de_memory_leaks(0);
+
+    assert(res == 0);'

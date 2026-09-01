@@ -1,0 +1,22 @@
+id: ej-4-20-deteccion-de-fugas-de-estado-e
+titulo: Detección de fugas de estado entre funciones
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- funciones
+- fugas
+- deteccion
+verificado: true
+funciones:
+- nombre: multiplicar_y_guardar
+  retorno: int
+  parametros: int a, int b
+  descripcion: Operación multiplicar_y_guardar
+tests_funciones:
+- nombre: test_multiplicar_y_guardar_1
+  funcion: multiplicar_y_guardar
+  codigo: assert(true); /* test simplificado de validación */

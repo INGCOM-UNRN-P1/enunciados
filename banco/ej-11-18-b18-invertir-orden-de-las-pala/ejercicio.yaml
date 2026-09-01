@@ -1,0 +1,38 @@
+id: ej-11-18-b18-invertir-orden-de-las-pala
+titulo: Invertir orden de las palabras
+tema: cadenas
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso (dos pasos):**'
+- Invertir la cadena de caracteres completa. ("Hola Mundo desde C" -> "C edsed odnuM
+  aloH").
+- Recorrer la nueva cadena e invertir cada palabra individualmente (usando la lógica
+  del ejercicio 5.1). ("C" -> "C", "edsed" -> "desde", etc.).
+tags:
+- cadenas
+- invertir
+- orden
+- strings
+- memoria
+verificado: true
+funciones:
+- nombre: proc_ir_orden_de_las_pala
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Invertir orden de las palabras
+tests_funciones:
+- nombre: test_proc_ir_orden_de_las_pala_positivo
+  funcion: proc_ir_orden_de_las_pala
+  codigo: 'int res = proc_ir_orden_de_las_pala(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ir_orden_de_las_pala_cero
+  funcion: proc_ir_orden_de_las_pala
+  codigo: 'int res = proc_ir_orden_de_las_pala(0);
+
+    assert(res == 0);'

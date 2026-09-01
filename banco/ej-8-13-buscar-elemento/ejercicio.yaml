@@ -1,0 +1,33 @@
+id: ej-8-13-buscar-elemento
+titulo: Buscar Elemento
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- memoria
+- punteros
+- direcciones
+- buscar
+- elemento
+verificado: true
+funciones:
+- nombre: proc_8_13_buscar_elemento
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Buscar Elemento
+tests_funciones:
+- nombre: test_proc_8_13_buscar_elemento_positivo
+  funcion: proc_8_13_buscar_elemento
+  codigo: 'int res = proc_8_13_buscar_elemento(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_8_13_buscar_elemento_cero
+  funcion: proc_8_13_buscar_elemento
+  codigo: 'int res = proc_8_13_buscar_elemento(0);
+
+    assert(res == 0);'

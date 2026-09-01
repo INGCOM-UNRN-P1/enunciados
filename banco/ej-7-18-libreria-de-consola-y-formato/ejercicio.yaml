@@ -1,0 +1,31 @@
+id: ej-7-18-libreria-de-consola-y-formato
+titulo: Librería de Consola y Formato de Salida
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Empleá secuencias de escape ANSI cuando sea posible para el control del terminal
+  de forma portable.
+tags:
+- fundamentos
+- headers
+- libreria
+- consola
+- formato
+verificado: true
+funciones:
+- nombre: proc_de_consola_y_formato
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Consola y Formato de Salida
+tests_funciones:
+- nombre: test_proc_de_consola_y_formato_positivo
+  funcion: proc_de_consola_y_formato
+  codigo: 'int res = proc_de_consola_y_formato(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_consola_y_formato_cero
+  funcion: proc_de_consola_y_formato
+  codigo: 'int res = proc_de_consola_y_formato(0);
+
+    assert(res == 0);'

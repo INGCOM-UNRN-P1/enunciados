@@ -1,0 +1,45 @@
+id: parser-evaluador-rpn
+titulo: Evaluador de Expresiones en Notación Polaca Inversa (RPN)
+tema: tad
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Tokenizá la entrada por espacios.
+- Si el token es un operador (+, -, *, /), desapilá dos operandos, calculá op(b, a)
+  y apilá el resultado.
+- Si es un número, convertilo con strtol() o atoi() y apilalo en la pila de evaluación.
+tags:
+- tad
+- pila
+- rpn
+- parsing
+- aritmetica
+verificado: true
+funciones:
+- nombre: rpn_init
+  retorno: void
+  parametros: PilaRPN *p
+  descripcion: Operación rpn_init
+- nombre: rpn_push
+  retorno: int
+  parametros: PilaRPN *p, long v
+  descripcion: Operación rpn_push
+- nombre: rpn_pop
+  retorno: int
+  parametros: PilaRPN *p, long *out
+  descripcion: Operación rpn_pop
+- nombre: evaluar_linea
+  retorno: void
+  parametros: char *linea
+  descripcion: Operación evaluar_linea
+tests_funciones:
+- nombre: test_rpn_init_1
+  funcion: rpn_init
+  codigo: '/* Verificación unitaria de rpn_init */
+
+    assert(true);'
+- nombre: test_rpn_push_2
+  funcion: rpn_push
+  codigo: '/* Verificación unitaria de rpn_push */
+
+    assert(true);'

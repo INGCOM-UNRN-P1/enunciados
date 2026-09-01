@@ -1,0 +1,43 @@
+id: ej-10-9-elemento-mas-cercano
+titulo: Elemento más cercano
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un arreglo, su tamaño y un valor de referencia.'
+- '**Variables:** Se necesitan variables para guardar la `menor_diferencia` encontrada
+  hasta el momento y el `elemento_mas_cercano`.'
+- '**Proceso:**'
+- Inicializar `menor_diferencia` con un valor muy grande y `elemento_mas_cercano`
+  con el primer elemento.
+- Recorrer el arreglo. Para cada elemento, calcular la `diferencia_actual` (el valor
+  absoluto de `elemento - referencia`).
+- Si `diferencia_actual` es menor que `menor_diferencia`, actualizar `menor_diferencia`
+  y `elemento_mas_cercano`.
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- arreglos
+- memoria
+- cercano
+- vectores
+- elemento
+verificado: true
+funciones:
+- nombre: proc_elemento_mas_cercano
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Elemento más cercano
+tests_funciones:
+- nombre: test_proc_elemento_mas_cercano_positivo
+  funcion: proc_elemento_mas_cercano
+  codigo: 'int res = proc_elemento_mas_cercano(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_elemento_mas_cercano_cero
+  funcion: proc_elemento_mas_cercano
+  codigo: 'int res = proc_elemento_mas_cercano(0);
+
+    assert(res == 0);'

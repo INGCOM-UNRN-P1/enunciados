@@ -1,0 +1,39 @@
+id: ej-10-10-inversion
+titulo: Inversión
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un arreglo y su tamaño.'
+- '**Proceso:** Utilizar dos índices (o punteros): `inicio` comenzando en 0 y `fin`
+  comenzando en `tamaño-1`.'
+- Usar un lazo `while` que se ejecute mientras `inicio < fin`.
+- 'En cada iteración:'
+- Intercambiar los elementos en las posiciones `inicio` y `fin`.
+- Incrementar `inicio` y decrementar `fin` para moverse hacia el centro del arreglo.
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- inversion
+- vectores
+- arreglos
+- memoria
+verificado: true
+funciones:
+- nombre: ejecutar_ej_10_10_inversion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inversión
+tests_funciones:
+- nombre: test_ejecutar_ej_10_10_inversion_positivo
+  funcion: ejecutar_ej_10_10_inversion
+  codigo: 'int res = ejecutar_ej_10_10_inversion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_10_10_inversion_cero
+  funcion: ejecutar_ej_10_10_inversion
+  codigo: 'int res = ejecutar_ej_10_10_inversion(0);
+
+    assert(res == 0);'

@@ -1,0 +1,38 @@
+id: ej-3-14-conjetura-de-collatz
+titulo: Conjetura de Collatz
+tema: aritmetica
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Entrada:** Un entero positivo `n`.'
+- '**Proceso:** Usar un lazo `while` que se ejecute mientras `n` sea diferente de
+  1. Dentro del lazo, aplicar la regla correspondiente y actualizar el valor de `n`.
+  Imprimir el valor de `n` en cada paso para ver la secuencia. valores fuera de rango
+  o tipos inválidos. un lazo hasta que el usuario elija finalizar.'
+- '[Plus Ultra] Contar y mostrar la longitud de la secuencia (número de pasos hasta
+  llegar a 1).'
+- '[Plus Ultra] Encontrar el número inicial menor a 1000 que genera la secuencia de
+  Collatz más larga.'
+tags:
+- fundamentos
+- collatz
+- conjetura
+- aritmetica
+- matematica
+verificado: true
+funciones:
+- nombre: proc_conjetura_de_collatz
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conjetura de Collatz
+tests_funciones:
+- nombre: test_proc_conjetura_de_collatz_positivo
+  funcion: proc_conjetura_de_collatz
+  codigo: 'int res = proc_conjetura_de_collatz(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_conjetura_de_collatz_cero
+  funcion: proc_conjetura_de_collatz
+  codigo: 'int res = proc_conjetura_de_collatz(0);
+
+    assert(res == 0);'

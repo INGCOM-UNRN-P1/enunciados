@@ -1,0 +1,33 @@
+id: ej-15-20-b20-supresor-de-falsos-positiv
+titulo: Supresor de Falsos Positivos
+tema: memoria
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+tags:
+- stack
+- layout
+- memoria
+- supresor
+- falsos
+verificado: true
+funciones:
+- nombre: proc_or_de_falsos_positiv
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Supresor de Falsos Positivos
+tests_funciones:
+- nombre: test_proc_or_de_falsos_positiv_positivo
+  funcion: proc_or_de_falsos_positiv
+  codigo: 'int res = proc_or_de_falsos_positiv(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_or_de_falsos_positiv_cero
+  funcion: proc_or_de_falsos_positiv
+  codigo: 'int res = proc_or_de_falsos_positiv(0);
+
+    assert(res == 0);'

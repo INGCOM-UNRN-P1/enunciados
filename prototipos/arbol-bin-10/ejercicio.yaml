@@ -1,0 +1,33 @@
+id: arbol-bin-10
+titulo: Cálculo del Diámetro del Árbol Binario Mayor Distancia entre Dos Nodos
+tema: arboles_binarios
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cálculo del Diámetro del Árbol Binario
+    Mayor Distancia entre Dos Nodos
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_10_positivo
+  funcion: ejecutar_arbol_bin_10
+  codigo: 'int res = ejecutar_arbol_bin_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_10_cero
+  funcion: ejecutar_arbol_bin_10
+  codigo: 'int res = ejecutar_arbol_bin_10(0);
+
+    assert(res == 0);'

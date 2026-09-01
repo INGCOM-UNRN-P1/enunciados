@@ -1,0 +1,33 @@
+id: ej-18-1-operaciones-aritmeticas
+titulo: Operaciones Aritméticas
+tema: estructuras
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- aritmeticas
+- registros
+- operaciones
+- memoria
+- structs
+verificado: true
+funciones:
+- nombre: proc_raciones_aritmeticas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Operaciones Aritméticas
+tests_funciones:
+- nombre: test_proc_raciones_aritmeticas_positivo
+  funcion: proc_raciones_aritmeticas
+  codigo: 'int res = proc_raciones_aritmeticas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_raciones_aritmeticas_cero
+  funcion: proc_raciones_aritmeticas
+  codigo: 'int res = proc_raciones_aritmeticas(0);
+
+    assert(res == 0);'

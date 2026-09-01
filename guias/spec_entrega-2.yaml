@@ -1,0 +1,10 @@
+nombre: Entrega 2 — Estructuras de Control y Lazos
+duracion_min: 235
+margen_carga: 0.8
+temas:
+- lazos
+- estructuras_control
+- lazos_anidados
+bloom_min: 2
+bloom_max: 4
+cantidad_maxima: 7

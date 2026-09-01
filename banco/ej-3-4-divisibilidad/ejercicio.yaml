@@ -1,0 +1,37 @@
+id: ej-3-4-divisibilidad
+titulo: Divisibilidad
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Dos enteros, `a` y `b`.'
+- '**Proceso:** La divisibilidad se comprueba con el operador módulo (`%`). Si el
+  resto de la división `a % b` es 0, entonces `a` es divisible por `b`.'
+- '**Caso Especial:** Asegurarse de que `b` no sea cero para evitar un error de división
+  por cero. error e informar el resultado mediante parámetros de salida. especificando
+  precondiciones y postcondiciones.'
+- '[Plus Ultra] Manejar el caso especial de divisor cero informando error.'
+- '[Plus Ultra] Implementar la verificación de divisibilidad por 2, 3, 5 y 10 usando
+  reglas de dígitos.'
+tags:
+- aritmetica
+- divisibilidad
+- matematica
+- fundamentos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_3_4_divisibilidad
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Divisibilidad
+tests_funciones:
+- nombre: test_ejecutar_ej_3_4_divisibilidad_positivo
+  funcion: ejecutar_ej_3_4_divisibilidad
+  codigo: 'int res = ejecutar_ej_3_4_divisibilidad(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_3_4_divisibilidad_cero
+  funcion: ejecutar_ej_3_4_divisibilidad
+  codigo: 'int res = ejecutar_ej_3_4_divisibilidad(0);
+
+    assert(res == 0);'

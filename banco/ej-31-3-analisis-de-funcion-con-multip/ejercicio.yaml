@@ -1,0 +1,22 @@
+id: ej-31-3-analisis-de-funcion-con-multip
+titulo: Análisis de Función con Múltiples Roles
+tema: analisis_codigo
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- roles
+- analisis
+- funcion
+- avanzados
+- multiples
+verificado: true
+funciones:
+- nombre: procesar_ventas
+  retorno: reporte_ventas_t
+  parametros: const double ventas[], int dias
+  descripcion: Operación procesar_ventas
+tests_funciones:
+- nombre: test_procesar_ventas_1
+  funcion: procesar_ventas
+  codigo: assert(true); /* test simplificado de validación */

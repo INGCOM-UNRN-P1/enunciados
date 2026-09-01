@@ -1,0 +1,32 @@
+id: trie-pref-08
+titulo: Trie Comprimido Radix Tree o Patricia Trie
+tema: trie_arboles_prefijo
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Cada nodo tiene un arreglo de punteros indexados por caracteres.
+- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+tags:
+- trie
+- prefijos
+- arboles
+- cadenas
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_trie_pref_08
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Trie Comprimido Radix Tree o Patricia
+    Trie
+tests_funciones:
+- nombre: test_ejecutar_trie_pref_08_positivo
+  funcion: ejecutar_trie_pref_08
+  codigo: 'int res = ejecutar_trie_pref_08(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_trie_pref_08_cero
+  funcion: ejecutar_trie_pref_08
+  codigo: 'int res = ejecutar_trie_pref_08(0);
+
+    assert(res == 0);'

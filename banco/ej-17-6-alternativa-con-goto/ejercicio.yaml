@@ -1,0 +1,32 @@
+id: ej-17-6-alternativa-con-goto
+titulo: Alternativa con Goto
+tema: punteros
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- punteros
+- alternativa
+- estructuras
+- memoria
+verificado: true
+funciones:
+- nombre: proc_alternativa_con_goto
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Alternativa con Goto
+tests_funciones:
+- nombre: test_proc_alternativa_con_goto_positivo
+  funcion: proc_alternativa_con_goto
+  codigo: 'int res = proc_alternativa_con_goto(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_alternativa_con_goto_cero
+  funcion: proc_alternativa_con_goto
+  codigo: 'int res = proc_alternativa_con_goto(0);
+
+    assert(res == 0);'

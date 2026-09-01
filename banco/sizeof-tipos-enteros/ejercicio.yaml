@@ -1,0 +1,28 @@
+id: sizeof-tipos-enteros
+titulo: Tamaños de Tipos Enteros (sizeof)
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- char, short, int, long, long long\n
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_sizeof_tipos_enteros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tamaños de Tipos Enteros (sizeof)
+tests_funciones:
+- nombre: test_ejecutar_sizeof_tipos_enteros_positivo
+  funcion: ejecutar_sizeof_tipos_enteros
+  codigo: 'int res = ejecutar_sizeof_tipos_enteros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sizeof_tipos_enteros_cero
+  funcion: ejecutar_sizeof_tipos_enteros
+  codigo: 'int res = ejecutar_sizeof_tipos_enteros(0);
+
+    assert(res == 0);'

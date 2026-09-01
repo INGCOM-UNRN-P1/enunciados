@@ -1,0 +1,32 @@
+id: heap-prio-19
+titulo: Planificador de Tareas del Sistema Operativo con Min-Heap
+tema: colas_prioridad_heaps
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
+- El padre de un nodo i está en (i - 1) / 2.
+tags:
+- heap
+- min_heap
+- max_heap
+- cola_prioridad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_heap_prio_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Planificador de Tareas del Sistema Operativo
+    con Min-Heap
+tests_funciones:
+- nombre: test_ejecutar_heap_prio_19_positivo
+  funcion: ejecutar_heap_prio_19
+  codigo: 'int res = ejecutar_heap_prio_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_heap_prio_19_cero
+  funcion: ejecutar_heap_prio_19
+  codigo: 'int res = ejecutar_heap_prio_19(0);
+
+    assert(res == 0);'

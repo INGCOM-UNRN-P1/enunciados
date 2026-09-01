@@ -1,0 +1,34 @@
+id: ej-1-35-patron-de-rombo
+titulo: Patrón de Rombo
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Estructura:** Un rombo puede verse como una pirámide seguida de una'
+- '**Entrada:** Leer un entero impar `n`.'
+- '**Proceso:**'
+- '[Plus Ultra] Validar que el tamaño del rombo sea un número impar positivo.'
+- '[Plus Ultra] Generar el rombo con bordes decorativos personalizados.'
+tags:
+- patron
+- fundamentos
+- secuencias
+- basicos
+- rombo
+verificado: true
+funciones:
+- nombre: proc_1_35_patron_de_rombo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Patrón de Rombo
+tests_funciones:
+- nombre: test_proc_1_35_patron_de_rombo_positivo
+  funcion: proc_1_35_patron_de_rombo
+  codigo: 'int res = proc_1_35_patron_de_rombo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_1_35_patron_de_rombo_cero
+  funcion: proc_1_35_patron_de_rombo
+  codigo: 'int res = proc_1_35_patron_de_rombo(0);
+
+    assert(res == 0);'

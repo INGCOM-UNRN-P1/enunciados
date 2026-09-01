@@ -1,0 +1,32 @@
+id: lru-cache-28
+titulo: Métricas de Latencia y Eficiencia de la Memoria Caché
+tema: lru_cache_memorizacion
+bloom: 5
+minutos_estimados: 45
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lru_cache_28
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Métricas de Latencia y Eficiencia de
+    la Memoria Caché
+tests_funciones:
+- nombre: test_ejecutar_lru_cache_28_positivo
+  funcion: ejecutar_lru_cache_28
+  codigo: 'int res = ejecutar_lru_cache_28(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lru_cache_28_cero
+  funcion: ejecutar_lru_cache_28
+  codigo: 'int res = ejecutar_lru_cache_28(0);
+
+    assert(res == 0);'

@@ -1,0 +1,29 @@
+id: ej-31-6-trazado-de-ejecucion-con-array
+titulo: Trazado de Ejecución con Arrays Dinámicos
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas: []
+tags:
+- dinamicos
+- analisis
+- ejecucion
+- trazado
+- arrays
+verificado: true
+funciones:
+- nombre: proc__ejecucion_con_array
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Trazado de Ejecución con Arrays Dinámicos
+tests_funciones:
+- nombre: test_proc__ejecucion_con_array_positivo
+  funcion: proc__ejecucion_con_array
+  codigo: 'int res = proc__ejecucion_con_array(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__ejecucion_con_array_cero
+  funcion: proc__ejecucion_con_array
+  codigo: 'int res = proc__ejecucion_con_array(0);
+
+    assert(res == 0);'

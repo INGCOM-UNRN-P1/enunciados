@@ -1,0 +1,33 @@
+id: ej-4-7-lazo-de-clave-con-bandera
+titulo: Lazo de clave con bandera
+tema: estructuras_control
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- control
+- lazos
+- clave
+- fundamentos
+- bandera
+verificado: true
+funciones:
+- nombre: proc_de_clave_con_bandera
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Lazo de clave con bandera
+tests_funciones:
+- nombre: test_proc_de_clave_con_bandera_positivo
+  funcion: proc_de_clave_con_bandera
+  codigo: 'int res = proc_de_clave_con_bandera(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_clave_con_bandera_cero
+  funcion: proc_de_clave_con_bandera
+  codigo: 'int res = proc_de_clave_con_bandera(0);
+
+    assert(res == 0);'

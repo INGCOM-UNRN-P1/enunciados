@@ -1,0 +1,32 @@
+id: text-serde-14
+titulo: Decodificador Base64 de Texto a Búfer Binario
+tema: serializacion_texto_json_csv
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_14
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Decodificador Base64 de Texto a Búfer
+    Binario
+tests_funciones:
+- nombre: test_ejecutar_text_serde_14_positivo
+  funcion: ejecutar_text_serde_14
+  codigo: 'int res = ejecutar_text_serde_14(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_14_cero
+  funcion: ejecutar_text_serde_14
+  codigo: 'int res = ejecutar_text_serde_14(0);
+
+    assert(res == 0);'

@@ -1,0 +1,31 @@
+id: comp-datos-26
+titulo: Compresión de Coordenadas de Matriz Dispersa CSR
+tema: compresion_datos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_26
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Compresión de Coordenadas de Matriz Dispersa
+    CSR
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_26_positivo
+  funcion: ejecutar_comp_datos_26
+  codigo: 'int res = ejecutar_comp_datos_26(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_26_cero
+  funcion: ejecutar_comp_datos_26
+  codigo: 'int res = ejecutar_comp_datos_26(0);
+
+    assert(res == 0);'

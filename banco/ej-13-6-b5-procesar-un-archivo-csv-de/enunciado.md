@@ -1,0 +1,138 @@
+### Ejercicio 13.6 - b.5 - Procesar un archivo CSV de ventas ⭐⭐☆☆☆
+
+:::::{exercise}
+:label: ejercicio_archivos_5
+:enumerator: 5
+
+**Procesar un archivo CSV de ventas**
+
+Escribí una función que lea un archivo `ventas.csv` con el formato
+`producto,precio,cantidad`. Por cada línea, debe calcular el total (precio *
+cantidad) y mostrarlo en pantalla. La función debe ignorar líneas mal formadas o
+vacías.
+
+**Ejemplo de `ventas.csv`:**
+``` csv
+Teclado Mecanico,150.50,2
+Mouse Gamer,75.00,5
+Monitor 24 pulgadas,300.25,1
+# Esto es un comentario, debe ser ignorado
+Webcam,no_es_un_precio,3
+```
+<!-- csv -->
+
+::::{solution} ejercicio_archivos_5
+:class: dropdown
+
+:::{code-block}c
+:linenos:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define EXITO 0
+#define ERROR -1
+#define MAX_LINEA 256
+#define MAX_PRODUCTO 100
+/**
+ * Procesa un archivo CSV de ventas, calculando e imprimiendo el total por
+   línea.
+ *
+ * @param nombre_archivo La ruta del archivo CSV a procesar.
+ *      #PRE: No puede ser NULL.
+ *
+ * @returns EXITO si el archivo se procesó (incluso si algunas líneas
+ fallaron),
+ *          ERROR si no se pudo abrir el archivo o hubo un error de lectura
+            irrecuperable.
+ *
+ * @post Se imprimirán en la salida estándar los totales de las líneas bien
+   formadas.
+ */
+int procesar_ventas(const char *nombre_archivo)
+{
+    int estado_general = EXITO;
+    FILE *p_archivo = fopen(nombre_archivo, "r");
+    char buffer[MAX_LINEA];
+    size_t numero_linea = 0;
+    if (p_archivo == NULL)
+    {
+        perror("No se pudo abrir el archivo de ventas");
+        return ERROR;
+    }
+    while (fgets(buffer, sizeof(buffer), p_archivo) != NULL)
+    {
+        numero_linea++;
+        // Ignorar líneas vacías o comentarios usando lógica positiva conforme
+        // a
+        la regla 0x1002h if (buffer[0] != '\n' && buffer[0] != '#')
+        {
+            char nombre_producto[MAX_PRODUCTO];
+            double precio = 0.0;
+            int cantidad = 0;
+            // Usar sscanf para parsear la línea. Formato:
+            string - hasta - coma, double,
+                int int campos_leidos =
+                    sscanf(buffer, "%99[^,],%lf,%d", nombre_producto, &precio,
+                           &cantidad);
+            if (campos_leidos == 3)
+            {
+                double total_linea = precio * (double)cantidad;
+                printf("Línea %zu: Producto \x27%s\x27, Total: %.2f\n",
+                       numero_linea, nombre_producto, total_linea);
+            }
+            else
+            {
+                fprintf(stderr, "[Advertencia] Línea %zu mal formada: %s",
+                        numero_linea, buffer);
+            }
+        }
+    }
+    if (ferror(p_archivo))
+    {
+        perror("Ocurrió un error de lectura");
+        estado_general = ERROR;
+    }
+    if (fclose(p_archivo) != 0)
+    {
+        perror("Error al cerrar el archivo de ventas");
+        estado_general = ERROR;
+    }
+    return estado_general;
+}
+int main(void)
+{
+    const char *ARCHIVO_VENTAS = "ventas.csv";
+    // Crear archivo de ventas de prueba
+    FILE *p_temp = fopen(ARCHIVO_VENTAS, "w");
+    if (p_temp != NULL)
+    {
+        fprintf(p_temp, "Teclado Mecanico,150.50,2\n");
+        fprintf(p_temp, "Mouse Gamer,75.00,5\n");
+        fprintf(p_temp, "\n"); // Línea vacía
+        fprintf(p_temp, "Monitor 24 pulgadas,300.25,1\n");
+        fprintf(p_temp, "# Esto es un comentario, debe ser ignorado\n");
+        fprintf(p_temp, "Webcam,no_es_un_precio,3\n"); // Línea mal formada
+        fclose(p_temp);
+    }
+    printf("Procesando archivo \x27%s\x27...\n", ARCHIVO_VENTAS);
+    if (procesar_ventas(ARCHIVO_VENTAS) == ERROR)
+    {
+        fprintf(stderr,
+                "No se pudo completar el procesamiento del archivo.\n");
+        return EXIT_FAILURE;
+    }
+    printf("\nProcesamiento finalizado.\n");
+    return EXIT_SUCCESS;
+}
+- * *
+        [*plus ultra *
+]:**Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+            validando la capacidad máxima.-
+    **
+     [*plus ultra * ]:**Soportar la lectura de cadenas con espacios y múltiples
+                          líneas de manera robusta.
+:::
+<!-- {code-block}c -->
+
+::::
+<!-- {solution} ejercicio_archivos_5 -->

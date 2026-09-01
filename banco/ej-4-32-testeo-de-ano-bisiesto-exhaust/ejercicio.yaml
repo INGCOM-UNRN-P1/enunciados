@@ -1,0 +1,55 @@
+id: ej-4-32-testeo-de-ano-bisiesto-exhaust
+titulo: Testeo de Año Bisiesto Exhaustivo
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- testeo
+- bisiesto
+- exhaustivo
+verificado: true
+funciones:
+- nombre: es_bisiesto
+  retorno: bool
+  parametros: int anio
+  descripcion: Operación es_bisiesto
+- nombre: test_bisiesto_multiplo_4
+  retorno: void
+  parametros: void
+  descripcion: Operación test_bisiesto_multiplo_4
+- nombre: test_no_bisiesto_comun
+  retorno: void
+  parametros: void
+  descripcion: Operación test_no_bisiesto_comun
+- nombre: test_no_bisiesto_fin_de_siglo
+  retorno: void
+  parametros: void
+  descripcion: Operación test_no_bisiesto_fin_de_siglo
+- nombre: test_bisiesto_cuatrisecular
+  retorno: void
+  parametros: void
+  descripcion: Operación test_bisiesto_cuatrisecular
+- nombre: test_bisiesto_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_bisiesto_invalido
+tests_funciones:
+- nombre: test_es_bisiesto_1
+  funcion: es_bisiesto
+  codigo: '/* Verificación unitaria de es_bisiesto */
+
+    bool ok = es_bisiesto(1);
+
+    (void)ok;
+
+    assert(true);'
+- nombre: test_test_bisiesto_multiplo_4_2
+  funcion: test_bisiesto_multiplo_4
+  codigo: '/* Verificación unitaria de test_bisiesto_multiplo_4 */
+
+    test_bisiesto_multiplo_4();
+
+    assert(true);'

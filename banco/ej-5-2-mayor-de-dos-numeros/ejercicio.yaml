@@ -1,0 +1,20 @@
+id: ej-5-2-mayor-de-dos-numeros
+titulo: Mayor de dos números
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: mayor
+  retorno: int
+  parametros: int a, int b
+  descripcion: Retorna el mayor de a y b
+tests_funciones:
+- nombre: test_mayor_basico
+  funcion: mayor
+  codigo: assert(mayor(5, 12) == 12);
+- nombre: test_mayor_iguales
+  funcion: mayor
+  codigo: assert(mayor(7, 7) == 7);

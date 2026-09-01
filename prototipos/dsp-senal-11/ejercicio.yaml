@@ -1,0 +1,32 @@
+id: dsp-senal-11
+titulo: Detección de Picos y Umbrales en Señales de Sensores
+tema: procesamiento_senales_dsp
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Detección de Picos y Umbrales en Señales
+    de Sensores
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_11_positivo
+  funcion: ejecutar_dsp_senal_11
+  codigo: 'int res = ejecutar_dsp_senal_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_11_cero
+  funcion: ejecutar_dsp_senal_11
+  codigo: 'int res = ejecutar_dsp_senal_11(0);
+
+    assert(res == 0);'

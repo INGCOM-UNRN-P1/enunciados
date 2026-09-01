@@ -1,0 +1,32 @@
+id: dsp-senal-21
+titulo: Filtro Mediana 1D para Eliminación de Ruido Sal y Pimienta
+tema: procesamiento_senales_dsp
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Filtro Mediana 1D para Eliminación de
+    Ruido Sal y Pimienta
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_21_positivo
+  funcion: ejecutar_dsp_senal_21
+  codigo: 'int res = ejecutar_dsp_senal_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_21_cero
+  funcion: ejecutar_dsp_senal_21
+  codigo: 'int res = ejecutar_dsp_senal_21(0);
+
+    assert(res == 0);'

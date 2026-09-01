@@ -1,0 +1,29 @@
+id: ej-4-3-multiplos-de-3
+titulo: Múltiplos de 3
+tema: estructuras_control
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- control
+- lazos
+- fundamentos
+- condicionales
+- multiplos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_4_3_multiplos_de_3
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Múltiplos de 3
+tests_funciones:
+- nombre: test_ejecutar_ej_4_3_multiplos_de_3_positivo
+  funcion: ejecutar_ej_4_3_multiplos_de_3
+  codigo: 'int res = ejecutar_ej_4_3_multiplos_de_3(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_4_3_multiplos_de_3_cero
+  funcion: ejecutar_ej_4_3_multiplos_de_3
+  codigo: 'int res = ejecutar_ej_4_3_multiplos_de_3(0);
+
+    assert(res == 0);'

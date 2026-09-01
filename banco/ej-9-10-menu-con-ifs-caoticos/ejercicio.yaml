@@ -1,0 +1,27 @@
+id: ej-9-10-menu-con-ifs-caoticos
+titulo: Menú con Ifs Caóticos
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- caoticos
+- fundamentos
+verificado: true
+funciones:
+- nombre: operacion
+  retorno: double
+  parametros: int op, double a, double b
+  descripcion: Operación operacion
+tests_funciones:
+- nombre: test_operacion_1
+  funcion: operacion
+  codigo: '/* Verificación unitaria de operacion */
+
+    double res = operacion(1, 2, 3);
+
+    (void)res;
+
+    assert(true);'

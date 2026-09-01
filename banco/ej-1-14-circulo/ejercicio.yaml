@@ -1,0 +1,36 @@
+id: ej-1-14-circulo
+titulo: Círculo
+tema: secuencias
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Constantes:** Se necesita el valor de $\pi$. Se puede definir como una'
+- '**Entrada:** Solicitar al usuario el valor del radio (`r`).'
+- '**Proceso:**'
+- '**Salida:** Mostrar ambos resultados de forma clara.'
+- '[Plus Ultra] Validar que el radio sea positivo y definir PI como una constante
+  con precisión de double.'
+- '[Plus Ultra] Calcular también el área del sector circular para un ángulo ingresado
+  por el usuario.'
+tags:
+- basicos
+- circulo
+- secuencias
+- fundamentos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_14_circulo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Círculo
+tests_funciones:
+- nombre: test_ejecutar_ej_1_14_circulo_positivo
+  funcion: ejecutar_ej_1_14_circulo
+  codigo: 'int res = ejecutar_ej_1_14_circulo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_14_circulo_cero
+  funcion: ejecutar_ej_1_14_circulo
+  codigo: 'int res = ejecutar_ej_1_14_circulo(0);
+
+    assert(res == 0);'

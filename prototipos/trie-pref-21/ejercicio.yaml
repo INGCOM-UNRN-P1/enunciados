@@ -1,0 +1,32 @@
+id: trie-pref-21
+titulo: Detección de Palíndromos más Largos usando Trie
+tema: trie_arboles_prefijo
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Cada nodo tiene un arreglo de punteros indexados por caracteres.
+- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+tags:
+- trie
+- prefijos
+- arboles
+- cadenas
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_trie_pref_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Detección de Palíndromos más Largos usando
+    Trie
+tests_funciones:
+- nombre: test_ejecutar_trie_pref_21_positivo
+  funcion: ejecutar_trie_pref_21
+  codigo: 'int res = ejecutar_trie_pref_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_trie_pref_21_cero
+  funcion: ejecutar_trie_pref_21
+  codigo: 'int res = ejecutar_trie_pref_21(0);
+
+    assert(res == 0);'

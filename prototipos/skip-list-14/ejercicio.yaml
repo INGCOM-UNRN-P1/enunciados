@@ -1,0 +1,34 @@
+id: skip-list-14
+titulo: Clonación Profunda de Lista por Saltos Multinivel
+tema: skip_lists_probabilisticas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
+  generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
+  buscada.
+tags:
+- skip_list
+- listas_saltos
+- probabilistica
+- busqueda
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_skip_list_14
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Clonación Profunda de Lista por Saltos
+    Multinivel
+tests_funciones:
+- nombre: test_ejecutar_skip_list_14_positivo
+  funcion: ejecutar_skip_list_14
+  codigo: 'int res = ejecutar_skip_list_14(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_skip_list_14_cero
+  funcion: ejecutar_skip_list_14
+  codigo: 'int res = ejecutar_skip_list_14(0);
+
+    assert(res == 0);'

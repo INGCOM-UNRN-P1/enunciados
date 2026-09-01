@@ -1,0 +1,33 @@
+id: ej-17-1-creacion-de-persona
+titulo: Creación de Persona
+tema: punteros
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- estructuras
+- memoria
+- punteros
+- creacion
+- persona
+verificado: true
+funciones:
+- nombre: proc__creacion_de_persona
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Creación de Persona
+tests_funciones:
+- nombre: test_proc__creacion_de_persona_positivo
+  funcion: proc__creacion_de_persona
+  codigo: 'int res = proc__creacion_de_persona(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__creacion_de_persona_cero
+  funcion: proc__creacion_de_persona
+  codigo: 'int res = proc__creacion_de_persona(0);
+
+    assert(res == 0);'

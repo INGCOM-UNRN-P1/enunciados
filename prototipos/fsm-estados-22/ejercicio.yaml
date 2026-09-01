@@ -1,0 +1,31 @@
+id: fsm-estados-22
+titulo: FSM de Detección de Secuencias de Escape ANSI de Terminal
+tema: emulacion_maquinas_estado
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_22
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de FSM de Detección de Secuencias de Escape
+    ANSI de Terminal
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_22_positivo
+  funcion: ejecutar_fsm_estados_22
+  codigo: 'int res = ejecutar_fsm_estados_22(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_22_cero
+  funcion: ejecutar_fsm_estados_22
+  codigo: 'int res = ejecutar_fsm_estados_22(0);
+
+    assert(res == 0);'

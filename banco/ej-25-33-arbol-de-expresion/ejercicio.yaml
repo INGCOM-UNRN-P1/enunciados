@@ -1,0 +1,47 @@
+id: ej-25-33-arbol-de-expresion
+titulo: Árbol de Expresión
+tema: recursividad
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+- '**Caso(s) Base:** Condición de terminación'
+- '**Caso Recursivo:** Llamada a sí misma con problema más pequeño'
+- '**Convergencia:** Cada llamada debe acercar al caso base ```{code-block} c :linenos:
+  int funcion_recursiva(parametros) { // 1. Caso base if (condicion_terminacion) {
+  return valor_base; } // 2. Caso recursivo // Procesar actual // Llamada recursiva
+  con problema reducido return combinar(procesar_actual, funcion_recursiva(problema_mas_pequeno));
+  } ``` <!-- {code-block} c -->'
+- '**Divide:** Partir problema en subproblemas'
+- '**Conquista:** Resolver subproblemas recursivamente'
+- '**Combina:** Unir soluciones de subproblemas **Ejemplos:**'
+- 'MergeSort: dividir array, ordenar mitades, fusionar'
+- 'QuickSort: particionar, ordenar particiones'
+- 'Búsqueda binaria: dividir rango, buscar en mitad apropiada **Complejidad típica:**
+  O(n log n) para n elementos'
+tags:
+- recursividad
+- expresion
+- induccion
+- arbol
+- algoritmos
+verificado: true
+funciones:
+- nombre: proc_3_arbol_de_expresion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Árbol de Expresión
+tests_funciones:
+- nombre: test_proc_3_arbol_de_expresion_positivo
+  funcion: proc_3_arbol_de_expresion
+  codigo: 'int res = proc_3_arbol_de_expresion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_3_arbol_de_expresion_cero
+  funcion: proc_3_arbol_de_expresion
+  codigo: 'int res = proc_3_arbol_de_expresion(0);
+
+    assert(res == 0);'

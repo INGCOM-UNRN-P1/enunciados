@@ -1,0 +1,33 @@
+id: invertir-numero
+titulo: Invertir un Número Entero
+tema: aritmetica
+bloom: 3
+minutos_estimados: 20
+pistas:
+- 'Extraé el último dígito con el operador módulo: digito = n % 10.'
+- 'Multiplicá el acumulador por 10 y sumale el nuevo dígito: invertido = invertido
+  * 10 + digito.'
+- Dividí el número por 10 en cada iteración para descartar el dígito procesado.
+- Preservá el signo si el número original era negativo.
+tags:
+- lazos
+- while
+- aritmetica
+- digitos
+verificado: true
+funciones:
+- nombre: ejecutar_invertir_numero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Invertir un Número Entero
+tests_funciones:
+- nombre: test_ejecutar_invertir_numero_positivo
+  funcion: ejecutar_invertir_numero
+  codigo: 'int res = ejecutar_invertir_numero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_invertir_numero_cero
+  funcion: ejecutar_invertir_numero
+  codigo: 'int res = ejecutar_invertir_numero(0);
+
+    assert(res == 0);'

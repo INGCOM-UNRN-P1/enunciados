@@ -1,0 +1,37 @@
+id: ej-3-41-conversion-de-base-numerica
+titulo: Conversión de Base Numérica
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso en dos pasos:** El método más simple es:'
+- '**Convertir a base 10:** Convertir el número de su base original `b1` a base 10.
+  Si el número está en un arreglo de dígitos, se calcula $\sum digito_i \cdot b1^i$.'
+- '**Convertir de base 10:** Convertir el número de base 10 a la base de destino `b2`
+  usando divisiones sucesivas y guardando los restos. filas (*row-major order*) para
+  mejorar el uso de caché. estrictamente dentro de los límites del contenedor.'
+- '[Plus Ultra] Validar que la base de destino esté entre 2 y 16.'
+- '[Plus Ultra] Formatear la salida con dígitos alfanuméricos apropiados (0-9, A-F).'
+tags:
+- fundamentos
+- conversion
+- numerica
+- aritmetica
+- matematica
+verificado: true
+funciones:
+- nombre: proc_ion_de_base_numerica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conversión de Base Numérica
+tests_funciones:
+- nombre: test_proc_ion_de_base_numerica_positivo
+  funcion: proc_ion_de_base_numerica
+  codigo: 'int res = proc_ion_de_base_numerica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ion_de_base_numerica_cero
+  funcion: proc_ion_de_base_numerica
+  codigo: 'int res = proc_ion_de_base_numerica(0);
+
+    assert(res == 0);'

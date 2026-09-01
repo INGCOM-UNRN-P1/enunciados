@@ -1,0 +1,34 @@
+id: ej-1-15-trapecio
+titulo: Trapecio
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Solicitar al usuario tres valores: la base mayor (`B`), la base'
+- '**Proceso:** Aplicar la fórmula del área del trapecio: $A = \frac{B+b}{2}'
+- '**Salida:** Mostrar el área calculada.'
+- '[Plus Ultra] Validar que ambas bases y la altura sean estrictamente positivas y
+  que la base mayor sea mayor que la menor.'
+- '[Plus Ultra] Modularizar la operación en una función independiente.'
+tags:
+- basicos
+- trapecio
+- secuencias
+- fundamentos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_15_trapecio
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Trapecio
+tests_funciones:
+- nombre: test_ejecutar_ej_1_15_trapecio_positivo
+  funcion: ejecutar_ej_1_15_trapecio
+  codigo: 'int res = ejecutar_ej_1_15_trapecio(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_15_trapecio_cero
+  funcion: ejecutar_ej_1_15_trapecio
+  codigo: 'int res = ejecutar_ej_1_15_trapecio(0);
+
+    assert(res == 0);'

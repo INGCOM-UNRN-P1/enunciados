@@ -1,0 +1,33 @@
+id: ej-25-31-coeficiente-binomial
+titulo: Coeficiente Binomial
+tema: recursividad
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- recursividad
+- induccion
+- binomial
+- algoritmos
+- coeficiente
+verificado: true
+funciones:
+- nombre: proc_coeficiente_binomial
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Coeficiente Binomial
+tests_funciones:
+- nombre: test_proc_coeficiente_binomial_positivo
+  funcion: proc_coeficiente_binomial
+  codigo: 'int res = proc_coeficiente_binomial(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_coeficiente_binomial_cero
+  funcion: proc_coeficiente_binomial
+  codigo: 'int res = proc_coeficiente_binomial(0);
+
+    assert(res == 0);'

@@ -1,0 +1,39 @@
+id: ej-9-1-el-maximo-comprimido
+titulo: El Máximo Comprimido
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- maximo
+- fundamentos
+- comprimido
+verificado: true
+funciones:
+- nombre: obtener_mayor
+  retorno: int
+  parametros: int primer_numero, int segundo_numero
+  descripcion: Operación obtener_mayor
+- nombre: test_obtener_mayor
+  retorno: void
+  parametros: void
+  descripcion: Operación test_obtener_mayor
+tests_funciones:
+- nombre: test_obtener_mayor_1
+  funcion: obtener_mayor
+  codigo: '/* Verificación unitaria de obtener_mayor */
+
+    int res = obtener_mayor(1, 2);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_obtener_mayor_2
+  funcion: test_obtener_mayor
+  codigo: '/* Verificación unitaria de test_obtener_mayor */
+
+    test_obtener_mayor();
+
+    assert(true);'

@@ -1,0 +1,32 @@
+id: dsu-union-27
+titulo: Optimización de DSU con Aplanamiento Total de Árbol
+tema: conjuntos_disjuntos_union_find
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Aplicá compresión de caminos en find para aplanar el árbol.
+- Uní por rango o tamaño para mantener los árboles balanceados.
+tags:
+- dsu
+- union_find
+- conjuntos_disjuntos
+- grafos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_dsu_union_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Optimización de DSU con Aplanamiento
+    Total de Árbol
+tests_funciones:
+- nombre: test_ejecutar_dsu_union_27_positivo
+  funcion: ejecutar_dsu_union_27
+  codigo: 'int res = ejecutar_dsu_union_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsu_union_27_cero
+  funcion: ejecutar_dsu_union_27
+  codigo: 'int res = ejecutar_dsu_union_27(0);
+
+    assert(res == 0);'

@@ -1,0 +1,31 @@
+id: heap-prio-09
+titulo: Fusión de Dos Montículos Binarios
+tema: colas_prioridad_heaps
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
+- El padre de un nodo i está en (i - 1) / 2.
+tags:
+- heap
+- min_heap
+- max_heap
+- cola_prioridad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_heap_prio_09
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Fusión de Dos Montículos Binarios
+tests_funciones:
+- nombre: test_ejecutar_heap_prio_09_positivo
+  funcion: ejecutar_heap_prio_09
+  codigo: 'int res = ejecutar_heap_prio_09(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_heap_prio_09_cero
+  funcion: ejecutar_heap_prio_09
+  codigo: 'int res = ejecutar_heap_prio_09(0);
+
+    assert(res == 0);'

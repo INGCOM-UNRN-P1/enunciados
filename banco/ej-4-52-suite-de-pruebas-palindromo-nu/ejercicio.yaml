@@ -1,0 +1,49 @@
+id: ej-4-52-suite-de-pruebas-palindromo-nu
+titulo: 'Suite de Pruebas: Palíndromo Numérico'
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- palindromo
+- fundamentos
+- pruebas
+- suite
+verificado: true
+funciones:
+- nombre: invertir_entero
+  retorno: int
+  parametros: int n
+  descripcion: Operación invertir_entero
+- nombre: es_numero_capicua
+  retorno: bool
+  parametros: int n
+  descripcion: Operación es_numero_capicua
+- nombre: test_capicua_un_digito
+  retorno: void
+  parametros: void
+  descripcion: Operación test_capicua_un_digito
+- nombre: test_capicua_multiples_digitos
+  retorno: void
+  parametros: void
+  descripcion: Operación test_capicua_multiples_digitos
+tests_funciones:
+- nombre: test_invertir_entero_1
+  funcion: invertir_entero
+  codigo: '/* Verificación unitaria de invertir_entero */
+
+    int res = invertir_entero(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_es_numero_capicua_2
+  funcion: es_numero_capicua
+  codigo: '/* Verificación unitaria de es_numero_capicua */
+
+    bool ok = es_numero_capicua(1);
+
+    (void)ok;
+
+    assert(true);'

@@ -1,0 +1,33 @@
+id: ej-20-15-controlador-de-reproduccion
+titulo: Controlador de reproducción
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- reproduccion
+- memoria
+- enum
+- controlador
+verificado: true
+funciones:
+- nombre: proc_ador_de_reproduccion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Controlador de reproducción
+tests_funciones:
+- nombre: test_proc_ador_de_reproduccion_positivo
+  funcion: proc_ador_de_reproduccion
+  codigo: 'int res = proc_ador_de_reproduccion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ador_de_reproduccion_cero
+  funcion: proc_ador_de_reproduccion
+  codigo: 'int res = proc_ador_de_reproduccion(0);
+
+    assert(res == 0);'

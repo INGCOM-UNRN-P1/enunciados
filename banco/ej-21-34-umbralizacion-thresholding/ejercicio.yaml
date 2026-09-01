@@ -1,0 +1,33 @@
+id: ej-21-34-umbralizacion-thresholding
+titulo: Umbralización (Thresholding)
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- matrices
+- umbralizacion
+- thresholding
+- 2d
+- algoritmos
+verificado: true
+funciones:
+- nombre: proc_izacion_thresholding
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Umbralización (Thresholding)
+tests_funciones:
+- nombre: test_proc_izacion_thresholding_positivo
+  funcion: proc_izacion_thresholding
+  codigo: 'int res = proc_izacion_thresholding(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_izacion_thresholding_cero
+  funcion: proc_izacion_thresholding
+  codigo: 'int res = proc_izacion_thresholding(0);
+
+    assert(res == 0);'

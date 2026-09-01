@@ -1,0 +1,20 @@
+/*
+ * Pila #13
+ * Catedra Programacion I - UNRN
+ */
+#include <stdio.h>
+
+
+int ejecutar_pila_stack_13(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void) {
+    int elementos = 0;
+    if (scanf("%d", &elementos) == 1) {
+        printf("PILA_STACK_13_TOPE: %d\n", elementos + 13);
+    }
+    return 0;
+}

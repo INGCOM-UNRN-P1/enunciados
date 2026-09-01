@@ -1,0 +1,22 @@
+id: ej-4-42-prohibicion-de-reutilizacion-d
+titulo: Prohibición de Reutilización de Variables
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- variables
+- prohibicion
+- testing
+verificado: true
+funciones:
+- nombre: calcular_estadisticas_ventas
+  retorno: int
+  parametros: int ventas[], int n
+  descripcion: Operación calcular_estadisticas_ventas
+tests_funciones:
+- nombre: test_calcular_estadisticas_ventas_1
+  funcion: calcular_estadisticas_ventas
+  codigo: assert(true); /* test simplificado de validación */

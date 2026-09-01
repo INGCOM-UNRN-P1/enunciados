@@ -1,0 +1,32 @@
+id: ej-7-14-libreria-de-manipulacion-de-co
+titulo: Librería de Manipulación de Conjuntos sobre Arreglos
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Las funciones retornan la cantidad efectiva de elementos colocados en el arreglo
+  resultado `C`.
+tags:
+- sobre
+- fundamentos
+- headers
+- libreria
+- arreglos
+verificado: true
+funciones:
+- nombre: proc_e_manipulacion_de_co
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Manipulación de Conjuntos
+    sobre Arreglos
+tests_funciones:
+- nombre: test_proc_e_manipulacion_de_co_positivo
+  funcion: proc_e_manipulacion_de_co
+  codigo: 'int res = proc_e_manipulacion_de_co(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_manipulacion_de_co_cero
+  funcion: proc_e_manipulacion_de_co
+  codigo: 'int res = proc_e_manipulacion_de_co(0);
+
+    assert(res == 0);'

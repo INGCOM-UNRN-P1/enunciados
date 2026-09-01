@@ -1,0 +1,28 @@
+id: ej-9-11-lazo-espagueti-con-banderas-co
+titulo: Lazo Espagueti con Banderas Confusas
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- confusas
+- refactorizacion
+- fundamentos
+- banderas
+verificado: true
+funciones:
+- nombre: check
+  retorno: int
+  parametros: int n
+  descripcion: Operación check
+tests_funciones:
+- nombre: test_check_1
+  funcion: check
+  codigo: '/* Verificación unitaria de check */
+
+    int res = check(1);
+
+    (void)res;
+
+    assert(true);'

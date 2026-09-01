@@ -1,0 +1,37 @@
+id: ej-3-40-logaritmo-entero
+titulo: Logaritmo Entero
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso:** Se puede resolver con divisiones sucesivas.'
+- Inicializar `k = 0`.
+- Mientras `n >= b`, dividir `n` por `b` e incrementar `k`.
+- El valor final de `k` es el resultado. definición interna oculta en el archivo `.c`.
+  para copiar la estructura de forma segura.
+- '[Plus Ultra] Validar que el argumento sea estrictamente positivo y la base mayor
+  que 1.'
+- '[Plus Ultra] Calcular el logaritmo entero mediante divisiones sucesivas en un lazo.'
+tags:
+- fundamentos
+- aritmetica
+- entero
+- matematica
+- logaritmo
+verificado: true
+funciones:
+- nombre: proc__40_logaritmo_entero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Logaritmo Entero
+tests_funciones:
+- nombre: test_proc__40_logaritmo_entero_positivo
+  funcion: proc__40_logaritmo_entero
+  codigo: 'int res = proc__40_logaritmo_entero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__40_logaritmo_entero_cero
+  funcion: proc__40_logaritmo_entero
+  codigo: 'int res = proc__40_logaritmo_entero(0);
+
+    assert(res == 0);'

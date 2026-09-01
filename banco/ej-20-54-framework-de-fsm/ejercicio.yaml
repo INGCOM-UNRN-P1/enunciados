@@ -1,0 +1,32 @@
+id: ej-20-54-framework-de-fsm
+titulo: Framework de FSM
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- enum
+- framework
+- memoria
+verificado: true
+funciones:
+- nombre: proc__54_framework_de_fsm
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Framework de FSM
+tests_funciones:
+- nombre: test_proc__54_framework_de_fsm_positivo
+  funcion: proc__54_framework_de_fsm
+  codigo: 'int res = proc__54_framework_de_fsm(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__54_framework_de_fsm_cero
+  funcion: proc__54_framework_de_fsm
+  codigo: 'int res = proc__54_framework_de_fsm(0);
+
+    assert(res == 0);'

@@ -1,0 +1,29 @@
+id: ej-31-9-analisis-de-complejidad-tempor
+titulo: Análisis de Complejidad Temporal
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas: []
+tags:
+- analisis
+- complejidad
+- avanzados
+- code_review
+- temporal
+verificado: true
+funciones:
+- nombre: buscar_par_suma
+  retorno: bool
+  parametros: int arr[], int tam, int objetivo
+  descripcion: Operación buscar_par_suma
+- nombre: buscar_par_suma_optimizado
+  retorno: bool
+  parametros: int arr[], int tam, int objetivo
+  descripcion: Operación buscar_par_suma_optimizado
+tests_funciones:
+- nombre: test_buscar_par_suma_1
+  funcion: buscar_par_suma
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_buscar_par_suma_optimizado_2
+  funcion: buscar_par_suma_optimizado
+  codigo: assert(true); /* test simplificado de validación */

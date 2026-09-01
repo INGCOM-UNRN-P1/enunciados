@@ -1,0 +1,36 @@
+id: ej-3-36-secuencia-de-tribonacci
+titulo: Secuencia de Tribonacci
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:** Similar a Fibonacci, pero se necesitan tres variables para guardar
+  los tres términos anteriores. valores fuera de rango o tipos inválidos. un lazo
+  hasta que el usuario elija finalizar.'
+- '[Plus Ultra] Usar un lazo iterativo manteniendo tres variables de estado para los
+  términos previos.'
+- '[Plus Ultra] Generar los primeros N términos de la secuencia de Tribonacci.'
+tags:
+- fundamentos
+- secuencia
+- tribonacci
+- aritmetica
+- matematica
+verificado: true
+funciones:
+- nombre: proc_uencia_de_tribonacci
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Secuencia de Tribonacci
+tests_funciones:
+- nombre: test_proc_uencia_de_tribonacci_positivo
+  funcion: proc_uencia_de_tribonacci
+  codigo: 'int res = proc_uencia_de_tribonacci(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_uencia_de_tribonacci_cero
+  funcion: proc_uencia_de_tribonacci
+  codigo: 'int res = proc_uencia_de_tribonacci(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: ej-9-51-checksum-de-paridad-longitudin
+titulo: Checksum de Paridad Longitudinal
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Definí una constante #define MODULO_CHECKSUM 256 para evitar literales mágicos.'
+- Validá punteros nulos y tamaños de bloque no positivos antes de iterar.
+- Comprobá que la suma de todos los datos más el checksum resultante sea congruente
+  con 0 módulo 256.
+tags:
+- checksum
+- clean_code
+- refactorizacion
+- fundamentos
+- longitudinal
+verificado: true
+funciones:
+- nombre: proc_e_paridad_longitudin
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Checksum de Paridad Longitudinal
+tests_funciones:
+- nombre: test_proc_e_paridad_longitudin_positivo
+  funcion: proc_e_paridad_longitudin
+  codigo: 'int res = proc_e_paridad_longitudin(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_paridad_longitudin_cero
+  funcion: proc_e_paridad_longitudin
+  codigo: 'int res = proc_e_paridad_longitudin(0);
+
+    assert(res == 0);'

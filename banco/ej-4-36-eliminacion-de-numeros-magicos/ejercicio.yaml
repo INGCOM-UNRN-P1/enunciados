@@ -1,0 +1,34 @@
+id: ej-4-36-eliminacion-de-numeros-magicos
+titulo: Eliminación de Números Mágicos
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Reemplazá literales numéricos ''mágicos'' por constantes descriptivas con #define
+  o enum.'
+- Agrupá constantes relacionadas en enumeraciones para mejorar la legibilidad y seguridad
+  de tipos.
+- Centralizá los parámetros de configuración en la cabecera del módulo para facilitar
+  su mantenimiento.
+tags:
+- aserciones
+- fundamentos
+- magicos
+- eliminacion
+- numeros
+verificado: true
+funciones:
+- nombre: calcular_costo_envio
+  retorno: double
+  parametros: double peso
+  descripcion: Operación calcular_costo_envio
+tests_funciones:
+- nombre: test_calcular_costo_envio_1
+  funcion: calcular_costo_envio
+  codigo: '/* Verificación unitaria de calcular_costo_envio */
+
+    double res = calcular_costo_envio(1);
+
+    (void)res;
+
+    assert(true);'

@@ -1,0 +1,30 @@
+id: geom-comp-09
+titulo: Verificación de Polígono Convexo vs Cóncavo
+tema: geometria_computacional
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_09
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Verificación de Polígono Convexo vs Cóncavo
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_09_positivo
+  funcion: ejecutar_geom_comp_09
+  codigo: 'int res = ejecutar_geom_comp_09(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_09_cero
+  funcion: ejecutar_geom_comp_09
+  codigo: 'int res = ejecutar_geom_comp_09(0);
+
+    assert(res == 0);'

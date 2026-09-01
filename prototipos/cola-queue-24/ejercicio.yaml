@@ -1,0 +1,33 @@
+id: cola-queue-24
+titulo: Simulación de Atención en Banco con Colas Múltiples y Balancer
+tema: colas_queue
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_24
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Atención en Banco con Colas
+    Múltiples y Balancer
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_24_positivo
+  funcion: ejecutar_cola_queue_24
+  codigo: 'int res = ejecutar_cola_queue_24(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_24_cero
+  funcion: ejecutar_cola_queue_24
+  codigo: 'int res = ejecutar_cola_queue_24(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: ej-17-11-reduccion-dinamica-de-capacida
+titulo: Reducción Dinámica de Capacidad (Shrinking)
+tema: punteros
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- shrinking
+- estructuras
+- memoria
+- dinamica
+- punteros
+verificado: true
+funciones:
+- nombre: proc_dinamica_de_capacida
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Reducción Dinámica de Capacidad (Shrinking)
+tests_funciones:
+- nombre: test_proc_dinamica_de_capacida_positivo
+  funcion: proc_dinamica_de_capacida
+  codigo: 'int res = proc_dinamica_de_capacida(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_dinamica_de_capacida_cero
+  funcion: proc_dinamica_de_capacida
+  codigo: 'int res = proc_dinamica_de_capacida(0);
+
+    assert(res == 0);'

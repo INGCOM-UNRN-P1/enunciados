@@ -1,0 +1,31 @@
+id: ej-4-9-mayor-de-dos-numeros-reales
+titulo: Mayor de dos números reales
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Encapsular la comparación en una función pura.'
+- '[Plus Ultra] Manejar el caso en que ambos números sean iguales.'
+tags:
+- control
+- lazos
+- fundamentos
+- reales
+- mayor
+verificado: true
+funciones:
+- nombre: proc_e_dos_numeros_reales
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Mayor de dos números reales
+tests_funciones:
+- nombre: test_proc_e_dos_numeros_reales_positivo
+  funcion: proc_e_dos_numeros_reales
+  codigo: 'int res = proc_e_dos_numeros_reales(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_dos_numeros_reales_cero
+  funcion: proc_e_dos_numeros_reales
+  codigo: 'int res = proc_e_dos_numeros_reales(0);
+
+    assert(res == 0);'

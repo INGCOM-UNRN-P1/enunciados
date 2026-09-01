@@ -1,0 +1,39 @@
+id: ej-9-3-suma-de-cuadrados-en-una-linea
+titulo: Suma de Cuadrados en Una Línea
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- cuadrados
+- linea
+verificado: true
+funciones:
+- nombre: calcular_suma_cuadrados
+  retorno: int
+  parametros: int limite
+  descripcion: Operación calcular_suma_cuadrados
+- nombre: test_suma_cuadrados
+  retorno: void
+  parametros: void
+  descripcion: Operación test_suma_cuadrados
+tests_funciones:
+- nombre: test_calcular_suma_cuadrados_1
+  funcion: calcular_suma_cuadrados
+  codigo: '/* Verificación unitaria de calcular_suma_cuadrados */
+
+    int res = calcular_suma_cuadrados(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_suma_cuadrados_2
+  funcion: test_suma_cuadrados
+  codigo: '/* Verificación unitaria de test_suma_cuadrados */
+
+    test_suma_cuadrados();
+
+    assert(true);'

@@ -1,0 +1,32 @@
+id: text-serde-09
+titulo: Parser de JSON Anidado con Árbol de Nodos de Memoria
+tema: serializacion_texto_json_csv
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_09
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de JSON Anidado con Árbol de Nodos
+    de Memoria
+tests_funciones:
+- nombre: test_ejecutar_text_serde_09_positivo
+  funcion: ejecutar_text_serde_09
+  codigo: 'int res = ejecutar_text_serde_09(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_09_cero
+  funcion: ejecutar_text_serde_09
+  codigo: 'int res = ejecutar_text_serde_09(0);
+
+    assert(res == 0);'

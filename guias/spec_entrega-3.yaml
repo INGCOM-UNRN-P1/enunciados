@@ -1,0 +1,9 @@
+nombre: Entrega 3 — Modularización y Funciones en C
+duracion_min: 200
+margen_carga: 0.8
+temas:
+  - funciones
+  - aritmetica
+bloom_min: 2
+bloom_max: 4
+cantidad_maxima: 8

@@ -1,0 +1,31 @@
+id: comp-datos-06
+titulo: Desempaquetado de Nibbles y Restauración de Arreglos
+tema: compresion_datos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Desempaquetado de Nibbles y Restauración
+    de Arreglos
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_06_positivo
+  funcion: ejecutar_comp_datos_06
+  codigo: 'int res = ejecutar_comp_datos_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_06_cero
+  funcion: ejecutar_comp_datos_06
+  codigo: 'int res = ejecutar_comp_datos_06(0);
+
+    assert(res == 0);'

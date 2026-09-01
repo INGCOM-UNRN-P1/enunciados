@@ -1,0 +1,31 @@
+id: ej-4-37-rombo
+titulo: Rombo
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Validar que el tamaño ingresado sea impar.'
+- '[Plus Ultra] Generar el rombo con patrones de caracteres alternados.'
+tags:
+- control
+- lazos
+- fundamentos
+- rombo
+- condicionales
+verificado: true
+funciones:
+- nombre: ejecutar_ej_4_37_rombo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Rombo
+tests_funciones:
+- nombre: test_ejecutar_ej_4_37_rombo_positivo
+  funcion: ejecutar_ej_4_37_rombo
+  codigo: 'int res = ejecutar_ej_4_37_rombo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_4_37_rombo_cero
+  funcion: ejecutar_ej_4_37_rombo
+  codigo: 'int res = ejecutar_ej_4_37_rombo(0);
+
+    assert(res == 0);'

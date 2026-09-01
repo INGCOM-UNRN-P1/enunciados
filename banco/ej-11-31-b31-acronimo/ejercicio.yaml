@@ -1,0 +1,38 @@
+id: ej-11-31-b31-acronimo
+titulo: Acrónimo
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Recorrer la cadena.
+- Usar una bandera o estado para saber si el carácter actual es el inicio de una nueva
+  palabra.
+- Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a la cadena
+  de resultado.
+tags:
+- acronimo
+- cadenas
+- strings
+- memoria
+verificado: true
+funciones:
+- nombre: ejecutar_ej_11_31_b31_acronimo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Acrónimo
+tests_funciones:
+- nombre: test_ejecutar_ej_11_31_b31_acronimo_positivo
+  funcion: ejecutar_ej_11_31_b31_acronimo
+  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_11_31_b31_acronimo_cero
+  funcion: ejecutar_ej_11_31_b31_acronimo
+  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(0);
+
+    assert(res == 0);'

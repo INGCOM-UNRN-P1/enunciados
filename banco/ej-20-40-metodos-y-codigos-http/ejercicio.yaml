@@ -1,0 +1,33 @@
+id: ej-20-40-metodos-y-codigos-http
+titulo: Métodos y códigos HTTP
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- codigos
+- tipos
+- memoria
+- enum
+- metodos
+verificado: true
+funciones:
+- nombre: proc_todos_y_codigos_http
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Métodos y códigos HTTP
+tests_funciones:
+- nombre: test_proc_todos_y_codigos_http_positivo
+  funcion: proc_todos_y_codigos_http
+  codigo: 'int res = proc_todos_y_codigos_http(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_todos_y_codigos_http_cero
+  funcion: proc_todos_y_codigos_http
+  codigo: 'int res = proc_todos_y_codigos_http(0);
+
+    assert(res == 0);'

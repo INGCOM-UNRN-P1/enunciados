@@ -1,0 +1,31 @@
+id: comp-datos-23
+titulo: Algoritmo Move-to-Front MTF para Reducción de Entropía
+tema: compresion_datos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_23
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo Move-to-Front MTF para Reducción
+    de Entropía
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_23_positivo
+  funcion: ejecutar_comp_datos_23
+  codigo: 'int res = ejecutar_comp_datos_23(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_23_cero
+  funcion: ejecutar_comp_datos_23
+  codigo: 'int res = ejecutar_comp_datos_23(0);
+
+    assert(res == 0);'

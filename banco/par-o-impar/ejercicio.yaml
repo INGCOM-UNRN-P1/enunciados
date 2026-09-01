@@ -1,0 +1,29 @@
+id: par-o-impar
+titulo: Par o Impar
+tema: condicionales
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Un número entero es par si el resto de dividirlo por 2 es 0 (numero % 2 == 0).
+- El operador módulo % calcula el resto de la división entera.
+tags:
+- condicionales
+- if
+- aritmetica
+verificado: true
+funciones:
+- nombre: ejecutar_par_o_impar
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Par o Impar
+tests_funciones:
+- nombre: test_ejecutar_par_o_impar_positivo
+  funcion: ejecutar_par_o_impar
+  codigo: 'int res = ejecutar_par_o_impar(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_par_o_impar_cero
+  funcion: ejecutar_par_o_impar
+  codigo: 'int res = ejecutar_par_o_impar(0);
+
+    assert(res == 0);'

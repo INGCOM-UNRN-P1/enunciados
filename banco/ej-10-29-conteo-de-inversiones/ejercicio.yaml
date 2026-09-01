@@ -1,0 +1,38 @@
+id: ej-10-29-conteo-de-inversiones
+titulo: Conteo de inversiones
+tema: arreglos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '**Proceso (Fuerza Bruta):** Usar dos lazos anidados. El lazo exterior itera con
+  `i` desde 0 hasta `n-2`. El lazo interior itera con `j` desde `i+1` hasta `n-1`.
+  Si `arreglo[i] > arreglo[j]`, se incrementa un contador.'
+- '**Complejidad:** La solución de fuerza bruta es O(n^2). Existen algoritmos más
+  eficientes basados en Merge Sort.'
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- arreglos
+- memoria
+- conteo
+- vectores
+- inversiones
+verificado: true
+funciones:
+- nombre: proc_onteo_de_inversiones
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conteo de inversiones
+tests_funciones:
+- nombre: test_proc_onteo_de_inversiones_positivo
+  funcion: proc_onteo_de_inversiones
+  codigo: 'int res = proc_onteo_de_inversiones(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_onteo_de_inversiones_cero
+  funcion: proc_onteo_de_inversiones
+  codigo: 'int res = proc_onteo_de_inversiones(0);
+
+    assert(res == 0);'

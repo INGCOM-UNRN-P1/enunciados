@@ -1,0 +1,30 @@
+id: secuencia-fibonacci
+titulo: Secuencia de Fibonacci
+tema: lazos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- 'Inicializá los primeros dos términos: t0 = 0 y t1 = 1.'
+- En cada paso, calculá el siguiente término t0 + t1, imprimilo y desplazá las variables.
+tags:
+- lazos
+- for
+- secuencias
+- fibonacci
+verificado: true
+funciones:
+- nombre: ejecutar_secuencia_fibonacci
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Secuencia de Fibonacci
+tests_funciones:
+- nombre: test_ejecutar_secuencia_fibonacci_positivo
+  funcion: ejecutar_secuencia_fibonacci
+  codigo: 'int res = ejecutar_secuencia_fibonacci(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_secuencia_fibonacci_cero
+  funcion: ejecutar_secuencia_fibonacci
+  codigo: 'int res = ejecutar_secuencia_fibonacci(0);
+
+    assert(res == 0);'

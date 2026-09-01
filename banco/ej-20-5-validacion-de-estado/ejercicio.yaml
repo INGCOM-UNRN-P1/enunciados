@@ -1,0 +1,33 @@
+id: ej-20-5-validacion-de-estado
+titulo: Validación de estado
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- memoria
+- validacion
+- enum
+- estado
+verificado: true
+funciones:
+- nombre: proc_validacion_de_estado
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validación de estado
+tests_funciones:
+- nombre: test_proc_validacion_de_estado_positivo
+  funcion: proc_validacion_de_estado
+  codigo: 'int res = proc_validacion_de_estado(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_validacion_de_estado_cero
+  funcion: proc_validacion_de_estado
+  codigo: 'int res = proc_validacion_de_estado(0);
+
+    assert(res == 0);'

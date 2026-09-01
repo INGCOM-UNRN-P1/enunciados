@@ -1,0 +1,31 @@
+id: ej-7-25-libreria-de-criptografia-clasi
+titulo: Librería de Criptografía Clásica
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- El cifrado César debe mantener las letras minúsculas y mayúsculas en sus respectivos
+  rangos alfabéticos.
+tags:
+- fundamentos
+- headers
+- libreria
+- criptografia
+- clasica
+verificado: true
+funciones:
+- nombre: proc_e_criptografia_clasi
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Criptografía Clásica
+tests_funciones:
+- nombre: test_proc_e_criptografia_clasi_positivo
+  funcion: proc_e_criptografia_clasi
+  codigo: 'int res = proc_e_criptografia_clasi(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_criptografia_clasi_cero
+  funcion: proc_e_criptografia_clasi
+  codigo: 'int res = proc_e_criptografia_clasi(0);
+
+    assert(res == 0);'

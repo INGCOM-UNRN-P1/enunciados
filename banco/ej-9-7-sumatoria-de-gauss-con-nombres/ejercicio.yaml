@@ -1,0 +1,39 @@
+id: ej-9-7-sumatoria-de-gauss-con-nombres
+titulo: Sumatoria de Gauss con Nombres Inadecuados
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- sumatoria
+- refactorizacion
+- nombres
+- inadecuados
+verificado: true
+funciones:
+- nombre: calcular_sumatoria_gauss
+  retorno: long long
+  parametros: int limite_superior
+  descripcion: Operación calcular_sumatoria_gauss
+- nombre: test_sumatoria_gauss
+  retorno: void
+  parametros: void
+  descripcion: Operación test_sumatoria_gauss
+tests_funciones:
+- nombre: test_calcular_sumatoria_gauss_1
+  funcion: calcular_sumatoria_gauss
+  codigo: '/* Verificación unitaria de calcular_sumatoria_gauss */
+
+    long long res = calcular_sumatoria_gauss(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_sumatoria_gauss_2
+  funcion: test_sumatoria_gauss
+  codigo: '/* Verificación unitaria de test_sumatoria_gauss */
+
+    test_sumatoria_gauss();
+
+    assert(true);'

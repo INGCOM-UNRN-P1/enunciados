@@ -1,0 +1,28 @@
+id: b1-rec-concepto-c-37
+titulo: Punteros Genéricos Void Pointer y Casteo
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_37
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Punteros Genéricos Void Pointer y Casteo
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_37_positivo
+  funcion: ejecutar_b1_rec_concepto_c_37
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_37(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_37_cero
+  funcion: ejecutar_b1_rec_concepto_c_37
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_37(0);
+
+    assert(res == 0);'

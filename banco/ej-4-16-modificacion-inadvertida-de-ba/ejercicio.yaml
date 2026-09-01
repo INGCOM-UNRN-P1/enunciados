@@ -1,0 +1,37 @@
+id: ej-4-16-modificacion-inadvertida-de-ba
+titulo: Modificación inadvertida de bandera global
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- bandera
+- global
+- inadvertida
+verificado: true
+funciones:
+- nombre: validar_rango
+  retorno: void
+  parametros: int x
+  descripcion: Operación validar_rango
+- nombre: validar_paridad
+  retorno: void
+  parametros: int x
+  descripcion: Operación validar_paridad
+tests_funciones:
+- nombre: test_validar_rango_1
+  funcion: validar_rango
+  codigo: '/* Verificación unitaria de validar_rango */
+
+    validar_rango(1);
+
+    assert(true);'
+- nombre: test_validar_paridad_2
+  funcion: validar_paridad
+  codigo: '/* Verificación unitaria de validar_paridad */
+
+    validar_paridad(1);
+
+    assert(true);'

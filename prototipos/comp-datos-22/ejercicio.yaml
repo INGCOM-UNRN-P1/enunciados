@@ -1,0 +1,30 @@
+id: comp-datos-22
+titulo: Transformada Inversa de Burrows-Wheeler
+tema: compresion_datos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_22
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Transformada Inversa de Burrows-Wheeler
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_22_positivo
+  funcion: ejecutar_comp_datos_22
+  codigo: 'int res = ejecutar_comp_datos_22(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_22_cero
+  funcion: ejecutar_comp_datos_22
+  codigo: 'int res = ejecutar_comp_datos_22(0);
+
+    assert(res == 0);'

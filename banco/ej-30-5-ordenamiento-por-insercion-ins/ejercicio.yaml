@@ -1,0 +1,34 @@
+id: ej-30-5-ordenamiento-por-insercion-ins
+titulo: Ordenamiento por Inserción (Insertion Sort)
+tema: algoritmos_ordenamiento
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- insertion
+- busqueda
+- ordenamiento
+- avanzados
+- insercion
+verificado: true
+funciones:
+- nombre: proc_to_por_insercion_ins
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ordenamiento por Inserción (Insertion
+    Sort)
+tests_funciones:
+- nombre: test_proc_to_por_insercion_ins_positivo
+  funcion: proc_to_por_insercion_ins
+  codigo: 'int res = proc_to_por_insercion_ins(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_to_por_insercion_ins_cero
+  funcion: proc_to_por_insercion_ins
+  codigo: 'int res = proc_to_por_insercion_ins(0);
+
+    assert(res == 0);'

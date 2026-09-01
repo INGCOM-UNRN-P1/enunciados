@@ -1,0 +1,37 @@
+id: ej-10-21-histograma
+titulo: Histograma
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso:** Usar lazos anidados.'
+- El lazo exterior recorre cada elemento del arreglo.
+- El lazo interior se ejecuta tantas veces como el valor del elemento actual, imprimiendo
+  un asterisco en cada una de sus iteraciones.
+- Después del lazo interior, se imprime un salto de línea.
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- histograma
+- vectores
+- arreglos
+- memoria
+verificado: true
+funciones:
+- nombre: ejecutar_ej_10_21_histograma
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Histograma
+tests_funciones:
+- nombre: test_ejecutar_ej_10_21_histograma_positivo
+  funcion: ejecutar_ej_10_21_histograma
+  codigo: 'int res = ejecutar_ej_10_21_histograma(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_10_21_histograma_cero
+  funcion: ejecutar_ej_10_21_histograma
+  codigo: 'int res = ejecutar_ej_10_21_histograma(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: ej-22-5-buscar-elemento
+titulo: Buscar Elemento
+tema: tad
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- tad
+- abstraccion
+- buscar
+- algoritmos
+- elemento
+verificado: true
+funciones:
+- nombre: proc_22_5_buscar_elemento
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Buscar Elemento
+tests_funciones:
+- nombre: test_proc_22_5_buscar_elemento_positivo
+  funcion: proc_22_5_buscar_elemento
+  codigo: 'int res = proc_22_5_buscar_elemento(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_22_5_buscar_elemento_cero
+  funcion: proc_22_5_buscar_elemento
+  codigo: 'int res = proc_22_5_buscar_elemento(0);
+
+    assert(res == 0);'

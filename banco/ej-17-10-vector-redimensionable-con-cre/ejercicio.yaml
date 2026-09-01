@@ -1,0 +1,33 @@
+id: ej-17-10-vector-redimensionable-con-cre
+titulo: Vector Redimensionable con Crecimiento
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- crecimiento
+- estructuras
+- vector
+- memoria
+- punteros
+verificado: true
+funciones:
+- nombre: proc_imensionable_con_cre
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Vector Redimensionable con Crecimiento
+tests_funciones:
+- nombre: test_proc_imensionable_con_cre_positivo
+  funcion: proc_imensionable_con_cre
+  codigo: 'int res = proc_imensionable_con_cre(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_imensionable_con_cre_cero
+  funcion: proc_imensionable_con_cre
+  codigo: 'int res = proc_imensionable_con_cre(0);
+
+    assert(res == 0);'

@@ -1,0 +1,31 @@
+id: hilos-conc-27
+titulo: Contador de Palabras Concurrente sobre Múltiples Archivos
+tema: concurrencia_hilos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contador de Palabras Concurrente sobre
+    Múltiples Archivos
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_27_positivo
+  funcion: ejecutar_hilos_conc_27
+  codigo: 'int res = ejecutar_hilos_conc_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_27_cero
+  funcion: ejecutar_hilos_conc_27
+  codigo: 'int res = ejecutar_hilos_conc_27(0);
+
+    assert(res == 0);'

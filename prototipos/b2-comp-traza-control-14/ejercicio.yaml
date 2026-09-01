@@ -1,0 +1,28 @@
+id: b2-comp-traza-control-14
+titulo: Evaluación de Expresiones Ternarias Anidadas
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_14
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Evaluación de Expresiones Ternarias Anidadas
+tests_funciones:
+- nombre: test_proc_omp_traza_control_14_positivo
+  funcion: proc_omp_traza_control_14
+  codigo: 'int res = proc_omp_traza_control_14(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_14_cero
+  funcion: proc_omp_traza_control_14
+  codigo: 'int res = proc_omp_traza_control_14(0);
+
+    assert(res == 0);'

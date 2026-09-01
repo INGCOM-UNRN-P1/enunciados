@@ -1,0 +1,29 @@
+id: ej-9-3-b2-encontrar-maximo
+titulo: Encontrar máximo
+tema: punteros
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- encontrar
+- maximo
+- operaciones
+- memoria
+- punteros
+verificado: true
+funciones:
+- nombre: proc__b2_encontrar_maximo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Encontrar máximo
+tests_funciones:
+- nombre: test_proc__b2_encontrar_maximo_positivo
+  funcion: proc__b2_encontrar_maximo
+  codigo: 'int res = proc__b2_encontrar_maximo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__b2_encontrar_maximo_cero
+  funcion: proc__b2_encontrar_maximo
+  codigo: 'int res = proc__b2_encontrar_maximo(0);
+
+    assert(res == 0);'

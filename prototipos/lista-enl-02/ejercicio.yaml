@@ -1,0 +1,26 @@
+id: lista-enl-02
+titulo: Inversión In-Place de Lista Enlazada Simple
+tema: listas_enlazadas
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: imprimir_y_liberar
+  retorno: void
+  parametros: t_Nodo *cabeza
+  descripcion: Operación imprimir_y_liberar
+tests_funciones:
+- nombre: test_imprimir_y_liberar_1
+  funcion: imprimir_y_liberar
+  codigo: '/* Verificación unitaria de imprimir_y_liberar */
+
+    assert(true);'

@@ -1,0 +1,28 @@
+id: b1-rec-concepto-c-39
+titulo: Directiva Error para Bloqueo de Compilación
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_39
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Directiva Error para Bloqueo de Compilación
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_39_positivo
+  funcion: ejecutar_b1_rec_concepto_c_39
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_39(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_39_cero
+  funcion: ejecutar_b1_rec_concepto_c_39
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_39(0);
+
+    assert(res == 0);'

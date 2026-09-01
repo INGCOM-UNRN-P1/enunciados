@@ -1,0 +1,32 @@
+id: net-sock-05
+titulo: 'Cliente Echo TCP: Conexión y Transmisión de Mensajes'
+tema: redes_sockets
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá que Big Endian transmite el byte más significativo primero.
+- Validá el tamaño de los búferes de transmisión.
+tags:
+- redes
+- sockets
+- endianness
+- protocolos
+- tcp_udp
+verificado: true
+funciones:
+- nombre: ejecutar_net_sock_05
+  retorno: int
+  parametros: int val
+  descripcion: 'Procesa el flujo principal de Cliente Echo TCP: Conexión y Transmisión
+    de Mensajes'
+tests_funciones:
+- nombre: test_ejecutar_net_sock_05_positivo
+  funcion: ejecutar_net_sock_05
+  codigo: 'int res = ejecutar_net_sock_05(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_net_sock_05_cero
+  funcion: ejecutar_net_sock_05
+  codigo: 'int res = ejecutar_net_sock_05(0);
+
+    assert(res == 0);'

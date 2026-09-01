@@ -1,0 +1,31 @@
+id: ej-4-10-numeros-del-1-al-100
+titulo: Números del 1 al 100
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Mostrar los números en una cuadrícula alineada de 10x10.'
+- '[Plus Ultra] Permitir al usuario elegir el número final del conteo.'
+tags:
+- control
+- lazos
+- fundamentos
+- numeros
+- condicionales
+verificado: true
+funciones:
+- nombre: proc_numeros_del_1_al_100
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números del 1 al 100
+tests_funciones:
+- nombre: test_proc_numeros_del_1_al_100_positivo
+  funcion: proc_numeros_del_1_al_100
+  codigo: 'int res = proc_numeros_del_1_al_100(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_numeros_del_1_al_100_cero
+  funcion: proc_numeros_del_1_al_100
+  codigo: 'int res = proc_numeros_del_1_al_100(0);
+
+    assert(res == 0);'

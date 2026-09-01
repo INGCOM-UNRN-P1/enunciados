@@ -1,0 +1,33 @@
+id: ej-12-11-dividir-archivo-grande
+titulo: Dividir Archivo Grande
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+tags:
+- archivo
+- memoria
+- dividir
+- io_disco
+- grande
+verificado: true
+funciones:
+- nombre: proc_vidir_archivo_grande
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Dividir Archivo Grande
+tests_funciones:
+- nombre: test_proc_vidir_archivo_grande_positivo
+  funcion: proc_vidir_archivo_grande
+  codigo: 'int res = proc_vidir_archivo_grande(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_vidir_archivo_grande_cero
+  funcion: proc_vidir_archivo_grande
+  codigo: 'int res = proc_vidir_archivo_grande(0);
+
+    assert(res == 0);'

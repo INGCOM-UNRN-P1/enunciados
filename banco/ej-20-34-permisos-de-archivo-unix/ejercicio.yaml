@@ -1,0 +1,33 @@
+id: ej-20-34-permisos-de-archivo-unix
+titulo: Permisos de archivo (UNIX)
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- archivo
+- tipos
+- permisos
+- unix
+- memoria
+verificado: true
+funciones:
+- nombre: proc_isos_de_archivo_unix
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Permisos de archivo (UNIX)
+tests_funciones:
+- nombre: test_proc_isos_de_archivo_unix_positivo
+  funcion: proc_isos_de_archivo_unix
+  codigo: 'int res = proc_isos_de_archivo_unix(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_isos_de_archivo_unix_cero
+  funcion: proc_isos_de_archivo_unix
+  codigo: 'int res = proc_isos_de_archivo_unix(0);
+
+    assert(res == 0);'

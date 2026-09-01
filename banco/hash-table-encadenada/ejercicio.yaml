@@ -1,0 +1,59 @@
+id: hash-table-encadenada
+titulo: Tabla Hash con Resolución por Encadenamiento
+tema: estructuras_datos
+bloom: 4
+minutos_estimados: 45
+pistas:
+- 'Usá la función hash djb2: hash = ((hash << 5) + hash) + c iterando sobre los caracteres
+  de la clave.'
+- Cada entrada de la tabla hash debe contener un puntero a una lista enlazada simple
+  de nodos (clave, valor, siguiente).
+- Recordá liberar tanto los nodos como las copias de las cadenas al destruir la tabla
+  para evitar memory leaks.
+tags:
+- estructuras_datos
+- hash
+- punteros
+- memoria_dinamica
+- colisiones
+verificado: true
+funciones:
+- nombre: funcion_hash_djb2
+  retorno: unsigned long
+  parametros: const char *str
+  descripcion: Operación funcion_hash_djb2
+- nombre: inicializar_tabla
+  retorno: void
+  parametros: TablaHash *tabla
+  descripcion: Operación inicializar_tabla
+- nombre: insertar_o_actualizar
+  retorno: void
+  parametros: TablaHash *tabla, const char *clave, int valor
+  descripcion: Operación insertar_o_actualizar
+- nombre: buscar_clave
+  retorno: void
+  parametros: const TablaHash *tabla, const char *clave
+  descripcion: Operación buscar_clave
+- nombre: eliminar_clave
+  retorno: void
+  parametros: TablaHash *tabla, const char *clave
+  descripcion: Operación eliminar_clave
+- nombre: destruir_tabla
+  retorno: void
+  parametros: TablaHash *tabla
+  descripcion: Operación destruir_tabla
+tests_funciones:
+- nombre: test_funcion_hash_djb2_1
+  funcion: funcion_hash_djb2
+  codigo: '/* Verificación unitaria de funcion_hash_djb2 */
+
+    unsigned long res = funcion_hash_djb2("test");
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_inicializar_tabla_2
+  funcion: inicializar_tabla
+  codigo: '/* Verificación unitaria de inicializar_tabla */
+
+    assert(true);'

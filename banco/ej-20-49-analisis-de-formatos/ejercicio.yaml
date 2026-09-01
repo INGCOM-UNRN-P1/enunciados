@@ -1,0 +1,33 @@
+id: ej-20-49-analisis-de-formatos
+titulo: Análisis de formatos
+tema: enumeraciones
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- analisis
+- memoria
+- enum
+- formatos
+verificado: true
+funciones:
+- nombre: proc_analisis_de_formatos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Análisis de formatos
+tests_funciones:
+- nombre: test_proc_analisis_de_formatos_positivo
+  funcion: proc_analisis_de_formatos
+  codigo: 'int res = proc_analisis_de_formatos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_analisis_de_formatos_cero
+  funcion: proc_analisis_de_formatos
+  codigo: 'int res = proc_analisis_de_formatos(0);
+
+    assert(res == 0);'

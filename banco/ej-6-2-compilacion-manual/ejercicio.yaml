@@ -1,0 +1,38 @@
+id: ej-6-2-compilacion-manual
+titulo: Compilación manual
+tema: build_systems
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '**Compilar los archivos objeto (`.o`)**: Se usa la opción `-c` de `gcc` para compilar
+  cada archivo fuente por separado. ```bash gcc -c main.c -o main.o gcc -c calculadora.c
+  -o calculadora.o ```'
+- 'Enlazar los objetos: Se combinan los archivos objeto para crear el ejecutable final.
+  ```bash gcc main.o calculadora.o -o mi_calculadora ``` errores de E/S con `ferror`
+  y `feof`. archivo en todos los caminos de ejecución.'
+- '[Plus Ultra] Crear un script de bash build.sh que ejecute los pasos de compilación
+  y enlace de forma secuencial.'
+- '[Plus Ultra] Probar qué ocurre si se modifica solo uno de los archivos .c y se
+  recompila solo su .o.'
+tags:
+- makefiles
+- manual
+- compilacion
+- fundamentos
+verificado: true
+funciones:
+- nombre: proc_2_compilacion_manual
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Compilación manual
+tests_funciones:
+- nombre: test_proc_2_compilacion_manual_positivo
+  funcion: proc_2_compilacion_manual
+  codigo: 'int res = proc_2_compilacion_manual(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_2_compilacion_manual_cero
+  funcion: proc_2_compilacion_manual
+  codigo: 'int res = proc_2_compilacion_manual(0);
+
+    assert(res == 0);'

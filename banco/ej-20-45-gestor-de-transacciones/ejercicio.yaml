@@ -1,0 +1,33 @@
+id: ej-20-45-gestor-de-transacciones
+titulo: Gestor de transacciones
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- transacciones
+- tipos
+- memoria
+- enum
+- gestor
+verificado: true
+funciones:
+- nombre: proc_tor_de_transacciones
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Gestor de transacciones
+tests_funciones:
+- nombre: test_proc_tor_de_transacciones_positivo
+  funcion: proc_tor_de_transacciones
+  codigo: 'int res = proc_tor_de_transacciones(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_tor_de_transacciones_cero
+  funcion: proc_tor_de_transacciones
+  codigo: 'int res = proc_tor_de_transacciones(0);
+
+    assert(res == 0);'

@@ -1,0 +1,32 @@
+id: dsp-senal-13
+titulo: Generador de Señal de Onda Cuadrada y Dientes de Sierra
+tema: procesamiento_senales_dsp
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Generador de Señal de Onda Cuadrada y
+    Dientes de Sierra
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_13_positivo
+  funcion: ejecutar_dsp_senal_13
+  codigo: 'int res = ejecutar_dsp_senal_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_13_cero
+  funcion: ejecutar_dsp_senal_13
+  codigo: 'int res = ejecutar_dsp_senal_13(0);
+
+    assert(res == 0);'

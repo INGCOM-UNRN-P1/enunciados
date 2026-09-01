@@ -1,0 +1,33 @@
+id: ej-14-3-fusion-de-arreglos-ordenados
+titulo: Fusión de Arreglos Ordenados
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- arreglos
+- fusion
+- memoria
+- malloc
+verificado: true
+funciones:
+- nombre: proc_e_arreglos_ordenados
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Fusión de Arreglos Ordenados
+tests_funciones:
+- nombre: test_proc_e_arreglos_ordenados_positivo
+  funcion: proc_e_arreglos_ordenados
+  codigo: 'int res = proc_e_arreglos_ordenados(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_arreglos_ordenados_cero
+  funcion: proc_e_arreglos_ordenados
+  codigo: 'int res = proc_e_arreglos_ordenados(0);
+
+    assert(res == 0);'

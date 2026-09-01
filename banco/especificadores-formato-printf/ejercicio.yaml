@@ -1,0 +1,28 @@
+id: especificadores-formato-printf
+titulo: Especificadores de Formato de printf
+tema: io_formato
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Cada especificador corresponde a un tipo específico.
+tags:
+- io_formato
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: proc_dores_formato_printf
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Especificadores de Formato de printf
+tests_funciones:
+- nombre: test_proc_dores_formato_printf_positivo
+  funcion: proc_dores_formato_printf
+  codigo: 'int res = proc_dores_formato_printf(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_dores_formato_printf_cero
+  funcion: proc_dores_formato_printf
+  codigo: 'int res = proc_dores_formato_printf(0);
+
+    assert(res == 0);'

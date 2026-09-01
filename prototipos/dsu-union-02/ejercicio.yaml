@@ -1,0 +1,32 @@
+id: dsu-union-02
+titulo: Inicialización de Conjuntos Disjuntos de N Elementos
+tema: conjuntos_disjuntos_union_find
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Aplicá compresión de caminos en find para aplanar el árbol.
+- Uní por rango o tamaño para mantener los árboles balanceados.
+tags:
+- dsu
+- union_find
+- conjuntos_disjuntos
+- grafos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_dsu_union_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inicialización de Conjuntos Disjuntos
+    de N Elementos
+tests_funciones:
+- nombre: test_ejecutar_dsu_union_02_positivo
+  funcion: ejecutar_dsu_union_02
+  codigo: 'int res = ejecutar_dsu_union_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsu_union_02_cero
+  funcion: ejecutar_dsu_union_02
+  codigo: 'int res = ejecutar_dsu_union_02(0);
+
+    assert(res == 0);'

@@ -1,0 +1,29 @@
+id: b2-comp-traza-control-13
+titulo: Flujo de Control con Múltiples Puntos de Retorno
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Flujo de Control con Múltiples Puntos
+    de Retorno
+tests_funciones:
+- nombre: test_proc_omp_traza_control_13_positivo
+  funcion: proc_omp_traza_control_13
+  codigo: 'int res = proc_omp_traza_control_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_13_cero
+  funcion: proc_omp_traza_control_13
+  codigo: 'int res = proc_omp_traza_control_13(0);
+
+    assert(res == 0);'

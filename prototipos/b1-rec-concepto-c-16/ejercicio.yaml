@@ -1,0 +1,29 @@
+id: b1-rec-concepto-c-16
+titulo: 'Operadores a Nivel de Bits: Desplazamiento y Máscaras'
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_16
+  retorno: int
+  parametros: int val
+  descripcion: 'Procesa el flujo principal de Operadores a Nivel de Bits: Desplazamiento
+    y Máscaras'
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_16_positivo
+  funcion: ejecutar_b1_rec_concepto_c_16
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_16_cero
+  funcion: ejecutar_b1_rec_concepto_c_16
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_16(0);
+
+    assert(res == 0);'

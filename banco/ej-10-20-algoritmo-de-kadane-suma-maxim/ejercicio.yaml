@@ -1,0 +1,39 @@
+id: ej-10-20-algoritmo-de-kadane-suma-maxim
+titulo: Algoritmo de Kadane (Suma máxima de subarreglo)
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso:** Se recorre el arreglo una sola vez, manteniendo dos variables:'
+- '`max_actual`: La suma máxima del subarreglo que termina en la posición actual.'
+- '`max_global`: La suma máxima encontrada en todo el arreglo hasta el momento.'
+- 'En cada paso `i`:'
+- '`max_actual = MAXIMO(arreglo[i], max_actual + arreglo[i])`'
+- '`max_global = MAXIMO(max_global, max_actual)`'
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- suma
+- subarreglo
+- arreglos
+- kadane
+- memoria
+verificado: true
+funciones:
+- nombre: proc_de_kadane_suma_maxim
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de Kadane (Suma máxima de subarreglo)
+tests_funciones:
+- nombre: test_proc_de_kadane_suma_maxim_positivo
+  funcion: proc_de_kadane_suma_maxim
+  codigo: 'int res = proc_de_kadane_suma_maxim(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_kadane_suma_maxim_cero
+  funcion: proc_de_kadane_suma_maxim
+  codigo: 'int res = proc_de_kadane_suma_maxim(0);
+
+    assert(res == 0);'

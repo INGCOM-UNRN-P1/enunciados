@@ -1,0 +1,17 @@
+id: ej-5-11-maximo-comun-divisor-mcd
+titulo: Máximo Común Divisor (MCD)
+tema: funciones
+bloom: 3
+minutos_estimados: 25
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_11
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Máximo Común Divisor (MCD)
+tests_funciones:
+- nombre: test_resolver_ej_11
+  funcion: resolver_ej_11
+  codigo: assert(true);

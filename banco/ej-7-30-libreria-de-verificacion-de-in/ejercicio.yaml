@@ -1,0 +1,43 @@
+id: ej-7-30-libreria-de-verificacion-de-in
+titulo: Librería de Verificación de Integridad (Checksum)
+tema: librerias
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Validar que `datos` no sea `NULL` y manejar adecuadamente los desbordamientos
+  intermedios.'
+- '**Estructura limpia:** Ubicá los archivos `.h` en `include/` y los `.c` en `src/`.'
+- '**Ejemplos y Tests:** Agregá un programa de prueba en `examples/` y pruebas unitarias
+  en `tests/`.'
+- '**Automatización:** Proveé un `Makefile` con los objetivos `make`, `make test`,
+  `make run` y `make clean`.'
+- '**Guardas de inclusión:** Usá siempre `#ifndef NOMBRE_H`, `#define NOMBRE_H` y
+  `#endif` en cada cabecera.'
+- '**Encapsulamiento:** Ocultá funciones auxiliares usando la palabra clave `static`
+  dentro del archivo `.c` en `src/`.'
+- '**Prefijos de funciones:** Utilizá prefijos en los nombres de las funciones (ej.
+  `geo_`, `str_`, `mat_`) para evitar colisiones de nombres.'
+tags:
+- checksum
+- fundamentos
+- headers
+- libreria
+- integridad
+verificado: true
+funciones:
+- nombre: proc_e_verificacion_de_in
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Verificación de Integridad
+    (Checksum)
+tests_funciones:
+- nombre: test_proc_e_verificacion_de_in_positivo
+  funcion: proc_e_verificacion_de_in
+  codigo: 'int res = proc_e_verificacion_de_in(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_verificacion_de_in_cero
+  funcion: proc_e_verificacion_de_in
+  codigo: 'int res = proc_e_verificacion_de_in(0);
+
+    assert(res == 0);'

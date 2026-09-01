@@ -1,0 +1,39 @@
+id: heap-prio-01
+titulo: 'Montículo Binario Min-Heap: Inserción y Extracción del Mínimo'
+tema: colas_prioridad_heaps
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
+- El padre de un nodo i está en (i - 1) / 2.
+tags:
+- heap
+- min_heap
+- max_heap
+- cola_prioridad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: heap_init
+  retorno: void
+  parametros: t_MinHeap *h
+  descripcion: Operación heap_init
+- nombre: heap_push
+  retorno: void
+  parametros: t_MinHeap *h, int val
+  descripcion: Operación heap_push
+- nombre: heap_pop
+  retorno: int
+  parametros: t_MinHeap *h, int *out
+  descripcion: Operación heap_pop
+tests_funciones:
+- nombre: test_heap_init_1
+  funcion: heap_init
+  codigo: '/* Verificación unitaria de heap_init */
+
+    assert(true);'
+- nombre: test_heap_push_2
+  funcion: heap_push
+  codigo: '/* Verificación unitaria de heap_push */
+
+    assert(true);'

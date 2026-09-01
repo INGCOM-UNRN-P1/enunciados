@@ -1,0 +1,32 @@
+id: trie-pref-29
+titulo: Comparación de Rendimiento entre Trie, Hash Table y BST
+tema: trie_arboles_prefijo
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Cada nodo tiene un arreglo de punteros indexados por caracteres.
+- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+tags:
+- trie
+- prefijos
+- arboles
+- cadenas
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_trie_pref_29
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Comparación de Rendimiento entre Trie,
+    Hash Table y BST
+tests_funciones:
+- nombre: test_ejecutar_trie_pref_29_positivo
+  funcion: ejecutar_trie_pref_29
+  codigo: 'int res = ejecutar_trie_pref_29(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_trie_pref_29_cero
+  funcion: ejecutar_trie_pref_29
+  codigo: 'int res = ejecutar_trie_pref_29(0);
+
+    assert(res == 0);'

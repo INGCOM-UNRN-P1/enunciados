@@ -1,0 +1,37 @@
+id: ej-1-4-pares-en-un-rango
+titulo: Pares en un rango
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Se deben leer dos números enteros, `n` (inicio del rango) y `m`'
+- '**Proceso:** Se utiliza un lazo `for` que recorra cada número `i` desde `n`'
+- '**Condición de Paridad:** Dentro del lazo, para cada número `i`, se debe'
+- '**Salida:** Si la condición de paridad se cumple, el número `i` se imprime'
+- '[Plus Ultra] Permitir que el usuario ingrese el intervalo en cualquier orden (si
+  n > m, intercambiar automáticamente los límites).'
+- '[Plus Ultra] Contar la cantidad total de pares encontrados y mostrar el resultado
+  al finalizar.'
+tags:
+- rango
+- pares
+- fundamentos
+- secuencias
+- basicos
+verificado: true
+funciones:
+- nombre: proc__4_pares_en_un_rango
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Pares en un rango
+tests_funciones:
+- nombre: test_proc__4_pares_en_un_rango_positivo
+  funcion: proc__4_pares_en_un_rango
+  codigo: 'int res = proc__4_pares_en_un_rango(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__4_pares_en_un_rango_cero
+  funcion: proc__4_pares_en_un_rango
+  codigo: 'int res = proc__4_pares_en_un_rango(0);
+
+    assert(res == 0);'

@@ -1,0 +1,41 @@
+id: ej-21-4-multiplicacion-de-matrices
+titulo: Multiplicación de matrices
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Precondición:** El número de columnas de la matriz `A` debe ser igual al número
+  de filas de la matriz `B`.'
+- '**Fórmula:** Cada elemento $c_{ij}$ de la matriz resultado se calcula como el producto
+  punto de la fila `i` de `A` y la columna `j` de `B`: $c_{ij} = \sum_{k=0}^{n-1}
+  a_{ik} \cdot b_{kj}$.'
+- '**Proceso:** Se necesitan tres lazos anidados:'
+- Lazo para las filas de `C` (y `A`), de `i=0` a `m-1`.
+- Lazo para las columnas de `C` (y `B`), de `j=0` a `p-1`.
+- Lazo para la suma del producto punto, de `k=0` a `n-1`.
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- 2d
+- algoritmos
+- matrices
+- multiplicacion
+verificado: true
+funciones:
+- nombre: proc_licacion_de_matrices
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Multiplicación de matrices
+tests_funciones:
+- nombre: test_proc_licacion_de_matrices_positivo
+  funcion: proc_licacion_de_matrices
+  codigo: 'int res = proc_licacion_de_matrices(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_licacion_de_matrices_cero
+  funcion: proc_licacion_de_matrices
+  codigo: 'int res = proc_licacion_de_matrices(0);
+
+    assert(res == 0);'

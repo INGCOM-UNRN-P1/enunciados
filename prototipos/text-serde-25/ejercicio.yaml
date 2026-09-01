@@ -1,0 +1,31 @@
+id: text-serde-25
+titulo: Serializador Binario a Hexadecimal Hex-Dump
+tema: serializacion_texto_json_csv
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_25
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serializador Binario a Hexadecimal Hex-Dump
+tests_funciones:
+- nombre: test_ejecutar_text_serde_25_positivo
+  funcion: ejecutar_text_serde_25
+  codigo: 'int res = ejecutar_text_serde_25(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_25_cero
+  funcion: ejecutar_text_serde_25
+  codigo: 'int res = ejecutar_text_serde_25(0);
+
+    assert(res == 0);'

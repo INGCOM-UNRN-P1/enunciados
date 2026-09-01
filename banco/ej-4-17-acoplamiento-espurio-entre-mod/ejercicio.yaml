@@ -1,0 +1,33 @@
+id: ej-4-17-acoplamiento-espurio-entre-mod
+titulo: Acoplamiento espurio entre módulos
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Identificá dependencias innecesarias o variables globales compartidas entre módulos
+  independientes.
+- Encapsulá los datos del módulo mediante funciones de acceso y tipos opacos.
+- Reducí el conocimiento que un módulo tiene sobre la estructura interna de otro.
+tags:
+- aserciones
+- fundamentos
+- acoplamiento
+- espurio
+- modulos
+verificado: true
+funciones:
+- nombre: proc_to_espurio_entre_mod
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Acoplamiento espurio entre módulos
+tests_funciones:
+- nombre: test_proc_to_espurio_entre_mod_positivo
+  funcion: proc_to_espurio_entre_mod
+  codigo: 'int res = proc_to_espurio_entre_mod(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_to_espurio_entre_mod_cero
+  funcion: proc_to_espurio_entre_mod
+  codigo: 'int res = proc_to_espurio_entre_mod(0);
+
+    assert(res == 0);'

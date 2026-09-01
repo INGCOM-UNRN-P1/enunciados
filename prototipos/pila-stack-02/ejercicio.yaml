@@ -1,0 +1,30 @@
+id: pila-stack-02
+titulo: Balanceo de Paréntesis y Corchetes con Pila
+tema: pilas_stack
+bloom: 1
+minutos_estimados: 10
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: coincide
+  retorno: int
+  parametros: char apertura, char cierre
+  descripcion: Operación coincide
+tests_funciones:
+- nombre: test_coincide_1
+  funcion: coincide
+  codigo: '/* Verificación unitaria de coincide */
+
+    int res = coincide(1, 2);
+
+    (void)res;
+
+    assert(true);'

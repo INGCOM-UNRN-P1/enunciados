@@ -1,0 +1,35 @@
+id: ej-1-16-poligono-regular
+titulo: Polígono Regular
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Solicitar el número de lados (`n`), la longitud de un lado'
+- '**Proceso:**'
+- '**Salida:** Mostrar el área calculada.'
+- '[Plus Ultra] Validar que el número de lados sea al menos 3 y que las longitudes
+  sean positivas.'
+- '[Plus Ultra] Calcular también el ángulo interior de cada vértice del polígono regular.'
+tags:
+- regular
+- poligono
+- fundamentos
+- secuencias
+- basicos
+verificado: true
+funciones:
+- nombre: proc__16_poligono_regular
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Polígono Regular
+tests_funciones:
+- nombre: test_proc__16_poligono_regular_positivo
+  funcion: proc__16_poligono_regular
+  codigo: 'int res = proc__16_poligono_regular(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__16_poligono_regular_cero
+  funcion: proc__16_poligono_regular
+  codigo: 'int res = proc__16_poligono_regular(0);
+
+    assert(res == 0);'

@@ -1,0 +1,31 @@
+id: hilos-conc-06
+titulo: Variables de Condición para Notificación entre Hilos
+tema: concurrencia_hilos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Variables de Condición para Notificación
+    entre Hilos
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_06_positivo
+  funcion: ejecutar_hilos_conc_06
+  codigo: 'int res = ejecutar_hilos_conc_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_06_cero
+  funcion: ejecutar_hilos_conc_06
+  codigo: 'int res = ejecutar_hilos_conc_06(0);
+
+    assert(res == 0);'

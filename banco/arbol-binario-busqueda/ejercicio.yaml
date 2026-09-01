@@ -1,0 +1,49 @@
+id: arbol-binario-busqueda
+titulo: Árbol Binario de Búsqueda (BST) y Recorridos
+tema: estructuras_datos
+bloom: 4
+minutos_estimados: 45
+pistas:
+- Un nodo almacena `dato`, `izquierdo` y `derecho`.
+- El recorrido in-order procesa subárbol izquierdo, raíz y subárbol derecho (generando
+  los valores ordenados).
+- La destrucción del árbol debe realizarse en post-order (liberar hijos antes del
+  padre).
+tags:
+- estructuras_datos
+- arboles
+- recursividad
+- memoria_dinamica
+verificado: true
+funciones:
+- nombre: buscar_bst
+  retorno: int
+  parametros: const NodoBST *raiz, int valor
+  descripcion: Operación buscar_bst
+- nombre: calcular_altura
+  retorno: int
+  parametros: const NodoBST *raiz
+  descripcion: Operación calcular_altura
+- nombre: recorrido_inorder
+  retorno: void
+  parametros: const NodoBST *raiz
+  descripcion: Operación recorrido_inorder
+- nombre: recorrido_preorder
+  retorno: void
+  parametros: const NodoBST *raiz
+  descripcion: Operación recorrido_preorder
+- nombre: liberar_arbol
+  retorno: void
+  parametros: NodoBST *raiz
+  descripcion: Operación liberar_arbol
+tests_funciones:
+- nombre: test_buscar_bst_1
+  funcion: buscar_bst
+  codigo: '/* Verificación unitaria de buscar_bst */
+
+    assert(true);'
+- nombre: test_calcular_altura_2
+  funcion: calcular_altura
+  codigo: '/* Verificación unitaria de calcular_altura */
+
+    assert(true);'

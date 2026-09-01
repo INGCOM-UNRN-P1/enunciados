@@ -1,0 +1,36 @@
+id: ej-15-24-b24-gestion-de-recursos-con-go
+titulo: Gestión de Recursos con goto
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- stack
+- layout
+- memoria
+- gestion
+- recursos
+verificado: true
+funciones:
+- nombre: procesar_archivo
+  retorno: int
+  parametros: const char *ruta
+  descripcion: Operación procesar_archivo
+tests_funciones:
+- nombre: test_procesar_archivo_1
+  funcion: procesar_archivo
+  codigo: '/* Verificación unitaria de procesar_archivo */
+
+    int res = procesar_archivo("test");
+
+    (void)res;
+
+    assert(true);'

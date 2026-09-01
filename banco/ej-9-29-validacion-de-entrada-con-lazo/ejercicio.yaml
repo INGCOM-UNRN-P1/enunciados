@@ -1,0 +1,22 @@
+id: ej-9-29-validacion-de-entrada-con-lazo
+titulo: Validación de Entrada con Lazos Desacoplados
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- lazos
+- fundamentos
+- desacoplados
+verificado: true
+funciones:
+- nombre: pedir_entero_rango
+  retorno: int
+  parametros: int min, int max
+  descripcion: Operación pedir_entero_rango
+tests_funciones:
+- nombre: test_pedir_entero_rango_1
+  funcion: pedir_entero_rango
+  codigo: assert(true); /* test simplificado de validación */

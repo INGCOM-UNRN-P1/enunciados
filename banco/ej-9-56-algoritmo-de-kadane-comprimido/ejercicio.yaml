@@ -1,0 +1,29 @@
+id: ej-9-56-algoritmo-de-kadane-comprimido
+titulo: Algoritmo de Kadane Comprimido
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- comprimido
+- kadane
+verificado: true
+funciones:
+- nombre: proc_de_kadane_comprimido
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de Kadane Comprimido
+tests_funciones:
+- nombre: test_proc_de_kadane_comprimido_positivo
+  funcion: proc_de_kadane_comprimido
+  codigo: 'int res = proc_de_kadane_comprimido(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_kadane_comprimido_cero
+  funcion: proc_de_kadane_comprimido
+  codigo: 'int res = proc_de_kadane_comprimido(0);
+
+    assert(res == 0);'

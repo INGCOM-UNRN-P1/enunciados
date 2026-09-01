@@ -1,0 +1,31 @@
+id: ej-15-30-b29-stack-vs-heap
+titulo: Stack vs Heap
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- stack
+- layout
+- memoria
+verificado: true
+funciones:
+- nombre: proc_30_b29_stack_vs_heap
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Stack vs Heap
+tests_funciones:
+- nombre: test_proc_30_b29_stack_vs_heap_positivo
+  funcion: proc_30_b29_stack_vs_heap
+  codigo: 'int res = proc_30_b29_stack_vs_heap(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_30_b29_stack_vs_heap_cero
+  funcion: proc_30_b29_stack_vs_heap
+  codigo: 'int res = proc_30_b29_stack_vs_heap(0);
+
+    assert(res == 0);'

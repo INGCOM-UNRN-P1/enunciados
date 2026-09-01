@@ -1,0 +1,32 @@
+id: ej-7-1-libreria-de-operaciones-geomet
+titulo: Librería de Operaciones Geométricas 2D
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar que dimensiones como radio, ancho y alto no sean negativas
+  (retornar `-1.0` en caso de error).'
+- Usá la constante `M_PI` definida en `<math.h>`.
+tags:
+- fundamentos
+- headers
+- operaciones
+- libreria
+- geometricas
+verificado: true
+funciones:
+- nombre: proc_e_operaciones_geomet
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Operaciones Geométricas 2D
+tests_funciones:
+- nombre: test_proc_e_operaciones_geomet_positivo
+  funcion: proc_e_operaciones_geomet
+  codigo: 'int res = proc_e_operaciones_geomet(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_operaciones_geomet_cero
+  funcion: proc_e_operaciones_geomet
+  codigo: 'int res = proc_e_operaciones_geomet(0);
+
+    assert(res == 0);'

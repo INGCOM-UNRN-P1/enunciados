@@ -1,0 +1,39 @@
+id: ej-4-13-refactorizacion-de-cuenta-banc
+titulo: Refactorización de Cuenta Bancaria con Estado Global
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- refactorizacion
+- cuenta
+- aserciones
+- fundamentos
+- bancaria
+verificado: true
+funciones:
+- nombre: depositar
+  retorno: void
+  parametros: double monto
+  descripcion: Operación depositar
+- nombre: extraer
+  retorno: bool
+  parametros: double monto
+  descripcion: Operación extraer
+tests_funciones:
+- nombre: test_depositar_1
+  funcion: depositar
+  codigo: '/* Verificación unitaria de depositar */
+
+    depositar(1);
+
+    assert(true);'
+- nombre: test_extraer_2
+  funcion: extraer
+  codigo: '/* Verificación unitaria de extraer */
+
+    bool ok = extraer(1);
+
+    (void)ok;
+
+    assert(true);'

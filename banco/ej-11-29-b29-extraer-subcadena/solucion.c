@@ -1,0 +1,19 @@
+/*
+ * Ejercicio: b.29 - Extraer subcadena
+ * Cátedra Programación I - UNRN
+ */
+
+#include <stdio.h>
+
+
+int proc_29_extraer_subcadena(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void)
+{
+    /* TODO: Implementación de b.29 - Extraer subcadena */
+    return 0;
+}

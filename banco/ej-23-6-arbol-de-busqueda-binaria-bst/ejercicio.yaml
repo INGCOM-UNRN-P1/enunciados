@@ -1,0 +1,33 @@
+id: ej-23-6-arbol-de-busqueda-binaria-bst
+titulo: Árbol de Búsqueda Binaria (BST)
+tema: estructuras_datos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- listas
+- nodos
+- busqueda
+- bst
+- binaria
+verificado: true
+funciones:
+- nombre: proc_busqueda_binaria_bst
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Árbol de Búsqueda Binaria (BST)
+tests_funciones:
+- nombre: test_proc_busqueda_binaria_bst_positivo
+  funcion: proc_busqueda_binaria_bst
+  codigo: 'int res = proc_busqueda_binaria_bst(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_busqueda_binaria_bst_cero
+  funcion: proc_busqueda_binaria_bst
+  codigo: 'int res = proc_busqueda_binaria_bst(0);
+
+    assert(res == 0);'

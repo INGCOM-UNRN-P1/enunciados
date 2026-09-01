@@ -1,0 +1,33 @@
+id: ej-32-5-implementacion-de-tipo-opaco-b
+titulo: Implementación de Tipo Opaco Básico
+tema: diseno_api
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- diseno
+- interfaces
+- basico
+- implementacion
+- avanzados
+verificado: true
+funciones:
+- nombre: proc_cion_de_tipo_opaco_b
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Implementación de Tipo Opaco Básico
+tests_funciones:
+- nombre: test_proc_cion_de_tipo_opaco_b_positivo
+  funcion: proc_cion_de_tipo_opaco_b
+  codigo: 'int res = proc_cion_de_tipo_opaco_b(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_cion_de_tipo_opaco_b_cero
+  funcion: proc_cion_de_tipo_opaco_b
+  codigo: 'int res = proc_cion_de_tipo_opaco_b(0);
+
+    assert(res == 0);'

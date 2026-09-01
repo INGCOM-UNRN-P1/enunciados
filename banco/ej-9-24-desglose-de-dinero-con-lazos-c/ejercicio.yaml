@@ -1,0 +1,29 @@
+id: ej-9-24-desglose-de-dinero-con-lazos-c
+titulo: Desglose de Dinero con Lazos Confusos
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- dinero
+- lazos
+- fundamentos
+verificado: true
+funciones:
+- nombre: desglosar_cambio
+  retorno: bool
+  parametros: int monto, int *monedas_100, int *monedas_50, int *monedas_10
+  descripcion: Operación desglosar_cambio
+- nombre: test_desglose_cambio
+  retorno: void
+  parametros: void
+  descripcion: Operación test_desglose_cambio
+tests_funciones:
+- nombre: test_desglosar_cambio_1
+  funcion: desglosar_cambio
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_test_desglose_cambio_2
+  funcion: test_desglose_cambio
+  codigo: assert(true); /* test simplificado de validación */

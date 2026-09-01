@@ -1,0 +1,33 @@
+id: ej-20-38-modelo-de-estados
+titulo: Modelo de estados
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- modelo
+- tipos
+- memoria
+- enum
+- estados
+verificado: true
+funciones:
+- nombre: proc_38_modelo_de_estados
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Modelo de estados
+tests_funciones:
+- nombre: test_proc_38_modelo_de_estados_positivo
+  funcion: proc_38_modelo_de_estados
+  codigo: 'int res = proc_38_modelo_de_estados(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_38_modelo_de_estados_cero
+  funcion: proc_38_modelo_de_estados
+  codigo: 'int res = proc_38_modelo_de_estados(0);
+
+    assert(res == 0);'

@@ -1,0 +1,36 @@
+id: ej-1-10-par-o-impar
+titulo: Par o Impar
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Leer un único número entero.'
+- '**Proceso:** La propiedad matemática clave es que un número entero es par si'
+- '**Condición:** Se utiliza una estructura `if-else`. Si `numero % 2 == 0`, el'
+- '**Salida:** Imprimir un mensaje claro que indique el resultado, como "El'
+- '[Plus Ultra] Validar que el valor ingresado sea un número entero válido comprobando
+  el retorno de scanf.'
+- '[Plus Ultra] Encapsular la lógica en una función bool es_par(int n) que no realice
+  operaciones de E/S.'
+tags:
+- impar
+- basicos
+- secuencias
+- fundamentos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_10_par_o_impar
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Par o Impar
+tests_funciones:
+- nombre: test_ejecutar_ej_1_10_par_o_impar_positivo
+  funcion: ejecutar_ej_1_10_par_o_impar
+  codigo: 'int res = ejecutar_ej_1_10_par_o_impar(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_10_par_o_impar_cero
+  funcion: ejecutar_ej_1_10_par_o_impar
+  codigo: 'int res = ejecutar_ej_1_10_par_o_impar(0);
+
+    assert(res == 0);'

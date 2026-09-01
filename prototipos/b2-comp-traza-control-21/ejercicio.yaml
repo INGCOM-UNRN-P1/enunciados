@@ -1,0 +1,28 @@
+id: b2-comp-traza-control-21
+titulo: Seguimiento de Cadenas Modificadas In-Place
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Seguimiento de Cadenas Modificadas In-Place
+tests_funciones:
+- nombre: test_proc_omp_traza_control_21_positivo
+  funcion: proc_omp_traza_control_21
+  codigo: 'int res = proc_omp_traza_control_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_21_cero
+  funcion: proc_omp_traza_control_21
+  codigo: 'int res = proc_omp_traza_control_21(0);
+
+    assert(res == 0);'

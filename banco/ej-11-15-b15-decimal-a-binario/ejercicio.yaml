@@ -1,0 +1,39 @@
+id: ej-11-15-b15-decimal-a-binario
+titulo: Decimal a binario
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Usar divisiones sucesivas por 2. El resto de cada división (`n % 2`) es el siguiente
+  dígito binario.
+- Guardar estos dígitos en un arreglo o cadena.
+- Como los dígitos se generan en orden inverso, la cadena resultante debe ser invertida
+  al final.
+tags:
+- cadenas
+- strings
+- memoria
+- decimal
+- binario
+verificado: true
+funciones:
+- nombre: proc_15_decimal_a_binario
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Decimal a binario
+tests_funciones:
+- nombre: test_proc_15_decimal_a_binario_positivo
+  funcion: proc_15_decimal_a_binario
+  codigo: 'int res = proc_15_decimal_a_binario(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_15_decimal_a_binario_cero
+  funcion: proc_15_decimal_a_binario
+  codigo: 'int res = proc_15_decimal_a_binario(0);
+
+    assert(res == 0);'

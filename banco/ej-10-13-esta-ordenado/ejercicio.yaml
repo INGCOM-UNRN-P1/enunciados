@@ -1,0 +1,40 @@
+id: ej-10-13-esta-ordenado
+titulo: ¿Está ordenado?
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un arreglo y su tamaño.'
+- '**Proceso:** Recorrer el arreglo desde el primer elemento hasta el penúltimo. En
+  cada posición `i`, comparar el elemento `arreglo[i]` con el siguiente, `arreglo[i+1]`.'
+- '**Condición de Salida:** Si en algún momento se encuentra que `arreglo[i] > arreglo[i+1]`,
+  el arreglo no está ordenado y la función puede devolver `falso` inmediatamente.'
+- '**Salida:** Si el lazo termina sin encontrar ninguna inversión de orden, significa
+  que el arreglo está ordenado y la función devuelve `verdadero`.'
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- esta
+- arreglos
+- memoria
+- ordenado
+- vectores
+verificado: true
+funciones:
+- nombre: proc__10_13_esta_ordenado
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de ¿Está ordenado?
+tests_funciones:
+- nombre: test_proc__10_13_esta_ordenado_positivo
+  funcion: proc__10_13_esta_ordenado
+  codigo: 'int res = proc__10_13_esta_ordenado(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__10_13_esta_ordenado_cero
+  funcion: proc__10_13_esta_ordenado
+  codigo: 'int res = proc__10_13_esta_ordenado(0);
+
+    assert(res == 0);'

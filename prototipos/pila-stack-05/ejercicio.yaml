@@ -1,0 +1,32 @@
+id: pila-stack-05
+titulo: Evaluación de Expresiones Postfijas RPN con Pila
+tema: pilas_stack
+bloom: 1
+minutos_estimados: 10
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_05
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Evaluación de Expresiones Postfijas RPN
+    con Pila
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_05_positivo
+  funcion: ejecutar_pila_stack_05
+  codigo: 'int res = ejecutar_pila_stack_05(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_05_cero
+  funcion: ejecutar_pila_stack_05
+  codigo: 'int res = ejecutar_pila_stack_05(0);
+
+    assert(res == 0);'

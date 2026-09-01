@@ -1,0 +1,33 @@
+id: ej-14-7-fraccionador-tokenizer
+titulo: Fraccionador (Tokenizer)
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- heap
+- memoria
+- fraccionador
+- malloc
+- free
+verificado: true
+funciones:
+- nombre: proc_accionador_tokenizer
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Fraccionador (Tokenizer)
+tests_funciones:
+- nombre: test_proc_accionador_tokenizer_positivo
+  funcion: proc_accionador_tokenizer
+  codigo: 'int res = proc_accionador_tokenizer(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_accionador_tokenizer_cero
+  funcion: proc_accionador_tokenizer
+  codigo: 'int res = proc_accionador_tokenizer(0);
+
+    assert(res == 0);'

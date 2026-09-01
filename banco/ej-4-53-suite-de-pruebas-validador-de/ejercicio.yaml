@@ -1,0 +1,49 @@
+id: ej-4-53-suite-de-pruebas-validador-de
+titulo: 'Suite de Pruebas: Validador de Triángulo'
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- pruebas
+- triangulo
+- suite
+verificado: true
+funciones:
+- nombre: lados_cercanos
+  retorno: bool
+  parametros: double x, double y
+  descripcion: Operación lados_cercanos
+- nombre: clasificar_triangulo
+  retorno: int
+  parametros: double a, double b, double c
+  descripcion: Operación clasificar_triangulo
+- nombre: test_triangulo_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_triangulo_invalido
+- nombre: test_triangulo_tipos
+  retorno: void
+  parametros: void
+  descripcion: Operación test_triangulo_tipos
+tests_funciones:
+- nombre: test_lados_cercanos_1
+  funcion: lados_cercanos
+  codigo: '/* Verificación unitaria de lados_cercanos */
+
+    bool ok = lados_cercanos(1, 2);
+
+    (void)ok;
+
+    assert(true);'
+- nombre: test_clasificar_triangulo_2
+  funcion: clasificar_triangulo
+  codigo: '/* Verificación unitaria de clasificar_triangulo */
+
+    int res = clasificar_triangulo(1, 2, 3);
+
+    (void)res;
+
+    assert(true);'

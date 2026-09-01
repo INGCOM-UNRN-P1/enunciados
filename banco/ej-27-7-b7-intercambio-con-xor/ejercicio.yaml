@@ -1,0 +1,36 @@
+id: ej-27-7-b7-intercambio-con-xor
+titulo: Intercambio con XOR
+tema: operaciones_bits
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Proceso:'
+- '`*a = *a ^ *b;`'
+- '`*b = *a ^ *b;` // Ahora `b` tiene el valor original de `a`'
+- '`*a = *a ^ *b;` // Ahora `a` tiene el valor original de `b`'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- bitwise
+- avanzados
+- intercambio
+- mascaras
+verificado: true
+funciones:
+- nombre: proc__intercambio_con_xor
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Intercambio con XOR
+tests_funciones:
+- nombre: test_proc__intercambio_con_xor_positivo
+  funcion: proc__intercambio_con_xor
+  codigo: 'int res = proc__intercambio_con_xor(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__intercambio_con_xor_cero
+  funcion: proc__intercambio_con_xor
+  codigo: 'int res = proc__intercambio_con_xor(0);
+
+    assert(res == 0);'

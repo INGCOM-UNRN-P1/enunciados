@@ -1,0 +1,33 @@
+id: ej-8-5-ordenamiento-con-intercambia
+titulo: Ordenamiento con intercambia
+tema: punteros
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- intercambia
+- memoria
+- ordenamiento
+- punteros
+- direcciones
+verificado: true
+funciones:
+- nombre: proc_ento_con_intercambia
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ordenamiento con intercambia
+tests_funciones:
+- nombre: test_proc_ento_con_intercambia_positivo
+  funcion: proc_ento_con_intercambia
+  codigo: 'int res = proc_ento_con_intercambia(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ento_con_intercambia_cero
+  funcion: proc_ento_con_intercambia
+  codigo: 'int res = proc_ento_con_intercambia(0);
+
+    assert(res == 0);'

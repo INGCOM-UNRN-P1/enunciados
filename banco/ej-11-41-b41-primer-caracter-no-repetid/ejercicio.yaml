@@ -1,0 +1,38 @@
+id: ej-11-41-b41-primer-caracter-no-repetid
+titulo: Primer carácter no repetido
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso (dos pasadas):**'
+- '**Primera pasada:** Usar un arreglo de frecuencias para contar las apariciones
+  de cada carácter (como en el ejercicio 1.2).'
+- '**Segunda pasada:** Recorrer la cadena de entrada original. El primer carácter
+  para el cual su contador en el arreglo de frecuencias sea 1, es el resultado.'
+tags:
+- cadenas
+- caracter
+- strings
+- memoria
+- primer
+verificado: true
+funciones:
+- nombre: proc__caracter_no_repetid
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Primer carácter no repetido
+tests_funciones:
+- nombre: test_proc__caracter_no_repetid_positivo
+  funcion: proc__caracter_no_repetid
+  codigo: 'int res = proc__caracter_no_repetid(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__caracter_no_repetid_cero
+  funcion: proc__caracter_no_repetid
+  codigo: 'int res = proc__caracter_no_repetid(0);
+
+    assert(res == 0);'

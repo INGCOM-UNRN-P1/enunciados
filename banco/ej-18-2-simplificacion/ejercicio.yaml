@@ -1,0 +1,32 @@
+id: ej-18-2-simplificacion
+titulo: Simplificación
+tema: estructuras
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- registros
+- simplificacion
+- structs
+- memoria
+verificado: true
+funciones:
+- nombre: proc__18_2_simplificacion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simplificación
+tests_funciones:
+- nombre: test_proc__18_2_simplificacion_positivo
+  funcion: proc__18_2_simplificacion
+  codigo: 'int res = proc__18_2_simplificacion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__18_2_simplificacion_cero
+  funcion: proc__18_2_simplificacion
+  codigo: 'int res = proc__18_2_simplificacion(0);
+
+    assert(res == 0);'

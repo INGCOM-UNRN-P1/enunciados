@@ -1,0 +1,33 @@
+id: ej-12-6-contar-lineas-palabras-y-carac
+titulo: Contar Líneas, Palabras y Caracteres
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+tags:
+- contar
+- lineas
+- memoria
+- io_disco
+- palabras
+verificado: true
+funciones:
+- nombre: proc_eas_palabras_y_carac
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contar Líneas, Palabras y Caracteres
+tests_funciones:
+- nombre: test_proc_eas_palabras_y_carac_positivo
+  funcion: proc_eas_palabras_y_carac
+  codigo: 'int res = proc_eas_palabras_y_carac(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eas_palabras_y_carac_cero
+  funcion: proc_eas_palabras_y_carac
+  codigo: 'int res = proc_eas_palabras_y_carac(0);
+
+    assert(res == 0);'

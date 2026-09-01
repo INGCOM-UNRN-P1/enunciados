@@ -1,0 +1,36 @@
+id: ej-27-5-b5-contar-bits-encendidos-hamm
+titulo: Contar bits encendidos (Hamming Weight)
+tema: operaciones_bits
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Algoritmo de Brian Kernighan: En un lazo, mientras el número no sea cero, aplicar
+  la operación `n = n & (n - 1)`. Esta operación apaga el bit encendido menos significativo
+  en cada iteración. El número de iteraciones es el número de bits encendidos.'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- contar
+- encendidos
+- hamming
+- bitwise
+- avanzados
+verificado: true
+funciones:
+- nombre: proc_bits_encendidos_hamm
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contar bits encendidos (Hamming Weight)
+tests_funciones:
+- nombre: test_proc_bits_encendidos_hamm_positivo
+  funcion: proc_bits_encendidos_hamm
+  codigo: 'int res = proc_bits_encendidos_hamm(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_bits_encendidos_hamm_cero
+  funcion: proc_bits_encendidos_hamm
+  codigo: 'int res = proc_bits_encendidos_hamm(0);
+
+    assert(res == 0);'

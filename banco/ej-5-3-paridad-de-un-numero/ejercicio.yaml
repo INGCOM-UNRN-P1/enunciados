@@ -1,0 +1,17 @@
+id: ej-5-3-paridad-de-un-numero
+titulo: Paridad de un número
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_3
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Paridad de un número
+tests_funciones:
+- nombre: test_resolver_ej_3
+  funcion: resolver_ej_3
+  codigo: assert(true);

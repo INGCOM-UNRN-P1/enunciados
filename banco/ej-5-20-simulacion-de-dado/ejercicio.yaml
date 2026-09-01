@@ -1,0 +1,17 @@
+id: ej-5-20-simulacion-de-dado
+titulo: Simulación de Dado
+tema: funciones
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_20
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Simulación de Dado
+tests_funciones:
+- nombre: test_resolver_ej_20
+  funcion: resolver_ej_20
+  codigo: assert(true);

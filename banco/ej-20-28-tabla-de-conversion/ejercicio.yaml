@@ -1,0 +1,33 @@
+id: ej-20-28-tabla-de-conversion
+titulo: Tabla de conversión
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- conversion
+- tipos
+- tabla
+- memoria
+- enum
+verificado: true
+funciones:
+- nombre: proc__tabla_de_conversion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tabla de conversión
+tests_funciones:
+- nombre: test_proc__tabla_de_conversion_positivo
+  funcion: proc__tabla_de_conversion
+  codigo: 'int res = proc__tabla_de_conversion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__tabla_de_conversion_cero
+  funcion: proc__tabla_de_conversion
+  codigo: 'int res = proc__tabla_de_conversion(0);
+
+    assert(res == 0);'

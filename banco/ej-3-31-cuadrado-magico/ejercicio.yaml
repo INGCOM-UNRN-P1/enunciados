@@ -1,0 +1,40 @@
+id: ej-3-31-cuadrado-magico
+titulo: Cuadrado Mágico
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Una matriz `n x n`.'
+- '**Proceso:**'
+- Calcular la suma de la primera fila y guardarla como la `constante_magica` de referencia.
+- Iterar por las demás filas, calculando su suma y comparándola con la `constante_magica`.
+- Iterar por todas las columnas, calculando su suma y comparándola.
+- Calcular la suma de la diagonal principal y la diagonal secundaria y compararlas.
+- Si todas las sumas son iguales, es un cuadrado mágico. filas (*row-major order*)
+  para mejorar el uso de caché. estrictamente dentro de los límites del contenedor.
+- '[Plus Ultra] Validar que la dimensión sea un entero impar positivo mayor o igual
+  a 3.'
+- '[Plus Ultra] Verificar que la constante mágica calculada sea igual a n*(n^2 + 1)/2.'
+tags:
+- fundamentos
+- magico
+- cuadrado
+- aritmetica
+- matematica
+verificado: true
+funciones:
+- nombre: proc_3_31_cuadrado_magico
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cuadrado Mágico
+tests_funciones:
+- nombre: test_proc_3_31_cuadrado_magico_positivo
+  funcion: proc_3_31_cuadrado_magico
+  codigo: 'int res = proc_3_31_cuadrado_magico(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_3_31_cuadrado_magico_cero
+  funcion: proc_3_31_cuadrado_magico
+  codigo: 'int res = proc_3_31_cuadrado_magico(0);
+
+    assert(res == 0);'

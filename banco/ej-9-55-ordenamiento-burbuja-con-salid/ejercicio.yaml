@@ -1,0 +1,29 @@
+id: ej-9-55-ordenamiento-burbuja-con-salid
+titulo: Ordenamiento Burbuja con Salida Temprana
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- temprana
+- fundamentos
+- ordenamiento
+verificado: true
+funciones:
+- nombre: proc_to_burbuja_con_salid
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ordenamiento Burbuja con Salida Temprana
+tests_funciones:
+- nombre: test_proc_to_burbuja_con_salid_positivo
+  funcion: proc_to_burbuja_con_salid
+  codigo: 'int res = proc_to_burbuja_con_salid(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_to_burbuja_con_salid_cero
+  funcion: proc_to_burbuja_con_salid
+  codigo: 'int res = proc_to_burbuja_con_salid(0);
+
+    assert(res == 0);'

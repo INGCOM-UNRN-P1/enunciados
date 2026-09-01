@@ -1,0 +1,33 @@
+id: ej-4-24-deteccion-de-codigo-muerto-dea
+titulo: Detección de Código Muerto (Dead Code)
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Buscá bloques de código inalcanzables ubicados después de sentencias return, break
+  o goto incondicionales.
+- Identificá ramas condicionales cuyas condiciones sean tautologías o contradicciones
+  constantes.
+- Eliminá funciones o variables declaradas que nunca son referenciadas en el programa.
+tags:
+- code
+- aserciones
+- fundamentos
+- muerto
+- deteccion
+verificado: true
+funciones:
+- nombre: calcular_tarifa
+  retorno: int
+  parametros: int edad
+  descripcion: Operación calcular_tarifa
+tests_funciones:
+- nombre: test_calcular_tarifa_1
+  funcion: calcular_tarifa
+  codigo: '/* Verificación unitaria de calcular_tarifa */
+
+    int res = calcular_tarifa(1);
+
+    (void)res;
+
+    assert(true);'

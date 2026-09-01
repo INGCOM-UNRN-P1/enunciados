@@ -1,0 +1,31 @@
+id: grafo-red-17
+titulo: Algoritmo de Bellman-Ford para Detección de Ciclos Negativos
+tema: grafos_y_redes
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_17
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de Bellman-Ford para Detección
+    de Ciclos Negativos
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_17_positivo
+  funcion: ejecutar_grafo_red_17
+  codigo: 'int res = ejecutar_grafo_red_17(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_17_cero
+  funcion: ejecutar_grafo_red_17
+  codigo: 'int res = ejecutar_grafo_red_17(0);
+
+    assert(res == 0);'

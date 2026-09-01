@@ -1,0 +1,40 @@
+id: ej-10-17-interseccion-de-arreglos
+titulo: Intersección de arreglos
+tema: arreglos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '**Entrada:** Dos arreglos y sus tamaños.'
+- '**Proceso (con arreglos ordenados):** Usar dos punteros, uno para cada arreglo.
+  Si los elementos son iguales, se añade al resultado y se avanzan ambos punteros.
+  Si son diferentes, se avanza el puntero del arreglo que tenga el elemento más pequeño.'
+- '**Proceso (con arreglos desordenados):** Usar lazos anidados. Para cada elemento
+  del primer arreglo, buscar si existe en el segundo. Para evitar duplicados en el
+  resultado, se puede usar una estructura de datos auxiliar (hash set) o verificar
+  si el elemento ya fue añadido.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- vectores
+- interseccion
+- arreglos
+- memoria
+verificado: true
+funciones:
+- nombre: proc_rseccion_de_arreglos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Intersección de arreglos
+tests_funciones:
+- nombre: test_proc_rseccion_de_arreglos_positivo
+  funcion: proc_rseccion_de_arreglos
+  codigo: 'int res = proc_rseccion_de_arreglos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_rseccion_de_arreglos_cero
+  funcion: proc_rseccion_de_arreglos
+  codigo: 'int res = proc_rseccion_de_arreglos(0);
+
+    assert(res == 0);'

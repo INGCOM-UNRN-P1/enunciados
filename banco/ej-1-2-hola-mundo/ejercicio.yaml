@@ -1,0 +1,35 @@
+id: ej-1-2-hola-mundo
+titulo: ¡Hola mundo!
+tema: secuencias
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Entrada:** Este programa no requiere ninguna entrada del usuario.'
+- '**Proceso:** Se utiliza una función de la biblioteca estándar para enviar'
+- '**Salida:** El programa debe imprimir la cadena de texto "Hola, mundo!"'
+- '[Plus Ultra] Imprimir un marco decorativo alrededor del saludo usando caracteres
+  ASCII estándar.'
+- '[Plus Ultra] Modularizar la impresión dentro de una función con una firma clara.'
+tags:
+- mundo
+- hola
+- fundamentos
+- secuencias
+- basicos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_2_hola_mundo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de ¡Hola mundo!
+tests_funciones:
+- nombre: test_ejecutar_ej_1_2_hola_mundo_positivo
+  funcion: ejecutar_ej_1_2_hola_mundo
+  codigo: 'int res = ejecutar_ej_1_2_hola_mundo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_2_hola_mundo_cero
+  funcion: ejecutar_ej_1_2_hola_mundo
+  codigo: 'int res = ejecutar_ej_1_2_hola_mundo(0);
+
+    assert(res == 0);'

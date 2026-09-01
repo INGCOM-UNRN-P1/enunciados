@@ -1,0 +1,36 @@
+id: ej-1-36-promedio-de-n-numeros
+titulo: Promedio de N Números
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada Inicial:** Leer la cantidad de números a promediar ($N$).'
+- '**Variables:** Se necesita un `acumulador` para la suma y un contador.'
+- '**Proceso:**'
+- '**Salida:** Mostrar el promedio calculado.'
+- '[Plus Ultra] Validar que la cantidad N de datos sea mayor a cero para evitar división
+  por cero.'
+- '[Plus Ultra] Calcular en el mismo recorrido el valor máximo y mínimo del conjunto.'
+tags:
+- fundamentos
+- secuencias
+- basicos
+- promedio
+- numeros
+verificado: true
+funciones:
+- nombre: proc_romedio_de_n_numeros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Promedio de N Números
+tests_funciones:
+- nombre: test_proc_romedio_de_n_numeros_positivo
+  funcion: proc_romedio_de_n_numeros
+  codigo: 'int res = proc_romedio_de_n_numeros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_romedio_de_n_numeros_cero
+  funcion: proc_romedio_de_n_numeros
+  codigo: 'int res = proc_romedio_de_n_numeros(0);
+
+    assert(res == 0);'

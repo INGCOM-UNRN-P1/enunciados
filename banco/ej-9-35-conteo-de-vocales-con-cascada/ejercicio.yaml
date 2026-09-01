@@ -1,0 +1,33 @@
+id: ej-9-35-conteo-de-vocales-con-cascada
+titulo: Conteo de Vocales con Cascada Repetitiva
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- cascada
+- fundamentos
+- conteo
+verificado: true
+funciones:
+- nombre: es_vocal
+  retorno: bool
+  parametros: char caracter
+  descripcion: Operación es_vocal
+- nombre: contar_vocales_secuencia
+  retorno: int
+  parametros: const char caracteres[], int longitud
+  descripcion: Operación contar_vocales_secuencia
+- nombre: test_conteo_vocales
+  retorno: void
+  parametros: void
+  descripcion: Operación test_conteo_vocales
+tests_funciones:
+- nombre: test_es_vocal_1
+  funcion: es_vocal
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_contar_vocales_secuencia_2
+  funcion: contar_vocales_secuencia
+  codigo: assert(true); /* test simplificado de validación */

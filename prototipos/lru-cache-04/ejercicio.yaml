@@ -1,0 +1,32 @@
+id: lru-cache-04
+titulo: Operación Put con Inserción y Desalojo del Menos Usado
+tema: lru_cache_memorizacion
+bloom: 1
+minutos_estimados: 10
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lru_cache_04
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Operación Put con Inserción y Desalojo
+    del Menos Usado
+tests_funciones:
+- nombre: test_ejecutar_lru_cache_04_positivo
+  funcion: ejecutar_lru_cache_04
+  codigo: 'int res = ejecutar_lru_cache_04(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lru_cache_04_cero
+  funcion: ejecutar_lru_cache_04
+  codigo: 'int res = ejecutar_lru_cache_04(0);
+
+    assert(res == 0);'

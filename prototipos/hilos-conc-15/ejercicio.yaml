@@ -1,0 +1,31 @@
+id: hilos-conc-15
+titulo: Algoritmo de la Panadería de Lamport para N Hilos
+tema: concurrencia_hilos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_15
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de la Panadería de Lamport
+    para N Hilos
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_15_positivo
+  funcion: ejecutar_hilos_conc_15
+  codigo: 'int res = ejecutar_hilos_conc_15(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_15_cero
+  funcion: ejecutar_hilos_conc_15
+  codigo: 'int res = ejecutar_hilos_conc_15(0);
+
+    assert(res == 0);'

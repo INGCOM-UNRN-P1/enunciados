@@ -1,0 +1,32 @@
+id: ej-20-1-dia-siguiente
+titulo: Día siguiente
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- tipos
+- siguiente
+- enum
+- memoria
+verificado: true
+funciones:
+- nombre: ejecutar_ej_20_1_dia_siguiente
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Día siguiente
+tests_funciones:
+- nombre: test_ejecutar_ej_20_1_dia_siguiente_positivo
+  funcion: ejecutar_ej_20_1_dia_siguiente
+  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_20_1_dia_siguiente_cero
+  funcion: ejecutar_ej_20_1_dia_siguiente
+  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(0);
+
+    assert(res == 0);'

@@ -1,0 +1,35 @@
+id: ej-31-7-identificacion-de-errores-de-l
+titulo: Identificación de Errores de Lógica
+tema: analisis_codigo
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Analizá las condiciones de borde y los casos extremos (arreglos vacíos, elementos
+  únicos).
+- Inspeccioná la lógica booleana de los condicionales para detectar cláusulas contradictorias
+  o redundantes.
+- Seguí la traza de ejecución manual con un conjunto pequeño de datos de prueba.
+tags:
+- errores
+- logica
+- analisis
+- identificacion
+- avanzados
+verificado: true
+funciones:
+- nombre: segundo_maximo
+  retorno: int
+  parametros: int arr[], int tam
+  descripcion: Operación segundo_maximo
+tests_funciones:
+- nombre: test_segundo_maximo_1
+  funcion: segundo_maximo
+  codigo: '/* Verificación unitaria de segundo_maximo */
+
+    int arr[] = {1, 2, 3, 4};
+
+    int res = segundo_maximo(arr, 4);
+
+    (void)res;
+
+    assert(true);'

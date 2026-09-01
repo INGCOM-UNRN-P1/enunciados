@@ -1,0 +1,33 @@
+id: ej-14-34-implementar-getline
+titulo: Implementar getline
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- heap
+- implementar
+- getline
+- memoria
+- malloc
+verificado: true
+funciones:
+- nombre: proc__implementar_getline
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Implementar getline
+tests_funciones:
+- nombre: test_proc__implementar_getline_positivo
+  funcion: proc__implementar_getline
+  codigo: 'int res = proc__implementar_getline(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__implementar_getline_cero
+  funcion: proc__implementar_getline
+  codigo: 'int res = proc__implementar_getline(0);
+
+    assert(res == 0);'

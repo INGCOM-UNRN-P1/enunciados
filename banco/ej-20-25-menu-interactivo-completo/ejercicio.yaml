@@ -1,0 +1,33 @@
+id: ej-20-25-menu-interactivo-completo
+titulo: Menú interactivo completo
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- memoria
+- enum
+- interactivo
+- completo
+verificado: true
+funciones:
+- nombre: proc_interactivo_completo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Menú interactivo completo
+tests_funciones:
+- nombre: test_proc_interactivo_completo_positivo
+  funcion: proc_interactivo_completo
+  codigo: 'int res = proc_interactivo_completo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_interactivo_completo_cero
+  funcion: proc_interactivo_completo
+  codigo: 'int res = proc_interactivo_completo(0);
+
+    assert(res == 0);'

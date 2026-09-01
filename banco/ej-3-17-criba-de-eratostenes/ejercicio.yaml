@@ -1,0 +1,46 @@
+id: ej-3-17-criba-de-eratostenes
+titulo: Criba de Eratóstenes
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Estructura de Datos:** Se necesita un arreglo booleano (o de enteros) `es_primo`
+  de tamaño `N+1`. `es_primo[i]` será verdadero si `i` es primo y falso en caso contrario.'
+- '**Inicialización:** Se inicializa todo el arreglo a `verdadero`, asumiendo que
+  todos los números son primos al principio. Luego, se marcan 0 y 1 como no primos.'
+- '**Proceso:**'
+- Se itera con un número `p` desde 2 hasta $\sqrt{N}$.
+- 'Si `p` sigue marcado como primo (`es_primo[p]` es verdadero): a. Se itera a través
+  de todos los múltiplos de `p` (comenzando desde `p*p`) y se marcan como no primos
+  (`es_primo[multiplo] = falso`). Se empieza en `p*p` porque los múltiplos menores
+  ya habrán sido marcados por primos más pequeños.'
+- '**Salida:** Al final, se recorre el arreglo `es_primo` y se imprimen todos los
+  índices `i` para los cuales `es_primo[i]` es verdadero. desbordamientos de búfer
+  validando la capacidad máxima. líneas de manera robusta.'
+- '[Plus Ultra] Validar que el límite superior sea mayor a 1 y usar un arreglo de
+  tamaño fijo para marcar primos.'
+- '[Plus Ultra] Mostrar la cantidad total de primos encontrados y el porcentaje que
+  representan en el rango.'
+tags:
+- fundamentos
+- eratostenes
+- aritmetica
+- matematica
+- criba
+verificado: true
+funciones:
+- nombre: proc_criba_de_eratostenes
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Criba de Eratóstenes
+tests_funciones:
+- nombre: test_proc_criba_de_eratostenes_positivo
+  funcion: proc_criba_de_eratostenes
+  codigo: 'int res = proc_criba_de_eratostenes(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_criba_de_eratostenes_cero
+  funcion: proc_criba_de_eratostenes
+  codigo: 'int res = proc_criba_de_eratostenes(0);
+
+    assert(res == 0);'

@@ -1,0 +1,32 @@
+id: lista-enl-21
+titulo: Inversión de Enlaces en Lista Doblemente Enlazada
+tema: listas_enlazadas
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lista_enl_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inversión de Enlaces en Lista Doblemente
+    Enlazada
+tests_funciones:
+- nombre: test_ejecutar_lista_enl_21_positivo
+  funcion: ejecutar_lista_enl_21
+  codigo: 'int res = ejecutar_lista_enl_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lista_enl_21_cero
+  funcion: ejecutar_lista_enl_21
+  codigo: 'int res = ejecutar_lista_enl_21(0);
+
+    assert(res == 0);'

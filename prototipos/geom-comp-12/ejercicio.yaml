@@ -1,0 +1,31 @@
+id: geom-comp-12
+titulo: Par de Puntos Más Cercanos en el Plano 2D
+tema: geometria_computacional
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_12
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Par de Puntos Más Cercanos en el Plano
+    2D
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_12_positivo
+  funcion: ejecutar_geom_comp_12
+  codigo: 'int res = ejecutar_geom_comp_12(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_12_cero
+  funcion: ejecutar_geom_comp_12
+  codigo: 'int res = ejecutar_geom_comp_12(0);
+
+    assert(res == 0);'

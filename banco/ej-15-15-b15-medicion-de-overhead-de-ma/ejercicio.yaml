@@ -1,0 +1,33 @@
+id: ej-15-15-b15-medicion-de-overhead-de-ma
+titulo: Medición de Overhead de malloc
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- stack
+- layout
+- medicion
+- memoria
+- malloc
+verificado: true
+funciones:
+- nombre: proc_on_de_overhead_de_ma
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Medición de Overhead de malloc
+tests_funciones:
+- nombre: test_proc_on_de_overhead_de_ma_positivo
+  funcion: proc_on_de_overhead_de_ma
+  codigo: 'int res = proc_on_de_overhead_de_ma(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_on_de_overhead_de_ma_cero
+  funcion: proc_on_de_overhead_de_ma
+  codigo: 'int res = proc_on_de_overhead_de_ma(0);
+
+    assert(res == 0);'

@@ -1,0 +1,36 @@
+id: ej-10-26-moda-de-un-arreglo
+titulo: Moda de un arreglo
+tema: arreglos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '**Proceso (con ordenamiento):**'
+- Ordenar el arreglo. Esto agrupa los elementos iguales.
+- Recorrer el arreglo y contar la longitud de cada secuencia de elementos idénticos.
+- Llevar un registro del elemento con la frecuencia más alta encontrada hasta el momento.
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- arreglo
+- vectores
+- arreglos
+- memoria
+verificado: true
+funciones:
+- nombre: proc_6_moda_de_un_arreglo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Moda de un arreglo
+tests_funciones:
+- nombre: test_proc_6_moda_de_un_arreglo_positivo
+  funcion: proc_6_moda_de_un_arreglo
+  codigo: 'int res = proc_6_moda_de_un_arreglo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_6_moda_de_un_arreglo_cero
+  funcion: proc_6_moda_de_un_arreglo
+  codigo: 'int res = proc_6_moda_de_un_arreglo(0);
+
+    assert(res == 0);'

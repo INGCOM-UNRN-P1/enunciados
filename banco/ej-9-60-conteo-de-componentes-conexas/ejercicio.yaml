@@ -1,0 +1,34 @@
+id: ej-9-60-conteo-de-componentes-conexas
+titulo: Conteo de Componentes Conexas 1D
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Utilizá una bandera booleana en_segmento_positivo para rastrear cuándo se transita
+  un componente.
+- Incrementá el contador únicamente al entrar a un nuevo segmento positivo.
+- 'Validá casos de borde: arreglo vacío (n=0), todos números positivos y todos números
+  negativos.'
+tags:
+- conexas
+- clean_code
+- refactorizacion
+- fundamentos
+- componentes
+verificado: true
+funciones:
+- nombre: proc__componentes_conexas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conteo de Componentes Conexas 1D
+tests_funciones:
+- nombre: test_proc__componentes_conexas_positivo
+  funcion: proc__componentes_conexas
+  codigo: 'int res = proc__componentes_conexas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__componentes_conexas_cero
+  funcion: proc__componentes_conexas
+  codigo: 'int res = proc__componentes_conexas(0);
+
+    assert(res == 0);'

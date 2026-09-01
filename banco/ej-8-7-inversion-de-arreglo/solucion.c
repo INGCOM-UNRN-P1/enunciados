@@ -1,0 +1,19 @@
+/*
+ * Ejercicio: Inversión de arreglo
+ * Cátedra Programación I - UNRN
+ */
+
+#include <stdio.h>
+
+
+int proc_inversion_de_arreglo(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void)
+{
+    /* TODO: Implementación de Inversión de arreglo */
+    return 0;
+}

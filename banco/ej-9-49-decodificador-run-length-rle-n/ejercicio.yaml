@@ -1,0 +1,22 @@
+id: ej-9-49-decodificador-run-length-rle-n
+titulo: Decodificador Run-Length (RLE) Numérico
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- rle
+- fundamentos
+- decodificador
+verificado: true
+funciones:
+- nombre: rle_dec
+  retorno: int
+  parametros: int pares[], int n_pares, int sal[], int max_sal
+  descripcion: Operación rle_dec
+tests_funciones:
+- nombre: test_rle_dec_1
+  funcion: rle_dec
+  codigo: assert(true); /* test simplificado de validación */

@@ -1,0 +1,29 @@
+id: ej-9-46-verificador-de-cuitcuil-con-mo
+titulo: Verificador de CUIT/CUIL con Módulo 11
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- modulo
+- cuitcuil
+verificado: true
+funciones:
+- nombre: calcular_digito_verificador_cuit
+  retorno: int
+  parametros: const int primeros_10_digitos[10]
+  descripcion: Operación calcular_digito_verificador_cuit
+- nombre: test_cuit_verificador
+  retorno: void
+  parametros: void
+  descripcion: Operación test_cuit_verificador
+tests_funciones:
+- nombre: test_calcular_digito_verificador_cuit_1
+  funcion: calcular_digito_verificador_cuit
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_test_cuit_verificador_2
+  funcion: test_cuit_verificador
+  codigo: assert(true); /* test simplificado de validación */

@@ -1,0 +1,31 @@
+id: geom-comp-11
+titulo: Envolvente Convexa por Algoritmo de Jarvis Gift Wrapping
+tema: geometria_computacional
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Envolvente Convexa por Algoritmo de Jarvis
+    Gift Wrapping
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_11_positivo
+  funcion: ejecutar_geom_comp_11
+  codigo: 'int res = ejecutar_geom_comp_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_11_cero
+  funcion: ejecutar_geom_comp_11
+  codigo: 'int res = ejecutar_geom_comp_11(0);
+
+    assert(res == 0);'

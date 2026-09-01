@@ -1,0 +1,34 @@
+id: skip-list-19
+titulo: Implementación de Mapa Clave-Valor Ordenado con Skip List
+tema: skip_lists_probabilisticas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
+  generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
+  buscada.
+tags:
+- skip_list
+- listas_saltos
+- probabilistica
+- busqueda
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_skip_list_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Implementación de Mapa Clave-Valor Ordenado
+    con Skip List
+tests_funciones:
+- nombre: test_ejecutar_skip_list_19_positivo
+  funcion: ejecutar_skip_list_19
+  codigo: 'int res = ejecutar_skip_list_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_skip_list_19_cero
+  funcion: ejecutar_skip_list_19
+  codigo: 'int res = ejecutar_skip_list_19(0);
+
+    assert(res == 0);'

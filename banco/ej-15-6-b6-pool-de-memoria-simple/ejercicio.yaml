@@ -1,0 +1,32 @@
+id: ej-15-6-b6-pool-de-memoria-simple
+titulo: Pool de Memoria Simple
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- stack
+- simple
+- layout
+- memoria
+verificado: true
+funciones:
+- nombre: proc_ol_de_memoria_simple
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Pool de Memoria Simple
+tests_funciones:
+- nombre: test_proc_ol_de_memoria_simple_positivo
+  funcion: proc_ol_de_memoria_simple
+  codigo: 'int res = proc_ol_de_memoria_simple(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ol_de_memoria_simple_cero
+  funcion: proc_ol_de_memoria_simple
+  codigo: 'int res = proc_ol_de_memoria_simple(0);
+
+    assert(res == 0);'

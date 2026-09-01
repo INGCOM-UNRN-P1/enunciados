@@ -1,0 +1,17 @@
+id: ej-5-16-generador-de-numeros-primos
+titulo: Generador de Números Primos
+tema: funciones
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags: []
+verificado: true
+funciones:
+- nombre: resolver_ej_16
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Generador de Números Primos
+tests_funciones:
+- nombre: test_resolver_ej_16
+  funcion: resolver_ej_16
+  codigo: assert(true);

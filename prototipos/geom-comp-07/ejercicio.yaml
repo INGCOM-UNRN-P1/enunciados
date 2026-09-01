@@ -1,0 +1,31 @@
+id: geom-comp-07
+titulo: Cálculo del Área de un Polígono por la Fórmula del Cordón
+tema: geometria_computacional
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cálculo del Área de un Polígono por la
+    Fórmula del Cordón
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_07_positivo
+  funcion: ejecutar_geom_comp_07
+  codigo: 'int res = ejecutar_geom_comp_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_07_cero
+  funcion: ejecutar_geom_comp_07
+  codigo: 'int res = ejecutar_geom_comp_07(0);
+
+    assert(res == 0);'

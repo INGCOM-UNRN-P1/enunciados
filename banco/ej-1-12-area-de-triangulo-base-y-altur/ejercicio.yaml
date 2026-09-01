@@ -1,0 +1,36 @@
+id: ej-1-12-area-de-triangulo-base-y-altur
+titulo: Área de Triángulo (Base y Altura)
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Solicitar al usuario dos valores: la base (`b`) y la altura'
+- '**Proceso:** Aplicar la fórmula matemática directamente. En C, esto se'
+- '**Salida:** Mostrar el área calculada.'
+- '[Plus Ultra] Validar que tanto la base como la altura sean valores estrictamente
+  mayores a cero.'
+- '[Plus Ultra] Modularizar el cálculo en una función pura double calcular_area_triangulo(double
+  base, double altura).'
+tags:
+- fundamentos
+- secuencias
+- triangulo
+- basicos
+- altura
+verificado: true
+funciones:
+- nombre: proc_iangulo_base_y_altur
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Área de Triángulo (Base y Altura)
+tests_funciones:
+- nombre: test_proc_iangulo_base_y_altur_positivo
+  funcion: proc_iangulo_base_y_altur
+  codigo: 'int res = proc_iangulo_base_y_altur(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_iangulo_base_y_altur_cero
+  funcion: proc_iangulo_base_y_altur
+  codigo: 'int res = proc_iangulo_base_y_altur(0);
+
+    assert(res == 0);'

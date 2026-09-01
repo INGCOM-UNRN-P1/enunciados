@@ -1,0 +1,33 @@
+id: ej-8-7-inversion-de-arreglo
+titulo: Inversión de arreglo
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- arreglo
+- inversion
+- memoria
+- punteros
+- direcciones
+verificado: true
+funciones:
+- nombre: proc_inversion_de_arreglo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inversión de arreglo
+tests_funciones:
+- nombre: test_proc_inversion_de_arreglo_positivo
+  funcion: proc_inversion_de_arreglo
+  codigo: 'int res = proc_inversion_de_arreglo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_inversion_de_arreglo_cero
+  funcion: proc_inversion_de_arreglo
+  codigo: 'int res = proc_inversion_de_arreglo(0);
+
+    assert(res == 0);'

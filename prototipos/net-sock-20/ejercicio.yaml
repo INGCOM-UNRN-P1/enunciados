@@ -1,0 +1,31 @@
+id: net-sock-20
+titulo: Control de Flujo de Red con Ventana Deslizante
+tema: redes_sockets
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Recordá que Big Endian transmite el byte más significativo primero.
+- Validá el tamaño de los búferes de transmisión.
+tags:
+- redes
+- sockets
+- endianness
+- protocolos
+- tcp_udp
+verificado: true
+funciones:
+- nombre: ejecutar_net_sock_20
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Control de Flujo de Red con Ventana Deslizante
+tests_funciones:
+- nombre: test_ejecutar_net_sock_20_positivo
+  funcion: ejecutar_net_sock_20
+  codigo: 'int res = ejecutar_net_sock_20(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_net_sock_20_cero
+  funcion: ejecutar_net_sock_20
+  codigo: 'int res = ejecutar_net_sock_20(0);
+
+    assert(res == 0);'

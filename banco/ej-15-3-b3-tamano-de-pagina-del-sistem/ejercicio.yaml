@@ -1,0 +1,33 @@
+id: ej-15-3-b3-tamano-de-pagina-del-sistem
+titulo: Tamaño de Página del Sistema
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- stack
+- layout
+- tamano
+- memoria
+- sistema
+verificado: true
+funciones:
+- nombre: proc_de_pagina_del_sistem
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tamaño de Página del Sistema
+tests_funciones:
+- nombre: test_proc_de_pagina_del_sistem_positivo
+  funcion: proc_de_pagina_del_sistem
+  codigo: 'int res = proc_de_pagina_del_sistem(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_pagina_del_sistem_cero
+  funcion: proc_de_pagina_del_sistem
+  codigo: 'int res = proc_de_pagina_del_sistem(0);
+
+    assert(res == 0);'

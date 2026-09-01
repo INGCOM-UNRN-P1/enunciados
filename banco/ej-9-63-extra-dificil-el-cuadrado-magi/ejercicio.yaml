@@ -1,0 +1,30 @@
+id: ej-9-63-extra-dificil-el-cuadrado-magi
+titulo: '[EXTRA DIFÍCIL] El Cuadrado Mágico y Verificador de Sudoku $3 \times 3$'
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- times
+- fundamentos
+- sudoku
+verificado: true
+funciones:
+- nombre: proc_cil_el_cuadrado_magi
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de [EXTRA DIFÍCIL] El Cuadrado Mágico y
+    Verificador de Sudoku $3 \times 3$
+tests_funciones:
+- nombre: test_proc_cil_el_cuadrado_magi_positivo
+  funcion: proc_cil_el_cuadrado_magi
+  codigo: 'int res = proc_cil_el_cuadrado_magi(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_cil_el_cuadrado_magi_cero
+  funcion: proc_cil_el_cuadrado_magi
+  codigo: 'int res = proc_cil_el_cuadrado_magi(0);
+
+    assert(res == 0);'

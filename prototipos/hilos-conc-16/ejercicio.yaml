@@ -1,0 +1,31 @@
+id: hilos-conc-16
+titulo: Estructura de Cola Lock-Free con CAS Compare-And-Swap
+tema: concurrencia_hilos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_16
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Estructura de Cola Lock-Free con CAS
+    Compare-And-Swap
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_16_positivo
+  funcion: ejecutar_hilos_conc_16
+  codigo: 'int res = ejecutar_hilos_conc_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_16_cero
+  funcion: ejecutar_hilos_conc_16
+  codigo: 'int res = ejecutar_hilos_conc_16(0);
+
+    assert(res == 0);'

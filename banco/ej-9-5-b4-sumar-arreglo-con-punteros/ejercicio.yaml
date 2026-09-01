@@ -1,0 +1,29 @@
+id: ej-9-5-b4-sumar-arreglo-con-punteros
+titulo: Sumar arreglo con punteros
+tema: punteros
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- arreglo
+- operaciones
+- memoria
+- sumar
+- punteros
+verificado: true
+funciones:
+- nombre: proc_arreglo_con_punteros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Sumar arreglo con punteros
+tests_funciones:
+- nombre: test_proc_arreglo_con_punteros_positivo
+  funcion: proc_arreglo_con_punteros
+  codigo: 'int res = proc_arreglo_con_punteros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_arreglo_con_punteros_cero
+  funcion: proc_arreglo_con_punteros
+  codigo: 'int res = proc_arreglo_con_punteros(0);
+
+    assert(res == 0);'

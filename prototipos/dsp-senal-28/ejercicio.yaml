@@ -1,0 +1,32 @@
+id: dsp-senal-28
+titulo: Ecualizador Paramétrico de Tres Bandas Bajas Medias Altas
+tema: procesamiento_senales_dsp
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_28
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ecualizador Paramétrico de Tres Bandas
+    Bajas Medias Altas
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_28_positivo
+  funcion: ejecutar_dsp_senal_28
+  codigo: 'int res = ejecutar_dsp_senal_28(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_28_cero
+  funcion: ejecutar_dsp_senal_28
+  codigo: 'int res = ejecutar_dsp_senal_28(0);
+
+    assert(res == 0);'

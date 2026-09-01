@@ -1,0 +1,33 @@
+id: ej-14-14-matriz-triangular-dinamica
+titulo: Matriz Triangular Dinámica
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- triangular
+- memoria
+- dinamica
+- matriz
+verificado: true
+funciones:
+- nombre: proc__triangular_dinamica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Matriz Triangular Dinámica
+tests_funciones:
+- nombre: test_proc__triangular_dinamica_positivo
+  funcion: proc__triangular_dinamica
+  codigo: 'int res = proc__triangular_dinamica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__triangular_dinamica_cero
+  funcion: proc__triangular_dinamica
+  codigo: 'int res = proc__triangular_dinamica(0);
+
+    assert(res == 0);'

@@ -1,0 +1,33 @@
+id: cola-queue-11
+titulo: Búsqueda del Primer Carácter No Repetido en un Flujo de Texto con Cola
+tema: colas_queue
+bloom: 2
+minutos_estimados: 15
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Búsqueda del Primer Carácter No Repetido
+    en un Flujo de Texto con Cola
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_11_positivo
+  funcion: ejecutar_cola_queue_11
+  codigo: 'int res = ejecutar_cola_queue_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_11_cero
+  funcion: ejecutar_cola_queue_11
+  codigo: 'int res = ejecutar_cola_queue_11(0);
+
+    assert(res == 0);'

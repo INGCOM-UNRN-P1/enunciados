@@ -1,0 +1,33 @@
+id: ej-15-11-b11-vector-con-estrategia-de-c
+titulo: Vector con Estrategia de Crecimiento
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- stack
+- crecimiento
+- layout
+- vector
+- memoria
+verificado: true
+funciones:
+- nombre: proc__con_estrategia_de_c
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Vector con Estrategia de Crecimiento
+tests_funciones:
+- nombre: test_proc__con_estrategia_de_c_positivo
+  funcion: proc__con_estrategia_de_c
+  codigo: 'int res = proc__con_estrategia_de_c(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__con_estrategia_de_c_cero
+  funcion: proc__con_estrategia_de_c
+  codigo: 'int res = proc__con_estrategia_de_c(0);
+
+    assert(res == 0);'

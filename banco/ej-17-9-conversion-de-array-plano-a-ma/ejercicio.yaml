@@ -1,0 +1,33 @@
+id: ej-17-9-conversion-de-array-plano-a-ma
+titulo: Conversión de Array Plano a Matriz
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- estructuras
+- conversion
+- plano
+- memoria
+- punteros
+verificado: true
+funciones:
+- nombre: proc__de_array_plano_a_ma
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conversión de Array Plano a Matriz
+tests_funciones:
+- nombre: test_proc__de_array_plano_a_ma_positivo
+  funcion: proc__de_array_plano_a_ma
+  codigo: 'int res = proc__de_array_plano_a_ma(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__de_array_plano_a_ma_cero
+  funcion: proc__de_array_plano_a_ma
+  codigo: 'int res = proc__de_array_plano_a_ma(0);
+
+    assert(res == 0);'

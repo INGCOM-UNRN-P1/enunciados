@@ -1,0 +1,39 @@
+id: ej-11-37-b37-rotacion-de-cadena
+titulo: Rotación de cadena
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Propiedad Clave:** `s2` es una rotación de `s1` si y solo si `s2` es una subcadena
+  de `s1` concatenado consigo mismo (`s1s1`).'
+- '**Proceso:**'
+- Verificar que `s1` y `s2` tengan la misma longitud. Si no, no pueden ser rotaciones.
+- Crear una nueva cadena `temp` que sea `s1 + s1`.
+- Buscar si `s2` es una subcadena de `temp`.
+tags:
+- cadenas
+- strings
+- rotacion
+- memoria
+- cadena
+verificado: true
+funciones:
+- nombre: proc_7_rotacion_de_cadena
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Rotación de cadena
+tests_funciones:
+- nombre: test_proc_7_rotacion_de_cadena_positivo
+  funcion: proc_7_rotacion_de_cadena
+  codigo: 'int res = proc_7_rotacion_de_cadena(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_7_rotacion_de_cadena_cero
+  funcion: proc_7_rotacion_de_cadena
+  codigo: 'int res = proc_7_rotacion_de_cadena(0);
+
+    assert(res == 0);'

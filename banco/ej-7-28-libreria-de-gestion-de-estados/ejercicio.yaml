@@ -1,0 +1,33 @@
+id: ej-7-28-libreria-de-gestion-de-estados
+titulo: Librería de Gestión de Estados y Banderas Booleanas
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Validá que `indice < n` antes de acceder a las posiciones del arreglo.
+- '[Plus Ultra] Escribir pruebas unitarias con `assert()` en `tests/` para verificar
+  el correcto cambio de estado.'
+tags:
+- booleanas
+- fundamentos
+- headers
+- libreria
+- gestion
+verificado: true
+funciones:
+- nombre: proc_e_gestion_de_estados
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Gestión de Estados y Banderas
+    Booleanas
+tests_funciones:
+- nombre: test_proc_e_gestion_de_estados_positivo
+  funcion: proc_e_gestion_de_estados
+  codigo: 'int res = proc_e_gestion_de_estados(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_gestion_de_estados_cero
+  funcion: proc_e_gestion_de_estados
+  codigo: 'int res = proc_e_gestion_de_estados(0);
+
+    assert(res == 0);'

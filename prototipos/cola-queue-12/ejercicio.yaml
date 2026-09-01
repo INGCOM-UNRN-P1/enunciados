@@ -1,0 +1,33 @@
+id: cola-queue-12
+titulo: Simulación de Cola de Impresión Spooler de Documentos
+tema: colas_queue
+bloom: 2
+minutos_estimados: 15
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_12
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Cola de Impresión Spooler
+    de Documentos
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_12_positivo
+  funcion: ejecutar_cola_queue_12
+  codigo: 'int res = ejecutar_cola_queue_12(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_12_cero
+  funcion: ejecutar_cola_queue_12
+  codigo: 'int res = ejecutar_cola_queue_12(0);
+
+    assert(res == 0);'

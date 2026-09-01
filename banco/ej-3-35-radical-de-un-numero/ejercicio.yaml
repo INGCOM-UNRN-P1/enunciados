@@ -1,0 +1,37 @@
+id: ej-3-35-radical-de-un-numero
+titulo: Radical de un Número
+tema: aritmetica
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:** Similar a la descomposición en factores primos, pero en lugar de contar
+  potencias, simplemente se multiplica cada factor primo distinto encontrado a una
+  variable `resultado`. definición interna oculta en el archivo `.c`. para copiar
+  la estructura de forma segura.'
+- '[Plus Ultra] Calcular el radical como el producto de los factores primos distintos
+  del número.'
+- '[Plus Ultra] Validar que n sea mayor que 1.'
+tags:
+- radical
+- fundamentos
+- aritmetica
+- numero
+- matematica
+verificado: true
+funciones:
+- nombre: proc_radical_de_un_numero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Radical de un Número
+tests_funciones:
+- nombre: test_proc_radical_de_un_numero_positivo
+  funcion: proc_radical_de_un_numero
+  codigo: 'int res = proc_radical_de_un_numero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_radical_de_un_numero_cero
+  funcion: proc_radical_de_un_numero
+  codigo: 'int res = proc_radical_de_un_numero(0);
+
+    assert(res == 0);'

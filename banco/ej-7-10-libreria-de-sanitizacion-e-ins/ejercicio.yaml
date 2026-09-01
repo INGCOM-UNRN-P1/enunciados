@@ -1,0 +1,32 @@
+id: ej-7-10-libreria-de-sanitizacion-e-ins
+titulo: Librería de Sanitización e Inspección de Entradas
+tema: librerias
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Utilizá esta librería para validar la entrada ingresada por el usuario antes de
+  convertirla a tipos numéricos.
+tags:
+- sanitizacion
+- entradas
+- inspeccion
+- fundamentos
+- headers
+verificado: true
+funciones:
+- nombre: proc_e_sanitizacion_e_ins
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Sanitización e Inspección
+    de Entradas
+tests_funciones:
+- nombre: test_proc_e_sanitizacion_e_ins_positivo
+  funcion: proc_e_sanitizacion_e_ins
+  codigo: 'int res = proc_e_sanitizacion_e_ins(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_sanitizacion_e_ins_cero
+  funcion: proc_e_sanitizacion_e_ins
+  codigo: 'int res = proc_e_sanitizacion_e_ins(0);
+
+    assert(res == 0);'

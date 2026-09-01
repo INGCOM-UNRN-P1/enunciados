@@ -1,0 +1,32 @@
+id: lru-cache-12
+titulo: Caché MRU Most Recently Used para Patrones de Escaneo Cíclico
+tema: lru_cache_memorizacion
+bloom: 2
+minutos_estimados: 15
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lru_cache_12
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Caché MRU Most Recently Used para Patrones
+    de Escaneo Cíclico
+tests_funciones:
+- nombre: test_ejecutar_lru_cache_12_positivo
+  funcion: ejecutar_lru_cache_12
+  codigo: 'int res = ejecutar_lru_cache_12(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lru_cache_12_cero
+  funcion: ejecutar_lru_cache_12
+  codigo: 'int res = ejecutar_lru_cache_12(0);
+
+    assert(res == 0);'

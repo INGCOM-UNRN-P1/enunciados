@@ -1,0 +1,32 @@
+id: ej-23-2-insercion
+titulo: Inserción
+tema: estructuras_datos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- listas
+- algoritmos
+- nodos
+- insercion
+verificado: true
+funciones:
+- nombre: ejecutar_ej_23_2_insercion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inserción
+tests_funciones:
+- nombre: test_ejecutar_ej_23_2_insercion_positivo
+  funcion: ejecutar_ej_23_2_insercion
+  codigo: 'int res = ejecutar_ej_23_2_insercion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_23_2_insercion_cero
+  funcion: ejecutar_ej_23_2_insercion
+  codigo: 'int res = ejecutar_ej_23_2_insercion(0);
+
+    assert(res == 0);'

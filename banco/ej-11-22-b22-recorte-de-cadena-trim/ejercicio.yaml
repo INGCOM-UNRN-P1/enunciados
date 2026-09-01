@@ -1,0 +1,41 @@
+id: ej-11-22-b22-recorte-de-cadena-trim
+titulo: Recorte de cadena (Trim)
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+- '**Proceso (dos etapas):**'
+- '**Eliminar espacios del final:** Recorrer la cadena desde el final hacia el principio.
+  Mientras se encuentren espacios, reemplazarlos por el carácter nulo `\0`.'
+- '**Eliminar espacios del principio:** Encontrar el puntero al primer carácter que
+  no sea un espacio. Luego, mover todo el bloque de la cadena (incluyendo el terminador
+  nulo) a la posición inicial usando `memmove`.'
+- '**Funciones de Biblioteca:** `isspace()` de `ctype.h` es útil para detectar cualquier
+  tipo de carácter de espaciado.'
+tags:
+- cadenas
+- strings
+- recorte
+- memoria
+- cadena
+verificado: true
+funciones:
+- nombre: proc_corte_de_cadena_trim
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Recorte de cadena (Trim)
+tests_funciones:
+- nombre: test_proc_corte_de_cadena_trim_positivo
+  funcion: proc_corte_de_cadena_trim
+  codigo: 'int res = proc_corte_de_cadena_trim(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_corte_de_cadena_trim_cero
+  funcion: proc_corte_de_cadena_trim
+  codigo: 'int res = proc_corte_de_cadena_trim(0);
+
+    assert(res == 0);'

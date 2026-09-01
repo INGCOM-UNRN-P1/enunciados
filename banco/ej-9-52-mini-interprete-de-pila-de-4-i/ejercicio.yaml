@@ -1,0 +1,29 @@
+id: ej-9-52-mini-interprete-de-pila-de-4-i
+titulo: Mini Intérprete de Pila de 4 Instrucciones
+tema: refactorizacion
+bloom: 5
+minutos_estimados: 45
+pistas: []
+tags:
+- clean_code
+- instrucciones
+- refactorizacion
+- fundamentos
+- interprete
+verificado: true
+funciones:
+- nombre: proc_prete_de_pila_de_4_i
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Mini Intérprete de Pila de 4 Instrucciones
+tests_funciones:
+- nombre: test_proc_prete_de_pila_de_4_i_positivo
+  funcion: proc_prete_de_pila_de_4_i
+  codigo: 'int res = proc_prete_de_pila_de_4_i(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_prete_de_pila_de_4_i_cero
+  funcion: proc_prete_de_pila_de_4_i
+  codigo: 'int res = proc_prete_de_pila_de_4_i(0);
+
+    assert(res == 0);'

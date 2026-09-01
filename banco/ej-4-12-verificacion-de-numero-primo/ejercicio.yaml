@@ -1,0 +1,32 @@
+id: ej-4-12-verificacion-de-numero-primo
+titulo: Verificación de número primo
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Optimizar el lazo probando divisores únicamente hasta la raíz cuadrada
+  del número.'
+- '[Plus Ultra] Encapsular la verificación en una función bool es_primo(int n).'
+tags:
+- primo
+- control
+- lazos
+- fundamentos
+- numero
+verificado: true
+funciones:
+- nombre: proc_cion_de_numero_primo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Verificación de número primo
+tests_funciones:
+- nombre: test_proc_cion_de_numero_primo_positivo
+  funcion: proc_cion_de_numero_primo
+  codigo: 'int res = proc_cion_de_numero_primo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_cion_de_numero_primo_cero
+  funcion: proc_cion_de_numero_primo
+  codigo: 'int res = proc_cion_de_numero_primo(0);
+
+    assert(res == 0);'

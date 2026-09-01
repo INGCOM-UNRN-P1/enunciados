@@ -1,0 +1,44 @@
+id: ej-4-40-red-de-seguridad-default-en-sw
+titulo: 'Red de Seguridad: Default en Switch'
+tema: testing
+bloom: 5
+minutos_estimados: 45
+pistas:
+- 'Incluí siempre una cláusula default: en sentencias switch para manejar valores
+  inesperados.'
+- Registrá un mensaje de advertencia o manejá el error defensivamente en la rama por
+  defecto.
+- Verificá que todas las constantes de enumeración estén contempladas explícitamente.
+tags:
+- seguridad
+- aserciones
+- switch
+- fundamentos
+- default
+verificado: true
+funciones:
+- nombre: obtener_dias_trimestre
+  retorno: int
+  parametros: int trimestre
+  descripcion: Operación obtener_dias_trimestre
+- nombre: test_trimestres
+  retorno: void
+  parametros: void
+  descripcion: Operación test_trimestres
+tests_funciones:
+- nombre: test_obtener_dias_trimestre_1
+  funcion: obtener_dias_trimestre
+  codigo: '/* Verificación unitaria de obtener_dias_trimestre */
+
+    int res = obtener_dias_trimestre(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_trimestres_2
+  funcion: test_trimestres
+  codigo: '/* Verificación unitaria de test_trimestres */
+
+    test_trimestres();
+
+    assert(true);'

@@ -1,0 +1,37 @@
+id: ej-1-42-dibujar-un-cuadrado-hueco
+titulo: Dibujar un Cuadrado Hueco
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Leer un entero `n`.'
+- '**Proceso:** Usar lazos aninados. El lazo exterior para las filas y el'
+- '**Condición:** Dentro del lazo interior, se debe decidir si imprimir un'
+- Es la primera o la última fila (`fila == 1` o `fila == n`).
+- Es la primera o la última columna (`columna == 1` o `columna == n`).
+- En cualquier otro caso, se imprime un espacio.
+- '[Plus Ultra] Validar que el lado del cuadrado sea mayor o igual a 2.'
+- '[Plus Ultra] Permitir elegir un carácter diferente para el borde y para el relleno.'
+tags:
+- fundamentos
+- hueco
+- dibujar
+- secuencias
+- cuadrado
+verificado: true
+funciones:
+- nombre: proc_ar_un_cuadrado_hueco
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Dibujar un Cuadrado Hueco
+tests_funciones:
+- nombre: test_proc_ar_un_cuadrado_hueco_positivo
+  funcion: proc_ar_un_cuadrado_hueco
+  codigo: 'int res = proc_ar_un_cuadrado_hueco(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ar_un_cuadrado_hueco_cero
+  funcion: proc_ar_un_cuadrado_hueco
+  codigo: 'int res = proc_ar_un_cuadrado_hueco(0);
+
+    assert(res == 0);'

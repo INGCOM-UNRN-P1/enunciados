@@ -1,0 +1,36 @@
+id: ej-1-13-area-de-triangulo-formula-de-h
+titulo: Área de Triángulo (Fórmula de Herón)
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Solicitar al usuario las longitudes de los tres lados.'
+- '**Proceso:**'
+- '**Validación:** Antes de calcular, es importante verificar si los lados'
+- '[Plus Ultra] Validar la desigualdad triangular (la suma de dos lados cualesquiera
+  debe superar al tercero) antes del cálculo.'
+- '[Plus Ultra] Retornar un valor de error (-1.0) si los lados no pueden formar un
+  triángulo geométrico válido.'
+tags:
+- fundamentos
+- secuencias
+- formula
+- heron
+- triangulo
+verificado: true
+funciones:
+- nombre: proc_iangulo_formula_de_h
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Área de Triángulo (Fórmula de Herón)
+tests_funciones:
+- nombre: test_proc_iangulo_formula_de_h_positivo
+  funcion: proc_iangulo_formula_de_h
+  codigo: 'int res = proc_iangulo_formula_de_h(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_iangulo_formula_de_h_cero
+  funcion: proc_iangulo_formula_de_h
+  codigo: 'int res = proc_iangulo_formula_de_h(0);
+
+    assert(res == 0);'

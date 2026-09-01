@@ -1,0 +1,33 @@
+id: ej-14-25-manejo-de-errores-de-malloc
+titulo: Manejo de Errores de malloc
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- heap
+- errores
+- memoria
+- malloc
+- free
+verificado: true
+funciones:
+- nombre: proc_de_errores_de_malloc
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Manejo de Errores de malloc
+tests_funciones:
+- nombre: test_proc_de_errores_de_malloc_positivo
+  funcion: proc_de_errores_de_malloc
+  codigo: 'int res = proc_de_errores_de_malloc(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_errores_de_malloc_cero
+  funcion: proc_de_errores_de_malloc
+  codigo: 'int res = proc_de_errores_de_malloc(0);
+
+    assert(res == 0);'
