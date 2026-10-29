@@ -1,0 +1,77 @@
+id: ejercicio4
+titulo: 'TDA Secuencia (secuencia_t) — Arreglo Dinámico vs Lista Enlazada'
+tema: tipos_datos_abstractos
+bloom: 4
+minutos: 60
+pistas:
+  - 'En secuencia_crear, una capacidad de 0 debe retornar NULL.'
+  - 'En secuencia_insertar, recordá verificar que pos <= cantidad y que cantidad < capacidad.'
+  - 'En secuencia_eliminar, extraé el valor y compactá hacia la izquierda o reconectá nodos según la representación.'
+  - 'En secuencia_a_cadena, formateá la salida exacta como [10, 20, 30] en heap y devolvé [] para secuencias vacías.'
+tags:
+  - tda
+  - secuencia
+  - lista_enlazada
+  - arreglo_dinamico
+  - intercambiabilidad
+  - encapsulamiento_opaco
+verificado: true
+tipo_entrega: archivos_individuales
+familia: tda
+rol_familia: libreria
+funciones:
+  - nombre: secuencia_crear
+    retorno: secuencia_t *
+    parametros: size_t capacidad
+    descripcion: Constructor de secuencia con capacidad máxima.
+  - nombre: secuencia_destruir
+    retorno: void
+    parametros: secuencia_t *s
+    descripcion: Destructor tolerante a NULL.
+  - nombre: secuencia_obtener
+    retorno: bool
+    parametros: const secuencia_t *sec, size_t indice, int *destino
+    descripcion: Selector por índice posicional.
+  - nombre: secuencia_largo
+    retorno: size_t
+    parametros: const secuencia_t *sec
+    descripcion: Consultor de cantidad actual de elementos.
+  - nombre: secuencia_esta_vacia
+    retorno: bool
+    parametros: const secuencia_t *sec
+    descripcion: Consultor booleano de secuencia vacía.
+  - nombre: secuencia_insertar
+    retorno: bool
+    parametros: secuencia_t *sec, size_t pos, int valor
+    descripcion: Mutador de inserción en posición específica.
+  - nombre: secuencia_eliminar
+    retorno: bool
+    parametros: secuencia_t *sec, size_t pos, int *dato_extraido
+    descripcion: Mutador de extracción y eliminación posicional.
+  - nombre: secuencia_a_cadena
+    retorno: char *
+    parametros: const secuencia_t *sec
+    descripcion: Conversor a representación textual en heap [10, 20, 30].
+tests_funciones:
+  - nombre: test_secuencia_crear_insertar
+    funcion: secuencia_crear
+    codigo: |
+      secuencia_t *sec = secuencia_crear(3);
+      assert(sec != NULL);
+      assert(secuencia_esta_vacia(sec));
+      assert(secuencia_insertar(sec, 0, 10));
+      assert(secuencia_insertar(sec, 1, 20));
+      assert(secuencia_largo(sec) == 2);
+      secuencia_destruir(sec);
+  - nombre: test_secuencia_eliminar
+    funcion: secuencia_eliminar
+    codigo: |
+      secuencia_t *sec = secuencia_crear(3);
+      assert(sec != NULL);
+      secuencia_insertar(sec, 0, 10);
+      secuencia_insertar(sec, 1, 20);
+      int ext = 0;
+      assert(secuencia_eliminar(sec, 0, &ext));
+      assert(ext == 10);
+      assert(secuencia_largo(sec) == 1);
+      secuencia_destruir(sec);

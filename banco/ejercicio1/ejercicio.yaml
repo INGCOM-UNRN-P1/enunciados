@@ -1,0 +1,75 @@
+id: ejercicio1
+titulo: 'TDA Fracción (fraccion_t) — Invariantes y Normalización'
+tema: tipos_datos_abstractos
+bloom: 3
+minutos: 40
+pistas:
+  - 'En fraccion_crear, normalizá primero el signo para que el denominador sea positivo.'
+  - 'Simplificá dividiendo numerador y denominador por su MCD (algoritmo de Euclides).'
+  - 'Si el numerador es 0, el denominador simplificado debe ser 1 (0/1).'
+  - 'En fraccion_comparar, utilizá producto cruzado para evitar pérdida de precisión con punto flotante.'
+tags:
+  - tda
+  - fraccion
+  - invariantes
+  - encapsulamiento_opaco
+  - mcd
+verificado: true
+tipo_entrega: archivos_individuales
+familia: tda
+rol_familia: libreria
+funciones:
+  - nombre: fraccion_crear
+    retorno: fraccion_t *
+    parametros: int numerador, int denominador
+    descripcion: Constructor con normalización de signo y simplificación por MCD.
+  - nombre: fraccion_destruir
+    retorno: void
+    parametros: fraccion_t *f
+    descripcion: Destructor tolerante a NULL.
+  - nombre: fraccion_numerador
+    retorno: int
+    parametros: const fraccion_t *f
+    descripcion: Selector de numerador.
+  - nombre: fraccion_denominador
+    retorno: int
+    parametros: const fraccion_t *f
+    descripcion: Selector de denominador positivo.
+  - nombre: fraccion_es_entera
+    retorno: bool
+    parametros: const fraccion_t *f
+    descripcion: Retorna true si denominador es 1.
+  - nombre: fraccion_comparar
+    retorno: int
+    parametros: const fraccion_t *f1, const fraccion_t *f2
+    descripcion: Comparación por producto cruzado (< 0, 0, > 0).
+  - nombre: fraccion_sumar
+    retorno: fraccion_t *
+    parametros: const fraccion_t *f1, const fraccion_t *f2
+    descripcion: Suma exacta simplificada.
+  - nombre: fraccion_multiplicar
+    retorno: fraccion_t *
+    parametros: const fraccion_t *f1, const fraccion_t *f2
+    descripcion: Multiplicación exacta simplificada.
+  - nombre: fraccion_a_real
+    retorno: double
+    parametros: const fraccion_t *f
+    descripcion: Conversor a double.
+  - nombre: fraccion_a_cadena
+    retorno: char *
+    parametros: const fraccion_t *f
+    descripcion: Representación dinámica en formato num/den.
+tests_funciones:
+  - nombre: test_fraccion_crear_normalizar
+    funcion: fraccion_crear
+    codigo: |
+      fraccion_t *f = fraccion_crear(6, 8);
+      assert(f != NULL);
+      assert(fraccion_numerador(f) == 3);
+      assert(fraccion_denominador(f) == 4);
+      fraccion_destruir(f);
+  - nombre: test_fraccion_denominador_cero
+    funcion: fraccion_crear
+    codigo: |
+      fraccion_t *f = fraccion_crear(1, 0);
+      assert(f == NULL);
