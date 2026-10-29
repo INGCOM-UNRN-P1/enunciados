@@ -1,0 +1,17 @@
+# Especificación propuesta por deckard (Ola 32): revisá que los rangos no pidan algo que el
+# enunciado no pide y volvé a generar con `deckard exercise cubrir`.
+name: mayor
+count: 12
+seed: 32
+format_template: 'mayor {a} {b}
+
+  '
+rules:
+- name: a
+  type: integer
+  min_val: -10
+  max_val: 30
+- name: b
+  type: integer
+  min_val: -10
+  max_val: 30

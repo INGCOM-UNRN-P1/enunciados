@@ -1,0 +1,12 @@
+# Revisada (Ola 32): el enunciado define fibonacci(n) para n >= 0; los negativos no se prueban.
+name: fibonacci
+count: 12
+seed: 32
+format_template: 'fibonacci {n}
+
+  '
+rules:
+- name: n
+  type: integer
+  min_val: 0
+  max_val: 30

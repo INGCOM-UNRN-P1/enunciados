@@ -1,0 +1,17 @@
+# Especificación propuesta por deckard (Ola 32): revisá que los rangos no pidan algo que el
+# enunciado no pide y volvé a generar con `deckard exercise cubrir`.
+name: permutaciones
+count: 12
+seed: 32
+format_template: 'permutaciones {n} {k}
+
+  '
+rules:
+- name: n
+  type: integer
+  min_val: -10
+  max_val: 30
+- name: k
+  type: integer
+  min_val: -10
+  max_val: 30

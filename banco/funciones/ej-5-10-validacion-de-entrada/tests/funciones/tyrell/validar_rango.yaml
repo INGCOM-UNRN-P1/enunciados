@@ -1,0 +1,21 @@
+# Especificación propuesta por deckard (Ola 32): revisá que los rangos no pidan algo que el
+# enunciado no pide y volvé a generar con `deckard exercise cubrir`.
+name: validar_rango
+count: 12
+seed: 32
+format_template: 'validar_rango {valor} {min} {max}
+
+  '
+rules:
+- name: valor
+  type: integer
+  min_val: -10
+  max_val: 30
+- name: min
+  type: integer
+  min_val: -10
+  max_val: 30
+- name: max
+  type: integer
+  min_val: -10
+  max_val: 30

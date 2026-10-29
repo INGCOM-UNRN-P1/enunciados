@@ -1,0 +1,16 @@
+# Revisada (Ola 32): el enunciado deja fuera del dominio el divisor <= 0 y el dividendo negativo; no se prueban.
+name: division_lenta
+count: 12
+seed: 32
+format_template: 'division_lenta {dividendo} {divisor}
+
+  '
+rules:
+- name: dividendo
+  type: integer
+  min_val: 0
+  max_val: 60
+- name: divisor
+  type: integer
+  min_val: 1
+  max_val: 10
