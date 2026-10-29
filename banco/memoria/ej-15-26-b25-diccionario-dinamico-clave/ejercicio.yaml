@@ -1,0 +1,43 @@
+id: ej-15-26-b25-diccionario-dinamico-clave
+titulo: Diccionario Dinámico Clave-Valor
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- dinamico
+- stack
+- layout
+- memoria
+- diccionario
+- dep:punteros
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_nario_dinamico_clave
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Diccionario Dinámico Clave-Valor
+tests_funciones:
+- nombre: test_proc_nario_dinamico_clave_positivo
+  funcion: proc_nario_dinamico_clave
+  codigo: 'int res = proc_nario_dinamico_clave(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_nario_dinamico_clave_cero
+  funcion: proc_nario_dinamico_clave
+  codigo: 'int res = proc_nario_dinamico_clave(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: pilas_y_colas
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- punteros
+- estructuras

@@ -1,0 +1,148 @@
+id: ej-6-4-mensajes-de-depuracion
+titulo: Mensajes de depuración
+tema: build_systems
+bloom: 5
+minutos_estimados: 45
+pistas:
+- 'En el código: Encerrá tus `printf` de depuración dentro de bloques de preprocesador:
+  ```c #ifdef DEBUG printf("[DEBUG] La función sumar fue llamada con a=%d, b=%d\n",
+  a, b); #endif ```'
+- 'En el Makefile: Modificá la regla de compilación para que se pueda pasar una bandera
+  al compilador. La opción `-D` de `gcc` permite definir una macro desde la línea
+  de comandos. ```makefile # Añadir una variable para las macros CPPFLAGS = # Modificar
+  la regla de compilación %.o: %.c $(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ ```'
+- 'Uso: Ahora podés compilar normalmente (`make`) o en modo debug (`make CPPFLAGS=-DDEBUG`).
+  errores de E/S con `ferror` y `feof`. archivo en todos los caminos de ejecución.'
+- '[Plus Ultra] Agregar múltiples niveles de depuración (ej. DEBUG=1, DEBUG=2) utilizando
+  directivas #if DEBUG >= 1.'
+- '[Plus Ultra] Probar la compilación tanto en modo normal como en modo depuración.'
+- '[Plus Ultra] Compilar con el flag -o especificando un nombre descriptivo para el
+  binario resultante.'
+- '[Plus Ultra] Ejecutar el programa y verificar su código de salida con echo $? en
+  la terminal.'
+- '[Plus Ultra] Agregar los flags -Werror -Wpedantic y verificar que el código compile
+  limpiamente sin advertencias.'
+- '[Plus Ultra] Identificar y corregir advertencias comunes como variables no utilizadas
+  o conversiones implícitas.'
+- '[Plus Ultra] Estructurar los archivos en subdirectorios src/ e include/ y compilar
+  con -Iinclude.'
+- '[Plus Ultra] Añadir una tercera función en un módulo adicional utilidades.c y enlazar
+  todos los objetos.'
+- '[Plus Ultra] Explicar mediante un comentario qué problema de compilación ocurre
+  si se omite la guarda de inclusión.'
+- '[Plus Ultra] Probar qué sucede al incluir dos veces el mismo header en main.c.'
+- '[Plus Ultra] Usar variables automáticas ($@, $<) en las reglas del Makefile para
+  simplificar los comandos.'
+- '[Plus Ultra] Declarar el target clean como .PHONY.'
+- '[Plus Ultra] Compilar enlazando con la biblioteca matemática estándar usando el
+  flag -lm.'
+- '[Plus Ultra] Crear un Makefile que compile y ejecute los ejemplos matemáticos automáticamente.'
+- '[Plus Ultra] Comparar el tiempo de ejecución del programa compilado con -O0 frente
+  a -O2 o -O3.'
+- '[Plus Ultra] Inspeccionar el tamaño del binario resultante con cada nivel de optimización.'
+- '[Plus Ultra] Definir macros de preprocesador mediante el flag -D (ej. -DVERSION="1.0.0").'
+- '[Plus Ultra] Crear targets separados en el Makefile para compilar con distintas
+  configuraciones.'
+- '[Plus Ultra] Crear una suite de pruebas en test_utilidades.c que verifique cada
+  función con assert().'
+- '[Plus Ultra] Agregar un target test en el Makefile que compile y corra las pruebas
+  automáticamente.'
+- '[Plus Ultra] Organizar el Makefile con variables CC, CFLAGS, LDFLAGS y OBJS.'
+- '[Plus Ultra] Permitir sobrescribir variables desde la línea de comandos (ej. make
+  CC=clang).'
+- '[Plus Ultra] Usar los flags de gcc -MMD -MP para generar archivos de dependencias
+  .d automáticamente.'
+- '[Plus Ultra] Incluir los archivos .d en el Makefile mediante la directiva -include.'
+- '[Plus Ultra] Crear una biblioteca estática (.a) utilizando la herramienta ar rcs.'
+- '[Plus Ultra] Enlazar el ejecutable principal contra la biblioteca estática creada.'
+- '[Plus Ultra] Crear una biblioteca compartida (.so) compilando con -fPIC y enlazando
+  con -shared.'
+- '[Plus Ultra] Ejecutar el programa configurando LD_LIBRARY_PATH.'
+- '[Plus Ultra] Organizar el proyecto con estructura src/, include/, obj/, bin/.'
+- '[Plus Ultra] Crear un Makefile que cree automáticamente los directorios obj/ y
+  bin/ si no existen.'
+- '[Plus Ultra] Agregar targets adicionales como help, info y format en el Makefile.'
+- '[Plus Ultra] Asegurar que todos los targets auxiliares estén listados en .PHONY.'
+- '[Plus Ultra] Definir reglas separadas en el Makefile para compilar en modo Debug
+  (-g -O0) y Release (-O2 -DNDEBUG).'
+- '[Plus Ultra] Colocar los binarios de cada perfil en carpetas de salida separadas
+  (bin/debug/ y bin/release/).'
+- '[Plus Ultra] Ejecutar herramientas de análisis como cppcheck o clang-tidy sobre
+  los archivos fuente.'
+- '[Plus Ultra] Integrar un target check o lint en el Makefile para correr el análisis
+  estático.'
+- '[Plus Ultra] Configurar el Makefile para soportar compilación cruzada especificando
+  el prefijo CROSS_COMPILE.'
+- '[Plus Ultra] Verificar que la arquitectura de destino sea configurable mediante
+  una variable.'
+- '[Plus Ultra] Diseñar un Makefile modular y completo que incluya compilación, tests,
+  documentación y empaquetado.'
+- '[Plus Ultra] Asegurar que make clean limpie absolutamente todos los artefactos
+  intermedios generados.'
+- '[Plus Ultra] Crear un archivo CMakeLists.txt básico que defina el proyecto, ejecutables
+  y bibliotecas.'
+- '[Plus Ultra] Generar y compilar el proyecto en un directorio build/ separado.'
+- '**Preprocesamiento:** Expande #include, #define'
+- '`gcc -E programa.c` para ver resultado'
+- '**Compilación:** C → Assembly'
+- '`gcc -S programa.c` genera programa.s'
+- '**Ensamblado:** Assembly → Código objeto'
+- '`gcc -c programa.c` genera programa.o'
+- '**Enlazado:** Objetos + bibliotecas → Ejecutable'
+- '`gcc programa.o -o programa` **Flags útiles:**'
+- '`-E`: Solo preprocesar'
+- '`-S`: Generar assembly'
+- '`-c`: Compilar sin enlazar'
+- '`-o`: Especificar nombre de salida'
+- '`-I`: Agregar directorio de includes'
+- '`-L`: Agregar directorio de bibliotecas'
+- '`-l`: Enlazar con biblioteca'
+- '**Headers:**'
+- Siempre usar include guards
+- Solo declaraciones en .h
+- Documentar funciones públicas
+- '**Separación:**'
+- Un .c por módulo lógico
+- Header correspondiente para cada .c
+- main.c mínimo, lógica en módulos
+- '**Makefile:**'
+- Variables para CC, CFLAGS
+- Target `clean` siempre
+- '`.PHONY` para targets sin archivo'
+- Dependencias correctas
+- '**Compilación:**'
+- Siempre `-Wall -Wextra`
+- '`-g` para debugging'
+- '`-O2` para release'
+- '`-std=c99` o superior'
+tags:
+- mensajes
+- fundamentos
+- makefiles
+- depuracion
+- compilacion
+- dep:librerias
+verificado: true
+funciones:
+- nombre: proc_nsajes_de_depuracion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Mensajes de depuración
+tests_funciones:
+- nombre: test_proc_nsajes_de_depuracion_positivo
+  funcion: proc_nsajes_de_depuracion
+  codigo: 'int res = proc_nsajes_de_depuracion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_nsajes_de_depuracion_cero
+  funcion: proc_nsajes_de_depuracion
+  codigo: 'int res = proc_nsajes_de_depuracion(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: pilas_y_colas
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- librerias

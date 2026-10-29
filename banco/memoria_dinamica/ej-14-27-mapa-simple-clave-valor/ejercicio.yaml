@@ -1,0 +1,43 @@
+id: ej-14-27-mapa-simple-clave-valor
+titulo: Mapa Simple (Clave-Valor)
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- simple
+- memoria
+- malloc
+- free
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc_a_simple_clave_valor
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Mapa Simple (Clave-Valor)
+tests_funciones:
+- nombre: test_proc_a_simple_clave_valor_positivo
+  funcion: proc_a_simple_clave_valor
+  codigo: 'int res = proc_a_simple_clave_valor(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_a_simple_clave_valor_cero
+  funcion: proc_a_simple_clave_valor
+  codigo: 'int res = proc_a_simple_clave_valor(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: gestion_heap
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- punteros

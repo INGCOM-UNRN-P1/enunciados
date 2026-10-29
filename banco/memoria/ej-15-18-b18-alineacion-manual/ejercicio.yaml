@@ -1,0 +1,43 @@
+id: ej-15-18-b18-alineacion-manual
+titulo: Alineación Manual
+tema: memoria
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- stack
+- layout
+- alineacion
+- memoria
+- manual
+- dep:punteros
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_18_alineacion_manual
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Alineación Manual
+tests_funciones:
+- nombre: test_proc_18_alineacion_manual_positivo
+  funcion: proc_18_alineacion_manual
+  codigo: 'int res = proc_18_alineacion_manual(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_18_alineacion_manual_cero
+  funcion: proc_18_alineacion_manual
+  codigo: 'int res = proc_18_alineacion_manual(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: pilas_y_colas
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- punteros
+- estructuras

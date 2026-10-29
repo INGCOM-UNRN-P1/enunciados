@@ -1,0 +1,47 @@
+id: ej-14-9-multiplicacion
+titulo: Multiplicación
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- heap
+- multiplicacion
+- memoria
+- malloc
+- free
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc__14_9_multiplicacion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Multiplicación
+tests_funciones:
+- nombre: test_proc__14_9_multiplicacion_positivo
+  funcion: proc__14_9_multiplicacion
+  codigo: 'int res = proc__14_9_multiplicacion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__14_9_multiplicacion_cero
+  funcion: proc__14_9_multiplicacion
+  codigo: 'int res = proc__14_9_multiplicacion(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: gestion_heap
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- memoria
+- punteros

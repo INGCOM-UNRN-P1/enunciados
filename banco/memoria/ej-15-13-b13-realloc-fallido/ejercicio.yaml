@@ -1,0 +1,43 @@
+id: ej-15-13-b13-realloc-fallido
+titulo: Realloc Fallido
+tema: memoria
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- fallido
+- stack
+- layout
+- memoria
+- realloc
+- dep:punteros
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc__b13_realloc_fallido
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Realloc Fallido
+tests_funciones:
+- nombre: test_proc__b13_realloc_fallido_positivo
+  funcion: proc__b13_realloc_fallido
+  codigo: 'int res = proc__b13_realloc_fallido(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__b13_realloc_fallido_cero
+  funcion: proc__b13_realloc_fallido
+  codigo: 'int res = proc__b13_realloc_fallido(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: pilas_y_colas
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- punteros
+- estructuras

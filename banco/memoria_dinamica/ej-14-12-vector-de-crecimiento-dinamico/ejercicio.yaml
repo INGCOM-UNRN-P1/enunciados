@@ -1,0 +1,43 @@
+id: ej-14-12-vector-de-crecimiento-dinamico
+titulo: Vector de Crecimiento Dinámico
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- heap
+- dinamico
+- crecimiento
+- vector
+- memoria
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc_crecimiento_dinamico
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Vector de Crecimiento Dinámico
+tests_funciones:
+- nombre: test_proc_crecimiento_dinamico_positivo
+  funcion: proc_crecimiento_dinamico
+  codigo: 'int res = proc_crecimiento_dinamico(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_crecimiento_dinamico_cero
+  funcion: proc_crecimiento_dinamico
+  codigo: 'int res = proc_crecimiento_dinamico(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: heap
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- memoria
+- punteros

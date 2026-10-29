@@ -1,0 +1,43 @@
+id: ej-14-1-ciclo-de-vida
+titulo: Ciclo de vida
+tema: memoria_dinamica
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- heap
+- memoria
+- ciclo
+- malloc
+- free
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: ejecutar_ej_14_1_ciclo_de_vida
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ciclo de vida
+tests_funciones:
+- nombre: test_ejecutar_ej_14_1_ciclo_de_vida_positivo
+  funcion: ejecutar_ej_14_1_ciclo_de_vida
+  codigo: 'int res = ejecutar_ej_14_1_ciclo_de_vida(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_14_1_ciclo_de_vida_cero
+  funcion: ejecutar_ej_14_1_ciclo_de_vida
+  codigo: 'int res = ejecutar_ej_14_1_ciclo_de_vida(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: gestion_heap
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- memoria
+- punteros

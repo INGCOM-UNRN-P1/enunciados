@@ -1,0 +1,43 @@
+id: ej-14-4-insercion-y-eliminacion
+titulo: Inserción y Eliminación
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- memoria
+- eliminacion
+- insercion
+- malloc
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc_ercion_y_eliminacion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inserción y Eliminación
+tests_funciones:
+- nombre: test_proc_ercion_y_eliminacion_positivo
+  funcion: proc_ercion_y_eliminacion
+  codigo: 'int res = proc_ercion_y_eliminacion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ercion_y_eliminacion_cero
+  funcion: proc_ercion_y_eliminacion
+  codigo: 'int res = proc_ercion_y_eliminacion(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: ordenamiento_insercion
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- punteros

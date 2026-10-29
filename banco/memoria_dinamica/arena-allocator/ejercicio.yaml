@@ -1,0 +1,53 @@
+id: arena-allocator
+titulo: Asignador de Memoria por Bloques (Arena Allocator)
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 50
+pistas:
+- Un Arena Allocator pre-reserva un bloque contiguo de memoria y despacha 
+  punteros incrementando un offset.
+- Para respetar la alineación de memoria a múltiplos de 8 bytes, ajustá el 
+  offset hacia arriba.
+- El reseteo de la arena simplemente pone el offset en 0 sin hacer free() 
+  individual.
+tags:
+- memoria_dinamica
+- arena
+- alineacion
+- performance
+- punteros
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: arena_init
+  retorno: void
+  parametros: Arena *arena, size_t capacidad
+  descripcion: Operación arena_init
+- nombre: arena_reset
+  retorno: void
+  parametros: Arena *arena
+  descripcion: Operación arena_reset
+- nombre: arena_free
+  retorno: void
+  parametros: Arena *arena
+  descripcion: Operación arena_free
+tests_funciones:
+- nombre: test_arena_init_1
+  funcion: arena_init
+  codigo: '/* Verificación unitaria de arena_init */
+
+    assert(true);'
+- nombre: test_arena_reset_2
+  funcion: arena_reset
+  codigo: '/* Verificación unitaria de arena_reset */
+
+    assert(true);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: arena
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- punteros

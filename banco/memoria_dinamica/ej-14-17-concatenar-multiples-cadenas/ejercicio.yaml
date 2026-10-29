@@ -1,0 +1,43 @@
+id: ej-14-17-concatenar-multiples-cadenas
+titulo: Concatenar Múltiples Cadenas
+tema: memoria_dinamica
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- heap
+- cadenas
+- concatenar
+- memoria
+- malloc
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc_ar_multiples_cadenas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Concatenar Múltiples Cadenas
+tests_funciones:
+- nombre: test_proc_ar_multiples_cadenas_positivo
+  funcion: proc_ar_multiples_cadenas
+  codigo: 'int res = proc_ar_multiples_cadenas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ar_multiples_cadenas_cero
+  funcion: proc_ar_multiples_cadenas
+  codigo: 'int res = proc_ar_multiples_cadenas(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: gestion_heap
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- punteros

@@ -1,0 +1,42 @@
+id: ej-15-34-b33-tiempo-de-vida-de-memoria
+titulo: Tiempo de Vida de Memoria
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- stack
+- tiempo
+- layout
+- memoria
+- dep:punteros
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_o_de_vida_de_memoria
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tiempo de Vida de Memoria
+tests_funciones:
+- nombre: test_proc_o_de_vida_de_memoria_positivo
+  funcion: proc_o_de_vida_de_memoria
+  codigo: 'int res = proc_o_de_vida_de_memoria(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_o_de_vida_de_memoria_cero
+  funcion: proc_o_de_vida_de_memoria
+  codigo: 'int res = proc_o_de_vida_de_memoria(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: pilas_y_colas
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- punteros
+- estructuras

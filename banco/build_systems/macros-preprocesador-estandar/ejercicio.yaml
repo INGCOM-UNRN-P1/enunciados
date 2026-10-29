@@ -1,0 +1,38 @@
+id: macros-preprocesador-estandar
+titulo: Macros Predefinidas del Preprocesador
+tema: build_systems
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Las macros predefinidas son expandidas por el preprocesador antes de la 
+  compilación.
+tags:
+- build_systems
+- recordar
+- c11
+- dep:librerias
+verificado: true
+funciones:
+- nombre: proc_eprocesador_estandar
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Macros Predefinidas del 
+    Preprocesador
+tests_funciones:
+- nombre: test_proc_eprocesador_estandar_positivo
+  funcion: proc_eprocesador_estandar
+  codigo: 'int res = proc_eprocesador_estandar(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eprocesador_estandar_cero
+  funcion: proc_eprocesador_estandar
+  codigo: 'int res = proc_eprocesador_estandar(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: recordar
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias

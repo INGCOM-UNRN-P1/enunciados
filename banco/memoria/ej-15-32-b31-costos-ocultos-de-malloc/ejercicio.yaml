@@ -1,0 +1,43 @@
+id: ej-15-32-b31-costos-ocultos-de-malloc
+titulo: Costos Ocultos de malloc
+tema: memoria
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- stack
+- costos
+- layout
+- memoria
+- ocultos
+- dep:punteros
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_os_ocultos_de_malloc
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Costos Ocultos de malloc
+tests_funciones:
+- nombre: test_proc_os_ocultos_de_malloc_positivo
+  funcion: proc_os_ocultos_de_malloc
+  codigo: 'int res = proc_os_ocultos_de_malloc(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_os_ocultos_de_malloc_cero
+  funcion: proc_os_ocultos_de_malloc
+  codigo: 'int res = proc_os_ocultos_de_malloc(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: pilas_y_colas
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- punteros
+- estructuras

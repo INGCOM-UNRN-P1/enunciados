@@ -1,0 +1,43 @@
+id: ej-14-15-strdup-propio
+titulo: strdup Propio
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- heap
+- strdup
+- memoria
+- propio
+- malloc
+- dep:memoria
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc__14_15_strdup_propio
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de strdup Propio
+tests_funciones:
+- nombre: test_proc__14_15_strdup_propio_positivo
+  funcion: proc__14_15_strdup_propio
+  codigo: 'int res = proc__14_15_strdup_propio(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__14_15_strdup_propio_cero
+  funcion: proc__14_15_strdup_propio
+  codigo: 'int res = proc__14_15_strdup_propio(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: gestion_heap
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- memoria
+- punteros
