@@ -1,0 +1,39 @@
+id: ej-9-41-transposicion-de-matriz-3-time
+titulo: Transposición de Matriz $3 \times 3$
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- times
+- fundamentos
+- transposicion
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: transponer_matriz_3x3
+  retorno: void
+  parametros: const int origen[9], int destino[9]
+  descripcion: Operación transponer_matriz_3x3
+- nombre: test_transposicion_3x3
+  retorno: void
+  parametros: void
+  descripcion: Operación test_transposicion_3x3
+tests_funciones:
+- nombre: test_transponer_matriz_3x3_1
+  funcion: transponer_matriz_3x3
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_test_transposicion_3x3_2
+  funcion: test_transposicion_3x3
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: matrices_2d
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

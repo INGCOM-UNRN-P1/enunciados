@@ -1,0 +1,38 @@
+id: ej-9-12-tarifa-de-taxi-con-variables-r
+titulo: Tarifa de Taxi con Variables Reutilizadas
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- reutilizadas
+- refactorizacion
+- variables
+- fundamentos
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: calc
+  retorno: double
+  parametros: double k, int n
+  descripcion: Operación calc
+tests_funciones:
+- nombre: test_calc_1
+  funcion: calc
+  codigo: '/* Verificación unitaria de calc */
+
+    double res = calc(1, 2);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

@@ -1,0 +1,43 @@
+id: ej-20-22-detectar-conflictos
+titulo: Detectar conflictos
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- tipos
+- detectar
+- memoria
+- enum
+- conflictos
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc__detectar_conflictos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Detectar conflictos
+tests_funciones:
+- nombre: test_proc__detectar_conflictos_positivo
+  funcion: proc__detectar_conflictos
+  codigo: 'int res = proc__detectar_conflictos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__detectar_conflictos_cero
+  funcion: proc__detectar_conflictos
+  codigo: 'int res = proc__detectar_conflictos(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

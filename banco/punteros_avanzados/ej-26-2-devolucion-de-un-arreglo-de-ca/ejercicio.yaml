@@ -1,0 +1,42 @@
+id: ej-26-2-devolucion-de-un-arreglo-de-ca
+titulo: Devolución de un Arreglo de Cadenas (Tokenizer)
+tema: punteros_avanzados
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- cadenas
+- arreglo
+- doble_puntero
+- devolucion
+- punteros_funcion
+- dep:memoria_dinamica
+verificado: true
+funciones:
+- nombre: proc__de_un_arreglo_de_ca
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Devolución de un Arreglo de Cadenas
+    (Tokenizer)
+tests_funciones:
+- nombre: test_proc__de_un_arreglo_de_ca_positivo
+  funcion: proc__de_un_arreglo_de_ca
+  codigo: 'int res = proc__de_un_arreglo_de_ca(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__de_un_arreglo_de_ca_cero
+  funcion: proc__de_un_arreglo_de_ca
+  codigo: 'int res = proc__de_un_arreglo_de_ca(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: procesamiento_texto
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- memoria_dinamica

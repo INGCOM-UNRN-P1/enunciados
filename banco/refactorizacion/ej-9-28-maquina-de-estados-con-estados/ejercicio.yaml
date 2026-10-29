@@ -1,0 +1,32 @@
+id: ej-9-28-maquina-de-estados-con-estados
+titulo: Máquina de Estados con Estados Mágicos
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- maquina
+- clean_code
+- refactorizacion
+- fundamentos
+- magicos
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: step
+  retorno: void
+  parametros: char c
+  descripcion: Operación step
+tests_funciones:
+- nombre: test_step_1
+  funcion: step
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: maquina
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

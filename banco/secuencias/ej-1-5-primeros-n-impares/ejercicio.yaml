@@ -1,0 +1,44 @@
+id: ej-1-5-primeros-n-impares
+titulo: Primeros N Impares
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Se debe leer un número entero $N$ que representa la cantidad de'
+- '**Proceso:** Se puede abordar de dos maneras:'
+- '**Salida:** Se imprime la secuencia de los primeros $N$ números impares.'
+- '[Plus Ultra] Validar que N sea un entero mayor a cero; de lo contrario, volver
+  a solicitarlo.'
+- '[Plus Ultra] Mostrar la suma acumulada de los primeros N impares y verificar que
+  sea igual a N².'
+tags:
+- fundamentos
+- secuencias
+- basicos
+- impares
+- primeros
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_5_primeros_n_impares
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Primeros N Impares
+tests_funciones:
+- nombre: test_proc_5_primeros_n_impares_positivo
+  funcion: proc_5_primeros_n_impares
+  codigo: 'int res = proc_5_primeros_n_impares(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_5_primeros_n_impares_cero
+  funcion: proc_5_primeros_n_impares
+  codigo: 'int res = proc_5_primeros_n_impares(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

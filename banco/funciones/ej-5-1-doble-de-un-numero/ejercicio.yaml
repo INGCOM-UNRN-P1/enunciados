@@ -1,0 +1,36 @@
+id: ej-5-1-doble-de-un-numero
+titulo: Doble de un número
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+starter_code: ''
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: doble
+  retorno: int
+  parametros: int n
+  descripcion: Devuelve el doble de n
+tests_funciones:
+- nombre: test_doble_pos
+  funcion: doble
+  codigo: assert(doble(5) == 10);
+- nombre: test_doble_cero
+  funcion: doble
+  codigo: assert(doble(0) == 0);
+diagramas: []
+tipo_entrega: archivos_individuales
+dependencias: []
+archivos_adicionales: []
+archivos: {}
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

@@ -1,0 +1,42 @@
+id: ej-20-55-motor-de-fsm
+titulo: Motor de FSM
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- motor
+- tipos
+- enum
+- memoria
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: ejecutar_ej_20_55_motor_de_fsm
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Motor de FSM
+tests_funciones:
+- nombre: test_ejecutar_ej_20_55_motor_de_fsm_positivo
+  funcion: ejecutar_ej_20_55_motor_de_fsm
+  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_20_55_motor_de_fsm_cero
+  funcion: ejecutar_ej_20_55_motor_de_fsm
+  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

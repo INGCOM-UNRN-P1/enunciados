@@ -1,0 +1,51 @@
+id: ej-11-28-b28-comparacion-de-cadenas-ign
+titulo: Comparación de cadenas (Ignorando mayúsculas)
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Recorrer ambas cadenas simultáneamente con un lazo `while`.
+- En cada paso, comparar las versiones en minúscula (o mayúscula) de los 
+  caracteres actuales.
+- Si son diferentes, devolver la diferencia.
+- Si una cadena termina antes que la otra, son diferentes.
+- Si ambas terminan al mismo tiempo, son iguales.
+tags:
+- cadenas
+- strings
+- memoria
+- ignorando
+- mayusculas
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_acion_de_cadenas_ign
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Comparación de cadenas (Ignorando 
+    mayúsculas)
+tests_funciones:
+- nombre: test_proc_acion_de_cadenas_ign_positivo
+  funcion: proc_acion_de_cadenas_ign
+  codigo: 'int res = proc_acion_de_cadenas_ign(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_acion_de_cadenas_ign_cero
+  funcion: proc_acion_de_cadenas_ign
+  codigo: 'int res = proc_acion_de_cadenas_ign(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

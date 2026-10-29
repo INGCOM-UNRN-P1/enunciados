@@ -1,0 +1,50 @@
+id: ej-11-23-b23-reemplazar-subcadena
+titulo: Reemplazar subcadena
+tema: cadenas
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+- '**Proceso:**'
+- Contar cuántas veces aparece la subcadena a buscar para calcular el tamaño 
+  final de la nueva cadena.
+- Reservar memoria (`malloc`) para la nueva cadena.
+- Recorrer la cadena original. Cuando se encuentre una ocurrencia de la 
+  subcadena a buscar, copiar la cadena de reemplazo a la nueva cadena. Si no, 
+  copiar el carácter actual.
+tags:
+- cadenas
+- strings
+- memoria
+- reemplazar
+- subcadena
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_reemplazar_subcadena
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Reemplazar subcadena
+tests_funciones:
+- nombre: test_proc_reemplazar_subcadena_positivo
+  funcion: proc_reemplazar_subcadena
+  codigo: 'int res = proc_reemplazar_subcadena(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_reemplazar_subcadena_cero
+  funcion: proc_reemplazar_subcadena
+  codigo: 'int res = proc_reemplazar_subcadena(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- arreglos
+- caracteres

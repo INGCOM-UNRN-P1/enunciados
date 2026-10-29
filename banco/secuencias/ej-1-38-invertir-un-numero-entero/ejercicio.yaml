@@ -1,0 +1,42 @@
+id: ej-1-38-invertir-un-numero-entero
+titulo: Invertir un Número Entero
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un número entero.'
+- '**Proceso:** Se puede construir el número invertido dígito por dígito.'
+- '**Salida:** Devolver el número `invertido`.'
+- '[Plus Ultra] Manejar correctamente números que terminan en cero y valores negativos.'
+- '[Plus Ultra] Detectar si el número original es capicúa (palíndromo numérico).'
+tags:
+- invertir
+- fundamentos
+- secuencias
+- numero
+- basicos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_tir_un_numero_entero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Invertir un Número Entero
+tests_funciones:
+- nombre: test_proc_tir_un_numero_entero_positivo
+  funcion: proc_tir_un_numero_entero
+  codigo: 'int res = proc_tir_un_numero_entero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_tir_un_numero_entero_cero
+  funcion: proc_tir_un_numero_entero
+  codigo: 'int res = proc_tir_un_numero_entero(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: invertir
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

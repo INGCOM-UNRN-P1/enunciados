@@ -1,0 +1,35 @@
+id: hola-mundo
+titulo: ¡Hola mundo!
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá incluir <stdio.h> para disponer de la función printf.
+- No olvides agregar el salto de línea \n al final del mensaje.
+tags:
+- sintaxis
+- io
+- basico
+verificado: true
+funciones:
+- nombre: ejecutar_hola_mundo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de ¡Hola mundo!
+tests_funciones:
+- nombre: test_ejecutar_hola_mundo_positivo
+  funcion: ejecutar_hola_mundo
+  codigo: 'int res = ejecutar_hola_mundo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hola_mundo_cero
+  funcion: ejecutar_hola_mundo
+  codigo: 'int res = ejecutar_hola_mundo(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: basico
+dificultad: inicial
+tipo: concepto
+prerrequisitos: []

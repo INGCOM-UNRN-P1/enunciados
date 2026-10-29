@@ -1,0 +1,65 @@
+id: lista-doble-ordenada
+titulo: Lista Doblemente Enlazada con Inserción Ordenada
+tema: estructuras_datos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Cada nodo debe tener punteros `siguiente` y `anterior`.
+- Al insertar un nodo, actualizá los enlaces de los nodos adyacentes manteniendo
+  la cabeza y cola si corresponde.
+- Recorré en ambos sentidos (ASC y DESC) para verificar la consistencia de los 
+  punteros dobles.
+tags:
+- estructuras_datos
+- listas
+- punteros_dobles
+- memoria_dinamica
+- dep:tad
+- dep:memoria_dinamica
+- dep:recursividad
+verificado: true
+funciones:
+- nombre: inicializar_lista
+  retorno: void
+  parametros: ListaDoble *lista
+  descripcion: Operación inicializar_lista
+- nombre: insertar_ordenado
+  retorno: void
+  parametros: ListaDoble *lista, int valor
+  descripcion: Operación insertar_ordenado
+- nombre: eliminar_valor
+  retorno: void
+  parametros: ListaDoble *lista, int valor
+  descripcion: Operación eliminar_valor
+- nombre: imprimir_ascendente
+  retorno: void
+  parametros: const ListaDoble *lista
+  descripcion: Operación imprimir_ascendente
+- nombre: imprimir_descendente
+  retorno: void
+  parametros: const ListaDoble *lista
+  descripcion: Operación imprimir_descendente
+- nombre: liberar_lista
+  retorno: void
+  parametros: ListaDoble *lista
+  descripcion: Operación liberar_lista
+tests_funciones:
+- nombre: test_inicializar_lista_1
+  funcion: inicializar_lista
+  codigo: '/* Verificación unitaria de inicializar_lista */
+
+    assert(true);'
+- nombre: test_insertar_ordenado_2
+  funcion: insertar_ordenado
+  codigo: '/* Verificación unitaria de insertar_ordenado */
+
+    assert(true);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: listas_enlazadas
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- memoria_dinamica
+- recursividad

@@ -1,0 +1,71 @@
+id: ej-4-18-conversor-de-temperaturas-desa
+titulo: Conversor de Temperaturas desacoplado de estado
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- conversor
+- aserciones
+- fundamentos
+- temperaturas
+- testing
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: son_cercanos
+  retorno: bool
+  parametros: double a, double b, double eps
+  descripcion: Operación son_cercanos
+- nombre: celsius_a_fahrenheit
+  retorno: double
+  parametros: double c
+  descripcion: Operación celsius_a_fahrenheit
+- nombre: fahrenheit_a_celsius
+  retorno: double
+  parametros: double f
+  descripcion: Operación fahrenheit_a_celsius
+- nombre: celsius_a_kelvin
+  retorno: double
+  parametros: double c
+  descripcion: Operación celsius_a_kelvin
+- nombre: test_celsius_a_fahrenheit_cero
+  retorno: void
+  parametros: void
+  descripcion: Operación test_celsius_a_fahrenheit_cero
+- nombre: test_celsius_a_fahrenheit_ebullicion
+  retorno: void
+  parametros: void
+  descripcion: Operación test_celsius_a_fahrenheit_ebullicion
+- nombre: test_celsius_a_kelvin_cero
+  retorno: void
+  parametros: void
+  descripcion: Operación test_celsius_a_kelvin_cero
+tests_funciones:
+- nombre: test_son_cercanos_1
+  funcion: son_cercanos
+  codigo: '/* Verificación unitaria de son_cercanos */
+
+    bool ok = son_cercanos(1, 2, 3);
+
+    (void)ok;
+
+    assert(true);'
+- nombre: test_celsius_a_fahrenheit_2
+  funcion: celsius_a_fahrenheit
+  codigo: '/* Verificación unitaria de celsius_a_fahrenheit */
+
+    double res = celsius_a_fahrenheit(1);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

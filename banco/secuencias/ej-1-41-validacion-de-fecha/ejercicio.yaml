@@ -1,0 +1,43 @@
+id: ej-1-41-validacion-de-fecha
+titulo: Validación de Fecha
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Tres enteros: `dia`, `mes`, `anio`.'
+- '**Proceso:** Realizar una serie de verificaciones en orden lógico:'
+- '**Salida:** Devolver un valor booleano (`true` si es válida, `false` si no).'
+- '[Plus Ultra] Validar años bisiestos para febrero y el número correcto de días según
+  cada mes (1-31).'
+- '[Plus Ultra] Calcular el día de la semana correspondiente a la fecha ingresada.'
+tags:
+- fundamentos
+- fecha
+- secuencias
+- validacion
+- basicos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc__validacion_de_fecha
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validación de Fecha
+tests_funciones:
+- nombre: test_proc__validacion_de_fecha_positivo
+  funcion: proc__validacion_de_fecha
+  codigo: 'int res = proc__validacion_de_fecha(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__validacion_de_fecha_cero
+  funcion: proc__validacion_de_fecha
+  codigo: 'int res = proc__validacion_de_fecha(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

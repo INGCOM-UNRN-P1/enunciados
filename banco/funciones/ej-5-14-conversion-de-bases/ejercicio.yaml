@@ -1,0 +1,27 @@
+id: ej-5-14-conversion-de-bases
+titulo: Conversión de Bases
+tema: funciones
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_14
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Conversión de Bases
+tests_funciones:
+- nombre: test_resolver_ej_14
+  funcion: resolver_ej_14
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

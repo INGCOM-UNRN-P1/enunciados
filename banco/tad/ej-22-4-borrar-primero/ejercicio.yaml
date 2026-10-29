@@ -1,0 +1,45 @@
+id: ej-22-4-borrar-primero
+titulo: Borrar Primero
+tema: tad
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- borrar
+- tad
+- primero
+- abstraccion
+- algoritmos
+- dep:estructuras
+- dep:punteros
+- dep:memoria_dinamica
+verificado: true
+funciones:
+- nombre: proc__22_4_borrar_primero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Borrar Primero
+tests_funciones:
+- nombre: test_proc__22_4_borrar_primero_positivo
+  funcion: proc__22_4_borrar_primero
+  codigo: 'int res = proc__22_4_borrar_primero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__22_4_borrar_primero_cero
+  funcion: proc__22_4_borrar_primero
+  codigo: 'int res = proc__22_4_borrar_primero(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: arboles_binarios
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- estructuras
+- punteros
+- memoria_dinamica

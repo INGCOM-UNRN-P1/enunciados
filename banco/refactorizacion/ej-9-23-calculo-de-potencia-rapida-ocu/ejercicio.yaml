@@ -1,0 +1,39 @@
+id: ej-9-23-calculo-de-potencia-rapida-ocu
+titulo: Cálculo de Potencia Rápida Oculto
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- potencia
+- fundamentos
+- calculo
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc__potencia_rapida_ocu
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cálculo de Potencia Rápida Oculto
+tests_funciones:
+- nombre: test_proc__potencia_rapida_ocu_positivo
+  funcion: proc__potencia_rapida_ocu
+  codigo: 'int res = proc__potencia_rapida_ocu(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__potencia_rapida_ocu_cero
+  funcion: proc__potencia_rapida_ocu
+  codigo: 'int res = proc__potencia_rapida_ocu(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

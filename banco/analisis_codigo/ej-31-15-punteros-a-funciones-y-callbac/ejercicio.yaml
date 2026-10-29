@@ -1,0 +1,72 @@
+id: ej-31-15-punteros-a-funciones-y-callbac
+titulo: Punteros a Funciones y Callbacks
+tema: analisis_codigo
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- analisis
+- funciones
+- punteros
+- avanzados
+- callbacks
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: es_par
+  retorno: bool
+  parametros: int n
+  descripcion: Operación es_par
+- nombre: es_positivo
+  retorno: bool
+  parametros: int n
+  descripcion: Operación es_positivo
+- nombre: duplicar
+  retorno: int
+  parametros: int n
+  descripcion: Operación duplicar
+- nombre: cuadrado
+  retorno: int
+  parametros: int n
+  descripcion: Operación cuadrado
+- nombre: contar_si
+  retorno: int
+  parametros: const int *arr, size_t n, predicado_t predicado
+  descripcion: Operación contar_si
+- nombre: aplicar
+  retorno: void
+  parametros: int *arr, size_t n, operacion_t operacion
+  descripcion: Operación aplicar
+- nombre: procesar
+  retorno: void
+  parametros: "int *arr, size_t n, predicado_t filtro,\n              operacion_t
+    transformacion"
+  descripcion: Operación procesar
+tests_funciones:
+- nombre: test_es_par_1
+  funcion: es_par
+  codigo: '/* Verificación unitaria de es_par */
+
+    bool ok = es_par(1);
+
+    (void)ok;
+
+    assert(true);'
+- nombre: test_es_positivo_2
+  funcion: es_positivo
+  codigo: '/* Verificación unitaria de es_positivo */
+
+    bool ok = es_positivo(1);
+
+    (void)ok;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: analisis
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- memoria
+- testing

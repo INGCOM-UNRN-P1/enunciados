@@ -1,0 +1,44 @@
+id: ej-21-18-suavizado-de-matriz-filtro-de
+titulo: Suavizado de matriz (Filtro de caja)
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- matrices
+- suavizado
+- caja
+- filtro
+- matriz
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc__de_matriz_filtro_de
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Suavizado de matriz (Filtro de 
+    caja)
+tests_funciones:
+- nombre: test_proc__de_matriz_filtro_de_positivo
+  funcion: proc__de_matriz_filtro_de
+  codigo: 'int res = proc__de_matriz_filtro_de(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__de_matriz_filtro_de_cero
+  funcion: proc__de_matriz_filtro_de
+  codigo: 'int res = proc__de_matriz_filtro_de(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: matrices_2d
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- lazos_anidados

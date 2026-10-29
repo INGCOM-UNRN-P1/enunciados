@@ -1,0 +1,43 @@
+id: ej-17-2-destruccion-de-persona
+titulo: Destrucción de Persona
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- estructuras
+- destruccion
+- memoria
+- punteros
+- persona
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: proc_struccion_de_persona
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Destrucción de Persona
+tests_funciones:
+- nombre: test_proc_struccion_de_persona_positivo
+  funcion: proc_struccion_de_persona
+  codigo: 'int res = proc_struccion_de_persona(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_struccion_de_persona_cero
+  funcion: proc_struccion_de_persona
+  codigo: 'int res = proc_struccion_de_persona(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: estructuras
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

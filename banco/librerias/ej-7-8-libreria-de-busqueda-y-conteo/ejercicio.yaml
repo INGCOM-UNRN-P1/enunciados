@@ -1,0 +1,42 @@
+id: ej-7-8-libreria-de-busqueda-y-conteo
+titulo: Librería de Búsqueda y Conteo en Texto
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Para comprobar palíndromos podés ignorar diferencias entre mayúsculas y 
+  minúsculas y caracteres no alfabéticos.
+tags:
+- texto
+- fundamentos
+- headers
+- busqueda
+- libreria
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_de_busqueda_y_conteo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Búsqueda y Conteo en 
+    Texto
+tests_funciones:
+- nombre: test_proc_de_busqueda_y_conteo_positivo
+  funcion: proc_de_busqueda_y_conteo
+  codigo: 'int res = proc_de_busqueda_y_conteo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_busqueda_y_conteo_cero
+  funcion: proc_de_busqueda_y_conteo
+  codigo: 'int res = proc_de_busqueda_y_conteo(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- estructuras

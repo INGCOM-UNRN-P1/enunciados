@@ -1,0 +1,44 @@
+id: ej-1-24-serie-de-fibonacci-iterativa
+titulo: Serie de Fibonacci (Iterativa)
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Variables:** Se necesitan al menos tres variables para mantener el estado:'
+- '**Casos Base:** Los primeros dos términos (para n=0 y n=1) son fijos (0 y'
+- '**Proceso:**'
+- '[Plus Ultra] Usar tipos enteros sin signo o long long para calcular términos más
+  altos sin desbordamiento.'
+- '[Plus Ultra] Calcular el cociente entre términos consecutivos para observar la
+  convergencia al número áureo.'
+tags:
+- fundamentos
+- iterativa
+- secuencias
+- fibonacci
+- basicos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc__fibonacci_iterativa
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serie de Fibonacci (Iterativa)
+tests_funciones:
+- nombre: test_proc__fibonacci_iterativa_positivo
+  funcion: proc__fibonacci_iterativa
+  codigo: 'int res = proc__fibonacci_iterativa(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__fibonacci_iterativa_cero
+  funcion: proc__fibonacci_iterativa
+  codigo: 'int res = proc__fibonacci_iterativa(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: series_numericas
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

@@ -1,0 +1,45 @@
+id: ej-28-3-leer-registro-especifico
+titulo: Leer Registro Específico
+tema: archivos_binarios
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- fwrite
+- especifico
+- registro
+- avanzados
+- binarios
+- dep:archivos
+- dep:estructuras
+- dep:memoria
+verificado: true
+funciones:
+- nombre: proc__registro_especifico
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Leer Registro Específico
+tests_funciones:
+- nombre: test_proc__registro_especifico_positivo
+  funcion: proc__registro_especifico
+  codigo: 'int res = proc__registro_especifico(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__registro_especifico_cero
+  funcion: proc__registro_especifico
+  codigo: 'int res = proc__registro_especifico(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: fwrite
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- archivos
+- estructuras
+- memoria

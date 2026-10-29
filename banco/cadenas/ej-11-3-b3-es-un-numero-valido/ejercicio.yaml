@@ -1,0 +1,55 @@
+id: ej-11-3-b3-es-un-numero-valido
+titulo: ¿Es un número válido?
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Reglas de Validación:**'
+- Puede tener un signo opcional (`+` o `-`) únicamente al principio.
+- Debe contener al menos un dígito.
+- Puede contener como máximo un punto decimal (`.`).
+- Todos los demás caracteres deben ser dígitos (`0`-`9`).
+- '**Proceso:**'
+- Recorrer la cadena carácter por carácter.
+- Usar banderas (variables booleanas) para llevar un registro de si ya se 
+  encontró un punto decimal.
+- Manejar el signo solo en la primera posición.
+- Verificar que cada carácter sea un dígito o un punto (en la posición 
+  correcta).
+tags:
+- cadenas
+- strings
+- memoria
+- numero
+- valido
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc__es_un_numero_valido
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de ¿Es un número válido?
+tests_funciones:
+- nombre: test_proc__es_un_numero_valido_positivo
+  funcion: proc__es_un_numero_valido
+  codigo: 'int res = proc__es_un_numero_valido(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__es_un_numero_valido_cero
+  funcion: proc__es_un_numero_valido
+  codigo: 'int res = proc__es_un_numero_valido(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

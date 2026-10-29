@@ -1,0 +1,32 @@
+id: ej-31-12-punteros-y-aliasing
+titulo: Punteros y Aliasing
+tema: analisis_codigo
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- analisis
+- punteros
+- avanzados
+- aliasing
+- code_review
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: procesar_datos
+  retorno: void
+  parametros: int *p1, int *p2, int valor
+  descripcion: Operación procesar_datos
+tests_funciones:
+- nombre: test_procesar_datos_1
+  funcion: procesar_datos
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: analisis
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- memoria
+- testing

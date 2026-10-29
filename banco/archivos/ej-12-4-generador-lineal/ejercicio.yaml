@@ -1,0 +1,45 @@
+id: ej-12-4-generador-lineal
+titulo: Generador lineal
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
+  E/S con `ferror` y `feof`.'
+- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
+  los caminos de ejecución.'
+tags:
+- lineal
+- memoria
+- generador
+- io_disco
+- archivos
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc_2_4_generador_lineal
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Generador lineal
+tests_funciones:
+- nombre: test_proc_2_4_generador_lineal_positivo
+  funcion: proc_2_4_generador_lineal
+  codigo: 'int res = proc_2_4_generador_lineal(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_2_4_generador_lineal_cero
+  funcion: proc_2_4_generador_lineal
+  codigo: 'int res = proc_2_4_generador_lineal(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: busqueda_lineal
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

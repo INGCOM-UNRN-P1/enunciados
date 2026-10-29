@@ -1,0 +1,47 @@
+id: ej-3-39-numeros-de-carmichael
+titulo: Números de Carmichael
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso:**'
+- Verificar si `n` es compuesto (no es primo).
+- Iterar con `b` desde 2 hasta `n-1`.
+- Si `mcd(b, n) == 1`, verificar si `potencia_modular(b, n-1, n) != 1`.
+- Si se encuentra un `b` que no cumple la condición, `n` no es de Carmichael. Si
+  se prueban todos y la cumplen, sí lo es. error e informar el resultado 
+  mediante parámetros de salida. especificando precondiciones y postcondiciones.
+- '[Plus Ultra] Validar que el número sea compuesto y satisfaga a^(n-1) ≡ 1 (mod n)
+  para todo a coprimo con n.'
+- '[Plus Ultra] Comprobar el criterio de Korselt para verificar números de Carmichael.'
+tags:
+- fundamentos
+- aritmetica
+- numeros
+- matematica
+- carmichael
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc_umeros_de_carmichael
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números de Carmichael
+tests_funciones:
+- nombre: test_proc_umeros_de_carmichael_positivo
+  funcion: proc_umeros_de_carmichael
+  codigo: 'int res = proc_umeros_de_carmichael(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_umeros_de_carmichael_cero
+  funcion: proc_umeros_de_carmichael
+  codigo: 'int res = proc_umeros_de_carmichael(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

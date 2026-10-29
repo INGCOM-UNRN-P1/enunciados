@@ -1,0 +1,41 @@
+id: ej-7-17-libreria-de-fechas-y-calendari
+titulo: Librería de Fechas y Calendario
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Tené en cuenta años bisiestos (divisibles por 4 y no por 100, salvo divisibles
+  por 400).
+tags:
+- fechas
+- fundamentos
+- headers
+- libreria
+- librerias
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_e_fechas_y_calendari
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Fechas y Calendario
+tests_funciones:
+- nombre: test_proc_e_fechas_y_calendari_positivo
+  funcion: proc_e_fechas_y_calendari
+  codigo: 'int res = proc_e_fechas_y_calendari(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_fechas_y_calendari_cero
+  funcion: proc_e_fechas_y_calendari
+  codigo: 'int res = proc_e_fechas_y_calendari(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: fechas
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- estructuras

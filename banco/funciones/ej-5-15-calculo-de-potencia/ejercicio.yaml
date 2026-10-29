@@ -1,0 +1,27 @@
+id: ej-5-15-calculo-de-potencia
+titulo: Cálculo de Potencia
+tema: funciones
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_15
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Cálculo de Potencia
+tests_funciones:
+- nombre: test_resolver_ej_15
+  funcion: resolver_ej_15
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

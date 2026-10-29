@@ -1,0 +1,41 @@
+id: ej-7-24-libreria-de-conversion-de-base
+titulo: Librería de Conversión de Bases Numéricas
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Asegurá la validación de los caracteres recibidos en las cadenas fuente.
+tags:
+- numericas
+- fundamentos
+- headers
+- conversion
+- libreria
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_e_conversion_de_base
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Conversión de Bases 
+    Numéricas
+tests_funciones:
+- nombre: test_proc_e_conversion_de_base_positivo
+  funcion: proc_e_conversion_de_base
+  codigo: 'int res = proc_e_conversion_de_base(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_conversion_de_base_cero
+  funcion: proc_e_conversion_de_base
+  codigo: 'int res = proc_e_conversion_de_base(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: numericas
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- estructuras

@@ -1,0 +1,48 @@
+id: ej-21-76-matriz-dispersa-sparse
+titulo: Matriz Dispersa (Sparse)
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+- '**Row-major es más eficiente en C:** Las matrices se almacenan por filas'
+- '**Acceso secuencial:** `matriz[i][j++]` es más rápido que `matriz[i++][j]`'
+- '**Localidad espacial:** Elementos consecutivos están cerca en memoria ``` c //
+  MÁS RÁPIDO (row-major) for (i...) for (j...) matriz[i][j] // MÁS LENTO (column-major)
+  for (j...) for (i...) matriz[i][j] ``` <!-- c -->'
+tags:
+- matrices
+- dispersa
+- sparse
+- matriz
+- 2d
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc_triz_dispersa_sparse
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Matriz Dispersa (Sparse)
+tests_funciones:
+- nombre: test_proc_triz_dispersa_sparse_positivo
+  funcion: proc_triz_dispersa_sparse
+  codigo: 'int res = proc_triz_dispersa_sparse(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_triz_dispersa_sparse_cero
+  funcion: proc_triz_dispersa_sparse
+  codigo: 'int res = proc_triz_dispersa_sparse(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: matrices_2d
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- lazos_anidados

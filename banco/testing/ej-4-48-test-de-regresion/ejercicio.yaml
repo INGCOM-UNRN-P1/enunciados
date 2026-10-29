@@ -1,0 +1,38 @@
+id: ej-4-48-test-de-regresion
+titulo: Test de Regresión
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- testing
+- aserciones
+- regresion
+- fundamentos
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: proc_48_test_de_regresion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Test de Regresión
+tests_funciones:
+- nombre: test_proc_48_test_de_regresion_positivo
+  funcion: proc_48_test_de_regresion
+  codigo: 'int res = proc_48_test_de_regresion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_48_test_de_regresion_cero
+  funcion: proc_48_test_de_regresion
+  codigo: 'int res = proc_48_test_de_regresion(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

@@ -1,0 +1,43 @@
+id: ej-29-5-fibonacci-basico
+titulo: Fibonacci Básico
+tema: recursividad
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- recursividad
+- backtracking
+- basico
+- fibonacci
+- avanzados
+- dep:funciones
+- dep:punteros
+verificado: true
+funciones:
+- nombre: proc_9_5_fibonacci_basico
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Fibonacci Básico
+tests_funciones:
+- nombre: test_proc_9_5_fibonacci_basico_positivo
+  funcion: proc_9_5_fibonacci_basico
+  codigo: 'int res = proc_9_5_fibonacci_basico(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_9_5_fibonacci_basico_cero
+  funcion: proc_9_5_fibonacci_basico
+  codigo: 'int res = proc_9_5_fibonacci_basico(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: series_numericas
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- punteros

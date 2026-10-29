@@ -1,0 +1,41 @@
+id: ej-26-3-typedef-para-un-puntero-a-func
+titulo: Typedef para un Puntero a Función
+tema: punteros_avanzados
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- doble_puntero
+- funcion
+- punteros_funcion
+- puntero
+- avanzados
+- dep:memoria_dinamica
+verificado: true
+funciones:
+- nombre: proc_ra_un_puntero_a_func
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Typedef para un Puntero a Función
+tests_funciones:
+- nombre: test_proc_ra_un_puntero_a_func_positivo
+  funcion: proc_ra_un_puntero_a_func
+  codigo: 'int res = proc_ra_un_puntero_a_func(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ra_un_puntero_a_func_cero
+  funcion: proc_ra_un_puntero_a_func
+  codigo: 'int res = proc_ra_un_puntero_a_func(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: doble_puntero
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- memoria_dinamica

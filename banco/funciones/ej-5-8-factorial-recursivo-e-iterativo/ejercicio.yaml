@@ -1,0 +1,38 @@
+id: ej-5-8-factorial-recursivo-e-iterativo
+titulo: Factorial Recursivo e Iterativo
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: factorial_iterativo
+  retorno: int
+  parametros: int n
+  descripcion: Factorial iterativo
+- nombre: factorial_recursivo
+  retorno: int
+  parametros: int n
+  descripcion: Factorial recursivo
+tests_funciones:
+- nombre: test_factorial_it
+  funcion: factorial_iterativo
+  codigo: 'assert(factorial_iterativo(5) == 120);
+
+    assert(factorial_iterativo(0) == 1);'
+- nombre: test_factorial_rec
+  funcion: factorial_recursivo
+  codigo: 'assert(factorial_recursivo(5) == 120);
+
+    assert(factorial_recursivo(0) == 1);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

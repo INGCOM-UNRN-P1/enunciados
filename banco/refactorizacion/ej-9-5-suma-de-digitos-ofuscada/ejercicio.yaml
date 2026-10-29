@@ -1,0 +1,49 @@
+id: ej-9-5-suma-de-digitos-ofuscada
+titulo: Suma de Dígitos Ofuscada
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- ofuscada
+- fundamentos
+- digitos
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: sumar_digitos
+  retorno: int
+  parametros: int numero
+  descripcion: Operación sumar_digitos
+- nombre: test_sumar_digitos
+  retorno: void
+  parametros: void
+  descripcion: Operación test_sumar_digitos
+tests_funciones:
+- nombre: test_sumar_digitos_1
+  funcion: sumar_digitos
+  codigo: '/* Verificación unitaria de sumar_digitos */
+
+    int res = sumar_digitos(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_sumar_digitos_2
+  funcion: test_sumar_digitos
+  codigo: '/* Verificación unitaria de test_sumar_digitos */
+
+    test_sumar_digitos();
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

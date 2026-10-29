@@ -1,0 +1,42 @@
+id: ej-25-3-producto
+titulo: Producto
+tema: recursividad
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Transformar el algoritmo a una versión con recursión de cola (*tail
+  recursion*) para reducir el consumo de pila.'
+- '[Plus Ultra] Añadir un contador del número de llamadas recursivas realizadas para
+  analizar la complejidad empírica.'
+tags:
+- recursividad
+- algoritmos
+- producto
+- induccion
+- dep:funciones
+- dep:punteros
+verificado: true
+funciones:
+- nombre: ejecutar_ej_25_3_producto
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Producto
+tests_funciones:
+- nombre: test_ejecutar_ej_25_3_producto_positivo
+  funcion: ejecutar_ej_25_3_producto
+  codigo: 'int res = ejecutar_ej_25_3_producto(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_25_3_producto_cero
+  funcion: ejecutar_ej_25_3_producto
+  codigo: 'int res = ejecutar_ej_25_3_producto(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: algoritmos
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- punteros

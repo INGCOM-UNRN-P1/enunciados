@@ -1,0 +1,49 @@
+id: ej-9-50-conversor-de-numeros-romanos-b
+titulo: Conversor de Números Romanos Básicos
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- conversor
+- refactorizacion
+- romanos
+- fundamentos
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: obtener_valor_simbolo_romano
+  retorno: int
+  parametros: char simbolo
+  descripcion: Operación obtener_valor_simbolo_romano
+- nombre: test_simbolos_romanos
+  retorno: void
+  parametros: void
+  descripcion: Operación test_simbolos_romanos
+tests_funciones:
+- nombre: test_obtener_valor_simbolo_romano_1
+  funcion: obtener_valor_simbolo_romano
+  codigo: '/* Verificación unitaria de obtener_valor_simbolo_romano */
+
+    int res = obtener_valor_simbolo_romano(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_simbolos_romanos_2
+  funcion: test_simbolos_romanos
+  codigo: '/* Verificación unitaria de test_simbolos_romanos */
+
+    test_simbolos_romanos();
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

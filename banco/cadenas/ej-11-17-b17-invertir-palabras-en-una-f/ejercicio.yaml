@@ -1,0 +1,53 @@
+id: ej-11-17-b17-invertir-palabras-en-una-f
+titulo: Invertir palabras en una frase
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+- '**Entrada:** Una cadena de caracteres que representa una frase.'
+- '**Proceso:**'
+- Recorrer la cadena para identificar los límites de cada palabra. Las palabras 
+  suelen estar separadas por espacios o signos de puntuación.
+- Para cada palabra encontrada, se necesita una función auxiliar que pueda 
+  invertir una subcadena. Esta función tomaría punteros o índices al inicio y al
+  final de la palabra.
+- La función de inversión de subcadena usaría la técnica de dos punteros (uno al
+  inicio y otro al final de la palabra) que se mueven hacia el centro, 
+  intercambiando caracteres en cada paso.
+tags:
+- cadenas
+- invertir
+- strings
+- memoria
+- palabras
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_ir_palabras_en_una_f
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Invertir palabras en una frase
+tests_funciones:
+- nombre: test_proc_ir_palabras_en_una_f_positivo
+  funcion: proc_ir_palabras_en_una_f
+  codigo: 'int res = proc_ir_palabras_en_una_f(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ir_palabras_en_una_f_cero
+  funcion: proc_ir_palabras_en_una_f
+  codigo: 'int res = proc_ir_palabras_en_una_f(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

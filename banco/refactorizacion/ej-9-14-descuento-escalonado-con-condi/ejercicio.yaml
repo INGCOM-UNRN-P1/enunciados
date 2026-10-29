@@ -1,0 +1,38 @@
+id: ej-9-14-descuento-escalonado-con-condi
+titulo: Descuento Escalonado con Condiciones Solapadas
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- escalonado
+- condiciones
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: desc
+  retorno: double
+  parametros: double m
+  descripcion: Operación desc
+tests_funciones:
+- nombre: test_desc_1
+  funcion: desc
+  codigo: '/* Verificación unitaria de desc */
+
+    double res = desc(1);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

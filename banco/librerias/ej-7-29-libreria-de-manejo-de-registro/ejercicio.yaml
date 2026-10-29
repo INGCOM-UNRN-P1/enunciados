@@ -1,0 +1,42 @@
+id: ej-7-29-libreria-de-manejo-de-registro
+titulo: Librería de Manejo de Registro de Logs
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Los mensajes con un nivel inferior al nivel mínimo configurado deben ser 
+  ignorados.
+tags:
+- fundamentos
+- headers
+- libreria
+- registro
+- librerias
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_e_manejo_de_registro
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Manejo de Registro de 
+    Logs
+tests_funciones:
+- nombre: test_proc_e_manejo_de_registro_positivo
+  funcion: proc_e_manejo_de_registro
+  codigo: 'int res = proc_e_manejo_de_registro(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_manejo_de_registro_cero
+  funcion: proc_e_manejo_de_registro
+  codigo: 'int res = proc_e_manejo_de_registro(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- estructuras

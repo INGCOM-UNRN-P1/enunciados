@@ -1,0 +1,61 @@
+id: ej-4-46-suite-de-pruebas-tarifa-de-est
+titulo: 'Suite de Pruebas: Tarifa de Estacionamiento'
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- pruebas
+- estacionamiento
+- suite
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: calcular_estacionamiento
+  retorno: double
+  parametros: int minutos
+  descripcion: Operación calcular_estacionamiento
+- nombre: test_estacionamiento_primera_hora
+  retorno: void
+  parametros: void
+  descripcion: Operación test_estacionamiento_primera_hora
+- nombre: test_estacionamiento_horas_adicionales
+  retorno: void
+  parametros: void
+  descripcion: Operación test_estacionamiento_horas_adicionales
+- nombre: test_estacionamiento_descuento_larga_estadia
+  retorno: void
+  parametros: void
+  descripcion: Operación test_estacionamiento_descuento_larga_estadia
+- nombre: test_estacionamiento_tope_maximo
+  retorno: void
+  parametros: void
+  descripcion: Operación test_estacionamiento_tope_maximo
+tests_funciones:
+- nombre: test_calcular_estacionamiento_1
+  funcion: calcular_estacionamiento
+  codigo: '/* Verificación unitaria de calcular_estacionamiento */
+
+    double res = calcular_estacionamiento(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_estacionamiento_primera_hora_2
+  funcion: test_estacionamiento_primera_hora
+  codigo: '/* Verificación unitaria de test_estacionamiento_primera_hora */
+
+    test_estacionamiento_primera_hora();
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

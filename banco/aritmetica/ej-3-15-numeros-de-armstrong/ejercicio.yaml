@@ -1,0 +1,48 @@
+id: ej-3-15-numeros-de-armstrong
+titulo: Números de Armstrong
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:**'
+- Contar el número de dígitos (`k`) del número `n`.
+- Inicializar un acumulador `suma` en 0.
+- Recorrer los dígitos de `n` (usando `% 10` y `/ 10`). Para cada dígito, 
+  calcular `digito^k` y añadirlo a la `suma`.
+- Comparar la `suma` final con el número original `n`. desbordamientos de búfer 
+  validando la capacidad máxima. líneas de manera robusta.
+- '[Plus Ultra] Determinar automáticamente la cantidad de dígitos del número antes
+  de calcular las potencias.'
+- '[Plus Ultra] Encontrar todos los números de Armstrong de 3 y 4 dígitos.'
+tags:
+- fundamentos
+- armstrong
+- aritmetica
+- numeros
+- matematica
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc_numeros_de_armstrong
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números de Armstrong
+tests_funciones:
+- nombre: test_proc_numeros_de_armstrong_positivo
+  funcion: proc_numeros_de_armstrong
+  codigo: 'int res = proc_numeros_de_armstrong(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_numeros_de_armstrong_cero
+  funcion: proc_numeros_de_armstrong
+  codigo: 'int res = proc_numeros_de_armstrong(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

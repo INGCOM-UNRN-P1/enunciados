@@ -1,0 +1,43 @@
+id: ej-20-33-estadisticas-por-protocolo
+titulo: Estadísticas por protocolo
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- memoria
+- enum
+- protocolo
+- estadisticas
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_sticas_por_protocolo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Estadísticas por protocolo
+tests_funciones:
+- nombre: test_proc_sticas_por_protocolo_positivo
+  funcion: proc_sticas_por_protocolo
+  codigo: 'int res = proc_sticas_por_protocolo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_sticas_por_protocolo_cero
+  funcion: proc_sticas_por_protocolo
+  codigo: 'int res = proc_sticas_por_protocolo(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

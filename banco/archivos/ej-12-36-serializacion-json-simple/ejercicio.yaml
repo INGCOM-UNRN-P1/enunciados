@@ -1,0 +1,45 @@
+id: ej-12-36-serializacion-json-simple
+titulo: Serialización JSON Simple
+tema: archivos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- memoria
+- io_disco
+- simple
+- archivos
+- serializacion
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc_lizacion_json_simple
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serialización JSON Simple
+tests_funciones:
+- nombre: test_proc_lizacion_json_simple_positivo
+  funcion: proc_lizacion_json_simple
+  codigo: 'int res = proc_lizacion_json_simple(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_lizacion_json_simple_cero
+  funcion: proc_lizacion_json_simple
+  codigo: 'int res = proc_lizacion_json_simple(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: memoria
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

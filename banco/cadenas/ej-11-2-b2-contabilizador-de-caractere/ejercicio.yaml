@@ -1,0 +1,55 @@
+id: ej-11-2-b2-contabilizador-de-caractere
+titulo: Contabilizador de caracteres
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Estructura de Datos:** Un arreglo de contadores es ideal para esto. Dado que
+  los caracteres ASCII se pueden representar como enteros (de 0 a 255), se puede usar
+  un arreglo de tamaño 256, donde el índice del arreglo corresponde al código ASCII
+  del carácter.'
+- '**Proceso:**'
+- Crear un arreglo `frecuencias` de 256 enteros, inicializado completamente en 
+  0.
+- 'Recorrer la cadena de entrada. Para cada carácter `c`, incrementar el contador
+  en la posición correspondiente a su valor ASCII: `frecuencias[(int)c]++`.'
+- Después de recorrer toda la cadena, iterar sobre el arreglo `frecuencias` 
+  desde 0 a 255. Si `frecuencias[i]` es mayor que 0, significa que el carácter 
+  con código ASCII `i` apareció, y se imprime junto con su frecuencia.
+tags:
+- cadenas
+- strings
+- memoria
+- contabilizador
+- caracteres
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_lizador_de_caractere
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contabilizador de caracteres
+tests_funciones:
+- nombre: test_proc_lizador_de_caractere_positivo
+  funcion: proc_lizador_de_caractere
+  codigo: 'int res = proc_lizador_de_caractere(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_lizador_de_caractere_cero
+  funcion: proc_lizador_de_caractere
+  codigo: 'int res = proc_lizador_de_caractere(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

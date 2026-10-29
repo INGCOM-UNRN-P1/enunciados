@@ -1,0 +1,49 @@
+id: ej-3-22-numeros-triangulares
+titulo: Números Triangulares
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero positivo `num`.'
+- '**Proceso:** Hay dos enfoques principales:'
+- '**Iterativo:** Generar números triangulares sumando 1, 2, 3, ... en un acumulador.
+  En cada paso, comparar el acumulador con `num`. Si son iguales, es triangular. Si
+  el acumulador supera a `num`, no lo es.'
+- '**Matemático:** Un número `x` es triangular si y solo si $8x+1$ es un cuadrado
+  perfecto. Se puede calcular $8x+1$, obtener su raíz cuadrada, y verificar si es
+  un entero. error e informar el resultado mediante parámetros de salida. especificando
+  precondiciones y postcondiciones.'
+- '[Plus Ultra] Verificar si un número dado es triangular resolviendo la ecuación
+  cuadrática asociada.'
+- '[Plus Ultra] Generar y mostrar los primeros N números triangulares.'
+tags:
+- triangulares
+- fundamentos
+- aritmetica
+- numeros
+- matematica
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc_numeros_triangulares
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Triangulares
+tests_funciones:
+- nombre: test_proc_numeros_triangulares_positivo
+  funcion: proc_numeros_triangulares
+  codigo: 'int res = proc_numeros_triangulares(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_numeros_triangulares_cero
+  funcion: proc_numeros_triangulares
+  codigo: 'int res = proc_numeros_triangulares(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: triangulares
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

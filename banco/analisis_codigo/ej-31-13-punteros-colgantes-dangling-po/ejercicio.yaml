@@ -1,0 +1,32 @@
+id: ej-31-13-punteros-colgantes-dangling-po
+titulo: Punteros Colgantes (Dangling Pointers)
+tema: analisis_codigo
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- colgantes
+- dangling
+- analisis
+- punteros
+- pointers
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: procesar_y_liberar
+  retorno: void
+  parametros: int **ptr
+  descripcion: Operación procesar_y_liberar
+tests_funciones:
+- nombre: test_procesar_y_liberar_1
+  funcion: procesar_y_liberar
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: colgantes
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- memoria
+- testing

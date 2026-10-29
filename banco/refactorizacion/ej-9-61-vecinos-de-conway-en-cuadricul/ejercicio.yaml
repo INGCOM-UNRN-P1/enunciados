@@ -1,0 +1,40 @@
+id: ej-9-61-vecinos-de-conway-en-cuadricul
+titulo: Vecinos de Conway en Cuadrícula $5 \times 5$
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- vecinos
+- refactorizacion
+- times
+- fundamentos
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc__conway_en_cuadricul
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Vecinos de Conway en Cuadrícula $5 
+    \times 5$
+tests_funciones:
+- nombre: test_proc__conway_en_cuadricul_positivo
+  funcion: proc__conway_en_cuadricul
+  codigo: 'int res = proc__conway_en_cuadricul(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__conway_en_cuadricul_cero
+  funcion: proc__conway_en_cuadricul
+  codigo: 'int res = proc__conway_en_cuadricul(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

@@ -1,0 +1,47 @@
+id: ej-27-3-b3-limpiar-el-n-esimo-bit-clea
+titulo: Limpiar el n-ésimo bit (Clear)
+tema: operaciones_bits
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Proceso: Crear la máscara (`1 << n`), invertirla con el operador NOT (`~`), y luego
+  aplicar un AND a nivel de bits. La máscara invertida tendrá ceros solo en la posición
+  `n`.'
+- '`numero = numero & ~(1 << n);`'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- mascaras
+- clear
+- bitwise
+- avanzados
+- n-esimo
+- dep:tipos_datos
+- dep:aritmetica
+verificado: true
+funciones:
+- nombre: proc__el_n_esimo_bit_clea
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Limpiar el n-ésimo bit (Clear)
+tests_funciones:
+- nombre: test_proc__el_n_esimo_bit_clea_positivo
+  funcion: proc__el_n_esimo_bit_clea
+  codigo: 'int res = proc__el_n_esimo_bit_clea(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__el_n_esimo_bit_clea_cero
+  funcion: proc__el_n_esimo_bit_clea
+  codigo: 'int res = proc__el_n_esimo_bit_clea(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: operaciones_bits
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- aritmetica

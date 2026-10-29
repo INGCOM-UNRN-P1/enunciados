@@ -1,0 +1,43 @@
+id: ej-20-29-funciones-de-conversion-generi
+titulo: Funciones de conversión genéricas
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- conversion
+- tipos
+- funciones
+- memoria
+- genericas
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_de_conversion_generi
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Funciones de conversión genéricas
+tests_funciones:
+- nombre: test_proc_de_conversion_generi_positivo
+  funcion: proc_de_conversion_generi
+  codigo: 'int res = proc_de_conversion_generi(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_conversion_generi_cero
+  funcion: proc_de_conversion_generi
+  codigo: 'int res = proc_de_conversion_generi(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: conversion
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

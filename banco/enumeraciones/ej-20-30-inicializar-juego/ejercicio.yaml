@@ -1,0 +1,43 @@
+id: ej-20-30-inicializar-juego
+titulo: Inicializar juego
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- tipos
+- juego
+- memoria
+- enum
+- inicializar
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_30_inicializar_juego
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inicializar juego
+tests_funciones:
+- nombre: test_proc_30_inicializar_juego_positivo
+  funcion: proc_30_inicializar_juego
+  codigo: 'int res = proc_30_inicializar_juego(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_30_inicializar_juego_cero
+  funcion: proc_30_inicializar_juego
+  codigo: 'int res = proc_30_inicializar_juego(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

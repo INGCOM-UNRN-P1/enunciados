@@ -1,0 +1,39 @@
+id: ej-4-2-cuenta-descendente
+titulo: Cuenta descendente
+tema: estructuras_control
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- cuenta
+- control
+- lazos
+- descendente
+- fundamentos
+- dep:condicionales
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_2_cuenta_descendente
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cuenta descendente
+tests_funciones:
+- nombre: test_proc_2_cuenta_descendente_positivo
+  funcion: proc_2_cuenta_descendente
+  codigo: 'int res = proc_2_cuenta_descendente(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_2_cuenta_descendente_cero
+  funcion: proc_2_cuenta_descendente
+  codigo: 'int res = proc_2_cuenta_descendente(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: cuenta
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- condicionales
+- lazos

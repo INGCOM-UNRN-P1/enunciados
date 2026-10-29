@@ -1,0 +1,50 @@
+id: ej-21-1-mostrar-matriz
+titulo: Mostrar matriz
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso:** Se necesitan dos lazos `for` anidados para recorrer la matriz.'
+- El lazo exterior itera sobre las filas (desde `0` hasta `filas-1`).
+- El lazo interior itera sobre las columnas de la fila actual (desde `0` hasta 
+  `columnas-1`).
+- Dentro del lazo interior, se imprime cada elemento `matriz[fila][columna]`.
+- Después de que el lazo interior termina (al final de cada fila), se debe 
+  imprimir un carácter de nueva línea (`\n`) para pasar a la siguiente fila.
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- matrices
+- matriz
+- 2d
+- algoritmos
+- mostrar
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc__21_1_mostrar_matriz
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Mostrar matriz
+tests_funciones:
+- nombre: test_proc__21_1_mostrar_matriz_positivo
+  funcion: proc__21_1_mostrar_matriz
+  codigo: 'int res = proc__21_1_mostrar_matriz(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__21_1_mostrar_matriz_cero
+  funcion: proc__21_1_mostrar_matriz
+  codigo: 'int res = proc__21_1_mostrar_matriz(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: matrices_2d
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- lazos_anidados

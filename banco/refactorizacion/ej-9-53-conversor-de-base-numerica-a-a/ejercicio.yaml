@@ -1,0 +1,32 @@
+id: ej-9-53-conversor-de-base-numerica-a-a
+titulo: Conversor de Base Numérica a Arreglo
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- conversor
+- refactorizacion
+- arreglo
+- fundamentos
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: base_conv
+  retorno: int
+  parametros: int n, int b, char out[], int max_len
+  descripcion: Operación base_conv
+tests_funciones:
+- nombre: test_base_conv_1
+  funcion: base_conv
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

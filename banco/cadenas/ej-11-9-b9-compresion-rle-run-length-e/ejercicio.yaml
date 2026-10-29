@@ -1,0 +1,50 @@
+id: ej-11-9-b9-compresion-rle-run-length-e
+titulo: Compresión RLE (Run-Length Encoding)
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Recorrer la cadena de entrada.
+- Mantener un `contador` para el carácter actual.
+- Si el siguiente carácter es diferente o se llega al final de la cadena, se 
+  añade el `contador` y el carácter actual a la cadena de resultado.
+- Reiniciar el `contador` y continuar.
+tags:
+- compresion
+- cadenas
+- strings
+- memoria
+- encoding
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_ion_rle_run_length_e
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Compresión RLE (Run-Length 
+    Encoding)
+tests_funciones:
+- nombre: test_proc_ion_rle_run_length_e_positivo
+  funcion: proc_ion_rle_run_length_e
+  codigo: 'int res = proc_ion_rle_run_length_e(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ion_rle_run_length_e_cero
+  funcion: proc_ion_rle_run_length_e
+  codigo: 'int res = proc_ion_rle_run_length_e(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

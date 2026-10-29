@@ -1,0 +1,41 @@
+id: ej-25-2-suma
+titulo: Suma
+tema: recursividad
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- recursividad
+- algoritmos
+- induccion
+- dep:funciones
+- dep:punteros
+verificado: true
+funciones:
+- nombre: ejecutar_ej_25_2_suma
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Suma
+tests_funciones:
+- nombre: test_ejecutar_ej_25_2_suma_positivo
+  funcion: ejecutar_ej_25_2_suma
+  codigo: 'int res = ejecutar_ej_25_2_suma(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_25_2_suma_cero
+  funcion: ejecutar_ej_25_2_suma
+  codigo: 'int res = ejecutar_ej_25_2_suma(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: algoritmos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- punteros

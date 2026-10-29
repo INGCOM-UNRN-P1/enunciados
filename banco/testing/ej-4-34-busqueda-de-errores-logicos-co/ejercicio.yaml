@@ -1,0 +1,32 @@
+id: ej-4-34-busqueda-de-errores-logicos-co
+titulo: Búsqueda de errores lógicos con aserciones de invariante
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- errores
+- busqueda
+- fundamentos
+- invariante
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: division_lenta
+  retorno: void
+  parametros: int dividendo, int divisor, int *cociente, int *resto
+  descripcion: Operación division_lenta
+tests_funciones:
+- nombre: test_division_lenta_1
+  funcion: division_lenta
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: registro_eventos
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

@@ -1,0 +1,40 @@
+id: ej-4-44-funciones-auxiliares-privadas
+titulo: Funciones Auxiliares Privadas `static`
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- funciones
+- static
+- auxiliares
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: proc__auxiliares_privadas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Funciones Auxiliares Privadas 
+    `static`
+tests_funciones:
+- nombre: test_proc__auxiliares_privadas_positivo
+  funcion: proc__auxiliares_privadas
+  codigo: 'int res = proc__auxiliares_privadas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__auxiliares_privadas_cero
+  funcion: proc__auxiliares_privadas
+  codigo: 'int res = proc__auxiliares_privadas(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

@@ -1,0 +1,50 @@
+id: ej-11-40-b40-generador-de-slugs
+titulo: Generador de "Slugs"
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Recorrer la cadena de entrada.
+- Para cada carácter, convertirlo a minúscula.
+- Si es una letra o un número, añadirlo a la cadena de resultado.
+- Si es un espacio, y el último carácter añadido al resultado no fue un guion, 
+  añadir un guion.
+- Ignorar todos los demás caracteres.
+tags:
+- cadenas
+- strings
+- slugs
+- memoria
+- generador
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_0_generador_de_slugs
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Generador de "Slugs"
+tests_funciones:
+- nombre: test_proc_0_generador_de_slugs_positivo
+  funcion: proc_0_generador_de_slugs
+  codigo: 'int res = proc_0_generador_de_slugs(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_0_generador_de_slugs_cero
+  funcion: proc_0_generador_de_slugs
+  codigo: 'int res = proc_0_generador_de_slugs(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

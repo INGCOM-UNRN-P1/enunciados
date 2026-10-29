@@ -1,0 +1,43 @@
+id: ej-21-43-matriz-de-hankel
+titulo: Matriz de Hankel
+tema: matrices
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
+  order*) para mejorar el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
+  de los límites del contenedor.'
+tags:
+- matrices
+- hankel
+- matriz
+- 2d
+- algoritmos
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc__43_matriz_de_hankel
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Matriz de Hankel
+tests_funciones:
+- nombre: test_proc__43_matriz_de_hankel_positivo
+  funcion: proc__43_matriz_de_hankel
+  codigo: 'int res = proc__43_matriz_de_hankel(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__43_matriz_de_hankel_cero
+  funcion: proc__43_matriz_de_hankel
+  codigo: 'int res = proc__43_matriz_de_hankel(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: matrices_2d
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- arreglos
+- lazos_anidados

@@ -1,0 +1,43 @@
+id: ej-20-56-comparacion-de-implementacione
+titulo: Comparación de implementaciones
+tema: enumeraciones
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- implementaciones
+- tipos
+- memoria
+- enum
+- comparacion
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_n_de_implementacione
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Comparación de implementaciones
+tests_funciones:
+- nombre: test_proc_n_de_implementacione_positivo
+  funcion: proc_n_de_implementacione
+  codigo: 'int res = proc_n_de_implementacione(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_n_de_implementacione_cero
+  funcion: proc_n_de_implementacione
+  codigo: 'int res = proc_n_de_implementacione(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

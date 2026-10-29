@@ -1,0 +1,39 @@
+id: ej-9-36-coeficiente-binomial-redundant
+titulo: Coeficiente Binomial Redundante
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- redundante
+- binomial
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc_e_binomial_redundant
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Coeficiente Binomial Redundante
+tests_funciones:
+- nombre: test_proc_e_binomial_redundant_positivo
+  funcion: proc_e_binomial_redundant
+  codigo: 'int res = proc_e_binomial_redundant(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_binomial_redundant_cero
+  funcion: proc_e_binomial_redundant
+  codigo: 'int res = proc_e_binomial_redundant(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

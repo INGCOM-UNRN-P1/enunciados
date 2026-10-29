@@ -1,0 +1,53 @@
+id: ej-21-13-crear-y-llenar-matriz-dinamica
+titulo: Crear y llenar matriz dinámica
+tema: matrices
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '**Entrada:** Se debe usar una función para leer la entrada del usuario para las
+  dimensiones y los elementos.'
+- '**Proceso:**'
+- Solicitar el número de filas (`filas`).
+- Solicitar el número de columnas (`columnas`).
+- Crear una matriz vacía con las dimensiones especificadas.
+- Usar dos lazos anidados para recorrer la matriz y solicitar cada elemento al 
+  usuario, asignándolo a la posición correspondiente.
+- Finalmente, llamar a la función `mostrar_matriz` (del ejercicio 1.1) para 
+  imprimir la matriz creada.
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- matrices
+- crear
+- llenar
+- dinamica
+- matriz
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc_enar_matriz_dinamica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Crear y llenar matriz dinámica
+tests_funciones:
+- nombre: test_proc_enar_matriz_dinamica_positivo
+  funcion: proc_enar_matriz_dinamica
+  codigo: 'int res = proc_enar_matriz_dinamica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_enar_matriz_dinamica_cero
+  funcion: proc_enar_matriz_dinamica
+  codigo: 'int res = proc_enar_matriz_dinamica(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: matrices_2d
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- arreglos
+- lazos_anidados

@@ -1,0 +1,46 @@
+id: ej-11-13-b13-binario-a-decimal
+titulo: Binario a decimal
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:** Recorrer la cadena binaria. Para cada dígito, multiplicar el valor
+  acumulado por 2 y sumar el valor del dígito actual (0 o 1).'
+- $D = \sum_{i=0}^{n-1} b_i \cdot 2^{n-1-i}$
+tags:
+- cadenas
+- strings
+- memoria
+- decimal
+- binario
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_13_binario_a_decimal
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Binario a decimal
+tests_funciones:
+- nombre: test_proc_13_binario_a_decimal_positivo
+  funcion: proc_13_binario_a_decimal
+  codigo: 'int res = proc_13_binario_a_decimal(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_13_binario_a_decimal_cero
+  funcion: proc_13_binario_a_decimal
+  codigo: 'int res = proc_13_binario_a_decimal(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

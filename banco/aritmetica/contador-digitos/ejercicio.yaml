@@ -1,0 +1,39 @@
+id: contador-digitos
+titulo: Contador de Dígitos
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- El valor 0 contiene exactamente 1 dígito.
+- Trabajá con el valor absoluto para omitir el signo negativo.
+- Contá las divisiones sucesivas por 10 hasta alcanzar 0.
+tags:
+- lazos
+- while
+- aritmetica
+- digitos
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: ejecutar_contador_digitos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contador de Dígitos
+tests_funciones:
+- nombre: test_ejecutar_contador_digitos_positivo
+  funcion: ejecutar_contador_digitos
+  codigo: 'int res = ejecutar_contador_digitos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_contador_digitos_cero
+  funcion: ejecutar_contador_digitos
+  codigo: 'int res = ejecutar_contador_digitos(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: lazos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

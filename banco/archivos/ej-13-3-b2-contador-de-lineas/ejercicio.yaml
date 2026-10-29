@@ -1,0 +1,41 @@
+id: ej-13-3-b2-contador-de-lineas
+titulo: Contador de líneas
+tema: archivos
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- texto
+- lineas
+- memoria
+- contador
+- archivos
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc_2_contador_de_lineas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contador de líneas
+tests_funciones:
+- nombre: test_proc_2_contador_de_lineas_positivo
+  funcion: proc_2_contador_de_lineas
+  codigo: 'int res = proc_2_contador_de_lineas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_2_contador_de_lineas_cero
+  funcion: proc_2_contador_de_lineas
+  codigo: 'int res = proc_2_contador_de_lineas(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: texto
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

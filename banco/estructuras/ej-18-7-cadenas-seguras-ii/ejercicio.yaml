@@ -1,0 +1,43 @@
+id: ej-18-7-cadenas-seguras-ii
+titulo: Cadenas Seguras II
+tema: estructuras
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- cadenas
+- registros
+- memoria
+- structs
+- seguras
+- dep:tipos_datos
+- dep:funciones
+verificado: true
+funciones:
+- nombre: proc_7_cadenas_seguras_ii
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cadenas Seguras II
+tests_funciones:
+- nombre: test_proc_7_cadenas_seguras_ii_positivo
+  funcion: proc_7_cadenas_seguras_ii
+  codigo: 'int res = proc_7_cadenas_seguras_ii(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_7_cadenas_seguras_ii_cero
+  funcion: proc_7_cadenas_seguras_ii
+  codigo: 'int res = proc_7_cadenas_seguras_ii(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- funciones

@@ -1,0 +1,44 @@
+id: ej-3-9-capicuas
+titulo: Capicúas
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:** La forma más sencilla es utilizar la función del ejercicio anterior
+  para invertir el número y luego comparar el número invertido con el original. error
+  e informar el resultado mediante parámetros de salida. especificando precondiciones
+  y postcondiciones.'
+- '[Plus Ultra] Modularizar la verificación en una función bool es_capicua(long n).'
+- '[Plus Ultra] Generar y mostrar todos los números capicúas dentro de un intervalo
+  [a, b].'
+tags:
+- aritmetica
+- capicuas
+- matematica
+- fundamentos
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_3_9_capicuas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Capicúas
+tests_funciones:
+- nombre: test_ejecutar_ej_3_9_capicuas_positivo
+  funcion: ejecutar_ej_3_9_capicuas
+  codigo: 'int res = ejecutar_ej_3_9_capicuas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_3_9_capicuas_cero
+  funcion: ejecutar_ej_3_9_capicuas
+  codigo: 'int res = ejecutar_ej_3_9_capicuas(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: capicuas
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

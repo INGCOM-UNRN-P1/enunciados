@@ -1,0 +1,38 @@
+id: tabla-multiplicar
+titulo: Tabla de Multiplicar Completa
+tema: lazos_anidados
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Usá dos lazos for anidados para iterar filas (1..10) y columnas (1..10).
+- Alineá las columnas usando el especificador de formato %4d en printf.
+tags:
+- lazos
+- anidados
+- tablas
+- formato
+- dep:lazos
+verificado: true
+funciones:
+- nombre: ejecutar_tabla_multiplicar
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tabla de Multiplicar Completa
+tests_funciones:
+- nombre: test_ejecutar_tabla_multiplicar_positivo
+  funcion: ejecutar_tabla_multiplicar
+  codigo: 'int res = ejecutar_tabla_multiplicar(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_tabla_multiplicar_cero
+  funcion: ejecutar_tabla_multiplicar
+  codigo: 'int res = ejecutar_tabla_multiplicar(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: lazos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

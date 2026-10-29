@@ -1,0 +1,43 @@
+id: ej-8-6-busqueda-de-subcadena
+titulo: Búsqueda de subcadena
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- busqueda
+- memoria
+- punteros
+- direcciones
+- subcadena
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: proc_usqueda_de_subcadena
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Búsqueda de subcadena
+tests_funciones:
+- nombre: test_proc_usqueda_de_subcadena_positivo
+  funcion: proc_usqueda_de_subcadena
+  codigo: 'int res = proc_usqueda_de_subcadena(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_usqueda_de_subcadena_cero
+  funcion: proc_usqueda_de_subcadena
+  codigo: 'int res = proc_usqueda_de_subcadena(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

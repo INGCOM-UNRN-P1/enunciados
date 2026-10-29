@@ -1,0 +1,41 @@
+id: ej-13-6-b5-procesar-un-archivo-csv-de
+titulo: Procesar un archivo CSV de ventas
+tema: archivos
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- ventas
+- texto
+- archivo
+- memoria
+- procesar
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc_ar_un_archivo_csv_de
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Procesar un archivo CSV de ventas
+tests_funciones:
+- nombre: test_proc_ar_un_archivo_csv_de_positivo
+  funcion: proc_ar_un_archivo_csv_de
+  codigo: 'int res = proc_ar_un_archivo_csv_de(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ar_un_archivo_csv_de_cero
+  funcion: proc_ar_un_archivo_csv_de
+  codigo: 'int res = proc_ar_un_archivo_csv_de(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: archivos_estructurados
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

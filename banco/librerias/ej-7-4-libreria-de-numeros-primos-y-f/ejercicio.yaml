@@ -1,0 +1,41 @@
+id: ej-7-4-libreria-de-numeros-primos-y-f
+titulo: Librería de Números Primos y Factorización
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Optimizar el chequeo de primalidad probando divisores hasta `sqrt(n)`.'
+tags:
+- fundamentos
+- headers
+- libreria
+- primos
+- factorizacion
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_e_numeros_primos_y_f
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Números Primos y 
+    Factorización
+tests_funciones:
+- nombre: test_proc_e_numeros_primos_y_f_positivo
+  funcion: proc_e_numeros_primos_y_f
+  codigo: 'int res = proc_e_numeros_primos_y_f(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_numeros_primos_y_f_cero
+  funcion: proc_e_numeros_primos_y_f
+  codigo: 'int res = proc_e_numeros_primos_y_f(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: teoria_numeros
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- estructuras

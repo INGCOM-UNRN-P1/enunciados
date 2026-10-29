@@ -1,0 +1,38 @@
+id: ej-4-41-nombres-de-variables-autoexpli
+titulo: Nombres de Variables Autoexplicativos
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- nombres
+- aserciones
+- variables
+- fundamentos
+- autoexplicativos
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: c
+  retorno: double
+  parametros: double p, double d, double t
+  descripcion: Operación c
+tests_funciones:
+- nombre: test_c_1
+  funcion: c
+  codigo: '/* Verificación unitaria de c */
+
+    double res = c(1, 2, 3);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

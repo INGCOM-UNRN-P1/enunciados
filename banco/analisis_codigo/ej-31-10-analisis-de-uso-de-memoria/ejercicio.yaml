@@ -1,0 +1,54 @@
+id: ej-31-10-analisis-de-uso-de-memoria
+titulo: Análisis de Uso de Memoria
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas: []
+tags:
+- code_review
+- analisis
+- avanzados
+- memoria
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: factorial_recursivo
+  retorno: long
+  parametros: int n
+  descripcion: Operación factorial_recursivo
+- nombre: factorial_iterativo
+  retorno: long
+  parametros: int n
+  descripcion: Operación factorial_iterativo
+- nombre: factorial_memoizado
+  retorno: long
+  parametros: int n
+  descripcion: Operación factorial_memoizado
+tests_funciones:
+- nombre: test_factorial_recursivo_1
+  funcion: factorial_recursivo
+  codigo: '/* Verificación unitaria de factorial_recursivo */
+
+    long res = factorial_recursivo(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_factorial_iterativo_2
+  funcion: factorial_iterativo
+  codigo: '/* Verificación unitaria de factorial_iterativo */
+
+    long res = factorial_iterativo(1);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: code_review
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- testing

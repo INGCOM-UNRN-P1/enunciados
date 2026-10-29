@@ -1,0 +1,40 @@
+id: conversor-calificaciones
+titulo: Conversor de Calificaciones
+tema: condicionales
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Evaluá los límites superiores e inferiores con if-else if-else en orden 
+  descendente.
+- Para calcular el porcentaje entero redondeado, podés aplicar (int)(nota * 
+  10.0f + 0.5f).
+- En printf, utilizá %% para imprimir el carácter de porcentaje literal.
+tags:
+- condicionales
+- float
+- formato
+- dep:aritmetica
+verificado: true
+funciones:
+- nombre: proc_ersor_calificaciones
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conversor de Calificaciones
+tests_funciones:
+- nombre: test_proc_ersor_calificaciones_positivo
+  funcion: proc_ersor_calificaciones
+  codigo: 'int res = proc_ersor_calificaciones(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ersor_calificaciones_cero
+  funcion: proc_ersor_calificaciones
+  codigo: 'int res = proc_ersor_calificaciones(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: float
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- aritmetica

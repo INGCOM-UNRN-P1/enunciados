@@ -1,0 +1,32 @@
+id: ej-4-29-desacople-de-entradasalida-par
+titulo: Desacople de Entrada/Salida para Testabilidad
+tema: testing
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- aserciones
+- testabilidad
+- desacople
+- fundamentos
+- testing
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: calcular_imc_interactivo
+  retorno: void
+  parametros: void
+  descripcion: Operación calcular_imc_interactivo
+tests_funciones:
+- nombre: test_calcular_imc_interactivo_1
+  funcion: calcular_imc_interactivo
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

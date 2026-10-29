@@ -1,0 +1,40 @@
+id: numeros-perfectos
+titulo: Números Perfectos
+tema: lazos_anidados
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Un número es perfecto si la suma de sus divisores propios (desde 1 hasta N/2) 
+  es igual a sí mismo.
+- Utilizá un lazo externo para iterar los candidatos y un lazo interno para 
+  acumular los divisores.
+tags:
+- lazos
+- anidados
+- aritmetica
+- divisores
+- dep:lazos
+verificado: true
+funciones:
+- nombre: ejecutar_numeros_perfectos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Perfectos
+tests_funciones:
+- nombre: test_ejecutar_numeros_perfectos_positivo
+  funcion: ejecutar_numeros_perfectos
+  codigo: 'int res = ejecutar_numeros_perfectos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_numeros_perfectos_cero
+  funcion: ejecutar_numeros_perfectos
+  codigo: 'int res = ejecutar_numeros_perfectos(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: lazos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

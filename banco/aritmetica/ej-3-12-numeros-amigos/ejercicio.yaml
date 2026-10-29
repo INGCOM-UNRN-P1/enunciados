@@ -1,0 +1,53 @@
+id: ej-3-12-numeros-amigos
+titulo: Números Amigos
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Dos enteros positivos, `a` y `b`.'
+- '**Reutilización de Código:** Este problema se simplifica si ya se tiene una función
+  que calcula la suma de los divisores propios de un número (como la usada en el ejercicio
+  de "Números Perfectos").'
+- '**Proceso:**'
+- Calcular la suma de los divisores propios de `a`. Llamémosla `suma_div_a`.
+- Calcular la suma de los divisores propios de `b`. Llamémosla `suma_div_b`.
+- 'Verificar si se cumplen las dos condiciones: `suma_div_a == b` Y `suma_div_b ==
+  a`.'
+- '**Caso Especial:** Asegurarse de que `a` y `b` no sean el mismo número (un número
+  perfecto es amigo de sí mismo, lo que a veces se excluye de la definición de números
+  amigos). error e informar el resultado mediante parámetros de salida. especificando
+  precondiciones y postcondiciones.'
+- '[Plus Ultra] Validar que n sea positivo y mostrar los divisores de ambos números
+  para verificar la suma.'
+- '[Plus Ultra] Encontrar todos los pares de números amigos menores a un límite dado.'
+tags:
+- amigos
+- fundamentos
+- aritmetica
+- numeros
+- matematica
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc__3_12_numeros_amigos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Amigos
+tests_funciones:
+- nombre: test_proc__3_12_numeros_amigos_positivo
+  funcion: proc__3_12_numeros_amigos
+  codigo: 'int res = proc__3_12_numeros_amigos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__3_12_numeros_amigos_cero
+  funcion: proc__3_12_numeros_amigos
+  codigo: 'int res = proc__3_12_numeros_amigos(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: amigos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

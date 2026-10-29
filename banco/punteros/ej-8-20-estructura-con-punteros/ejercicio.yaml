@@ -1,0 +1,42 @@
+id: ej-8-20-estructura-con-punteros
+titulo: Estructura con Punteros
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- punteros
+- estructura
+- direcciones
+- memoria
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: proc_ructura_con_punteros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Estructura con Punteros
+tests_funciones:
+- nombre: test_proc_ructura_con_punteros_positivo
+  funcion: proc_ructura_con_punteros
+  codigo: 'int res = proc_ructura_con_punteros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ructura_con_punteros_cero
+  funcion: proc_ructura_con_punteros
+  codigo: 'int res = proc_ructura_con_punteros(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: estructura
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

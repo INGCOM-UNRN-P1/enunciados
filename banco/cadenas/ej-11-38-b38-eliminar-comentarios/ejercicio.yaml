@@ -1,0 +1,46 @@
+id: ej-11-38-b38-eliminar-comentarios
+titulo: Eliminar comentarios
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Máquina de Estados:** Este problema se resuelve mejor con una máquina de estados
+  para rastrear si el procesador está en modo `NORMAL`, `DENTRO_DE_COMENTARIO_LINEA`,
+  o `DENTRO_DE_COMENTARIO_BLOQUE`.'
+tags:
+- cadenas
+- strings
+- memoria
+- comentarios
+- eliminar
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_eliminar_comentarios
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Eliminar comentarios
+tests_funciones:
+- nombre: test_proc_eliminar_comentarios_positivo
+  funcion: proc_eliminar_comentarios
+  codigo: 'int res = proc_eliminar_comentarios(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eliminar_comentarios_cero
+  funcion: proc_eliminar_comentarios
+  codigo: 'int res = proc_eliminar_comentarios(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

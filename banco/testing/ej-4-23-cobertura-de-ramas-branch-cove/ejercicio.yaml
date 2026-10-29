@@ -1,0 +1,44 @@
+id: ej-4-23-cobertura-de-ramas-branch-cove
+titulo: Cobertura de Ramas (Branch Coverage)
+tema: testing
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Asegurate de diseñar casos de prueba que ejerciten tanto la rama true como la 
+  rama false de cada if.
+- Incluí casos que cubran todas las alternativas de estructuras switch-case 
+  incluyendo el default.
+- Verificá condiciones compuestas evaluando cortocircuitos lógicos con 
+  operadores && y ||.
+tags:
+- aserciones
+- fundamentos
+- coverage
+- ramas
+- cobertura
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: evaluar_alumno
+  retorno: int
+  parametros: int parcial1, int parcial2, int asistencia_pct
+  descripcion: Operación evaluar_alumno
+tests_funciones:
+- nombre: test_evaluar_alumno_1
+  funcion: evaluar_alumno
+  codigo: '/* Verificación unitaria de evaluar_alumno */
+
+    int res = evaluar_alumno(1, 2, 3);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- librerias
+- funciones

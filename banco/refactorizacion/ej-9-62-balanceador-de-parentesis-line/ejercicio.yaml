@@ -1,0 +1,39 @@
+id: ej-9-62-balanceador-de-parentesis-line
+titulo: Balanceador de Paréntesis Lineal
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- lineal
+- refactorizacion
+- fundamentos
+- balanceador
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc_r_de_parentesis_line
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Balanceador de Paréntesis Lineal
+tests_funciones:
+- nombre: test_proc_r_de_parentesis_line_positivo
+  funcion: proc_r_de_parentesis_line
+  codigo: 'int res = proc_r_de_parentesis_line(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_r_de_parentesis_line_cero
+  funcion: proc_r_de_parentesis_line
+  codigo: 'int res = proc_r_de_parentesis_line(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: busqueda_lineal
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

@@ -1,0 +1,38 @@
+id: matriz-convolucion-2d
+titulo: Filtro de Convolución 2D sobre Matrices Dinámicas
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Para un elemento en $(f, c)$, la ventana de $3 \times 3$ comprende $(f+i, 
+  c+j)$ con $i, j \in \{-1, 0, 1\}$.
+- Manejá los bordes con zero-padding (si $(f+i, c+j)$ está fuera de rango $[0, 
+  F-1] \times [0, C-1]$, el valor es 0).
+- Guardá los resultados en una matriz de salida nueva para no sobreescribir los 
+  valores originales durante el cálculo.
+tags:
+- matrices
+- convolucion
+- 2d
+- filtros
+- memoria_dinamica
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: obtener_pixel
+  retorno: int
+  parametros: const int *mat, int f, int c, int fil, int col
+  descripcion: Operación obtener_pixel
+tests_funciones:
+- nombre: test_obtener_pixel_1
+  funcion: obtener_pixel
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: matrices_2d
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- lazos_anidados

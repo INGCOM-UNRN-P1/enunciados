@@ -1,0 +1,45 @@
+id: ej-3-7-suma-de-digitos
+titulo: Suma de dígitos
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero positivo `n`.'
+- '**Proceso:** Se utiliza un lazo que se repite mientras `n` sea mayor que 0.'
+- '**Obtener último dígito:** `digito = n % 10`.'
+- '**Sumar dígito:** `suma = suma + digito`.'
+- '**Eliminar último dígito:** `n = n / 10` (división entera). error e informar el
+  resultado mediante parámetros de salida. especificando precondiciones y postcondiciones.'
+- '[Plus Ultra] Manejar números negativos considerando sus dígitos como positivos.'
+- '[Plus Ultra] Repetir la suma de dígitos hasta obtener un valor de un solo dígito
+  (raíz digital).'
+tags:
+- aritmetica
+- digitos
+- matematica
+- fundamentos
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc__3_7_suma_de_digitos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Suma de dígitos
+tests_funciones:
+- nombre: test_proc__3_7_suma_de_digitos_positivo
+  funcion: proc__3_7_suma_de_digitos
+  codigo: 'int res = proc__3_7_suma_de_digitos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__3_7_suma_de_digitos_cero
+  funcion: proc__3_7_suma_de_digitos
+  codigo: 'int res = proc__3_7_suma_de_digitos(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: digitos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

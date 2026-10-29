@@ -1,0 +1,41 @@
+id: ej-4-39-numeros-primos-en-rango
+titulo: Números Primos en Rango
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Validar que los límites del rango sean positivos.'
+- '[Plus Ultra] Mostrar la cantidad de primos por cada decena en el rango.'
+tags:
+- rango
+- control
+- lazos
+- fundamentos
+- primos
+- dep:condicionales
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_eros_primos_en_rango
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Primos en Rango
+tests_funciones:
+- nombre: test_proc_eros_primos_en_rango_positivo
+  funcion: proc_eros_primos_en_rango
+  codigo: 'int res = proc_eros_primos_en_rango(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eros_primos_en_rango_cero
+  funcion: proc_eros_primos_en_rango
+  codigo: 'int res = proc_eros_primos_en_rango(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: teoria_numeros
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- condicionales
+- lazos

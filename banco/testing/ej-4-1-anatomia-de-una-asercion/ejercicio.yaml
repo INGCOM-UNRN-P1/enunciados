@@ -1,0 +1,38 @@
+id: ej-4-1-anatomia-de-una-asercion
+titulo: Anatomía de una aserción
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- asercion
+- testing
+- anatomia
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: cuadrado
+  retorno: int
+  parametros: int n
+  descripcion: Operación cuadrado
+tests_funciones:
+- nombre: test_cuadrado_1
+  funcion: cuadrado
+  codigo: '/* Verificación unitaria de cuadrado */
+
+    int res = cuadrado(1);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

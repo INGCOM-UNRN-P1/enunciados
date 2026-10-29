@@ -1,0 +1,45 @@
+id: ej-12-3-ordenar-archivo
+titulo: Ordenar archivo
+tema: archivos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- archivo
+- memoria
+- io_disco
+- ordenar
+- archivos
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc_12_3_ordenar_archivo
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ordenar archivo
+tests_funciones:
+- nombre: test_proc_12_3_ordenar_archivo_positivo
+  funcion: proc_12_3_ordenar_archivo
+  codigo: 'int res = proc_12_3_ordenar_archivo(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_12_3_ordenar_archivo_cero
+  funcion: proc_12_3_ordenar_archivo
+  codigo: 'int res = proc_12_3_ordenar_archivo(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: archivo
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

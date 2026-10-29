@@ -1,0 +1,47 @@
+id: ej-10-30-picos-y-valles
+titulo: Picos y valles
+tema: arreglos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Proceso:** Recorrer el arreglo desde el segundo elemento (`i=1`) hasta el penúltimo
+  (`i=n-2`).'
+- '**Condición:** En cada posición `i`, verificar si `arreglo[i] > arreglo[i-1]` Y
+  `arreglo[i] > arreglo[i+1]`.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- arreglos
+- memoria
+- vectores
+- picos
+- valles
+- dep:funciones
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_10_30_picos_y_valles
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Picos y valles
+tests_funciones:
+- nombre: test_proc_10_30_picos_y_valles_positivo
+  funcion: proc_10_30_picos_y_valles
+  codigo: 'int res = proc_10_30_picos_y_valles(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_10_30_picos_y_valles_cero
+  funcion: proc_10_30_picos_y_valles
+  codigo: 'int res = proc_10_30_picos_y_valles(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: memoria
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- funciones
+- lazos

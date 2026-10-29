@@ -1,0 +1,41 @@
+id: ej-13-5-b4-registrar-eventos-en-un-log
+titulo: Registrar eventos en un log
+tema: archivos
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- texto
+- registrar
+- memoria
+- eventos
+- archivos
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc_ar_eventos_en_un_log
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Registrar eventos en un log
+tests_funciones:
+- nombre: test_proc_ar_eventos_en_un_log_positivo
+  funcion: proc_ar_eventos_en_un_log
+  codigo: 'int res = proc_ar_eventos_en_un_log(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ar_eventos_en_un_log_cero
+  funcion: proc_ar_eventos_en_un_log
+  codigo: 'int res = proc_ar_eventos_en_un_log(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: registro_eventos
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

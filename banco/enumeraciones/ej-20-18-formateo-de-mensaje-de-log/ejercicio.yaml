@@ -1,0 +1,43 @@
+id: ej-20-18-formateo-de-mensaje-de-log
+titulo: Formateo de mensaje de log
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- formateo
+- tipos
+- mensaje
+- memoria
+- enum
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_eo_de_mensaje_de_log
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Formateo de mensaje de log
+tests_funciones:
+- nombre: test_proc_eo_de_mensaje_de_log_positivo
+  funcion: proc_eo_de_mensaje_de_log
+  codigo: 'int res = proc_eo_de_mensaje_de_log(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eo_de_mensaje_de_log_cero
+  funcion: proc_eo_de_mensaje_de_log
+  codigo: 'int res = proc_eo_de_mensaje_de_log(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: registro_eventos
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

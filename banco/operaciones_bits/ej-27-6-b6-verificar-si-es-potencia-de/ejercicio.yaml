@@ -1,0 +1,47 @@
+id: ej-27-6-b6-verificar-si-es-potencia-de
+titulo: Verificar si es potencia de dos
+tema: operaciones_bits
+bloom: 4
+minutos_estimados: 35
+pistas:
+- 'Propiedad: Un número `n` que es potencia de dos tiene exactamente un bit encendido
+  en su representación binaria. El número `n-1` tendrá todos los bits a la derecha
+  de ese bit encendidos. Por lo tanto, `n & (n - 1)` será siempre cero.'
+- 'Condición: `n > 0 && (n & (n - 1)) == 0`'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- potencia
+- verificar
+- bitwise
+- avanzados
+- mascaras
+- dep:tipos_datos
+- dep:aritmetica
+verificado: true
+funciones:
+- nombre: proc_ar_si_es_potencia_de
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Verificar si es potencia de dos
+tests_funciones:
+- nombre: test_proc_ar_si_es_potencia_de_positivo
+  funcion: proc_ar_si_es_potencia_de
+  codigo: 'int res = proc_ar_si_es_potencia_de(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ar_si_es_potencia_de_cero
+  funcion: proc_ar_si_es_potencia_de
+  codigo: 'int res = proc_ar_si_es_potencia_de(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: operaciones_bits
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- aritmetica

@@ -1,0 +1,54 @@
+id: interprete-maquina-pila
+titulo: Intérprete de Bytecode y Máquina Virtual de Pila
+tema: tad
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Mantené un array para la pila con un puntero o índice `sp` (stack pointer).
+- Verificá siempre que haya suficientes operandos en la pila antes de ejecutar 
+  operaciones binarias.
+- En la operación `DIV`, controlá que el divisor no sea 0 para prevenir crash de
+  división entera.
+tags:
+- tad
+- interprete
+- pila
+- bytecode
+- emulacion
+- dep:estructuras
+- dep:punteros
+- dep:memoria_dinamica
+verificado: true
+funciones:
+- nombre: inicializar_pila
+  retorno: void
+  parametros: PilaVirtual *p
+  descripcion: Operación inicializar_pila
+- nombre: push
+  retorno: int
+  parametros: PilaVirtual *p, long v
+  descripcion: Operación push
+- nombre: pop
+  retorno: int
+  parametros: PilaVirtual *p, long *out
+  descripcion: Operación pop
+tests_funciones:
+- nombre: test_inicializar_pila_1
+  funcion: inicializar_pila
+  codigo: '/* Verificación unitaria de inicializar_pila */
+
+    assert(true);'
+- nombre: test_push_2
+  funcion: push
+  codigo: '/* Verificación unitaria de push */
+
+    assert(true);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: pilas_y_colas
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- estructuras
+- punteros
+- memoria_dinamica

@@ -1,0 +1,45 @@
+id: ej-22-2-insercion-al-final
+titulo: Inserción al Final
+tema: tad
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- tad
+- insercion
+- abstraccion
+- final
+- algoritmos
+- dep:estructuras
+- dep:punteros
+- dep:memoria_dinamica
+verificado: true
+funciones:
+- nombre: proc_2_insercion_al_final
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inserción al Final
+tests_funciones:
+- nombre: test_proc_2_insercion_al_final_positivo
+  funcion: proc_2_insercion_al_final
+  codigo: 'int res = proc_2_insercion_al_final(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_2_insercion_al_final_cero
+  funcion: proc_2_insercion_al_final
+  codigo: 'int res = proc_2_insercion_al_final(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: arboles_binarios
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- estructuras
+- punteros
+- memoria_dinamica

@@ -1,0 +1,47 @@
+id: ej-1-31-piedra-papel-o-tijera
+titulo: Piedra, Papel o Tijera
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada del Usuario:** Pedir al usuario que elija una opción (ej.'
+- '**Elección de la Computadora:** Generar un número aleatorio entre 1 y 3 para'
+- '**Reglas del Juego:**'
+- Piedra vence a Tijera.
+- Tijera vence a Papel.
+- Papel vence a Piedra.
+- '**Proceso:** Comparar la elección del usuario con la de la computadora'
+- '[Plus Ultra] Validar que la opción elegida por el usuario sea válida (1, 2 o 3).'
+- '[Plus Ultra] Llevar un marcador de victorias, derrotas y empates a lo largo de
+  múltiples rondas.'
+tags:
+- fundamentos
+- piedra
+- secuencias
+- basicos
+- papel
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_iedra_papel_o_tijera
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Piedra, Papel o Tijera
+tests_funciones:
+- nombre: test_proc_iedra_papel_o_tijera_positivo
+  funcion: proc_iedra_papel_o_tijera
+  codigo: 'int res = proc_iedra_papel_o_tijera(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_iedra_papel_o_tijera_cero
+  funcion: proc_iedra_papel_o_tijera
+  codigo: 'int res = proc_iedra_papel_o_tijera(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

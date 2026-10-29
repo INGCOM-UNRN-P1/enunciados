@@ -1,0 +1,36 @@
+id: ej-9-15-funcion-contaminada-con-entrad
+titulo: Función Contaminada con Entrada/Salida
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- funcion
+- contaminada
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: clasificar_temperatura_ambiente
+  retorno: void
+  parametros: double temp
+  descripcion: Operación clasificar_temperatura_ambiente
+tests_funciones:
+- nombre: test_clasificar_temperatura_ambiente_1
+  funcion: clasificar_temperatura_ambiente
+  codigo: '/* Verificación unitaria de clasificar_temperatura_ambiente */
+
+    clasificar_temperatura_ambiente(1);
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

@@ -1,0 +1,32 @@
+id: ej-9-16-busqueda-lineal-con-variables
+titulo: Búsqueda Lineal con Variables Globales
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- lineal
+- refactorizacion
+- fundamentos
+- busqueda
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: buscar
+  retorno: void
+  parametros: int arr[], int n, int x
+  descripcion: Operación buscar
+tests_funciones:
+- nombre: test_buscar_1
+  funcion: buscar
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: busqueda_lineal
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

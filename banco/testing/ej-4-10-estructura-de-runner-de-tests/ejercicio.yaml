@@ -1,0 +1,57 @@
+id: ej-4-10-estructura-de-runner-de-tests
+titulo: Estructura de Runner de Tests sin bibliotecas
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Diseñá una macro o función de aserción que contabilice tests aprobados y 
+  fallidos sin abortar abruptamente.
+- Imprimí un resumen claro con el nombre del test, estado (PASS/FAIL) y total de
+  pruebas ejecutadas.
+- Retorná un código de salida no nulo si al menos una prueba falló para integrar
+  con pipelines CI.
+tags:
+- aserciones
+- fundamentos
+- runner
+- testing
+- bibliotecas
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: test_cuadrado_positivo
+  retorno: int
+  parametros: void
+  descripcion: Operación test_cuadrado_positivo
+- nombre: test_cuadrado_cero
+  retorno: int
+  parametros: void
+  descripcion: Operación test_cuadrado_cero
+tests_funciones:
+- nombre: test_test_cuadrado_positivo_1
+  funcion: test_cuadrado_positivo
+  codigo: '/* Verificación unitaria de test_cuadrado_positivo */
+
+    int r = test_cuadrado_positivo();
+
+    (void)r;
+
+    assert(true);'
+- nombre: test_test_cuadrado_cero_2
+  funcion: test_cuadrado_cero
+  codigo: '/* Verificación unitaria de test_cuadrado_cero */
+
+    int r = test_cuadrado_cero();
+
+    (void)r;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

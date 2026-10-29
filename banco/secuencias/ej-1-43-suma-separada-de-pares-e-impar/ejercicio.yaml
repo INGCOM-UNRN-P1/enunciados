@@ -1,0 +1,45 @@
+id: ej-1-43-suma-separada-de-pares-e-impar
+titulo: Suma Separada de Pares e Impares
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Variables:** Se necesitan dos acumuladores: `suma_pares` y `suma_impares`,'
+- '**Entrada:** Leer los enteros `n` y `m`.'
+- '**Proceso:**'
+- '**Salida:** Mostrar los valores finales de ambas sumas.'
+- '[Plus Ultra] Permitir definir los límites del rango de manera dinámica mediante
+  entrada por consola.'
+- '[Plus Ultra] Calcular también la cantidad de pares e impares encontrados en el
+  intervalo.'
+tags:
+- pares
+- fundamentos
+- secuencias
+- separada
+- basicos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_ada_de_pares_e_impar
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Suma Separada de Pares e Impares
+tests_funciones:
+- nombre: test_proc_ada_de_pares_e_impar_positivo
+  funcion: proc_ada_de_pares_e_impar
+  codigo: 'int res = proc_ada_de_pares_e_impar(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ada_de_pares_e_impar_cero
+  funcion: proc_ada_de_pares_e_impar
+  codigo: 'int res = proc_ada_de_pares_e_impar(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: pares
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

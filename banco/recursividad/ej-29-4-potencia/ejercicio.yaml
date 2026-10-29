@@ -1,0 +1,42 @@
+id: ej-29-4-potencia
+titulo: Potencia
+tema: recursividad
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- potencia
+- recursividad
+- avanzados
+- backtracking
+- dep:funciones
+- dep:punteros
+verificado: true
+funciones:
+- nombre: ejecutar_ej_29_4_potencia
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Potencia
+tests_funciones:
+- nombre: test_ejecutar_ej_29_4_potencia_positivo
+  funcion: ejecutar_ej_29_4_potencia
+  codigo: 'int res = ejecutar_ej_29_4_potencia(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_29_4_potencia_cero
+  funcion: ejecutar_ej_29_4_potencia
+  codigo: 'int res = ejecutar_ej_29_4_potencia(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: potencia
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- punteros

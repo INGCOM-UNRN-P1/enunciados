@@ -1,0 +1,42 @@
+id: ej-20-36-tipos-de-eventos-de-ui
+titulo: Tipos de eventos de UI
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- eventos
+- enum
+- memoria
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_pos_de_eventos_de_ui
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tipos de eventos de UI
+tests_funciones:
+- nombre: test_proc_pos_de_eventos_de_ui_positivo
+  funcion: proc_pos_de_eventos_de_ui
+  codigo: 'int res = proc_pos_de_eventos_de_ui(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_pos_de_eventos_de_ui_cero
+  funcion: proc_pos_de_eventos_de_ui
+  codigo: 'int res = proc_pos_de_eventos_de_ui(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

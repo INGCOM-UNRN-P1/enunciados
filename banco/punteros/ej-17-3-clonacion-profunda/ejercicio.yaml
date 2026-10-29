@@ -1,0 +1,43 @@
+id: ej-17-3-clonacion-profunda
+titulo: Clonación Profunda
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- clonacion
+- estructuras
+- memoria
+- punteros
+- profunda
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: proc_3_clonacion_profunda
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Clonación Profunda
+tests_funciones:
+- nombre: test_proc_3_clonacion_profunda_positivo
+  funcion: proc_3_clonacion_profunda
+  codigo: 'int res = proc_3_clonacion_profunda(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_3_clonacion_profunda_cero
+  funcion: proc_3_clonacion_profunda
+  codigo: 'int res = proc_3_clonacion_profunda(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: clonacion
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

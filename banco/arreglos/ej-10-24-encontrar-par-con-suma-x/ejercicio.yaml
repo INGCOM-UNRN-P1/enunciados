@@ -1,0 +1,49 @@
+id: ej-10-24-encontrar-par-con-suma-x
+titulo: Encontrar par con suma X
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso (Ordenando):**'
+- Ordenar el arreglo.
+- 'Usar dos punteros: `izquierda` en el inicio y `derecha` en el final.'
+- 'Mientras `izquierda < derecha`: a. Calcular la suma `s = arreglo[izquierda] + arreglo[derecha]`.
+  b. Si `s == X`, se encontró el par. c. Si `s < X`, se necesita una suma mayor, así
+  que se mueve `izquierda` a la derecha. d. Si `s > X`, se necesita una suma menor,
+  así que se mueve `derecha` a la izquierda.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- vectores
+- arreglos
+- encontrar
+- memoria
+- dep:funciones
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_ntrar_par_con_suma_x
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Encontrar par con suma X
+tests_funciones:
+- nombre: test_proc_ntrar_par_con_suma_x_positivo
+  funcion: proc_ntrar_par_con_suma_x
+  codigo: 'int res = proc_ntrar_par_con_suma_x(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ntrar_par_con_suma_x_cero
+  funcion: proc_ntrar_par_con_suma_x
+  codigo: 'int res = proc_ntrar_par_con_suma_x(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: vectores
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- lazos

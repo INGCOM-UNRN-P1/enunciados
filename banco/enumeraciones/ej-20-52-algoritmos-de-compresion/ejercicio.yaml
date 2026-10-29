@@ -1,0 +1,43 @@
+id: ej-20-52-algoritmos-de-compresion
+titulo: Algoritmos de compresión
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- compresion
+- tipos
+- memoria
+- enum
+- algoritmos
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_ritmos_de_compresion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmos de compresión
+tests_funciones:
+- nombre: test_proc_ritmos_de_compresion_positivo
+  funcion: proc_ritmos_de_compresion
+  codigo: 'int res = proc_ritmos_de_compresion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ritmos_de_compresion_cero
+  funcion: proc_ritmos_de_compresion
+  codigo: 'int res = proc_ritmos_de_compresion(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

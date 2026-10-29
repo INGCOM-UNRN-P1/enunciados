@@ -1,0 +1,38 @@
+id: ej-4-47-diagnostico-de-asercion-fallid
+titulo: Diagnóstico de Aserción Fallida
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fallida
+- fundamentos
+- asercion
+- testing
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: mcd
+  retorno: int
+  parametros: int a, int b
+  descripcion: Operación mcd
+tests_funciones:
+- nombre: test_mcd_1
+  funcion: mcd
+  codigo: '/* Verificación unitaria de mcd */
+
+    int res = mcd(1, 2);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

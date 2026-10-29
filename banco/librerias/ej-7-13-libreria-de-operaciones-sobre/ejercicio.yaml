@@ -1,0 +1,42 @@
+id: ej-7-13-libreria-de-operaciones-sobre
+titulo: Librería de Operaciones sobre Matrices 2D
+tema: librerias
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Usá VLA (Variable Length Arrays) en los parámetros para permitir sintaxis 
+  limpia de matrices 2D en C99+.
+tags:
+- sobre
+- matrices
+- fundamentos
+- headers
+- operaciones
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_de_operaciones_sobre
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Operaciones sobre 
+    Matrices 2D
+tests_funciones:
+- nombre: test_proc_de_operaciones_sobre_positivo
+  funcion: proc_de_operaciones_sobre
+  codigo: 'int res = proc_de_operaciones_sobre(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_operaciones_sobre_cero
+  funcion: proc_de_operaciones_sobre
+  codigo: 'int res = proc_de_operaciones_sobre(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: sobre
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- funciones
+- estructuras

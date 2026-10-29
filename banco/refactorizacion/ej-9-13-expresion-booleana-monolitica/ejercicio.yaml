@@ -1,0 +1,40 @@
+id: ej-9-13-expresion-booleana-monolitica
+titulo: Expresión Booleana Monolítica de Validación de Fecha
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- monolitica
+- fecha
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc__booleana_monolitica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Expresión Booleana Monolítica de 
+    Validación de Fecha
+tests_funciones:
+- nombre: test_proc__booleana_monolitica_positivo
+  funcion: proc__booleana_monolitica
+  codigo: 'int res = proc__booleana_monolitica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__booleana_monolitica_cero
+  funcion: proc__booleana_monolitica
+  codigo: 'int res = proc__booleana_monolitica(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

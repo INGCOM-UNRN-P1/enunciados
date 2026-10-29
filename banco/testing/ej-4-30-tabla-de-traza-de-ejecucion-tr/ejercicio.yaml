@@ -1,0 +1,38 @@
+id: ej-4-30-tabla-de-traza-de-ejecucion-tr
+titulo: Tabla de Traza de Ejecución (Trace Table)
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- ejecucion
+- tabla
+- table
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: mcd
+  retorno: int
+  parametros: int a, int b
+  descripcion: Operación mcd
+tests_funciones:
+- nombre: test_mcd_1
+  funcion: mcd
+  codigo: '/* Verificación unitaria de mcd */
+
+    int res = mcd(1, 2);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

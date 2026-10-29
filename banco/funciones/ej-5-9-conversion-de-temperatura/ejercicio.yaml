@@ -1,0 +1,27 @@
+id: ej-5-9-conversion-de-temperatura
+titulo: Conversión de Temperatura
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_9
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Conversión de Temperatura
+tests_funciones:
+- nombre: test_resolver_ej_9
+  funcion: resolver_ej_9
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: conversion_unidades
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

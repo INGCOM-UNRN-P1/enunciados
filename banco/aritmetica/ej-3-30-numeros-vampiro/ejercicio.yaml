@@ -1,0 +1,48 @@
+id: ej-3-30-numeros-vampiro
+titulo: Números Vampiro
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un número `n` de 4 dígitos.'
+- '**Proceso:**'
+- Iterar a través de todos los posibles pares de "colmillos" de 2 dígitos (`i` y
+  `j`).
+- Verificar si `i * j == n`.
+- Si es así, obtener los 4 dígitos de `n` y los 4 dígitos de `i` y `j`.
+- Verificar si los dos conjuntos de dígitos son permutaciones el uno del otro 
+  (ej. ordenándolos y comparando). error e informar el resultado mediante 
+  parámetros de salida. especificando precondiciones y postcondiciones.
+- '[Plus Ultra] Validar que el número tenga una cantidad par de dígitos.'
+- '[Plus Ultra] Verificar que los colmillos no terminen ambos en cero simultáneamente.'
+tags:
+- fundamentos
+- vampiro
+- aritmetica
+- numeros
+- matematica
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc_3_30_numeros_vampiro
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números Vampiro
+tests_funciones:
+- nombre: test_proc_3_30_numeros_vampiro_positivo
+  funcion: proc_3_30_numeros_vampiro
+  codigo: 'int res = proc_3_30_numeros_vampiro(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_3_30_numeros_vampiro_cero
+  funcion: proc_3_30_numeros_vampiro
+  codigo: 'int res = proc_3_30_numeros_vampiro(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

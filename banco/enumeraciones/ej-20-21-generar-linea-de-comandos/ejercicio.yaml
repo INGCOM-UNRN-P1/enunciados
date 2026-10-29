@@ -1,0 +1,43 @@
+id: ej-20-21-generar-linea-de-comandos
+titulo: Generar línea de comandos
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- generar
+- tipos
+- comandos
+- memoria
+- enum
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_ar_linea_de_comandos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Generar línea de comandos
+tests_funciones:
+- nombre: test_proc_ar_linea_de_comandos_positivo
+  funcion: proc_ar_linea_de_comandos
+  codigo: 'int res = proc_ar_linea_de_comandos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ar_linea_de_comandos_cero
+  funcion: proc_ar_linea_de_comandos
+  codigo: 'int res = proc_ar_linea_de_comandos(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

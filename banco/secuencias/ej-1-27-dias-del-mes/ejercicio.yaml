@@ -1,0 +1,43 @@
+id: ej-1-27-dias-del-mes
+titulo: Días del Mes
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Leer el mes y el año como números enteros.'
+- '**Proceso:**'
+- '**Año Bisiesto:** Un año es bisiesto si es divisible por 4, excepto los años'
+- '**Salida:** Imprimir el número de días.'
+- '[Plus Ultra] Verificar si el año es bisiesto para determinar correctamente los
+  días del mes de febrero.'
+- '[Plus Ultra] Validar que el número de mes esté estrictamente comprendido entre
+  1 y 12.'
+tags:
+- basicos
+- secuencias
+- fundamentos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: ejecutar_ej_1_27_dias_del_mes
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Días del Mes
+tests_funciones:
+- nombre: test_ejecutar_ej_1_27_dias_del_mes_positivo
+  funcion: ejecutar_ej_1_27_dias_del_mes
+  codigo: 'int res = ejecutar_ej_1_27_dias_del_mes(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_1_27_dias_del_mes_cero
+  funcion: ejecutar_ej_1_27_dias_del_mes
+  codigo: 'int res = ejecutar_ej_1_27_dias_del_mes(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: basicos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

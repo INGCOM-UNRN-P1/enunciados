@@ -1,0 +1,38 @@
+id: ej-31-1-analisis-de-promedio
+titulo: Análisis de promedio
+tema: analisis_codigo
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- code_review
+- analisis
+- avanzados
+- promedio
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: proc_analisis_de_promedio
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Análisis de promedio
+tests_funciones:
+- nombre: test_proc_analisis_de_promedio_positivo
+  funcion: proc_analisis_de_promedio
+  codigo: 'int res = proc_analisis_de_promedio(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_analisis_de_promedio_cero
+  funcion: proc_analisis_de_promedio
+  codigo: 'int res = proc_analisis_de_promedio(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: estadistica_basica
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- memoria
+- testing

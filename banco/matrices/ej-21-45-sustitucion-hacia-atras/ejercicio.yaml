@@ -1,0 +1,43 @@
+id: ej-21-45-sustitucion-hacia-atras
+titulo: Sustitución hacia atrás
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- matrices
+- hacia
+- atras
+- 2d
+- algoritmos
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc_titucion_hacia_atras
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Sustitución hacia atrás
+tests_funciones:
+- nombre: test_proc_titucion_hacia_atras_positivo
+  funcion: proc_titucion_hacia_atras
+  codigo: 'int res = proc_titucion_hacia_atras(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_titucion_hacia_atras_cero
+  funcion: proc_titucion_hacia_atras
+  codigo: 'int res = proc_titucion_hacia_atras(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: hacia
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- lazos_anidados

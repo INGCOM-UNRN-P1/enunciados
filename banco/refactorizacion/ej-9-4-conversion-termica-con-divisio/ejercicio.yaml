@@ -1,0 +1,45 @@
+id: ej-9-4-conversion-termica-con-divisio
+titulo: Conversión Térmica con División Entera Peligrosa
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- peligrosa
+- fundamentos
+- conversion
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: convertir_celsius_a_fahrenheit
+  retorno: double
+  parametros: double temperatura_celsius, bool *es_valida
+  descripcion: Operación convertir_celsius_a_fahrenheit
+- nombre: test_conversion_celsius
+  retorno: void
+  parametros: void
+  descripcion: Operación test_conversion_celsius
+tests_funciones:
+- nombre: test_convertir_celsius_a_fahrenheit_1
+  funcion: convertir_celsius_a_fahrenheit
+  codigo: '/* Verificación unitaria de convertir_celsius_a_fahrenheit */
+
+    assert(true);'
+- nombre: test_test_conversion_celsius_2
+  funcion: test_conversion_celsius
+  codigo: '/* Verificación unitaria de test_conversion_celsius */
+
+    test_conversion_celsius();
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

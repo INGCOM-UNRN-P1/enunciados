@@ -1,0 +1,45 @@
+id: ej-28-1-guardar-inventario
+titulo: Guardar Inventario
+tema: archivos_binarios
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- fwrite
+- guardar
+- inventario
+- avanzados
+- binarios
+- dep:archivos
+- dep:estructuras
+- dep:memoria
+verificado: true
+funciones:
+- nombre: proc_1_guardar_inventario
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Guardar Inventario
+tests_funciones:
+- nombre: test_proc_1_guardar_inventario_positivo
+  funcion: proc_1_guardar_inventario
+  codigo: 'int res = proc_1_guardar_inventario(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_1_guardar_inventario_cero
+  funcion: proc_1_guardar_inventario
+  codigo: 'int res = proc_1_guardar_inventario(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: fwrite
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- archivos
+- estructuras
+- memoria

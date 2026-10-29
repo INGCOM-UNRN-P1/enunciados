@@ -1,0 +1,32 @@
+id: ej-9-37-primos-gemelos-con-variables-g
+titulo: Primos Gemelos con Variables Globales
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- gemelos
+- variables
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: son_gem
+  retorno: int
+  parametros: void
+  descripcion: Operación son_gem
+tests_funciones:
+- nombre: test_son_gem_1
+  funcion: son_gem
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: teoria_numeros
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

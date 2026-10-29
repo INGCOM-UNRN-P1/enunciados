@@ -1,0 +1,81 @@
+id: ejercicio2
+titulo: 'TDA Duración (tiempo_t) — Cambio de Implementación'
+tema: tipos_datos_abstractos
+bloom: 4
+minutos: 45
+pistas:
+- 'En tiempo_crear, normalizá excesos acumulando segundos hacia minutos y minutos
+  hacia horas.'
+- 'Los selectores de minutos y segundos deben garantizar valores en el rango [0, 59].'
+- 'Para la implementación compacta tiempo_seg.c, calculá las componentes con división
+  entera y módulo al vuelo.'
+- 'En tiempo_destruir, asegurate de tolerar punteros NULL sin fallar.'
+tags:
+- tda
+- tiempo
+- duracion
+- invariantes
+- encapsulamiento_opaco
+- intercambiabilidad
+- dep:tad
+verificado: true
+tipo_entrega: archivos_individuales
+familia: tda
+rol_familia: libreria
+funciones:
+- nombre: tiempo_crear
+  retorno: tiempo_t *
+  parametros: unsigned int horas, unsigned int minutos, unsigned int segundos
+  descripcion: Constructor con normalización de excesos.
+- nombre: tiempo_destruir
+  retorno: void
+  parametros: tiempo_t *t
+  descripcion: Destructor tolerante a NULL.
+- nombre: tiempo_horas
+  retorno: unsigned int
+  parametros: const tiempo_t *t
+  descripcion: Selector de cantidad de horas.
+- nombre: tiempo_minutos
+  retorno: unsigned int
+  parametros: const tiempo_t *t
+  descripcion: Selector de cantidad de minutos en rango [0, 59].
+- nombre: tiempo_segundos
+  retorno: unsigned int
+  parametros: const tiempo_t *t
+  descripcion: Selector de cantidad de segundos en rango [0, 59].
+- nombre: tiempo_en_segundos
+  retorno: unsigned long
+  parametros: const tiempo_t *t
+  descripcion: Consultor de tiempo total acumulado en segundos.
+- nombre: tiempo_incrementar
+  retorno: void
+  parametros: tiempo_t *t, unsigned int segundos_extra
+  descripcion: Mutador que suma segundos extra y renormaliza.
+tests_funciones:
+- nombre: test_tiempo_crear_normalizar
+  funcion: tiempo_crear
+  codigo: |
+    tiempo_t *t = tiempo_crear(1, 70, 90);
+    assert(t != NULL);
+    assert(tiempo_horas(t) == 2);
+    assert(tiempo_minutos(t) == 11);
+    assert(tiempo_segundos(t) == 30);
+    tiempo_destruir(t);
+- nombre: test_tiempo_incrementar
+  funcion: tiempo_incrementar
+  codigo: |
+    tiempo_t *t = tiempo_crear(1, 59, 50);
+    assert(t != NULL);
+    tiempo_incrementar(t, 20);
+    assert(tiempo_horas(t) == 2);
+    assert(tiempo_minutos(t) == 0);
+    assert(tiempo_segundos(t) == 10);
+    tiempo_destruir(t);
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: tda
+dificultad: avanzada
+minutos_estimados: 45
+tipo: practica_guiada
+prerrequisitos:
+- tad

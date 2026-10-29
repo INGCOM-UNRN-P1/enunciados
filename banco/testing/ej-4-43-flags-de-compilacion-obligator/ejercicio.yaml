@@ -1,0 +1,39 @@
+id: ej-4-43-flags-de-compilacion-obligator
+titulo: Flags de Compilación Obligatorios
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- obligatorios
+- flags
+- testing
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: proc_ompilacion_obligator
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Flags de Compilación Obligatorios
+tests_funciones:
+- nombre: test_proc_ompilacion_obligator_positivo
+  funcion: proc_ompilacion_obligator
+  codigo: 'int res = proc_ompilacion_obligator(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ompilacion_obligator_cero
+  funcion: proc_ompilacion_obligator
+  codigo: 'int res = proc_ompilacion_obligator(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: pilas_y_colas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

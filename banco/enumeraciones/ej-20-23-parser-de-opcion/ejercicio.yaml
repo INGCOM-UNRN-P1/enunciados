@@ -1,0 +1,43 @@
+id: ej-20-23-parser-de-opcion
+titulo: Parser de opción
+tema: enumeraciones
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- tipos
+- opcion
+- memoria
+- enum
+- parser
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc__23_parser_de_opcion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de opción
+tests_funciones:
+- nombre: test_proc__23_parser_de_opcion_positivo
+  funcion: proc__23_parser_de_opcion
+  codigo: 'int res = proc__23_parser_de_opcion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__23_parser_de_opcion_cero
+  funcion: proc__23_parser_de_opcion
+  codigo: 'int res = proc__23_parser_de_opcion(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

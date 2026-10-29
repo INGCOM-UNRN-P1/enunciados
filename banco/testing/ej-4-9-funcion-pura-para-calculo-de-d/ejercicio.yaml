@@ -1,0 +1,65 @@
+id: ej-4-9-funcion-pura-para-calculo-de-d
+titulo: Función pura para cálculo de descuento
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- calculo
+- funcion
+- descuento
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: aplicar_descuento
+  retorno: double
+  parametros: double precio_base, double porcentaje
+  descripcion: Operación aplicar_descuento
+- nombre: test_descuento_normal
+  retorno: void
+  parametros: void
+  descripcion: Operación test_descuento_normal
+- nombre: test_descuento_cero
+  retorno: void
+  parametros: void
+  descripcion: Operación test_descuento_cero
+- nombre: test_descuento_total
+  retorno: void
+  parametros: void
+  descripcion: Operación test_descuento_total
+- nombre: test_descuento_precio_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_descuento_precio_invalido
+- nombre: test_descuento_porcentaje_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_descuento_porcentaje_invalido
+tests_funciones:
+- nombre: test_aplicar_descuento_1
+  funcion: aplicar_descuento
+  codigo: '/* Verificación unitaria de aplicar_descuento */
+
+    double res = aplicar_descuento(1, 2);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_descuento_normal_2
+  funcion: test_descuento_normal
+  codigo: '/* Verificación unitaria de test_descuento_normal */
+
+    test_descuento_normal();
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

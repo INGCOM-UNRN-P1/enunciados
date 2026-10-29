@@ -1,0 +1,48 @@
+id: ej-10-19-separar-pares-e-impares
+titulo: Separar pares e impares
+tema: arreglos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Proceso (dos punteros):**'
+- Usar dos índices, `izquierda` comenzando en 0 y `derecha` en `tamaño-1`.
+- 'Mientras `izquierda < derecha`: a. Mover `izquierda` hacia la derecha hasta encontrar
+  un número impar. b. Mover `derecha` hacia la izquierda hasta encontrar un número
+  par. c. Si `izquierda < derecha`, intercambiar los elementos en esas posiciones.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- pares
+- arreglos
+- separar
+- memoria
+- impares
+- dep:funciones
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_arar_pares_e_impares
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Separar pares e impares
+tests_funciones:
+- nombre: test_proc_arar_pares_e_impares_positivo
+  funcion: proc_arar_pares_e_impares
+  codigo: 'int res = proc_arar_pares_e_impares(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_arar_pares_e_impares_cero
+  funcion: proc_arar_pares_e_impares
+  codigo: 'int res = proc_arar_pares_e_impares(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: pares
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- lazos

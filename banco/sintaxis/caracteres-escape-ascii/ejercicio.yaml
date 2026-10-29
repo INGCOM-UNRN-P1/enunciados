@@ -1,0 +1,36 @@
+id: caracteres-escape-ascii
+titulo: Secuencias de Escape en Literales de Cadena
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Las secuencias de escape permiten representar caracteres no imprimibles o 
+  especiales.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: proc_acteres_escape_ascii
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Secuencias de Escape en Literales 
+    de Cadena
+tests_funciones:
+- nombre: test_proc_acteres_escape_ascii_positivo
+  funcion: proc_acteres_escape_ascii
+  codigo: 'int res = proc_acteres_escape_ascii(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_acteres_escape_ascii_cero
+  funcion: proc_acteres_escape_ascii
+  codigo: 'int res = proc_acteres_escape_ascii(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: recordar
+dificultad: inicial
+tipo: concepto
+prerrequisitos: []

@@ -1,0 +1,45 @@
+id: ej-22-10-invertir-lista
+titulo: Invertir Lista
+tema: tad
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+tags:
+- invertir
+- lista
+- tad
+- abstraccion
+- algoritmos
+- dep:estructuras
+- dep:punteros
+- dep:memoria_dinamica
+verificado: true
+funciones:
+- nombre: proc_22_10_invertir_lista
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Invertir Lista
+tests_funciones:
+- nombre: test_proc_22_10_invertir_lista_positivo
+  funcion: proc_22_10_invertir_lista
+  codigo: 'int res = proc_22_10_invertir_lista(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_22_10_invertir_lista_cero
+  funcion: proc_22_10_invertir_lista
+  codigo: 'int res = proc_22_10_invertir_lista(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: arboles_binarios
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- estructuras
+- punteros
+- memoria_dinamica

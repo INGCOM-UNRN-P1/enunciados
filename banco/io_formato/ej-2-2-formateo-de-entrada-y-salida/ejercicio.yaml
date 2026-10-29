@@ -1,0 +1,105 @@
+id: ej-2-2-formateo-de-entrada-y-salida
+titulo: Formateo de entrada y salida
+tema: io_formato
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Encapsular la verificación en una función bool es_par(int n).'
+- '[Plus Ultra] Manejar correctamente el número 0 y valores enteros negativos.'
+- '[Plus Ultra] Encapsular la comparación en una función int mayor_de_tres(int a,
+  int b, int c).'
+- '[Plus Ultra] Manejar adecuadamente el caso en que dos o tres números sean iguales.'
+- '[Plus Ultra] Encapsular la condición en una función bool es_bisiesto(int anio).'
+- '[Plus Ultra] Validar que el año ingresado sea mayor que cero.'
+- '[Plus Ultra] Validar que la calificación numérica esté en el rango [0, 100].'
+- '[Plus Ultra] Modularizar la conversión usando tanto if-else como una estructura
+  switch dividiendo por 10.'
+- '[Plus Ultra] Implementar un lazo que mantenga la calculadora en ejecución hasta
+  seleccionar la opción de salida.'
+- '[Plus Ultra] Validar la división por cero con un mensaje de alerta.'
+- '[Plus Ultra] Validar la desigualdad triangular y verificar si el triángulo es rectángulo
+  mediante el teorema de Pitágoras.'
+- '[Plus Ultra] Encapsular la clasificación en una función que retorne un código numérico
+  descriptivo.'
+- '[Plus Ultra] Validar que el número de mes esté entre 1 y 12 mediante un caso default
+  en switch.'
+- '[Plus Ultra] Informar adicionalmente la estación del año correspondiente al mes
+  ingresado.'
+- '[Plus Ultra] Validar que el día ingresado sea coherente con la cantidad de días
+  que tiene el mes.'
+- '[Plus Ultra] Encapsular la determinación del signo en una función modular.'
+- '[Plus Ultra] Implementar el ordenamiento de los tres números utilizando comparaciones
+  e intercambios sin arreglos.'
+- '[Plus Ultra] Modularizar la impresión de los valores ordenados.'
+- '[Plus Ultra] Validar que el carácter ingresado sea una letra antes de clasificar
+  entre vocal y consonante.'
+- '[Plus Ultra] Tratar mayúsculas y minúsculas de forma homogénea convirtiendo con
+  tolower().'
+- '[Plus Ultra] Manejar con precisión los casos especiales de indeterminación (0x
+  = 0) e inconsistencia (0x = b).'
+- '[Plus Ultra] Formatear la raíz con dos cifras decimales si existe solución única.'
+- '[Plus Ultra] Validar que peso y altura sean estrictamente positivos.'
+- '[Plus Ultra] Modularizar la clasificación en una función pura que retorne la categoría.'
+- '[Plus Ultra] Validar que los valores ingresados se encuentren dentro del rango
+  del sistema seleccionado.'
+- '[Plus Ultra] Implementar un menú interactivo con lazo de repetición hasta salir.'
+- '[Plus Ultra] Validar la validez de ambas fechas considerando meses de 28, 30 y
+  31 días y años bisiestos.'
+- '[Plus Ultra] Calcular la cantidad aproximada de días transcurridos entre ambas
+  fechas.'
+- '[Plus Ultra] Validar que el salario bruto ingresado sea un valor no negativo.'
+- '[Plus Ultra] Desglosar en pantalla el importe retenido en cada tramo impositivo.'
+- '[Plus Ultra] Validar que el número ingresado contenga una cantidad de dígitos permitida
+  (entre 13 y 16 dígitos).'
+- '[Plus Ultra] Modularizar el cálculo de la suma ponderada en una función auxiliar
+  pura.'
+- '[Plus Ultra] Limitar el número máximo de intentos a 7 y mostrar la cantidad de
+  oportunidades restantes.'
+- '[Plus Ultra] Llevar un registro del mejor puntaje (menor cantidad de intentos)
+  si se juegan varias partidas.'
+- '[Plus Ultra] Validar que el número decimal esté comprendido estrictamente entre
+  1 y 3999.'
+- '[Plus Ultra] Modularizar la conversión procesando millares, centenas, decenas y
+  unidades con funciones auxiliares.'
+- '[Plus Ultra] Validar que los segundos y minutos de entrada estén en el rango [0,
+  59].'
+- '[Plus Ultra] Manejar diferencias de tiempo negativas informando si el primer tiempo
+  es menor que el segundo.'
+- '[Plus Ultra] Validar rigurosamente cada opción en los submenús con manejo de opciones
+  inválidas.'
+- '[Plus Ultra] Modularizar cada funcionalidad del menú en una función independiente.'
+- '**Validación constante:** Verificá siempre que la entrada esté en el rango esperado'
+- '**Mensajes claros:** Informá al usuario qué salió mal y qué se espera'
+- '**Casos extremos:** Probá con valores mínimos, máximos, cero y negativos'
+- '**Claridad:** Usá nombres de variables descriptivos (`es_vocal` en lugar de `v`)'
+tags:
+- formateo
+- fundamentos
+- io
+- formato
+- entrada
+- dep:aritmetica
+verificado: true
+funciones:
+- nombre: proc__de_entrada_y_salida
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Formateo de entrada y salida
+tests_funciones:
+- nombre: test_proc__de_entrada_y_salida_positivo
+  funcion: proc__de_entrada_y_salida
+  codigo: 'int res = proc__de_entrada_y_salida(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__de_entrada_y_salida_cero
+  funcion: proc__de_entrada_y_salida
+  codigo: 'int res = proc__de_entrada_y_salida(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: formateo
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- aritmetica

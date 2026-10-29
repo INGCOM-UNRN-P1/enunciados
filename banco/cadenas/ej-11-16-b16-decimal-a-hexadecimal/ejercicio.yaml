@@ -1,0 +1,46 @@
+id: ej-11-16-b16-decimal-a-hexadecimal
+titulo: Decimal a hexadecimal
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:** Similar a la conversión a binario, pero usando 16 como base.'
+- '**Conversión de Dígitos:** Los restos entre 10 y 15 deben ser mapeados a los caracteres
+  ''A'' a ''F''.'
+tags:
+- cadenas
+- strings
+- memoria
+- decimal
+- hexadecimal
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_ecimal_a_hexadecimal
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Decimal a hexadecimal
+tests_funciones:
+- nombre: test_proc_ecimal_a_hexadecimal_positivo
+  funcion: proc_ecimal_a_hexadecimal
+  codigo: 'int res = proc_ecimal_a_hexadecimal(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ecimal_a_hexadecimal_cero
+  funcion: proc_ecimal_a_hexadecimal
+  codigo: 'int res = proc_ecimal_a_hexadecimal(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

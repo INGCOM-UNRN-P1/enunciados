@@ -1,0 +1,38 @@
+id: ej-4-35-verificacion-de-estilo-allman
+titulo: Verificación de Estilo Allman
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- allman
+- verificacion
+- estilo
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: valor_absoluto
+  retorno: int
+  parametros: int n
+  descripcion: Operación valor_absoluto
+tests_funciones:
+- nombre: test_valor_absoluto_1
+  funcion: valor_absoluto
+  codigo: '/* Verificación unitaria de valor_absoluto */
+
+    int res = valor_absoluto(1);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

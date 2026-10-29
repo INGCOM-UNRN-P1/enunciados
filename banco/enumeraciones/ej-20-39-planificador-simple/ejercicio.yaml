@@ -1,0 +1,43 @@
+id: ej-20-39-planificador-simple
+titulo: Planificador simple
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
+  oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
+  la estructura de forma segura.'
+tags:
+- planificador
+- tipos
+- memoria
+- enum
+- simple
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc__planificador_simple
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Planificador simple
+tests_funciones:
+- nombre: test_proc__planificador_simple_positivo
+  funcion: proc__planificador_simple
+  codigo: 'int res = proc__planificador_simple(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__planificador_simple_cero
+  funcion: proc__planificador_simple
+  codigo: 'int res = proc__planificador_simple(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

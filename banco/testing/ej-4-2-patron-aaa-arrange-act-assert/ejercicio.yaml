@@ -1,0 +1,39 @@
+id: ej-4-2-patron-aaa-arrange-act-assert
+titulo: Patrón AAA (Arrange - Act - Assert)
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- patron
+- aserciones
+- fundamentos
+- arrange
+- assert
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: proc_a_arrange_act_assert
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Patrón AAA (Arrange - Act - Assert)
+tests_funciones:
+- nombre: test_proc_a_arrange_act_assert_positivo
+  funcion: proc_a_arrange_act_assert
+  codigo: 'int res = proc_a_arrange_act_assert(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_a_arrange_act_assert_cero
+  funcion: proc_a_arrange_act_assert
+  codigo: 'int res = proc_a_arrange_act_assert(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

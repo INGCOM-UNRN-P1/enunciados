@@ -1,0 +1,47 @@
+id: ej-3-8-invertir-un-numero
+titulo: Invertir un número
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un entero `n`.'
+- '**Proceso:** Similar a la suma de dígitos, pero en lugar de sumar, se construye
+  un nuevo número.'
+- Inicializar `invertido = 0`.
+- 'En un lazo, mientras `n > 0`: a. `invertido = (invertido * 10) + (n % 10)`. b.
+  `n = n / 10`. desbordamientos de búfer validando la capacidad máxima. líneas de
+  manera robusta.'
+- '[Plus Ultra] Manejar adecuadamente números terminados en ceros.'
+- '[Plus Ultra] Validar si el número invertido excede el rango máximo de un entero
+  int.'
+tags:
+- invertir
+- fundamentos
+- aritmetica
+- numero
+- matematica
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc_8_invertir_un_numero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Invertir un número
+tests_funciones:
+- nombre: test_proc_8_invertir_un_numero_positivo
+  funcion: proc_8_invertir_un_numero
+  codigo: 'int res = proc_8_invertir_un_numero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_8_invertir_un_numero_cero
+  funcion: proc_8_invertir_un_numero
+  codigo: 'int res = proc_8_invertir_un_numero(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: invertir
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

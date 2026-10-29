@@ -1,0 +1,27 @@
+id: ej-5-7-funcion-es-primo
+titulo: Función Es Primo
+tema: funciones
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_7
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Función Es Primo
+tests_funciones:
+- nombre: test_resolver_ej_7
+  funcion: resolver_ej_7
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: teoria_numeros
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

@@ -1,0 +1,48 @@
+id: ej-1-26-indice-de-masa-corporal-imc
+titulo: Índice de Masa Corporal (IMC)
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Solicitar el peso en kilogramos (kg) y la altura en metros (m).'
+- '**Proceso:**'
+- '**Clasificación (ejemplo):**'
+- 'IMC < 18.5: Bajo peso'
+- '18.5 <= IMC < 25: Normal'
+- '25 <= IMC < 30: Sobrepeso'
+- 'IMC >= 30: Obesidad'
+- '**Salida:** Mostrar el valor del IMC y la categoría de peso correspondiente.'
+- '[Plus Ultra] Validar que peso y altura sean estrictamente positivos.'
+- '[Plus Ultra] Modularizar la clasificación en una función independiente que retorne
+  la categoría de IMC.'
+tags:
+- indice
+- fundamentos
+- secuencias
+- basicos
+- corporal
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_de_masa_corporal_imc
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Índice de Masa Corporal (IMC)
+tests_funciones:
+- nombre: test_proc_de_masa_corporal_imc_positivo
+  funcion: proc_de_masa_corporal_imc
+  codigo: 'int res = proc_de_masa_corporal_imc(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_de_masa_corporal_imc_cero
+  funcion: proc_de_masa_corporal_imc
+  codigo: 'int res = proc_de_masa_corporal_imc(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: indice
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

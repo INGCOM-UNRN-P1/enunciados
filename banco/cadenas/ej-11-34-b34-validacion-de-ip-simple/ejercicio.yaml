@@ -1,0 +1,49 @@
+id: ej-11-34-b34-validacion-de-ip-simple
+titulo: Validación de IP simple
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Usar `strtok` o una función similar para dividir la cadena por el delimitador 
+  `.`.
+- Contar el número de tokens. Deben ser exactamente 4.
+- Para cada token, convertirlo a entero (usando `atoi` o `sscanf`).
+- Verificar que el número esté en el rango [0, 255].
+tags:
+- cadenas
+- strings
+- memoria
+- validacion
+- simple
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_idacion_de_ip_simple
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validación de IP simple
+tests_funciones:
+- nombre: test_proc_idacion_de_ip_simple_positivo
+  funcion: proc_idacion_de_ip_simple
+  codigo: 'int res = proc_idacion_de_ip_simple(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_idacion_de_ip_simple_cero
+  funcion: proc_idacion_de_ip_simple
+  codigo: 'int res = proc_idacion_de_ip_simple(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

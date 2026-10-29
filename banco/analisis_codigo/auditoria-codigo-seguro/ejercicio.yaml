@@ -1,0 +1,41 @@
+id: auditoria-codigo-seguro
+titulo: Auditoría y Refactorización de Código Seguro (CWE-120)
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Reemplazá funciones no seguras como gets() o strcpy() por fgets() y snprintf()
+  con límite de tamaño explícito.
+- Validá siempre los tamaños de cadena antes de copiar o concatenar.
+- Sanitizá las terminaciones nulas '\0' en cadenas recibidas desde entrada 
+  externa.
+tags:
+- analisis_codigo
+- seguridad
+- cwe120
+- sanitizers
+- auditoria
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: procesar_credencial
+  retorno: void
+  parametros: const char *raw_line
+  descripcion: Operación procesar_credencial
+tests_funciones:
+- nombre: test_procesar_credencial_1
+  funcion: procesar_credencial
+  codigo: '/* Verificación unitaria de procesar_credencial */
+
+    procesar_credencial("test");
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: seguridad
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- testing

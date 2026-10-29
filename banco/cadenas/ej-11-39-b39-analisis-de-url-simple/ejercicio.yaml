@@ -1,0 +1,45 @@
+id: ej-11-39-b39-analisis-de-url-simple
+titulo: Análisis de URL simple
+tema: cadenas
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:** Usar funciones de búsqueda de caracteres (`:`, `/`) para encontrar
+  los delimitadores y luego extraer las subcadenas correspondientes.'
+tags:
+- cadenas
+- strings
+- analisis
+- memoria
+- simple
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_alisis_de_url_simple
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Análisis de URL simple
+tests_funciones:
+- nombre: test_proc_alisis_de_url_simple_positivo
+  funcion: proc_alisis_de_url_simple
+  codigo: 'int res = proc_alisis_de_url_simple(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_alisis_de_url_simple_cero
+  funcion: proc_alisis_de_url_simple
+  codigo: 'int res = proc_alisis_de_url_simple(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

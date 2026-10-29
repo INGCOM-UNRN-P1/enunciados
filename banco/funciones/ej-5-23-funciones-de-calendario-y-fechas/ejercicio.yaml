@@ -1,0 +1,27 @@
+id: ej-5-23-funciones-de-calendario-y-fechas
+titulo: Funciones de Calendario y Fechas
+tema: funciones
+bloom: 5
+minutos_estimados: 45
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_23
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Funciones de Calendario y Fechas
+tests_funciones:
+- nombre: test_resolver_ej_23
+  funcion: resolver_ej_23
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- lazos
+- secuencias

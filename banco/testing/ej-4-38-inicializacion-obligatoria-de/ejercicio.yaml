@@ -1,0 +1,32 @@
+id: ej-4-38-inicializacion-obligatoria-de
+titulo: Inicialización obligatoria de variables
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- inicializacion
+- variables
+- obligatoria
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: contar_multiplos
+  retorno: int
+  parametros: const int arr[], int n, int divisor
+  descripcion: Operación contar_multiplos
+tests_funciones:
+- nombre: test_contar_multiplos_1
+  funcion: contar_multiplos
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

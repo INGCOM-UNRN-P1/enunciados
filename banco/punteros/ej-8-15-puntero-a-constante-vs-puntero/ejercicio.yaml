@@ -1,0 +1,44 @@
+id: ej-8-15-puntero-a-constante-vs-puntero
+titulo: Puntero a Constante vs Puntero Constante
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- constante
+- puntero
+- memoria
+- punteros
+- direcciones
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: proc_constante_vs_puntero
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Puntero a Constante vs Puntero 
+    Constante
+tests_funciones:
+- nombre: test_proc_constante_vs_puntero_positivo
+  funcion: proc_constante_vs_puntero
+  codigo: 'int res = proc_constante_vs_puntero(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_constante_vs_puntero_cero
+  funcion: proc_constante_vs_puntero
+  codigo: 'int res = proc_constante_vs_puntero(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: constante
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

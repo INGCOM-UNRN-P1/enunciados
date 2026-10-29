@@ -1,0 +1,39 @@
+id: ej-9-47-compactador-de-espacios-repeti
+titulo: Compactador de Espacios Repetidos
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- espacios
+- fundamentos
+- compactador
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc_r_de_espacios_repeti
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Compactador de Espacios Repetidos
+tests_funciones:
+- nombre: test_proc_r_de_espacios_repeti_positivo
+  funcion: proc_r_de_espacios_repeti
+  codigo: 'int res = proc_r_de_espacios_repeti(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_r_de_espacios_repeti_cero
+  funcion: proc_r_de_espacios_repeti
+  codigo: 'int res = proc_r_de_espacios_repeti(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

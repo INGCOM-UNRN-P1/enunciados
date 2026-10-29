@@ -1,0 +1,43 @@
+id: ej-1-9-suma-de-cuadrados
+titulo: Suma de Cuadrados
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Variables:** Se necesita un `acumulador` inicializado en 0.'
+- '**Entrada:** Leer los enteros `n` y `m`.'
+- '**Proceso:** Usar un lazo `for` que itere de `n` a `m`. En cada iteración,'
+- '**Salida:** Al final, imprimir el valor del `acumulador`.'
+- '[Plus Ultra] Usar tipos enteros amplios como long long para soportar sumas de cuadrados
+  elevadas.'
+- '[Plus Ultra] Comparar el resultado del lazo con la fórmula matemática n*(n+1)*(2n+1)/6.'
+tags:
+- cuadrados
+- basicos
+- secuencias
+- fundamentos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc__9_suma_de_cuadrados
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Suma de Cuadrados
+tests_funciones:
+- nombre: test_proc__9_suma_de_cuadrados_positivo
+  funcion: proc__9_suma_de_cuadrados
+  codigo: 'int res = proc__9_suma_de_cuadrados(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__9_suma_de_cuadrados_cero
+  funcion: proc__9_suma_de_cuadrados
+  codigo: 'int res = proc__9_suma_de_cuadrados(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: cuadrados
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

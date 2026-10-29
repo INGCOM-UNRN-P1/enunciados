@@ -1,0 +1,49 @@
+id: ej-11-4-b4-es-alfabetica
+titulo: ¿Es alfabética?
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:** Recorrer la cadena. Para cada carácter, verificar si está dentro del
+  rango de ''a'' a ''z'' o de ''A'' a ''Z''.'
+- '**Funciones de Biblioteca:** La biblioteca `ctype.h` proporciona la función `isalpha()`,
+  que simplifica enormemente esta comprobación.'
+- '**Condición de Salida:** Si se encuentra un carácter que no es alfabético, la función
+  puede retornar `falso` inmediatamente. Si el lazo termina, significa que todos los
+  caracteres son alfabéticos.'
+tags:
+- cadenas
+- alfabetica
+- strings
+- memoria
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_1_4_b4_es_alfabetica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de ¿Es alfabética?
+tests_funciones:
+- nombre: test_proc_1_4_b4_es_alfabetica_positivo
+  funcion: proc_1_4_b4_es_alfabetica
+  codigo: 'int res = proc_1_4_b4_es_alfabetica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_1_4_b4_es_alfabetica_cero
+  funcion: proc_1_4_b4_es_alfabetica
+  codigo: 'int res = proc_1_4_b4_es_alfabetica(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

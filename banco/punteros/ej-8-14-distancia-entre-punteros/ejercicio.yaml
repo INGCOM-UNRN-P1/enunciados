@@ -1,0 +1,43 @@
+id: ej-8-14-distancia-entre-punteros
+titulo: Distancia entre Punteros
+tema: punteros
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- distancia
+- memoria
+- punteros
+- direcciones
+- entre
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: proc_ancia_entre_punteros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Distancia entre Punteros
+tests_funciones:
+- nombre: test_proc_ancia_entre_punteros_positivo
+  funcion: proc_ancia_entre_punteros
+  codigo: 'int res = proc_ancia_entre_punteros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ancia_entre_punteros_cero
+  funcion: proc_ancia_entre_punteros
+  codigo: 'int res = proc_ancia_entre_punteros(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: distancia
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- funciones
+- arreglos

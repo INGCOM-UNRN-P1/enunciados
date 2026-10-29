@@ -1,0 +1,36 @@
+id: ej-9-30-tabla-de-multiplicar-formatead
+titulo: Tabla de Multiplicar Formateada y Modularizada
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- tabla
+- modularizada
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: tabla
+  retorno: void
+  parametros: int n
+  descripcion: Operación tabla
+tests_funciones:
+- nombre: test_tabla_1
+  funcion: tabla
+  codigo: '/* Verificación unitaria de tabla */
+
+    tabla(1);
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

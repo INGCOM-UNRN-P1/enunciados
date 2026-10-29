@@ -1,0 +1,53 @@
+id: ej-11-10-b10-desduplicador
+titulo: Desduplicador
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+- '**Estructura de Datos:** Se necesita una forma de registrar los caracteres que
+  ya se han visto. Un arreglo booleano de 256 posiciones (`vistos`) es ideal para
+  esto, donde cada índice corresponde a un código ASCII.'
+- '**Proceso (in-place):**'
+- 'Utilizar dos punteros o índices: `puntero_lectura` y `puntero_escritura`, ambos
+  comenzando al inicio de la cadena.'
+- Recorrer la cadena con `puntero_lectura`.
+- 'Para cada carácter `c` leído: a. Verificar en el arreglo `vistos` si ya ha aparecido
+  (`vistos[(int)c]`). b. Si no ha sido visto, copiarlo a la posición de `puntero_escritura`,
+  marcarlo como visto (`vistos[(int)c] = VERDADERO`), y avanzar `puntero_escritura`.'
+- Al final, colocar el carácter nulo `\0` en la posición de `puntero_escritura`.
+tags:
+- cadenas
+- desduplicador
+- strings
+- memoria
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_10_b10_desduplicador
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Desduplicador
+tests_funciones:
+- nombre: test_proc_10_b10_desduplicador_positivo
+  funcion: proc_10_b10_desduplicador
+  codigo: 'int res = proc_10_b10_desduplicador(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_10_b10_desduplicador_cero
+  funcion: proc_10_b10_desduplicador
+  codigo: 'int res = proc_10_b10_desduplicador(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

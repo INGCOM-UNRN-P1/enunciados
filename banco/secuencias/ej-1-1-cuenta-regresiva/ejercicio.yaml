@@ -1,0 +1,44 @@
+id: ej-1-1-cuenta-regresiva
+titulo: Cuenta regresiva
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** El programa debe solicitar al usuario un número entero positivo'
+- '**Proceso:** Se debe utilizar un lazo que itere desde $N$ hacia abajo, hasta'
+- '**Pausa:** Dentro del lazo, después de imprimir cada número, el programa'
+- '**Salida:** Tras finalizar el lazo, se debe imprimir el mensaje final'
+- '[Plus Ultra] Validar que el número inicial N sea estrictamente positivo antes de
+  comenzar la cuenta.'
+- '[Plus Ultra] Permitir al usuario configurar el tiempo de pausa entre cada número.'
+tags:
+- cuenta
+- fundamentos
+- regresiva
+- secuencias
+- basicos
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_1_1_cuenta_regresiva
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cuenta regresiva
+tests_funciones:
+- nombre: test_proc_1_1_cuenta_regresiva_positivo
+  funcion: proc_1_1_cuenta_regresiva
+  codigo: 'int res = proc_1_1_cuenta_regresiva(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_1_1_cuenta_regresiva_cero
+  funcion: proc_1_1_cuenta_regresiva
+  codigo: 'int res = proc_1_1_cuenta_regresiva(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: cuenta
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

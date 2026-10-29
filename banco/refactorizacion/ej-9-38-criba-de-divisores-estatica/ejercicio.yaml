@@ -1,0 +1,39 @@
+id: ej-9-38-criba-de-divisores-estatica
+titulo: Criba de Divisores Estática
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- estatica
+- divisores
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: proc_e_divisores_estatica
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Criba de Divisores Estática
+tests_funciones:
+- nombre: test_proc_e_divisores_estatica_positivo
+  funcion: proc_e_divisores_estatica
+  codigo: 'int res = proc_e_divisores_estatica(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_e_divisores_estatica_cero
+  funcion: proc_e_divisores_estatica
+  codigo: 'int res = proc_e_divisores_estatica(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

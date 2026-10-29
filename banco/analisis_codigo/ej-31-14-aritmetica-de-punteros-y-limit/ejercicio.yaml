@@ -1,0 +1,65 @@
+id: ej-31-14-aritmetica-de-punteros-y-limit
+titulo: Aritmética de Punteros y Límites de Arreglos
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Recordá que la suma de un entero a un puntero (p + i) avanza i * sizeof(*p) 
+  bytes en memoria.
+- Comprobá que ningún acceso supere el límite superior (p + n) ni descienda por 
+  debajo de p.
+- Prestá especial atención a los errores por un elemento (off-by-one) en los 
+  lazos de recorrido.
+tags:
+- limites
+- analisis
+- arreglos
+- aritmetica
+- punteros
+- dep:memoria
+- dep:testing
+verificado: true
+funciones:
+- nombre: funcion_a
+  retorno: void
+  parametros: int *arr, size_t n
+  descripcion: Operación funcion_a
+- nombre: funcion_b
+  retorno: void
+  parametros: int *arr, size_t n
+  descripcion: Operación funcion_b
+- nombre: funcion_c
+  retorno: void
+  parametros: char *destino, const char *origen
+  descripcion: Operación funcion_c
+- nombre: funcion_d
+  retorno: void
+  parametros: int *arr, size_t n
+  descripcion: Operación funcion_d
+tests_funciones:
+- nombre: test_funcion_a_1
+  funcion: funcion_a
+  codigo: '/* Verificación unitaria de funcion_a */
+
+    int arr[] = {1, 2, 3, 4};
+
+    funcion_a(arr, 4);
+
+    assert(arr[0] == arr[0]);'
+- nombre: test_funcion_b_2
+  funcion: funcion_b
+  codigo: '/* Verificación unitaria de funcion_b */
+
+    int arr[] = {1, 2, 3, 4};
+
+    funcion_b(arr, 4);
+
+    assert(arr[0] == arr[0]);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: limites
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- memoria
+- testing

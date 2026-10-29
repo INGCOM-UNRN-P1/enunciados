@@ -1,0 +1,43 @@
+id: ej-21-47-metodo-de-jacobi
+titulo: Método de Jacobi
+tema: matrices
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- matrices
+- metodo
+- jacobi
+- 2d
+- algoritmos
+- dep:arreglos
+- dep:lazos_anidados
+verificado: true
+funciones:
+- nombre: proc__47_metodo_de_jacobi
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Método de Jacobi
+tests_funciones:
+- nombre: test_proc__47_metodo_de_jacobi_positivo
+  funcion: proc__47_metodo_de_jacobi
+  codigo: 'int res = proc__47_metodo_de_jacobi(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__47_metodo_de_jacobi_cero
+  funcion: proc__47_metodo_de_jacobi
+  codigo: 'int res = proc__47_metodo_de_jacobi(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: metodo
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- lazos_anidados

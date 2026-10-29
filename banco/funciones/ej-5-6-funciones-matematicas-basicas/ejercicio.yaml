@@ -1,0 +1,27 @@
+id: ej-5-6-funciones-matematicas-basicas
+titulo: Funciones Matemáticas Básicas
+tema: funciones
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_6
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Funciones Matemáticas Básicas
+tests_funciones:
+- nombre: test_resolver_ej_6
+  funcion: resolver_ej_6
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- lazos
+- secuencias

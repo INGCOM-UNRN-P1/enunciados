@@ -1,0 +1,36 @@
+id: ej-9-25-la-funcion-monstruo-de-factura
+titulo: La Función Monstruo de Facturación
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- funcion
+- facturacion
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: facturar
+  retorno: void
+  parametros: double p, int cant, int tipo, double saldo
+  descripcion: Operación facturar
+tests_funciones:
+- nombre: test_facturar_1
+  funcion: facturar
+  codigo: '/* Verificación unitaria de facturar */
+
+    facturar(1, 2, 3, 4);
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

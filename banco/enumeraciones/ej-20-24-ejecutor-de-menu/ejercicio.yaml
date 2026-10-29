@@ -1,0 +1,42 @@
+id: ej-20-24-ejecutor-de-menu
+titulo: Ejecutor de menú
+tema: enumeraciones
+bloom: 2
+minutos_estimados: 15
+pistas:
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
+  el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
+  y postcondiciones.'
+tags:
+- ejecutor
+- tipos
+- enum
+- memoria
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc__24_ejecutor_de_menu
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Ejecutor de menú
+tests_funciones:
+- nombre: test_proc__24_ejecutor_de_menu_positivo
+  funcion: proc__24_ejecutor_de_menu
+  codigo: 'int res = proc__24_ejecutor_de_menu(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__24_ejecutor_de_menu_cero
+  funcion: proc__24_ejecutor_de_menu
+  codigo: 'int res = proc__24_ejecutor_de_menu(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

@@ -1,0 +1,45 @@
+id: ej-3-27-numeros-de-lucas
+titulo: Números de Lucas
+tema: aritmetica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Definición:** $L_n = L_{n-1} + L_{n-2}$ con $L_0 = 2$ y $L_1 = 1$.'
+- '**Proceso:** La implementación es casi idéntica a la de Fibonacci, solo cambian
+  los valores iniciales. valores fuera de rango o tipos inválidos. un lazo hasta que
+  el usuario elija finalizar.'
+- '[Plus Ultra] Generar los primeros N términos de la secuencia de Lucas usando tipos
+  enteros amplios.'
+- '[Plus Ultra] Verificar la relación entre los números de Lucas y los números de
+  Fibonacci.'
+tags:
+- fundamentos
+- lucas
+- aritmetica
+- numeros
+- matematica
+- dep:tipos_datos
+verificado: true
+funciones:
+- nombre: proc__27_numeros_de_lucas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Números de Lucas
+tests_funciones:
+- nombre: test_proc__27_numeros_de_lucas_positivo
+  funcion: proc__27_numeros_de_lucas
+  codigo: 'int res = proc__27_numeros_de_lucas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__27_numeros_de_lucas_cero
+  funcion: proc__27_numeros_de_lucas
+  codigo: 'int res = proc__27_numeros_de_lucas(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

@@ -1,0 +1,40 @@
+id: ej-7-23-libreria-de-geometria-3d
+titulo: Librería de Geometría 3D
+tema: librerias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Verificá que el radio y la altura sean mayores a 0.
+tags:
+- geometria
+- fundamentos
+- headers
+- libreria
+- librerias
+- dep:funciones
+- dep:estructuras
+verificado: true
+funciones:
+- nombre: proc_eria_de_geometria_3d
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Librería de Geometría 3D
+tests_funciones:
+- nombre: test_proc_eria_de_geometria_3d_positivo
+  funcion: proc_eria_de_geometria_3d
+  codigo: 'int res = proc_eria_de_geometria_3d(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_eria_de_geometria_3d_cero
+  funcion: proc_eria_de_geometria_3d
+  codigo: 'int res = proc_eria_de_geometria_3d(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: geometria
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- estructuras

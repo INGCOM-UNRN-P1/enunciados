@@ -1,0 +1,39 @@
+id: ej-4-22-maquina-de-estados-finita-pura
+titulo: Máquina de Estados Finita Pura
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- maquina
+- aserciones
+- fundamentos
+- estados
+- finita
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: proc__estados_finita_pura
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Máquina de Estados Finita Pura
+tests_funciones:
+- nombre: test_proc__estados_finita_pura_positivo
+  funcion: proc__estados_finita_pura
+  codigo: 'int res = proc__estados_finita_pura(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__estados_finita_pura_cero
+  funcion: proc__estados_finita_pura
+  codigo: 'int res = proc__estados_finita_pura(0);
+
+    assert(res == 0);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

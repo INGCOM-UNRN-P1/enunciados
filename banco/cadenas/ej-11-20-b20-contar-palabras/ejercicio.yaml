@@ -1,0 +1,52 @@
+id: ej-11-20-b20-contar-palabras
+titulo: Contar palabras
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Máquina de Estados:** Una forma robusta de hacerlo es con una máquina de estados
+  simple con dos estados: `DENTRO_DE_PALABRA` y `FUERA_DE_PALABRA`.'
+- '**Proceso:**'
+- Inicializar `contador_palabras = 0` y `estado = FUERA_DE_PALABRA`.
+- Recorrer la cadena. Si se está `FUERA_DE_PALABRA` y se encuentra un carácter 
+  que no es un espacio, se ha encontrado el inicio de una nueva palabra. 
+  Incrementar `contador_palabras` y cambiar a `estado = DENTRO_DE_PALABRA`.
+- Si se está `DENTRO_DE_PALABRA` y se encuentra un espacio, cambiar a `estado = 
+  FUERA_DE_PALABRA`.
+tags:
+- contar
+- cadenas
+- strings
+- memoria
+- palabras
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc__b20_contar_palabras
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contar palabras
+tests_funciones:
+- nombre: test_proc__b20_contar_palabras_positivo
+  funcion: proc__b20_contar_palabras
+  codigo: 'int res = proc__b20_contar_palabras(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__b20_contar_palabras_cero
+  funcion: proc__b20_contar_palabras
+  codigo: 'int res = proc__b20_contar_palabras(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

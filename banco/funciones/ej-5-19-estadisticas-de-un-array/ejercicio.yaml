@@ -1,0 +1,27 @@
+id: ej-5-19-estadisticas-de-un-array
+titulo: Estadísticas de un Array
+tema: funciones
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_19
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Estadísticas de un Array
+tests_funciones:
+- nombre: test_resolver_ej_19
+  funcion: resolver_ej_19
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

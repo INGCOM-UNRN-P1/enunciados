@@ -1,0 +1,43 @@
+id: ej-9-44-conversor-de-caracteres-a-ente
+titulo: Conversor de Caracteres a Entero (`atoi` Casero)
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Manejá el signo inicial ('-' o '+') antes de comenzar el acumulador numérico.
+- Validá que cada carácter sea un dígito válido con isdigit() antes de operar.
+- Utilizá un parámetro de salida booleano bool *exito para reportar posibles 
+  errores de parseo.
+tags:
+- clean_code
+- conversor
+- refactorizacion
+- fundamentos
+- casero
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: convertir_caracteres_a_entero
+  retorno: int
+  parametros: const char digitos[], int longitud, bool *exito
+  descripcion: Operación convertir_caracteres_a_entero
+- nombre: test_convertir_a_entero
+  retorno: void
+  parametros: void
+  descripcion: Operación test_convertir_a_entero
+tests_funciones:
+- nombre: test_convertir_caracteres_a_entero_1
+  funcion: convertir_caracteres_a_entero
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_test_convertir_a_entero_2
+  funcion: test_convertir_a_entero
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

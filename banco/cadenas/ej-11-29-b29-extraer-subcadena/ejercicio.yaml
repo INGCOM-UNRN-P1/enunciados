@@ -1,0 +1,50 @@
+id: ej-11-29-b29-extraer-subcadena
+titulo: Extraer subcadena
+tema: cadenas
+bloom: 5
+minutos_estimados: 45
+pistas:
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
+  total de recursos en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
+  Valgrind o AddressSanitizer.'
+- '**Memoria:** La función debe reservar memoria para la nueva cadena.'
+- '**Proceso:**'
+- Calcular la longitud de la subcadena y reservar memoria (longitud + 1 para el 
+  `\0`).
+- Copiar los caracteres desde la posición de inicio de la cadena original a la 
+  nueva cadena.
+- Añadir el terminador nulo `\0` al final de la nueva cadena.
+tags:
+- cadenas
+- strings
+- extraer
+- memoria
+- subcadena
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_29_extraer_subcadena
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Extraer subcadena
+tests_funciones:
+- nombre: test_proc_29_extraer_subcadena_positivo
+  funcion: proc_29_extraer_subcadena
+  codigo: 'int res = proc_29_extraer_subcadena(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_29_extraer_subcadena_cero
+  funcion: proc_29_extraer_subcadena
+  codigo: 'int res = proc_29_extraer_subcadena(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: desafio
+tipo: desafio
+prerrequisitos:
+- arreglos
+- caracteres

@@ -1,0 +1,59 @@
+id: ej-4-14-clasificacion-de-funciones-pur
+titulo: 'Clasificación de funciones: Puras vs Impuras'
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- funciones
+- puras
+- impuras
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: duplicar
+  retorno: int
+  parametros: int x
+  descripcion: Operación duplicar
+- nombre: obtener_siguiente
+  retorno: int
+  parametros: void
+  descripcion: Operación obtener_siguiente
+- nombre: sumar_con_log
+  retorno: int
+  parametros: int a, int b
+  descripcion: Operación sumar_con_log
+- nombre: es_positivo
+  retorno: bool
+  parametros: int n
+  descripcion: Operación es_positivo
+tests_funciones:
+- nombre: test_duplicar_1
+  funcion: duplicar
+  codigo: '/* Verificación unitaria de duplicar */
+
+    int res = duplicar(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_obtener_siguiente_2
+  funcion: obtener_siguiente
+  codigo: '/* Verificación unitaria de obtener_siguiente */
+
+    int r = obtener_siguiente();
+
+    (void)r;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

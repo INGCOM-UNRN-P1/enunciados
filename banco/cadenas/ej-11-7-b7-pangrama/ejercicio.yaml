@@ -1,0 +1,50 @@
+id: ej-11-7-b7-pangrama
+titulo: Pangrama
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Estructura de Datos:** Un arreglo booleano de 26 posiciones (`letras_vistas`)
+  es perfecto para este fin.'
+- '**Proceso:**'
+- Inicializar el arreglo `letras_vistas` en `falso`.
+- Recorrer la cadena. Para cada carácter, si es una letra, marcar la posición 
+  correspondiente en el arreglo como `verdadero`.
+- Después de recorrer la cadena, verificar si todas las posiciones del arreglo 
+  `letras_vistas` son `verdadero`. Si es así, es un pangrama.
+tags:
+- pangrama
+- cadenas
+- strings
+- memoria
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: ejecutar_ej_11_7_b7_pangrama
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Pangrama
+tests_funciones:
+- nombre: test_ejecutar_ej_11_7_b7_pangrama_positivo
+  funcion: ejecutar_ej_11_7_b7_pangrama
+  codigo: 'int res = ejecutar_ej_11_7_b7_pangrama(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_ej_11_7_b7_pangrama_cero
+  funcion: ejecutar_ej_11_7_b7_pangrama
+  codigo: 'int res = ejecutar_ej_11_7_b7_pangrama(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

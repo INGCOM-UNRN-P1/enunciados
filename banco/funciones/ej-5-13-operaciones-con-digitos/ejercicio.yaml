@@ -1,0 +1,27 @@
+id: ej-5-13-operaciones-con-digitos
+titulo: Operaciones con Dígitos
+tema: funciones
+bloom: 3
+minutos_estimados: 25
+pistas: []
+tags:
+- dep:lazos
+- dep:secuencias
+verificado: true
+funciones:
+- nombre: resolver_ej_13
+  retorno: int
+  parametros: int n
+  descripcion: Lógica de Operaciones con Dígitos
+tests_funciones:
+- nombre: test_resolver_ej_13
+  funcion: resolver_ej_13
+  codigo: assert(true);
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: funciones_general
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

@@ -1,0 +1,46 @@
+id: ej-23-7-tabla-hash-encadenamiento-sepa
+titulo: Tabla Hash (Encadenamiento Separado)
+tema: estructuras_datos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- listas
+- nodos
+- tabla
+- separado
+- algoritmos
+- dep:tad
+- dep:memoria_dinamica
+- dep:recursividad
+verificado: true
+funciones:
+- nombre: proc__encadenamiento_sepa
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tabla Hash (Encadenamiento 
+    Separado)
+tests_funciones:
+- nombre: test_proc__encadenamiento_sepa_positivo
+  funcion: proc__encadenamiento_sepa
+  codigo: 'int res = proc__encadenamiento_sepa(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__encadenamiento_sepa_cero
+  funcion: proc__encadenamiento_sepa
+  codigo: 'int res = proc__encadenamiento_sepa(0);
+
+    assert(res == 0);'
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+subtema: listas_enlazadas
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- memoria_dinamica
+- recursividad

@@ -1,0 +1,48 @@
+id: ej-10-12-deduplicacion
+titulo: Deduplicación
+tema: arreglos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '**Entrada:** Un arreglo y su tamaño.'
+- '**Proceso (si el orden no importa):** Ordenar el arreglo primero. Luego, recorrerlo
+  con dos punteros (`lectura` y `escritura`). Si el elemento actual es diferente al
+  anterior, se copia a la posición de `escritura` y se avanza `escritura`.'
+- '**Proceso (si el orden importa):** Usar un lazo anidado o una estructura de datos
+  auxiliar (como un hash set) para llevar un registro de los elementos ya vistos.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- vectores
+- arreglos
+- deduplicacion
+- memoria
+- dep:funciones
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc__10_12_deduplicacion
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Deduplicación
+tests_funciones:
+- nombre: test_proc__10_12_deduplicacion_positivo
+  funcion: proc__10_12_deduplicacion
+  codigo: 'int res = proc__10_12_deduplicacion(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__10_12_deduplicacion_cero
+  funcion: proc__10_12_deduplicacion
+  codigo: 'int res = proc__10_12_deduplicacion(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: vectores
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- lazos

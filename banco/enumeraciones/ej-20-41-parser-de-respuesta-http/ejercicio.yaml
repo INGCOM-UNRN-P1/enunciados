@@ -1,0 +1,43 @@
+id: ej-20-41-parser-de-respuesta-http
+titulo: Parser de respuesta HTTP
+tema: enumeraciones
+bloom: 4
+minutos_estimados: 35
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+tags:
+- tipos
+- memoria
+- enum
+- parser
+- respuesta
+- dep:tipos_datos
+- dep:condicionales
+verificado: true
+funciones:
+- nombre: proc_er_de_respuesta_http
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de respuesta HTTP
+tests_funciones:
+- nombre: test_proc_er_de_respuesta_http_positivo
+  funcion: proc_er_de_respuesta_http
+  codigo: 'int res = proc_er_de_respuesta_http(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_er_de_respuesta_http_cero
+  funcion: proc_er_de_respuesta_http
+  codigo: 'int res = proc_er_de_respuesta_http(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: mapeo_estados
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- condicionales

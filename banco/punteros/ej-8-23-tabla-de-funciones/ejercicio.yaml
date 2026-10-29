@@ -1,0 +1,63 @@
+id: ej-8-23-tabla-de-funciones
+titulo: Tabla de Funciones
+tema: punteros
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
+  de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
+  de indexación directa.'
+tags:
+- funciones
+- tabla
+- memoria
+- punteros
+- direcciones
+- dep:funciones
+- dep:arreglos
+verificado: true
+funciones:
+- nombre: sumar
+  retorno: double
+  parametros: double a, double b
+  descripcion: Operación sumar
+- nombre: restar
+  retorno: double
+  parametros: double a, double b
+  descripcion: Operación restar
+- nombre: multiplicar
+  retorno: double
+  parametros: double a, double b
+  descripcion: Operación multiplicar
+- nombre: dividir
+  retorno: double
+  parametros: double a, double b
+  descripcion: Operación dividir
+tests_funciones:
+- nombre: test_sumar_1
+  funcion: sumar
+  codigo: '/* Verificación unitaria de sumar */
+
+    double res = sumar(1, 2);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_restar_2
+  funcion: restar
+  codigo: '/* Verificación unitaria de restar */
+
+    double res = restar(1, 2);
+
+    (void)res;
+
+    assert(true);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: funciones
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

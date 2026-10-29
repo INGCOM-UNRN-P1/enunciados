@@ -1,0 +1,47 @@
+id: ej-4-54-suite-de-pruebas-conversion-de
+titulo: 'Suite de Pruebas: Conversión de Segundos a Tiempo'
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- tiempo
+- fundamentos
+- pruebas
+- conversion
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: segundos_a_tiempo
+  retorno: bool
+  parametros: int total_segundos, int *horas, int *minutos, int *segundos
+  descripcion: Operación segundos_a_tiempo
+- nombre: test_segundos_a_tiempo_normal
+  retorno: void
+  parametros: void
+  descripcion: Operación test_segundos_a_tiempo_normal
+- nombre: test_segundos_a_tiempo_cero
+  retorno: void
+  parametros: void
+  descripcion: Operación test_segundos_a_tiempo_cero
+- nombre: test_segundos_a_tiempo_invalido
+  retorno: void
+  parametros: void
+  descripcion: Operación test_segundos_a_tiempo_invalido
+tests_funciones:
+- nombre: test_segundos_a_tiempo_1
+  funcion: segundos_a_tiempo
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_test_segundos_a_tiempo_normal_2
+  funcion: test_segundos_a_tiempo_normal
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

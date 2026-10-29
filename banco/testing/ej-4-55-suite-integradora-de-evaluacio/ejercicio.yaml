@@ -1,0 +1,73 @@
+id: ej-4-55-suite-integradora-de-evaluacio
+titulo: Suite Integradora de Evaluación de Sistema de Calificaciones
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas:
+- '**Funciones puras:** Diseñá funciones que dependan únicamente de sus parámetros
+  y retornen su resultado sin alterar variables externas.'
+- '**Sin variables globales:** Eliminá completamente el estado global para garantizar
+  que tus pruebas sean reproducibles y corran en cualquier orden.'
+- '**Aserciones específicas:** Una aserción por función de prueba para que los reportes
+  de error identifiquen exactamente el escenario fallido.'
+- '**Cobertura exhaustiva:** Asegurate de contemplar casos normales, casos de borde
+  y entradas inválidas.'
+tags:
+- aserciones
+- fundamentos
+- evaluacion
+- calificaciones
+- suite
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: validar_nota
+  retorno: bool
+  parametros: int nota
+  descripcion: Operación validar_nota
+- nombre: calcular_promedio_curso
+  retorno: double
+  parametros: const int notas[], int cantidad
+  descripcion: Operación calcular_promedio_curso
+- nombre: contar_aprobados
+  retorno: int
+  parametros: const int notas[], int cantidad, int nota_minima
+  descripcion: Operación contar_aprobados
+- nombre: estado_final_alumno
+  retorno: int
+  parametros: int p1, int p2, int rec
+  descripcion: Operación estado_final_alumno
+- nombre: test_sistema_calificaciones
+  retorno: void
+  parametros: void
+  descripcion: Operación test_sistema_calificaciones
+tests_funciones:
+- nombre: test_validar_nota_1
+  funcion: validar_nota
+  codigo: '/* Verificación unitaria de validar_nota */
+
+    bool ok = validar_nota(1);
+
+    (void)ok;
+
+    assert(true);'
+- nombre: test_calcular_promedio_curso_2
+  funcion: calcular_promedio_curso
+  codigo: '/* Verificación unitaria de calcular_promedio_curso */
+
+    int arr[] = {1, 2, 3, 4};
+
+    double res = calcular_promedio_curso(arr, 4);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

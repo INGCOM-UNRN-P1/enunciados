@@ -1,0 +1,43 @@
+id: ej-1-37-contador-de-digitos
+titulo: Contador de Dígitos
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Un número entero.'
+- '**Proceso:** La forma más simple es usar la división entera por 10'
+- '**Caso Especial:** Si el número de entrada es 0, tiene 1 dígito. El lazo'
+- '[Plus Ultra] Manejar correctamente números negativos y el caso especial del número
+  0.'
+- '[Plus Ultra] Modularizar el conteo en una función recursiva o iterativa pura.'
+tags:
+- fundamentos
+- secuencias
+- digitos
+- basicos
+- contador
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc__contador_de_digitos
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Contador de Dígitos
+tests_funciones:
+- nombre: test_proc__contador_de_digitos_positivo
+  funcion: proc__contador_de_digitos
+  codigo: 'int res = proc__contador_de_digitos(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__contador_de_digitos_cero
+  funcion: proc__contador_de_digitos
+  codigo: 'int res = proc__contador_de_digitos(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: fundamentos
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

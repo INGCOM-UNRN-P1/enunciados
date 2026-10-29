@@ -1,0 +1,48 @@
+id: ej-11-27-b27-encontrar-el-caracter-mas
+titulo: Encontrar el carácter más frecuente
+tema: cadenas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
+  validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
+  manera robusta.'
+- '**Proceso:**'
+- Usar un arreglo de frecuencias de 256 enteros, como en el ejercicio 1.2.
+- Llenar el arreglo de frecuencias recorriendo la cadena.
+- Recorrer el arreglo de frecuencias para encontrar el índice que tiene el valor
+  más alto. Ese índice es el código ASCII del carácter más frecuente.
+tags:
+- cadenas
+- caracter
+- encontrar
+- strings
+- frecuente
+- dep:arreglos
+- dep:caracteres
+verificado: true
+funciones:
+- nombre: proc_trar_el_caracter_mas
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Encontrar el carácter más frecuente
+tests_funciones:
+- nombre: test_proc_trar_el_caracter_mas_positivo
+  funcion: proc_trar_el_caracter_mas
+  codigo: 'int res = proc_trar_el_caracter_mas(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_trar_el_caracter_mas_cero
+  funcion: proc_trar_el_caracter_mas
+  codigo: 'int res = proc_trar_el_caracter_mas(0);
+
+    assert(res == 0);'
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+subtema: procesamiento_texto
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

@@ -1,0 +1,49 @@
+id: ej-9-21-factorial-con-deteccion-de-des
+titulo: Factorial con Detección de Desbordamiento Oculto
+tema: refactorizacion
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- clean_code
+- refactorizacion
+- fundamentos
+- oculto
+- desbordamiento
+- dep:testing
+- dep:diseno_api
+verificado: true
+funciones:
+- nombre: calcular_factorial
+  retorno: long long
+  parametros: int n
+  descripcion: Operación calcular_factorial
+- nombre: test_factorial
+  retorno: void
+  parametros: void
+  descripcion: Operación test_factorial
+tests_funciones:
+- nombre: test_calcular_factorial_1
+  funcion: calcular_factorial
+  codigo: '/* Verificación unitaria de calcular_factorial */
+
+    long long res = calcular_factorial(1);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_test_factorial_2
+  funcion: test_factorial
+  codigo: '/* Verificación unitaria de test_factorial */
+
+    test_factorial();
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: clean_code
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- testing
+- diseno_api

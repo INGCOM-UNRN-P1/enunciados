@@ -1,0 +1,45 @@
+id: ej-12-5-generador-aleatorio
+titulo: Generador aleatorio
+tema: archivos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
+  de rango o tipos inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
+  que el usuario elija finalizar.'
+tags:
+- memoria
+- aleatorio
+- generador
+- io_disco
+- archivos
+- dep:cadenas
+- dep:punteros
+- dep:io_formato
+verificado: true
+funciones:
+- nombre: proc__generador_aleatorio
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Generador aleatorio
+tests_funciones:
+- nombre: test_proc__generador_aleatorio_positivo
+  funcion: proc__generador_aleatorio
+  codigo: 'int res = proc__generador_aleatorio(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc__generador_aleatorio_cero
+  funcion: proc__generador_aleatorio
+  codigo: 'int res = proc__generador_aleatorio(0);
+
+    assert(res == 0);'
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+subtema: memoria
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- cadenas
+- punteros
+- io_formato

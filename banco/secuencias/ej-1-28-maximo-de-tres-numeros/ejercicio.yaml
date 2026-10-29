@@ -1,0 +1,47 @@
+id: ej-1-28-maximo-de-tres-numeros
+titulo: Máximo de Tres Números
+tema: secuencias
+bloom: 3
+minutos_estimados: 25
+pistas:
+- '**Entrada:** Leer tres números enteros distintos (`a`, `b`, `c`).'
+- '**Proceso:** Se puede resolver de varias maneras:'
+- '`SI (a >= b Y a >= c) ENTONCES a es el máximo.`'
+- '`SINO SI (b >= a Y b >= c) ENTONCES b es el máximo.`'
+- '`SINO c es el máximo.`'
+- '**Salida:** Imprimir el número que resultó ser el mayor.'
+- '[Plus Ultra] Encapsular la comparación en una función int maximo_de_tres(int a,
+  int b, int c).'
+- '[Plus Ultra] Extender el programa para identificar si los tres números son iguales
+  entre sí.'
+tags:
+- maximo
+- fundamentos
+- secuencias
+- basicos
+- numeros
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_ximo_de_tres_numeros
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Máximo de Tres Números
+tests_funciones:
+- nombre: test_proc_ximo_de_tres_numeros_positivo
+  funcion: proc_ximo_de_tres_numeros
+  codigo: 'int res = proc_ximo_de_tres_numeros(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_ximo_de_tres_numeros_cero
+  funcion: proc_ximo_de_tres_numeros
+  codigo: 'int res = proc_ximo_de_tres_numeros(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: maximo
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos

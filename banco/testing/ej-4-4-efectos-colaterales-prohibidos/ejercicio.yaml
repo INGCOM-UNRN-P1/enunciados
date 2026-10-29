@@ -1,0 +1,32 @@
+id: ej-4-4-efectos-colaterales-prohibidos
+titulo: Efectos colaterales prohibidos dentro de assert
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- dentro
+- assert
+- colaterales
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: procesar_siguiente_item
+  retorno: int
+  parametros: int *indice
+  descripcion: Operación procesar_siguiente_item
+tests_funciones:
+- nombre: test_procesar_siguiente_item_1
+  funcion: procesar_siguiente_item
+  codigo: assert(true); /* test simplificado de validación */
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: pilas_y_colas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones

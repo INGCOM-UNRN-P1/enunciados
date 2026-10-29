@@ -1,0 +1,39 @@
+id: ej-4-6-refactorizacion-de-continue
+titulo: Refactorización de continue
+tema: estructuras_control
+bloom: 4
+minutos_estimados: 35
+pistas: []
+tags:
+- refactorizacion
+- control
+- lazos
+- fundamentos
+- continue
+- dep:condicionales
+- dep:lazos
+verificado: true
+funciones:
+- nombre: proc_rizacion_de_continue
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Refactorización de continue
+tests_funciones:
+- nombre: test_proc_rizacion_de_continue_positivo
+  funcion: proc_rizacion_de_continue
+  codigo: 'int res = proc_rizacion_de_continue(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_rizacion_de_continue_cero
+  funcion: proc_rizacion_de_continue
+  codigo: 'int res = proc_rizacion_de_continue(0);
+
+    assert(res == 0);'
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+subtema: refactorizacion
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- condicionales
+- lazos

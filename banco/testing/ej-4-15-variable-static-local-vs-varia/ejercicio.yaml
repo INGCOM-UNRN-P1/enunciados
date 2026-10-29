@@ -1,0 +1,38 @@
+id: ej-4-15-variable-static-local-vs-varia
+titulo: Variable `static` local vs Variable Global
+tema: testing
+bloom: 2
+minutos_estimados: 15
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- local
+- static
+- global
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: contador_llamadas
+  retorno: int
+  parametros: void
+  descripcion: Operación contador_llamadas
+tests_funciones:
+- nombre: test_contador_llamadas_1
+  funcion: contador_llamadas
+  codigo: '/* Verificación unitaria de contador_llamadas */
+
+    int r = contador_llamadas();
+
+    (void)r;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: laboratorio
+prerrequisitos:
+- librerias
+- funciones

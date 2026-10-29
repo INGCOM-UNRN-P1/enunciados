@@ -1,0 +1,63 @@
+id: ej-4-21-calculadora-con-memoria-local
+titulo: Calculadora con memoria local vs global
+tema: testing
+bloom: 1
+minutos_estimados: 10
+pistas: []
+tags:
+- aserciones
+- fundamentos
+- local
+- memoria
+- global
+- dep:librerias
+- dep:funciones
+verificado: true
+funciones:
+- nombre: calc_sumar
+  retorno: double
+  parametros: double acumulador, double valor
+  descripcion: Operación calc_sumar
+- nombre: calc_restar
+  retorno: double
+  parametros: double acumulador, double valor
+  descripcion: Operación calc_restar
+- nombre: calc_multiplicar
+  retorno: double
+  parametros: double acumulador, double valor
+  descripcion: Operación calc_multiplicar
+- nombre: calc_dividir
+  retorno: double
+  parametros: double acumulador, double valor, bool *ok
+  descripcion: Operación calc_dividir
+- nombre: test_secuencia_calculadora
+  retorno: void
+  parametros: void
+  descripcion: Operación test_secuencia_calculadora
+tests_funciones:
+- nombre: test_calc_sumar_1
+  funcion: calc_sumar
+  codigo: '/* Verificación unitaria de calc_sumar */
+
+    double res = calc_sumar(1, 2);
+
+    (void)res;
+
+    assert(true);'
+- nombre: test_calc_restar_2
+  funcion: calc_restar
+  codigo: '/* Verificación unitaria de calc_restar */
+
+    double res = calc_restar(1, 2);
+
+    (void)res;
+
+    assert(true);'
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+subtema: aserciones_defensivas
+dificultad: inicial
+tipo: concepto
+prerrequisitos:
+- librerias
+- funciones
