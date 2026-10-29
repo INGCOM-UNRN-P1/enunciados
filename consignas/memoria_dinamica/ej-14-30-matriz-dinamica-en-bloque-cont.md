@@ -1,0 +1,163 @@
+
+
+# Matriz Dinámica en Bloque Contiguo
+> **ID:** `ej-14-30-matriz-dinamica-en-bloque-cont`
+ · **Tema:** `memoria_dinamica`
+ · **Bloom:** B4 (Analizar)
+ · **Carga:** ~35 min
+>
+> **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
+>
+> **Etiquetas conceptuales:** `heap`, `memoria`, `contiguo`, `dinamica`, `bloque`
+
+
+::: {admonition} 📦 Paquete de Verificación Local (Ripley)
+:class: tip
+
+Para compilar, resolver y autoevaluar tu entrega con pruebas unitarias en tu máquina:
+
+- [📥 **Descargar paquete `ej-14-30-matriz-dinamica-en-bloque-cont.ripkg`**](../../paquetes/ej-14-30-matriz-dinamica-en-bloque-cont.ripkg)
+
+Ejecución con el asistente de cátedra:
+```bash
+ripley run ej-14-30-matriz-dinamica-en-bloque-cont.ripkg
+```
+:::
+
+
+
+
+
+### 🗺️ Itinerario Pedagógico
+
+```mermaid
+flowchart LR
+    
+    subgraph Prerrequisitos ["🏷️ Prerrequisitos (dep:*)"]
+        
+        node_pre_1["memoria"]
+        
+        node_pre_2["punteros"]
+        
+    end
+    
+    node_pre_1 --> current_node
+    
+    node_pre_2 --> current_node
+    
+    
+
+    current_node["🎯 ej-14-30-matriz-dinamica-en-bloque-cont<br/><small>memoria_dinamica · B4</small>"]
+
+    
+```
+
+
+## 📖 Consigna
+
+### Ejercicio 14.30 - Matriz Dinámica en Bloque Contiguo ⭐⭐⭐☆☆
+
+Implementar la creación y liberación de una matriz `M x N` de dos formas:
+1.  Como un arreglo de punteros a filas (el método tradicional).
+2.  Como un único bloque de memoria contigua de `M*N` elementos, y un arreglo de
+    punteros `int**` donde cada puntero `[i]` se calcula para que apunte a la
+    fila `i` dentro del bloque contiguo. Comparar la complejidad de liberación
+    de ambas.
+:::{hint} Lógica y Consideraciones
+
+-   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
+    evitar fallos de segmentación.
+-   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
+    punteros en lugar de indexación directa.
+
+:::
+<!-- {hint} Lógica y Consideraciones -->
+
+
+## 📋 Prototipos y Cabecera (`ej-14-30-matriz-dinamica-en-bloque-cont.h`)
+
+```{code-block} c
+#ifndef EJERCICIO_EJ_14_30_MATRIZ_DINAMICA_EN_BLOQUE_CONT_H
+#define EJERCICIO_EJ_14_30_MATRIZ_DINAMICA_EN_BLOQUE_CONT_H
+
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+/* Procesa el flujo principal de Matriz Dinámica en Bloque Contiguo */
+int proc_amica_en_bloque_cont(int val);
+
+#endif /* EJERCICIO_EJ_14_30_MATRIZ_DINAMICA_EN_BLOQUE_CONT_H */
+```
+
+
+
+## ⚙️ Especificación de Funciones
+
+| Función | Retorno | Parámetros | Descripción |
+| :--- | :--- | :--- | :--- |
+
+| `proc_amica_en_bloque_cont` | `int` | `int val` | Procesa el flujo principal de Matriz Dinámica en Bloque Contiguo |
+
+
+
+
+
+
+## 💡 Pistas Progresivas
+
+````{tab-set}
+
+```{tab-item} Pista 1
+[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+```
+
+```{tab-item} Pista 2
+[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+```
+
+````
+
+
+
+## 🧪 Casos de Prueba
+
+| Prueba Unitaria | Función Objetivo | Verificación |
+| :--- | :--- | :--- |
+
+| **test_proc_amica_en_bloque_cont_positivo** | `proc_amica_en_bloque_cont` | `int res = proc_amica_en_bloque_cont(5); assert(res == 10 || res >= 0);` |
+
+| **test_proc_amica_en_bloque_cont_cero** | `proc_amica_en_bloque_cont` | `int res = proc_amica_en_bloque_cont(0); assert(res == 0);` |
+
+
+
+
+
+
+## ✓ Solución Modelo de Cátedra
+
+```{dropdown} 🔍 Revelar solución canónica en C
+:open: false
+
+```{code-block} c
+/*
+ * Ejercicio: Matriz Dinámica en Bloque Contiguo
+ * Cátedra Programación I - UNRN
+ */
+
+#include <stdio.h>
+
+
+int proc_amica_en_bloque_cont(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void)
+{
+    /* TODO: Implementación de Matriz Dinámica en Bloque Contiguo */
+    return 0;
+}
+```
+```

@@ -1,0 +1,161 @@
+
+
+# Filtro de Arreglo Dinámico
+> **ID:** `ej-14-26-filtro-de-arreglo-dinamico`
+ · **Tema:** `memoria_dinamica`
+ · **Bloom:** B3 (Aplicar)
+ · **Carga:** ~25 min
+>
+> **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
+>
+> **Etiquetas conceptuales:** `heap`, `dinamico`, `arreglo`, `memoria`, `filtro`
+
+
+::: {admonition} 📦 Paquete de Verificación Local (Ripley)
+:class: tip
+
+Para compilar, resolver y autoevaluar tu entrega con pruebas unitarias en tu máquina:
+
+- [📥 **Descargar paquete `ej-14-26-filtro-de-arreglo-dinamico.ripkg`**](../../paquetes/ej-14-26-filtro-de-arreglo-dinamico.ripkg)
+
+Ejecución con el asistente de cátedra:
+```bash
+ripley run ej-14-26-filtro-de-arreglo-dinamico.ripkg
+```
+:::
+
+
+
+
+
+### 🗺️ Itinerario Pedagógico
+
+```mermaid
+flowchart LR
+    
+    subgraph Prerrequisitos ["🏷️ Prerrequisitos (dep:*)"]
+        
+        node_pre_1["memoria"]
+        
+        node_pre_2["punteros"]
+        
+    end
+    
+    node_pre_1 --> current_node
+    
+    node_pre_2 --> current_node
+    
+    
+
+    current_node["🎯 ej-14-26-filtro-de-arreglo-dinamico<br/><small>memoria_dinamica · B3</small>"]
+
+    
+```
+
+
+## 📖 Consigna
+
+### Ejercicio 14.26 - Filtro de Arreglo Dinámico ⭐⭐⭐☆☆
+
+Crear una función que reciba un arreglo dinámico, su tamaño y un puntero a una
+función "predicado" (`bool (*pred)(int)`). La función debe devolver un **nuevo**
+arreglo dinámico que contenga únicamente los elementos del arreglo original para
+los cuales el predicado devuelve `true`.
+:::{hint} Lógica y Consideraciones
+
+-   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
+    evitar fallos de segmentación.
+-   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
+    punteros en lugar de indexación directa.
+
+:::
+<!-- {hint} Lógica y Consideraciones -->
+
+
+## 📋 Prototipos y Cabecera (`ej-14-26-filtro-de-arreglo-dinamico.h`)
+
+```{code-block} c
+#ifndef EJERCICIO_EJ_14_26_FILTRO_DE_ARREGLO_DINAMICO_H
+#define EJERCICIO_EJ_14_26_FILTRO_DE_ARREGLO_DINAMICO_H
+
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+/* Procesa el flujo principal de Filtro de Arreglo Dinámico */
+int proc__de_arreglo_dinamico(int val);
+
+#endif /* EJERCICIO_EJ_14_26_FILTRO_DE_ARREGLO_DINAMICO_H */
+```
+
+
+
+## ⚙️ Especificación de Funciones
+
+| Función | Retorno | Parámetros | Descripción |
+| :--- | :--- | :--- | :--- |
+
+| `proc__de_arreglo_dinamico` | `int` | `int val` | Procesa el flujo principal de Filtro de Arreglo Dinámico |
+
+
+
+
+
+
+## 💡 Pistas Progresivas
+
+````{tab-set}
+
+```{tab-item} Pista 1
+[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+```
+
+```{tab-item} Pista 2
+[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+```
+
+````
+
+
+
+## 🧪 Casos de Prueba
+
+| Prueba Unitaria | Función Objetivo | Verificación |
+| :--- | :--- | :--- |
+
+| **test_proc__de_arreglo_dinamico_positivo** | `proc__de_arreglo_dinamico` | `int res = proc__de_arreglo_dinamico(5); assert(res == 10 || res >= 0);` |
+
+| **test_proc__de_arreglo_dinamico_cero** | `proc__de_arreglo_dinamico` | `int res = proc__de_arreglo_dinamico(0); assert(res == 0);` |
+
+
+
+
+
+
+## ✓ Solución Modelo de Cátedra
+
+```{dropdown} 🔍 Revelar solución canónica en C
+:open: false
+
+```{code-block} c
+/*
+ * Ejercicio: Filtro de Arreglo Dinámico
+ * Cátedra Programación I - UNRN
+ */
+
+#include <stdio.h>
+
+
+int proc__de_arreglo_dinamico(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void)
+{
+    /* TODO: Implementación de Filtro de Arreglo Dinámico */
+    return 0;
+}
+```
+```

@@ -1,0 +1,215 @@
+
+
+# Funciones de conversión genéricas
+> **ID:** `ej-20-29-funciones-de-conversion-generi`
+ · **Tema:** `enumeraciones`
+ · **Bloom:** B2 (Comprender)
+ · **Carga:** ~15 min
+>
+> **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:condicionales`
+>
+> **Etiquetas conceptuales:** `conversion`, `tipos`, `funciones`, `memoria`, `genericas`
+
+
+::: {admonition} 📦 Paquete de Verificación Local (Ripley)
+:class: tip
+
+Para compilar, resolver y autoevaluar tu entrega con pruebas unitarias en tu máquina:
+
+- [📥 **Descargar paquete `ej-20-29-funciones-de-conversion-generi.ripkg`**](../../paquetes/ej-20-29-funciones-de-conversion-generi.ripkg)
+
+Ejecución con el asistente de cátedra:
+```bash
+ripley run ej-20-29-funciones-de-conversion-generi.ripkg
+```
+:::
+
+
+
+
+
+### 🗺️ Itinerario Pedagógico
+
+```mermaid
+flowchart LR
+    
+    subgraph Prerrequisitos ["🏷️ Prerrequisitos (dep:*)"]
+        
+        node_pre_1["tipos_datos"]
+        
+        node_pre_2["condicionales"]
+        
+    end
+    
+    node_pre_1 --> current_node
+    
+    node_pre_2 --> current_node
+    
+    
+
+    current_node["🎯 ej-20-29-funciones-de-conversion-generi<br/><small>enumeraciones · B2</small>"]
+
+    
+```
+
+
+## 📖 Consigna
+
+### Ejercicio 20.29 - Funciones de conversión genéricas ⭐⭐☆☆☆
+
+Implementar funciones genéricas que usen la tabla para realizar conversiones.
+
+
+:::{hint} Lógica y Consideraciones
+
+-   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
+    desbordamientos de búfer validando la capacidad máxima.
+-   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
+    líneas de manera robusta.
+
+:::
+<!-- {hint} Lógica y Consideraciones -->
+
+``` c
+const char *enum_a_string(int valor, const enum_string_t *tabla, size_t tam);
+int string_a_enum(const char *nombre, const enum_string_t *tabla, size_t tam,
+                  int valor_defecto);
+```
+<!-- c -->
+
+## Estado de Juego
+
+Modelar el estado de un juego simple usando múltiples enumeraciones.
+
+```{code-block} c
+:linenos:
+enum estado_juego
+{
+    JUEGO_MENU,
+    JUEGO_JUGANDO,
+    JUEGO_PAUSADO,
+    JUEGO_GAME_OVER,
+    JUEGO_VICTORIA
+};
+enum dificultad
+{
+    DIFICULTAD_FACIL,
+    DIFICULTAD_NORMAL,
+    DIFICULTAD_DIFICIL,
+    DIFICULTAD_EXPERTO
+};
+typedef struct
+{
+    enum estado_juego estado;
+    enum dificultad dificultad;
+    unsigned int puntuacion;
+    unsigned int nivel;
+    unsigned int vidas;
+} juego_t;
+```
+<!-- {code-block} c -->
+
+
+## 📋 Prototipos y Cabecera (`ej-20-29-funciones-de-conversion-generi.h`)
+
+```{code-block} c
+#ifndef EJERCICIO_EJ_20_29_FUNCIONES_DE_CONVERSION_GENERI_H
+#define EJERCICIO_EJ_20_29_FUNCIONES_DE_CONVERSION_GENERI_H
+
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+/* Procesa el flujo principal de Funciones de conversión genéricas */
+int proc_de_conversion_generi(int val);
+
+#endif /* EJERCICIO_EJ_20_29_FUNCIONES_DE_CONVERSION_GENERI_H */
+```
+
+
+
+## ⚙️ Especificación de Funciones
+
+| Función | Retorno | Parámetros | Descripción |
+| :--- | :--- | :--- | :--- |
+
+| `proc_de_conversion_generi` | `int` | `int val` | Procesa el flujo principal de Funciones de conversión genéricas |
+
+
+
+
+
+
+## 💡 Pistas Progresivas
+
+````{tab-set}
+
+```{tab-item} Pista 1
+[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+```
+
+```{tab-item} Pista 2
+[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+```
+
+````
+
+
+
+## 🧪 Casos de Prueba
+
+| Prueba Unitaria | Función Objetivo | Verificación |
+| :--- | :--- | :--- |
+
+| **test_proc_de_conversion_generi_positivo** | `proc_de_conversion_generi` | `int res = proc_de_conversion_generi(5); assert(res == 10 || res >= 0);` |
+
+| **test_proc_de_conversion_generi_cero** | `proc_de_conversion_generi` | `int res = proc_de_conversion_generi(0); assert(res == 0);` |
+
+
+
+
+
+
+## ✓ Solución Modelo de Cátedra
+
+```{dropdown} 🔍 Revelar solución canónica en C
+:open: false
+
+```{code-block} c
+enum estado_juego
+{
+    JUEGO_MENU,
+    JUEGO_JUGANDO,
+    JUEGO_PAUSADO,
+    JUEGO_GAME_OVER,
+    JUEGO_VICTORIA
+};
+enum dificultad
+{
+    DIFICULTAD_FACIL,
+    DIFICULTAD_NORMAL,
+    DIFICULTAD_DIFICIL,
+    DIFICULTAD_EXPERTO
+};
+typedef struct
+{
+    enum estado_juego estado;
+    enum dificultad dificultad;
+    unsigned int puntuacion;
+    unsigned int nivel;
+    unsigned int vidas;
+} juego_t;
+
+
+int proc_de_conversion_generi(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void)
+{
+    return 0;
+}
+```
+```

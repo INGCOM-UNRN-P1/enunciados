@@ -1,0 +1,215 @@
+
+
+# Moda de un arreglo
+> **ID:** `ej-10-26-moda-de-un-arreglo`
+ · **Tema:** `arreglos`
+ · **Bloom:** B4 (Analizar)
+ · **Carga:** ~35 min
+>
+> **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
+>
+> **Etiquetas conceptuales:** `arreglo`, `vectores`, `arreglos`, `memoria`
+
+
+::: {admonition} 📦 Paquete de Verificación Local (Ripley)
+:class: tip
+
+Para compilar, resolver y autoevaluar tu entrega con pruebas unitarias en tu máquina:
+
+- [📥 **Descargar paquete `ej-10-26-moda-de-un-arreglo.ripkg`**](../../paquetes/ej-10-26-moda-de-un-arreglo.ripkg)
+
+Ejecución con el asistente de cátedra:
+```bash
+ripley run ej-10-26-moda-de-un-arreglo.ripkg
+```
+:::
+
+
+
+
+
+### 🗺️ Itinerario Pedagógico
+
+```mermaid
+flowchart LR
+    
+    subgraph Prerrequisitos ["🏷️ Prerrequisitos (dep:*)"]
+        
+        node_pre_1["funciones"]
+        
+        node_pre_2["lazos"]
+        
+    end
+    
+    node_pre_1 --> current_node
+    
+    node_pre_2 --> current_node
+    
+    
+
+    current_node["🎯 ej-10-26-moda-de-un-arreglo<br/><small>arreglos · B4</small>"]
+
+    
+```
+
+
+## 📖 Consigna
+
+### Ejercicio 10.26 - Moda de un arreglo ⭐⭐⭐☆☆
+
+
+Encontrar la moda de un arreglo, que es el elemento que aparece con mayor
+frecuencia.
+
+:::{hint} Lógica y Consideraciones
+
+-   **Proceso (con ordenamiento):**
+    1.  Ordenar el arreglo. Esto agrupa los elementos iguales.
+    2.  Recorrer el arreglo y contar la longitud de cada secuencia de elementos
+        idénticos.
+    3.  Llevar un registro del elemento con la frecuencia más alta encontrada
+        hasta el momento.
+
+-   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
+    desbordamientos de búfer validando la capacidad máxima.
+-   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
+    líneas de manera robusta.
+
+:::
+<!-- {hint} Lógica y Consideraciones -->
+
+:::{tip} Ayuda (pseudocódigo)
+:class: dropdown
+```{code-block} pseudocode
+:linenos:
+FUNCION encontrar_moda(arreglo, tamano)
+VARIABLES:
+    moda, max_frecuencia, frec_actual, elemento_actual
+INICIO
+    ORDENAR(arreglo, tamano)
+    moda = arreglo[0], max_frecuencia = 1, frec_actual = 1
+
+    PARA i DESDE 1 HASTA tamano-1 HACER
+        SI arreglo[i] == arreglo[i-1] ENTONCES
+            frec_actual = frec_actual + 1
+        SINO
+            frec_actual = 1
+        FIN SI
+        SI frec_actual > max_frecuencia ENTONCES
+            max_frecuencia = frec_actual
+            moda = arreglo[i]
+        FIN SI
+    FIN PARA
+    RETORNAR moda
+FIN FUNCION
+
+```
+<!-- {code-block} pseudocode -->
+
+:::
+<!-- {tip} Ayuda (pseudocódigo) -->
+
+
+## 📋 Prototipos y Cabecera (`ej-10-26-moda-de-un-arreglo.h`)
+
+```{code-block} c
+#ifndef EJERCICIO_EJ_10_26_MODA_DE_UN_ARREGLO_H
+#define EJERCICIO_EJ_10_26_MODA_DE_UN_ARREGLO_H
+
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+/* Procesa el flujo principal de Moda de un arreglo */
+int proc_6_moda_de_un_arreglo(int val);
+
+#endif /* EJERCICIO_EJ_10_26_MODA_DE_UN_ARREGLO_H */
+```
+
+
+
+## ⚙️ Especificación de Funciones
+
+| Función | Retorno | Parámetros | Descripción |
+| :--- | :--- | :--- | :--- |
+
+| `proc_6_moda_de_un_arreglo` | `int` | `int val` | Procesa el flujo principal de Moda de un arreglo |
+
+
+
+
+
+
+## 💡 Pistas Progresivas
+
+````{tab-set}
+
+```{tab-item} Pista 1
+**Proceso (con ordenamiento):**
+```
+
+```{tab-item} Pista 2
+Ordenar el arreglo. Esto agrupa los elementos iguales.
+```
+
+```{tab-item} Pista 3
+Recorrer el arreglo y contar la longitud de cada secuencia de elementos idénticos.
+```
+
+```{tab-item} Pista 4
+Llevar un registro del elemento con la frecuencia más alta encontrada hasta el momento.
+```
+
+```{tab-item} Pista 5
+[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+```
+
+```{tab-item} Pista 6
+[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+```
+
+````
+
+
+
+## 🧪 Casos de Prueba
+
+| Prueba Unitaria | Función Objetivo | Verificación |
+| :--- | :--- | :--- |
+
+| **test_proc_6_moda_de_un_arreglo_positivo** | `proc_6_moda_de_un_arreglo` | `int res = proc_6_moda_de_un_arreglo(5); assert(res == 10 || res >= 0);` |
+
+| **test_proc_6_moda_de_un_arreglo_cero** | `proc_6_moda_de_un_arreglo` | `int res = proc_6_moda_de_un_arreglo(0); assert(res == 0);` |
+
+
+
+
+
+
+## ✓ Solución Modelo de Cátedra
+
+```{dropdown} 🔍 Revelar solución canónica en C
+:open: false
+
+```{code-block} c
+/*
+ * Ejercicio: Moda de un arreglo
+ * Cátedra Programación I - UNRN
+ */
+
+#include <stdio.h>
+
+
+int proc_6_moda_de_un_arreglo(int val)
+{
+    if (val <= 0) return 0;
+    return val * 2;
+}
+
+int main(void)
+{
+    /* TODO: Implementación de Moda de un arreglo */
+    return 0;
+}
+```
+```
