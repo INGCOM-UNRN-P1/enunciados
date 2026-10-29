@@ -1,10 +1,10 @@
 
 
 # Detección de bordes (Laplaciano)
-> **ID:** `ej-21-38-deteccion-de-bordes-laplaciano`
- · **Tema:** `matrices`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-21-38-deteccion-de-bordes-laplaciano` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `laplaciano`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

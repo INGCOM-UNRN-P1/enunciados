@@ -1,10 +1,10 @@
 
 
 # Copiar cadena
-> **ID:** `ej-9-4-b3-copiar-cadena`
- · **Tema:** `punteros`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-9-4-b3-copiar-cadena` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `procesamiento_texto`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

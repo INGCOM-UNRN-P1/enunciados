@@ -1,10 +1,10 @@
 
 
 # ¡Hola mundo!
-> **ID:** `ej-1-2-hola-mundo`
- · **Tema:** `secuencias`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-1-2-hola-mundo` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `mundo`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

@@ -1,10 +1,10 @@
 
 
 # Juego de Adivinanza Mejorado
-> **ID:** `ej-4-40-juego-de-adivinanza-mejorado`
- · **Tema:** `estructuras_control`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-4-40-juego-de-adivinanza-mejorado` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `control`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

@@ -1,10 +1,10 @@
 
 
 # Retorno de Estructuras con Memoria Dinámica
-> **ID:** `ej-15-23-b23-retorno-de-estructuras-con`
- · **Tema:** `memoria`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-15-23-b23-retorno-de-estructuras-con` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

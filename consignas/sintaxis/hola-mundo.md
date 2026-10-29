@@ -1,10 +1,10 @@
 
 
 # ¡Hola mundo!
-> **ID:** `hola-mundo`
- · **Tema:** `sintaxis`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `hola-mundo` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `sintaxis` / `basico`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **Etiquetas conceptuales:** `sintaxis`, `io`, `basico`
 

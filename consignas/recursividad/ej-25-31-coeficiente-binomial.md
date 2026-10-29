@@ -1,10 +1,10 @@
 
 
 # Coeficiente Binomial
-> **ID:** `ej-25-31-coeficiente-binomial`
- · **Tema:** `recursividad`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-25-31-coeficiente-binomial` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `recursividad` / `induccion`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:punteros`
 >

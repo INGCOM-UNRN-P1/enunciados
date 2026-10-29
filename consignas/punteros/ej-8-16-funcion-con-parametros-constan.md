@@ -1,10 +1,10 @@
 
 
 # Función con Parámetros Constantes
-> **ID:** `ej-8-16-funcion-con-parametros-constan`
- · **Tema:** `punteros`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-8-16-funcion-con-parametros-constan` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `funcion`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

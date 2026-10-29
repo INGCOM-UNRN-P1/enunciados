@@ -1,10 +1,10 @@
 
 
 # Asignador de Memoria por Bloques (Arena Allocator)
-> **ID:** `arena-allocator`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~50 min
+> **ID:** `arena-allocator` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `arena`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~50 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

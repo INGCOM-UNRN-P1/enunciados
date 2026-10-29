@@ -1,10 +1,10 @@
 
 
 # Suma de Cuadrados
-> **ID:** `ej-1-9-suma-de-cuadrados`
- · **Tema:** `secuencias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-1-9-suma-de-cuadrados` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `cuadrados`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

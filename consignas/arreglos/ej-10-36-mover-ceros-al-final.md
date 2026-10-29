@@ -1,10 +1,10 @@
 
 
 # Mover ceros al final
-> **ID:** `ej-10-36-mover-ceros-al-final`
- · **Tema:** `arreglos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-10-36-mover-ceros-al-final` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `ceros`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

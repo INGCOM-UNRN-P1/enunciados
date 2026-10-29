@@ -1,10 +1,10 @@
 
 
 # TDA Secuencia (secuencia_t) — Arreglo Dinámico vs Lista Enlazada
-> **ID:** `ejercicio4`
- · **Tema:** `tipos_datos_abstractos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~60 min
+> **ID:** `ejercicio4` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tipos_datos_abstractos` / `listas_enlazadas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~60 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`
 >

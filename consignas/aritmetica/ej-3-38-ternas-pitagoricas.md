@@ -1,10 +1,10 @@
 
 
 # Ternas Pitagóricas
-> **ID:** `ej-3-38-ternas-pitagoricas`
- · **Tema:** `aritmetica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-3-38-ternas-pitagoricas` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `fundamentos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

@@ -1,10 +1,10 @@
 
 
 # Sustitución hacia adelante
-> **ID:** `ej-21-44-sustitucion-hacia-adelante`
- · **Tema:** `matrices`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-21-44-sustitucion-hacia-adelante` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `hacia`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

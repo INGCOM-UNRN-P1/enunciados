@@ -1,10 +1,10 @@
 
 
 # Configurar dispositivo
-> **ID:** `ej-20-11-configurar-dispositivo`
- · **Tema:** `enumeraciones`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-20-11-configurar-dispositivo` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `enumeraciones` / `mapeo_estados`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:condicionales`
 >

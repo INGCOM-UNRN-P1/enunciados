@@ -1,10 +1,10 @@
 
 
 # Conversión de Base Numérica
-> **ID:** `ej-3-41-conversion-de-base-numerica`
- · **Tema:** `aritmetica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-3-41-conversion-de-base-numerica` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `fundamentos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

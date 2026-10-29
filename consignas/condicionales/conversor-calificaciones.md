@@ -1,10 +1,10 @@
 
 
 # Conversor de Calificaciones
-> **ID:** `conversor-calificaciones`
- · **Tema:** `condicionales`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `conversor-calificaciones` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `condicionales` / `float`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:aritmetica`
 >

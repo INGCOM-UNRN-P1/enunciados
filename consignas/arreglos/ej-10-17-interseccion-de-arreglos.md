@@ -1,10 +1,10 @@
 
 
 # Intersección de arreglos
-> **ID:** `ej-10-17-interseccion-de-arreglos`
- · **Tema:** `arreglos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-10-17-interseccion-de-arreglos` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `vectores`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

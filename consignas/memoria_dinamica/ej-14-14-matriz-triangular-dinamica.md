@@ -1,10 +1,10 @@
 
 
 # Matriz Triangular Dinámica
-> **ID:** `ej-14-14-matriz-triangular-dinamica`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-14-14-matriz-triangular-dinamica` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `matrices_2d`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

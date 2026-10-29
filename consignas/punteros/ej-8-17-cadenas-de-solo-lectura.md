@@ -1,10 +1,10 @@
 
 
 # Cadenas de Solo Lectura
-> **ID:** `ej-8-17-cadenas-de-solo-lectura`
- · **Tema:** `punteros`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-8-17-cadenas-de-solo-lectura` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

@@ -1,10 +1,10 @@
 
 
 # Tiempo de Vida de Memoria
-> **ID:** `ej-15-34-b33-tiempo-de-vida-de-memoria`
- · **Tema:** `memoria`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-15-34-b33-tiempo-de-vida-de-memoria` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

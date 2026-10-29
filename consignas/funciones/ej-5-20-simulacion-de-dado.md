@@ -1,10 +1,10 @@
 
 
 # Simulación de Dado
-> **ID:** `ej-5-20-simulacion-de-dado`
- · **Tema:** `funciones`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-5-20-simulacion-de-dado` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

@@ -1,10 +1,10 @@
 
 
 # Diseño de Prefijos
-> **ID:** `ej-32-2-diseno-de-prefijos`
- · **Tema:** `diseno_api`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-32-2-diseno-de-prefijos` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `diseno_api` / `prefijos`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:punteros`
 >

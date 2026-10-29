@@ -1,10 +1,10 @@
 
 
 # Copiar Arreglos
-> **ID:** `ej-8-12-copiar-arreglos`
- · **Tema:** `punteros`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-8-12-copiar-arreglos` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `arreglos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

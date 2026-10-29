@@ -1,10 +1,10 @@
 
 
 # Rollback Completo
-> **ID:** `ej-17-5-rollback-completo`
- · **Tema:** `punteros`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-17-5-rollback-completo` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `estructuras`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

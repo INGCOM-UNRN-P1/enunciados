@@ -1,10 +1,10 @@
 
 
 # Factorial
-> **ID:** `ej-25-1-factorial`
- · **Tema:** `recursividad`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-25-1-factorial` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `recursividad` / `factorial`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:punteros`
 >

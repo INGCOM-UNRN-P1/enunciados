@@ -1,10 +1,10 @@
 
 
 # Tabla Hash (Encadenamiento Separado)
-> **ID:** `ej-23-7-tabla-hash-encadenamiento-sepa`
- · **Tema:** `estructuras_datos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-23-7-tabla-hash-encadenamiento-sepa` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `estructuras_datos` / `listas_enlazadas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`, `dep:memoria_dinamica`, `dep:recursividad`
 >

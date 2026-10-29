@@ -1,10 +1,10 @@
 
 
 # Librería de Evaluación de Expresiones lógicas
-> **ID:** `ej-7-27-libreria-de-evaluacion-de-expr`
- · **Tema:** `librerias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-7-27-libreria-de-evaluacion-de-expr` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `expresiones`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

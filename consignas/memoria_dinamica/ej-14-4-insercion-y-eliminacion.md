@@ -1,10 +1,10 @@
 
 
 # Inserción y Eliminación
-> **ID:** `ej-14-4-insercion-y-eliminacion`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-14-4-insercion-y-eliminacion` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `ordenamiento_insercion`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

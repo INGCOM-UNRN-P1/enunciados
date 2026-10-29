@@ -1,10 +1,10 @@
 
 
 # Búsqueda Binaria con Riesgo de Desbordamiento
-> **ID:** `ej-9-54-busqueda-binaria-con-riesgo-de`
- · **Tema:** `refactorizacion`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-9-54-busqueda-binaria-con-riesgo-de` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `busqueda_binaria`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

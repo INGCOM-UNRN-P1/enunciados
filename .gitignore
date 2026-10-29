@@ -3,3 +3,5 @@ export/*
 # MyST build outputs
 _build
 paquetes/
+__pycache__/
+*.pyc

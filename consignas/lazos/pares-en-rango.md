@@ -1,10 +1,10 @@
 
 
 # Números Pares en Rango
-> **ID:** `pares-en-rango`
- · **Tema:** `lazos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `pares-en-rango` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `lazos` / `for`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`
 >

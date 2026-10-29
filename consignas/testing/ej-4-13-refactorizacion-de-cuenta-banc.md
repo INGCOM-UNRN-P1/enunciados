@@ -1,10 +1,10 @@
 
 
 # Refactorización de Cuenta Bancaria con Estado Global
-> **ID:** `ej-4-13-refactorizacion-de-cuenta-banc`
- · **Tema:** `testing`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-4-13-refactorizacion-de-cuenta-banc` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

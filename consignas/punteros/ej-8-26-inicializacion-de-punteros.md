@@ -1,10 +1,10 @@
 
 
 # Inicialización de Punteros
-> **ID:** `ej-8-26-inicializacion-de-punteros`
- · **Tema:** `punteros`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-8-26-inicializacion-de-punteros` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `inicializacion`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

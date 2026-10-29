@@ -1,10 +1,10 @@
 
 
 # Mayor de dos números reales
-> **ID:** `ej-4-9-mayor-de-dos-numeros-reales`
- · **Tema:** `estructuras_control`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-4-9-mayor-de-dos-numeros-reales` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `control`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

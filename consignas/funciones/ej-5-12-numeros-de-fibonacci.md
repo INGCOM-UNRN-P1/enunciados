@@ -1,10 +1,10 @@
 
 
 # Números de Fibonacci
-> **ID:** `ej-5-12-numeros-de-fibonacci`
- · **Tema:** `funciones`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-5-12-numeros-de-fibonacci` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `series_numericas`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

@@ -1,10 +1,10 @@
 
 
 # Cobertura de Ramas (Branch Coverage)
-> **ID:** `ej-4-23-cobertura-de-ramas-branch-cove`
- · **Tema:** `testing`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-4-23-cobertura-de-ramas-branch-cove` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

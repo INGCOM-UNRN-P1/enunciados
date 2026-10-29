@@ -1,10 +1,10 @@
 
 
 # Descuento Escalonado con Condiciones Solapadas
-> **ID:** `ej-9-14-descuento-escalonado-con-condi`
- · **Tema:** `refactorizacion`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-9-14-descuento-escalonado-con-condi` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `clean_code`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

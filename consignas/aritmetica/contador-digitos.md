@@ -1,10 +1,10 @@
 
 
 # Contador de Dígitos
-> **ID:** `contador-digitos`
- · **Tema:** `aritmetica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `contador-digitos` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `lazos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

@@ -1,10 +1,10 @@
 
 
 # Crítica de Nombres
-> **ID:** `ej-32-1-critica-de-nombres`
- · **Tema:** `diseno_api`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-32-1-critica-de-nombres` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `diseno_api` / `nombres`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:punteros`
 >

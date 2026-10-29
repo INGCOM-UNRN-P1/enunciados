@@ -1,10 +1,10 @@
 
 
 # Invertir un Número Entero
-> **ID:** `ej-1-38-invertir-un-numero-entero`
- · **Tema:** `secuencias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-1-38-invertir-un-numero-entero` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `invertir`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

@@ -1,10 +1,10 @@
 
 
 # Detección de Código Muerto (Dead Code)
-> **ID:** `ej-4-24-deteccion-de-codigo-muerto-dea`
- · **Tema:** `testing`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-4-24-deteccion-de-codigo-muerto-dea` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

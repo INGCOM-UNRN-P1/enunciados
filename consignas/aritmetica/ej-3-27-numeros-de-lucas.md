@@ -1,10 +1,10 @@
 
 
 # Números de Lucas
-> **ID:** `ej-3-27-numeros-de-lucas`
- · **Tema:** `aritmetica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-3-27-numeros-de-lucas` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `fundamentos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

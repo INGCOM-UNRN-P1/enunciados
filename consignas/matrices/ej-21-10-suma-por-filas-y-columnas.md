@@ -1,10 +1,10 @@
 
 
 # Suma por Filas y Columnas
-> **ID:** `ej-21-10-suma-por-filas-y-columnas`
- · **Tema:** `matrices`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-21-10-suma-por-filas-y-columnas` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `columnas`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

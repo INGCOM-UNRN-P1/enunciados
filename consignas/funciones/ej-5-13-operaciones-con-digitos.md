@@ -1,10 +1,10 @@
 
 
 # Operaciones con Dígitos
-> **ID:** `ej-5-13-operaciones-con-digitos`
- · **Tema:** `funciones`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-5-13-operaciones-con-digitos` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

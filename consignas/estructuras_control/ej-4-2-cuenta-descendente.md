@@ -1,10 +1,10 @@
 
 
 # Cuenta descendente
-> **ID:** `ej-4-2-cuenta-descendente`
- · **Tema:** `estructuras_control`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-4-2-cuenta-descendente` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `cuenta`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

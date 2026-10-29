@@ -1,10 +1,10 @@
 
 
 # Círculo
-> **ID:** `ej-1-14-circulo`
- · **Tema:** `secuencias`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-1-14-circulo` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `basicos`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

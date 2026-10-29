@@ -1,10 +1,10 @@
 
 
 # Cláusulas de Guarda vs Código en Flecha
-> **ID:** `ej-4-26-clausulas-de-guarda-vs-codigo`
- · **Tema:** `testing`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-4-26-clausulas-de-guarda-vs-codigo` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

@@ -1,10 +1,10 @@
 
 
 # Validación de email (Simple)
-> **ID:** `ej-11-24-b24-validacion-de-email-simple`
- · **Tema:** `cadenas`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-11-24-b24-validacion-de-email-simple` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

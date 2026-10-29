@@ -1,10 +1,10 @@
 
 
 # Análisis de URL simple
-> **ID:** `ej-11-39-b39-analisis-de-url-simple`
- · **Tema:** `cadenas`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-11-39-b39-analisis-de-url-simple` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

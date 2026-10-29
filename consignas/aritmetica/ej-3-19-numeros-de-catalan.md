@@ -1,10 +1,10 @@
 
 
 # Números de Catalan
-> **ID:** `ej-3-19-numeros-de-catalan`
- · **Tema:** `aritmetica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-3-19-numeros-de-catalan` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `catalan`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

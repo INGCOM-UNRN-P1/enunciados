@@ -1,10 +1,10 @@
 
 
 # Análisis de Uso de Memoria
-> **ID:** `ej-31-10-analisis-de-uso-de-memoria`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-31-10-analisis-de-uso-de-memoria` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `code_review`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

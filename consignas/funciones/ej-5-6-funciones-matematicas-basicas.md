@@ -1,10 +1,10 @@
 
 
 # Funciones Matemáticas Básicas
-> **ID:** `ej-5-6-funciones-matematicas-basicas`
- · **Tema:** `funciones`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-5-6-funciones-matematicas-basicas` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

@@ -1,10 +1,10 @@
 
 
 # Redimensionar Arreglo
-> **ID:** `ej-14-11-redimensionar-arreglo`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-14-11-redimensionar-arreglo` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `gestion_heap`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

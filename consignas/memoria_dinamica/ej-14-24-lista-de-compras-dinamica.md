@@ -1,10 +1,10 @@
 
 
 # Lista de Compras Dinámica
-> **ID:** `ej-14-24-lista-de-compras-dinamica`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-14-24-lista-de-compras-dinamica` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `listas_enlazadas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

@@ -1,10 +1,10 @@
 
 
 # Flags de Compilación Obligatorios
-> **ID:** `ej-4-43-flags-de-compilacion-obligator`
- · **Tema:** `testing`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-4-43-flags-de-compilacion-obligator` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `pilas_y_colas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

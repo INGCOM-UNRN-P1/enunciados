@@ -1,10 +1,10 @@
 
 
 # [EXTRA DIFÍCIL] El Cuadrado Mágico y Verificador de Sudoku $3 \times 3$
-> **ID:** `ej-9-63-extra-dificil-el-cuadrado-magi`
- · **Tema:** `refactorizacion`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-9-63-extra-dificil-el-cuadrado-magi` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `clean_code`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

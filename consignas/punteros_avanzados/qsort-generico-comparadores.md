@@ -1,10 +1,10 @@
 
 
 # Pipeline de Ordenamiento Genérico con Punteros a Función
-> **ID:** `qsort-generico-comparadores`
- · **Tema:** `punteros_avanzados`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `qsort-generico-comparadores` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `punteros_avanzados` / `callbacks`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria_dinamica`
 >

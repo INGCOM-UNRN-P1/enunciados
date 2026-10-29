@@ -1,10 +1,10 @@
 
 
 # Criba de Divisores Estática
-> **ID:** `ej-9-38-criba-de-divisores-estatica`
- · **Tema:** `refactorizacion`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-9-38-criba-de-divisores-estatica` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `clean_code`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

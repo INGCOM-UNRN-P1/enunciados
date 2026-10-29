@@ -1,10 +1,10 @@
 
 
 # Capitalización (Title Case)
-> **ID:** `ej-11-19-b19-capitalizacion-title-case`
- · **Tema:** `cadenas`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-11-19-b19-capitalizacion-title-case` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

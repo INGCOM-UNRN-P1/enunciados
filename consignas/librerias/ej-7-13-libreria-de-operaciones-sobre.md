@@ -1,10 +1,10 @@
 
 
 # Librería de Operaciones sobre Matrices 2D
-> **ID:** `ej-7-13-libreria-de-operaciones-sobre`
- · **Tema:** `librerias`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-7-13-libreria-de-operaciones-sobre` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `sobre`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

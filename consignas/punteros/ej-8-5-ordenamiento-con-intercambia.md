@@ -1,10 +1,10 @@
 
 
 # Ordenamiento con intercambia
-> **ID:** `ej-8-5-ordenamiento-con-intercambia`
- · **Tema:** `punteros`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-8-5-ordenamiento-con-intercambia` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `intercambia`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

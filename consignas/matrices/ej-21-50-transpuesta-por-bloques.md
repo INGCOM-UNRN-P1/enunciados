@@ -1,10 +1,10 @@
 
 
 # Transpuesta por bloques
-> **ID:** `ej-21-50-transpuesta-por-bloques`
- · **Tema:** `matrices`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-21-50-transpuesta-por-bloques` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `transpuesta`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

@@ -1,10 +1,10 @@
 
 
 # Filtro de Convolución 2D sobre Matrices Dinámicas
-> **ID:** `matriz-convolucion-2d`
- · **Tema:** `matrices`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `matriz-convolucion-2d` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `matrices_2d`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

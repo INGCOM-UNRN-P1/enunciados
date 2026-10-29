@@ -1,10 +1,10 @@
 
 
 # Subsecuencia común más larga (LCS)
-> **ID:** `ej-11-33-b33-subsecuencia-comun-mas-lar`
- · **Tema:** `cadenas`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-11-33-b33-subsecuencia-comun-mas-lar` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

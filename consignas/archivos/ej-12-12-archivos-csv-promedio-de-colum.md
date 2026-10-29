@@ -1,10 +1,10 @@
 
 
 # Archivos CSV - Promedio de Columna
-> **ID:** `ej-12-12-archivos-csv-promedio-de-colum`
- · **Tema:** `archivos`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-12-12-archivos-csv-promedio-de-colum` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `archivos_estructurados`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

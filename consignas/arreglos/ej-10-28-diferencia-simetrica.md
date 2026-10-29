@@ -1,10 +1,10 @@
 
 
 # Diferencia simétrica
-> **ID:** `ej-10-28-diferencia-simetrica`
- · **Tema:** `arreglos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-10-28-diferencia-simetrica` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `diferencia`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

@@ -1,10 +1,10 @@
 
 
 # Buscar Elemento
-> **ID:** `ej-22-5-buscar-elemento`
- · **Tema:** `tad`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-22-5-buscar-elemento` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tad` / `arboles_binarios`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:estructuras`, `dep:punteros`, `dep:memoria_dinamica`
 >

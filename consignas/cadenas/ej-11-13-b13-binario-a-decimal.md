@@ -1,10 +1,10 @@
 
 
 # Binario a decimal
-> **ID:** `ej-11-13-b13-binario-a-decimal`
- · **Tema:** `cadenas`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-11-13-b13-binario-a-decimal` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

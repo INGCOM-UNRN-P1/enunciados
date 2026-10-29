@@ -1,10 +1,10 @@
 
 
 # Uso de máscaras de bits para permisos
-> **ID:** `ej-27-8-b8-uso-de-mascaras-de-bits-par`
- · **Tema:** `operaciones_bits`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-27-8-b8-uso-de-mascaras-de-bits-par` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `operaciones_bits` / `operaciones_bits`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:aritmetica`
 >

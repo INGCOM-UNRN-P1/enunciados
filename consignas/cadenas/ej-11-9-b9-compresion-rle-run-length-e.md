@@ -1,10 +1,10 @@
 
 
 # Compresión RLE (Run-Length Encoding)
-> **ID:** `ej-11-9-b9-compresion-rle-run-length-e`
- · **Tema:** `cadenas`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-11-9-b9-compresion-rle-run-length-e` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

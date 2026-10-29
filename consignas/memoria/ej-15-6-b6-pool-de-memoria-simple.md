@@ -1,10 +1,10 @@
 
 
 # Pool de Memoria Simple
-> **ID:** `ej-15-6-b6-pool-de-memoria-simple`
- · **Tema:** `memoria`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-15-6-b6-pool-de-memoria-simple` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

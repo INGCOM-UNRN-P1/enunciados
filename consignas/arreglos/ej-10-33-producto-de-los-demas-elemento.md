@@ -1,10 +1,10 @@
 
 
 # Producto de los demás elementos
-> **ID:** `ej-10-33-producto-de-los-demas-elemento`
- · **Tema:** `arreglos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-10-33-producto-de-los-demas-elemento` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `producto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

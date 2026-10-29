@@ -1,10 +1,10 @@
 
 
 # Validación de Entrada
-> **ID:** `ej-5-10-validacion-de-entrada`
- · **Tema:** `funciones`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-5-10-validacion-de-entrada` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

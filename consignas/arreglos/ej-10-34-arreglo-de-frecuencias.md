@@ -1,10 +1,10 @@
 
 
 # Arreglo de frecuencias
-> **ID:** `ej-10-34-arreglo-de-frecuencias`
- · **Tema:** `arreglos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-10-34-arreglo-de-frecuencias` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `arreglo`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

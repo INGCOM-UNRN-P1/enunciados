@@ -1,10 +1,10 @@
 
 
 # Palíndromo
-> **ID:** `ej-25-9-palindromo`
- · **Tema:** `recursividad`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-25-9-palindromo` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `recursividad` / `palindromo`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:punteros`
 >

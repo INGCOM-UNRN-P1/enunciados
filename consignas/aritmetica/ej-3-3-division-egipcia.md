@@ -1,10 +1,10 @@
 
 
 # División egipcia
-> **ID:** `ej-3-3-division-egipcia`
- · **Tema:** `aritmetica`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-3-3-division-egipcia` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `egipcia`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

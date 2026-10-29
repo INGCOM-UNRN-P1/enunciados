@@ -1,10 +1,10 @@
 
 
 # Encontrar el carácter más frecuente
-> **ID:** `ej-11-27-b27-encontrar-el-caracter-mas`
- · **Tema:** `cadenas`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-11-27-b27-encontrar-el-caracter-mas` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

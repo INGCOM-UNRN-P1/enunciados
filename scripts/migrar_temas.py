@@ -295,6 +295,18 @@ def procesar_ejercicios_de_temas(
 
         migrados.append((dir_origen, dir_destino, ej_id))
 
+    # Reparar symlinks relativos en banco/ si apuntaban a directorios movidos
+    for sym in banco_dir.iterdir():
+        if sym.is_symlink():
+            target_rel = os.readlink(str(sym))
+            target_path = banco_dir / target_rel
+            if not target_path.exists():
+                for sub in banco_dir.iterdir():
+                    if sub.is_dir() and (sub / target_rel).is_dir():
+                        sym.unlink()
+                        sym.symlink_to(f"{sub.name}/{target_rel}")
+                        break
+
     return migrados
 
 

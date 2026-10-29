@@ -1,10 +1,10 @@
 
 
 # Refactorización de continue
-> **ID:** `ej-4-6-refactorizacion-de-continue`
- · **Tema:** `estructuras_control`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-4-6-refactorizacion-de-continue` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `refactorizacion`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

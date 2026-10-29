@@ -1,10 +1,10 @@
 
 
 # Mezcla de colores
-> **ID:** `ej-20-10-mezcla-de-colores`
- · **Tema:** `enumeraciones`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-20-10-mezcla-de-colores` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `enumeraciones` / `mapeo_estados`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:condicionales`
 >

@@ -1,10 +1,10 @@
 
 
 # Formateo de entrada y salida
-> **ID:** `ej-2-2-formateo-de-entrada-y-salida`
- · **Tema:** `io_formato`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-2-2-formateo-de-entrada-y-salida` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `io_formato` / `formateo`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:aritmetica`
 >

@@ -1,10 +1,10 @@
 
 
 # Mini Intérprete de Pila de 4 Instrucciones
-> **ID:** `ej-9-52-mini-interprete-de-pila-de-4-i`
- · **Tema:** `refactorizacion`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-9-52-mini-interprete-de-pila-de-4-i` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `pilas_y_colas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

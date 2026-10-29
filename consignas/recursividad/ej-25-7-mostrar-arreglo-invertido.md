@@ -1,10 +1,10 @@
 
 
 # Mostrar arreglo invertido
-> **ID:** `ej-25-7-mostrar-arreglo-invertido`
- · **Tema:** `recursividad`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-25-7-mostrar-arreglo-invertido` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `recursividad` / `invertido`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:punteros`
 >

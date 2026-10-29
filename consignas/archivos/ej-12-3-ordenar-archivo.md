@@ -1,10 +1,10 @@
 
 
 # Ordenar archivo
-> **ID:** `ej-12-3-ordenar-archivo`
- · **Tema:** `archivos`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-12-3-ordenar-archivo` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `archivo`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

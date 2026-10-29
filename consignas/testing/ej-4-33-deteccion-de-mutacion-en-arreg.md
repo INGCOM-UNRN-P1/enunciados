@@ -1,10 +1,10 @@
 
 
 # Detección de mutación en arreglos de solo lectura
-> **ID:** `ej-4-33-deteccion-de-mutacion-en-arreg`
- · **Tema:** `testing`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-4-33-deteccion-de-mutacion-en-arreg` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

@@ -1,10 +1,10 @@
 
 
 # Insertar en Posición
-> **ID:** `ej-22-8-insertar-en-posicion`
- · **Tema:** `tad`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-22-8-insertar-en-posicion` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tad` / `arboles_binarios`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:estructuras`, `dep:punteros`, `dep:memoria_dinamica`
 >

@@ -1,10 +1,10 @@
 
 
 # Tabla de Despacho (Dispatch Table)
-> **ID:** `ej-26-5-tabla-de-despacho-dispatch-tab`
- · **Tema:** `punteros_avanzados`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-26-5-tabla-de-despacho-dispatch-tab` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `punteros_avanzados` / `despacho`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria_dinamica`
 >

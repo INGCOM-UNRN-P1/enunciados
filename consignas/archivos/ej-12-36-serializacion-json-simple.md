@@ -1,10 +1,10 @@
 
 
 # Serialización JSON Simple
-> **ID:** `ej-12-36-serializacion-json-simple`
- · **Tema:** `archivos`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-12-36-serializacion-json-simple` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `memoria`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

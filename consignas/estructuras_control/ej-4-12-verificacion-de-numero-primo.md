@@ -1,10 +1,10 @@
 
 
 # Verificación de número primo
-> **ID:** `ej-4-12-verificacion-de-numero-primo`
- · **Tema:** `estructuras_control`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-4-12-verificacion-de-numero-primo` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `teoria_numeros`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

@@ -1,10 +1,10 @@
 
 
 # Mostrando valores
-> **ID:** `ej-2-1-mostrando-valores`
- · **Tema:** `io_formato`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-2-1-mostrando-valores` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `io_formato` / `fundamentos`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:aritmetica`
 >

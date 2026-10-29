@@ -1,10 +1,10 @@
 
 
 # Radical de un Número
-> **ID:** `ej-3-35-radical-de-un-numero`
- · **Tema:** `aritmetica`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-3-35-radical-de-un-numero` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `radical`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

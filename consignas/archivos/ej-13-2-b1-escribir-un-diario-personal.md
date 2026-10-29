@@ -1,10 +1,10 @@
 
 
 # Escribir un diario personal
-> **ID:** `ej-13-2-b1-escribir-un-diario-personal`
- · **Tema:** `archivos`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-13-2-b1-escribir-un-diario-personal` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `diario`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

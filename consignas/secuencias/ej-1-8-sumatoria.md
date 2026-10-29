@@ -1,10 +1,10 @@
 
 
 # Sumatoria
-> **ID:** `ej-1-8-sumatoria`
- · **Tema:** `secuencias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-1-8-sumatoria` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `sumatoria`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

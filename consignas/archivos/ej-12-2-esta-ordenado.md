@@ -1,10 +1,10 @@
 
 
 # ¿Está ordenado?
-> **ID:** `ej-12-2-esta-ordenado`
- · **Tema:** `archivos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-12-2-esta-ordenado` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `esta`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

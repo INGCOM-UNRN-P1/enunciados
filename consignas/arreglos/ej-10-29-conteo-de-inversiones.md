@@ -1,10 +1,10 @@
 
 
 # Conteo de inversiones
-> **ID:** `ej-10-29-conteo-de-inversiones`
- · **Tema:** `arreglos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-10-29-conteo-de-inversiones` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `memoria`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

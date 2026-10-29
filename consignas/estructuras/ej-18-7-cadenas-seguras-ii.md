@@ -1,10 +1,10 @@
 
 
 # Cadenas Seguras II
-> **ID:** `ej-18-7-cadenas-seguras-ii`
- · **Tema:** `estructuras`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-18-7-cadenas-seguras-ii` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `estructuras` / `procesamiento_texto`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:funciones`
 >

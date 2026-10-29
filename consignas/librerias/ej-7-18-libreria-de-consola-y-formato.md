@@ -1,10 +1,10 @@
 
 
 # Librería de Consola y Formato de Salida
-> **ID:** `ej-7-18-libreria-de-consola-y-formato`
- · **Tema:** `librerias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-7-18-libreria-de-consola-y-formato` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `fundamentos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

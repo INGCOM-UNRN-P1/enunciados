@@ -1,10 +1,10 @@
 
 
 # Contraseña de caracteres iterativa
-> **ID:** `ej-4-14-contrasena-de-caracteres-itera`
- · **Tema:** `estructuras_control`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-4-14-contrasena-de-caracteres-itera` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `control`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

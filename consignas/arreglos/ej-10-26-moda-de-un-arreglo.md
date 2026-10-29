@@ -1,10 +1,10 @@
 
 
 # Moda de un arreglo
-> **ID:** `ej-10-26-moda-de-un-arreglo`
- · **Tema:** `arreglos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-10-26-moda-de-un-arreglo` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `arreglo`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

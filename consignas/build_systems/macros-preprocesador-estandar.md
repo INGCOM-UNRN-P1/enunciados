@@ -1,10 +1,10 @@
 
 
 # Macros Predefinidas del Preprocesador
-> **ID:** `macros-preprocesador-estandar`
- · **Tema:** `build_systems`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `macros-preprocesador-estandar` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `build_systems` / `recordar`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`
 >

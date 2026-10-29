@@ -1,10 +1,10 @@
 
 
 # Biblioteca de Strings seguros
-> **ID:** `ej-7-6-biblioteca-de-strings-seguros`
- · **Tema:** `librerias`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-7-6-biblioteca-de-strings-seguros` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `procesamiento_texto`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

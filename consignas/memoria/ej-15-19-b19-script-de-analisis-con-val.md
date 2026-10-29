@@ -1,10 +1,10 @@
 
 
 # Script de Análisis con Valgrind
-> **ID:** `ej-15-19-b19-script-de-analisis-con-val`
- · **Tema:** `memoria`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-15-19-b19-script-de-analisis-con-val` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

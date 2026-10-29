@@ -1,10 +1,10 @@
 
 
 # Copiar un archivo de texto
-> **ID:** `ej-13-4-b3-copiar-un-archivo-de-texto`
- · **Tema:** `archivos`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-13-4-b3-copiar-un-archivo-de-texto` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `texto`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

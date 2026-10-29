@@ -1,10 +1,10 @@
 
 
 # Persistencia Binaria con Magic Number y Checksum de Integridad
-> **ID:** `serializador-binario-registros`
- · **Tema:** `archivos_binarios`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~45 min
+> **ID:** `serializador-binario-registros` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos_binarios` / `checksum`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~45 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:archivos`, `dep:estructuras`, `dep:memoria`
 >

@@ -1,10 +1,10 @@
 
 
 # Suma de Enteros
-> **ID:** `ej-29-2-suma-de-enteros`
- · **Tema:** `recursividad`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-29-2-suma-de-enteros` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `recursividad` / `avanzados`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:punteros`
 >

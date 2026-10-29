@@ -1,10 +1,10 @@
 
 
 # Supresor de Falsos Positivos
-> **ID:** `ej-15-20-b20-supresor-de-falsos-positiv`
- · **Tema:** `memoria`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-15-20-b20-supresor-de-falsos-positiv` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

@@ -1,10 +1,10 @@
 
 
 # Análisis de Memoria con Estructuras
-> **ID:** `ej-31-5-analisis-de-memoria-con-estruc`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-31-5-analisis-de-memoria-con-estruc` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `estructuras`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

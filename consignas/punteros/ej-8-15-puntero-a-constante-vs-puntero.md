@@ -1,10 +1,10 @@
 
 
 # Puntero a Constante vs Puntero Constante
-> **ID:** `ej-8-15-puntero-a-constante-vs-puntero`
- · **Tema:** `punteros`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-8-15-puntero-a-constante-vs-puntero` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `constante`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

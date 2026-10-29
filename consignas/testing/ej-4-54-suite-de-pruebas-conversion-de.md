@@ -1,10 +1,10 @@
 
 
 # Suite de Pruebas: Conversión de Segundos a Tiempo
-> **ID:** `ej-4-54-suite-de-pruebas-conversion-de`
- · **Tema:** `testing`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-4-54-suite-de-pruebas-conversion-de` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

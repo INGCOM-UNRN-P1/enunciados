@@ -1,10 +1,10 @@
 
 
 # Librería de Ordenamiento y Búsqueda
-> **ID:** `ej-7-12-libreria-de-ordenamiento-y-bus`
- · **Tema:** `librerias`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-7-12-libreria-de-ordenamiento-y-bus` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `fundamentos`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

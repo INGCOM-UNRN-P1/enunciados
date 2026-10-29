@@ -1,10 +1,10 @@
 
 
 # Máximo Común Divisor (MCD)
-> **ID:** `ej-5-11-maximo-comun-divisor-mcd`
- · **Tema:** `funciones`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-5-11-maximo-comun-divisor-mcd` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

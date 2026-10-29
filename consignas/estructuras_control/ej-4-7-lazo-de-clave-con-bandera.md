@@ -1,10 +1,10 @@
 
 
 # Lazo de clave con bandera
-> **ID:** `ej-4-7-lazo-de-clave-con-bandera`
- · **Tema:** `estructuras_control`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-4-7-lazo-de-clave-con-bandera` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `control`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

@@ -1,10 +1,10 @@
 
 
 # Asignación de Memoria en una Función
-> **ID:** `ej-26-1-asignacion-de-memoria-en-una-f`
- · **Tema:** `punteros_avanzados`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-26-1-asignacion-de-memoria-en-una-f` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `punteros_avanzados` / `doble_puntero`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria_dinamica`
 >

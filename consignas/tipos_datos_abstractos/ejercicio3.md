@@ -1,10 +1,10 @@
 
 
 # TDA Conjunto de Enteros (conjunto_t) — Invariante de Unicidad
-> **ID:** `ejercicio3`
- · **Tema:** `tipos_datos_abstractos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~45 min
+> **ID:** `ejercicio3` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tipos_datos_abstractos` / `tda`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~45 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`
 >

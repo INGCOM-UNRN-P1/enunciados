@@ -1,10 +1,10 @@
 
 
 # Detección de bordes (Operador de Sobel)
-> **ID:** `ej-21-19-deteccion-de-bordes-operador-d`
- · **Tema:** `matrices`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-21-19-deteccion-de-bordes-operador-d` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `operador`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

@@ -1,10 +1,10 @@
 
 
 # Matriz de Bloque Único (Contigua)
-> **ID:** `ej-17-8-matriz-de-bloque-unico-contigu`
- · **Tema:** `punteros`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-17-8-matriz-de-bloque-unico-contigu` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `matrices_2d`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

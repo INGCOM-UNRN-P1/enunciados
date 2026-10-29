@@ -1,10 +1,10 @@
 
 
 # Registrar eventos en un log
-> **ID:** `ej-13-5-b4-registrar-eventos-en-un-log`
- · **Tema:** `archivos`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-13-5-b4-registrar-eventos-en-un-log` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `registro_eventos`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

@@ -1,10 +1,10 @@
 
 
 # Actualizar Registro
-> **ID:** `ej-28-4-actualizar-registro`
- · **Tema:** `archivos_binarios`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-28-4-actualizar-registro` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos_binarios` / `fwrite`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:archivos`, `dep:estructuras`, `dep:memoria`
 >

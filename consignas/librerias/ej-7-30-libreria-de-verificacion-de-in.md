@@ -1,10 +1,10 @@
 
 
 # Librería de Verificación de Integridad (Checksum)
-> **ID:** `ej-7-30-libreria-de-verificacion-de-in`
- · **Tema:** `librerias`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-7-30-libreria-de-verificacion-de-in` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `checksum`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

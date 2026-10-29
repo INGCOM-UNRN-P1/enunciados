@@ -1,10 +1,10 @@
 
 
 # Crear y llenar matriz dinámica
-> **ID:** `ej-21-13-crear-y-llenar-matriz-dinamica`
- · **Tema:** `matrices`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-21-13-crear-y-llenar-matriz-dinamica` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `matrices_2d`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

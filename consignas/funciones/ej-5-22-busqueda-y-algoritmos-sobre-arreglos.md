@@ -1,10 +1,10 @@
 
 
 # Búsqueda y Algoritmos sobre Arreglos
-> **ID:** `ej-5-22-busqueda-y-algoritmos-sobre-arreglos`
- · **Tema:** `funciones`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-5-22-busqueda-y-algoritmos-sobre-arreglos` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

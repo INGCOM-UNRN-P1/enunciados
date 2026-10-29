@@ -1,10 +1,10 @@
 
 
 # Generador de Números Primos
-> **ID:** `ej-5-16-generador-de-numeros-primos`
- · **Tema:** `funciones`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-5-16-generador-de-numeros-primos` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `teoria_numeros`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

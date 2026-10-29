@@ -1,10 +1,10 @@
 
 
 # Mensajes de depuración
-> **ID:** `ej-6-4-mensajes-de-depuracion`
- · **Tema:** `build_systems`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-6-4-mensajes-de-depuracion` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `build_systems` / `pilas_y_colas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`
 >

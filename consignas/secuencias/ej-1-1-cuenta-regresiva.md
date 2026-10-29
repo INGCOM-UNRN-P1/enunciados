@@ -1,10 +1,10 @@
 
 
 # Cuenta regresiva
-> **ID:** `ej-1-1-cuenta-regresiva`
- · **Tema:** `secuencias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-1-1-cuenta-regresiva` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `cuenta`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

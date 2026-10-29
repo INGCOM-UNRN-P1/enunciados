@@ -1,10 +1,10 @@
 
 
 # Intercambiar valores
-> **ID:** `ej-9-2-b1-intercambiar-valores`
- · **Tema:** `punteros`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-9-2-b1-intercambiar-valores` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `intercambiar`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

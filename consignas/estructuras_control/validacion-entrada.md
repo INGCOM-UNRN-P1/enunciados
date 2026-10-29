@@ -1,10 +1,10 @@
 
 
 # Validación de Entrada
-> **ID:** `validacion-entrada`
- · **Tema:** `estructuras_control`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `validacion-entrada` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `lazos`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

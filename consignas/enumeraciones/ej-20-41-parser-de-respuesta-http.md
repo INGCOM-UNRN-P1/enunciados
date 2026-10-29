@@ -1,10 +1,10 @@
 
 
 # Parser de respuesta HTTP
-> **ID:** `ej-20-41-parser-de-respuesta-http`
- · **Tema:** `enumeraciones`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-20-41-parser-de-respuesta-http` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `enumeraciones` / `mapeo_estados`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:condicionales`
 >

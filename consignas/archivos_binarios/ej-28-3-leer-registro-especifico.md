@@ -1,10 +1,10 @@
 
 
 # Leer Registro Específico
-> **ID:** `ej-28-3-leer-registro-especifico`
- · **Tema:** `archivos_binarios`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-28-3-leer-registro-especifico` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos_binarios` / `fwrite`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:archivos`, `dep:estructuras`, `dep:memoria`
 >

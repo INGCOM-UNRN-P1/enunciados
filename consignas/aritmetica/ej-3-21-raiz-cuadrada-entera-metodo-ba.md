@@ -1,10 +1,10 @@
 
 
 # Raíz Cuadrada Entera (Método Babilónico)
-> **ID:** `ej-3-21-raiz-cuadrada-entera-metodo-ba`
- · **Tema:** `aritmetica`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-3-21-raiz-cuadrada-entera-metodo-ba` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `babilonico`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

@@ -1,10 +1,10 @@
 
 
 # Número a cadena con formato
-> **ID:** `ej-11-11-b11-numero-a-cadena-con-format`
- · **Tema:** `cadenas`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-11-11-b11-numero-a-cadena-con-format` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

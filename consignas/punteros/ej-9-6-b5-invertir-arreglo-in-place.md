@@ -1,10 +1,10 @@
 
 
 # Invertir arreglo in-place
-> **ID:** `ej-9-6-b5-invertir-arreglo-in-place`
- · **Tema:** `punteros`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-9-6-b5-invertir-arreglo-in-place` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `invertir`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

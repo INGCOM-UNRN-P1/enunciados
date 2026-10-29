@@ -1,10 +1,10 @@
 
 
 # Matriz de cofactores
-> **ID:** `ej-21-27-matriz-de-cofactores`
- · **Tema:** `matrices`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-21-27-matriz-de-cofactores` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `matrices_2d`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

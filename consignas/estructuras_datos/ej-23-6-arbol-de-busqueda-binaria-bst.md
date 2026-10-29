@@ -1,10 +1,10 @@
 
 
 # Árbol de Búsqueda Binaria (BST)
-> **ID:** `ej-23-6-arbol-de-busqueda-binaria-bst`
- · **Tema:** `estructuras_datos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-23-6-arbol-de-busqueda-binaria-bst` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `estructuras_datos` / `arboles_binarios`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`, `dep:memoria_dinamica`, `dep:recursividad`
 >

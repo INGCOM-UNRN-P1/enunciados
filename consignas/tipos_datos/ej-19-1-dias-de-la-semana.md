@@ -1,10 +1,10 @@
 
 
 # Días de la semana
-> **ID:** `ej-19-1-dias-de-la-semana`
- · **Tema:** `tipos_datos`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-19-1-dias-de-la-semana` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `tipos_datos` / `alias`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:sintaxis`
 >

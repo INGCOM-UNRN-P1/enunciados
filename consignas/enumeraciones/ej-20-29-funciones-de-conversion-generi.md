@@ -1,10 +1,10 @@
 
 
 # Funciones de conversión genéricas
-> **ID:** `ej-20-29-funciones-de-conversion-generi`
- · **Tema:** `enumeraciones`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-20-29-funciones-de-conversion-generi` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `enumeraciones` / `conversion`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:condicionales`
 >

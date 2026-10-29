@@ -1,10 +1,10 @@
 
 
 # Funciones de Calendario y Fechas
-> **ID:** `ej-5-23-funciones-de-calendario-y-fechas`
- · **Tema:** `funciones`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-5-23-funciones-de-calendario-y-fechas` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

@@ -1,10 +1,10 @@
 
 
 # Diccionario Dinámico Clave-Valor
-> **ID:** `ej-15-26-b25-diccionario-dinamico-clave`
- · **Tema:** `memoria`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-15-26-b25-diccionario-dinamico-clave` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

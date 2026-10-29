@@ -1,10 +1,10 @@
 
 
 # Strassen para matrices grandes
-> **ID:** `ej-21-51-strassen-para-matrices-grandes`
- · **Tema:** `matrices`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-21-51-strassen-para-matrices-grandes` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `matrices` / `grandes`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`
 >

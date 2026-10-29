@@ -1,10 +1,10 @@
 
 
 # Constantes de Límites en limits.h
-> **ID:** `constantes-limites-enteros`
- · **Tema:** `sintaxis`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `constantes-limites-enteros` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `sintaxis` / `recordar`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **Etiquetas conceptuales:** `sintaxis`, `recordar`, `c11`
 

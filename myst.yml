@@ -858,10 +858,6 @@ project:
   - title: Tipos de Datos Abstractos Avanzados
     children:
     - file: consignas/tipos_datos_abstractos/ejercicio1.md
-    - file: consignas/tipos_datos_abstractos/ejercicio1.md
-    - file: consignas/tipos_datos_abstractos/ejercicio2.md
     - file: consignas/tipos_datos_abstractos/ejercicio2.md
     - file: consignas/tipos_datos_abstractos/ejercicio3.md
-    - file: consignas/tipos_datos_abstractos/ejercicio3.md
-    - file: consignas/tipos_datos_abstractos/ejercicio4.md
     - file: consignas/tipos_datos_abstractos/ejercicio4.md

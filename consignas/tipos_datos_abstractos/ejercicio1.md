@@ -1,10 +1,10 @@
 
 
 # TDA Fracción (fraccion_t) — Invariantes y Normalización
-> **ID:** `ejercicio1`
- · **Tema:** `tipos_datos_abstractos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~40 min
+> **ID:** `ejercicio1` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tipos_datos_abstractos` / `tda`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Avanzada
+ · **Carga:** ~40 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`
 >

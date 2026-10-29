@@ -1,10 +1,10 @@
 
 
 # Vector Dinámico con Crecimiento Amortizado
-> **ID:** `vector-dinamico-generico`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `vector-dinamico-generico` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `gestion_heap`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

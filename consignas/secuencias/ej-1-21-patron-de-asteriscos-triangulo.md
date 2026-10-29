@@ -1,10 +1,10 @@
 
 
 # Patrón de Asteriscos (Triángulo)
-> **ID:** `ej-1-21-patron-de-asteriscos-triangulo`
- · **Tema:** `secuencias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-1-21-patron-de-asteriscos-triangulo` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `patron`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

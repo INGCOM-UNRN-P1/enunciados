@@ -1,10 +1,10 @@
 
 
 # Secuencia de Fibonacci
-> **ID:** `secuencia-fibonacci`
- · **Tema:** `lazos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `secuencia-fibonacci` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `lazos` / `series_numericas`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`
 >

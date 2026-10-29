@@ -4,19 +4,19 @@ Bienvenido al repositorio central de ejercicios prácticos y autoevaluaciones.
 
 ## 📊 Métricas Globales del Banco
 
-- **Total de Ejercicios:** 740
-- **Carga Horaria de Práctica Acumulada:** ~19705 minutos (328.4 hs cátedra)
+- **Total de Ejercicios:** 736
+- **Carga Horaria de Práctica Acumulada:** ~19515 minutos (325.2 hs cátedra)
 - **Ejes Temáticos Cubiertos:** 35 módulos
 
 ### Distribución Taxonómica (Bloom)
 
 | Nivel | Dimensión Cognitiva | Cantidad | Porcentaje |
 | :---: | :--- | :---: | :---: |
-| B1 | Recordar | 88 | 11.9% |
-| B2 | Comprender | 100 | 13.5% |
-| B3 | Aplicar | 298 | 40.3% |
-| B4 | Analizar | 171 | 23.1% |
-| B5 | Evaluar / Crear | 83 | 11.2% |
+| B1 | Recordar | 88 | 12.0% |
+| B2 | Comprender | 100 | 13.6% |
+| B3 | Aplicar | 297 | 40.4% |
+| B4 | Analizar | 168 | 22.8% |
+| B5 | Evaluar / Crear | 83 | 11.3% |
 
 ## 🚀 Flujo de Trabajo con Ripley
 
@@ -68,4 +68,4 @@ las cabeceras C y las verificaciones pedagógicas.
 | `tad` | Tipos Abstractos de Datos (TAD) | 13 | ~360 min |
 | `testing` | Testing Unitario y Verificación | 55 | ~1015 min |
 | `tipos_datos` | Tipos de Datos Primitivos | 1 | ~10 min |
-| `tipos_datos_abstractos` | Tipos de Datos Abstractos Avanzados | 8 | ~380 min |
+| `tipos_datos_abstractos` | Tipos de Datos Abstractos Avanzados | 4 | ~190 min |

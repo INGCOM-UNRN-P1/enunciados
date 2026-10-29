@@ -1,10 +1,10 @@
 
 
 # Ordenamiento de Burbuja (Bubble Sort)
-> **ID:** `ej-30-3-ordenamiento-de-burbuja-bubble`
- · **Tema:** `algoritmos_ordenamiento`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-30-3-ordenamiento-de-burbuja-bubble` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `algoritmos_ordenamiento` / `ordenamiento_burbuja`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`, `dep:recursividad`
 >

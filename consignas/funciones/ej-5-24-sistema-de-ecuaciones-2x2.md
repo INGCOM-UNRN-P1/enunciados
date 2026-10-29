@@ -1,10 +1,10 @@
 
 
 # Sistema de Ecuaciones 2x2
-> **ID:** `ej-5-24-sistema-de-ecuaciones-2x2`
- · **Tema:** `funciones`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-5-24-sistema-de-ecuaciones-2x2` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `funciones_general`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

@@ -1,10 +1,10 @@
 
 
 # Lazo con División
-> **ID:** `ej-24-8-lazo-con-division`
- · **Tema:** `complejidad`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-24-8-lazo-con-division` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `complejidad` / `big_o`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:algoritmos_ordenamiento`, `dep:lazos_anidados`
 >

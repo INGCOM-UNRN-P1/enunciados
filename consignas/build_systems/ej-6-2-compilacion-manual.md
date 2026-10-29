@@ -1,10 +1,10 @@
 
 
 # Compilación manual
-> **ID:** `ej-6-2-compilacion-manual`
- · **Tema:** `build_systems`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-6-2-compilacion-manual` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `build_systems` / `pilas_y_colas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`
 >

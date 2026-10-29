@@ -1,10 +1,10 @@
 
 
 # Conversión de Temperatura
-> **ID:** `ej-5-9-conversion-de-temperatura`
- · **Tema:** `funciones`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-5-9-conversion-de-temperatura` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `funciones` / `conversion_unidades`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`, `dep:secuencias`
 

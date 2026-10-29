@@ -1,10 +1,10 @@
 
 
 # Menú con Ifs Caóticos
-> **ID:** `ej-9-10-menu-con-ifs-caoticos`
- · **Tema:** `refactorizacion`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-9-10-menu-con-ifs-caoticos` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `clean_code`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

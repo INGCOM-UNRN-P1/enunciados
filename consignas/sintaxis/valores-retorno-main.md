@@ -1,10 +1,10 @@
 
 
 # Códigos de Retorno EXIT_SUCCESS y EXIT_FAILURE
-> **ID:** `valores-retorno-main`
- · **Tema:** `sintaxis`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `valores-retorno-main` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `sintaxis` / `recordar`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **Etiquetas conceptuales:** `sintaxis`, `recordar`, `c11`
 

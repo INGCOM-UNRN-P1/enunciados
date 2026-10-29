@@ -1,10 +1,10 @@
 
 
 # Librería de Transformación y Filtrado de Arreglos
-> **ID:** `ej-7-15-libreria-de-transformacion-y-f`
- · **Tema:** `librerias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-7-15-libreria-de-transformacion-y-f` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `filtrado`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

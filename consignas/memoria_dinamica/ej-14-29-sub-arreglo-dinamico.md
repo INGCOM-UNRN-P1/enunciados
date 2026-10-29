@@ -1,10 +1,10 @@
 
 
 # Sub-arreglo Dinámico
-> **ID:** `ej-14-29-sub-arreglo-dinamico`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-14-29-sub-arreglo-dinamico` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `gestion_heap`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

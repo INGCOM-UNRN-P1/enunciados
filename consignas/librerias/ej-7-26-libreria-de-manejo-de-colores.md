@@ -1,10 +1,10 @@
 
 
 # Librería de Manejo de Colores RGB
-> **ID:** `ej-7-26-libreria-de-manejo-de-colores`
- · **Tema:** `librerias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-7-26-libreria-de-manejo-de-colores` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `fundamentos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

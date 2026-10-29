@@ -1,10 +1,10 @@
 
 
 # Librería de Fechas y Calendario
-> **ID:** `ej-7-17-libreria-de-fechas-y-calendari`
- · **Tema:** `librerias`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-7-17-libreria-de-fechas-y-calendari` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `librerias` / `fechas`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:estructuras`
 >

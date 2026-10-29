@@ -1,10 +1,10 @@
 
 
 # Gestión de Memoria en el Parser JSON
-> **ID:** `ej-17-12-gestion-de-memoria-en-el-parse`
- · **Tema:** `punteros`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-17-12-gestion-de-memoria-en-el-parse` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `estructuras`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

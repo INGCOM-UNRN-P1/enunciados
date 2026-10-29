@@ -1,10 +1,10 @@
 
 
 # Algoritmo de Kadane (Suma máxima de subarreglo)
-> **ID:** `ej-10-20-algoritmo-de-kadane-suma-maxim`
- · **Tema:** `arreglos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-10-20-algoritmo-de-kadane-suma-maxim` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `arreglos` / `suma`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:lazos`
 >

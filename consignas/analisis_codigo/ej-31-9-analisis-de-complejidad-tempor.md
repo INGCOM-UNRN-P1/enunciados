@@ -1,10 +1,10 @@
 
 
 # Análisis de Complejidad Temporal
-> **ID:** `ej-31-9-analisis-de-complejidad-tempor`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-31-9-analisis-de-complejidad-tempor` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `analisis`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

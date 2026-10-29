@@ -1,10 +1,10 @@
 
 
 # Funciones Auxiliares Privadas `static`
-> **ID:** `ej-4-44-funciones-auxiliares-privadas`
- · **Tema:** `testing`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-4-44-funciones-auxiliares-privadas` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

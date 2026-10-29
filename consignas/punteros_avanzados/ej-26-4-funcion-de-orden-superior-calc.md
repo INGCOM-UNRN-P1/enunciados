@@ -1,10 +1,10 @@
 
 
 # Función de Orden Superior (Calculadora)
-> **ID:** `ej-26-4-funcion-de-orden-superior-calc`
- · **Tema:** `punteros_avanzados`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-26-4-funcion-de-orden-superior-calc` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `punteros_avanzados` / `orden`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria_dinamica`
 >

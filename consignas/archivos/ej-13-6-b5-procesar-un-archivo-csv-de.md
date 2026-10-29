@@ -1,10 +1,10 @@
 
 
 # Procesar un archivo CSV de ventas
-> **ID:** `ej-13-6-b5-procesar-un-archivo-csv-de`
- · **Tema:** `archivos`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-13-6-b5-procesar-un-archivo-csv-de` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `archivos` / `archivos_estructurados`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:cadenas`, `dep:punteros`, `dep:io_formato`
 >

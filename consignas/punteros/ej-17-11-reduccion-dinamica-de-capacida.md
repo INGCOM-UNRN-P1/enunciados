@@ -1,10 +1,10 @@
 
 
 # Reducción Dinámica de Capacidad (Shrinking)
-> **ID:** `ej-17-11-reduccion-dinamica-de-capacida`
- · **Tema:** `punteros`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-17-11-reduccion-dinamica-de-capacida` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `shrinking`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

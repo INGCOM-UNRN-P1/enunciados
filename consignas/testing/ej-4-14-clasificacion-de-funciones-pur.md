@@ -1,10 +1,10 @@
 
 
 # Clasificación de funciones: Puras vs Impuras
-> **ID:** `ej-4-14-clasificacion-de-funciones-pur`
- · **Tema:** `testing`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-4-14-clasificacion-de-funciones-pur` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

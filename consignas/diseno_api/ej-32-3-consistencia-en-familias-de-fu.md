@@ -1,10 +1,10 @@
 
 
 # Consistencia en Familias de Funciones
-> **ID:** `ej-32-3-consistencia-en-familias-de-fu`
- · **Tema:** `diseno_api`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-32-3-consistencia-en-familias-de-fu` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `diseno_api` / `diseno`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:punteros`
 >

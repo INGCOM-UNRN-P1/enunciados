@@ -1,10 +1,10 @@
 
 
 # Distancia entre Punteros
-> **ID:** `ej-8-14-distancia-entre-punteros`
- · **Tema:** `punteros`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-8-14-distancia-entre-punteros` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `punteros` / `distancia`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:funciones`, `dep:arreglos`
 >

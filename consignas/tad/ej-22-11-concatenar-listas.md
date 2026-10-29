@@ -1,10 +1,10 @@
 
 
 # Concatenar Listas
-> **ID:** `ej-22-11-concatenar-listas`
- · **Tema:** `tad`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-22-11-concatenar-listas` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tad` / `arboles_binarios`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:estructuras`, `dep:punteros`, `dep:memoria_dinamica`
 >

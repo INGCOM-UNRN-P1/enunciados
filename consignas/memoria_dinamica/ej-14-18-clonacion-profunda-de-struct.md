@@ -1,10 +1,10 @@
 
 
 # Clonación Profunda de Struct
-> **ID:** `ej-14-18-clonacion-profunda-de-struct`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-14-18-clonacion-profunda-de-struct` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `heap`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

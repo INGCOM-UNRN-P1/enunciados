@@ -1,10 +1,10 @@
 
 
 # Typedef para un Puntero a Función
-> **ID:** `ej-26-3-typedef-para-un-puntero-a-func`
- · **Tema:** `punteros_avanzados`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-26-3-typedef-para-un-puntero-a-func` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `punteros_avanzados` / `doble_puntero`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria_dinamica`
 >

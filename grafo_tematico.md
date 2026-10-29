@@ -46,7 +46,7 @@ flowchart TD
     subgraph unidad_4 ["Unidad 4: Tipos Abstractos y Algorítmica"]
         estructuras_datos["Estructuras de Datos Dinámicas<br/><small>10 ejs · B3.4</small>"]
         tad["Tipos Abstractos de Datos (TAD)<br/><small>13 ejs · B3.2</small>"]
-        tipos_datos_abstractos["Tipos de Datos Abstractos Avanzados<br/><small>8 ejs · B3.8</small>"]
+        tipos_datos_abstractos["Tipos de Datos Abstractos Avanzados<br/><small>4 ejs · B3.8</small>"]
         recursividad["Recursividad<br/><small>17 ejs · B3.5</small>"]
         algoritmos_ordenamiento["Algoritmos de Ordenamiento<br/><small>7 ejs · B4.0</small>"]
         complejidad["Complejidad Algorítmica<br/><small>8 ejs · B4.1</small>"]
@@ -166,7 +166,7 @@ flowchart TD
 | `tad`<br/>**Tipos Abstractos de Datos (TAD)** | U4 | `dep:estructuras`, `dep:punteros`, `dep:memoria_dinamica` | `tipos_datos_abstractos`, `estructuras_datos` | 13 | ~360 min |
 | `testing`<br/>**Testing Unitario y Verificación** | U5 | `dep:librerias`, `dep:funciones` | `refactorizacion`, `analisis_codigo` | 55 | ~1015 min |
 | `tipos_datos`<br/>**Tipos de Datos Primitivos** | U1 | `dep:sintaxis` | `aritmetica`, `caracteres`, `estructuras`, `enumeraciones`, `operaciones_bits` | 1 | ~10 min |
-| `tipos_datos_abstractos`<br/>**Tipos de Datos Abstractos Avanzados** | U4 | `dep:tad` | _Terminal_ | 8 | ~380 min |
+| `tipos_datos_abstractos`<br/>**Tipos de Datos Abstractos Avanzados** | U4 | `dep:tad` | _Terminal_ | 4 | ~190 min |
 
 ## 🚀 Rutas Críticas de Especialización
 

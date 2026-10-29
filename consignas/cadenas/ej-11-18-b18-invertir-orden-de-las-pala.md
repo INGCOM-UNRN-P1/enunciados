@@ -1,10 +1,10 @@
 
 
 # Invertir orden de las palabras
-> **ID:** `ej-11-18-b18-invertir-orden-de-las-pala`
- · **Tema:** `cadenas`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-11-18-b18-invertir-orden-de-las-pala` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `cadenas` / `procesamiento_texto`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:caracteres`
 >

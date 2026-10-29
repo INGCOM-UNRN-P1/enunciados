@@ -1,10 +1,10 @@
 
 
 # Nombres que Reflejan Comportamiento
-> **ID:** `ej-32-4-nombres-que-reflejan-comportam`
- · **Tema:** `diseno_api`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-32-4-nombres-que-reflejan-comportam` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `diseno_api` / `nombres`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:punteros`
 >

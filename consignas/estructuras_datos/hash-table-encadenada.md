@@ -1,10 +1,10 @@
 
 
 # Tabla Hash con Resolución por Encadenamiento
-> **ID:** `hash-table-encadenada`
- · **Tema:** `estructuras_datos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~45 min
+> **ID:** `hash-table-encadenada` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `estructuras_datos` / `tablas_hash`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~45 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`, `dep:memoria_dinamica`, `dep:recursividad`
 >

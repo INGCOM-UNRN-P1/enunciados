@@ -1,10 +1,10 @@
 
 
 # Secuencias de Escape en Literales de Cadena
-> **ID:** `caracteres-escape-ascii`
- · **Tema:** `sintaxis`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `caracteres-escape-ascii` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `sintaxis` / `recordar`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **Etiquetas conceptuales:** `sintaxis`, `recordar`, `c11`
 

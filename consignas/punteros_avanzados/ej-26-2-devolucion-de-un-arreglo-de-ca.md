@@ -1,10 +1,10 @@
 
 
 # Devolución de un Arreglo de Cadenas (Tokenizer)
-> **ID:** `ej-26-2-devolucion-de-un-arreglo-de-ca`
- · **Tema:** `punteros_avanzados`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-26-2-devolucion-de-un-arreglo-de-ca` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `punteros_avanzados` / `procesamiento_texto`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria_dinamica`
 >

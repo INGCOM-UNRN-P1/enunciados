@@ -1,10 +1,10 @@
 
 
 # Vocales y Consonantes
-> **ID:** `vocales-consonantes`
- · **Tema:** `caracteres`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `vocales-consonantes` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `caracteres` / `ctype`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:funciones`
 >

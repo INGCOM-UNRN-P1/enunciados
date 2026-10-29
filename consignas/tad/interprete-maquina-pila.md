@@ -1,10 +1,10 @@
 
 
 # Intérprete de Bytecode y Máquina Virtual de Pila
-> **ID:** `interprete-maquina-pila`
- · **Tema:** `tad`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `interprete-maquina-pila` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tad` / `pilas_y_colas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:estructuras`, `dep:punteros`, `dep:memoria_dinamica`
 >

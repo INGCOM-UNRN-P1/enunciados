@@ -1,10 +1,10 @@
 
 
 # Sistema de Gestión de Tareas
-> **ID:** `ej-15-29-b28-sistema-de-gestion-de-tare`
- · **Tema:** `memoria`
- · **Bloom:** B2 (Comprender)
- · **Carga:** ~15 min
+> **ID:** `ej-15-29-b28-sistema-de-gestion-de-tare` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria` / `pilas_y_colas`
+ · **Bloom:** B2 (Comprender) · **Dificultad:** Inicial
+ · **Carga:** ~15 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:punteros`, `dep:estructuras`
 >

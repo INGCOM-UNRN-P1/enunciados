@@ -1,10 +1,10 @@
 
 
 # Prohibición de Reutilización de Variables
-> **ID:** `ej-4-42-prohibicion-de-reutilizacion-d`
- · **Tema:** `testing`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-4-42-prohibicion-de-reutilizacion-d` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Laboratorio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

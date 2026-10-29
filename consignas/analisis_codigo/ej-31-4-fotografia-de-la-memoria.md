@@ -1,10 +1,10 @@
 
 
 # Fotografía de la Memoria
-> **ID:** `ej-31-4-fotografia-de-la-memoria`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-31-4-fotografia-de-la-memoria` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `analisis`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

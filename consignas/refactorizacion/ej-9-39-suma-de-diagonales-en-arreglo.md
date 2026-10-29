@@ -1,10 +1,10 @@
 
 
 # Suma de Diagonales en Arreglo 2D Plano
-> **ID:** `ej-9-39-suma-de-diagonales-en-arreglo`
- · **Tema:** `refactorizacion`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-9-39-suma-de-diagonales-en-arreglo` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `refactorizacion` / `matrices_2d`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:testing`, `dep:diseno_api`
 >

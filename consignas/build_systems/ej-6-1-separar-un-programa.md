@@ -1,10 +1,10 @@
 
 
 # Separar un programa
-> **ID:** `ej-6-1-separar-un-programa`
- · **Tema:** `build_systems`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-6-1-separar-un-programa` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `build_systems` / `pilas_y_colas`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`
 >

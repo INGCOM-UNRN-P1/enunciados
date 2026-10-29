@@ -1,10 +1,10 @@
 
 
 # Matriz Dinámica en Bloque Contiguo
-> **ID:** `ej-14-30-matriz-dinamica-en-bloque-cont`
- · **Tema:** `memoria_dinamica`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-14-30-matriz-dinamica-en-bloque-cont` · **Unidad:** 3 (Memoria Dinámica y Persistencia)
+ · **Tema:** `memoria_dinamica` / `matrices_2d`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:punteros`
 >

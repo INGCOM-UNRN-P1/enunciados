@@ -1,10 +1,10 @@
 
 
 # Arreglos con Capacidad
-> **ID:** `ej-18-6-arreglos-con-capacidad`
- · **Tema:** `estructuras`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-18-6-arreglos-con-capacidad` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `estructuras` / `registros`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:funciones`
 >

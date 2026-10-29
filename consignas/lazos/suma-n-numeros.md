@@ -1,10 +1,10 @@
 
 
 # Suma de N Números
-> **ID:** `suma-n-numeros`
- · **Tema:** `lazos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `suma-n-numeros` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `lazos` / `for`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`
 >

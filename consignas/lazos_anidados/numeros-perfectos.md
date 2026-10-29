@@ -1,10 +1,10 @@
 
 
 # Números Perfectos
-> **ID:** `numeros-perfectos`
- · **Tema:** `lazos_anidados`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `numeros-perfectos` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `lazos_anidados` / `lazos`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

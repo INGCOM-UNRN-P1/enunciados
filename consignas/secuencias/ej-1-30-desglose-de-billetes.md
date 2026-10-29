@@ -1,10 +1,10 @@
 
 
 # Desglose de Billetes
-> **ID:** `ej-1-30-desglose-de-billetes`
- · **Tema:** `secuencias`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-1-30-desglose-de-billetes` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `secuencias` / `fundamentos`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:lazos`
 >

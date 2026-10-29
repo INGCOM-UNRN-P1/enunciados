@@ -1,10 +1,10 @@
 
 
 # Lista Doblemente Enlazada con Inserción Ordenada
-> **ID:** `lista-doble-ordenada`
- · **Tema:** `estructuras_datos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `lista-doble-ordenada` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `estructuras_datos` / `listas_enlazadas`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`, `dep:memoria_dinamica`, `dep:recursividad`
 >

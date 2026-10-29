@@ -1,10 +1,10 @@
 
 
 # Implementación de Tipo Opaco Básico
-> **ID:** `ej-32-5-implementacion-de-tipo-opaco-b`
- · **Tema:** `diseno_api`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-32-5-implementacion-de-tipo-opaco-b` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `diseno_api` / `diseno`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:punteros`
 >

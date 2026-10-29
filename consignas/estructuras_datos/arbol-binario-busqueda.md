@@ -1,10 +1,10 @@
 
 
 # Árbol Binario de Búsqueda (BST) y Recorridos
-> **ID:** `arbol-binario-busqueda`
- · **Tema:** `estructuras_datos`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~45 min
+> **ID:** `arbol-binario-busqueda` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `estructuras_datos` / `arboles_binarios`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~45 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`, `dep:memoria_dinamica`, `dep:recursividad`
 >

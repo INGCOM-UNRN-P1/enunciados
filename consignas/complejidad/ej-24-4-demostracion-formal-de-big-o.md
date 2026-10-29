@@ -1,10 +1,10 @@
 
 
 # Demostración Formal de Big-O
-> **ID:** `ej-24-4-demostracion-formal-de-big-o`
- · **Tema:** `complejidad`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-24-4-demostracion-formal-de-big-o` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `complejidad` / `big_o`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:algoritmos_ordenamiento`, `dep:lazos_anidados`
 >

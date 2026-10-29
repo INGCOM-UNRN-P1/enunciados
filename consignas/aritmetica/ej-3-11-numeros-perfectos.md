@@ -1,10 +1,10 @@
 
 
 # Números Perfectos
-> **ID:** `ej-3-11-numeros-perfectos`
- · **Tema:** `aritmetica`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-3-11-numeros-perfectos` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `aritmetica` / `fundamentos`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`
 >

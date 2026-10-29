@@ -1,10 +1,10 @@
 
 
 # Trazado de Ejecución con Arrays Dinámicos
-> **ID:** `ej-31-6-trazado-de-ejecucion-con-array`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-31-6-trazado-de-ejecucion-con-array` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `dinamicos`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

@@ -1,10 +1,10 @@
 
 
 # Verificar si es potencia de dos
-> **ID:** `ej-27-6-b6-verificar-si-es-potencia-de`
- · **Tema:** `operaciones_bits`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-27-6-b6-verificar-si-es-potencia-de` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `operaciones_bits` / `operaciones_bits`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:aritmetica`
 >

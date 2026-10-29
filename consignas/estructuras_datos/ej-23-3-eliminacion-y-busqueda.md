@@ -1,10 +1,10 @@
 
 
 # Eliminación y Búsqueda
-> **ID:** `ej-23-3-eliminacion-y-busqueda`
- · **Tema:** `estructuras_datos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-23-3-eliminacion-y-busqueda` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `estructuras_datos` / `listas_enlazadas`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tad`, `dep:memoria_dinamica`, `dep:recursividad`
 >

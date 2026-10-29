@@ -1,10 +1,10 @@
 
 
 # Cortocircuito Lógico y Orden de Evaluación
-> **ID:** `ej-4-25-cortocircuito-logico-y-orden-d`
- · **Tema:** `testing`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-4-25-cortocircuito-logico-y-orden-d` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `registro_eventos`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

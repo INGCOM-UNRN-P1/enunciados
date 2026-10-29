@@ -1,10 +1,10 @@
 
 
 # Ordenamiento por Selección (Selection Sort)
-> **ID:** `ej-30-4-ordenamiento-por-seleccion-sel`
- · **Tema:** `algoritmos_ordenamiento`
- · **Bloom:** B4 (Analizar)
- · **Carga:** ~35 min
+> **ID:** `ej-30-4-ordenamiento-por-seleccion-sel` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `algoritmos_ordenamiento` / `ordenamiento_seleccion`
+ · **Bloom:** B4 (Analizar) · **Dificultad:** Avanzada
+ · **Carga:** ~35 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:arreglos`, `dep:lazos_anidados`, `dep:recursividad`
 >

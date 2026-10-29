@@ -1,10 +1,10 @@
 
 
 # Evaluador de Expresiones en Notación Polaca Inversa (RPN)
-> **ID:** `parser-evaluador-rpn`
- · **Tema:** `tad`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `parser-evaluador-rpn` · **Unidad:** 4 (Tipos Abstractos y Algorítmica)
+ · **Tema:** `tad` / `pilas_y_colas`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:estructuras`, `dep:punteros`, `dep:memoria_dinamica`
 >

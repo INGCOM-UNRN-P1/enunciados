@@ -1,10 +1,10 @@
 
 
 # Condición de aprobación
-> **ID:** `ej-4-1-condicion-de-aprobacion`
- · **Tema:** `estructuras_control`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-4-1-condicion-de-aprobacion` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `estructuras_control` / `control`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`, `dep:lazos`
 >

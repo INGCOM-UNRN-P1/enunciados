@@ -1,10 +1,10 @@
 
 
 # Comparación de Tiempos
-> **ID:** `ej-18-5-comparacion-de-tiempos`
- · **Tema:** `estructuras`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `ej-18-5-comparacion-de-tiempos` · **Unidad:** 2 (Tipos Compuestos y Direccionamiento)
+ · **Tema:** `estructuras` / `registros`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:tipos_datos`, `dep:funciones`
 >

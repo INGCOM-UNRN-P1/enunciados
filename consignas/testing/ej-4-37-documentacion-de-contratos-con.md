@@ -1,10 +1,10 @@
 
 
 # Documentación de Contratos con Doxygen
-> **ID:** `ej-4-37-documentacion-de-contratos-con`
- · **Tema:** `testing`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-4-37-documentacion-de-contratos-con` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

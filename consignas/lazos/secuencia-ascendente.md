@@ -1,10 +1,10 @@
 
 
 # Secuencia Ascendente
-> **ID:** `secuencia-ascendente`
- · **Tema:** `lazos`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `secuencia-ascendente` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `lazos` / `for`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:condicionales`
 >

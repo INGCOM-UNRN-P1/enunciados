@@ -1,10 +1,10 @@
 
 
 # Par o Impar
-> **ID:** `par-o-impar`
- · **Tema:** `condicionales`
- · **Bloom:** B3 (Aplicar)
- · **Carga:** ~25 min
+> **ID:** `par-o-impar` · **Unidad:** 1 (Fundamentos y Estructuras de Control)
+ · **Tema:** `condicionales` / `aritmetica`
+ · **Bloom:** B3 (Aplicar) · **Dificultad:** Intermedia
+ · **Carga:** ~25 min · **Tipo:** Practica Guiada
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:aritmetica`
 >

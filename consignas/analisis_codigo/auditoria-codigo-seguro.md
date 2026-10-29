@@ -1,10 +1,10 @@
 
 
 # Auditoría y Refactorización de Código Seguro (CWE-120)
-> **ID:** `auditoria-codigo-seguro`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `auditoria-codigo-seguro` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `seguridad`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

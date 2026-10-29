@@ -1,10 +1,10 @@
 
 
 # Red de Seguridad: Default en Switch
-> **ID:** `ej-4-40-red-de-seguridad-default-en-sw`
- · **Tema:** `testing`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-4-40-red-de-seguridad-default-en-sw` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >

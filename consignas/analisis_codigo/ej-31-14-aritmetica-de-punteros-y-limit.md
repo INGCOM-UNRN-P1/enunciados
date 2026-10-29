@@ -1,10 +1,10 @@
 
 
 # Aritmética de Punteros y Límites de Arreglos
-> **ID:** `ej-31-14-aritmetica-de-punteros-y-limit`
- · **Tema:** `analisis_codigo`
- · **Bloom:** B5 (Evaluar / Crear)
- · **Carga:** ~45 min
+> **ID:** `ej-31-14-aritmetica-de-punteros-y-limit` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `analisis_codigo` / `limites`
+ · **Bloom:** B5 (Evaluar / Crear) · **Dificultad:** Desafio
+ · **Carga:** ~45 min · **Tipo:** Desafio
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:memoria`, `dep:testing`
 >

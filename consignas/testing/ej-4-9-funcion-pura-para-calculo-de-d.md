@@ -1,10 +1,10 @@
 
 
 # Función pura para cálculo de descuento
-> **ID:** `ej-4-9-funcion-pura-para-calculo-de-d`
- · **Tema:** `testing`
- · **Bloom:** B1 (Recordar)
- · **Carga:** ~10 min
+> **ID:** `ej-4-9-funcion-pura-para-calculo-de-d` · **Unidad:** 5 (Ingeniería de Software y Calidad en C)
+ · **Tema:** `testing` / `aserciones_defensivas`
+ · **Bloom:** B1 (Recordar) · **Dificultad:** Inicial
+ · **Carga:** ~10 min · **Tipo:** Concepto
 >
 > **🏷️ Prerrequisitos temáticos (tags):** `dep:librerias`, `dep:funciones`
 >
