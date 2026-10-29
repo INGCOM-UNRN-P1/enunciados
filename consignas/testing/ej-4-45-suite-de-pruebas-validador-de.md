@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.45 - Suite de Pruebas: Validador de Fecha ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-suite-fechas
 Implementá una función pura `bool es_fecha_valida(int dia, int mes, int anio)` y
@@ -75,7 +73,6 @@ construí una suite completa de pruebas unitarias que cubra:
     las invoque a todas.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-suite-fechas
 :class: dropdown
@@ -140,12 +137,86 @@ void correr_pruebas_fechas(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-suite-fechas -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación es_bisiesto_aux
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool es_bisiesto_aux(int anio);
+
+/*
+ * Operación es_fecha_valida
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool es_fecha_valida(int dia, int mes, int anio);
+
+/*
+ * Operación test_fecha_31_dias
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_fecha_31_dias(void);
+
+/*
+ * Operación test_fecha_30_dias
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_fecha_30_dias(void);
+
+/*
+ * Operación test_febrero_bisiesto
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_febrero_bisiesto(void);
+
+/*
+ * Operación test_fecha_mes_invalido
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_fecha_mes_invalido(void);
+
+/*
+ * Operación correr_pruebas_fechas
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void correr_pruebas_fechas(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-45-suite-de-pruebas-validador-de.h`)

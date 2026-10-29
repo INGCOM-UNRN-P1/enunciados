@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.46 - Verificador de CUIT/CUIL con Módulo 11 ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-cuit-modulo11
 Refactorizá el siguiente cálculo del dígito verificador de un CUIT argentino de
@@ -65,13 +63,11 @@ Refactorizá el siguiente cálculo del dígito verificador de un CUIT argentino 
 ``` c
 int dv(int d[10]){int f[10]={5,4,3,2,7,6,5,4,3,2},s=0;for(int i=0;i<10;i++)s+=d[i]*f[i];int r=11-(s%11);if(r==11)return 0;if(r==10)return 9;return r;}
 ```
-<!-- c -->
 
 -   **[*plus ultra*]:** Aplicar estilo Allman y nombres descriptivos.
 -   **[*plus ultra*]:** Validar con `assert()` para CUITs conocidos.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-cuit-modulo11
 :class: dropdown
@@ -123,12 +119,57 @@ void test_cuit_verificador(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-cuit-modulo11 -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_digito_verificador_cuit
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int calcular_digito_verificador_cuit(const int primeros_10_digitos[10]);
+
+/*
+ * Operación test_cuit_verificador
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_cuit_verificador(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-46-verificador-de-cuitcuil-con-mo.h`)

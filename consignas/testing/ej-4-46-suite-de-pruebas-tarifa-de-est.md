@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.46 - Suite de Pruebas: Tarifa de Estacionamiento ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-suite-estacionamiento
 Una playa de estacionamiento cobra según las siguientes reglas:
@@ -74,7 +72,6 @@ diseñá su suite de pruebas exhaustiva.
     1440.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-suite-estacionamiento
 :class: dropdown
@@ -131,12 +128,72 @@ void test_estacionamiento_tope_maximo(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-suite-estacionamiento -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_estacionamiento
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+double calcular_estacionamiento(int minutos);
+
+/*
+ * Operación test_estacionamiento_primera_hora
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_estacionamiento_primera_hora(void);
+
+/*
+ * Operación test_estacionamiento_horas_adicionales
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_estacionamiento_horas_adicionales(void);
+
+/*
+ * Operación test_estacionamiento_descuento_larga_estadia
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_estacionamiento_descuento_larga_estadia(void);
+
+/*
+ * Operación test_estacionamiento_tope_maximo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_estacionamiento_tope_maximo(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-46-suite-de-pruebas-tarifa-de-est.h`)

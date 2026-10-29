@@ -53,10 +53,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-# Conversión de Temperatura
-
-## Ejercicio 5.9 - Conversión de Temperatura ⭐⭐☆☆☆
-
 Creá funciones para convertir temperaturas:
 - `celsius_a_fahrenheit`
 - `celsius_a_kelvin`
@@ -68,18 +64,49 @@ Creá funciones para convertir temperaturas:
 - Mostrá un menú en `main` para elegir conversión
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Modularizar las fórmulas asegurando que no haya operaciones de entrada/salida dentro de las funciones.
--   **[*plus ultra*]:** Escribir aserciones para verificar puntos clave (ej. 0 °C == 32 °F, 100 °C == 212 °F).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 (ejercicio_5_10)=
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Lógica de Conversión de Temperatura
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int resolver_ej_9(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-5-9-conversion-de-temperatura.h`)

@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 31.16 - Análisis Integral - Sistema de Gestión con Punteros ⭐⭐⭐☆☆
-
 :::{exercise} analisis_integral_punteros
 :label: analisis_integral_punteros
 
@@ -220,7 +218,6 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**:
 
@@ -243,7 +240,6 @@ int main(void)
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} analisis_integral_punteros -->
 
 :::{solution} analisis_integral_punteros
 :class: dropdown
@@ -370,7 +366,6 @@ if (lista->primero == NULL)
     lista->ultimo = nuevo; // Mantiene invariante 1
 }
 ```
-<!-- c -->
 
 **Eliminar último elemento:**
 ``` c
@@ -380,7 +375,6 @@ if (lista->primero == NULL)
     lista->ultimo = NULL; // Mantiene invariante 1
 }
 ```
-<!-- c -->
 
 **5. Gestión de Memoria - Ciclo de Vida:**
 
@@ -441,7 +435,6 @@ if (lista == NULL)
     return NULL; // ✅ PERO...
 // No inicializa campos si malloc falla parcialmente
 ```
-<!-- c -->
 
 ❌ **`lista_insertar_final` no verifica malloc de nuevo nodo:**
 Sí lo hace, está correcto.
@@ -454,7 +447,6 @@ if (!lista_insertar_final(nueva, actual->dato))
     return NULL;
 }
 ```
-<!-- c -->
 
 ❌ **`lista_aplicar` no maneja excepciones en callback:**
 Si el callback falla (ej. acceso inválido), no hay forma de recuperarse.
@@ -503,7 +495,6 @@ lista_error_t lista_insertar_final_v2(lista_t *lista, int dato)
     return LISTA_OK;
 }
 ```
-<!-- {code-block} c -->
 
 **7. Complejidad Temporal y Espacial:**
 
@@ -545,13 +536,87 @@ lista_error_t lista_insertar_final_v2(lista_t *lista, int dato)
 pero ineficiente para acceso aleatorio.
 
 :::
-<!-- {solution} analisis_integral_punteros -->
 
 ---
 
 Estos 5 ejercicios cubren conceptos avanzados de punteros incluyendo aliasing,
 punteros colgantes, aritmética de punteros, callbacks con punteros a funciones,
 y un análisis integral de un sistema completo con múltiples tipos de punteros.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación lista_insertar_final
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+bool lista_insertar_final(lista_t *lista, int dato);
+
+/*
+ * Operación lista_eliminar_primero
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+bool lista_eliminar_primero(lista_t *lista, int *dato);
+
+/*
+ * Operación lista_destruir
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void lista_destruir(lista_t *lista);
+
+/*
+ * Operación duplicar_dato
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void duplicar_dato(int *dato, void *extra);
+
+/*
+ * Operación es_mayor_que
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+bool es_mayor_que(int dato, void *extra);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Rastreá cada asignación dinámica (malloc/calloc) y asegurate de que exista un free correspondiente.
+- Comprobá que no se utilicen punteros después de haber sido liberados (dangling pointers).
+- Verificá la inicialización de todas las estructuras y sus campos antes de su primer uso.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-31-16-analisis-integral-sistema-de-g.h`)

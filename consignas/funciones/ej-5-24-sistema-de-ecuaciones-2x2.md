@@ -53,21 +53,8 @@ flowchart LR
 
 ## 📖 Consigna
 
-# Sistema de Ecuaciones 2x2
-
-## Ejercicio 5.24 - Sistema de Ecuaciones 2x2 ⭐⭐⭐⭐⭐
-
 Implementá funciones modulares para resolver y verificar sistemas de ecuaciones lineales 2×2 mediante la regla de Cramer:
 
-:::{hint} Lógica y Consideraciones
-    evitar fallos de segmentación.
-    punteros en lugar de indexación directa.
-
--   **[*plus ultra*]:** Modularizar el cálculo del determinante en una función auxiliar pura.
--   **[*plus ultra*]:** Escribir pruebas con assert() verificando sistemas con solución única y sistemas sin solución (det == 0).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 a₁x + b₁y = c₁
@@ -101,7 +88,6 @@ Implementá:
 - **Sin efectos laterales:** Evitá modificar variables globales
 
 :::
-<!-- {tip} Diseño de Funciones -->
 
 :::{note} Documentación
 
@@ -113,10 +99,49 @@ Cada función debe tener:
 - Postcondiciones (qué garantiza después de ejecutarse)
 
 :::
-<!-- {note} Documentación -->
 
 Estas consignas practican modularización, reutilización, paso de parámetros y
 diseño de interfaces de funciones.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Lógica de Sistema de Ecuaciones 2x2
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int resolver_ej_24(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-5-24-sistema-de-ecuaciones-2x2.h`)

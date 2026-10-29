@@ -1,5 +1,3 @@
-### Ejercicio 12.36 - Serialización JSON Simple ⭐⭐⭐⭐⭐
-
 Escribí y leé una estructura simple en formato JSON.
 
 **Orientación:**
@@ -9,15 +7,6 @@ Escribí y leé una estructura simple en formato JSON.
 - No necesita soportar anidamiento complejo
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 
@@ -40,7 +29,6 @@ if (fclose(fp) != 0)
     perror("Error al cerrar archivo");
 }
 ```
-<!-- {code-block} c -->
 
 **Verificar operaciones:**
 ```{code-block} c
@@ -61,10 +49,8 @@ if (fread(buffer, size, count, fp) != count)
     }
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {danger} Manejo de Errores Crítico -->
 
 :::{tip} Modos de Apertura
 
@@ -80,7 +66,6 @@ if (fread(buffer, size, count, fp) != count)
 Agregar `b` para binario: `"rb"`, `"wb"`, `"ab"`, etc.
 
 :::
-<!-- {tip} Modos de Apertura -->
 
 :::{note} Funciones Clave
 
@@ -108,7 +93,6 @@ Agregar `b` para binario: `"rb"`, `"wb"`, `"ab"`, etc.
 - `clearerr(fp)` - Limpia flags de error/EOF
 
 :::
-<!-- {note} Funciones Clave -->
 
 :::{warning} Errores Comunes
 
@@ -146,7 +130,6 @@ Agregar `b` para binario: `"rb"`, `"wb"`, `"ab"`, etc.
    ```
 
 :::
-<!-- {warning} Errores Comunes -->
 
 :::{tip} Patrones Útiles
 
@@ -158,7 +141,6 @@ while (fgets(linea, sizeof(linea), fp) != NULL)
     // Procesar linea
 }
 ```
-<!-- c -->
 
 **Leer hasta EOF:**
 ``` c
@@ -168,7 +150,6 @@ while ((c = fgetc(fp)) != EOF)
     // Procesar carácter
 }
 ```
-<!-- c -->
 
 **Tamaño de archivo:**
 ``` c
@@ -176,7 +157,6 @@ fseek(fp, 0, SEEK_END);
 long tamaño = ftell(fp);
 rewind(fp);
 ```
-<!-- c -->
 
 **Leer archivo completo en memoria:**
 ```{code-block} c
@@ -188,11 +168,55 @@ char *contenido = malloc(tam + 1);
 fread(contenido, 1, tam, fp);
 contenido[tam] = '\0';
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {tip} Patrones Útiles -->
 
 Estas consignas cubren operaciones de archivo desde básicas hasta avanzadas,
 tanto en modo texto como binario, preparando para manejo robusto de persistencia
 de datos.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Serialización JSON Simple
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_lizacion_json_simple(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+:::

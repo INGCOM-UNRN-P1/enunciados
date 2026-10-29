@@ -55,29 +55,16 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 21.51 - Strassen para matrices grandes ⭐⭐⭐☆☆
-
 Implementar el algoritmo de Strassen para multiplicación rápida de matrices
 grandes.
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 double **strassen(double **A, double **B, int n);
 ```
-<!-- c -->
 
 **Complejidad:** $O(n^{2.807})$ vs $O(n^3)$ del método tradicional.
-## Ejercicio 21.52 - Inicializar y Mostrar Matriz ⭐☆☆☆☆
 
 Creá una matriz 3×3, inicializala con valores del 1 al 9, y mostrala.
 
@@ -87,18 +74,8 @@ Creá una matriz 3×3, inicializala con valores del 1 al 9, y mostrala.
 - Lazos anidados para mostrar con formato
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.53 - Suma de Elementos ⭐☆☆☆☆
 
 Calculá la suma de todos los elementos de una matriz.
 
@@ -108,18 +85,8 @@ Calculá la suma de todos los elementos de una matriz.
 - `suma += matriz[i][j]`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.54 - Máximo y Mínimo ⭐⭐☆☆☆
 
 Encontrá el elemento mayor y menor de una matriz, junto con sus posiciones.
 
@@ -129,18 +96,8 @@ Encontrá el elemento mayor y menor de una matriz, junto con sus posiciones.
 - Guardá posiciones (i, j) cuando actualizás max/min
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.55 - Matriz Identidad ⭐⭐☆☆☆
 
 Generá una matriz identidad de tamaño N×N (1s en diagonal, 0s en el resto).
 
@@ -149,18 +106,8 @@ Generá una matriz identidad de tamaño N×N (1s en diagonal, 0s en el resto).
 - O con `if`: `matriz[i][j] = 1` si `i == j`, sino 0
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.56 - Transpuesta ⭐⭐⭐☆☆
 
 Calculá la transpuesta de una matriz (intercambiar filas por columnas).
 
@@ -171,18 +118,8 @@ Calculá la transpuesta de una matriz (intercambiar filas por columnas).
 - Creá nueva matriz para el resultado
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.57 - Diagonal Principal ⭐⭐☆☆☆
 
 Mostrá y sumá los elementos de la diagonal principal de una matriz cuadrada.
 
@@ -191,18 +128,8 @@ Mostrá y sumá los elementos de la diagonal principal de una matriz cuadrada.
 - Lazo de 0 a N-1: `suma += matriz[i][i]`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.58 - Diagonal Secundaria ⭐⭐☆☆☆
 
 Mostrá y sumá los elementos de la diagonal secundaria.
 
@@ -211,18 +138,8 @@ Mostrá y sumá los elementos de la diagonal secundaria.
 - O directamente: `matriz[i][N-1-i]` para i de 0 a N-1
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.59 - Matriz Simétrica ⭐⭐⭐☆☆
 
 Verificá si una matriz es simétrica (igual a su transpuesta).
 
@@ -232,18 +149,8 @@ Verificá si una matriz es simétrica (igual a su transpuesta).
 - Si encontrás diferencia, `return false` inmediatamente
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.60 - Suma de Matrices ⭐⭐⭐☆☆
 
 Sumá dos matrices del mismo tamaño.
 
@@ -253,18 +160,8 @@ Sumá dos matrices del mismo tamaño.
 - Creá matriz resultado
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.61 - Multiplicación por Escalar ⭐⭐⭐☆☆
 
 Multiplicá todos los elementos de una matriz por un escalar.
 
@@ -274,18 +171,8 @@ Multiplicá todos los elementos de una matriz por un escalar.
 - Podés modificar in-place o crear nueva matriz
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.62 - Buscar Elemento ⭐⭐⭐☆☆
 
 Buscá un valor en la matriz. Si lo encontrás, mostrá su posición (fila,
 columna).
@@ -296,18 +183,8 @@ columna).
 - Usá flag para `break` del lazo externo también
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.63 - Suma por Filas y Columnas ⭐⭐⭐☆☆
 
 Calculá la suma de cada fila y la suma de cada columna.
 
@@ -318,18 +195,8 @@ Calculá la suma de cada fila y la suma de cada columna.
 - Lazo por columnas: suma cada columna
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.64 - Borde de la Matriz ⭐⭐⭐☆☆
 
 Mostrá solo los elementos del borde de una matriz.
 
@@ -341,18 +208,8 @@ Mostrá solo los elementos del borde de una matriz.
 - Usá condición: `if (i == 0 || i == M-1 || j == 0 || j == N-1)`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.65 - Rotar Matriz 90 Grados ⭐⭐⭐⭐☆
 
 Rotá una matriz cuadrada 90° en sentido horario.
 
@@ -363,32 +220,13 @@ Rotá una matriz cuadrada 90° en sentido horario.
 - O directamente: `resultado[j][N-1-i] = matriz[i][j]`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.66 - Multiplicación de Matrices ⭐⭐⭐⭐⭐
 
 Multiplicá dos matrices (A de M×N y B de N×P, resultado M×P).
 
 **Algoritmo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 C[i][j] = suma de A[i][k] * B[k][j] para k = 0..N-1
@@ -402,21 +240,11 @@ C[i][j] = suma de A[i][k] * B[k][j] para k = 0..N-1
 - Verificá dimensiones compatibles (columnas de A = filas de B)
 
 ---
-## Ejercicio 21.67 - Matriz en Espiral ⭐⭐⭐⭐⭐
 
 Llenó una matriz en forma de espiral (desde afuera hacia adentro).
 
 **Ejemplo 4×4:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
  1  2  3  4
@@ -432,7 +260,6 @@ Llenó una matriz en forma de espiral (desde afuera hacia adentro).
 - Repetí hasta llenar todos los elementos
 
 ---
-## Ejercicio 21.68 - Sudoku - Validador de Fila ⭐⭐⭐⭐☆
 
 Verificá si una fila de un Sudoku es válida (números 1-9 sin repetir).
 
@@ -444,18 +271,8 @@ Verificá si una fila de un Sudoku es válida (números 1-9 sin repetir).
 - Al final, todos los 1-9 deben estar vistos
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.69 - Matriz Traspuesta In-Place ⭐⭐⭐⭐☆
 
 Transponé una matriz cuadrada sin usar matriz auxiliar completa.
 
@@ -466,18 +283,8 @@ Transponé una matriz cuadrada sin usar matriz auxiliar completa.
     - Intercambiá `matriz[i][j]` con `matriz[j][i]`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.70 - Matriz de Distancias ⭐⭐⭐⭐⭐
 
 Dadas N ciudades con coordenadas (x, y), calculá matriz de distancias entre
 todas.
@@ -489,18 +296,8 @@ todas.
 - Matriz es simétrica: `D[i][j] = D[j][i]`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.71 - Juego de la Vida (Conway) ⭐⭐⭐⭐⭐
 
 Implementá una generación del Juego de la Vida de Conway.
 
@@ -519,28 +316,95 @@ Implementá una generación del Juego de la Vida de Conway.
 - Cuidado con bordes
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 21.72 - s Adicionales ⭐⭐☆☆☆
 
-:::{hint} Lógica y Consideraciones
+### 📋 Contrato de las Funciones
 
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
+```c
+/*
+ * Procesa el flujo principal de Strassen para matrices grandes
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_ara_matrices_grandes(int val);
 
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
 :::
-<!-- {hint} Lógica y Consideraciones -->
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-21-51-strassen-para-matrices-grandes.h`)

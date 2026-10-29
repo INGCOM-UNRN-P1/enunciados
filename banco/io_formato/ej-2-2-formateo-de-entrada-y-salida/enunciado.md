@@ -1,5 +1,3 @@
-### Ejercicio 2.2 - Formateo de entrada y salida ⭐⭐☆☆☆
-
 :::{exercise}
 :label: entrada-1
 Pedí al usuario que ingrese su inicial de nombre, edad y calificación promedio,
@@ -11,7 +9,6 @@ y mostralos formateados en pantalla.
 -   **[*plus ultra*]:** Limpiar el buffer de entrada antes de leer caracteres individuales.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} entrada-1
 :class: dropdown
@@ -45,11 +42,8 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} entrada-1 -->
-## Ejercicio 2.3 - Par o Impar ⭐☆☆☆☆
 
 Determiná si un número entero es par o impar.
 
@@ -59,18 +53,8 @@ Determiná si un número entero es par o impar.
 - Considerá números negativos (funcionan igual)
 
 
-:::{hint} Lógica y Consideraciones
-    error e informar el resultado mediante parámetros de salida.
-    especificando precondiciones y postcondiciones.
-
--   **[*plus ultra*]:** Encapsular la verificación en una función bool es_par(int n).
--   **[*plus ultra*]:** Manejar correctamente el número 0 y valores enteros negativos.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.4 - Mayor de Tres Números ⭐⭐☆☆☆
 
 Leé tres números y determiná cuál es el mayor.
 
@@ -80,18 +64,8 @@ Leé tres números y determiná cuál es el mayor.
 - Considerá el caso de números iguales
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Encapsular la comparación en una función int mayor_de_tres(int a, int b, int c).
--   **[*plus ultra*]:** Manejar adecuadamente el caso en que dos o tres números sean iguales.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.5 - Año Bisiesto ⭐⭐☆☆☆
 
 Determiná si un año es bisiesto.
 
@@ -105,18 +79,8 @@ Determiná si un año es bisiesto.
 - Condición: `(año % 4 == 0 && año % 100 != 0) || (año % 400 == 0)`
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Encapsular la condición en una función bool es_bisiesto(int anio).
--   **[*plus ultra*]:** Validar que el año ingresado sea mayor que cero.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.6 - Calificación a Letra ⭐⭐☆☆☆
 
 Convertí una calificación numérica (0-100) a letra (A, B, C, D, F).
 
@@ -133,32 +97,13 @@ Convertí una calificación numérica (0-100) a letra (A, B, C, D, F).
 - Opcionalmente, usá `switch` dividiendo por 10
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Validar que la calificación numérica esté en el rango [0, 100].
--   **[*plus ultra*]:** Modularizar la conversión usando tanto if-else como una estructura switch dividiendo por 10.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.7 - Calculadora con Menú ⭐⭐⭐☆☆
 
 Implementá una calculadora que muestre un menú y ejecute la operación elegida.
 
 **Menú:**
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Implementar un lazo que mantenga la calculadora en ejecución hasta seleccionar la opción de salida.
--   **[*plus ultra*]:** Validar la división por cero con un mensaje de alerta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 1. Sumar
@@ -174,7 +119,6 @@ Implementá una calculadora que muestre un menú y ejecute la operación elegida
 - Permití múltiples operaciones (lazo)
 
 ---
-## Ejercicio 2.8 - Triángulo Válido ⭐⭐⭐☆☆
 
 Dados tres lados, determiná si forman un triángulo válido y qué tipo es
 (equilátero, isósceles, escaleno).
@@ -186,18 +130,8 @@ Dados tres lados, determiná si forman un triángulo válido y qué tipo es
 - Escaleno: todos diferentes
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar la desigualdad triangular y verificar si el triángulo es rectángulo mediante el teorema de Pitágoras.
--   **[*plus ultra*]:** Encapsular la clasificación en una función que retorne un código numérico descriptivo.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.9 - Mes del Año ⭐⭐⭐☆☆
 
 Dado un número de mes (1-12), mostrá su nombre y cantidad de días.
 
@@ -207,18 +141,8 @@ Dado un número de mes (1-12), mostrá su nombre y cantidad de días.
 - Manejá entradas inválidas (fuera de 1-12)
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Validar que el número de mes esté entre 1 y 12 mediante un caso default en switch.
--   **[*plus ultra*]:** Informar adicionalmente la estación del año correspondiente al mes ingresado.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.10 - Signo Zodiacal ⭐⭐⭐☆☆
 
 Dados día y mes de nacimiento, determiná el signo zodiacal.
 
@@ -228,18 +152,8 @@ Dados día y mes de nacimiento, determiná el signo zodiacal.
 - Validá fechas (día válido para cada mes)
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar que el día ingresado sea coherente con la cantidad de días que tiene el mes.
--   **[*plus ultra*]:** Encapsular la determinación del signo en una función modular.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.11 - Ordenar Tres Números ⭐⭐⭐☆☆
 
 Leé tres números y mostralos ordenados de menor a mayor.
 
@@ -250,18 +164,8 @@ Leé tres números y mostralos ordenados de menor a mayor.
 - Alternativa: usar comparaciones múltiples sin intercambio
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Implementar el ordenamiento de los tres números utilizando comparaciones e intercambios sin arreglos.
--   **[*plus ultra*]:** Modularizar la impresión de los valores ordenados.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.12 - Vocales y Consonantes ⭐⭐⭐☆☆
 
 Leé un carácter y determiná si es vocal, consonante, dígito u otro símbolo.
 
@@ -272,18 +176,8 @@ Leé un carácter y determiná si es vocal, consonante, dígito u otro símbolo.
 - Considerá mayúsculas y minúsculas
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar que el carácter ingresado sea una letra antes de clasificar entre vocal y consonante.
--   **[*plus ultra*]:** Tratar mayúsculas y minúsculas de forma homogénea convirtiendo con tolower().
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.13 - Ecuación de Primer Grado ⭐⭐⭐☆☆
 
 Resolvé ecuaciones de la forma ax + b = 0.
 
@@ -297,18 +191,8 @@ Resolvé ecuaciones de la forma ax + b = 0.
 - Mostrá mensajes descriptivos para cada caso
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Manejar con precisión los casos especiales de indeterminación (0x = 0) e inconsistencia (0x = b).
--   **[*plus ultra*]:** Formatear la raíz con dos cifras decimales si existe solución única.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.14 - Clasificación de IMC ⭐⭐⭐☆☆
 
 Calculá el IMC y clasificá según la categoría.
 
@@ -326,18 +210,8 @@ Calculá el IMC y clasificá según la categoría.
 - Validá que altura > 0
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar que peso y altura sean estrictamente positivos.
--   **[*plus ultra*]:** Modularizar la clasificación en una función pura que retorne la categoría.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.15 - Conversor de Calificaciones ⭐⭐⭐⭐☆
 
 Convertí entre diferentes sistemas de calificación: numérica (0-10), letra
 (A-F), porcentaje (0-100).
@@ -348,18 +222,8 @@ Convertí entre diferentes sistemas de calificación: numérica (0-10), letra
 - Validá rangos de entrada
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Validar que los valores ingresados se encuentren dentro del rango del sistema seleccionado.
--   **[*plus ultra*]:** Implementar un menú interactivo con lazo de repetición hasta salir.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.16 - Operaciones con Fechas ⭐⭐⭐⭐☆
 
 Dadas dos fechas (día, mes, año), determiná cuál es anterior.
 
@@ -369,18 +233,8 @@ Dadas dos fechas (día, mes, año), determiná cuál es anterior.
 - Considerá años bisiestos para febrero
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar la validez de ambas fechas considerando meses de 28, 30 y 31 días y años bisiestos.
--   **[*plus ultra*]:** Calcular la cantidad aproximada de días transcurridos entre ambas fechas.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.17 - Calculadora de Impuestos ⭐⭐⭐⭐☆
 
 Calculá impuesto a las ganancias según tramos.
 
@@ -396,18 +250,8 @@ Calculá impuesto a las ganancias según tramos.
 - Mostrá salario neto (bruto - impuesto)
 
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Validar que el salario bruto ingresado sea un valor no negativo.
--   **[*plus ultra*]:** Desglosar en pantalla el importe retenido en cada tramo impositivo.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.18 - Validador de Tarjeta de Crédito ⭐⭐⭐⭐☆
 
 Implementá el algoritmo de Luhn para validar números de tarjeta.
 
@@ -423,18 +267,8 @@ Implementá el algoritmo de Luhn para validar números de tarjeta.
 - Implementá sin arrays (solo con variables)
 
 
-:::{hint} Lógica y Consideraciones
-    filas (*row-major order*) para mejorar el uso de caché.
-    estrictamente dentro de los límites del contenedor.
-
--   **[*plus ultra*]:** Validar que el número ingresado contenga una cantidad de dígitos permitida (entre 13 y 16 dígitos).
--   **[*plus ultra*]:** Modularizar el cálculo de la suma ponderada en una función auxiliar pura.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.19 - Juego de Adivinanza ⭐⭐⭐⭐☆
 
 El programa elige un número aleatorio entre 1 y 100. El usuario adivina y recibe
 pistas ("muy alto", "muy bajo").
@@ -446,18 +280,8 @@ pistas ("muy alto", "muy bajo").
 - Usá lazo `while` hasta acertar o límite de intentos
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Limitar el número máximo de intentos a 7 y mostrar la cantidad de oportunidades restantes.
--   **[*plus ultra*]:** Llevar un registro del mejor puntaje (menor cantidad de intentos) si se juegan varias partidas.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.20 - Conversor de Números Romanos ⭐⭐⭐⭐⭐
 
 Convertí un número decimal (1-3999) a números romanos.
 
@@ -469,18 +293,8 @@ Convertí un número decimal (1-3999) a números romanos.
 - Usá múltiples `if` o `switch` por cada orden de magnitud
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar que el número decimal esté comprendido estrictamente entre 1 y 3999.
--   **[*plus ultra*]:** Modularizar la conversión procesando millares, centenas, decenas y unidades con funciones auxiliares.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.21 - Calculadora de Tiempo ⭐⭐⭐⭐⭐
 
 Realizá operaciones con tiempos en formato HH:MM:SS (sumar, restar, comparar).
 
@@ -496,32 +310,13 @@ Realizá operaciones con tiempos en formato HH:MM:SS (sumar, restar, comparar).
 - Validá formato de entrada
 
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Validar que los segundos y minutos de entrada estén en el rango [0, 59].
--   **[*plus ultra*]:** Manejar diferencias de tiempo negativas informando si el primer tiempo es menor que el segundo.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 2.22 - Sistema de Menú Multinivel ⭐⭐⭐⭐⭐
 
 Implementá un sistema de menús con submenús.
 
 **Estructura:**
 
-:::{hint} Lógica y Consideraciones
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Validar rigurosamente cada opción en los submenús con manejo de opciones inválidas.
--   **[*plus ultra*]:** Modularizar cada funcionalidad del menú en una función independiente.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 MENÚ PRINCIPAL
@@ -554,7 +349,6 @@ MENÚ PRINCIPAL
   `v`)
 
 :::
-<!-- {tip} Buenas Prácticas -->
 
 :::{note} Operadores Útiles
 
@@ -563,7 +357,93 @@ MENÚ PRINCIPAL
 - **Condicionales:** `if`, `else if`, `else` para bifurcar el flujo de ejecución
 
 :::
-<!-- {note} Operadores Útiles -->
 
 Estas consignas cubren estructuras de control, toma de decisiones, validación de
 datos y lógica condicional compleja.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Formateo de entrada y salida
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__de_entrada_y_salida(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Encapsular la verificación en una función bool es_par(int n).
+- Manejar correctamente el número 0 y valores enteros negativos.
+- Encapsular la comparación en una función int mayor_de_tres(int a, int b, int c).
+- Manejar adecuadamente el caso en que dos o tres números sean iguales.
+- Encapsular la condición en una función bool es_bisiesto(int anio).
+- Validar que el año ingresado sea mayor que cero.
+- Validar que la calificación numérica esté en el rango [0, 100].
+- Modularizar la conversión usando tanto if-else como una estructura switch dividiendo por 10.
+- Implementar un lazo que mantenga la calculadora en ejecución hasta seleccionar la opción de salida.
+- Validar la división por cero con un mensaje de alerta.
+- Validar la desigualdad triangular y verificar si el triángulo es rectángulo mediante el teorema de Pitágoras.
+- Encapsular la clasificación en una función que retorne un código numérico descriptivo.
+- Validar que el número de mes esté entre 1 y 12 mediante un caso default en switch.
+- Informar adicionalmente la estación del año correspondiente al mes ingresado.
+- Validar que el día ingresado sea coherente con la cantidad de días que tiene el mes.
+- Encapsular la determinación del signo en una función modular.
+- Implementar el ordenamiento de los tres números utilizando comparaciones e intercambios sin arreglos.
+- Modularizar la impresión de los valores ordenados.
+- Validar que el carácter ingresado sea una letra antes de clasificar entre vocal y consonante.
+- Tratar mayúsculas y minúsculas de forma homogénea convirtiendo con tolower().
+- Manejar con precisión los casos especiales de indeterminación (0x = 0) e inconsistencia (0x = b).
+- Formatear la raíz con dos cifras decimales si existe solución única.
+- Validar que peso y altura sean estrictamente positivos.
+- Modularizar la clasificación en una función pura que retorne la categoría.
+- Validar que los valores ingresados se encuentren dentro del rango del sistema seleccionado.
+- Implementar un menú interactivo con lazo de repetición hasta salir.
+- Validar la validez de ambas fechas considerando meses de 28, 30 y 31 días y años bisiestos.
+- Calcular la cantidad aproximada de días transcurridos entre ambas fechas.
+- Validar que el salario bruto ingresado sea un valor no negativo.
+- Desglosar en pantalla el importe retenido en cada tramo impositivo.
+- Validar que el número ingresado contenga una cantidad de dígitos permitida (entre 13 y 16 dígitos).
+- Modularizar el cálculo de la suma ponderada en una función auxiliar pura.
+- Limitar el número máximo de intentos a 7 y mostrar la cantidad de oportunidades restantes.
+- Llevar un registro del mejor puntaje (menor cantidad de intentos) si se juegan varias partidas.
+- Validar que el número decimal esté comprendido estrictamente entre 1 y 3999.
+- Modularizar la conversión procesando millares, centenas, decenas y unidades con funciones auxiliares.
+- Validar que los segundos y minutos de entrada estén en el rango [0, 59].
+- Manejar diferencias de tiempo negativas informando si el primer tiempo es menor que el segundo.
+- Validar rigurosamente cada opción en los submenús con manejo de opciones inválidas.
+- Modularizar cada funcionalidad del menú en una función independiente.
+- **Validación constante:** Verificá siempre que la entrada esté en el rango esperado
+- **Mensajes claros:** Informá al usuario qué salió mal y qué se espera
+- **Casos extremos:** Probá con valores mínimos, máximos, cero y negativos
+- **Claridad:** Usá nombres de variables descriptivos (`es_vocal` en lugar de `v`)
+:::

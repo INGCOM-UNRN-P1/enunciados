@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.24 - Detección de Código Muerto (Dead Code) ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-dead-code
 Analizá la siguiente función e identificá qué bloque de código es **código
@@ -83,7 +81,6 @@ int calcular_tarifa(int edad)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Simplificar la estructura lógica eliminando
     redundancias.
@@ -91,7 +88,6 @@ int calcular_tarifa(int edad)
     simplificada produce los mismos resultados.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-dead-code
 :class: dropdown
@@ -116,12 +112,50 @@ int calcular_tarifa(int edad)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-dead-code -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_tarifa
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int calcular_tarifa(int edad);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Buscá bloques de código inalcanzables ubicados después de sentencias return, break o goto incondicionales.
+- Identificá ramas condicionales cuyas condiciones sean tautologías o contradicciones constantes.
+- Eliminá funciones o variables declaradas que nunca son referenciadas en el programa.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-24-deteccion-de-codigo-muerto-dea.h`)

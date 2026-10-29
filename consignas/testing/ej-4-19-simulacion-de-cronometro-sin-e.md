@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.19 - Simulación de cronómetro sin estado global ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-cronometro-puro
 Diseñá funciones para manipular el tiempo acumulado en segundos representándolo
@@ -72,7 +70,6 @@ Escribí las pruebas unitarias que validen avances sucesivos.
 -   **[*plus ultra*]:** Probar el avance cruzando la frontera de 60 segundos.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-cronometro-puro
 :class: dropdown
@@ -115,12 +112,78 @@ void test_cronometro_avance(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-cronometro-puro -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación tiempo_avanzar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int tiempo_avanzar(int tiempo_actual, int segundos_delta);
+
+/*
+ * Operación tiempo_reiniciar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int tiempo_reiniciar(void);
+
+/*
+ * Operación tiempo_obtener_minutos
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int tiempo_obtener_minutos(int tiempo_total);
+
+/*
+ * Operación tiempo_obtener_segundos
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int tiempo_obtener_segundos(int tiempo_total);
+
+/*
+ * Operación test_cronometro_avance
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_cronometro_avance(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-19-simulacion-de-cronometro-sin-e.h`)

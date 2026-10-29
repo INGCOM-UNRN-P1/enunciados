@@ -1,5 +1,3 @@
-### Ejercicio 9.35 - Conteo de Vocales con Cascada Repetitiva ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-conteo-vocales
 El siguiente código cuenta vocales en un arreglo de caracteres pero repite
@@ -8,7 +6,6 @@ condiciones `if` de manera poco idiomática:
 ``` c
 int v(char a[], int n){int c=0;for(int i=0;i<n;i++){char x=a[i];if(x=='a'||x=='e'||x=='i'||x=='o'||x=='u'||x=='A'||x=='E'||x=='I'||x=='O'||x=='U')c++;}return c;}
 ```
-<!-- c -->
 
 -   **[*plus ultra*]:** Modularizar en una función auxiliar pura `bool
     es_vocal(char c)` usando `switch` o `tolower()`.
@@ -16,7 +13,6 @@ int v(char a[], int n){int c=0;for(int i=0;i<n;i++){char x=a[i];if(x=='a'||x=='e
     `assert()`.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-conteo-vocales
 :class: dropdown
@@ -69,9 +65,61 @@ void test_conteo_vocales(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-conteo-vocales -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación es_vocal
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool es_vocal(char caracter);
+
+/*
+ * Operación contar_vocales_secuencia
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int contar_vocales_secuencia(const char caracteres[], int longitud);
+
+/*
+ * Operación test_conteo_vocales
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_conteo_vocales(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

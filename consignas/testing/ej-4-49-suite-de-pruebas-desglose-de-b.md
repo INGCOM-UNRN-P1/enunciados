@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.49 - Suite de Pruebas: Desglose de Billetes ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-suite-billetes
 Implementá una función pura que calcule la cantidad mínima de billetes de $1000,
@@ -74,7 +72,6 @@ Diseñá la suite de pruebas unitarias cubriendo:
     b_{1000} + 500 \cdot b_{500} + 200 \cdot b_{200} + 100 \cdot b_{100}$.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-suite-billetes
 :class: dropdown
@@ -118,12 +115,65 @@ void test_desglose_monto_invalido(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-suite-billetes -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación desglosar_monto
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+bool desglosar_monto(int monto, int *b1000, int *b500, int *b200, int *b100);
+
+/*
+ * Operación test_desglose_combinado
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_desglose_combinado(void);
+
+/*
+ * Operación test_desglose_monto_invalido
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_desglose_monto_invalido(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-49-suite-de-pruebas-desglose-de-b.h`)

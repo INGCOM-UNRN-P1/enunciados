@@ -1,20 +1,9 @@
-### Ejercicio 11.3 - b.3 - ¿Es un número válido? ⭐⭐☆☆☆
-
 #### Descripción
 Desarrollar una función que verifique si una cadena de texto representa un
 número de punto flotante válido. La validación debe seguir un conjunto de reglas
 específicas.
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 :::{tip} Lógica y Consideraciones
 
@@ -32,7 +21,6 @@ específicas.
         correcta).
 
 :::
-<!-- {tip} Lógica y Consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -69,7 +57,61 @@ INICIO
 FIN FUNCION
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de ¿Es un número válido?
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__es_un_numero_valido(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+4. **Terminación nula:** Asegurar que todas las cadenas de texto conserven el terminador nulo `\0` dentro de los límites del buffer.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- **Reglas de Validación:**
+- Puede tener un signo opcional (`+` o `-`) únicamente al principio.
+- Debe contener al menos un dígito.
+- Puede contener como máximo un punto decimal (`.`).
+- Todos los demás caracteres deben ser dígitos (`0`-`9`).
+- **Proceso:**
+- Recorrer la cadena carácter por carácter.
+- Usar banderas (variables booleanas) para llevar un registro de si ya se encontró un punto decimal.
+- Manejar el signo solo en la primera posición.
+- Verificar que cada carácter sea un dígito o un punto (en la posición correcta).
+:::

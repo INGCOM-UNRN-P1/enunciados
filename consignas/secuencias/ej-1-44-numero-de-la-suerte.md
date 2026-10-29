@@ -51,22 +51,10 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 1.44 - Número de la Suerte ⭐⭐☆☆☆
-
-
 Un número de la suerte es un entero con una cantidad par de dígitos, donde la
 suma de los dígitos de la primera mitad es igual a la suma de los dígitos de la
 segunda mitad. El programa debe verificar si un número dado es de la suerte.
 
-:::{hint} Lógica y Consideraciones
--   **Entrada:** Leer un número entero.
--   **Proceso:**
-
--   **[*plus ultra*]:** Validar que la fecha contenga valores válidos de día, mes y año.
--   **[*plus ultra*]:** Modularizar la suma sucesiva de dígitos en una función auxiliar pura.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -106,23 +94,13 @@ INICIO
 FIN
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
-## Ejercicio 1.45 - Hola Mundo Personalizado ⭐☆☆☆☆
 
 Escribí un programa que solicite tu nombre y te salude personalmente.
 
 **Ejemplo de ejecución:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el nombre ingresado contenga caracteres legibles y no esté vacío.
--   **[*plus ultra*]:** Dar formato especial a la salida con marcos en la terminal.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Ingresá tu nombre: Juan
@@ -135,20 +113,12 @@ Ingresá tu nombre: Juan
 - Recordá incluir `<stdio.h>`
 
 ---
-## Ejercicio 1.46 - Calculadora Simple ⭐⭐☆☆☆
 
 Escribí un programa que lea dos números enteros y muestre su suma, resta,
 producto y división.
 
 **Ejemplo de ejecución:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el segundo número no sea cero antes de calcular el cociente.
--   **[*plus ultra*]:** Modularizar cada operación aritmética en su propia función.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Primer número: 10
@@ -166,7 +136,6 @@ División: 3.33
 - Usá `%.2f` para mostrar dos decimales
 
 ---
-## Ejercicio 1.47 - Conversor de Temperatura ⭐⭐☆☆☆
 
 Creá un programa que convierta temperatura de Celsius a Fahrenheit y Kelvin.
 
@@ -180,16 +149,8 @@ Creá un programa que convierta temperatura de Celsius a Fahrenheit y Kelvin.
 - Mostrá resultados con dos decimales
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que las temperaturas no estén por debajo del cero absoluto.
--   **[*plus ultra*]:** Modularizar las fórmulas en funciones con contratos y pruebas unitarias.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.48 - Área y Perímetro ⭐⭐☆☆☆
 
 Escribí un programa que calcule el área y perímetro de un rectángulo dados su
 ancho y alto.
@@ -201,16 +162,8 @@ ancho y alto.
 - Verificá que ancho y alto sean positivos
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que ancho y alto sean positivos antes de calcular.
--   **[*plus ultra*]:** Modularizar el cálculo en funciones independientes para área y perímetro.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.49 - Promedio de Tres Números ⭐⭐☆☆☆
 
 Calculá el promedio de tres números decimales ingresados por el usuario.
 
@@ -220,29 +173,14 @@ Calculá el promedio de tres números decimales ingresados por el usuario.
 - Mostrá el resultado con dos decimales
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar los datos ingresados verificando el retorno de scanf.
--   **[*plus ultra*]:** Modularizar el promedio en una función double calcular_promedio(double a, double b, double c).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.50 - Intercambio de Variables ⭐⭐☆☆☆
 
 Leé dos números enteros y mostralos intercambiados (sin usar una tercera
 variable).
 
 **Ejemplo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Implementar una función que reciba dos variables y muestre sus valores antes y después de operar.
--   **[*plus ultra*]:** Verificar que el intercambio funcione correctamente para números negativos y cero.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Ingresá a: 5
@@ -260,7 +198,6 @@ b = 5
 - Verificá el resultado imprimiendo antes y después del intercambio
 
 ---
-## Ejercicio 1.51 - Conversión de Unidades ⭐⭐☆☆☆
 
 Convertí una distancia en metros a kilómetros, centímetros y milímetros.
 
@@ -270,16 +207,8 @@ Convertí una distancia en metros a kilómetros, centímetros y milímetros.
 - Mostrá todas las conversiones
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Modularizar cada conversión en funciones puras independientes.
--   **[*plus ultra*]:** Formatear las unidades en una tabla comparativa alineada.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.52 - Cálculo de IMC ⭐⭐⭐☆☆
 
 Calculá el Índice de Masa Corporal (IMC) dados peso (kg) y altura (m).
 
@@ -291,29 +220,14 @@ Calculá el Índice de Masa Corporal (IMC) dados peso (kg) y altura (m).
 - Opcionalmente, mostrá la categoría (bajo peso, normal, sobrepeso)
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que peso y altura sean mayores a cero y clasificar según la tabla oficial de la OMS.
--   **[*plus ultra*]:** Modularizar el cálculo en una función libre de operaciones de E/S.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.53 - Cantidad de Billetes ⭐⭐⭐☆☆
 
 Dado un monto en pesos, calculá cuántos billetes de cada denominación (1000,
 500, 200, 100, 50, 20, 10) se necesitan.
 
 **Ejemplo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el monto sea un número entero no negativo.
--   **[*plus ultra*]:** Permitir configurar las denominaciones de billetes en orden decreciente.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Monto: 1780
@@ -332,19 +246,11 @@ Monto: 1780
 - Restá el valor usado del monto
 
 ---
-## Ejercicio 1.54 - Segundos a Horas, Minutos y Segundos ⭐⭐⭐☆☆
 
 Convertí una cantidad de segundos a formato HH:MM:SS.
 
 **Ejemplo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que la cantidad de segundos no sea negativa.
--   **[*plus ultra*]:** Permitir incluir días si los segundos superan las 24 horas.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Segundos: 3665
@@ -358,19 +264,11 @@ Resultado: 1:01:05
 - Mostrá con formato `printf("%d:%02d:%02d", h, m, s)`
 
 ---
-## Ejercicio 1.55 - Dígitos de un Número ⭐⭐⭐☆☆
 
 Leé un número de tres dígitos y mostrá cada dígito por separado.
 
 **Ejemplo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el número ingresado esté exactamente en el rango [100, 999].
--   **[*plus ultra*]:** Extender el algoritmo para números de cantidad variable de dígitos usando un lazo.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Número: 457
@@ -385,19 +283,11 @@ Unidades: 7
 - Unidades = numero % 10
 
 ---
-## Ejercicio 1.56 - Precio con Descuento ⭐⭐⭐☆☆
 
 Calculá el precio final de un producto aplicando un descuento porcentual.
 
 **Ejemplo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el porcentaje de descuento esté en el rango [0, 100].
--   **[*plus ultra*]:** Mostrar el desglose del ahorro total obtenido junto con el precio final.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Precio original: 1000
@@ -411,7 +301,6 @@ Precio final: 850.00
 - Mostrá ambos valores
 
 ---
-## Ejercicio 1.57 - División Entera y Resto ⭐⭐☆☆☆
 
 Leé dos números enteros `dividendo` y `divisor`. Mostrá el cociente entero, el
 resto de la división (módulo) y el resultado de la división real (con decimales).
@@ -421,16 +310,8 @@ resto de la división (módulo) y el resultado de la división real (con decimal
 - Usá `/` para la división entera y `%` para el resto
 - Convertí uno de los operandos a `double` mediante `(double)` para obtener el cociente con decimales
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el divisor sea distinto de cero informando un mensaje de error descriptivo por consola.
--   **[*plus ultra*]:** Modularizar el cálculo en una función pura que retorne el cociente y verifique la validez matemática.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.58 - Conversión de Base ⭐⭐⭐⭐☆
 
 Convertí un número decimal a binario, octal y hexadecimal.
 
@@ -440,16 +321,8 @@ Convertí un número decimal a binario, octal y hexadecimal.
 - Opcionalmente, implementá conversión manual con divisiones sucesivas
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el número decimal ingresado sea no negativo.
--   **[*plus ultra*]:** Modularizar la conversión a binario mediante divisiones sucesivas por 2 en un lazo.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.59 - Área de Triángulo (Herón) ⭐⭐⭐⭐☆
 
 Calculá el área de un triángulo usando la fórmula de Herón dados los tres lados.
 
@@ -463,16 +336,8 @@ Calculá el área de un triángulo usando la fórmula de Herón dados los tres l
 - Compilá con `-lm` para enlazar la biblioteca matemática
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar la desigualdad triangular antes de aplicar la raíz cuadrada.
--   **[*plus ultra*]:** Modularizar el cálculo del semiperímetro y del área en funciones separadas.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.60 - Ecuación Cuadrática ⭐⭐⭐⭐☆
 
 Resolvé una ecuación cuadrática ax² + bx + c = 0, mostrando las raíces reales si
 existen.
@@ -485,16 +350,8 @@ existen.
 - Usá `sqrt()` de `<math.h>`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Manejar los tres casos del discriminante (dos raíces reales, una raíz doble, raíces complejas).
--   **[*plus ultra*]:** Validar que el coeficiente principal a no sea cero (en cuyo caso es una ecuación lineal).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.61 - Interés Compuesto ⭐⭐⭐⭐☆
 
 Calculá el monto final de una inversión con interés compuesto.
 
@@ -512,28 +369,13 @@ Donde:
 - Compilá con `-lm`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que el capital, tasa de interés, frecuencia y tiempo sean positivos.
--   **[*plus ultra*]:** Mostrar una tabla período por período con la evolución del capital acumulado.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.62 - Conversión RGB a Hexadecimal ⭐⭐⭐⭐☆
 
 Convertí un color RGB (rojo, verde, azul) a su representación hexadecimal.
 
 **Ejemplo:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que cada componente RGB esté en el rango [0, 255].
--   **[*plus ultra*]:** Formatear la salida con ceros a la izquierda para asegurar siempre 6 dígitos hexadecimales (#RRGGBB).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Rojo (0-255): 255
@@ -548,7 +390,6 @@ Hexadecimal: #FF7F50
 - Combiná los tres valores en formato #RRGGBB
 
 ---
-## Ejercicio 1.63 - Cálculo de Potencia (sin pow) ⭐⭐⭐⭐⭐
 
 Calculá base^exponente usando solo multiplicaciones (exponente entero positivo).
 
@@ -560,16 +401,8 @@ Calculá base^exponente usando solo multiplicaciones (exponente entero positivo)
   repetidas en línea
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Manejar el caso especial de exponente 0 (resultado 1) y base 0 con exponente positivo.
--   **[*plus ultra*]:** Extender la función para aceptar exponentes negativos retornando un double.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 1.64 - Calculadora Científica Básica ⭐⭐⭐⭐⭐
 
 Creá una calculadora que realice operaciones avanzadas: potencia, raíz cuadrada,
 seno, coseno, tangente, logaritmo.
@@ -584,13 +417,6 @@ seno, coseno, tangente, logaritmo.
 - Compilá con `-lm`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar operaciones inválidas como división por cero, logaritmo de no positivos o raíz de negativos.
--   **[*plus ultra*]:** Implementar un menú con lazo que permita realizar cálculos consecutivos hasta salir.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 
@@ -607,7 +433,6 @@ seno, coseno, tangente, logaritmo.
 - **Testing:** Probá con diferentes entradas, incluyendo casos extremos
 
 :::
-<!-- {tip} Consejos Generales -->
 
 :::{note} Compilación con Matemáticas
 
@@ -615,15 +440,105 @@ Para ejercicios que usan `<math.h>`, compilá con:
 ``` bash
 gcc -Wall -Wextra -std=c99 programa.c -o programa -lm
 ```
-<!-- bash -->
 El flag `-lm` enlaza la biblioteca matemática.
 
 :::
-<!-- {note} Compilación con Matemáticas -->
 
 Estas consignas cubren los conceptos fundamentales del Apunte 1: variables,
 tipos de datos, operadores aritméticos, relacionales, lógicos, entrada/salida, y uso básico de
 bibliotecas estándar.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Número de la Suerte
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__numero_de_la_suerte(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Entrada:** Leer un número entero.
+- **Proceso:**
+- Validar que la fecha contenga valores válidos de día, mes y año.
+- Modularizar la suma sucesiva de dígitos en una función auxiliar pura.
+- Validar que el nombre ingresado contenga caracteres legibles y no esté vacío.
+- Dar formato especial a la salida con marcos en la terminal.
+- Validar que el segundo número no sea cero antes de calcular el cociente.
+- Modularizar cada operación aritmética en su propia función.
+- Validar que las temperaturas no estén por debajo del cero absoluto.
+- Modularizar las fórmulas en funciones con contratos y pruebas unitarias.
+- Validar que ancho y alto sean positivos antes de calcular.
+- Modularizar el cálculo en funciones independientes para área y perímetro.
+- Validar los datos ingresados verificando el retorno de scanf.
+- Modularizar el promedio en una función double calcular_promedio(double a, double b, double c).
+- Implementar una función que reciba dos variables y muestre sus valores antes y después de operar.
+- Verificar que el intercambio funcione correctamente para números negativos y cero.
+- Modularizar cada conversión en funciones puras independientes.
+- Formatear las unidades en una tabla comparativa alineada.
+- Validar que peso y altura sean mayores a cero y clasificar según la tabla oficial de la OMS.
+- Modularizar el cálculo en una función libre de operaciones de E/S.
+- Validar que el monto sea un número entero no negativo.
+- Permitir configurar las denominaciones de billetes en orden decreciente.
+- Validar que la cantidad de segundos no sea negativa.
+- Permitir incluir días si los segundos superan las 24 horas.
+- Validar que el número ingresado esté exactamente en el rango [100, 999].
+- Extender el algoritmo para números de cantidad variable de dígitos usando un lazo.
+- Validar que el porcentaje de descuento esté en el rango [0, 100].
+- Mostrar el desglose del ahorro total obtenido junto con el precio final.
+- Validar que el divisor sea distinto de cero informando un mensaje de error descriptivo por consola.
+- Modularizar el cálculo en una función pura que retorne el cociente y verifique la validez matemática.
+- Validar que el número decimal ingresado sea no negativo.
+- Modularizar la conversión a binario mediante divisiones sucesivas por 2 en un lazo.
+- Validar la desigualdad triangular antes de aplicar la raíz cuadrada.
+- Modularizar el cálculo del semiperímetro y del área en funciones separadas.
+- Manejar los tres casos del discriminante (dos raíces reales, una raíz doble, raíces complejas).
+- Validar que el coeficiente principal a no sea cero (en cuyo caso es una ecuación lineal).
+- Validar que el capital, tasa de interés, frecuencia y tiempo sean positivos.
+- Mostrar una tabla período por período con la evolución del capital acumulado.
+- Validar que cada componente RGB esté en el rango [0, 255].
+- Formatear la salida con ceros a la izquierda para asegurar siempre 6 dígitos hexadecimales (#RRGGBB).
+- Manejar el caso especial de exponente 0 (resultado 1) y base 0 con exponente positivo.
+- Extender la función para aceptar exponentes negativos retornando un double.
+- Validar operaciones inválidas como división por cero, logaritmo de no positivos o raíz de negativos.
+- Implementar un menú con lazo que permita realizar cálculos consecutivos hasta salir.
+- **Validación:** Siempre verificá entradas inválidas (divisiones por cero, valores fuera de rango)
+- **Formato:** Usá `printf()` con especificadores apropiados (`%d`, `%f`, `%c`, etc.)
+- **Constantes:** Definí valores fijos con `#define` o `const`
+- **Comentarios:** Documentá qué hace cada sección del código
+- **Testing:** Probá con diferentes entradas, incluyendo casos extremos
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-1-44-numero-de-la-suerte.h`)

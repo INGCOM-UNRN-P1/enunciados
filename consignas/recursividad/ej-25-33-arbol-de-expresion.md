@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 25.33 - Árbol de Expresión ⭐⭐⭐⭐⭐
-
 Evaluá una expresión matemática representada como árbol binario.
 
 **Orientación:**
@@ -65,15 +63,6 @@ Evaluá una expresión matemática representada como árbol binario.
 - Evaluación postorden: evaluar izquierdo, derecho, aplicar operador
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 
@@ -100,10 +89,8 @@ int funcion_recursiva(parametros)
     return combinar(procesar_actual, funcion_recursiva(problema_mas_pequeno));
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {tip} Anatomía de una Función Recursiva -->
 
 :::{warning} Peligros de la Recursión
 
@@ -125,7 +112,6 @@ int funcion_recursiva(parametros)
    - Usá prints para ver qué está pasando
 
 :::
-<!-- {warning} Peligros de la Recursión -->
 
 :::{note} Tipos de Recursión
 
@@ -138,7 +124,6 @@ int suma(int n)
     return n + suma(n - 1); // Una llamada recursiva
 }
 ```
-<!-- c -->
 
 **Recursión Múltiple:**
 ``` c
@@ -149,7 +134,6 @@ int fibonacci(int n)
     return fibonacci(n - 1) + fibonacci(n - 2); // Dos llamadas
 }
 ```
-<!-- c -->
 
 **Recursión de Cola (Tail Recursion):**
 ``` c
@@ -161,7 +145,6 @@ int suma_tail(int n, int acumulador)
 }
 // Puede optimizarse a lazo por el compilador
 ```
-<!-- c -->
 
 **Recursión Mutua:**
 ```{code-block} c
@@ -181,10 +164,8 @@ bool es_impar(int n)
     return es_par(n - 1);
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {note} Tipos de Recursión -->
 
 :::{tip} Divide y Conquista
 
@@ -202,7 +183,6 @@ Patrón común en recursión:
 **Complejidad típica:** O(n log n) para n elementos
 
 :::
-<!-- {tip} Divide y Conquista -->
 
 :::{note} Recursión vs Iteración
 
@@ -224,7 +204,6 @@ Patrón común en recursión:
 - Problema naturalmente iterativo
 
 :::
-<!-- {note} Recursión vs Iteración -->
 
 :::{tip} Optimización con Memoización
 
@@ -248,16 +227,68 @@ int funcion(int n)
     return memo[n];
 }
 ```
-<!-- {code-block} c -->
 
 **Ventaja:** Evita recalcular subproblemas
 **Ejemplo:** Fibonacci de O(2^n) a O(n)
 
 :::
-<!-- {tip} Optimización con Memoización -->
 
 Estas consignas cubren desde recursión básica hasta algoritmos avanzados de
 backtracking y divide y conquista, desarrollando pensamiento recursivo esencial.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Árbol de Expresión
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_3_arbol_de_expresion(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- **Caso(s) Base:** Condición de terminación
+- **Caso Recursivo:** Llamada a sí misma con problema más pequeño
+- **Convergencia:** Cada llamada debe acercar al caso base ```{code-block} c :linenos: int funcion_recursiva(parametros) { // 1. Caso base if (condicion_terminacion) { return valor_base; } // 2. Caso recursivo // Procesar actual // Llamada recursiva con problema reducido return combinar(procesar_actual, funcion_recursiva(problema_mas_pequeno)); } ``` <!-- {code-block} c -->
+- **Divide:** Partir problema en subproblemas
+- **Conquista:** Resolver subproblemas recursivamente
+- **Combina:** Unir soluciones de subproblemas **Ejemplos:**
+- MergeSort: dividir array, ordenar mitades, fusionar
+- QuickSort: particionar, ordenar particiones
+- Búsqueda binaria: dividir rango, buscar en mitad apropiada **Complejidad típica:** O(n log n) para n elementos
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-25-33-arbol-de-expresion.h`)

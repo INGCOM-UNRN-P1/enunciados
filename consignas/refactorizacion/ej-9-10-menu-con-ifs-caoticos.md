@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.10 - Menú con Ifs Caóticos ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-menu-ifs
 Refactorizá la siguiente selección de opciones a una estructura `switch` clara
@@ -81,14 +79,12 @@ double operacion(int op, double a, double b)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Manejar el error de división por cero y opción inválida
     mediante un puntero booleano `bool *ok`.
 -   **[*plus ultra*]:** Definir un `enum` con los códigos de operación.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-menu-ifs
 :class: dropdown
@@ -144,12 +140,50 @@ void test_operaciones(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-menu-ifs -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación operacion
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+double operacion(int op, double a, double b);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-10-menu-con-ifs-caoticos.h`)

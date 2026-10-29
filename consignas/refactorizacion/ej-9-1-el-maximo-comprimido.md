@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.1 - El Máximo Comprimido ⭐☆☆☆☆
-
 :::{exercise}
 :label: ej-ref-maximo-comprimido
 Analizá y refactorizá la siguiente función que utiliza el operador ternario
@@ -65,7 +63,6 @@ prohibido y nombres crípticos:
 ``` c
 int f(int a,int b){return(a>b)?a:b;}
 ```
-<!-- c -->
 
 -   **[*plus ultra*]:** Implementar `int obtener_mayor(int primer_numero, int
     segundo_numero)` con estilo Allman y `if-else`.
@@ -73,7 +70,6 @@ int f(int a,int b){return(a>b)?a:b;}
     positivos, negativos e iguales.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-maximo-comprimido
 :class: dropdown
@@ -110,12 +106,57 @@ void test_obtener_mayor(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-maximo-comprimido -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación obtener_mayor
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int obtener_mayor(int primer_numero, int segundo_numero);
+
+/*
+ * Operación test_obtener_mayor
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_obtener_mayor(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-1-el-maximo-comprimido.h`)

@@ -1,5 +1,3 @@
-### Ejercicio 9.8 - Cilindro con Número Mágico ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-cilindro-magico
 Refactorizá la siguiente función que calcula el volumen de un cilindro
@@ -8,13 +6,11 @@ eliminando la constante mágica y aplicando contratos:
 ``` c
 double v(double r,double h){return 3.14159265*r*r*h;}
 ```
-<!-- c -->
 
 -   **[*plus ultra*]:** Definir `#define CONSTANTE_PI 3.141592653589793`.
 -   **[*plus ultra*]:** Validar que radio y altura sean mayores a cero.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-cilindro-magico
 :class: dropdown
@@ -43,11 +39,54 @@ void test_volumen_cilindro(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-cilindro-magico -->
 
 ---
 
-## 2. Control de Flujo Espagueti y Anidaciones Profundas
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_volumen_cilindro
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+double calcular_volumen_cilindro(double radio, double altura);
+
+/*
+ * Operación test_volumen_cilindro
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_volumen_cilindro(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

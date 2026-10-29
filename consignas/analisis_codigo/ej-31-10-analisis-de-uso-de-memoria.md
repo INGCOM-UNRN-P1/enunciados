@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 31.10 - Análisis de Uso de Memoria ⭐⭐☆☆☆
-
 :::{exercise} eficiencia_2
 :label: eficiencia_2
 
@@ -116,7 +114,6 @@ long factorial_memoizado(int n)
     return cache[n];
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**: Analizá cada implementación en términos de:
 1. Uso de memoria de la pila
@@ -130,7 +127,6 @@ long factorial_memoizado(int n)
     leaks*) mediante Valgrind o AddressSanitizer.
 
 :::
-<!-- {exercise} eficiencia_2 -->
 
 :::{solution} eficiencia_2
 :class: dropdown
@@ -170,9 +166,60 @@ long factorial_memoizado(int n)
 | Riesgo de overflow | Alto | Bajo | Medio |
 
 :::
-<!-- {solution} eficiencia_2 -->
 
-## 5: Ejercicios de Síntesis
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación factorial_recursivo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+long factorial_recursivo(int n);
+
+/*
+ * Operación factorial_iterativo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+long factorial_iterativo(int n);
+
+/*
+ * Operación factorial_memoizado
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+long factorial_memoizado(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-31-10-analisis-de-uso-de-memoria.h`)

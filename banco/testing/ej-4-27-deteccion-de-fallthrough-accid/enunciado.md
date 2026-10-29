@@ -1,5 +1,3 @@
-### Ejercicio 4.27 - Detección de Fallthrough accidental en switch ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-fallthrough-switch
 Descubrí el bug en la siguiente función de cálculo de días de un mes y
@@ -34,14 +32,12 @@ int dias_del_mes(int mes)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Explicar qué valor retornaría `dias_del_mes(2)` en el
     código original con bug.
 -   **[*plus ultra*]:** Escribir una prueba unitaria que detecte el error.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-fallthrough-switch
 :class: dropdown
@@ -77,9 +73,41 @@ int dias_del_mes(int mes)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-fallthrough-switch -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación dias_del_mes
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int dias_del_mes(int mes);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

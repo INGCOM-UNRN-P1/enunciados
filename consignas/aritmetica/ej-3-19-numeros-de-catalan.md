@@ -51,34 +51,11 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 3.19 - Números de Catalan ⭐⭐☆☆☆
-
 #### Descripción
 Implementar una función que calcule el n-ésimo número de Catalan, $C_n$. Estos
 números forman una secuencia de números naturales que aparece en varios
 problemas de conteo en combinatoria.
 
-:::{hint} Lógica y Consideraciones
--   **Entrada:** Un entero no negativo `n`.
--   **Fórmula:** La fórmula más directa es $C_n = \frac{1}{n+1} \binom{2n}{n}$.
-    Para calcularla, se necesita una función para el coeficiente binomial
-    $\binom{n}{k}$.
--   **Coeficiente Binomial:** $\binom{n}{k}$ se puede calcular como
-    $\frac{n!}{k!(n-k)!}$. Sin embargo, calcular los factoriales directamente
-    puede causar desbordamiento muy rápido. Una forma más segura es calcularlo
-    iterativamente: $\binom{n}{k} = \prod_{i=1}^{k} \frac{n-i+1}{i}$.
--   **Proceso:** 
-    1.  Implementar una función `coeficiente_binomial(n, k)`.
-    2.  La función `numero_catalan(n)` llamará a `coeficiente_binomial(2*n, n)`
-        y dividirá el resultado por `n+1`.
-    definición interna oculta en el archivo `.c`.
-    para copiar la estructura de forma segura.
-
--   **[*plus ultra*]:** Calcular el n-ésimo número de Catalan simplificando factores para evitar desbordamiento temprano.
--   **[*plus ultra*]:** Mostrar los primeros N términos de la secuencia de Catalan.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -110,10 +87,59 @@ INICIO
 FIN FUNCION
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Números de Catalan
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_9_numeros_de_catalan(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Entrada:** Un entero no negativo `n`.
+- **Fórmula:** La fórmula más directa es $C_n = \frac{1}{n+1} \binom{2n}{n}$. Para calcularla, se necesita una función para el coeficiente binomial $\binom{n}{k}$.
+- **Coeficiente Binomial:** $\binom{n}{k}$ se puede calcular como $\frac{n!}{k!(n-k)!}$. Sin embargo, calcular los factoriales directamente puede causar desbordamiento muy rápido. Una forma más segura es calcularlo iterativamente: $\binom{n}{k} = \prod_{i=1}^{k} \frac{n-i+1}{i}$.
+- **Proceso:**
+- Implementar una función `coeficiente_binomial(n, k)`.
+- La función `numero_catalan(n)` llamará a `coeficiente_binomial(2*n, n)` y dividirá el resultado por `n+1`. definición interna oculta en el archivo `.c`. para copiar la estructura de forma segura.
+- Calcular el n-ésimo número de Catalan simplificando factores para evitar desbordamiento temprano.
+- Mostrar los primeros N términos de la secuencia de Catalan.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-3-19-numeros-de-catalan.h`)

@@ -59,13 +59,10 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 12.34 — Cifrado César sobre archivos ⭐⭐⭐⭐☆
-
 **Tema:** Archivos y E/S en C · **Nivel:** 3 — Aplicar · **Duración estimada:** 25 min
 
 ---
 
-#### Consigna
 
 Implementá la función `proc__12_34_cifrado_cesar`, que lee el contenido de un
 archivo de texto, le aplica el **cifrado César** (rotación de letras) y escribe
@@ -170,29 +167,55 @@ int proc__12_34_cifrado_cesar(int val)
 }
 ```
 
-:::{hint} Robustez en E/S
 
--   Verificá el valor retornado por `fopen` antes de leer o escribir.
--   Distinguí fin de archivo real de un error de lectura usando `ferror`.
--   Cerrá **ambos** archivos (`fclose`) en todos los caminos de salida,
-    incluidos los de error.
--   Recuerda que `fgetc` retorna `int`, no `char`: almacená el carácter en una
-    variable `int` para poder comparar correctamente contra `EOF`.
-
-:::
-<!-- {hint} Robustez en E/S -->
-
-:::{hint} Aritmética modular
-
--   La fórmula `((c - 'a' + n) % 26) + 'a'` funciona para minúsculas; adaptala
-    a mayúsculas usando `'A'` como base.
--   Si en algún punto necesitaras descifrar, sumá `26` antes del módulo para
-    evitar resultados negativos: `((c - 'a' - n + 26) % 26) + 'a'`.
-
-:::
-<!-- {hint} Aritmética modular -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Cifrado César
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__12_34_cifrado_cesar(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-12-34-cifrado-cesar.h`)

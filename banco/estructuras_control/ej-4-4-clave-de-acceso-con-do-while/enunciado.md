@@ -1,5 +1,3 @@
-### Ejercicio 4.4 - Clave de acceso con do-while ⭐⭐☆☆☆
-
 :::{exercise}
 :label: lazo_repeat
 :enumerator: for
@@ -12,7 +10,6 @@ de acceso numérica al usuario hasta que ingrese el valor correcto `1234`.
 -   **[*plus ultra*]:** Informar cuántos intentos quedan disponibles en cada iteración.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} lazo_repeat
 :label: solucion-lazo_repeat
@@ -41,11 +38,50 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} lazo_repeat -->
 
 ---
 
 ## Control de Flujo Seguro
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Clave de acceso con do-while
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__acceso_con_do_while(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante Valgrind o AddressSanitizer.

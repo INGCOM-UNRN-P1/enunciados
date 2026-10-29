@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 31.14 - Aritmética de Punteros y Límites de Arreglos ⭐⭐⭐☆☆
-
 :::{exercise} analisis_aritmetica
 :label: analisis_aritmetica
 
@@ -121,7 +119,6 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**:
 
@@ -141,7 +138,6 @@ int main(void)
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} analisis_aritmetica -->
 
 :::{solution} analisis_aritmetica
 :class: dropdown
@@ -166,7 +162,6 @@ while (p < fin)
     p++;         // Avanza al siguiente elemento (p += sizeof(int))
 }
 ```
-<!-- {code-block} c -->
 
 **Equivalente con índices:**
 ``` c
@@ -175,7 +170,6 @@ for (size_t i = 0; i < n; i++)
     arr[i] = arr[i] * 2;
 }
 ```
-<!-- c -->
 
 **`funcion_b`:**
 ``` c
@@ -185,7 +179,6 @@ for (int *p = arr; p < arr + n; p++)
     printf("%d ", *p);
 }
 ```
-<!-- c -->
 
 **`funcion_c`:**
 ```{code-block} c
@@ -198,7 +191,6 @@ while (*origen != '\0')
 }
 *destino = '\0'; // Agrega terminador al destino
 ```
-<!-- {code-block} c -->
 
 **`funcion_d`:**
 ```{code-block} c
@@ -215,7 +207,6 @@ while (inicio < fin)
     fin--;
 }
 ```
-<!-- {code-block} c -->
 
 **3. Roles de Punteros:**
 
@@ -270,7 +261,6 @@ void funcion_a(int *arr, size_t n)
     // ... resto del código
 }
 ```
-<!-- c -->
 
 **`funcion_c` - Problema crítico:**
 ``` c
@@ -280,7 +270,6 @@ void funcion_c(char *destino, const char *origen)
     // Puede causar BUFFER OVERFLOW
 }
 ```
-<!-- c -->
 
 **Escenario peligroso:**
 ``` c
@@ -288,7 +277,6 @@ char origen[] = "Esta cadena es muy larga";
 char destino[5];            // Solo 5 bytes!
 funcion_c(destino, origen); // BUFFER OVERFLOW
 ```
-<!-- c -->
 
 **Versión segura:**
 ```{code-block} c
@@ -307,14 +295,12 @@ void funcion_c_segura(char *destino, const char *origen, size_t tam_destino)
     *destino = '\0';
 }
 ```
-<!-- {code-block} c -->
 
 **O usar `strncpy`:**
 ``` c
 strncpy(destino, origen, sizeof(destino) - 1);
 destino[sizeof(destino) - 1] = '\0';
 ```
-<!-- c -->
 
 **`funcion_d`:**
 - **Puntero NULL**: Crash si `arr == NULL`
@@ -330,7 +316,6 @@ void funcion_d(int *arr, size_t n)
     // ... resto del código
 }
 ```
-<!-- c -->
 
 **6. Comparación: Punteros vs Índices**
 
@@ -368,10 +353,76 @@ void funcion_a(int *arr, size_t n)
     }
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} analisis_aritmetica -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación funcion_a
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void funcion_a(int *arr, size_t n);
+
+/*
+ * Operación funcion_b
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void funcion_b(int *arr, size_t n);
+
+/*
+ * Operación funcion_c
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void funcion_c(char *destino, const char *origen);
+
+/*
+ * Operación funcion_d
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void funcion_d(int *arr, size_t n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Recordá que la suma de un entero a un puntero (p + i) avanza i * sizeof(*p) bytes en memoria.
+- Comprobá que ningún acceso supere el límite superior (p + n) ni descienda por debajo de p.
+- Prestá especial atención a los errores por un elemento (off-by-one) en los lazos de recorrido.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-31-14-aritmetica-de-punteros-y-limit.h`)

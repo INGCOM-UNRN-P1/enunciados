@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.37 - Primos Gemelos con Variables Globales ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-primos-gemelos
 Refactorizá la siguiente función que utiliza variables globales para verificar
@@ -72,14 +70,12 @@ int son_gem(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Reutilizar una función pura `bool es_primo(int n)`.
 -   **[*plus ultra*]:** Diseñar `bool son_primos_gemelos(int primer_numero, int
     segundo_numero)` sin variables globales.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-primos-gemelos
 :class: dropdown
@@ -131,12 +127,50 @@ void test_primos_gemelos(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-primos-gemelos -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación son_gem
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int son_gem(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-37-primos-gemelos-con-variables-g.h`)

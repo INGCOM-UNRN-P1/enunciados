@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 31.11 - Análisis Integral de Sistema ⭐⭐☆☆☆
-
 :::{exercise} analisis_1
 :label: analisis_1
 
@@ -136,7 +134,6 @@ void liberar_sistema(sistema_estudiantes_t *sistema)
     }
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**: Realizá un análisis completo del sistema:
 
@@ -153,7 +150,6 @@ void liberar_sistema(sistema_estudiantes_t *sistema)
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} analisis_1 -->
 
 :::{solution} analisis_1
 :class: dropdown
@@ -217,7 +213,6 @@ if (promedio < 0.0 || promedio > 10.0)
     return false;
 }
 ```
-<!-- {code-block} c -->
 
 **Problemas de robustez:**
 - No validación de punteros NULL
@@ -234,12 +229,64 @@ if (promedio < 0.0 || promedio > 10.0)
 - Agregar tests unitarios para cada función
 
 :::
-<!-- {solution} analisis_1 -->
 
 Este ejercicio integra todos los conceptos de análisis de código, roles de
 variables, manejo de memoria y buenas prácticas de programación en C.
 
-## 11: Análisis Avanzado de Punteros
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación agregar_estudiante
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+bool agregar_estudiante(sistema_estudiantes_t *sistema, const char *nombre,
+                        int edad, float promedio);
+
+/*
+ * Operación liberar_sistema
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void liberar_sistema(sistema_estudiantes_t *sistema);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Revisá detenidamente el flujo de control y las transiciones de estado del sistema.
+- Verificá la validez de los punteros y el ciclo de vida de los recursos compartidos.
+- Identificá posibles condiciones de carrera o inconsistencias en la liberación de memoria.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-31-11-analisis-integral-de-sistema.h`)

@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 21.9 - Matriz simétrica ⭐⭐⭐☆☆
-
 #### Descripción
 Escribir una función que verifique si una matriz cuadrada es simétrica. Una
 matriz es simétrica si es igual a su propia transpuesta, lo que significa que el
@@ -73,46 +71,19 @@ Matriz (3x3):
 [ 7, 4, 5 ]
 [ 3, 5, 6 ]
 ```
-<!-- text -->
 
 :::
-<!-- {tab-item} Entrada -->
 :::{tab-item} Salida
 :sync: tab2
 ``` text
 La matriz es simétrica.
 ```
-<!-- text -->
 
 :::
-<!-- {tab-item} Salida -->
 
 ::::
-<!-- {tab-set} -->
 
-:::{hint} Lógica y Consideraciones
 
--   **Fórmula:** Una matriz `A` es simétrica si $A_{ij} = A_{ji}$ para todos los
-    `i`, `j`.
--   **Proceso:**
-    1.  Recorrer solo la mitad superior (o inferior) de la matriz es suficiente.
-        Por ejemplo, con lazos anidados donde el lazo interior para `j` comienza
-        en `i+1`.
-    2.  En cada paso, comparar `matriz[i][j]` con `matriz[j][i]`.
-    3.  Si en algún momento no son iguales, la matriz no es simétrica y la
-        función puede devolver `falso` inmediatamente.
--   **Salida:** Si los lazos se completan sin encontrar diferencias, la matriz
-    es simétrica.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
-::::{hint} Diagrama
-:class: dropdown
-El diagrama muestra los pares de elementos que deben ser iguales. Solo es
-necesario verificar una mitad del triángulo (excluyendo la diagonal).
-
-:::{mermaid}
 
 flowchart TD
     subgraph Matriz
@@ -131,38 +102,59 @@ flowchart TD
     A23 <-.-> A32
 
 :::
-<!-- {mermaid} -->
 
 ::::
-<!-- {hint} Diagrama -->
 
-:::{hint} Ayuda (Pseudocódigo)
-:class: dropdown
+### 📋 Contrato de las Funciones
 
-```{code-block} pseudocode
-:linenos:
-FUNCION es_simetrica(matriz, n)
-INICIO
-    PARA i DESDE 0 HASTA n-1 HACER
-        PARA j DESDE i+1 HASTA n-1 HACER
-            SI matriz[i][j] != matriz[j][i] ENTONCES
-                RETORNAR FALSO
-            FIN SI
-        FIN PARA
-    FIN PARA
-    RETORNAR VERDADERO
-FIN FUNCION
+```c
+/*
+ * Procesa el flujo principal de Matriz simétrica
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_1_9_matriz_simetrica(int val);
 
 ```
-<!-- {code-block} pseudocode -->
 
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
+### 🧪 Ejemplos de Ejecución
 
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
 :::
-<!-- {hint} Ayuda (Pseudocódigo) -->
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Fórmula:** Una matriz `A` es simétrica si $A_{ij} = A_{ji}$ para todos los `i`, `j`.
+- **Proceso:**
+- Recorrer solo la mitad superior (o inferior) de la matriz es suficiente. Por ejemplo, con lazos anidados donde el lazo interior para `j` comienza en `i+1`.
+- En cada paso, comparar `matriz[i][j]` con `matriz[j][i]`.
+- Si en algún momento no son iguales, la matriz no es simétrica y la función puede devolver `falso` inmediatamente.
+- **Salida:** Si los lazos se completan sin encontrar diferencias, la matriz es simétrica.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-21-9-matriz-simetrica.h`)

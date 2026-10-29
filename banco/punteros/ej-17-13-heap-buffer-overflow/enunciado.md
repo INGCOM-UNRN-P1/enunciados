@@ -1,32 +1,11 @@
-### Ejercicio 17.13 - Heap Buffer Overflow ⭐⭐☆☆☆
-
 Escribir un fragmento de código que produzca un desbordamiento de búfer en el
 Heap y explicar cómo AddressSanitizer reporta dicho error.
-:::{hint} Lógica y Consideraciones
 
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
-## Ejercicio 17.14 - Matriz Dinámica Dentada ⭐⭐☆☆☆
 
 Creá matriz donde cada fila tiene diferente cantidad de columnas.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -38,25 +17,14 @@ for (int i = 0; i < filas; i++)
     matriz[i] = malloc(cols[i] * sizeof(int));
 }
 ```
-<!-- {code-block} c -->
 - Liberación: cada fila primero, luego array de punteros
 
 ---
-## Ejercicio 17.15 - Matriz Dinámica en Bloque ⭐⭐⭐☆☆
 
 Creá matriz contigua en memoria (un solo `malloc` para datos).
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -71,26 +39,15 @@ int **crear_matriz(int filas, int cols)
     return matriz;
 }
 ```
-<!-- {code-block} c -->
 - Ventaja: mejor localidad de caché
 - Liberación: liberar datos, luego array de punteros
 
 ---
-## Ejercicio 17.16 - Matriz con Cast (ALV) ⭐⭐⭐☆☆
 
 Implementá acceso a matriz unidimensional como bidimensional.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 int *matriz = malloc(filas * cols * sizeof(int));
@@ -99,26 +56,15 @@ int *matriz = malloc(filas * cols * sizeof(int));
 #define MAT(m, i, j, cols) ((m)[(i) * (cols) + (j)])
 MAT(matriz, 2, 3, cols) = 42;
 ```
-<!-- c -->
 - Un solo `malloc` y `free`
 - Menos flexible pero más eficiente
 
 ---
-## Ejercicio 17.17 - Redimensionar Array Dinámico ⭐⭐⭐☆☆
 
 Implementá función para redimensionar array preservando datos.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -134,24 +80,13 @@ int *redimensionar(int *arr, int tam_actual, int tam_nuevo)
     return nuevo;
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.18 - Array de Strings Dinámico ⭐⭐⭐☆☆
 
 Creá array dinámico de strings donde cada string también es dinámico.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -168,24 +103,13 @@ for (int i = 0; i < n; i++)
 }
 free(strings);
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.19 - Estructura con Arrays Dinámicos ⭐⭐⭐☆☆
 
 Creá estructura que contenga arrays dinámicos.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -209,24 +133,13 @@ void destruir_vector(vector_t *v)
     free(v);        // Luego estructura
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.20 - Lista Enlazada con Strings ⭐⭐⭐⭐☆
 
 Implementá lista donde cada nodo contiene un string dinámico.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -249,24 +162,13 @@ void liberar_nodo(nodo_t *nodo)
     free(nodo);      // Luego el nodo
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.21 - Estructura Jerárquica de Categorías con Memoria Dinámica ⭐⭐⭐⭐⭐
 
 Implementá una estructura de categorías donde cada categoría contiene un arreglo dinámico de subcategorías y un nombre dinámico:
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -301,10 +203,8 @@ void liberar_categoria(categoria_t *c)
     free(c);
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.22 - Matriz Triangular ⭐⭐⭐⭐☆
 
 Implementá matriz triangular inferior (solo almacená elementos <= diagonal).
 
@@ -312,15 +212,6 @@ Implementá matriz triangular inferior (solo almacená elementos <= diagonal).
 - Fila i tiene i+1 elementos
 - Total elementos: n(n+1)/2
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 int **matriz = malloc(n * sizeof(int *));
@@ -329,24 +220,13 @@ for (int i = 0; i < n; i++)
     matriz[i] = malloc((i + 1) * sizeof(int));
 }
 ```
-<!-- c -->
 
 ---
-## Ejercicio 17.23 - Copiar Estructura Profunda ⭐⭐⭐⭐☆
 
 Implementá copia profunda de estructura con punteros.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -367,24 +247,13 @@ estudiante_t *copiar(const estudiante_t *orig)
     return copia;
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.24 - Matriz Dinámica de Conectividad NxN ⭐⭐⭐⭐⭐
 
 Creá una matriz bidimensional dinámica booleana/entera para registrar conexiones entre $N$ elementos.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -416,24 +285,13 @@ void liberar_red(red_conexiones_t *r)
     free(r);
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.25 - Array de Estructuras con Punteros ⭐⭐⭐⭐☆
 
 Creá array dinámico de estructuras que contienen punteros.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -452,24 +310,13 @@ for (int i = 0; i < n; i++)
 }
 free(libros);
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.26 - Tabla de Registros con Redimensionamiento Dinámico ⭐⭐⭐⭐⭐
 
 Implementá un contenedor indexado de punteros a estructuras con redimensionamiento dinámico cuando la capacidad se agote.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -497,24 +344,13 @@ void redimensionar_tabla(tabla_registros_t *t)
     }
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.27 - Matriz Dispersa (Sparse Matrix) ⭐⭐⭐⭐⭐
 
 Implementá matriz dispersa con lista de triplas (fila, col, valor).
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -531,26 +367,15 @@ typedef struct
     int filas, cols;
 } matriz_dispersa_t;
 ```
-<!-- {code-block} c -->
 - Solo almacená elementos != 0
 - Búsqueda lineal o binaria para acceso
 
 ---
-## Ejercicio 17.28 - Buffer Circular Dinámico ⭐⭐⭐⭐⭐
 
 Implementá buffer circular con redimensionamiento.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -579,24 +404,13 @@ void redimensionar_buffer(buffer_circular_t *b)
     b->capacidad = nueva_cap;
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.29 - Punteros a Punteros para Modificar ⭐⭐⭐⭐☆
 
 Implementá función que modifica puntero pasado como argumento.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -611,24 +425,13 @@ void insertar_inicio(nodo_t **cabeza, int valor)
 nodo_t *lista = NULL;
 insertar_inicio(&lista, 42); // Pasa dirección del puntero
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.30 - Array 3D Dinámico ⭐⭐⭐⭐⭐
 
 Creá array tridimensional dinámico.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -658,24 +461,13 @@ void liberar_array_3d(int ***arr, int x, int y)
     free(arr);
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.31 - Pool de Objetos ⭐⭐⭐⭐⭐
 
 Implementá pool de objetos para evitar malloc/free frecuentes.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -698,24 +490,13 @@ void pool_free(pool_t *p, void *obj)
     p->libres[p->num_libres++] = obj;
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.32 - Reference Counting ⭐⭐⭐⭐⭐
 
 Implementá sistema de conteo de referencias para compartir datos.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -744,24 +525,13 @@ void decrementar_ref(ref_counted_t *r, void (*destruir)(void *))
     }
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 17.33 - Sistema de Memoria con Debug ⭐⭐⭐⭐⭐
 
 Implementá wrapper de malloc/free que registre asignaciones.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -785,7 +555,6 @@ void mostrar_leaks()
     // Mostrar asignaciones no liberadas
 }
 ```
-<!-- {code-block} c -->
 
 ---
 
@@ -807,7 +576,6 @@ for (i...)
     free(m[i]); // 2 primero
 free(m);        // 1 después
 ```
-<!-- {code-block} c -->
 
 **Estructura con punteros:**
 ```{code-block} c
@@ -819,10 +587,8 @@ p->nombre = malloc(100);                  // 2
 free(p->nombre); // 2 primero
 free(p);         // 1 después
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {danger} Orden de Liberación -->
 
 :::{tip} Estrategias de Matrices Dinámicas
 
@@ -841,7 +607,6 @@ free(p);         // 1 después
 **Elección:** Depende de requisitos de performance y flexibilidad
 
 :::
-<!-- {tip} Estrategias de Matrices Dinámicas -->
 
 :::{warning} Errores Comunes
 
@@ -880,7 +645,6 @@ free(p);         // 1 después
    ```
 
 :::
-<!-- {warning} Errores Comunes -->
 
 :::{note} Herramientas de Debugging
 
@@ -888,14 +652,12 @@ free(p);         // 1 después
 ``` bash
 valgrind --leak-check=full --show-leak-kinds=all ./programa
 ```
-<!-- bash -->
 
 **AddressSanitizer:**
 ``` bash
 gcc -fsanitize=address -g programa.c
 ./programa
 ```
-<!-- bash -->
 
 **Errores detectados:**
 - Memory leaks
@@ -905,8 +667,98 @@ gcc -fsanitize=address -g programa.c
 - Uninitialized memory
 
 :::
-<!-- {note} Herramientas de Debugging -->
 
 Estas consignas cubren gestión avanzada de memoria y estructuras dinámicas
 complejas, esenciales para implementar TADs y aplicaciones de performance
 crítica.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Heap Buffer Overflow
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_heap_buffer_overflow(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Ventaja: Filas de diferentes tamaños
+- Desventaja: Múltiples malloc, peor localidad **2. Bloque con Punteros:**
+- Ventaja: Datos contiguos, mejor cache
+- Desventaja: Dos mallocs, sintaxis M[i][j] **3. Cast/ALV (Array Lineal Virtual):**
+- Ventaja: Un malloc, máxima eficiencia
+- Desventaja: Sintaxis M[i*cols+j], menos flexible **Elección:** Depende de requisitos de performance y flexibilidad
+:::

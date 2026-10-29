@@ -1,5 +1,3 @@
-### Ejercicio 4.42 - Prohibición de Reutilización de Variables ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-reutilizacion-variables
 Analizá qué problema de legibilidad y mantenimiento tiene el siguiente código
@@ -30,14 +28,12 @@ int calcular_estadisticas_ventas(int ventas[], int n)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Refactorizar declarando variables con nombres de
     propósito único (`suma`, `maximo`).
 -   **[*plus ultra*]:** Modularizar en funciones independientes.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-reutilizacion-variables
 :class: dropdown
@@ -46,6 +42,45 @@ impide agregar aserciones claras sobre estados intermedios y propaga errores si
 un bloque asume que la variable conserva su valor anterior.
 
 :::
-<!-- {solution} ej-test-reutilizacion-variables -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_estadisticas_ventas
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int calcular_estadisticas_ventas(int ventas[], int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

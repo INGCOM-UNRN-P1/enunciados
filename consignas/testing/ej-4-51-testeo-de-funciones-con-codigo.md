@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.51 - Testeo de Funciones con Códigos de Error ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-codigos-error
 Diseñá una función pura para calcular la velocidad promedio $v = d / t$:
@@ -74,7 +72,6 @@ Escribí pruebas unitarias para cada uno de los 4 códigos posibles.
     modificada.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-codigos-error
 :class: dropdown
@@ -132,12 +129,79 @@ void test_velocidad_puntero_nulo(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-codigos-error -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_velocidad
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+int calcular_velocidad(double distancia, double tiempo, double *velocidad);
+
+/*
+ * Operación test_velocidad_exito
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_velocidad_exito(void);
+
+/*
+ * Operación test_velocidad_distancia_invalida
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_velocidad_distancia_invalida(void);
+
+/*
+ * Operación test_velocidad_tiempo_invalido
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_velocidad_tiempo_invalido(void);
+
+/*
+ * Operación test_velocidad_puntero_nulo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_velocidad_puntero_nulo(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-51-testeo-de-funciones-con-codigo.h`)

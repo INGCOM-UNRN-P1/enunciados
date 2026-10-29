@@ -1,5 +1,3 @@
-### Ejercicio 4.30 - Tabla de Traza de Ejecución (Trace Table) ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-tabla-traza
 Construí una tabla de traza paso a paso para la llamada `mcd(18, 12)` mostrando
@@ -19,7 +17,6 @@ int mcd(int a, int b)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Escribir una suite de tests unitarios verificando
     `mcd(18, 12) == 6`, `mcd(7, 5) == 1` y `mcd(20, 0) == 20`.
@@ -27,7 +24,6 @@ int mcd(int a, int b)
     = \text{mcd}(b, a \pmod b)$.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-tabla-traza
 :class: dropdown
@@ -39,6 +35,45 @@ int mcd(int a, int b)
 | **Fin** | 6 | 0 | - | - | - | - | Retorna `6` |
 
 :::
-<!-- {solution} ej-test-tabla-traza -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación mcd
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int mcd(int a, int b);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

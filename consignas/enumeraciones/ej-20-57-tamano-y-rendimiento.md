@@ -55,38 +55,17 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 20.57 - Tamaño y rendimiento ⭐⭐☆☆☆
-
 Investigar y documentar:
 - Tamaño en memoria de enums (usualmente `sizeof(int)`)
 - Rendimiento de operaciones con enums vs constantes
 - Optimizaciones del compilador con enums
 - Diferencias entre C y C++ en el manejo de enums
-:::{hint} Lógica y Consideraciones
 
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
-## Ejercicio 20.58 - Enumeración de Días ⭐☆☆☆☆
 
 Definí una enumeración para días de la semana y mostrá el nombre según el valor.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef enum
@@ -100,26 +79,15 @@ typedef enum
     DOMINGO
 } dia_semana_t;
 ```
-<!-- c -->
 - Usá `switch` para convertir enum a string
 
 ---
-## Ejercicio 20.59 - Estructura Punto 2D ⭐☆☆☆☆
 
 Definí estructura para punto en 2D y función para calcular distancia entre dos
 puntos.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef struct
@@ -128,25 +96,14 @@ typedef struct
     double y;
 } punto_t;
 ```
-<!-- c -->
 - Distancia: `sqrt((p2.x - p1.x)² + (p2.y - p1.y)²)`
 
 ---
-## Ejercicio 20.60 - Estructura Fecha ⭐⭐☆☆☆
 
 Creá estructura para fecha y función de validación.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef struct
@@ -156,25 +113,14 @@ typedef struct
     int anio;
 } fecha_t;
 ```
-<!-- c -->
 - Validar: 1 ≤ mes ≤ 12, día según mes, considerar bisiestos
 
 ---
-## Ejercicio 20.61 - Estructura Persona ⭐⭐☆☆☆
 
 Definí estructura persona y función para mostrar información.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef struct
@@ -184,25 +130,14 @@ typedef struct
     int edad;
 } persona_t;
 ```
-<!-- c -->
 - Función `void mostrar_persona(const persona_t *p)`
 
 ---
-## Ejercicio 20.62 - Array de Estructuras ⭐⭐⭐☆☆
 
 Creá array de estudiantes y función para encontrar el de mayor promedio.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef struct
@@ -212,25 +147,14 @@ typedef struct
 } estudiante_t;
 estudiante_t clase[30];
 ```
-<!-- c -->
 - Recorré array comparando promedios
 
 ---
-## Ejercicio 20.63 - Enumeración con Valores Explícitos ⭐⭐☆☆☆
 
 Definí enumeración para códigos de error HTTP.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -243,24 +167,13 @@ typedef enum
     HTTP_SERVER_ERROR = 500
 } http_status_t;
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 20.64 - Estructura Anidada ⭐⭐⭐☆☆
 
 Creá estructura para dirección y persona que incluya dirección.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -276,24 +189,13 @@ typedef struct
     direccion_t direccion; // Estructura anidada
 } persona_t;
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 20.65 - Estructura con Puntero ⭐⭐⭐☆☆
 
 Definí estructura nodo para lista enlazada.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef struct nodo
@@ -302,25 +204,14 @@ typedef struct nodo
     struct nodo *siguiente; // Puntero a mismo tipo
 } nodo_t;
 ```
-<!-- c -->
 - Funciones: crear_nodo, insertar_inicio, mostrar_lista
 
 ---
-## Ejercicio 20.66 - Union para Tipos Múltiples ⭐⭐⭐☆☆
 
 Usá union para almacenar valor que puede ser int, float o char.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -341,25 +232,14 @@ typedef struct
     } valor;
 } variable_t;
 ```
-<!-- {code-block} c -->
 - El tipo indica cuál campo de la union es válido
 
 ---
-## Ejercicio 20.67 - Inicialización Designada ⭐⭐☆☆☆
 
 Practicá diferentes formas de inicializar estructuras.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -371,24 +251,13 @@ punto_t p3 = {.y = 4.0, .x = 3.0}; // Orden no importa
 // Parcial (resto en 0)
 punto_t p4 = {.x = 3.0};
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 20.68 - Rectángulo con Puntos ⭐⭐⭐☆☆
 
 Definí rectángulo con dos puntos (esquinas opuestas) y calcula área/perímetro.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 typedef struct
@@ -397,26 +266,15 @@ typedef struct
     punto_t inferior_der;
 } rectangulo_t;
 ```
-<!-- c -->
 - Área: ancho × alto
 - Perímetro: 2 × (ancho + alto)
 
 ---
-## Ejercicio 20.69 - Biblioteca de Libros ⭐⭐⭐⭐☆
 
 Sistema con estructuras para libro, autor, editorial.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -433,25 +291,14 @@ typedef struct
     float precio;
 } libro_t;
 ```
-<!-- {code-block} c -->
 - Funciones: buscar por título, filtrar por autor, ordenar por precio
 
 ---
-## Ejercicio 20.70 - Enum como Flags (Bits) ⭐⭐⭐⭐☆
 
 Usá enum para permisos de archivo estilo Unix.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -468,24 +315,13 @@ if (permisos & PERM_READ)
 { /* tiene lectura */
 }
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 20.71 - Struct con Padding ⭐⭐⭐⭐☆
 
 Explorá alineación de memoria en estructuras.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -502,23 +338,14 @@ typedef struct
     char d;        // 1 byte + 2 padding
 } bien_alineada_t; // Total: 8 bytes
 ```
-<!-- {code-block} c -->
 - Usá `sizeof()` para ver diferencias
 
 ---
-## Ejercicio 20.72 - Registro de Paquetes de Red con Enums y Structs ⭐⭐⭐⭐⭐
 
 Implementá un sistema de clasificación y manejo de paquetes de red combinando tipos enumerados y estructuras:
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que los campos de puerto y tamaño se encuentren dentro de los rangos válidos del protocolo.
--   **[*plus ultra*]:** Modularizar la función de formateo para imprimir el paquete como una cadena estructurada.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -547,25 +374,14 @@ typedef struct
     size_t bytes_datos;
 } paquete_red_t;
 ```
-<!-- {code-block} c -->
 - Funciones: `paquete_crear`, `paquete_actualizar_estado`, `paquete_mostrar_info`
 
 ---
-## Ejercicio 20.73 - Polimorfismo con Union ⭐⭐⭐⭐⭐
 
 Creá sistema de figuras geométricas con union.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -595,24 +411,13 @@ typedef struct
 } figura_t;
 double calcular_area(const figura_t *f);
 ```
-<!-- {code-block} c -->
 
 ---
-## Ejercicio 20.74 - Cola con Struct ⭐⭐⭐⭐☆
 
 Implementá cola FIFO con estructura.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -625,23 +430,14 @@ typedef struct
     int tamanio;
 } cola_t;
 ```
-<!-- {code-block} c -->
 - Funciones: crear, encolar, desencolar, esta_llena, destruir
 
 ---
-## Ejercicio 20.75 - Inventario de Dispositivos de Red con Enums y Structs ⭐⭐⭐⭐⭐
 
 Representá un inventario de dispositivos y conexiones con tipos y estados enumerados:
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar que las direcciones IP ingresadas tengan un formato numérico coherente.
--   **[*plus ultra*]:** Implementar una función para listar todos los dispositivos que se encuentren en un estado específico.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -669,25 +465,14 @@ typedef struct
     unsigned int ip;
 } dispositivo_t;
 ```
-<!-- {code-block} c -->
 - Funciones: `dispositivo_crear`, `dispositivo_cambiar_estado`, `dispositivo_imprimir`
 
 ---
-## Ejercicio 20.76 - Base de Datos Simple ⭐⭐⭐⭐⭐
 
 Sistema CRUD para empleados.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -705,25 +490,14 @@ typedef struct
     int capacidad;
 } base_datos_t;
 ```
-<!-- {code-block} c -->
 - Funciones: crear, agregar, buscar, actualizar, eliminar, listar
 
 ---
-## Ejercicio 20.77 - Máquina de Estados con Enum ⭐⭐⭐⭐⭐
 
 Implementá máquina de estados finitos.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -750,7 +524,6 @@ typedef struct
 } maquina_t;
 estado_t transicion(estado_t actual, evento_t evento);
 ```
-<!-- {code-block} c -->
 
 ---
 
@@ -767,7 +540,6 @@ typedef enum
     COLOR_AZUL
 } color_t;
 ```
-<!-- c -->
 - Sufijo `_t` para el tipo
 - Prefijo común para los valores
 
@@ -778,11 +550,9 @@ typedef struct
     // campos
 } nombre_t;
 ```
-<!-- c -->
 - Sufijo `_t` indica que es un tipo definido por el usuario
 
 :::
-<!-- {tip} Convenciones de Nomenclatura -->
 
 :::{note} Tamaño y Alineación
 
@@ -790,14 +560,12 @@ typedef struct
 ``` c
 printf("Tamaño: %zu bytes\n", sizeof(estructura_t));
 ```
-<!-- c -->
 
 **Offset de campos:**
 ``` c
 #include <stddef.h>
 printf("Offset de campo: %zu\n", offsetof(estructura_t, campo));
 ```
-<!-- c -->
 
 **Alineación:**
 - Campos se alinean a múltiplos de su tamaño
@@ -805,7 +573,6 @@ printf("Offset de campo: %zu\n", offsetof(estructura_t, campo));
 - Reordenar campos puede ahorrar memoria
 
 :::
-<!-- {note} Tamaño y Alineación -->
 
 :::{warning} Errores Comunes
 
@@ -870,7 +637,6 @@ printf("Offset de campo: %zu\n", offsetof(estructura_t, campo));
    ```
 
 :::
-<!-- {warning} Errores Comunes -->
 
 :::{tip} Inicialización
 
@@ -878,28 +644,23 @@ printf("Offset de campo: %zu\n", offsetof(estructura_t, campo));
 ``` c
 estructura_t s = {0}; // Todo en cero
 ```
-<!-- c -->
 
 **Designadores C99:**
 ``` c
 punto_t p = {.x = 10, .y = 20};
 ```
-<!-- c -->
 
 **Compuesta (C99):**
 ``` c
 punto_t p = (punto_t){.x = 10, .y = 20};
 ```
-<!-- c -->
 
 **Array de structs:**
 ``` c
 punto_t puntos[] = {{1, 2}, {3, 4}, {.x = 5, .y = 6}};
 ```
-<!-- c -->
 
 :::
-<!-- {tip} Inicialización -->
 
 :::{note} Estructuras Opacas
 
@@ -916,15 +677,101 @@ struct archivo
     int linea;
 };
 ```
-<!-- {code-block} c -->
 - Usuario solo ve puntero, no puede acceder a campos
 - Facilita cambios internos sin romper código cliente
 
 :::
-<!-- {note} Estructuras Opacas -->
 
 Estas consignas cubren tipos de datos personalizados desde básicos hasta
 sistemas complejos, preparando para diseño de TADs profesionales.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Tamaño y rendimiento
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_tamano_y_rendimiento(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Validar que los campos de puerto y tamaño se encuentren dentro de los rangos válidos del protocolo.
+- Modularizar la función de formateo para imprimir el paquete como una cadena estructurada.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar que las direcciones IP ingresadas tengan un formato numérico coherente.
+- Implementar una función para listar todos los dispositivos que se encuentren en un estado específico.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Sufijo `_t` para el tipo
+- Prefijo común para los valores **Estructuras:** ``` c typedef struct { // campos } nombre_t; ``` <!-- c -->
+- Sufijo `_t` indica que es un tipo definido por el usuario
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-20-57-tamano-y-rendimiento.h`)

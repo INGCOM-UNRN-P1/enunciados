@@ -53,10 +53,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-# Promedio de notas
-
-### Ejercicio 5.4 - Promedio de notas ⭐⭐☆☆☆
-
 :::{exercise}
 :label: funcion_promedio
 :enumerator: funciones-4
@@ -69,7 +65,6 @@ punto flotante. Mostrá el resultado en `main()`.
 -   **[*plus ultra*]:** Escribir aserciones para verificar el cálculo del promedio con decimales.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} funcion_promedio
 :class: dropdown
@@ -86,11 +81,49 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} funcion_promedio -->
 (ejercicio_5_5)=
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Lógica de Promedio de notas
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int resolver_ej_4(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-5-4-promedio-de-notas.h`)

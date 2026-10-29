@@ -1,5 +1,3 @@
-### Ejercicio 4.55 - Suite Integradora de Evaluación de Sistema de Calificaciones ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-suite-integradora
 Diseñá una biblioteca modular completa para la gestión de notas de un curso con
@@ -26,7 +24,6 @@ todos los caminos y bordes con un runner central.
     `@param`, `@pre`, `@returns` y `@post`.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-suite-integradora
 :class: dropdown
@@ -131,10 +128,8 @@ int main(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-suite-integradora -->
 
 ---
 
@@ -152,4 +147,72 @@ int main(void)
   borde y entradas inválidas.
 
 :::
-<!-- {tip} Buenas Prácticas para Testing en C -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación validar_nota
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool validar_nota(int nota);
+
+/*
+ * Operación calcular_promedio_curso
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+double calcular_promedio_curso(const int notas[], int cantidad);
+
+/*
+ * Operación contar_aprobados
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int contar_aprobados(const int notas[], int cantidad, int nota_minima);
+
+/*
+ * Operación estado_final_alumno
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int estado_final_alumno(int p1, int p2, int rec);
+
+/*
+ * Operación test_sistema_calificaciones
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_sistema_calificaciones(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Funciones puras:** Diseñá funciones que dependan únicamente de sus parámetros y retornen su resultado sin alterar variables externas.
+- **Sin variables globales:** Eliminá completamente el estado global para garantizar que tus pruebas sean reproducibles y corran en cualquier orden.
+- **Aserciones específicas:** Una aserción por función de prueba para que los reportes de error identifiquen exactamente el escenario fallido.
+- **Cobertura exhaustiva:** Asegurate de contemplar casos normales, casos de borde y entradas inválidas.
+:::

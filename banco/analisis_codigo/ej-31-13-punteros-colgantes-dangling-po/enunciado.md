@@ -1,5 +1,3 @@
-### Ejercicio 31.13 - Punteros Colgantes (Dangling Pointers) ⭐⭐⭐☆☆
-
 :::{exercise} analisis_dangling
 :label: analisis_dangling
 
@@ -57,7 +55,6 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**:
 
@@ -73,7 +70,6 @@ int main(void)
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} analisis_dangling -->
 
 :::{solution} analisis_dangling
 :class: dropdown
@@ -94,7 +90,6 @@ char *obtener_saludo(void)
     return saludo; // ¡ERROR!
 }
 ```
-<!-- c -->
 **Problema:** `saludo` es un arreglo local en el stack. Cuando la función
 retorna, el stack frame se destruye y la memoria ya no es válida. El puntero
 retornado apunta a memoria inválida.
@@ -107,7 +102,6 @@ void procesar_y_liberar(int **ptr)
     // Debería: *ptr = NULL;
 }
 ```
-<!-- c -->
 **Problema:** Después de `free()`, el puntero sigue apuntando a la misma
 dirección, pero esa memoria ya fue liberada. Esto es un **dangling pointer**.
 
@@ -176,7 +170,6 @@ char *obtener_saludo(void)
 }
 // El llamador debe hacer free(saludo)
 ```
-<!-- {code-block} c -->
 
 **Corrección Función A - Opción 2: Usar static**
 ``` c
@@ -187,7 +180,6 @@ char *obtener_saludo(void)
 }
 // NOTA: No es thread-safe
 ```
-<!-- c -->
 
 **Corrección Función A - Opción 3: Pasar buffer**
 ```{code-block} c
@@ -202,7 +194,6 @@ void obtener_saludo(char *buffer, size_t tam)
 char saludo[50];
 obtener_saludo(saludo, sizeof(saludo));
 ```
-<!-- {code-block} c -->
 
 **Corrección Función D:**
 ``` c
@@ -214,7 +205,6 @@ void procesar_y_liberar(int **ptr)
     *ptr = NULL; // IMPORTANTE: Anular el puntero
 }
 ```
-<!-- c -->
 
 **Corrección main():**
 ```{code-block} c
@@ -227,7 +217,6 @@ if (arr3 != NULL)
     printf("%d\n", arr3[0]);
 }
 ```
-<!-- {code-block} c -->
 
 **Buenas Prácticas:**
 1. Siempre anular punteros después de `free()`
@@ -237,4 +226,44 @@ if (arr3 != NULL)
 5. Considerar patrones como RAII (en C con funciones de limpieza)
 
 :::
-<!-- {solution} analisis_dangling -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación procesar_y_liberar
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void procesar_y_liberar(int **ptr);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

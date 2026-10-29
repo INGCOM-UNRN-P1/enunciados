@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.13 - Refactorización de Cuenta Bancaria con Estado Global ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-test-refactor-banco
 El siguiente código implementa operaciones bancarias usando estado global.
@@ -86,7 +84,6 @@ bool extraer(double monto)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Escribir tests unitarios que verifiquen depósitos y
     extracciones sin necesidad de reiniciar variables globales.
@@ -94,7 +91,6 @@ bool extraer(double monto)
     códigos de error.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-refactor-banco
 :class: dropdown
@@ -141,12 +137,57 @@ void test_operaciones_bancarias_puras(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-refactor-banco -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación depositar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void depositar(double monto);
+
+/*
+ * Operación extraer
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool extraer(double monto);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-13-refactorizacion-de-cuenta-banc.h`)

@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.16 - Búsqueda Lineal con Variables Globales ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-busqueda-global
 Refactorizá la siguiente función que depende de variables globales mutables para
@@ -80,14 +78,12 @@ void buscar(int arr[], int n, int x)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Retornar el índice directamente como valor de retorno de
     la función pura.
 -   **[*plus ultra*]:** Agregar el calificador `const` al arreglo de entrada.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-busqueda-global
 :class: dropdown
@@ -120,14 +116,50 @@ void test_buscar_aparicion(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-busqueda-global -->
 
 ---
 
-## 3. Algoritmos Comprimidos y Lazos Crípticos
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación buscar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void buscar(int arr[], int n, int x);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-16-busqueda-lineal-con-variables.h`)

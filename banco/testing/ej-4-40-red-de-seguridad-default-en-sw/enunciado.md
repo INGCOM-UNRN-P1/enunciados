@@ -1,5 +1,3 @@
-### Ejercicio 4.40 - Red de Seguridad: Default en Switch ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-default-switch
 ¿Por qué toda sentencia `switch` debe contener obligatoriamente una cláusula
@@ -12,7 +10,6 @@ si el programador cree haber cubierto todos los casos posibles?
     `default`.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-default-switch
 :class: dropdown
@@ -49,9 +46,54 @@ void test_trimestres(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-default-switch -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación obtener_dias_trimestre
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int obtener_dias_trimestre(int trimestre);
+
+/*
+ * Operación test_trimestres
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_trimestres(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Incluí siempre una cláusula default: en sentencias switch para manejar valores inesperados.
+- Registrá un mensaje de advertencia o manejá el error defensivamente en la rama por defecto.
+- Verificá que todas las constantes de enumeración estén contempladas explícitamente.
+:::

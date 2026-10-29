@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.25 - La Función Monstruo de Facturación ⭐⭐⭐☆☆
-
 :::{exercise}
 :label: ej-ref-funcion-monstruo
 La siguiente función viola el Principio de Responsabilidad Única ([Regla
@@ -84,7 +82,6 @@ void facturar(double p, int cant, int tipo, double saldo)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Crear `calcular_subtotal`, `calcular_descuento`,
     `calcular_iva` y `verificar_saldo`.
@@ -92,9 +89,48 @@ void facturar(double p, int cant, int tipo, double saldo)
     función pura.
 
 :::
-<!-- {exercise} -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación facturar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void facturar(double p, int cant, int tipo, double saldo);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-25-la-funcion-monstruo-de-factura.h`)

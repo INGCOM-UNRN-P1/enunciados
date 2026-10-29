@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.12 - Sombreado de Variables (Shadowing) ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-shadowing
 Leé el siguiente fragmento e indicá qué imprime en consola y por qué:
@@ -81,7 +79,6 @@ int main(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Explicar qué advertencia emite el compilador al compilar
     con `-Wshadow`.
@@ -89,7 +86,6 @@ int main(void)
     alcance (*scope*).
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-shadowing
 :class: dropdown
@@ -101,9 +97,42 @@ la función, la global permanece inalterada con valor `10`. La bandera `-Wshadow
 alerta explícitamente sobre estas declaraciones ambiguas.
 
 :::
-<!-- {solution} ej-test-shadowing -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación multiplicar
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int multiplicar(int valor);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-12-sombreado-de-variables-shadowi.h`)

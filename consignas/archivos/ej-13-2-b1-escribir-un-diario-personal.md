@@ -59,8 +59,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 13.2 - b.1 - Escribir un diario personal ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ejercicio_archivos_1
 :enumerator: 1
@@ -78,7 +76,6 @@ errores de apertura, escritura y cierre.
     líneas de manera robusta.
 
 :::
-<!-- {exercise} -->
 
 ::::{solution} ejercicio_archivos_1
 :class: dropdown
@@ -157,10 +154,55 @@ int main(void)
     return EXIT_SUCCESS;
 }
 :::
-<!-- {code-block}c -->
 
 ::::
-<!-- {solution} ejercicio_archivos_1 -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Escribir un diario personal
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_r_un_diario_personal(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Usá fopen() con modo 'a' para agregar entradas al final o 'w' para sobreescribir el diario.
+- Validá siempre que el puntero FILE* no sea NULL antes de escribir con fprintf() o fputs().
+- No olvides cerrar el archivo con fclose() para asegurar la persistencia de los datos en disco.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-13-2-b1-escribir-un-diario-personal.h`)

@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.16 - Modificación inadvertida de bandera global ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-bandera-global
 Descubrí el bug en este programa donde dos funciones manipulan la misma variable
@@ -90,7 +88,6 @@ void validar_paridad(int x)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** ¿Qué ocurre si se llama `validar_rango(-5)` seguido de
     `validar_paridad(4)`?
@@ -98,7 +95,6 @@ void validar_paridad(int x)
     independiente.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-bandera-global
 :class: dropdown
@@ -120,12 +116,57 @@ bool es_par(int x)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-bandera-global -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación validar_rango
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void validar_rango(int x);
+
+/*
+ * Operación validar_paridad
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void validar_paridad(int x);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-16-modificacion-inadvertida-de-ba.h`)

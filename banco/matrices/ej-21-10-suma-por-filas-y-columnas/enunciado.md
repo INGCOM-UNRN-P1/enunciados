@@ -1,5 +1,3 @@
-### Ejercicio 21.10 - Suma por Filas y Columnas ⭐⭐☆☆☆
-
 #### Descripción
 
 Escribí un programa en C que, dada una matriz de enteros de dimensiones `M × N`,
@@ -44,10 +42,8 @@ Matriz de ejemplo (2×3):
 [ 4, 5, 6 ]
 ```
 
-<!-- text -->
 
 :::
-<!-- {tab-item} Entrada -->
 
 :::{tab-item} Salida
 :sync: tab2
@@ -57,13 +53,10 @@ Suma de filas: [6, 15]
 Suma de columnas: [5, 7, 9]
 ```
 
-<!-- text -->
 
 :::
-<!-- {tab-item} Salida -->
 
 ::::
-<!-- {tab-set} -->
 
 :::{note} Verificación paso a paso
 
@@ -76,7 +69,6 @@ Suma de columnas: [5, 7, 9]
     -   Columna 2: `3 + 6 = 9`.
 
 :::
-<!-- {note} Verificación paso a paso -->
 
 #### Requisitos y Precondiciones
 
@@ -112,113 +104,58 @@ Suma de columnas: [5, 7, 9]
 -   **Dimensión no válida:** si la función de entrada recibe un valor
     `val <= 0`, debe retornar `0` sin realizar ningún otro procesamiento.
 
-#### Ejemplos Adicionales de Ejecución
+#
 
-:::{tab-set}
+### 📋 Contrato de las Funciones
 
-:::{tab-item} Ejemplo 2: matriz 3×3
-:sync: tab3
+```c
+/*
+ * Procesa el flujo principal de Suma por Filas y Columnas
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_por_filas_y_columnas(int val);
 
-**Entrada:**
-
-```text
-[  2,  0, -2 ]
-[  1,  1,  1 ]
-[ -5,  5,  0 ]
 ```
 
-**Salida esperada:**
+### 🧪 Ejemplos de Ejecución
 
+::::{tab-set}
+:::{tab-item} Valor positivo
 ```text
-Suma de filas: [0, 3, 0]
-Suma de columnas: [-2, 6, -1]
+Entrada: 5
+Salida / Retorno: 10
 ```
-
-<!-- text -->
-
 :::
-<!-- {tab-item} Ejemplo 2: matriz 3×3 -->
-
-:::{tab-item} Ejemplo 3: matriz 1×4
-:sync: tab4
-
-**Entrada:**
-
+:::{tab-item} Valor cero o negativo
 ```text
-[ 10, -3, 0, 7 ]
+Entrada: 0
+Salida / Retorno: 0
 ```
-
-**Salida esperada:**
-
-```text
-Suma de filas: [14]
-Suma de columnas: [10, -3, 0, 7]
-```
-
-<!-- text -->
-
 :::
-<!-- {tab-item} Ejemplo 3: matriz 1×4 -->
-
 ::::
-<!-- {tab-set} -->
 
-:::{hint} Lógica y Consideraciones
+### ⚠️ Precondiciones y Casos Borde
 
--   **Estrategia de una única pasada:**
-    -   Inicializar `suma_filas[i] = 0` para todo `i` en `[0, M)`.
-    -   Inicializar `suma_cols[j] = 0` para todo `j` en `[0, N)`.
-    -   Recorrer la matriz con dos lazos anidados. Al visitar el elemento
-        `matriz[i][j]`, acumularlo en **ambos** arreglos:
-        `suma_filas[i] += matriz[i][j]` y `suma_cols[j] += matriz[i][j]`.
--   **Orden de recorrido:** iterar con el índice de filas `i` en el lazo
-    exterior y el índice de columnas `j` en el lazo interior. Este orden
-    respeta la disposición por filas (*row-major order*) del almacenamiento de
-    matrices en C y mejora la localidad de las referencias a memoria.
--   **Invariantes:** al finalizar el recorrido, cada `suma_filas[i]` acumuló
-    exactamente los `N` elementos de la fila `i`, y cada `suma_cols[j]` acumuló
-    exactamente los `M` elementos de la columna `j`.
--   **No inicializar dentro del lazo doble:** la inicialización de los arreglos
-    resultado se realiza en una pasada previa y separada, nunca dentro del
-    recorrido de la matriz.
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Suma de Filas:**
+- Recorrer cada fila con un lazo exterior.
+- Para cada fila, inicializar una `suma_fila` en 0.
+- Con un lazo interior, recorrer las columnas de esa fila y acumular los valores en `suma_fila`.
+- Guardar el resultado en el arreglo de sumas de filas.
+- **Suma de Columnas:**
+- El proceso es inverso. El lazo exterior recorre las columnas.
+- El lazo interior recorre las filas de esa columna.
+- **Eficiencia:** Se pueden calcular ambas sumas en un solo par de lazos anidados. Al procesar el elemento `matriz[i][j]`, se añade a `suma_filas[i]` y a `suma_columnas[j]`.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
 :::
-<!-- {hint} Lógica y Consideraciones -->
-
-:::{hint} Ayuda (Pseudocódigo)
-:class: dropdown
-
-```{code-block} pseudocode
-:linenos:
-PROCEDIMIENTO sumar_filas_y_columnas(matriz, M, N, REF suma_filas, REF suma_cols)
-INICIO
-    // Inicializar ambos arreglos resultado en 0
-    PARA i DESDE 0 HASTA M-1 HACER
-        suma_filas[i] = 0
-    FIN PARA
-    PARA j DESDE 0 HASTA N-1 HACER
-        suma_cols[j] = 0
-    FIN PARA
-
-    // Una única pasada sobre la matriz, respetando row-major order
-    PARA i DESDE 0 HASTA M-1 HACER
-        PARA j DESDE 0 HASTA N-1 HACER
-            suma_filas[i] = suma_filas[i] + matriz[i][j]
-            suma_cols[j]  = suma_cols[j]  + matriz[i][j]
-        FIN PARA
-    FIN PARA
-FIN PROCEDIMIENTO
-```
-
-<!-- {code-block} pseudocode -->
-
--   **[*plus ultra*]:** Analizar cómo varía el uso de la memoria caché si se
-    invierte el orden de los lazos (columna exterior, fila interior) sobre una
-    matriz de gran tamaño. ¿Cuántas fallas de caché (*cache misses*) adicionales
-    se producen por acceder a memoria con salto entre filas?
--   **[*plus ultra*]:** Generalizar la función para que valide de forma
-    defensiva las dimensiones y los índices antes de cada acceso, garantizando
-    que se encuentren estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Ayuda (Pseudocódigo) -->

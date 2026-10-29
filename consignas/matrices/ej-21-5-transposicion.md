@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 21.5 - Transposición ⭐⭐☆☆☆
-
 #### Descripción
 Calcular la transpuesta $A^T$ de una matriz $A$. La transposición se obtiene
 intercambiando las filas por las columnas.
@@ -68,10 +66,8 @@ intercambiando las filas por las columnas.
 ``` text
 Matriz A (2x3): `[[1, 2, 3], [4, 5, 6]]`
 ```
-<!-- text -->
 
 :::
-<!-- {tab-item} Entrada -->
 :::{tab-item} Salida
 :sync: tab2
 Matriz $A^T$ (3x2):
@@ -80,50 +76,58 @@ Matriz $A^T$ (3x2):
 [ 2, 5 ]
 [ 3, 6 ]
 ```
-<!-- text -->
 
 :::
-<!-- {tab-item} Salida -->
 
 ::::
-<!-- {tab-set} -->
 
-:::{hint} Lógica y Consideraciones
+### 📋 Contrato de las Funciones
 
--   **Fórmula:** $(A^T)_{ij} = A_{ji}$.
--   **Dimensiones:** Si la matriz original es $m \times n$, su transpuesta será
-    $n \times m$.
--   **Proceso:** Recorrer la matriz original `A` con lazos anidados. En cada
-    posición `(i, j)`, copiar el elemento `A[i][j]` a la posición `(j, i)` de la
-    nueva matriz transpuesta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
-:::{hint} Ayuda (Pseudocódigo)
-:class: dropdown
-
-```{code-block} pseudocode
-:linenos:
-PROCEDIMIENTO transponer_matriz(A, filas, columnas, REF A_T)
-INICIO
-    PARA i DESDE 0 HASTA filas-1 HACER
-        PARA j DESDE 0 HASTA columnas-1 HACER
-            A_T[j][i] = A[i][j]
-        FIN PARA
-    FIN PARA
-FIN PROCEDIMIENTO
+```c
+/*
+ * Procesa el flujo principal de Transposición
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int ejecutar_ej_21_5_transposicion(int val);
 
 ```
-<!-- {code-block} pseudocode -->
 
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
+### 🧪 Ejemplos de Ejecución
 
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
 :::
-<!-- {hint} Ayuda (Pseudocódigo) -->
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Fórmula:** $(A^T)_{ij} = A_{ji}$.
+- **Dimensiones:** Si la matriz original es $m \times n$, su transpuesta será $n \times m$.
+- **Proceso:** Recorrer la matriz original `A` con lazos anidados. En cada posición `(i, j)`, copiar el elemento `A[i][j]` a la posición `(j, i)` de la nueva matriz transpuesta.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-21-5-transposicion.h`)

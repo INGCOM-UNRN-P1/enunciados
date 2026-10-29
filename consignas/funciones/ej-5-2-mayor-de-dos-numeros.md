@@ -53,10 +53,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-# Mayor de dos números
-
-### Ejercicio 5.2 - Mayor de dos números ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-funcion-mayor
 :enumerator: funciones-2
@@ -70,7 +66,6 @@ Probala desde `main()` con distintos pares de números.
 -   **[*plus ultra*]:** Escribir aserciones con assert() para verificar el comportamiento con números iguales.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-funcion-mayor
 :class: dropdown
@@ -95,11 +90,49 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-funcion-mayor -->
 (ejercicio_5_3)=
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Retorna el mayor de a y b
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int mayor(int a, int b);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-5-2-mayor-de-dos-numeros.h`)

@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.37 - Documentación de Contratos con Doxygen ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-contratos-doxygen
 Escribí el bloque de documentación estructurada con etiquetas Doxygen (`@brief`,
@@ -77,14 +75,12 @@ Escribí el bloque de documentación estructurada con etiquetas Doxygen (`@brief
 int calcular_potencia_entera(int base, int exponente, bool *ok);
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Implementar la función validando que `exponente >= 0`.
 -   **[*plus ultra*]:** Escribir tests unitarios que verifiquen las
     postcondiciones.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-contratos-doxygen
 :class: dropdown
@@ -136,12 +132,50 @@ void test_potencia_contrato(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-contratos-doxygen -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Documentación de Contratos con Doxygen
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_ion_de_contratos_con(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-37-documentacion-de-contratos-con.h`)

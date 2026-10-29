@@ -55,20 +55,58 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 7.13 - Librería de Operaciones sobre Matrices 2D ⭐⭐⭐⭐☆
-
 Diseñá `matriz2d.h` y `matriz2d.c` para matrices con dimensiones fijas o pasadas linealmente:
 - `void mat_sumar(size_t filas, size_t cols, const double A[filas][cols], const double B[filas][cols], double C[filas][cols])`
 - `void mat_multiplicar_escalar(size_t filas, size_t cols, double M[filas][cols], double escalar)`
 - `void mat_transponer(size_t filas, size_t cols, const double A[filas][cols], double T[cols][filas])`
 - `double mat_traza(size_t n, const double A[n][n])`
 
-:::{hint} Lógica y Consideraciones
-- Usá VLA (Variable Length Arrays) en los parámetros para permitir sintaxis limpia de matrices 2D en C99+.
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Librería de Operaciones sobre Matrices 2D
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_de_operaciones_sobre(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Usá VLA (Variable Length Arrays) en los parámetros para permitir sintaxis limpia de matrices 2D en C99+.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-7-13-libreria-de-operaciones-sobre.h`)

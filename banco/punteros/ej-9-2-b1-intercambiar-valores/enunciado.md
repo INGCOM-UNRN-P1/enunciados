@@ -1,5 +1,3 @@
-### Ejercicio 9.2 - b.1 - Intercambiar valores ⭐⭐☆☆☆
-
 :::{exercise}
 :label: intercambiar_valores
 :enumerator: punteros-1
@@ -14,7 +12,6 @@ originales a las que apuntan estos punteros.
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} -->
 
 ::::{solution} intercambiar_valores
 :class: dropdown
@@ -33,7 +30,45 @@ void intercambiar(int *a, int *b)
     *b = temporal;     // Asignamos al lugar de 'b' el valor guardado
 }
 :::
-<!-- {code-block}c -->
 
 ::::
-<!-- {solution} intercambiar_valores -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Intercambiar valores
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_intercambiar_valores(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

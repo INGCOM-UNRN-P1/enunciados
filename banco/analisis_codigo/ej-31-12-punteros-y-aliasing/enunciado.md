@@ -1,5 +1,3 @@
-### Ejercicio 31.12 - Punteros y Aliasing ⭐⭐⭐☆☆
-
 :::{exercise} analisis_aliasing
 :label: analisis_aliasing
 
@@ -30,7 +28,6 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**:
 
@@ -48,7 +45,6 @@ int main(void)
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} analisis_aliasing -->
 
 :::{solution} analisis_aliasing
 :class: dropdown
@@ -112,7 +108,6 @@ void procesar_datos(int *p1, int *p2, int valor)
     *p2 = valor * 2;
 }
 ```
-<!-- {code-block} c -->
 
 **Opción 2: Usar `restrict` (C99)**
 ``` c
@@ -122,7 +117,6 @@ void procesar_datos(int *restrict p1, int *restrict p2, int valor)
     *p2 = valor * 2;
 }
 ```
-<!-- c -->
 El keyword `restrict` promete al compilador que los punteros no tienen aliasing.
 
 **Opción 3: Documentar el requisito**
@@ -131,7 +125,46 @@ El keyword `restrict` promete al compilador que los punteros no tienen aliasing.
 // POSTCONDICIÓN: *p1 = valor, *p2 = valor * 2
 void procesar_datos(int *p1, int *p2, int valor);
 ```
-<!-- c -->
 
 :::
-<!-- {solution} analisis_aliasing -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación procesar_datos
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+void procesar_datos(int *p1, int *p2, int valor);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

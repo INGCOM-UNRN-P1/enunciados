@@ -53,10 +53,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-# Validador de Fechas
-
-## Ejercicio 5.21 - Validador de Fechas ⭐⭐⭐⭐☆
-
 Implementá funciones para trabajar con fechas:
 - `bool es_fecha_valida(int dia, int mes, int anio)`
 - `int dias_del_mes(int mes, int anio)`
@@ -69,18 +65,49 @@ Implementá funciones para trabajar con fechas:
 - `dia_del_anio` suma días desde inicio del año
 
 
-:::{hint} Lógica y Consideraciones
-    error e informar el resultado mediante parámetros de salida.
-    especificando precondiciones y postcondiciones.
-
--   **[*plus ultra*]:** Modularizar la función reutilizando es_bisiesto y dias_del_mes.
--   **[*plus ultra*]:** Escribir pruebas unitarias exhaustivas para fechas límites (ej. 29 de febrero en años bisiestos y no bisiestos).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 (ejercicio_5_22)=
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Lógica de Validador de Fechas
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int resolver_ej_21(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-5-21-validador-de-fechas.h`)

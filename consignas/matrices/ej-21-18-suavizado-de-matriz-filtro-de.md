@@ -55,20 +55,54 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 21.18 - Suavizado de matriz (Filtro de caja) ⭐⭐⭐☆☆
-
 Implementar un filtro de "suavizado" o "blur". Para cada elemento de la matriz,
 su nuevo valor será el promedio de sus 8 vecinos y él mismo. Los elementos en
 los bordes requerirán un manejo especial.
-:::{hint} Lógica y Consideraciones
 
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
+### 📋 Contrato de las Funciones
 
+```c
+/*
+ * Procesa el flujo principal de Suavizado de matriz (Filtro de caja)
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__de_matriz_filtro_de(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
 :::
-<!-- {hint} Lógica y Consideraciones -->
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-21-18-suavizado-de-matriz-filtro-de.h`)

@@ -59,27 +59,14 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 22.11 - Concatenar Listas ⭐⭐☆☆☆
-
 Desarrollar una función que anexe de forma destructiva todos los elementos de la
 segunda lista al final de la primera.
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 void lista_concatenar(lista_t *destino, lista_t *origen);
 ```
-<!-- c -->
-## Ejercicio 22.12 - TAD Contador ⭐☆☆☆☆
 
 Implementá un contador simple con:
 - `contador_t *crear_contador()`
@@ -94,18 +81,8 @@ Implementá un contador simple con:
 - Mantené valor privado, solo accesible por funciones
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.13 - TAD Pila (Stack) ⭐⭐☆☆☆
 
 Implementá pila con array estático de tamaño fijo:
 - `pila_t *crear_pila(int capacidad)`
@@ -121,18 +98,8 @@ Implementá pila con array estático de tamaño fijo:
 - `desapilar` y `ver_tope` retornan `false` si está vacía
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.14 - TAD Cola (Queue) ⭐⭐⭐☆☆
 
 Implementá cola FIFO con lista enlazada:
 - `cola_t *crear_cola()`
@@ -149,18 +116,8 @@ Implementá cola FIFO con lista enlazada:
 - `desencolar` quita del frente
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.15 - TAD Lista Enlazada ⭐⭐⭐☆☆
 
 Implementá lista enlazada simple:
 - `lista_t *crear_lista()`
@@ -176,18 +133,8 @@ Implementá lista enlazada simple:
 - Mantené contador de tamaño
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.16 - TAD Conjunto (Set) ⭐⭐⭐⭐☆
 
 Implementá conjunto sin elementos repetidos:
 - `conjunto_t *crear_conjunto()`
@@ -205,18 +152,8 @@ Implementá conjunto sin elementos repetidos:
 - Operaciones de conjuntos crean nuevos conjuntos
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.17 - TAD Diccionario (Map) ⭐⭐⭐⭐☆
 
 Implementá diccionario clave-valor (strings a enteros):
 - `diccionario_t *crear_diccionario()`
@@ -233,18 +170,8 @@ Implementá diccionario clave-valor (strings a enteros):
 - Liberá claves al eliminar/destruir
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.18 - TAD Pila Genérica ⭐⭐⭐⭐☆
 
 Pila que almacena `void *` (cualquier tipo):
 - `pila_t *crear_pila()`
@@ -258,18 +185,8 @@ Pila que almacena `void *` (cualquier tipo):
 - Usuario responsable de castear datos al tipo correcto
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.19 - TAD Cola de Prioridad ⭐⭐⭐⭐⭐
 
 Cola donde elementos con mayor prioridad salen primero:
 - `cola_prioridad_t *crear_cola_prioridad()`
@@ -283,18 +200,8 @@ Cola donde elementos con mayor prioridad salen primero:
 - Prioridad mayor = sube en el heap
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.20 - TAD Árbol Binario de Búsqueda ⭐⭐⭐⭐⭐
 
 ABB con operaciones estándar:
 - `abb_t *crear_abb()`
@@ -311,18 +218,8 @@ ABB con operaciones estándar:
 - Recorrido inorden: izquierdo, raíz, derecho
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.21 - TAD Grafo ⭐⭐⭐⭐⭐
 
 Grafo dirigido con listas de adyacencia:
 - `grafo_t *crear_grafo(int vertices)`
@@ -337,18 +234,8 @@ Grafo dirigido con listas de adyacencia:
 - `obtener_vecinos` retorna array dinámico (caller libera)
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.22 - TAD Matriz Dispersa ⭐⭐⭐⭐⭐
 
 Matriz que solo almacena elementos no cero:
 - `matriz_t *crear_matriz(int filas, int cols)`
@@ -362,18 +249,8 @@ Matriz que solo almacena elementos no cero:
 - `obtener` retorna 0 si no está almacenado
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.23 - TAD Cadena Dinámica ⭐⭐⭐⭐☆
 
 String que crece automáticamente:
 - `cadena_t *crear_cadena(const char *inicial)`
@@ -389,18 +266,8 @@ String que crece automáticamente:
 - Redimensioná automáticamente con `realloc`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.24 - TAD Tabla Hash ⭐⭐⭐⭐⭐
 
 Hash table con manejo de colisiones:
 - `hash_t *crear_hash(size_t tamanio_inicial)`
@@ -415,18 +282,8 @@ Hash table con manejo de colisiones:
 - Función hash: suma de caracteres módulo tamaño
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.25 - TAD Buffer Circular ⭐⭐⭐⭐☆
 
 Buffer circular para comunicación productor-consumidor:
 - `buffer_t *crear_buffer(size_t capacidad)`
@@ -442,18 +299,8 @@ Buffer circular para comunicación productor-consumidor:
 - Lleno cuando `(fin + 1) % capacidad == inicio`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.26 - TAD Iterador ⭐⭐⭐⭐⭐
 
 Iterador externo para lista:
 - `iterador_t *crear_iterador(const lista_t *lista)`
@@ -468,18 +315,8 @@ Iterador externo para lista:
 - Permite recorrer sin exponer estructura interna
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.27 - TAD Árbol AVL ⭐⭐⭐⭐⭐
 
 Árbol auto-balanceado:
 - Misma interfaz que ABB
@@ -492,18 +329,8 @@ Iterador externo para lista:
 - 4 tipos de rotación: LL, RR, LR, RL
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Implementar encapsulamiento completo manteniendo la
-    definición interna oculta en el archivo `.c`.
--   **[*plus ultra*]:** Añadir una función de duplicación profunda (*deep copy*)
-    para copiar la estructura de forma segura.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.28 - TAD Heap (Min/Max) ⭐⭐⭐⭐⭐
 
 Heap binario genérico:
 - `heap_t *crear_heap(bool es_max, int (*comparar)(int, int))`
@@ -518,18 +345,8 @@ Heap binario genérico:
 - `extraer`: quitar raíz, poner último, bajar (heapify-down)
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.29 - TAD Cache LRU ⭐⭐⭐⭐⭐
 
 Cache con política Least Recently Used:
 - `cache_t *crear_cache(size_t capacidad)`
@@ -543,18 +360,8 @@ Cache con política Least Recently Used:
 - Al insertar con capacidad llena, elimina último (menos reciente)
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.30 - TAD Multi-Conjunto (Bag) ⭐⭐⭐⭐⭐
 
 Permite elementos repetidos con conteo:
 - `bag_t *crear_bag()`
@@ -568,18 +375,8 @@ Permite elementos repetidos con conteo:
 - Permite múltiples copias del mismo elemento
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 22.31 - Sistema de TADs Interconectados ⭐⭐⭐⭐⭐
 
 Sistema completo: Biblioteca de libros usando múltiples TADs:
 - `libro_t` (TAD básico)
@@ -601,15 +398,6 @@ Operaciones:
 - Manejo robusto de errores
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 
@@ -625,7 +413,6 @@ Operaciones:
 5. **Documentación:** Especificar precondiciones, postcondiciones y complejidad
 
 :::
-<!-- {tip} Principios de Diseño de TADs -->
 
 :::{note} Estructura de Archivos
 
@@ -643,13 +430,103 @@ gcc -c pila.c -o pila.o
 gcc -c test_pila.c -o test_pila.o
 gcc pila.o test_pila.o -o test_pila
 ```
-<!-- bash -->
 
 :::
-<!-- {note} Estructura de Archivos -->
 
 Estas consignas cubren el diseño e implementación de TADs desde básicos hasta
 complejos, enfatizando encapsulamiento, modularidad y reutilización.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Concatenar Listas
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_11_concatenar_listas(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+3. **Gestión de memoria:** Toda memoria solicitada mediante `malloc`/`calloc` debe ser validada y eventualmente liberada con `free`.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante Valgrind o AddressSanitizer.
+
+:::{hint} Consideraciones Didácticas
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.
+- Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- **Encapsulamiento:** Ocultar detalles de implementación
+- **Interfaz mínima:** Solo exponer lo necesario
+- **Invariantes:** Mantener estructura consistente siempre
+- **Error handling:** Retornar códigos de error o usar convenciones (NULL, false)
+- **Documentación:** Especificar precondiciones, postcondiciones y complejidad
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-22-11-concatenar-listas.h`)

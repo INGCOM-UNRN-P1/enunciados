@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 31.15 - Punteros a Funciones y Callbacks ⭐⭐⭐☆☆
-
 :::{exercise} analisis_callbacks
 :label: analisis_callbacks
 
@@ -130,7 +128,6 @@ int main(void)
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**:
 
@@ -151,7 +148,6 @@ int main(void)
     punteros en lugar de indexación directa.
 
 :::
-<!-- {exercise} analisis_callbacks -->
 
 :::{solution} analisis_callbacks
 :class: dropdown
@@ -162,7 +158,6 @@ int main(void)
 typedef bool (*predicado_t)(int);
 typedef int (*operacion_t)(int);
 ```
-<!-- c -->
 
 **`predicado_t`**: 
 - Es un **tipo de puntero a función**
@@ -181,7 +176,6 @@ bool (*predicado)(int); // Variable que es puntero a función
 // Con typedef (más claro):
 predicado_t predicado; // Variable de tipo "puntero a función"
 ```
-<!-- c -->
 
 **2. Roles de Punteros a Función:**
 
@@ -298,7 +292,6 @@ int contar_negativos(const int *arr, size_t n)
 }
 // ¡Mucha duplicación!
 ```
-<!-- {code-block} c -->
 
 **Con callbacks (enfoque genérico):**
 ```{code-block} c
@@ -312,7 +305,6 @@ contar_si(arr, n, es_negativo);
 contar_si(arr, n, es_multiplo_de_tres);
 // ... cualquier predicado
 ```
-<!-- {code-block} c -->
 
 **Ventajas:**
 1. **DRY (Don't Repeat Yourself)**: Evita duplicación de código
@@ -352,7 +344,6 @@ else
     printf("No hay positivos\n");
 }
 ```
-<!-- {code-block} c -->
 
 **Extensión adicional - Con contexto:**
 
@@ -385,7 +376,6 @@ bool es_mayor_que(int valor, void *ctx)
 int umbral = 3;
 int cantidad = contar_si_ctx(numeros, n, es_mayor_que, &umbral);
 ```
-<!-- {code-block} c -->
 
 **Comparación con otros lenguajes:**
 
@@ -400,10 +390,92 @@ numeros = [-3, -2, -1, 0, 1, 2, 3, 4, 5]
 pares = len(list(filter(lambda x: x % 2 == 0, numeros)))
 positivos = len(list(filter(lambda x: x > 0, numeros)))
 ```
-<!-- python -->
 
 :::
-<!-- {solution} analisis_callbacks -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación es_par
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool es_par(int n);
+
+/*
+ * Operación es_positivo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool es_positivo(int n);
+
+/*
+ * Operación duplicar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int duplicar(int n);
+
+/*
+ * Operación cuadrado
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int cuadrado(int n);
+
+/*
+ * Operación contar_si
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+int contar_si(const int *arr, size_t n, predicado_t predicado);
+
+/*
+ * Operación aplicar
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void aplicar(int *arr, size_t n, operacion_t operacion);
+
+/*
+ * Operación procesar
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void procesar(int *arr, size_t n, predicado_t filtro,
+              operacion_t transformacion);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-31-15-punteros-a-funciones-y-callbac.h`)

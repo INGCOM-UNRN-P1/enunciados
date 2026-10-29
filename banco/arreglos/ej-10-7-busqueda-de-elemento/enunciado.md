@@ -1,5 +1,3 @@
-### Ejercicio 10.7 - Búsqueda de elemento ⭐⭐☆☆☆
-
 Implementá una **búsqueda lineal** (o secuencial) que encuentre la **primera
 ocurrencia** de un elemento dentro de un arreglo de enteros. Si el elemento
 está presente, la función debe devolver el índice de esa primera ocurrencia;
@@ -48,7 +46,6 @@ resolver correctamente:
     poder buscarse en igualdad de condiciones.
 
 :::
-<!-- {note} Casos borde y precondiciones -->
 
 :::{tip} Ejemplos de ejecución
 :class: dropdown
@@ -86,33 +83,8 @@ Con el arreglo de trabajo `{4, -2, 7, 0, -2, 9}` (índices `0` a `5`):
 -1           /* caso degenerado: no hay elementos por recorrer */
 ```
 
-<!-- {code-block} text -->
 :::
-<!-- {tip} Ejemplos de ejecución -->
 
-:::{hint} Lógica y consideraciones
-
--   **Entrada:** un arreglo de enteros, su tamaño (`size_t tamano`) y el
-    elemento a buscar.
--   **Proceso:** recorré el arreglo con un lazo `for` desde el índice `0`
-    hasta `tamano - 1`, en orden creciente.
--   **Condición:** en cada iteración, compará `arreglo[i]` con el elemento
-    buscado; si son iguales, retorná `i` inmediatamente.
--   **Salida:** si el lazo termina sin encontrar el elemento, retorná `-1`
-    como valor centinela de «no encontrado».
--   **Costo:** la búsqueda lineal examina a lo sumo `tamano` elementos
-    (complejidad temporal $\mathcal{O}(n)$); no es posible garantizar un
-    mejor orden de complejidad sobre un arreglo sin ordenar.
-
--   **[*plus ultra*]:** aprovechá que el recorrido secuencial en orden
-    creciente de índices genera un patrón de acceso contiguo, favorable a la
-    localidad espacial y al uso de la memoria caché.
--   **[*plus ultra*]:** defendé el contrato de la función: verificá la
-    precondición `arreglo != NULL || tamano == 0` antes de indexar, y
-    evitá leer o escribir fuera de `[0, tamano - 1]`.
-
-:::
-<!-- {hint} Lógica y consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -129,7 +101,54 @@ INICIO
 FIN FUNCION
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Búsqueda de elemento
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_busqueda_de_elemento(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Entrada:** Un arreglo, su tamaño y el elemento a buscar.
+- **Proceso:** Recorrer el arreglo con un lazo `for` desde el índice 0.
+- **Condición:** En cada iteración, comparar el elemento actual del arreglo con el elemento buscado. Si son iguales, se ha encontrado.
+- **Salida:** Si se encuentra el elemento, la función debe devolver el índice actual. Si el lazo termina sin encontrar el elemento, se debe devolver un valor especial que indique que no se encontró, como `-1`.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+:::

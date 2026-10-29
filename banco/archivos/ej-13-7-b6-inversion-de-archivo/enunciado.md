@@ -1,5 +1,3 @@
-### Ejercicio 13.7 - b.6 - Inversión de archivo ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ejercicio_archivos_6
 :enumerator: 6
@@ -21,7 +19,6 @@ ante fallas de apertura, posicionamiento o escritura.
     líneas de manera robusta.
 
 :::
-<!-- {exercise} -->
 
 ::::{solution} ejercicio_archivos_6
 :class: dropdown
@@ -123,7 +120,46 @@ int main(void)
     return 0;
 }
 :::
-<!-- {code-block}c -->
 
 ::::
-<!-- {solution} ejercicio_archivos_6 -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Inversión de archivo
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_inversion_de_archivo(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

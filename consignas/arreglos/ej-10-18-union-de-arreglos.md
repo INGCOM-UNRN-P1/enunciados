@@ -55,29 +55,9 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 10.18 - Unión de arreglos ⭐⭐⭐☆☆
-
-
 Crear una función que reciba dos arreglos y devuelva un nuevo arreglo con todos
 los elementos de ambos, sin duplicados.
 
-:::{hint} Lógica y Consideraciones
-
--   **Proceso:**
-    1.  Copiar el primer arreglo a un arreglo de resultado temporal.
-    2.  Recorrer el segundo arreglo. Para cada elemento, verificar si ya existe
-        en el resultado temporal.
-    3.  Si no existe, añadirlo.
--   **Optimización:** Usar una tabla hash para llevar un registro de los
-    elementos ya añadidos mejora la eficiencia de la búsqueda.
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -103,10 +83,58 @@ INICIO
 FIN FUNCION
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Unión de arreglos
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_18_union_de_arreglos(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Proceso:**
+- Copiar el primer arreglo a un arreglo de resultado temporal.
+- Recorrer el segundo arreglo. Para cada elemento, verificar si ya existe en el resultado temporal.
+- Si no existe, añadirlo.
+- **Optimización:** Usar una tabla hash para llevar un registro de los elementos ya añadidos mejora la eficiencia de la búsqueda.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-10-18-union-de-arreglos.h`)

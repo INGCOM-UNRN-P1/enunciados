@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.47 - Diagnóstico de Aserción Fallida ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-diagnostico-fallo
 Al ejecutar una suite de pruebas, la terminal reporta el siguiente mensaje:
@@ -75,7 +73,6 @@ int mcd(int a, int b)
     return mcd(b, a % b); // ¿Qué ocurre si a=0 y b=5 en la primera llamada?
 }
 ```
-<!-- c -->
 
 -   **[*plus ultra*]:** Explicar por qué `0 % 5 == 0` y la siguiente llamada es
     `mcd(5, 0)` retornando `5`.
@@ -83,7 +80,6 @@ int mcd(int a, int b)
     convirtiéndolos a valor absoluto.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-diagnostico-fallo
 :class: dropdown
@@ -112,12 +108,50 @@ int mcd(int a, int b)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-diagnostico-fallo -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación mcd
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int mcd(int a, int b);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-47-diagnostico-de-asercion-fallid.h`)

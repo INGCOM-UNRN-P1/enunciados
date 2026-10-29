@@ -51,8 +51,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 19.1 - Días de la semana ⭐⭐☆☆☆
-
 :::{exercise}
 :label: enum_basico
 :enumerator: enums-1
@@ -67,7 +65,6 @@ o fin de semana. Incluí validación para valores inválidos.
     líneas de manera robusta.
 
 :::
-<!-- {exercise} -->
 
 ::::{solution} enum_basico
 :class: dropdown
@@ -150,10 +147,49 @@ int main()
     return 0;
 }
 :::
-<!-- {code-block}c -->
 
 ::::
-<!-- {solution} enum_basico -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Días de la semana
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__1_dias_de_la_semana(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+3. **Gestión de memoria:** Toda memoria solicitada mediante `malloc`/`calloc` debe ser validada y eventualmente liberada con `free`.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-19-1-dias-de-la-semana.h`)

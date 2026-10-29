@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 21.76 - Matriz Dispersa (Sparse) ⭐⭐⭐⭐⭐
-
 Representá una matriz dispersa (muchos ceros) eficientemente.
 
 **Orientación:**
@@ -65,15 +63,6 @@ Representá una matriz dispersa (muchos ceros) eficientemente.
 - Funciones: `asignar(f, c, val)`, `obtener(f, c)`, `mostrar()`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
 
@@ -91,7 +80,6 @@ for (int i = 0; i < filas; i++)
     }
 }
 ```
-<!-- c -->
 
 **Por Columnas (Column-Major):**
 ``` c
@@ -103,7 +91,6 @@ for (int j = 0; j < cols; j++)
     }
 }
 ```
-<!-- c -->
 
 **Diagonal Principal:**
 ``` c
@@ -112,7 +99,6 @@ for (int i = 0; i < N; i++)
     // procesar matriz[i][i]
 }
 ```
-<!-- c -->
 
 **Triangular Superior:**
 ``` c
@@ -124,7 +110,6 @@ for (int i = 0; i < N; i++)
     }
 }
 ```
-<!-- c -->
 
 **Triangular Inferior:**
 ``` c
@@ -136,10 +121,8 @@ for (int i = 0; i < N; i++)
     }
 }
 ```
-<!-- c -->
 
 :::
-<!-- {tip} Patrones de Recorrido -->
 
 :::{warning} Errores Comunes
 
@@ -173,7 +156,6 @@ for (int i = 0; i < N; i++)
    ```
 
 :::
-<!-- {warning} Errores Comunes -->
 
 :::{note} Inicialización de Matrices
 
@@ -181,22 +163,18 @@ for (int i = 0; i < N; i++)
 ``` c
 int matriz[3][4] = {0};
 ```
-<!-- c -->
 
 **Valores específicos:**
 ``` c
 int matriz[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 ```
-<!-- c -->
 
 **Parcial (resto en cero):**
 ``` c
 int matriz[3][3] = {{1}, {2}, {3}}; // Primera columna con valores
 ```
-<!-- c -->
 
 :::
-<!-- {note} Inicialización de Matrices -->
 
 :::{tip} Eficiencia y Cache
 
@@ -212,10 +190,8 @@ matriz[i][j]
     // MÁS LENTO (column-major)
     for (j...) for (i...) matriz[i][j]
 ```
-<!-- c -->
 
 :::
-<!-- {tip} Eficiencia y Cache -->
 
 :::{note} Matrices como Parámetros
 
@@ -234,14 +210,60 @@ void procesar(int filas, int cols, int (*matriz)[cols])
 {
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {note} Matrices como Parámetros -->
 
 Estas consignas cubren arrays bidimensionales desde operaciones básicas hasta
 algoritmos complejos, preparando para trabajar con matrices dinámicas en apuntes
 posteriores.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Matriz Dispersa (Sparse)
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_triz_dispersa_sparse(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- **Row-major es más eficiente en C:** Las matrices se almacenan por filas
+- **Acceso secuencial:** `matriz[i][j++]` es más rápido que `matriz[i++][j]`
+- **Localidad espacial:** Elementos consecutivos están cerca en memoria ``` c // MÁS RÁPIDO (row-major) for (i...) for (j...) matriz[i][j] // MÁS LENTO (column-major) for (j...) for (i...) matriz[i][j] ``` <!-- c -->
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-21-76-matriz-dispersa-sparse.h`)

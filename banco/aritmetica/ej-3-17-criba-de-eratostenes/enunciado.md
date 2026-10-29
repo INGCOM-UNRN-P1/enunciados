@@ -1,33 +1,7 @@
-### Ejercicio 3.17 - Criba de Eratóstenes ⭐⭐☆☆☆
-
 #### Descripción
 Implementar la Criba de Eratóstenes, un algoritmo altamente eficiente para
 encontrar todos los números primos hasta un límite superior $N$ especificado.
 
-:::{hint} Lógica y Consideraciones
--   **Estructura de Datos:** Se necesita un arreglo booleano (o de enteros)
-    `es_primo` de tamaño `N+1`. `es_primo[i]` será verdadero si `i` es primo y
-    falso en caso contrario.
--   **Inicialización:** Se inicializa todo el arreglo a `verdadero`, asumiendo
-    que todos los números son primos al principio. Luego, se marcan 0 y 1 como
-    no primos.
--   **Proceso:** 
-    1.  Se itera con un número `p` desde 2 hasta $\sqrt{N}$.
-    2.  Si `p` sigue marcado como primo (`es_primo[p]` es verdadero):
-        a. Se itera a través de todos los múltiplos de `p` (comenzando desde
-        `p*p`) y se marcan como no primos (`es_primo[multiplo] = falso`). Se
-        empieza en `p*p` porque los múltiplos menores ya habrán sido marcados
-        por primos más pequeños.
--   **Salida:** Al final, se recorre el arreglo `es_primo` y se imprimen todos
-    los índices `i` para los cuales `es_primo[i]` es verdadero.
-    desbordamientos de búfer validando la capacidad máxima.
-    líneas de manera robusta.
-
--   **[*plus ultra*]:** Validar que el límite superior sea mayor a 1 y usar un arreglo de tamaño fijo para marcar primos.
--   **[*plus ultra*]:** Mostrar la cantidad total de primos encontrados y el porcentaje que representan en el rango.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -63,7 +37,56 @@ INICIO
 FIN PROCEDIMIENTO
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Criba de Eratóstenes
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_criba_de_eratostenes(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Estructura de Datos:** Se necesita un arreglo booleano (o de enteros) `es_primo` de tamaño `N+1`. `es_primo[i]` será verdadero si `i` es primo y falso en caso contrario.
+- **Inicialización:** Se inicializa todo el arreglo a `verdadero`, asumiendo que todos los números son primos al principio. Luego, se marcan 0 y 1 como no primos.
+- **Proceso:**
+- Se itera con un número `p` desde 2 hasta $\sqrt{N}$.
+- Si `p` sigue marcado como primo (`es_primo[p]` es verdadero): a. Se itera a través de todos los múltiplos de `p` (comenzando desde `p*p`) y se marcan como no primos (`es_primo[multiplo] = falso`). Se empieza en `p*p` porque los múltiplos menores ya habrán sido marcados por primos más pequeños.
+- **Salida:** Al final, se recorre el arreglo `es_primo` y se imprimen todos los índices `i` para los cuales `es_primo[i]` es verdadero. desbordamientos de búfer validando la capacidad máxima. líneas de manera robusta.
+- Validar que el límite superior sea mayor a 1 y usar un arreglo de tamaño fijo para marcar primos.
+- Mostrar la cantidad total de primos encontrados y el porcentaje que representan en el rango.
+:::

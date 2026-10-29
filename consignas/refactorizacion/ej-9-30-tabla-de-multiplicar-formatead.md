@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.30 - Tabla de Multiplicar Formateada y Modularizada ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-ref-tabla-multiplicar-modular
 Refactorizá la siguiente función que imprime tablas de multiplicar desacoplando
@@ -73,7 +71,6 @@ void tabla(int n)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Implementar `int calcular_producto(int multiplicando,
     int multiplicador)`.
@@ -81,7 +78,6 @@ void tabla(int n)
     fijo `%2d x %2d = %4d`.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-tabla-multiplicar-modular
 :class: dropdown
@@ -113,12 +109,44 @@ void test_calcular_producto(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-tabla-multiplicar-modular -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación tabla
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void tabla(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-30-tabla-de-multiplicar-formatead.h`)

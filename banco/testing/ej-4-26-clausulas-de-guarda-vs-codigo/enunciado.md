@@ -1,5 +1,3 @@
-### Ejercicio 4.26 - Cláusulas de Guarda vs Código en Flecha ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-guardas-vs-flecha
 Refactorizá la siguiente función anidada aplicando **cláusulas de guarda** según
@@ -28,7 +26,6 @@ int procesar_pedido(int cantidad, double precio_unitario, bool cliente_vip)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Comprobar que la función reduzca la sangría horizontal
     manteniendo exactamente el mismo comportamiento.
@@ -36,7 +33,6 @@ int procesar_pedido(int cantidad, double precio_unitario, bool cliente_vip)
     salida prematura.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-guardas-vs-flecha
 :class: dropdown
@@ -79,9 +75,47 @@ void test_pedido_vip(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-guardas-vs-flecha -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación procesar_pedido
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int procesar_pedido(int cantidad, double precio_unitario, bool cliente_vip);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

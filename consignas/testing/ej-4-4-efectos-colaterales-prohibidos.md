@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.4 - Efectos colaterales prohibidos dentro de assert ⭐⭐☆☆☆
-
 :::{exercise}
 :label: ej-test-side-effects-assert
 Analizá el siguiente código. ¿Qué error crítico ocurrirá si este programa se
@@ -82,14 +80,12 @@ int main(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Formular la regla general: *Nunca colocar llamadas con
     efectos colaterales dentro de un `assert()`*.
 -   **[*plus ultra*]:** Reescribir el código separando la acción del assert.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-side-effects-assert
 :class: dropdown
@@ -108,12 +104,51 @@ assert(r1 == 0);
 int r2 = procesar_siguiente_item(&idx);
 assert(r2 == 1);
 ```
-<!-- c -->
 
 :::
-<!-- {solution} ej-test-side-effects-assert -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación procesar_siguiente_item
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+int procesar_siguiente_item(int *indice);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-4-efectos-colaterales-prohibidos.h`)

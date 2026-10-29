@@ -51,23 +51,10 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 1.5 - Primeros N Impares ⭐⭐☆☆☆
-
-
 Este ejercicio consiste en generar una secuencia de números impares, comenzando
 desde 1, hasta alcanzar un total de $N$ términos, donde $N$ es un número
 proporcionado por el usuario.
 
-:::{hint} Lógica y Consideraciones
--   **Entrada:** Se debe leer un número entero $N$ que representa la cantidad de
--   **Proceso:** Se puede abordar de dos maneras:
--   **Salida:** Se imprime la secuencia de los primeros $N$ números impares.
-
--   **[*plus ultra*]:** Validar que N sea un entero mayor a cero; de lo contrario, volver a solicitarlo.
--   **[*plus ultra*]:** Mostrar la suma acumulada de los primeros N impares y verificar que sea igual a N².
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 :::{tip} Ayuda (pseudocódigo)
 :class: dropdown
@@ -85,14 +72,60 @@ INICIO
 FIN
 
 ```
-<!-- {code-block} pseudocode -->
 
 :::
-<!-- {tip} Ayuda (pseudocódigo) -->
 
 ---
 
 ## Operaciones con Rangos Numéricos
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Primeros N Impares
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_5_primeros_n_impares(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- **Entrada:** Se debe leer un número entero $N$ que representa la cantidad de
+- **Proceso:** Se puede abordar de dos maneras:
+- **Salida:** Se imprime la secuencia de los primeros $N$ números impares.
+- Validar que N sea un entero mayor a cero; de lo contrario, volver a solicitarlo.
+- Mostrar la suma acumulada de los primeros N impares y verificar que sea igual a N².
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-1-5-primeros-n-impares.h`)

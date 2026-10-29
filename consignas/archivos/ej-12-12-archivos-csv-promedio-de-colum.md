@@ -59,22 +59,10 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 12.12 - Archivos CSV - Promedio de Columna ⭐⭐⭐☆☆
-
 Leer un archivo en formato CSV (valores separados por comas) que contiene datos
 de estudiantes (ej. `nombre,nota1,nota2`). Calcular el promedio de una columna
 numérica específica (ej. la segunda columna de notas) e imprimir el resultado.
-:::{hint} Lógica y Consideraciones
 
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
-## Ejercicio 12.13 - Crear Archivo de Texto ⭐☆☆☆☆
 
 Creá un archivo de texto y escribí "Hola, archivo!" en él.
 
@@ -85,18 +73,8 @@ Creá un archivo de texto y escribí "Hola, archivo!" en él.
 - Cerrá: `fclose(fp);`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.14 - Leer Archivo Completo ⭐☆☆☆☆
 
 Leé y mostrá todo el contenido de un archivo de texto.
 
@@ -107,18 +85,8 @@ Leé y mostrá todo el contenido de un archivo de texto.
 - Mostrá cada línea en stdout
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.15 - Contar Líneas ⭐⭐☆☆☆
 
 Contá cuántas líneas tiene un archivo de texto.
 
@@ -128,18 +96,8 @@ Contá cuántas líneas tiene un archivo de texto.
 - Considerá última línea sin '\n' al final
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.16 - Copiar Archivo ⭐⭐☆☆☆
 
 Copiá el contenido de un archivo a otro.
 
@@ -151,18 +109,8 @@ Copiá el contenido de un archivo a otro.
 - Cerrá ambos archivos
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.17 - Contar Palabras ⭐⭐⭐☆☆
 
 Contá la cantidad de palabras en un archivo de texto.
 
@@ -173,18 +121,8 @@ Contá la cantidad de palabras en un archivo de texto.
 - Usá `isspace()` de `<ctype.h>`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.18 - Agregar al Final ⭐⭐☆☆☆
 
 Agregá texto al final de un archivo existente sin sobrescribir.
 
@@ -195,18 +133,8 @@ Agregá texto al final de un archivo existente sin sobrescribir.
 - Si el archivo no existe, se crea
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.19 - Buscar Palabra ⭐⭐⭐☆☆
 
 Buscá si una palabra específica existe en un archivo y mostrá la línea.
 
@@ -217,18 +145,8 @@ Buscá si una palabra específica existe en un archivo y mostrá la línea.
 - Mostrá número de línea y contenido
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.20 - Estadísticas de Archivo ⭐⭐⭐☆☆
 
 Calculá: líneas, palabras, caracteres y bytes de un archivo.
 
@@ -239,18 +157,8 @@ Calculá: líneas, palabras, caracteres y bytes de un archivo.
 - Para bytes: `ftell(fp)` al final, o contar en lectura
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.21 - Invertir Líneas ⭐⭐⭐⭐☆
 
 Leé un archivo y escribí sus líneas en orden inverso en otro archivo.
 
@@ -260,32 +168,13 @@ Leé un archivo y escribí sus líneas en orden inverso en otro archivo.
 - Recordá liberar memoria dinámica
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.22 - Archivo CSV a Struct ⭐⭐⭐⭐☆
 
 Leé un archivo CSV con datos de personas y cargá en array de estructuras.
 
 **Formato CSV:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```
 Juan,Perez,25
@@ -300,7 +189,6 @@ Maria,Gomez,30
 - Almacená en array
 
 ---
-## Ejercicio 12.23 - Merge de Archivos Ordenados ⭐⭐⭐⭐☆
 
 Dados dos archivos con números ordenados, generá un tercer archivo con todos
 ordenados.
@@ -313,18 +201,8 @@ ordenados.
 - Cuando uno se acabe, copiá el resto del otro
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.24 - Reemplazar Palabra ⭐⭐⭐⭐☆
 
 Reemplazá todas las ocurrencias de una palabra por otra en un archivo.
 
@@ -336,18 +214,8 @@ Reemplazá todas las ocurrencias de una palabra por otra en un archivo.
 - Al final: renombrá temporal al original
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.25 - Archivo Binario - Escribir Enteros ⭐⭐⭐☆☆
 
 Escribí un array de enteros en un archivo binario.
 
@@ -357,18 +225,8 @@ Escribí un array de enteros en un archivo binario.
 - Verificá cantidad escrita: `size_t escritos = fwrite(...)`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.26 - Archivo Binario - Leer Enteros ⭐⭐⭐☆☆
 
 Leé enteros de un archivo binario y mostralos.
 
@@ -378,18 +236,8 @@ Leé enteros de un archivo binario y mostralos.
 - Leé hasta EOF: `while (fread(&num, sizeof(int), 1, fp) == 1)`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.27 - Archivo Binario de Estructuras ⭐⭐⭐⭐☆
 
 Guardá y leé array de estructuras en archivo binario.
 
@@ -400,18 +248,8 @@ Guardá y leé array de estructuras en archivo binario.
 - **Cuidado:** Punteros dentro de structs no se serializan bien
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.28 - Acceso Aleatorio ⭐⭐⭐⭐☆
 
 Implementá CRUD (Create, Read, Update, Delete) sobre archivo binario de
 registros.
@@ -423,18 +261,8 @@ registros.
 - Marcá registros eliminados con flag en lugar de borrar físicamente
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.29 - Log de Eventos ⭐⭐⭐⭐☆
 
 Implementá sistema de logging que agregue eventos con timestamp a un archivo.
 
@@ -446,18 +274,8 @@ Implementá sistema de logging que agregue eventos con timestamp a un archivo.
 - Función: `void log_evento(const char *nivel, const char *msg)`
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.30 - Compresión RLE Simple ⭐⭐⭐⭐⭐
 
 Implementá compresión Run-Length Encoding: caracteres repetidos se almacenan
 como `<contador><carácter>`.
@@ -471,18 +289,8 @@ como `<contador><carácter>`.
 - Descompresión: leé contador, repetí carácter esas veces
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Implementar encapsulamiento completo manteniendo la
-    definición interna oculta en el archivo `.c`.
--   **[*plus ultra*]:** Añadir una función de duplicación profunda (*deep copy*)
-    para copiar la estructura de forma segura.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.31 - Índice de Archivo ⭐⭐⭐⭐⭐
 
 Creá un índice de palabras con sus posiciones (número de línea) en el archivo.
 
@@ -493,18 +301,8 @@ Creá un índice de palabras con sus posiciones (número de línea) en el archiv
 - Escribí índice ordenado en archivo de salida
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar la correcta apertura del archivo y controlar
-    errores de E/S con `ferror` y `feof`.
--   **[*plus ultra*]:** Soportar rutas complejas y asegurar el cierre del
-    archivo en todos los caminos de ejecución.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.32 - Diferencia Entre Archivos (diff simple) ⭐⭐⭐⭐⭐
 
 Implementá versión simple de `diff`: mostrá líneas diferentes entre dos
 archivos.
@@ -517,28 +315,96 @@ archivos.
 - Manejá archivos de diferente longitud
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 12.33 - s Adicionales ⭐⭐☆☆☆
 
-:::{hint} Lógica y Consideraciones
+### 📋 Contrato de las Funciones
 
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
+```c
+/*
+ * Procesa el flujo principal de Archivos CSV - Promedio de Columna
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_sv_promedio_de_colum(int val);
 
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
 :::
-<!-- {hint} Lógica y Consideraciones -->
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.
+- Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.
+- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
+- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-12-12-archivos-csv-promedio-de-colum.h`)

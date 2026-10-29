@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 31.8 - Análisis de Memory Leaks ⭐⭐☆☆☆
-
 :::{exercise} fugas_1
 :label: fugas_1
 
@@ -103,7 +101,6 @@ int main()
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 **Tarea**: Identificá todos los memory leaks y problemas de manejo de memoria.
 
@@ -113,7 +110,6 @@ int main()
     leaks*) mediante Valgrind o AddressSanitizer.
 
 :::
-<!-- {exercise} fugas_1 -->
 
 :::{solution} fugas_1
 :class: dropdown
@@ -175,12 +171,54 @@ int main()
     return 0;
 }
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} fugas_1 -->
 
-## 4: Análisis de Eficiencia y Optimización
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Análisis de Memory Leaks
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc_isis_de_memory_leaks(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Identificá todas las rutas de salida temprana (return, break) que puedan omitir la liberación de recursos.
+- Verificá que las estructuras anidadas o listas liberen sus nodos antes de liberar el contenedor principal.
+- Utilizá herramientas como Valgrind o AddressSanitizer para confirmar la ausencia de fugas.
+:::
 
 
 ## 📋 Prototipos y Cabecera (`ej-31-8-analisis-de-memory-leaks.h`)

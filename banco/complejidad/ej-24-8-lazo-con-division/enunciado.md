@@ -1,16 +1,5 @@
-### Ejercicio 24.8 - Lazo con División ⭐⭐☆☆☆
-
 Analizar la complejidad de:
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Implementar encapsulamiento completo manteniendo la
-    definición interna oculta en el archivo `.c`.
--   **[*plus ultra*]:** Añadir una función de duplicación profunda (*deep copy*)
-    para copiar la estructura de forma segura.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 int contador = 0;
@@ -19,21 +8,10 @@ for (int i = n; i > 1; i /= 2)
     contador++;
 }
 ```
-<!-- c -->
-## Ejercicio 24.9 - Contar Operaciones ⭐☆☆☆☆
 
 Contá cuántas operaciones ejecuta este código:
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 int suma = 0;
@@ -42,7 +20,6 @@ for (int i = 0; i < n; i++)
     suma += i;
 }
 ```
-<!-- c -->
 
 **Orientación:**
 - Inicialización: 1
@@ -53,20 +30,10 @@ for (int i = 0; i < n; i++)
 - **Complejidad:** O(n)
 
 ---
-## Ejercicio 24.10 - Analizar Lazo Anidado ⭐⭐☆☆☆
 
 ¿Cuál es la complejidad de este código?
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 for (int i = 0; i < n; i++)
@@ -77,7 +44,6 @@ for (int i = 0; i < n; i++)
     }
 }
 ```
-<!-- c -->
 
 **Orientación:**
 - Lazo externo: n iteraciones
@@ -86,7 +52,6 @@ for (int i = 0; i < n; i++)
 - **Complejidad:** O(n²)
 
 ---
-## Ejercicio 24.11 - Comparar Algoritmos ⭐⭐☆☆☆
 
 Compará la complejidad de buscar un elemento en:
 - Array no ordenado (búsqueda lineal)
@@ -98,32 +63,13 @@ Compará la complejidad de buscar un elemento en:
 - Para n=1,000,000: lineal hace ~1M comparaciones, binaria ~20
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 24.12 - Identificar Complejidad ⭐⭐☆☆☆
 
 Determiná la complejidad de cada fragmento:
 
 **a)**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar estrictamente los datos de entrada para manejar
-    valores fuera de rango o tipos inválidos.
--   **[*plus ultra*]:** Permitir el procesamiento interactivo continuo mediante
-    un lazo hasta que el usuario elija finalizar.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 int suma = 0;
@@ -132,7 +78,6 @@ for (int i = 0; i < 100; i++)
     suma += i;
 }
 ```
-<!-- c -->
 
 **b)**
 ``` c
@@ -144,7 +89,6 @@ for (int i = 0; i < n; i++)
     }
 }
 ```
-<!-- c -->
 
 **c)**
 ``` c
@@ -155,7 +99,6 @@ while (i > 0)
     i = i / 2;
 }
 ```
-<!-- c -->
 
 **Orientación:**
 - **a)** O(1) - cantidad fija de iteraciones
@@ -163,21 +106,11 @@ while (i > 0)
 - **c)** O(log n) - divide por 2 cada vez
 
 ---
-## Ejercicio 24.13 - Suma de Matriz ⭐⭐⭐☆☆
 
 Analizá la complejidad de sumar todos los elementos de una matriz n×m.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -190,14 +123,12 @@ for (int i = 0; i < n; i++)
     }
 }
 ```
-<!-- {code-block} c -->
 - Visita cada elemento una vez
 - n × m elementos
 - **Complejidad:** O(n × m)
 - Si n = m: O(n²)
 
 ---
-## Ejercicio 24.14 - Fibonacci Naive vs Optimizado ⭐⭐⭐☆☆
 
 Compará complejidad de Fibonacci recursivo vs iterativo.
 
@@ -231,33 +162,14 @@ Compará complejidad de Fibonacci recursivo vs iterativo.
   - Complejidad: O(n) - lineal
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Transformar el algoritmo a una versión con recursión de
-    cola (*tail recursion*) para reducir el consumo de pila.
--   **[*plus ultra*]:** Añadir un contador del número de llamadas recursivas
-    realizadas para analizar la complejidad empírica.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 24.15 - Búsqueda del Máximo ⭐⭐☆☆☆
 
 Implementá función para encontrar el máximo de un array y analizá su
 complejidad.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -272,27 +184,16 @@ int maximo(int arr[], int n)
     return max;
 }
 ```
-<!-- {code-block} c -->
 - Recorre array una vez
 - **Tiempo:** O(n)
 - **Espacio:** O(1) - solo una variable
 
 ---
-## Ejercicio 24.16 - Duplicados en Array ⭐⭐⭐☆☆
 
 Compará dos formas de encontrar duplicados:
 
 **Método 1:** Comparar cada par
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -309,7 +210,6 @@ bool tiene_duplicados_1(int arr[], int n)
     return false;
 }
 ```
-<!-- {code-block} c -->
 
 **Método 2:** Ordenar primero
 ```{code-block} c
@@ -325,7 +225,6 @@ bool tiene_duplicados_2(int arr[], int n)
     return false;
 }
 ```
-<!-- {code-block} c -->
 
 **Orientación:**
 - **Método 1:** O(n²) tiempo, O(1) espacio
@@ -333,21 +232,11 @@ bool tiene_duplicados_2(int arr[], int n)
 - Para n grande, método 2 es mucho más rápido
 
 ---
-## Ejercicio 24.17 - Ordenamiento Burbuja ⭐⭐⭐☆☆
 
 Analizá complejidad del ordenamiento burbuja.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -365,27 +254,16 @@ void burbuja(int arr[], int n)
     }
 }
 ```
-<!-- {code-block} c -->
 - **Peor caso:** O(n²) - array invertido
 - **Mejor caso:** O(n²) - incluso si ya está ordenado (sin optimizar)
 - **Optimización:** Agregar flag para detectar si hubo swaps
 
 ---
-## Ejercicio 24.18 - Complejidad Espacial ⭐⭐⭐☆☆
 
 Analizá memoria usada por MergeSort.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -400,27 +278,16 @@ void merge_sort(int arr[], int l, int r)
     }
 }
 ```
-<!-- {code-block} c -->
 - Profundidad de recursión: O(log n)
 - Array temporal en merge: O(n)
 - **Espacio:** O(n) para array + O(log n) para stack de recursión = O(n)
 
 ---
-## Ejercicio 24.19 - Suma de Pares ⭐⭐⭐⭐☆
 
 Encontrá dos números en array que sumen un objetivo.
 
 **Método 1:** Fuerza bruta
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -437,7 +304,6 @@ bool suma_objetivo_1(int arr[], int n, int objetivo)
     return false;
 }
 ```
-<!-- {code-block} c -->
 
 **Método 2:** Con tabla hash
 ```{code-block} c
@@ -456,7 +322,6 @@ bool suma_objetivo_2(int arr[], int n, int objetivo)
     return false;
 }
 ```
-<!-- {code-block} c -->
 
 **Orientación:**
 - **Método 1:** O(n²) tiempo, O(1) espacio
@@ -464,21 +329,11 @@ bool suma_objetivo_2(int arr[], int n, int objetivo)
 - Trade-off: tiempo por espacio
 
 ---
-## Ejercicio 24.20 - Números Primos hasta N ⭐⭐⭐⭐☆
 
 Compará verificar primos uno por uno vs Criba de Eratóstenes.
 
 **Método 1:** Verificar cada número
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 // Para cada i de 2 a N:
@@ -486,7 +341,6 @@ Compará verificar primos uno por uno vs Criba de Eratóstenes.
 // es_primo: O(√n) por cada número
 // Total: O(N × √N)
 ```
-<!-- c -->
 
 **Método 2:** Criba
 ```{code-block} c
@@ -508,28 +362,17 @@ bool *criba(int n)
     return es_primo;
 }
 ```
-<!-- {code-block} c -->
 
 **Orientación:**
 - **Criba:** O(n log log n) tiempo, O(n) espacio
 - Mucho más eficiente para rangos grandes
 
 ---
-## Ejercicio 24.21 - Subsecuencia Común Más Larga (LCS) ⭐⭐⭐⭐⭐
 
 Analizá complejidad de LCS con programación dinámica.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -551,27 +394,16 @@ int lcs(char *X, char *Y, int m, int n)
     return dp[m][n];
 }
 ```
-<!-- {code-block} c -->
 - **Tiempo:** O(m × n) - llena tabla m×n
 - **Espacio:** O(m × n) - tabla DP
 - Optimización espacial: O(min(m, n)) con dos filas
 
 ---
-## Ejercicio 24.22 - Multiplicación de Matrices ⭐⭐⭐⭐☆
 
 Analizá complejidad de multiplicar dos matrices n×n.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -590,27 +422,16 @@ void multiplicar(int A[N][N], int B[N][N], int C[N][N])
     }
 }
 ```
-<!-- {code-block} c -->
 - Tres lazos anidados: n × n × n
 - **Complejidad:** O(n³)
 - Algoritmos más eficientes existen (Strassen: O(n^2.807))
 
 ---
-## Ejercicio 24.23 - Torres de Hanoi ⭐⭐⭐⭐☆
 
 Analizá complejidad de Torres de Hanoi.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -628,28 +449,17 @@ void hanoi(int n, char origen, char destino, char auxiliar)
     }
 }
 ```
-<!-- {code-block} c -->
 - Recurrencia: T(n) = 2T(n-1) + 1
 - Solución: T(n) = 2ⁿ - 1
 - **Complejidad:** O(2ⁿ) - exponencial
 - Cantidad mínima de movimientos
 
 ---
-## Ejercicio 24.24 - Análisis Amortizado ⭐⭐⭐⭐⭐
 
 Analizá costo amortizado de inserción en vector dinámico con duplicación.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -662,7 +472,6 @@ void agregar(vector_t *v, int elem)
     v->datos[v->tamanio++] = elem; // O(1)
 }
 ```
-<!-- {code-block} c -->
 - Inserción simple: O(1)
 - Redimensionamiento: O(n)
 - ¿Cuánto cuesta en promedio?
@@ -670,7 +479,6 @@ void agregar(vector_t *v, int elem)
 - **Costo amortizado:** O(1) por inserción
 
 ---
-## Ejercicio 24.25 - Comparar Estructuras de Datos ⭐⭐⭐⭐☆
 
 Compará complejidad de operaciones en diferentes estructuras:
 
@@ -687,39 +495,19 @@ Compará complejidad de operaciones en diferentes estructuras:
 - Trade-offs entre tiempo y espacio
 
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Validar punteros `NULL` recibidos como parámetro para
-    evitar fallos de segmentación.
--   **[*plus ultra*]:** Implementar una versión utilizando aritmética de
-    punteros en lugar de indexación directa.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ---
-## Ejercicio 24.26 - Problema del Viajante (TSP) ⭐⭐⭐⭐⭐
 
 Analizá complejidad de soluciones al TSP.
 
 **Fuerza Bruta:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Verificar el retorno de asignación de memoria y
-    garantizar la liberación total de recursos en caso de error.
--   **[*plus ultra*]:** Verificar la ausencia de fugas de memoria (*memory
-    leaks*) mediante Valgrind o AddressSanitizer.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 // Probar todas las permutaciones de ciudades
 // Cantidad de permutaciones: n!
 // Complejidad: O(n!)
 ```
-<!-- c -->
 
 **Programación Dinámica (Held-Karp):**
 ``` c
@@ -727,7 +515,6 @@ Analizá complejidad de soluciones al TSP.
 // Estados: 2ⁿ × n
 // Complejidad: O(n² × 2ⁿ)
 ```
-<!-- c -->
 
 **Orientación:**
 - Problema NP-completo
@@ -735,28 +522,17 @@ Analizá complejidad de soluciones al TSP.
 - Para n=20: 20! ≈ 10¹⁸, 20²·2²⁰ ≈ 10⁹
 
 ---
-## Ejercicio 24.27 - Optimización de Caché ⭐⭐⭐⭐⭐
 
 Compará estos dos códigos para sumar matriz:
 
 **Versión 1:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Optimizar el acceso a memoria respetando el orden por
-    filas (*row-major order*) para mejorar el uso de caché.
--   **[*plus ultra*]:** Validar que los índices ingresados se encuentren
-    estrictamente dentro de los límites del contenedor.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ``` c
 for (i = 0; i < N; i++)
     for (j = 0; j < N; j++)
         suma += M[i][j];
 ```
-<!-- c -->
 
 **Versión 2:**
 ``` c
@@ -764,7 +540,6 @@ for (j = 0; j < N; j++)
     for (i = 0; i < N; i++)
         suma += M[i][j];
 ```
-<!-- c -->
 
 **Orientación:**
 - Ambos: O(N²) operaciones
@@ -775,21 +550,11 @@ for (j = 0; j < N; j++)
 - L = tamaño de línea de caché
 
 ---
-## Ejercicio 24.28 - Medir Empíricamente ⭐⭐⭐⭐⭐
 
 Implementá framework para medir tiempos y validar análisis teórico.
 
 **Orientación:**
 
-:::{hint} Lógica y Consideraciones
-
--   **[*plus ultra*]:** Garantizar la terminación con `\0` y prevenir
-    desbordamientos de búfer validando la capacidad máxima.
--   **[*plus ultra*]:** Soportar la lectura de cadenas con espacios y múltiples
-    líneas de manera robusta.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
 
 ```{code-block} c
 :linenos:
@@ -808,7 +573,6 @@ for (int n = 1000; n <= 100000; n *= 2)
     printf("n=%d, tiempo=%.4f\n", n, tiempo);
 }
 ```
-<!-- {code-block} c -->
 - Graficar tiempo vs n
 - Verificar si crece como n, n log n, n², etc.
 
@@ -838,7 +602,6 @@ De mejor a peor:
   - O(n²): ~1T (inmanejable)
 
 :::
-<!-- {tip} Jerarquía de Complejidades -->
 
 :::{note} Reglas de Análisis
 
@@ -853,7 +616,6 @@ for (i...) // O(n²)
     {
     }
 ```
-<!-- c -->
 
 **Multiplicar complejidades anidadas:**
 ``` c
@@ -863,21 +625,18 @@ for (i...)
     busqueda_binaria(); // O(log n)
 }
 ```
-<!-- c -->
 
 **Ignorar constantes y términos menores:**
 ``` c
 // 3n² + 5n + 10 = O(n²)
 // n log n + n = O(n log n)
 ```
-<!-- c -->
 
 **Peor caso vs caso promedio:**
 - QuickSort: O(n²) peor, O(n log n) promedio
 - Hash table: O(n) peor, O(1) promedio
 
 :::
-<!-- {note} Reglas de Análisis -->
 
 :::{warning} Errores de Análisis
 
@@ -901,7 +660,105 @@ for (i...)
    - QuickSort es O(n²) peor caso pero casi siempre O(n log n)
 
 :::
-<!-- {warning} Errores de Análisis -->
 
 Estas consignas desarrollan capacidad de analizar y comparar algoritmos teórica
 y empíricamente, esencial para diseñar soluciones eficientes.
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Procesa el flujo principal de Lazo con División
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+int proc__8_lazo_con_division(int val);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 5
+Salida / Retorno: 10
+```
+:::
+:::{tab-item} Valor cero o negativo
+```text
+Entrada: 0
+Salida / Retorno: 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.
+- Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
+- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Transformar el algoritmo a una versión con recursión de cola (*tail recursion*) para reducir el consumo de pila.
+- Añadir un contador del número de llamadas recursivas realizadas para analizar la complejidad empírica.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
+- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
+- Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.
+- Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.
+- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
+- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
+- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
+- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
+- **O(1)** - Constante: acceso a array por índice
+- **O(log n)** - Logarítmica: búsqueda binaria
+- **O(n)** - Lineal: recorrer array
+- **O(n log n)** - Linealítmica: mergesort, quicksort
+- **O(n²)** - Cuadrática: burbuja, selección, dos lazos anidados
+- **O(n³)** - Cúbica: multiplicación de matrices naive
+- **O(2ⁿ)** - Exponencial: subconjuntos, fibonacci naive
+- **O(n!)** - Factorial: permutaciones, TSP brute force **Escalabilidad:**
+- Para n=1,000,000:
+- O(1): 1 operación
+- O(log n): ~20
+- O(n): ~1M
+- O(n log n): ~20M
+- O(n²): ~1T (inmanejable)
+:::

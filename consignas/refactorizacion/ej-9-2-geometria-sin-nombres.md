@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 9.2 - Geometría sin Nombres ⭐☆☆☆☆
-
 :::{exercise}
 :label: ej-ref-area-triangulo
 Descifrá el propósito geométrico del siguiente fragmento y refactorizalo:
@@ -64,7 +62,6 @@ Descifrá el propósito geométrico del siguiente fragmento y refactorizalo:
 ``` c
 double x(double a,double b){return a*b/2.0;}
 ```
-<!-- c -->
 
 -   **[*plus ultra*]:** Validar que las dimensiones sean estrictamente positivas
     retornando `-1.0` si son inválidas.
@@ -72,7 +69,6 @@ double x(double a,double b){return a*b/2.0;}
     `@returns`).
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-ref-area-triangulo
 :class: dropdown
@@ -100,12 +96,57 @@ void test_area_triangulo(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-ref-area-triangulo -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación calcular_area_triangulo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+double calcular_area_triangulo(double base, double altura);
+
+/*
+ * Operación test_area_triangulo
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+void test_area_triangulo(void);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Retorno esperado calculado
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Retorno 0 o manejo de borde
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-9-2-geometria-sin-nombres.h`)

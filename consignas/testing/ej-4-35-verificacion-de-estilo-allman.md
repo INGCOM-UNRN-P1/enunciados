@@ -55,8 +55,6 @@ flowchart LR
 
 ## 📖 Consigna
 
-### Ejercicio 4.35 - Verificación de Estilo Allman ⭐☆☆☆☆
-
 :::{exercise}
 :label: ej-test-estilo-allman
 Identificá las violaciones de la [Regla
@@ -75,14 +73,12 @@ int valor_absoluto(int n) {
 }
 
 ```
-<!-- {code-block} c -->
 
 -   **[*plus ultra*]:** Formatear con 4 espacios de indentación.
 -   **[*plus ultra*]:** Escribir una prueba unitaria para `valor_absoluto(-12)`
     y `valor_absoluto(0)`.
 
 :::
-<!-- {exercise} -->
 
 :::{solution} ej-test-estilo-allman
 :class: dropdown
@@ -110,12 +106,44 @@ void test_valor_absoluto(void)
 }
 
 ```
-<!-- {code-block} c -->
 
 :::
-<!-- {solution} ej-test-estilo-allman -->
 
 ---
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación valor_absoluto
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+int valor_absoluto(int n);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Valor positivo
+```text
+Entrada: 1
+Salida / Retorno: 2
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 
 ## 📋 Prototipos y Cabecera (`ej-4-35-verificacion-de-estilo-allman.h`)
