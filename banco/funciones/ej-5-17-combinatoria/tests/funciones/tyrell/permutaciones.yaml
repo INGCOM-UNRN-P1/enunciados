@@ -1,5 +1,5 @@
-# Especificación propuesta por deckard (Ola 32): revisá que los rangos no pidan algo que el
-# enunciado no pide y volvé a generar con `deckard exercise cubrir`.
+# Revisada (Ola 32): con n negativo el enunciado es ambiguo (k == n da 1, k < 0 da 0);
+# se prueba n >= 0, y k negativo o mayor que n (resultado 0).
 name: permutaciones
 count: 12
 seed: 32
@@ -9,9 +9,9 @@ format_template: 'permutaciones {n} {k}
 rules:
 - name: n
   type: integer
-  min_val: -10
+  min_val: 0
   max_val: 30
 - name: k
   type: integer
-  min_val: -10
-  max_val: 30
+  min_val: -3
+  max_val: 33
