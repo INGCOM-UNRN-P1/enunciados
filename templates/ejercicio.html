@@ -342,7 +342,7 @@ pre {
         {% for t in ejercicio.tests_funciones %}
         <tr>
             <td><strong>{{ t.nombre }}</strong></td>
-            <td colspan="2"><pre style="margin:0; padding:2px;">{{ t.codigo }}</pre></td>
+            <td colspan="2"><pre style="margin:0; padding:2px;">{{ t.codigo or (t.funcion ~ '(' ~ (t.args or '') ~ ')' ~ (' == ' ~ t.retorno_esperado if t.retorno_esperado else '')) }}</pre></td>
         </tr>
         {% endfor %}
         {% endif %}

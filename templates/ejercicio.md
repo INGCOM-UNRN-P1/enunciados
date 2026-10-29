@@ -201,7 +201,7 @@ flowchart LR
 | Prueba Unitaria | Función Objetivo | Verificación |
 | :--- | :--- | :--- |
 {% for t in ejercicio.tests_funciones %}
-| **{{ t.nombre }}** | `{{ t.funcion }}` | `{{ t.codigo | replace('\n', ' ') | trim }}` |
+| **{{ t.nombre }}** | `{{ t.funcion }}` | `{{ (t.codigo or (t.funcion ~ '(' ~ (t.args or '') ~ ')' ~ (' == ' ~ t.retorno_esperado if t.retorno_esperado else ''))) | replace('\n', ' ') | trim }}` |
 {% endfor %}
 {% endif %}
 {% endif %}

@@ -254,7 +254,7 @@ pre {
     </div>
 
     <div class="ejercicio-consigna">
-        {{ ej.enunciado_html | safe if ej.enunciado_html is defined else ej.enunciado_md }}
+        {{ item.enunciado_html | safe if item.enunciado_html is defined else (ej.enunciado_html | safe if ej.enunciado_html is defined else ej.enunciado_md) }}
     </div>
 
     {% if ej.funciones %}
