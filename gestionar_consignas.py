@@ -264,18 +264,31 @@ def cargar_ejercicio(dir_ejercicio: Path) -> Optional[Dict[str, Any]]:
 
 
 def cargar_banco(dir_banco: Path) -> List[Dict[str, Any]]:
-    """Carga todos los ejercicios válidos dentro del directorio del banco."""
+    """Carga todos los ejercicios válidos dentro del directorio del banco, soportando subdirectorios temáticos."""
     ejercicios: List[Dict[str, Any]] = []
     if not dir_banco.is_dir():
         print(f"[!] Directorio de banco no encontrado: {dir_banco}", file=sys.stderr)
         return ejercicios
 
-    for entrada in sorted(dir_banco.iterdir()):
-        if entrada.is_dir() and not entrada.name.startswith("."):
-            ej = cargar_ejercicio(entrada)
+    dirs_vistos = set()
+    # Búsqueda recursiva para soportar banco/<id> y banco/<tema>/<id>
+    for yaml_path in sorted(dir_banco.rglob("ejercicio.yaml")):
+        dir_ej = yaml_path.parent
+        if dir_ej not in dirs_vistos:
+            dirs_vistos.add(dir_ej)
+            ej = cargar_ejercicio(dir_ej)
             if ej:
                 ejercicios.append(ej)
 
+    for yml_path in sorted(dir_banco.rglob("ejercicio.yml")):
+        dir_ej = yml_path.parent
+        if dir_ej not in dirs_vistos:
+            dirs_vistos.add(dir_ej)
+            ej = cargar_ejercicio(dir_ej)
+            if ej:
+                ejercicios.append(ej)
+
+    ejercicios.sort(key=lambda x: x["id"])
     return ejercicios
 
 
