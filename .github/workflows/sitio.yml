@@ -20,7 +20,7 @@ concurrency:
 
 env:
   # deckard fijado a un commit publicado (nunca por nombre en PyPI).
-  DECKARD: git+https://github.com/INGCOM-UNRN/deckard@4c6056db4847e598c6cf1e6869fa49037fda03b5
+  DECKARD: git+https://github.com/INGCOM-UNRN/deckard@5287b3f7aac1f67d11b6c6ea80c354de2db5bf80
   BASE_URL: /${{ github.event.repository.name }}
 
 jobs:
@@ -29,14 +29,24 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # El apunte (público): sus páginas, para los slugs exactos de los enlaces y el lint de trazabilidad.
+      - uses: actions/checkout@v7
+        with:
+          repository: INGCOM-UNRN-P1/INGCOM-UNRN-P1.github.io
+          path: .apunte
+
       - name: Instalar uv
         uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.12"
 
-      # Falla si hay ejercicios inválidos en el banco o un paquete no se puede armar.
+      # Ejercicios, temario, guías y trazabilidad con el apunte; falla si hay errores.
+      - name: Lint del banco
+        run: uvx --from "$DECKARD" deckard lint --apunte .apunte --max 100
+
+      # Falla si hay ejercicios inválidos, un paquete no se puede armar o no pasa la verificación.
       - name: Páginas, TOC, paquetes .ripkg y catálogo
-        run: uvx --from "$DECKARD" deckard export myst
+        run: uvx --from "$DECKARD" deckard export myst --apunte .apunte
 
       - uses: actions/setup-node@v4
         with:
