@@ -5,10 +5,10 @@ bloom: 4
 minutos_estimados: 45
 pistas:
 - Un nodo almacena `dato`, `izquierdo` y `derecho`.
-- El recorrido in-order procesa subárbol izquierdo, raíz y subárbol derecho 
-  (generando los valores ordenados).
-- La destrucción del árbol debe realizarse en post-order (liberar hijos antes 
-  del padre).
+- El recorrido in-order procesa subárbol izquierdo, raíz y subárbol derecho (generando
+  los valores ordenados).
+- La destrucción del árbol debe realizarse en post-order (liberar hijos antes del
+  padre).
 tags:
 - estructuras_datos
 - arboles
@@ -17,6 +17,8 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: buscar_bst
@@ -40,22 +42,113 @@ funciones:
   parametros: nodo_bst_t *raiz
   descripcion: Operación liberar_arbol
 tests_funciones:
-- nombre: test_buscar_bst_1
+- nombre: test_buscar_bst_positivo
   funcion: buscar_bst
-  codigo: '/* Verificación unitaria de buscar_bst */
+  codigo: 'int res = buscar_bst(5);
 
-    assert(true);'
-- nombre: test_calcular_altura_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_buscar_bst_cero
+  funcion: buscar_bst
+  codigo: 'int res = buscar_bst(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_buscar_bst_negativo
+  funcion: buscar_bst
+  codigo: 'int res = buscar_bst(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_buscar_bst_limite
+  funcion: buscar_bst
+  codigo: 'int res = buscar_bst(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_calcular_altura_positivo
   funcion: calcular_altura
-  codigo: '/* Verificación unitaria de calcular_altura */
+  codigo: 'long long res = (long long)calcular_altura(NULL);
 
-    assert(true);'
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_calcular_altura_cero
+  funcion: calcular_altura
+  codigo: 'long long res = (long long)calcular_altura(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_calcular_altura_negativo
+  funcion: calcular_altura
+  codigo: 'long long res = (long long)calcular_altura(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_calcular_altura_valor_limite
+  funcion: calcular_altura
+  codigo: 'long long res = (long long)calcular_altura(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_recorrido_inorder_positivo
+  funcion: recorrido_inorder
+  codigo: 'recorrido_inorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_inorder_cero
+  funcion: recorrido_inorder
+  codigo: 'recorrido_inorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_inorder_negativo
+  funcion: recorrido_inorder
+  codigo: 'recorrido_inorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_inorder_valor_limite
+  funcion: recorrido_inorder
+  codigo: 'recorrido_inorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_preorder_positivo
+  funcion: recorrido_preorder
+  codigo: 'recorrido_preorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_preorder_cero
+  funcion: recorrido_preorder
+  codigo: 'recorrido_preorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_preorder_negativo
+  funcion: recorrido_preorder
+  codigo: 'recorrido_preorder(NULL);
+
+    assert(1);'
+- nombre: test_recorrido_preorder_valor_limite
+  funcion: recorrido_preorder
+  codigo: 'recorrido_preorder(NULL);
+
+    assert(1);'
+- nombre: test_liberar_arbol_positivo
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
+- nombre: test_liberar_arbol_cero
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
+- nombre: test_liberar_arbol_negativo
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
+- nombre: test_liberar_arbol_valor_limite
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

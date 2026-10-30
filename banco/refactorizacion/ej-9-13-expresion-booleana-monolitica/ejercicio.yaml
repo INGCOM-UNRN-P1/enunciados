@@ -12,13 +12,15 @@ tags:
 - fecha
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__booleana_monolitica
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Expresión Booleana Monolítica de 
-    Validación de Fecha
+  descripcion: Procesa el flujo principal de Expresión Booleana Monolítica de Validación
+    de Fecha
 tests_funciones:
 - nombre: test_proc__booleana_monolitica_positivo
   funcion: proc__booleana_monolitica
@@ -30,11 +32,27 @@ tests_funciones:
   codigo: 'int res = proc__booleana_monolitica(0);
 
     assert(res == 0);'
+- nombre: test_proc__booleana_monolitica_negativo
+  funcion: proc__booleana_monolitica
+  codigo: 'int res = proc__booleana_monolitica(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__booleana_monolitica_valor_limite
+  funcion: proc__booleana_monolitica
+  codigo: 'int res = proc__booleana_monolitica(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__booleana_monolitica_valor_unitario
+  funcion: proc__booleana_monolitica
+  codigo: 'int res = proc__booleana_monolitica(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

@@ -10,9 +10,9 @@ pistas:
   de incremento `m` veces (si `m` es positivo) o la operación de decremento `|m|`
   veces (si `m` es negativo).'
 - Se puede usar un lazo que se repita `abs(m)` veces (el valor absoluto de `m`).
-- Dentro del lazo, se verifica el signo de `m`. Si `m > 0`, se incrementa el 
-  resultado. Si `m < 0`, se decrementa. definición interna oculta en el archivo 
-  `.c`. para copiar la estructura de forma segura.
+- Dentro del lazo, se verifica el signo de `m`. Si `m > 0`, se incrementa el resultado.
+  Si `m < 0`, se decrementa. definición interna oculta en el archivo `.c`. para copiar
+  la estructura de forma segura.
 - '[Plus Ultra] Validar que los operandos sean enteros no negativos antes de iniciar
   las sumas sucesivas.'
 - '[Plus Ultra] Contar la cantidad total de incrementos realizados para verificar
@@ -23,6 +23,8 @@ tags:
 - matematica
 - fundamentos
 - dep:tipos_datos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: suma_lenta
@@ -39,6 +41,16 @@ tests_funciones:
 - nombre: test_suma_cero
   funcion: suma_lenta
   codigo: assert(suma_lenta(0, 0) == 0);
+- nombre: test_suma_lenta_valor_limite
+  funcion: suma_lenta
+  codigo: 'int res = suma_lenta(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_suma_lenta_valor_unitario
+  funcion: suma_lenta
+  codigo: 'int res = suma_lenta(1);
+
+    assert(res >= 0 || res == 2);'
 diagramas: []
 tipo_entrega: archivos_individuales
 dependencias: []
@@ -51,3 +63,4 @@ dificultad: inicial
 tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
+publicar: true

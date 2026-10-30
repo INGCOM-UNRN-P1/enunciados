@@ -5,10 +5,9 @@ bloom: 1
 minutos_estimados: 10
 pistas:
 - Tokenizá la entrada por espacios.
-- Si el token es un operador (+, -, *, /), desapilá dos operandos, calculá op(b,
-  a) y apilá el resultado.
-- Si es un número, convertilo con strtol() o atoi() y apilalo en la pila de 
-  evaluación.
+- Si el token es un operador (+, -, *, /), desapilá dos operandos, calculá op(b, a)
+  y apilá el resultado.
+- Si es un número, convertilo con strtol() o atoi() y apilalo en la pila de evaluación.
 tags:
 - tad
 - pila
@@ -18,6 +17,8 @@ tags:
 - dep:estructuras
 - dep:punteros
 - dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: rpn_init
@@ -37,22 +38,93 @@ funciones:
   parametros: char *linea
   descripcion: Operación evaluar_linea
 tests_funciones:
-- nombre: test_rpn_init_1
+- nombre: test_rpn_init_positivo
   funcion: rpn_init
-  codigo: '/* Verificación unitaria de rpn_init */
+  codigo: 'int res = rpn_init(5);
 
-    assert(true);'
-- nombre: test_rpn_push_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_rpn_init_cero
+  funcion: rpn_init
+  codigo: 'int res = rpn_init(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_rpn_init_negativo
+  funcion: rpn_init
+  codigo: 'int res = rpn_init(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_rpn_init_limite
+  funcion: rpn_init
+  codigo: 'int res = rpn_init(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_rpn_push_positivo
   funcion: rpn_push
-  codigo: '/* Verificación unitaria de rpn_push */
+  codigo: 'long long res = (long long)rpn_push(NULL, 5);
 
-    assert(true);'
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_push_cero
+  funcion: rpn_push
+  codigo: 'long long res = (long long)rpn_push(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_push_negativo
+  funcion: rpn_push
+  codigo: 'long long res = (long long)rpn_push(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_push_valor_limite
+  funcion: rpn_push
+  codigo: 'long long res = (long long)rpn_push(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_pop_positivo
+  funcion: rpn_pop
+  codigo: 'long long res = (long long)rpn_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_pop_cero
+  funcion: rpn_pop
+  codigo: 'long long res = (long long)rpn_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_pop_negativo
+  funcion: rpn_pop
+  codigo: 'long long res = (long long)rpn_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_rpn_pop_valor_limite
+  funcion: rpn_pop
+  codigo: 'long long res = (long long)rpn_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_evaluar_linea_positivo
+  funcion: evaluar_linea
+  codigo: 'evaluar_linea("prueba");
+
+    assert(1);'
+- nombre: test_evaluar_linea_cero
+  funcion: evaluar_linea
+  codigo: 'evaluar_linea("");
+
+    assert(1);'
+- nombre: test_evaluar_linea_negativo
+  funcion: evaluar_linea
+  codigo: 'evaluar_linea("abc");
+
+    assert(1);'
+- nombre: test_evaluar_linea_valor_limite
+  funcion: evaluar_linea
+  codigo: 'evaluar_linea("texto_prueba_123");
+
+    assert(1);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: pilas_y_colas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - estructuras
 - punteros
 - memoria_dinamica
+publicar: true

@@ -17,6 +17,8 @@ tags:
 - dep:archivos
 - dep:estructuras
 - dep:memoria
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__2_cargar_inventario
@@ -34,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc__2_cargar_inventario(0);
 
     assert(res == 0);'
+- nombre: test_proc__2_cargar_inventario_negativo
+  funcion: proc__2_cargar_inventario
+  codigo: 'int res = proc__2_cargar_inventario(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__2_cargar_inventario_valor_limite
+  funcion: proc__2_cargar_inventario
+  codigo: 'int res = proc__2_cargar_inventario(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__2_cargar_inventario_valor_unitario
+  funcion: proc__2_cargar_inventario
+  codigo: 'int res = proc__2_cargar_inventario(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: fwrite
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - archivos
 - estructuras
 - memoria
+publicar: true

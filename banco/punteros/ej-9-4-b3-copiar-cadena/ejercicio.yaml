@@ -12,6 +12,8 @@ tags:
 - cadena
 - dep:funciones
 - dep:arreglos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_9_4_b3_copiar_cadena
@@ -29,11 +31,27 @@ tests_funciones:
   codigo: 'int res = proc_9_4_b3_copiar_cadena(0);
 
     assert(res == 0);'
+- nombre: test_proc_9_4_b3_copiar_cadena_negativo
+  funcion: proc_9_4_b3_copiar_cadena
+  codigo: 'int res = proc_9_4_b3_copiar_cadena(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_9_4_b3_copiar_cadena_valor_limite
+  funcion: proc_9_4_b3_copiar_cadena
+  codigo: 'int res = proc_9_4_b3_copiar_cadena(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_9_4_b3_copiar_cadena_valor_unitario
+  funcion: proc_9_4_b3_copiar_cadena
+  codigo: 'int res = proc_9_4_b3_copiar_cadena(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

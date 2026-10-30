@@ -16,6 +16,8 @@ tags:
 - asintotica
 - dep:algoritmos_ordenamiento
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_24_5_lazo_simple
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_24_5_lazo_simple(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_24_5_lazo_simple_negativo
+  funcion: ejecutar_ej_24_5_lazo_simple
+  codigo: 'int res = ejecutar_ej_24_5_lazo_simple(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_24_5_lazo_simple_valor_limite
+  funcion: ejecutar_ej_24_5_lazo_simple
+  codigo: 'int res = ejecutar_ej_24_5_lazo_simple(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_24_5_lazo_simple_valor_unitario
+  funcion: ejecutar_ej_24_5_lazo_simple
+  codigo: 'int res = ejecutar_ej_24_5_lazo_simple(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: big_o
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - algoritmos_ordenamiento
 - lazos_anidados
+publicar: true

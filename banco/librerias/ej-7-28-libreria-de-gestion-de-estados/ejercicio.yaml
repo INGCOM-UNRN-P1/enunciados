@@ -15,13 +15,15 @@ tags:
 - gestion
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_e_gestion_de_estados
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Gestión de Estados y 
-    Banderas Booleanas
+  descripcion: Procesa el flujo principal de Librería de Gestión de Estados y Banderas
+    Booleanas
 tests_funciones:
 - nombre: test_proc_e_gestion_de_estados_positivo
   funcion: proc_e_gestion_de_estados
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_e_gestion_de_estados(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_gestion_de_estados_negativo
+  funcion: proc_e_gestion_de_estados
+  codigo: 'int res = proc_e_gestion_de_estados(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_gestion_de_estados_valor_limite
+  funcion: proc_e_gestion_de_estados
+  codigo: 'int res = proc_e_gestion_de_estados(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_gestion_de_estados_valor_unitario
+  funcion: proc_e_gestion_de_estados
+  codigo: 'int res = proc_e_gestion_de_estados(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: booleanas
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

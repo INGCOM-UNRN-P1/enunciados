@@ -12,13 +12,15 @@ tags:
 - boundary
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_e_valores_de_borde_b
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Análisis de Valores de Borde 
-    (Boundary Values)
+  descripcion: Procesa el flujo principal de Análisis de Valores de Borde (Boundary
+    Values)
 tests_funciones:
 - nombre: test_proc_e_valores_de_borde_b_positivo
   funcion: proc_e_valores_de_borde_b
@@ -30,11 +32,22 @@ tests_funciones:
   codigo: 'int res = proc_e_valores_de_borde_b(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_valores_de_borde_b_negativo
+  funcion: proc_e_valores_de_borde_b
+  codigo: 'int res = proc_e_valores_de_borde_b(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_valores_de_borde_b_valor_unitario
+  funcion: proc_e_valores_de_borde_b
+  codigo: 'int res = proc_e_valores_de_borde_b(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

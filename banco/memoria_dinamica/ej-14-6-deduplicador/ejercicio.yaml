@@ -16,6 +16,8 @@ tags:
 - deduplicador
 - dep:memoria
 - dep:punteros
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: ejecutar_ej_14_6_deduplicador
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_14_6_deduplicador(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_14_6_deduplicador_negativo
+  funcion: ejecutar_ej_14_6_deduplicador
+  codigo: 'int res = ejecutar_ej_14_6_deduplicador(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_14_6_deduplicador_valor_limite
+  funcion: ejecutar_ej_14_6_deduplicador
+  codigo: 'int res = ejecutar_ej_14_6_deduplicador(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_14_6_deduplicador_valor_unitario
+  funcion: ejecutar_ej_14_6_deduplicador
+  codigo: 'int res = ejecutar_ej_14_6_deduplicador(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

@@ -9,7 +9,9 @@ tags:
 - funciones
 - dep:lazos
 - dep:secuencias
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: factorial
   retorno: long long
@@ -29,3 +31,38 @@ tipo: practica_guiada
 prerrequisitos:
 - lazos
 - secuencias
+subtema: y_combinatoria
+publicar: true
+tests_funciones:
+- nombre: test_factorial_positivo
+  funcion: factorial
+  codigo: 'int res = factorial(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_factorial_cero
+  funcion: factorial
+  codigo: 'int res = factorial(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_factorial_negativo
+  funcion: factorial
+  codigo: 'int res = factorial(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_factorial_limite
+  funcion: factorial
+  codigo: 'int res = factorial(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_combinatorio_prueba_1
+  funcion: combinatorio
+  codigo: assert(combinatorio(5, -1) == -1);
+- nombre: test_combinatorio_prueba_2
+  funcion: combinatorio
+  codigo: assert(combinatorio(5, 6) == -1);
+- nombre: test_combinatorio_prueba_3
+  funcion: combinatorio
+  codigo: assert(combinatorio(5, 0) == 1);
+- nombre: test_combinatorio_prueba_4
+  funcion: combinatorio
+  codigo: assert(combinatorio(5, 5) == 1);

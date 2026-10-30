@@ -9,7 +9,9 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp3-2026
 rol_familia: uso
@@ -18,7 +20,51 @@ dependencias:
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+subtema: pares_y
+publicar: true
+funciones:
+- nombre: ordenar_par
+  retorno: void
+  parametros: int *menor, int *mayor
+  descripcion: Ordena ascendentemente dos enteros mediante punteros
+- nombre: ordenar_tria
+  retorno: void
+  parametros: int *a, int *b, int *c
+  descripcion: Ordena ascendentemente tres enteros mediante punteros
+- nombre: sumar_acumulado
+  retorno: int
+  parametros: const int *arreglo, size_t cantidad
+  descripcion: Suma acumulada de elementos mediante punteros
+tests_funciones:
+- nombre: test_ordenar_par_desordenado
+  funcion: ordenar_par
+  codigo: 'int x = 10, y = 3;
+
+    ordenar_par(&x, &y);
+
+    assert(x == 3 && y == 10);'
+- nombre: test_ordenar_par_ya_ordenado
+  funcion: ordenar_par
+  codigo: 'int x = 2, y = 8;
+
+    ordenar_par(&x, &y);
+
+    assert(x == 2 && y == 8);'
+- nombre: test_ordenar_tria_invertida
+  funcion: ordenar_tria
+  codigo: 'int a = 9, b = 5, c = 1;
+
+    ordenar_tria(&a, &b, &c);
+
+    assert(a == 1 && b == 5 && c == 9);'
+- nombre: test_sumar_acumulado_tres
+  funcion: sumar_acumulado
+  codigo: 'int arr[] = {3, 7, 10};
+
+    int s = sumar_acumulado(arr, 3);
+
+    assert(s == 20);'

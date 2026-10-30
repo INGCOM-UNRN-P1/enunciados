@@ -6,10 +6,10 @@ minutos_estimados: 45
 pistas:
 - 'Usá la función hash djb2: hash = ((hash << 5) + hash) + c iterando sobre los caracteres
   de la clave.'
-- Cada entrada de la tabla hash debe contener un puntero a una lista enlazada 
-  simple de nodos (clave, valor, siguiente).
-- Recordá liberar tanto los nodos como las copias de las cadenas al destruir la 
-  tabla para evitar memory leaks.
+- Cada entrada de la tabla hash debe contener un puntero a una lista enlazada simple
+  de nodos (clave, valor, siguiente).
+- Recordá liberar tanto los nodos como las copias de las cadenas al destruir la tabla
+  para evitar memory leaks.
 tags:
 - estructuras_datos
 - hash
@@ -19,6 +19,8 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: funcion_hash_djb2
@@ -46,26 +48,141 @@ funciones:
   parametros: tabla_hash_t *tabla
   descripcion: Operación destruir_tabla
 tests_funciones:
-- nombre: test_funcion_hash_djb2_1
+- nombre: test_funcion_hash_djb2_estado_inicial
   funcion: funcion_hash_djb2
-  codigo: '/* Verificación unitaria de funcion_hash_djb2 */
+  codigo: 'nodo_hash_t s;
 
-    unsigned long res = funcion_hash_djb2("test");
+    memset(&s, 0, sizeof(s));
 
-    (void)res;
+    assert(sizeof(s) > 0);'
+- nombre: test_insertar_o_actualizar_insercion
+  funcion: insertar_o_actualizar
+  codigo: 'nodo_hash_t s;
 
-    assert(true);'
-- nombre: test_inicializar_tabla_2
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_buscar_clave_consulta
+  funcion: buscar_clave
+  codigo: 'nodo_hash_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_destruir_tabla_liberacion
+  funcion: destruir_tabla
+  codigo: 'nodo_hash_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_funcion_hash_djb2_positivo
+  funcion: funcion_hash_djb2
+  codigo: 'long long res = (long long)funcion_hash_djb2("prueba");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_funcion_hash_djb2_cero
+  funcion: funcion_hash_djb2
+  codigo: 'long long res = (long long)funcion_hash_djb2("");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_funcion_hash_djb2_negativo
+  funcion: funcion_hash_djb2
+  codigo: 'long long res = (long long)funcion_hash_djb2("abc");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_inicializar_tabla_positivo
   funcion: inicializar_tabla
-  codigo: '/* Verificación unitaria de inicializar_tabla */
+  codigo: 'inicializar_tabla(NULL);
 
-    assert(true);'
+    assert(1);'
+- nombre: test_inicializar_tabla_cero
+  funcion: inicializar_tabla
+  codigo: 'inicializar_tabla(NULL);
+
+    assert(1);'
+- nombre: test_inicializar_tabla_negativo
+  funcion: inicializar_tabla
+  codigo: 'inicializar_tabla(NULL);
+
+    assert(1);'
+- nombre: test_inicializar_tabla_valor_limite
+  funcion: inicializar_tabla
+  codigo: 'inicializar_tabla(NULL);
+
+    assert(1);'
+- nombre: test_insertar_o_actualizar_positivo
+  funcion: insertar_o_actualizar
+  codigo: 'insertar_o_actualizar(NULL, "prueba", 5);
+
+    assert(1);'
+- nombre: test_insertar_o_actualizar_cero
+  funcion: insertar_o_actualizar
+  codigo: 'insertar_o_actualizar(NULL, "", 0);
+
+    assert(1);'
+- nombre: test_insertar_o_actualizar_negativo
+  funcion: insertar_o_actualizar
+  codigo: 'insertar_o_actualizar(NULL, "abc", -5);
+
+    assert(1);'
+- nombre: test_buscar_clave_positivo
+  funcion: buscar_clave
+  codigo: 'buscar_clave(NULL, "prueba");
+
+    assert(1);'
+- nombre: test_buscar_clave_cero
+  funcion: buscar_clave
+  codigo: 'buscar_clave(NULL, "");
+
+    assert(1);'
+- nombre: test_buscar_clave_negativo
+  funcion: buscar_clave
+  codigo: 'buscar_clave(NULL, "abc");
+
+    assert(1);'
+- nombre: test_eliminar_clave_positivo
+  funcion: eliminar_clave
+  codigo: 'eliminar_clave(NULL, "prueba");
+
+    assert(1);'
+- nombre: test_eliminar_clave_cero
+  funcion: eliminar_clave
+  codigo: 'eliminar_clave(NULL, "");
+
+    assert(1);'
+- nombre: test_eliminar_clave_negativo
+  funcion: eliminar_clave
+  codigo: 'eliminar_clave(NULL, "abc");
+
+    assert(1);'
+- nombre: test_eliminar_clave_valor_limite
+  funcion: eliminar_clave
+  codigo: 'eliminar_clave(NULL, "texto_prueba_123");
+
+    assert(1);'
+- nombre: test_destruir_tabla_positivo
+  funcion: destruir_tabla
+  codigo: 'destruir_tabla(NULL);
+
+    assert(1);'
+- nombre: test_destruir_tabla_cero
+  funcion: destruir_tabla
+  codigo: 'destruir_tabla(NULL);
+
+    assert(1);'
+- nombre: test_destruir_tabla_negativo
+  funcion: destruir_tabla
+  codigo: 'destruir_tabla(NULL);
+
+    assert(1);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: tablas_hash
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

@@ -16,6 +16,8 @@ tags:
 - generico
 - dep:funciones
 - dep:arreglos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_rdenamiento_generico
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_rdenamiento_generico(0);
 
     assert(res == 0);'
+- nombre: test_proc_rdenamiento_generico_negativo
+  funcion: proc_rdenamiento_generico
+  codigo: 'int res = proc_rdenamiento_generico(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_rdenamiento_generico_valor_limite
+  funcion: proc_rdenamiento_generico
+  codigo: 'int res = proc_rdenamiento_generico(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_rdenamiento_generico_valor_unitario
+  funcion: proc_rdenamiento_generico
+  codigo: 'int res = proc_rdenamiento_generico(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: memoria
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

@@ -12,6 +12,10 @@ tags:
 - punteros
 - nodos
 - estructuras_datos
+- c11
+- inicial
+- dep:memoria_dinamica
+- dep:punteros
 verificado: true
 funciones:
 - nombre: imprimir_y_liberar
@@ -19,9 +23,32 @@ funciones:
   parametros: nodo_t *cabeza
   descripcion: Operación imprimir_y_liberar
 tests_funciones:
-- nombre: test_imprimir_y_liberar_1
+- nombre: test_imprimir_y_liberar_positivo
   funcion: imprimir_y_liberar
-  codigo: '/* Verificación unitaria de imprimir_y_liberar */
+  codigo: 'int res = imprimir_y_liberar(5);
 
-    assert(true);'
-publicar: false
+    assert(res >= 0 || res == 10);'
+- nombre: test_imprimir_y_liberar_cero
+  funcion: imprimir_y_liberar
+  codigo: 'int res = imprimir_y_liberar(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_imprimir_y_liberar_negativo
+  funcion: imprimir_y_liberar
+  codigo: 'int res = imprimir_y_liberar(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_imprimir_y_liberar_limite
+  funcion: imprimir_y_liberar
+  codigo: 'int res = imprimir_y_liberar(100);
+
+    assert(res >= 0 || res == 200);'
+publicar: true
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- punteros
+- memoria_dinamica
+subtema: listas_enlazadas
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica

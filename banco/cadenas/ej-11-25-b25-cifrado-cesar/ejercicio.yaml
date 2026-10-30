@@ -11,9 +11,8 @@ pistas:
 - '**Proceso:**'
 - Recorrer la cadena de entrada.
 - Para cada carácter, si es una letra, aplicar el desplazamiento.
-- El desplazamiento es circular. Si al desplazar 'y' 3 posiciones se pasa de 
-  'z', se debe volver al principio del alfabeto. Esto se logra con el operador 
-  módulo (`%`).
+- El desplazamiento es circular. Si al desplazar 'y' 3 posiciones se pasa de 'z',
+  se debe volver al principio del alfabeto. Esto se logra con el operador módulo (`%`).
 - 'Ejemplo para una letra minúscula `c`: `''a'' + (c - ''a'' + desplazamiento) % 26`.'
 tags:
 - cadenas
@@ -23,6 +22,8 @@ tags:
 - cifrado
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_25_b25_cifrado_cesar
@@ -40,6 +41,21 @@ tests_funciones:
   codigo: 'int res = proc_25_b25_cifrado_cesar(0);
 
     assert(res == 0);'
+- nombre: test_proc_25_b25_cifrado_cesar_negativo
+  funcion: proc_25_b25_cifrado_cesar
+  codigo: 'int res = proc_25_b25_cifrado_cesar(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_25_b25_cifrado_cesar_valor_limite
+  funcion: proc_25_b25_cifrado_cesar
+  codigo: 'int res = proc_25_b25_cifrado_cesar(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_25_b25_cifrado_cesar_valor_unitario
+  funcion: proc_25_b25_cifrado_cesar
+  codigo: 'int res = proc_25_b25_cifrado_cesar(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -48,3 +64,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

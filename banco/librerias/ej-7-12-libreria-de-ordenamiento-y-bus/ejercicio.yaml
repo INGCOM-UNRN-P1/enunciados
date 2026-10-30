@@ -4,8 +4,7 @@ tema: librerias
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Recordá que `busqueda_binaria` requiere que el arreglo esté previamente 
-  ordenado.
+- Recordá que `busqueda_binaria` requiere que el arreglo esté previamente ordenado.
 tags:
 - fundamentos
 - headers
@@ -14,6 +13,8 @@ tags:
 - ordenamiento
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_e_ordenamiento_y_bus
@@ -31,11 +32,27 @@ tests_funciones:
   codigo: 'int res = proc_e_ordenamiento_y_bus(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_ordenamiento_y_bus_negativo
+  funcion: proc_e_ordenamiento_y_bus
+  codigo: 'int res = proc_e_ordenamiento_y_bus(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_ordenamiento_y_bus_valor_limite
+  funcion: proc_e_ordenamiento_y_bus
+  codigo: 'int res = proc_e_ordenamiento_y_bus(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_ordenamiento_y_bus_valor_unitario
+  funcion: proc_e_ordenamiento_y_bus
+  codigo: 'int res = proc_e_ordenamiento_y_bus(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: fundamentos
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

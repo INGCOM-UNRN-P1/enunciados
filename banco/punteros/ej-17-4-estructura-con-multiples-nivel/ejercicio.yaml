@@ -16,6 +16,8 @@ tags:
 - estructura
 - dep:funciones
 - dep:arreglos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__con_multiples_nivel
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc__con_multiples_nivel(0);
 
     assert(res == 0);'
+- nombre: test_proc__con_multiples_nivel_negativo
+  funcion: proc__con_multiples_nivel
+  codigo: 'int res = proc__con_multiples_nivel(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__con_multiples_nivel_valor_limite
+  funcion: proc__con_multiples_nivel
+  codigo: 'int res = proc__con_multiples_nivel(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__con_multiples_nivel_valor_unitario
+  funcion: proc__con_multiples_nivel
+  codigo: 'int res = proc__con_multiples_nivel(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: estructuras
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

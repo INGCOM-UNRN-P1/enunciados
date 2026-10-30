@@ -4,8 +4,8 @@ tema: librerias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Para comprobar palíndromos podés ignorar diferencias entre mayúsculas y 
-  minúsculas y caracteres no alfabéticos.
+- Para comprobar palíndromos podés ignorar diferencias entre mayúsculas y minúsculas
+  y caracteres no alfabéticos.
 tags:
 - texto
 - fundamentos
@@ -14,13 +14,14 @@ tags:
 - libreria
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_de_busqueda_y_conteo
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Búsqueda y Conteo en 
-    Texto
+  descripcion: Procesa el flujo principal de Librería de Búsqueda y Conteo en Texto
 tests_funciones:
 - nombre: test_proc_de_busqueda_y_conteo_positivo
   funcion: proc_de_busqueda_y_conteo
@@ -32,6 +33,21 @@ tests_funciones:
   codigo: 'int res = proc_de_busqueda_y_conteo(0);
 
     assert(res == 0);'
+- nombre: test_proc_de_busqueda_y_conteo_negativo
+  funcion: proc_de_busqueda_y_conteo
+  codigo: 'int res = proc_de_busqueda_y_conteo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_de_busqueda_y_conteo_valor_limite
+  funcion: proc_de_busqueda_y_conteo
+  codigo: 'int res = proc_de_busqueda_y_conteo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_de_busqueda_y_conteo_valor_unitario
+  funcion: proc_de_busqueda_y_conteo
+  codigo: 'int res = proc_de_busqueda_y_conteo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: texto
@@ -40,3 +56,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

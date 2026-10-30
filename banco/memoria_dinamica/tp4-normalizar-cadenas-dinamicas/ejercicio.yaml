@@ -9,14 +9,56 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp4-2026
 rol_familia: uso
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: cadenas_dinamicas
+publicar: true
+funciones:
+- nombre: cadena_recortar_espacios
+  retorno: char *
+  parametros: const char *origen
+  descripcion: Retorna una nueva cadena en heap sin espacios iniciales ni finales
+- nombre: cadena_repetir
+  retorno: char *
+  parametros: const char *origen, size_t veces
+  descripcion: Crea una cadena dinámica repitiendo el patrón origen 'veces' veces
+tests_funciones:
+- nombre: test_cadena_recortar_espacios_ambos_lados
+  funcion: cadena_recortar_espacios
+  codigo: 'char *r = cadena_recortar_espacios("  hola mundo  ");
+
+    assert(r != NULL && strcmp(r, "hola mundo") == 0);
+
+    free(r);'
+- nombre: test_cadena_recortar_espacios_sin_espacios
+  funcion: cadena_recortar_espacios
+  codigo: 'char *r = cadena_recortar_espacios("sin_espacios");
+
+    assert(r != NULL && strcmp(r, "sin_espacios") == 0);
+
+    free(r);'
+- nombre: test_cadena_repetir_tres_veces
+  funcion: cadena_repetir
+  codigo: 'char *rep = cadena_repetir("abc", 3);
+
+    assert(rep != NULL && strcmp(rep, "abcabcabc") == 0);
+
+    free(rep);'
+- nombre: test_cadena_repetir_cero_veces
+  funcion: cadena_repetir
+  codigo: 'char *rep = cadena_repetir("abc", 0);
+
+    assert(rep != NULL && strcmp(rep, "") == 0);
+
+    free(rep);'

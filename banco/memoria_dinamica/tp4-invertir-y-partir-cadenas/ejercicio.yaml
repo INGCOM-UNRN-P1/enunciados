@@ -9,14 +9,54 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp4-2026
 rol_familia: uso
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: y_partir
+publicar: true
+funciones:
+- nombre: clonar_cadena
+  retorno: char *
+  parametros: const char *origen
+  descripcion: Clona una cadena de caracteres en memoria dinámica
+- nombre: unir_cadenas_dinamicas
+  retorno: char *
+  parametros: const char *primera, const char *segunda
+  descripcion: Concatena dos cadenas reservando la capacidad exacta en el heap
+tests_funciones:
+- nombre: test_clonar_cadena_valida
+  funcion: clonar_cadena
+  codigo: 'char *c = clonar_cadena("hola");
+
+    assert(c != NULL && strcmp(c, "hola") == 0);
+
+    free(c);'
+- nombre: test_clonar_cadena_vacia
+  funcion: clonar_cadena
+  codigo: 'char *c = clonar_cadena("");
+
+    assert(c != NULL && strcmp(c, "") == 0);
+
+    free(c);'
+- nombre: test_unir_cadenas_dinamicas_exito
+  funcion: unir_cadenas_dinamicas
+  codigo: 'char *u = unir_cadenas_dinamicas("buen ", "dia");
+
+    assert(u != NULL && strcmp(u, "buen dia") == 0);
+
+    free(u);'
+- nombre: test_unir_cadenas_dinamicas_nulo
+  funcion: unir_cadenas_dinamicas
+  codigo: 'char *u = unir_cadenas_dinamicas(NULL, "dia");
+
+    assert(u == NULL);'

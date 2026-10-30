@@ -20,6 +20,8 @@ tags:
 - recursos
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: procesar_archivo
@@ -27,20 +29,32 @@ funciones:
   parametros: const char *ruta
   descripcion: Operación procesar_archivo
 tests_funciones:
-- nombre: test_procesar_archivo_1
+- nombre: test_procesar_archivo_inexistente
   funcion: procesar_archivo
-  codigo: '/* Verificación unitaria de procesar_archivo */
+  codigo: 'int res = procesar_archivo("no_existe.txt");
 
-    int res = procesar_archivo("test");
+    assert(res == -1);'
+- nombre: test_procesar_archivo_nulo
+  funcion: procesar_archivo
+  codigo: 'int res = procesar_archivo("");
 
-    (void)res;
+    assert(res == -1);'
+- nombre: test_procesar_archivo_dev_null
+  funcion: procesar_archivo
+  codigo: 'int res = procesar_archivo("/dev/null");
 
-    assert(true);'
+    assert(res == 0);'
+- nombre: test_procesar_archivo_ruta_falsa
+  funcion: procesar_archivo
+  codigo: 'int res = procesar_archivo("/ruta/falsa/123");
+
+    assert(res == -1);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

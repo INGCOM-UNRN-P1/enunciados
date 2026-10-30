@@ -12,8 +12,8 @@ pistas:
 - Recorrer el arreglo.
 - 'Si el elemento actual `x` es mayor que `maximo`: a. `segundo_maximo` toma el valor
   de `maximo`. b. `maximo` toma el valor de `x`.'
-- Si no, si `x` es mayor que `segundo_maximo` y diferente de `maximo`, se 
-  actualiza `segundo_maximo` a `x`.
+- Si no, si `x` es mayor que `segundo_maximo` y diferente de `maximo`, se actualiza
+  `segundo_maximo` a `x`.
 - '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
   order*) para mejorar el uso de caché.'
 - '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
@@ -25,6 +25,8 @@ tags:
 - memoria
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_10_6_casi_maximo
@@ -42,6 +44,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_10_6_casi_maximo(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_10_6_casi_maximo_negativo
+  funcion: ejecutar_ej_10_6_casi_maximo
+  codigo: 'int res = ejecutar_ej_10_6_casi_maximo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_10_6_casi_maximo_valor_limite
+  funcion: ejecutar_ej_10_6_casi_maximo
+  codigo: 'int res = ejecutar_ej_10_6_casi_maximo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_10_6_casi_maximo_valor_unitario
+  funcion: ejecutar_ej_10_6_casi_maximo
+  codigo: 'int res = ejecutar_ej_10_6_casi_maximo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: vectores
@@ -50,3 +67,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

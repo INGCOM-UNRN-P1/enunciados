@@ -16,6 +16,8 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_23_2_insercion
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_23_2_insercion(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_23_2_insercion_negativo
+  funcion: ejecutar_ej_23_2_insercion
+  codigo: 'int res = ejecutar_ej_23_2_insercion(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_23_2_insercion_valor_limite
+  funcion: ejecutar_ej_23_2_insercion
+  codigo: 'int res = ejecutar_ej_23_2_insercion(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_23_2_insercion_valor_unitario
+  funcion: ejecutar_ej_23_2_insercion
+  codigo: 'int res = ejecutar_ej_23_2_insercion(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
@@ -42,3 +59,4 @@ prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

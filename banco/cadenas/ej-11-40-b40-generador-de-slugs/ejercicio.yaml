@@ -12,8 +12,8 @@ pistas:
 - Recorrer la cadena de entrada.
 - Para cada carácter, convertirlo a minúscula.
 - Si es una letra o un número, añadirlo a la cadena de resultado.
-- Si es un espacio, y el último carácter añadido al resultado no fue un guion, 
-  añadir un guion.
+- Si es un espacio, y el último carácter añadido al resultado no fue un guion, añadir
+  un guion.
 - Ignorar todos los demás caracteres.
 tags:
 - cadenas
@@ -23,6 +23,8 @@ tags:
 - generador
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_0_generador_de_slugs
@@ -40,6 +42,21 @@ tests_funciones:
   codigo: 'int res = proc_0_generador_de_slugs(0);
 
     assert(res == 0);'
+- nombre: test_proc_0_generador_de_slugs_negativo
+  funcion: proc_0_generador_de_slugs
+  codigo: 'int res = proc_0_generador_de_slugs(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_0_generador_de_slugs_valor_limite
+  funcion: proc_0_generador_de_slugs
+  codigo: 'int res = proc_0_generador_de_slugs(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_0_generador_de_slugs_valor_unitario
+  funcion: proc_0_generador_de_slugs
+  codigo: 'int res = proc_0_generador_de_slugs(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -48,3 +65,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

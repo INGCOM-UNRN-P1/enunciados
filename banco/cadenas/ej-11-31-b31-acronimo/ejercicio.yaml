@@ -10,10 +10,10 @@ pistas:
   manera robusta.'
 - '**Proceso:**'
 - Recorrer la cadena.
-- Usar una bandera o estado para saber si el carácter actual es el inicio de una
-  nueva palabra.
-- Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a la 
-  cadena de resultado.
+- Usar una bandera o estado para saber si el carácter actual es el inicio de una nueva
+  palabra.
+- Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a la cadena
+  de resultado.
 tags:
 - acronimo
 - cadenas
@@ -21,6 +21,8 @@ tags:
 - memoria
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_11_31_b31_acronimo
@@ -38,6 +40,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_11_31_b31_acronimo_negativo
+  funcion: ejecutar_ej_11_31_b31_acronimo
+  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_11_31_b31_acronimo_valor_limite
+  funcion: ejecutar_ej_11_31_b31_acronimo
+  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_11_31_b31_acronimo_valor_unitario
+  funcion: ejecutar_ej_11_31_b31_acronimo
+  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -46,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

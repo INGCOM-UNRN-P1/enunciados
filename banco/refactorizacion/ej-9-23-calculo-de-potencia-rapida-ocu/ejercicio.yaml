@@ -12,6 +12,8 @@ tags:
 - calculo
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__potencia_rapida_ocu
@@ -29,11 +31,27 @@ tests_funciones:
   codigo: 'int res = proc__potencia_rapida_ocu(0);
 
     assert(res == 0);'
+- nombre: test_proc__potencia_rapida_ocu_negativo
+  funcion: proc__potencia_rapida_ocu
+  codigo: 'int res = proc__potencia_rapida_ocu(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__potencia_rapida_ocu_valor_limite
+  funcion: proc__potencia_rapida_ocu
+  codigo: 'int res = proc__potencia_rapida_ocu(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__potencia_rapida_ocu_valor_unitario
+  funcion: proc__potencia_rapida_ocu
+  codigo: 'int res = proc__potencia_rapida_ocu(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

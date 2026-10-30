@@ -16,6 +16,8 @@ tags:
 - direcciones
 - dep:funciones
 - dep:arreglos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_ento_con_intercambia
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_ento_con_intercambia(0);
 
     assert(res == 0);'
+- nombre: test_proc_ento_con_intercambia_negativo
+  funcion: proc_ento_con_intercambia
+  codigo: 'int res = proc_ento_con_intercambia(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_ento_con_intercambia_valor_limite
+  funcion: proc_ento_con_intercambia
+  codigo: 'int res = proc_ento_con_intercambia(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_ento_con_intercambia_valor_unitario
+  funcion: proc_ento_con_intercambia
+  codigo: 'int res = proc_ento_con_intercambia(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: intercambia
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

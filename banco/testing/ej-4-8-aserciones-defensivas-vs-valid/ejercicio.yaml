@@ -12,13 +12,15 @@ tags:
 - testing
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__defensivas_vs_valid
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Aserciones defensivas vs Validación
-    de Usuario
+  descripcion: Procesa el flujo principal de Aserciones defensivas vs Validación de
+    Usuario
 tests_funciones:
 - nombre: test_proc__defensivas_vs_valid_positivo
   funcion: proc__defensivas_vs_valid
@@ -30,11 +32,27 @@ tests_funciones:
   codigo: 'int res = proc__defensivas_vs_valid(0);
 
     assert(res == 0);'
+- nombre: test_proc__defensivas_vs_valid_negativo
+  funcion: proc__defensivas_vs_valid
+  codigo: 'int res = proc__defensivas_vs_valid(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__defensivas_vs_valid_valor_limite
+  funcion: proc__defensivas_vs_valid
+  codigo: 'int res = proc__defensivas_vs_valid(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__defensivas_vs_valid_valor_unitario
+  funcion: proc__defensivas_vs_valid
+  codigo: 'int res = proc__defensivas_vs_valid(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

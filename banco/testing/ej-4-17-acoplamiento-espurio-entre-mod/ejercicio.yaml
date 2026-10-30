@@ -4,11 +4,10 @@ tema: testing
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Identificá dependencias innecesarias o variables globales compartidas entre 
-  módulos independientes.
+- Identificá dependencias innecesarias o variables globales compartidas entre módulos
+  independientes.
 - Encapsulá los datos del módulo mediante funciones de acceso y tipos opacos.
-- Reducí el conocimiento que un módulo tiene sobre la estructura interna de 
-  otro.
+- Reducí el conocimiento que un módulo tiene sobre la estructura interna de otro.
 tags:
 - aserciones
 - fundamentos
@@ -17,6 +16,8 @@ tags:
 - modulos
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_to_espurio_entre_mod
@@ -34,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_to_espurio_entre_mod(0);
 
     assert(res == 0);'
+- nombre: test_proc_to_espurio_entre_mod_negativo
+  funcion: proc_to_espurio_entre_mod
+  codigo: 'int res = proc_to_espurio_entre_mod(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_to_espurio_entre_mod_valor_limite
+  funcion: proc_to_espurio_entre_mod
+  codigo: 'int res = proc_to_espurio_entre_mod(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_to_espurio_entre_mod_valor_unitario
+  funcion: proc_to_espurio_entre_mod
+  codigo: 'int res = proc_to_espurio_entre_mod(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

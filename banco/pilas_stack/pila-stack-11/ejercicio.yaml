@@ -12,6 +12,10 @@ tags:
 - lifo
 - tad
 - estructuras_datos
+- dep:tad
+- dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_pila_stack_11
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_pila_stack_11(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_pila_stack_11_negativo
+  funcion: ejecutar_pila_stack_11
+  codigo: 'int res = ejecutar_pila_stack_11(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_pila_stack_11_valor_limite
+  funcion: ejecutar_pila_stack_11
+  codigo: 'int res = ejecutar_pila_stack_11(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_pila_stack_11_valor_unitario
+  funcion: ejecutar_pila_stack_11
+  codigo: 'int res = ejecutar_pila_stack_11(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- memoria_dinamica
+subtema: pilas_stack

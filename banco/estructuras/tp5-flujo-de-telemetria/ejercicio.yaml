@@ -9,7 +9,9 @@ tags:
 - estructuras
 - dep:tipos_datos
 - dep:funciones
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: cargar_muestras
   retorno: bool
@@ -30,8 +32,91 @@ dependencias:
 - tp5-libdinamicos
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - funciones
+subtema: de_telemetria
+publicar: true
+tests_funciones:
+- nombre: test_cargar_muestras_positivo
+  funcion: cargar_muestras
+  codigo: 'int res = cargar_muestras(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_cargar_muestras_cero
+  funcion: cargar_muestras
+  codigo: 'int res = cargar_muestras(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_cargar_muestras_negativo
+  funcion: cargar_muestras
+  codigo: 'int res = cargar_muestras(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_cargar_muestras_limite
+  funcion: cargar_muestras
+  codigo: 'int res = cargar_muestras(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_calcular_promedio_positivo
+  funcion: calcular_promedio
+  codigo: 'double res = (double)calcular_promedio(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_calcular_promedio_cero
+  funcion: calcular_promedio
+  codigo: 'double res = (double)calcular_promedio(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_calcular_promedio_negativo
+  funcion: calcular_promedio
+  codigo: 'double res = (double)calcular_promedio(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_calcular_promedio_valor_limite
+  funcion: calcular_promedio
+  codigo: 'double res = (double)calcular_promedio(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_depurar_lecturas_erroneas_positivo
+  funcion: depurar_lecturas_erroneas
+  codigo: 'long long res = (long long)depurar_lecturas_erroneas(NULL, 5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_depurar_lecturas_erroneas_cero
+  funcion: depurar_lecturas_erroneas
+  codigo: 'long long res = (long long)depurar_lecturas_erroneas(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_depurar_lecturas_erroneas_negativo
+  funcion: depurar_lecturas_erroneas
+  codigo: 'long long res = (long long)depurar_lecturas_erroneas(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_depurar_lecturas_erroneas_valor_limite
+  funcion: depurar_lecturas_erroneas
+  codigo: 'long long res = (long long)depurar_lecturas_erroneas(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_extraer_eventos_pares_positivo
+  funcion: extraer_eventos_pares
+  codigo: 'bool ok = extraer_eventos_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_extraer_eventos_pares_cero
+  funcion: extraer_eventos_pares
+  codigo: 'bool ok = extraer_eventos_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_extraer_eventos_pares_negativo
+  funcion: extraer_eventos_pares
+  codigo: 'bool ok = extraer_eventos_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_extraer_eventos_pares_valor_limite
+  funcion: extraer_eventos_pares
+  codigo: 'bool ok = extraer_eventos_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'

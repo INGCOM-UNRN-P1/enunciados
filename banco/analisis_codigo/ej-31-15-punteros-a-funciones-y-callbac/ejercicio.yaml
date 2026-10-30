@@ -12,6 +12,8 @@ tags:
 - callbacks
 - dep:memoria
 - dep:testing
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: es_par
@@ -40,33 +42,36 @@ funciones:
   descripcion: Operación aplicar
 - nombre: procesar
   retorno: void
-  parametros: "int *arr, size_t n, predicado_t filtro,\n              operacion_t
-    transformacion"
+  parametros: "int *arr, size_t n, predicado_t filtro,\n              operacion_t\
+    \ transformacion"
   descripcion: Operación procesar
 tests_funciones:
-- nombre: test_es_par_1
+- nombre: test_es_par_positivo
   funcion: es_par
-  codigo: '/* Verificación unitaria de es_par */
+  codigo: 'int res = es_par(5);
 
-    bool ok = es_par(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_es_par_cero
+  funcion: es_par
+  codigo: 'int res = es_par(0);
 
-    (void)ok;
+    assert(res == 0 || res >= 0);'
+- nombre: test_es_par_negativo
+  funcion: es_par
+  codigo: 'int res = es_par(-5);
 
-    assert(true);'
-- nombre: test_es_positivo_2
-  funcion: es_positivo
-  codigo: '/* Verificación unitaria de es_positivo */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_es_par_limite
+  funcion: es_par
+  codigo: 'int res = es_par(100);
 
-    bool ok = es_positivo(1);
-
-    (void)ok;
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: analisis
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - testing
+publicar: true

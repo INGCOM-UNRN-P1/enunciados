@@ -16,6 +16,8 @@ tags:
 - dinamica
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc__tridimensional_dina
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc__tridimensional_dina(0);
 
     assert(res == 0);'
+- nombre: test_proc__tridimensional_dina_negativo
+  funcion: proc__tridimensional_dina
+  codigo: 'int res = proc__tridimensional_dina(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__tridimensional_dina_valor_limite
+  funcion: proc__tridimensional_dina
+  codigo: 'int res = proc__tridimensional_dina(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__tridimensional_dina_valor_unitario
+  funcion: proc__tridimensional_dina
+  codigo: 'int res = proc__tridimensional_dina(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

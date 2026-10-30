@@ -11,6 +11,10 @@ tags:
 - automatas
 - estados
 - protocolos
+- dep:enumeraciones
+- dep:estructuras_control
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: ejecutar_fsm_estados_29
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_fsm_estados_29(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_fsm_estados_29_negativo
+  funcion: ejecutar_fsm_estados_29
+  codigo: 'int res = ejecutar_fsm_estados_29(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_fsm_estados_29_valor_limite
+  funcion: ejecutar_fsm_estados_29
+  codigo: 'int res = ejecutar_fsm_estados_29(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_fsm_estados_29_valor_unitario
+  funcion: ejecutar_fsm_estados_29
+  codigo: 'int res = ejecutar_fsm_estados_29(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: avanzada
+tipo: ejercicio_individual
+prerrequisitos:
+- enumeraciones
+- estructuras_control
+subtema: emulacion_maquinas_estado

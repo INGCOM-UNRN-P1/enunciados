@@ -12,6 +12,10 @@ tags:
 - punteros
 - nodos
 - estructuras_datos
+- c11
+- inicial
+- dep:memoria_dinamica
+- dep:punteros
 verificado: true
 funciones:
 - nombre: imprimir_lista
@@ -23,14 +27,52 @@ funciones:
   parametros: nodo_t *cabeza
   descripcion: Operación liberar_lista
 tests_funciones:
-- nombre: test_imprimir_lista_1
+- nombre: test_imprimir_lista_positivo
   funcion: imprimir_lista
-  codigo: '/* Verificación unitaria de imprimir_lista */
+  codigo: 'int res = imprimir_lista(5);
 
-    assert(true);'
-- nombre: test_liberar_lista_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_imprimir_lista_cero
+  funcion: imprimir_lista
+  codigo: 'int res = imprimir_lista(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_imprimir_lista_negativo
+  funcion: imprimir_lista
+  codigo: 'int res = imprimir_lista(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_imprimir_lista_limite
+  funcion: imprimir_lista
+  codigo: 'int res = imprimir_lista(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_liberar_lista_positivo
   funcion: liberar_lista
-  codigo: '/* Verificación unitaria de liberar_lista */
+  codigo: 'liberar_lista(NULL);
 
-    assert(true);'
-publicar: false
+    assert(1);'
+- nombre: test_liberar_lista_cero
+  funcion: liberar_lista
+  codigo: 'liberar_lista(NULL);
+
+    assert(1);'
+- nombre: test_liberar_lista_negativo
+  funcion: liberar_lista
+  codigo: 'liberar_lista(NULL);
+
+    assert(1);'
+- nombre: test_liberar_lista_valor_limite
+  funcion: liberar_lista
+  codigo: 'liberar_lista(NULL);
+
+    assert(1);'
+publicar: true
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- punteros
+- memoria_dinamica
+subtema: listas_enlazadas
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica

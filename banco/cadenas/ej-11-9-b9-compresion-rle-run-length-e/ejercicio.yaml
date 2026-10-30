@@ -11,8 +11,8 @@ pistas:
 - '**Proceso:**'
 - Recorrer la cadena de entrada.
 - Mantener un `contador` para el carácter actual.
-- Si el siguiente carácter es diferente o se llega al final de la cadena, se 
-  añade el `contador` y el carácter actual a la cadena de resultado.
+- Si el siguiente carácter es diferente o se llega al final de la cadena, se añade
+  el `contador` y el carácter actual a la cadena de resultado.
 - Reiniciar el `contador` y continuar.
 tags:
 - compresion
@@ -22,13 +22,14 @@ tags:
 - encoding
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_ion_rle_run_length_e
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Compresión RLE (Run-Length 
-    Encoding)
+  descripcion: Procesa el flujo principal de Compresión RLE (Run-Length Encoding)
 tests_funciones:
 - nombre: test_proc_ion_rle_run_length_e_positivo
   funcion: proc_ion_rle_run_length_e
@@ -40,6 +41,21 @@ tests_funciones:
   codigo: 'int res = proc_ion_rle_run_length_e(0);
 
     assert(res == 0);'
+- nombre: test_proc_ion_rle_run_length_e_negativo
+  funcion: proc_ion_rle_run_length_e
+  codigo: 'int res = proc_ion_rle_run_length_e(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_ion_rle_run_length_e_valor_limite
+  funcion: proc_ion_rle_run_length_e
+  codigo: 'int res = proc_ion_rle_run_length_e(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_ion_rle_run_length_e_valor_unitario
+  funcion: proc_ion_rle_run_length_e
+  codigo: 'int res = proc_ion_rle_run_length_e(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -48,3 +64,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

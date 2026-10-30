@@ -9,7 +9,9 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp3-2026
 rol_familia: uso
@@ -17,8 +19,48 @@ dependencias:
 - tp3-libpunteros
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+subtema: y_distancia
+publicar: true
+funciones:
+- nombre: buscar_primero
+  retorno: const int *
+  parametros: const int *arreglo, size_t cantidad, int buscado
+  descripcion: Busca la primera aparición de un valor en un arreglo usando punteros
+- nombre: distancia_punteros
+  retorno: int
+  parametros: const int *inicio, const int *elemento
+  descripcion: Calcula el índice relativo de un elemento mediante resta de punteros
+tests_funciones:
+- nombre: test_buscar_primero_hallado
+  funcion: buscar_primero
+  codigo: 'int arr[] = {10, 20, 30};
+
+    const int *p = buscar_primero(arr, 3, 20);
+
+    assert(p != NULL && *p == 20);'
+- nombre: test_buscar_primero_no_hallado
+  funcion: buscar_primero
+  codigo: 'int arr[] = {10, 20, 30};
+
+    const int *p = buscar_primero(arr, 3, 99);
+
+    assert(p == NULL);'
+- nombre: test_distancia_punteros_valida
+  funcion: distancia_punteros
+  codigo: 'int arr[] = {10, 20, 30};
+
+    int dist = distancia_punteros(arr, &arr[2]);
+
+    assert(dist == 2);'
+- nombre: test_distancia_punteros_nulo
+  funcion: distancia_punteros
+  codigo: 'int arr[] = {10, 20, 30};
+
+    int dist = distancia_punteros(NULL, &arr[1]);
+
+    assert(dist == -1);'

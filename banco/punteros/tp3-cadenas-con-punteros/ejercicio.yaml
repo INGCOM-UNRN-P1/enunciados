@@ -9,7 +9,9 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp3-2026
 rol_familia: uso
@@ -17,8 +19,46 @@ dependencias:
 - tp3-libpunteros
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+subtema: con_punteros
+publicar: true
+funciones:
+- nombre: copiar_con_punteros
+  retorno: bool
+  parametros: char *destino, size_t capacidad, const char *origen
+  descripcion: Copia una cadena usando aritmética de punteros con control de capacidad
+- nombre: concatenar_con_punteros
+  retorno: bool
+  parametros: char *destino, size_t capacidad, const char *origen
+  descripcion: Concatena cadenas usando aritmética de punteros de forma segura
+tests_funciones:
+- nombre: test_copiar_con_punteros_exito
+  funcion: copiar_con_punteros
+  codigo: 'char buf[16];
+
+    bool ok = copiar_con_punteros(buf, 16, "hola");
+
+    assert(ok && strcmp(buf, "hola") == 0);'
+- nombre: test_copiar_con_punteros_desborde
+  funcion: copiar_con_punteros
+  codigo: 'char buf[4];
+
+    bool ok = copiar_con_punteros(buf, 4, "demasiado_largo");
+
+    assert(!ok);'
+- nombre: test_concatenar_con_punteros_exito
+  funcion: concatenar_con_punteros
+  codigo: 'char buf[16] = "hola ";
+
+    bool ok = concatenar_con_punteros(buf, 16, "mundo");
+
+    assert(ok && strcmp(buf, "hola mundo") == 0);'
+- nombre: test_concatenar_con_punteros_nulo
+  funcion: concatenar_con_punteros
+  codigo: 'bool ok = concatenar_con_punteros(NULL, 10, "test");
+
+    assert(!ok);'

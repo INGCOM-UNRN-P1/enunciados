@@ -9,7 +9,9 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp3-2026
 rol_familia: uso
@@ -18,7 +20,51 @@ dependencias:
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+subtema: e_inversion
+publicar: true
+funciones:
+- nombre: copiar_arreglo
+  retorno: void
+  parametros: int *destino, const int *origen, size_t cantidad
+  descripcion: Copia elementos entre arreglos usando punteros
+- nombre: invertir_arreglo
+  retorno: void
+  parametros: int *arreglo, size_t cantidad
+  descripcion: Invierte in-place un arreglo con punteros convergentes
+tests_funciones:
+- nombre: test_copiar_arreglo_normal
+  funcion: copiar_arreglo
+  codigo: 'int orig[] = {1, 2, 3};
+
+    int dest[3] = {0};
+
+    copiar_arreglo(dest, orig, 3);
+
+    assert(dest[0] == 1 && dest[2] == 3);'
+- nombre: test_copiar_arreglo_vacio
+  funcion: copiar_arreglo
+  codigo: 'int orig[1] = {5};
+
+    int dest[1] = {0};
+
+    copiar_arreglo(dest, orig, 0);
+
+    assert(dest[0] == 0);'
+- nombre: test_invertir_arreglo_impar
+  funcion: invertir_arreglo
+  codigo: 'int a[] = {1, 2, 3};
+
+    invertir_arreglo(a, 3);
+
+    assert(a[0] == 3 && a[1] == 2 && a[2] == 1);'
+- nombre: test_invertir_arreglo_par
+  funcion: invertir_arreglo
+  codigo: 'int a[] = {10, 20};
+
+    invertir_arreglo(a, 2);
+
+    assert(a[0] == 20 && a[1] == 10);'

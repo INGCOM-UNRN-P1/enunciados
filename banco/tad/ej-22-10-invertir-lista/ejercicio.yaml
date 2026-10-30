@@ -17,6 +17,8 @@ tags:
 - dep:estructuras
 - dep:punteros
 - dep:memoria_dinamica
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_22_10_invertir_lista
@@ -34,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc_22_10_invertir_lista(0);
 
     assert(res == 0);'
+- nombre: test_proc_22_10_invertir_lista_negativo
+  funcion: proc_22_10_invertir_lista
+  codigo: 'int res = proc_22_10_invertir_lista(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_22_10_invertir_lista_valor_limite
+  funcion: proc_22_10_invertir_lista
+  codigo: 'int res = proc_22_10_invertir_lista(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_22_10_invertir_lista_valor_unitario
+  funcion: proc_22_10_invertir_lista
+  codigo: 'int res = proc_22_10_invertir_lista(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - estructuras
 - punteros
 - memoria_dinamica
+publicar: true

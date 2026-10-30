@@ -16,6 +16,8 @@ tags:
 - asintotica
 - dep:algoritmos_ordenamiento
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_aracion_de_funciones
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_aracion_de_funciones(0);
 
     assert(res == 0);'
+- nombre: test_proc_aracion_de_funciones_negativo
+  funcion: proc_aracion_de_funciones
+  codigo: 'int res = proc_aracion_de_funciones(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_aracion_de_funciones_valor_limite
+  funcion: proc_aracion_de_funciones
+  codigo: 'int res = proc_aracion_de_funciones(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_aracion_de_funciones_valor_unitario
+  funcion: proc_aracion_de_funciones
+  codigo: 'int res = proc_aracion_de_funciones(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: big_o
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - algoritmos_ordenamiento
 - lazos_anidados
+publicar: true

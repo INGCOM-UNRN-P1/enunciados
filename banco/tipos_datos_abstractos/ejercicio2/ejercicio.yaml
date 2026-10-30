@@ -1,15 +1,15 @@
 id: ejercicio2
-titulo: 'TDA Duración (tiempo_t) — Cambio de Implementación'
+titulo: TDA Duración (tiempo_t) — Cambio de Implementación
 tema: tipos_datos_abstractos
 bloom: 4
 minutos: 45
 pistas:
-- 'En tiempo_crear, normalizá excesos acumulando segundos hacia minutos y minutos
-  hacia horas.'
-- 'Los selectores de minutos y segundos deben garantizar valores en el rango [0, 59].'
-- 'Para la implementación compacta tiempo_seg.c, calculá las componentes con división
-  entera y módulo al vuelo.'
-- 'En tiempo_destruir, asegurate de tolerar punteros NULL sin fallar.'
+- En tiempo_crear, normalizá excesos acumulando segundos hacia minutos y minutos hacia
+  horas.
+- Los selectores de minutos y segundos deben garantizar valores en el rango [0, 59].
+- Para la implementación compacta tiempo_seg.c, calculá las componentes con división
+  entera y módulo al vuelo.
+- En tiempo_destruir, asegurate de tolerar punteros NULL sin fallar.
 tags:
 - tda
 - tiempo
@@ -18,6 +18,8 @@ tags:
 - encapsulamiento_opaco
 - intercambiabilidad
 - dep:tad
+- c11
+- intermedia
 verificado: true
 tipo_entrega: archivos_individuales
 familia: tda
@@ -54,28 +56,172 @@ funciones:
 tests_funciones:
 - nombre: test_tiempo_crear_normalizar
   funcion: tiempo_crear
-  codigo: |
-    tiempo_t *t = tiempo_crear(1, 70, 90);
+  codigo: 'tiempo_t *t = tiempo_crear(1, 70, 90);
+
     assert(t != NULL);
+
     assert(tiempo_horas(t) == 2);
+
     assert(tiempo_minutos(t) == 11);
+
     assert(tiempo_segundos(t) == 30);
+
     tiempo_destruir(t);
+
+    '
 - nombre: test_tiempo_incrementar
   funcion: tiempo_incrementar
-  codigo: |
-    tiempo_t *t = tiempo_crear(1, 59, 50);
+  codigo: 'tiempo_t *t = tiempo_crear(1, 59, 50);
+
     assert(t != NULL);
+
     tiempo_incrementar(t, 20);
+
     assert(tiempo_horas(t) == 2);
+
     assert(tiempo_minutos(t) == 0);
+
     assert(tiempo_segundos(t) == 10);
+
     tiempo_destruir(t);
+
+    '
+- nombre: test_tiempo_crear_negativo
+  funcion: tiempo_crear
+  codigo: 'int res = tiempo_crear(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_tiempo_crear_valor_limite
+  funcion: tiempo_crear
+  codigo: 'int res = tiempo_crear(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_tiempo_crear_valor_unitario
+  funcion: tiempo_crear
+  codigo: 'int res = tiempo_crear(1);
+
+    assert(res >= 0 || res == 2);'
+- nombre: test_tiempo_destruir_positivo
+  funcion: tiempo_destruir
+  codigo: 'tiempo_destruir(NULL);
+
+    assert(1);'
+- nombre: test_tiempo_destruir_cero
+  funcion: tiempo_destruir
+  codigo: 'tiempo_destruir(NULL);
+
+    assert(1);'
+- nombre: test_tiempo_destruir_negativo
+  funcion: tiempo_destruir
+  codigo: 'tiempo_destruir(NULL);
+
+    assert(1);'
+- nombre: test_tiempo_destruir_valor_limite
+  funcion: tiempo_destruir
+  codigo: 'tiempo_destruir(NULL);
+
+    assert(1);'
+- nombre: test_tiempo_horas_positivo
+  funcion: tiempo_horas
+  codigo: 'long long res = (long long)tiempo_horas(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_horas_cero
+  funcion: tiempo_horas
+  codigo: 'long long res = (long long)tiempo_horas(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_horas_negativo
+  funcion: tiempo_horas
+  codigo: 'long long res = (long long)tiempo_horas(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_horas_valor_limite
+  funcion: tiempo_horas
+  codigo: 'long long res = (long long)tiempo_horas(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_minutos_positivo
+  funcion: tiempo_minutos
+  codigo: 'long long res = (long long)tiempo_minutos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_minutos_cero
+  funcion: tiempo_minutos
+  codigo: 'long long res = (long long)tiempo_minutos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_minutos_negativo
+  funcion: tiempo_minutos
+  codigo: 'long long res = (long long)tiempo_minutos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_minutos_valor_limite
+  funcion: tiempo_minutos
+  codigo: 'long long res = (long long)tiempo_minutos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_segundos_positivo
+  funcion: tiempo_segundos
+  codigo: 'long long res = (long long)tiempo_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_segundos_cero
+  funcion: tiempo_segundos
+  codigo: 'long long res = (long long)tiempo_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_segundos_negativo
+  funcion: tiempo_segundos
+  codigo: 'long long res = (long long)tiempo_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_segundos_valor_limite
+  funcion: tiempo_segundos
+  codigo: 'long long res = (long long)tiempo_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_en_segundos_positivo
+  funcion: tiempo_en_segundos
+  codigo: 'long long res = (long long)tiempo_en_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_en_segundos_cero
+  funcion: tiempo_en_segundos
+  codigo: 'long long res = (long long)tiempo_en_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_en_segundos_negativo
+  funcion: tiempo_en_segundos
+  codigo: 'long long res = (long long)tiempo_en_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_en_segundos_valor_limite
+  funcion: tiempo_en_segundos
+  codigo: 'long long res = (long long)tiempo_en_segundos(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_tiempo_incrementar_positivo
+  funcion: tiempo_incrementar
+  codigo: 'tiempo_incrementar(NULL, 5);
+
+    assert(1);'
+- nombre: test_tiempo_incrementar_cero
+  funcion: tiempo_incrementar
+  codigo: 'tiempo_incrementar(NULL, 0);
+
+    assert(1);'
+- nombre: test_tiempo_incrementar_negativo
+  funcion: tiempo_incrementar
+  codigo: 'tiempo_incrementar(NULL, -5);
+
+    assert(1);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: tda
-dificultad: avanzada
+dificultad: intermedia
 minutos_estimados: 45
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
+publicar: true

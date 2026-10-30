@@ -16,6 +16,8 @@ tags:
 - tad
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: vector_init
@@ -39,16 +41,228 @@ funciones:
   parametros: vector_dinamico_t *vec
   descripcion: Operación vector_free
 tests_funciones:
-- nombre: test_vector_init_1
+- nombre: test_vector_init_estado_inicial
   funcion: vector_init
-  codigo: '/* Verificación unitaria de vector_init */
+  codigo: 'vector_dinamico_t v;
 
-    assert(true);'
-- nombre: test_vector_push_2
+    vector_init(&v);
+
+    assert(v.longitud == 0 && v.capacidad >= 4 && v.datos != NULL);
+
+    vector_free(&v);'
+- nombre: test_vector_init_longitud_cero
+  funcion: vector_init
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    assert(v.longitud == 0);
+
+    vector_free(&v);'
+- nombre: test_vector_init_buffer_valido
+  funcion: vector_init
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    assert(v.datos != NULL);
+
+    vector_free(&v);'
+- nombre: test_vector_init_capacidad_inicial
+  funcion: vector_init
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    assert(v.capacidad == 4);
+
+    vector_free(&v);'
+- nombre: test_vector_push_elemento
   funcion: vector_push
-  codigo: '/* Verificación unitaria de vector_push */
+  codigo: 'vector_dinamico_t v;
 
-    assert(true);'
+    vector_init(&v);
+
+    vector_push(&v, 10);
+
+    assert(v.longitud == 1 && v.datos[0] == 10);
+
+    vector_free(&v);'
+- nombre: test_vector_push_negativo
+  funcion: vector_push
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, -5);
+
+    assert(v.datos[0] == -5);
+
+    vector_free(&v);'
+- nombre: test_vector_push_redimension
+  funcion: vector_push
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    for(int i=0;i<10;i++) vector_push(&v, i);
+
+    assert(v.longitud == 10 && v.datos[9] == 9);
+
+    vector_free(&v);'
+- nombre: test_vector_push_multiples
+  funcion: vector_push
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 100);
+
+    assert(v.longitud == 1);
+
+    vector_free(&v);'
+- nombre: test_vector_pop_reduce_longitud
+  funcion: vector_pop
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 10);
+
+    vector_pop(&v);
+
+    assert(v.longitud == 0);
+
+    vector_free(&v);'
+- nombre: test_vector_pop_vacio
+  funcion: vector_pop
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_pop(&v);
+
+    assert(v.longitud == 0);
+
+    vector_free(&v);'
+- nombre: test_vector_pop_secuencial
+  funcion: vector_pop
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 1);
+
+    vector_push(&v, 2);
+
+    vector_pop(&v);
+
+    assert(v.longitud == 1);
+
+    vector_free(&v);'
+- nombre: test_vector_pop_ultimo
+  funcion: vector_pop
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 42);
+
+    vector_pop(&v);
+
+    assert(v.longitud == 0);
+
+    vector_free(&v);'
+- nombre: test_vector_get_primer_elemento
+  funcion: vector_get
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 55);
+
+    vector_get(&v, 0);
+
+    assert(v.datos[0] == 55);
+
+    vector_free(&v);'
+- nombre: test_vector_get_segundo_elemento
+  funcion: vector_get
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 1);
+
+    vector_push(&v, 2);
+
+    vector_get(&v, 1);
+
+    assert(v.datos[1] == 2);
+
+    vector_free(&v);'
+- nombre: test_vector_get_fuera_rango
+  funcion: vector_get
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_get(&v, 0);
+
+    assert(1);
+
+    vector_free(&v);'
+- nombre: test_vector_get_conserva_tamano
+  funcion: vector_get
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 99);
+
+    vector_get(&v, 0);
+
+    assert(v.longitud == 1);
+
+    vector_free(&v);'
+- nombre: test_vector_free_limpia_todo
+  funcion: vector_free
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_free(&v);
+
+    assert(v.datos == NULL && v.longitud == 0 && v.capacidad == 0);'
+- nombre: test_vector_free_tras_push
+  funcion: vector_free
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_push(&v, 1);
+
+    vector_free(&v);
+
+    assert(v.datos == NULL);'
+- nombre: test_vector_free_longitud_cero
+  funcion: vector_free
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_free(&v);
+
+    assert(v.longitud == 0);'
+- nombre: test_vector_free_capacidad_cero
+  funcion: vector_free
+  codigo: 'vector_dinamico_t v;
+
+    vector_init(&v);
+
+    vector_free(&v);
+
+    assert(v.capacidad == 0);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
@@ -57,3 +271,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

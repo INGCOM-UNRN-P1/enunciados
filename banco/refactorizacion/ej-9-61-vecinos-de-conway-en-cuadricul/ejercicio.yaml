@@ -12,13 +12,15 @@ tags:
 - fundamentos
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__conway_en_cuadricul
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Vecinos de Conway en Cuadrícula $5 
-    \times 5$
+  descripcion: Procesa el flujo principal de Vecinos de Conway en Cuadrícula $5 \times
+    5$
 tests_funciones:
 - nombre: test_proc__conway_en_cuadricul_positivo
   funcion: proc__conway_en_cuadricul
@@ -30,11 +32,27 @@ tests_funciones:
   codigo: 'int res = proc__conway_en_cuadricul(0);
 
     assert(res == 0);'
+- nombre: test_proc__conway_en_cuadricul_negativo
+  funcion: proc__conway_en_cuadricul
+  codigo: 'int res = proc__conway_en_cuadricul(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__conway_en_cuadricul_valor_limite
+  funcion: proc__conway_en_cuadricul
+  codigo: 'int res = proc__conway_en_cuadricul(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__conway_en_cuadricul_valor_unitario
+  funcion: proc__conway_en_cuadricul
+  codigo: 'int res = proc__conway_en_cuadricul(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

@@ -15,6 +15,8 @@ tags:
 - memoria
 - dep:tipos_datos
 - dep:condicionales
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__48_tipos_y_formatos
@@ -32,6 +34,21 @@ tests_funciones:
   codigo: 'int res = proc__48_tipos_y_formatos(0);
 
     assert(res == 0);'
+- nombre: test_proc__48_tipos_y_formatos_negativo
+  funcion: proc__48_tipos_y_formatos
+  codigo: 'int res = proc__48_tipos_y_formatos(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__48_tipos_y_formatos_valor_limite
+  funcion: proc__48_tipos_y_formatos
+  codigo: 'int res = proc__48_tipos_y_formatos(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__48_tipos_y_formatos_valor_unitario
+  funcion: proc__48_tipos_y_formatos
+  codigo: 'int res = proc__48_tipos_y_formatos(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados
@@ -40,3 +57,4 @@ tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
 - condicionales
+publicar: true

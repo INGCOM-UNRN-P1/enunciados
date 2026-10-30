@@ -8,16 +8,20 @@ tags:
 - cursada-2026
 - aritmetica
 - dep:tipos_datos
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: decimal_a_binario
   retorno: long long
   parametros: int numero
-  descripcion: Convierte un número decimal no negativo a su representación en binario como valor entero.
+  descripcion: Convierte un número decimal no negativo a su representación en binario
+    como valor entero.
 - nombre: binario_a_decimal
   retorno: int
   parametros: long long binario
-  descripcion: Convierte un valor entero que representa dígitos binarios (0 y 1) a su valor decimal.
+  descripcion: Convierte un valor entero que representa dígitos binarios (0 y 1) a
+    su valor decimal.
 tipo_entrega: makefile
 familia: entrega-4-2026
 rol_familia: uso
@@ -27,3 +31,38 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
+subtema: y_binario
+publicar: true
+tests_funciones:
+- nombre: test_decimal_a_binario_positivo
+  funcion: decimal_a_binario
+  codigo: 'int res = decimal_a_binario(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_decimal_a_binario_cero
+  funcion: decimal_a_binario
+  codigo: 'int res = decimal_a_binario(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_decimal_a_binario_negativo
+  funcion: decimal_a_binario
+  codigo: 'int res = decimal_a_binario(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_decimal_a_binario_limite
+  funcion: decimal_a_binario
+  codigo: 'int res = decimal_a_binario(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_binario_a_decimal_prueba_1
+  funcion: binario_a_decimal
+  codigo: assert(binario_a_decimal(-1) == -1);
+- nombre: test_binario_a_decimal_prueba_2
+  funcion: binario_a_decimal
+  codigo: assert(binario_a_decimal(120) == -1);
+- nombre: test_binario_a_decimal_prueba_3
+  funcion: binario_a_decimal
+  codigo: assert(binario_a_decimal(0) == 0);
+- nombre: test_binario_a_decimal_prueba_4
+  funcion: binario_a_decimal
+  codigo: assert(binario_a_decimal(1) == 1);

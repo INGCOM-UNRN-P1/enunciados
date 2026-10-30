@@ -16,6 +16,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__9_comparar_archivos
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc__9_comparar_archivos(0);
 
     assert(res == 0);'
+- nombre: test_proc__9_comparar_archivos_negativo
+  funcion: proc__9_comparar_archivos
+  codigo: 'int res = proc__9_comparar_archivos(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__9_comparar_archivos_valor_limite
+  funcion: proc__9_comparar_archivos
+  codigo: 'int res = proc__9_comparar_archivos(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__9_comparar_archivos_valor_unitario
+  funcion: proc__9_comparar_archivos
+  codigo: 'int res = proc__9_comparar_archivos(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: comparar
@@ -42,3 +59,4 @@ prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

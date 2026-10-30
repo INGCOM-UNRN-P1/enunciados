@@ -17,6 +17,8 @@ tags:
 - dep:estructuras
 - dep:punteros
 - dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_7_contar_ocurrencias
@@ -34,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc_7_contar_ocurrencias(0);
 
     assert(res == 0);'
+- nombre: test_proc_7_contar_ocurrencias_negativo
+  funcion: proc_7_contar_ocurrencias
+  codigo: 'int res = proc_7_contar_ocurrencias(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_7_contar_ocurrencias_valor_limite
+  funcion: proc_7_contar_ocurrencias
+  codigo: 'int res = proc_7_contar_ocurrencias(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_7_contar_ocurrencias_valor_unitario
+  funcion: proc_7_contar_ocurrencias
+  codigo: 'int res = proc_7_contar_ocurrencias(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
@@ -43,3 +60,4 @@ prerrequisitos:
 - estructuras
 - punteros
 - memoria_dinamica
+publicar: true

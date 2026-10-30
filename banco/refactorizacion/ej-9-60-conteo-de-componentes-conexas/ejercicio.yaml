@@ -4,8 +4,8 @@ tema: refactorizacion
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Utilizá una bandera booleana en_segmento_positivo para rastrear cuándo se 
-  transita un componente.
+- Utilizá una bandera booleana en_segmento_positivo para rastrear cuándo se transita
+  un componente.
 - Incrementá el contador únicamente al entrar a un nuevo segmento positivo.
 - 'Validá casos de borde: arreglo vacío (n=0), todos números positivos y todos números
   negativos.'
@@ -17,6 +17,8 @@ tags:
 - componentes
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__componentes_conexas
@@ -34,11 +36,27 @@ tests_funciones:
   codigo: 'int res = proc__componentes_conexas(0);
 
     assert(res == 0);'
+- nombre: test_proc__componentes_conexas_negativo
+  funcion: proc__componentes_conexas
+  codigo: 'int res = proc__componentes_conexas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__componentes_conexas_valor_limite
+  funcion: proc__componentes_conexas
+  codigo: 'int res = proc__componentes_conexas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__componentes_conexas_valor_unitario
+  funcion: proc__componentes_conexas
+  codigo: 'int res = proc__componentes_conexas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: conexas
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

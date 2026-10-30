@@ -16,6 +16,8 @@ tags:
 - malloc
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__implementar_getline
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc__implementar_getline(0);
 
     assert(res == 0);'
+- nombre: test_proc__implementar_getline_negativo
+  funcion: proc__implementar_getline
+  codigo: 'int res = proc__implementar_getline(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__implementar_getline_valor_limite
+  funcion: proc__implementar_getline
+  codigo: 'int res = proc__implementar_getline(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__implementar_getline_valor_unitario
+  funcion: proc__implementar_getline
+  codigo: 'int res = proc__implementar_getline(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

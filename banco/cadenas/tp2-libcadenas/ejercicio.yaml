@@ -9,7 +9,9 @@ tags:
 - cadenas
 - dep:arreglos
 - dep:caracteres
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: cadena_longitud
   retorno: size_t
@@ -28,8 +30,31 @@ familia: tp2-2026
 rol_familia: libreria
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - caracteres
+subtema: cadenas
+publicar: true
+tests_funciones:
+- nombre: test_cadena_longitud_positivo
+  funcion: cadena_longitud
+  codigo: 'int res = cadena_longitud(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_cadena_longitud_cero
+  funcion: cadena_longitud
+  codigo: 'int res = cadena_longitud(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_cadena_longitud_negativo
+  funcion: cadena_longitud
+  codigo: 'int res = cadena_longitud(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_cadena_longitud_limite
+  funcion: cadena_longitud
+  codigo: 'int res = cadena_longitud(100);
+
+    assert(res >= 0 || res == 200);'

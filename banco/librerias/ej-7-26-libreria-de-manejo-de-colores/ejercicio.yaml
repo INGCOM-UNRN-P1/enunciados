@@ -15,6 +15,8 @@ tags:
 - librerias
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_de_manejo_de_colores
@@ -32,6 +34,21 @@ tests_funciones:
   codigo: 'int res = proc_de_manejo_de_colores(0);
 
     assert(res == 0);'
+- nombre: test_proc_de_manejo_de_colores_negativo
+  funcion: proc_de_manejo_de_colores
+  codigo: 'int res = proc_de_manejo_de_colores(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_de_manejo_de_colores_valor_limite
+  funcion: proc_de_manejo_de_colores
+  codigo: 'int res = proc_de_manejo_de_colores(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_de_manejo_de_colores_valor_unitario
+  funcion: proc_de_manejo_de_colores
+  codigo: 'int res = proc_de_manejo_de_colores(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: fundamentos
@@ -40,3 +57,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

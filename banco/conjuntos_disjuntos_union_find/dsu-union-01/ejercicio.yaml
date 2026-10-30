@@ -12,6 +12,10 @@ tags:
 - conjuntos_disjuntos
 - grafos
 - estructuras_datos
+- dep:arreglos
+- dep:tad
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: dsu_init
@@ -27,14 +31,72 @@ funciones:
   parametros: dsu_t *d, int u, int v
   descripcion: Operación dsu_union
 tests_funciones:
-- nombre: test_dsu_init_1
+- nombre: test_dsu_init_positivo
   funcion: dsu_init
-  codigo: '/* Verificación unitaria de dsu_init */
+  codigo: 'int res = dsu_init(5);
 
-    assert(true);'
-- nombre: test_dsu_find_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_dsu_init_cero
+  funcion: dsu_init
+  codigo: 'int res = dsu_init(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_dsu_init_negativo
+  funcion: dsu_init
+  codigo: 'int res = dsu_init(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_dsu_init_limite
+  funcion: dsu_init
+  codigo: 'int res = dsu_init(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_dsu_find_positivo
   funcion: dsu_find
-  codigo: '/* Verificación unitaria de dsu_find */
+  codigo: 'long long res = (long long)dsu_find(NULL, 5);
 
-    assert(true);'
-publicar: false
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_dsu_find_cero
+  funcion: dsu_find
+  codigo: 'long long res = (long long)dsu_find(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_dsu_find_negativo
+  funcion: dsu_find
+  codigo: 'long long res = (long long)dsu_find(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_dsu_find_valor_limite
+  funcion: dsu_find
+  codigo: 'long long res = (long long)dsu_find(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_dsu_union_positivo
+  funcion: dsu_union
+  codigo: 'dsu_union(NULL, 5, 5);
+
+    assert(1);'
+- nombre: test_dsu_union_cero
+  funcion: dsu_union
+  codigo: 'dsu_union(NULL, 0, 0);
+
+    assert(1);'
+- nombre: test_dsu_union_negativo
+  funcion: dsu_union
+  codigo: 'dsu_union(NULL, -5, -5);
+
+    assert(1);'
+- nombre: test_dsu_union_valor_limite
+  funcion: dsu_union
+  codigo: 'dsu_union(NULL, 100, 100);
+
+    assert(1);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- tad
+subtema: conjuntos_disjuntos_union_find

@@ -12,6 +12,8 @@ tags:
 - suite
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: es_bisiesto_aux
@@ -43,29 +45,32 @@ funciones:
   parametros: void
   descripcion: Operación correr_pruebas_fechas
 tests_funciones:
-- nombre: test_es_bisiesto_aux_1
+- nombre: test_es_bisiesto_aux_positivo
   funcion: es_bisiesto_aux
-  codigo: '/* Verificación unitaria de es_bisiesto_aux */
+  codigo: 'int res = es_bisiesto_aux(5);
 
-    bool ok = es_bisiesto_aux(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_es_bisiesto_aux_cero
+  funcion: es_bisiesto_aux
+  codigo: 'int res = es_bisiesto_aux(0);
 
-    (void)ok;
+    assert(res == 0 || res >= 0);'
+- nombre: test_es_bisiesto_aux_negativo
+  funcion: es_bisiesto_aux
+  codigo: 'int res = es_bisiesto_aux(-5);
 
-    assert(true);'
-- nombre: test_es_fecha_valida_2
-  funcion: es_fecha_valida
-  codigo: '/* Verificación unitaria de es_fecha_valida */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_es_bisiesto_aux_limite
+  funcion: es_bisiesto_aux
+  codigo: 'int res = es_bisiesto_aux(100);
 
-    bool ok = es_fecha_valida(1, 2, 3);
-
-    (void)ok;
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

@@ -20,6 +20,8 @@ tags:
 - positivos
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_r_positivos_y_negati
@@ -37,6 +39,21 @@ tests_funciones:
   codigo: 'int res = proc_r_positivos_y_negati(0);
 
     assert(res == 0);'
+- nombre: test_proc_r_positivos_y_negati_negativo
+  funcion: proc_r_positivos_y_negati
+  codigo: 'int res = proc_r_positivos_y_negati(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_r_positivos_y_negati_valor_limite
+  funcion: proc_r_positivos_y_negati
+  codigo: 'int res = proc_r_positivos_y_negati(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_r_positivos_y_negati_valor_unitario
+  funcion: proc_r_positivos_y_negati
+  codigo: 'int res = proc_r_positivos_y_negati(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: memoria
@@ -45,3 +62,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

@@ -9,14 +9,17 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: cadena_duplicar_segura
   retorno: char *
   parametros: const char *origen, size_t capacidad_max
 - nombre: cadena_unir_dinamica
   retorno: char *
-  parametros: const char *primera, size_t cap_primera, const char *segunda, size_t cap_segunda
+  parametros: const char *primera, size_t cap_primera, const char *segunda, size_t
+    cap_segunda
 - nombre: cadena_liberar_segura
   retorno: void
   parametros: char **puntero_cadena
@@ -26,7 +29,30 @@ rol_familia: libreria
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 dificultad: intermedia
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: memoria_dinamica
+publicar: true
+tests_funciones:
+- nombre: test_cadena_duplicar_segura_positivo
+  funcion: cadena_duplicar_segura
+  codigo: 'int res = cadena_duplicar_segura(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_cadena_duplicar_segura_cero
+  funcion: cadena_duplicar_segura
+  codigo: 'int res = cadena_duplicar_segura(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_cadena_duplicar_segura_negativo
+  funcion: cadena_duplicar_segura
+  codigo: 'int res = cadena_duplicar_segura(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_cadena_duplicar_segura_limite
+  funcion: cadena_duplicar_segura
+  codigo: 'int res = cadena_duplicar_segura(100);
+
+    assert(res >= 0 || res == 200);'

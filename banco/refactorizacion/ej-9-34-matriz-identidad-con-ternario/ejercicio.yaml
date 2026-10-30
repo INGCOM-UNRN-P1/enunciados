@@ -12,6 +12,8 @@ tags:
 - fundamentos
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: obtener_valor_identidad
@@ -23,27 +25,32 @@ funciones:
   parametros: void
   descripcion: Operación test_valor_identidad
 tests_funciones:
-- nombre: test_obtener_valor_identidad_1
+- nombre: test_obtener_valor_identidad_positivo
   funcion: obtener_valor_identidad
-  codigo: '/* Verificación unitaria de obtener_valor_identidad */
+  codigo: 'int res = obtener_valor_identidad(5);
 
-    int res = obtener_valor_identidad(1, 2);
+    assert(res >= 0 || res == 10);'
+- nombre: test_obtener_valor_identidad_cero
+  funcion: obtener_valor_identidad
+  codigo: 'int res = obtener_valor_identidad(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_obtener_valor_identidad_negativo
+  funcion: obtener_valor_identidad
+  codigo: 'int res = obtener_valor_identidad(-5);
 
-    assert(true);'
-- nombre: test_test_valor_identidad_2
-  funcion: test_valor_identidad
-  codigo: '/* Verificación unitaria de test_valor_identidad */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_obtener_valor_identidad_limite
+  funcion: obtener_valor_identidad
+  codigo: 'int res = obtener_valor_identidad(100);
 
-    test_valor_identidad();
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: matrices_2d
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

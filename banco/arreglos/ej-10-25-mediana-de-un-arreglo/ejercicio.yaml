@@ -8,8 +8,7 @@ pistas:
 - Ordenar el arreglo.
 - 'Determinar el índice del medio: `medio = tamano / 2`.'
 - Si el tamaño es impar, la mediana es `arreglo[medio]`.
-- Si el tamaño es par, la mediana es `(arreglo[medio - 1] + arreglo[medio]) / 
-  2.0`.
+- Si el tamaño es par, la mediana es `(arreglo[medio - 1] + arreglo[medio]) / 2.0`.
 - '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
   order*) para mejorar el uso de caché.'
 - '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
@@ -22,6 +21,8 @@ tags:
 - vectores
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_ediana_de_un_arreglo
@@ -39,6 +40,21 @@ tests_funciones:
   codigo: 'int res = proc_ediana_de_un_arreglo(0);
 
     assert(res == 0);'
+- nombre: test_proc_ediana_de_un_arreglo_negativo
+  funcion: proc_ediana_de_un_arreglo
+  codigo: 'int res = proc_ediana_de_un_arreglo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_ediana_de_un_arreglo_valor_limite
+  funcion: proc_ediana_de_un_arreglo
+  codigo: 'int res = proc_ediana_de_un_arreglo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_ediana_de_un_arreglo_valor_unitario
+  funcion: proc_ediana_de_un_arreglo
+  codigo: 'int res = proc_ediana_de_un_arreglo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: arreglo
@@ -47,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

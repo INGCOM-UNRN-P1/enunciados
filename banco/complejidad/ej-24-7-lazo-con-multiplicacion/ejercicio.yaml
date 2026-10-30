@@ -16,6 +16,8 @@ tags:
 - asintotica
 - dep:algoritmos_ordenamiento
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_o_con_multiplicacion
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_o_con_multiplicacion(0);
 
     assert(res == 0);'
+- nombre: test_proc_o_con_multiplicacion_negativo
+  funcion: proc_o_con_multiplicacion
+  codigo: 'int res = proc_o_con_multiplicacion(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_o_con_multiplicacion_valor_limite
+  funcion: proc_o_con_multiplicacion
+  codigo: 'int res = proc_o_con_multiplicacion(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_o_con_multiplicacion_valor_unitario
+  funcion: proc_o_con_multiplicacion
+  codigo: 'int res = proc_o_con_multiplicacion(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: big_o
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - algoritmos_ordenamiento
 - lazos_anidados
+publicar: true

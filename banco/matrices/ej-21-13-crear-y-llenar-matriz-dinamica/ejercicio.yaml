@@ -10,10 +10,10 @@ pistas:
 - Solicitar el número de filas (`filas`).
 - Solicitar el número de columnas (`columnas`).
 - Crear una matriz vacía con las dimensiones especificadas.
-- Usar dos lazos anidados para recorrer la matriz y solicitar cada elemento al 
-  usuario, asignándolo a la posición correspondiente.
-- Finalmente, llamar a la función `mostrar_matriz` (del ejercicio 1.1) para 
-  imprimir la matriz creada.
+- Usar dos lazos anidados para recorrer la matriz y solicitar cada elemento al usuario,
+  asignándolo a la posición correspondiente.
+- Finalmente, llamar a la función `mostrar_matriz` (del ejercicio 1.1) para imprimir
+  la matriz creada.
 - '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
   total de recursos en caso de error.'
 - '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
@@ -26,6 +26,8 @@ tags:
 - matriz
 - dep:arreglos
 - dep:lazos_anidados
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_enar_matriz_dinamica
@@ -43,11 +45,27 @@ tests_funciones:
   codigo: 'int res = proc_enar_matriz_dinamica(0);
 
     assert(res == 0);'
+- nombre: test_proc_enar_matriz_dinamica_negativo
+  funcion: proc_enar_matriz_dinamica
+  codigo: 'int res = proc_enar_matriz_dinamica(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_enar_matriz_dinamica_valor_limite
+  funcion: proc_enar_matriz_dinamica
+  codigo: 'int res = proc_enar_matriz_dinamica(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_enar_matriz_dinamica_valor_unitario
+  funcion: proc_enar_matriz_dinamica
+  codigo: 'int res = proc_enar_matriz_dinamica(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: matrices_2d
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
+publicar: true

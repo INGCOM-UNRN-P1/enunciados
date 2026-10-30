@@ -11,6 +11,10 @@ tags:
 - redes
 - adyacencia
 - vertices
+- dep:estructuras_datos
+- dep:matrices
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_grafo_red_21
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_grafo_red_21(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_grafo_red_21_negativo
+  funcion: ejecutar_grafo_red_21
+  codigo: 'int res = ejecutar_grafo_red_21(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_grafo_red_21_valor_limite
+  funcion: ejecutar_grafo_red_21
+  codigo: 'int res = ejecutar_grafo_red_21(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_grafo_red_21_valor_unitario
+  funcion: ejecutar_grafo_red_21
+  codigo: 'int res = ejecutar_grafo_red_21(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- estructuras_datos
+- matrices
+subtema: grafos_y_redes

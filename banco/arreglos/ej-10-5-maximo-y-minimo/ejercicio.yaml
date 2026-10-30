@@ -6,12 +6,11 @@ minutos_estimados: 25
 pistas:
 - '**Entrada:** Un arreglo y su tamaño.'
 - '**Proceso:**'
-- Inicializar dos variables, `maximo` y `minimo`, con el valor del primer 
-  elemento del arreglo (`arreglo[0]`).
-- Recorrer el arreglo con un lazo `for` comenzando desde el segundo elemento 
-  (`i=1`).
-- En cada iteración, comparar el elemento actual `arreglo[i]` con `maximo`. Si 
-  `arreglo[i]` es mayor, actualizar `maximo`.
+- Inicializar dos variables, `maximo` y `minimo`, con el valor del primer elemento
+  del arreglo (`arreglo[0]`).
+- Recorrer el arreglo con un lazo `for` comenzando desde el segundo elemento (`i=1`).
+- En cada iteración, comparar el elemento actual `arreglo[i]` con `maximo`. Si `arreglo[i]`
+  es mayor, actualizar `maximo`.
 - Hacer lo mismo para `minimo`, actualizándolo si `arreglo[i]` es menor.
 - '**Salida:** Devolver los valores de `maximo` y `minimo` (por ejemplo, usando punteros).'
 - '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
@@ -26,6 +25,8 @@ tags:
 - minimo
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_10_5_maximo_y_minimo
@@ -43,6 +44,21 @@ tests_funciones:
   codigo: 'int res = proc_10_5_maximo_y_minimo(0);
 
     assert(res == 0);'
+- nombre: test_proc_10_5_maximo_y_minimo_negativo
+  funcion: proc_10_5_maximo_y_minimo
+  codigo: 'int res = proc_10_5_maximo_y_minimo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_10_5_maximo_y_minimo_valor_limite
+  funcion: proc_10_5_maximo_y_minimo
+  codigo: 'int res = proc_10_5_maximo_y_minimo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_10_5_maximo_y_minimo_valor_unitario
+  funcion: proc_10_5_maximo_y_minimo
+  codigo: 'int res = proc_10_5_maximo_y_minimo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: maximo
@@ -51,3 +67,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

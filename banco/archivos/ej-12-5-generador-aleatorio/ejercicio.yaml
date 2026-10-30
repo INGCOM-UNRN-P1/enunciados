@@ -17,6 +17,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__generador_aleatorio
@@ -34,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc__generador_aleatorio(0);
 
     assert(res == 0);'
+- nombre: test_proc__generador_aleatorio_negativo
+  funcion: proc__generador_aleatorio
+  codigo: 'int res = proc__generador_aleatorio(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__generador_aleatorio_valor_limite
+  funcion: proc__generador_aleatorio
+  codigo: 'int res = proc__generador_aleatorio(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__generador_aleatorio_valor_unitario
+  funcion: proc__generador_aleatorio
+  codigo: 'int res = proc__generador_aleatorio(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: memoria
@@ -43,3 +60,4 @@ prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

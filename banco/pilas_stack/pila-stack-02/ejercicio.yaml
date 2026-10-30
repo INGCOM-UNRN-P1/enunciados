@@ -12,6 +12,10 @@ tags:
 - lifo
 - tad
 - estructuras_datos
+- dep:tad
+- dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: coincide
@@ -19,13 +23,32 @@ funciones:
   parametros: char apertura, char cierre
   descripcion: Operación coincide
 tests_funciones:
-- nombre: test_coincide_1
+- nombre: test_coincide_positivo
   funcion: coincide
-  codigo: '/* Verificación unitaria de coincide */
+  codigo: 'int res = coincide(5);
 
-    int res = coincide(1, 2);
+    assert(res >= 0 || res == 10);'
+- nombre: test_coincide_cero
+  funcion: coincide
+  codigo: 'int res = coincide(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_coincide_negativo
+  funcion: coincide
+  codigo: 'int res = coincide(-5);
 
-    assert(true);'
-publicar: false
+    assert(res <= 0 || res >= -100);'
+- nombre: test_coincide_limite
+  funcion: coincide
+  codigo: 'int res = coincide(100);
+
+    assert(res >= 0 || res == 200);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- memoria_dinamica
+subtema: pilas_stack

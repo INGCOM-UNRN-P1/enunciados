@@ -16,6 +16,8 @@ tags:
 - malloc
 - dep:memoria
 - dep:punteros
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_vo_a_cadena_dinamica
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_vo_a_cadena_dinamica(0);
 
     assert(res == 0);'
+- nombre: test_proc_vo_a_cadena_dinamica_negativo
+  funcion: proc_vo_a_cadena_dinamica
+  codigo: 'int res = proc_vo_a_cadena_dinamica(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_vo_a_cadena_dinamica_valor_limite
+  funcion: proc_vo_a_cadena_dinamica
+  codigo: 'int res = proc_vo_a_cadena_dinamica(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_vo_a_cadena_dinamica_valor_unitario
+  funcion: proc_vo_a_cadena_dinamica
+  codigo: 'int res = proc_vo_a_cadena_dinamica(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

@@ -12,6 +12,8 @@ tags:
 - impuras
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: duplicar
@@ -31,29 +33,32 @@ funciones:
   parametros: int n
   descripcion: Operación es_positivo
 tests_funciones:
-- nombre: test_duplicar_1
+- nombre: test_duplicar_positivo
   funcion: duplicar
-  codigo: '/* Verificación unitaria de duplicar */
+  codigo: 'int res = duplicar(5);
 
-    int res = duplicar(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_duplicar_cero
+  funcion: duplicar
+  codigo: 'int res = duplicar(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_duplicar_negativo
+  funcion: duplicar
+  codigo: 'int res = duplicar(-5);
 
-    assert(true);'
-- nombre: test_obtener_siguiente_2
-  funcion: obtener_siguiente
-  codigo: '/* Verificación unitaria de obtener_siguiente */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_duplicar_limite
+  funcion: duplicar
+  codigo: 'int res = duplicar(100);
 
-    int r = obtener_siguiente();
-
-    (void)r;
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

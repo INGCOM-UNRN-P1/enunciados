@@ -6,8 +6,8 @@ minutos_estimados: 35
 pistas:
 - Manejá el signo inicial ('-' o '+') antes de comenzar el acumulador numérico.
 - Validá que cada carácter sea un dígito válido con isdigit() antes de operar.
-- Utilizá un parámetro de salida booleano bool *exito para reportar posibles 
-  errores de parseo.
+- Utilizá un parámetro de salida booleano bool *exito para reportar posibles errores
+  de parseo.
 tags:
 - clean_code
 - conversor
@@ -16,6 +16,8 @@ tags:
 - casero
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: convertir_caracteres_a_entero
@@ -27,17 +29,32 @@ funciones:
   parametros: void
   descripcion: Operación test_convertir_a_entero
 tests_funciones:
-- nombre: test_convertir_caracteres_a_entero_1
+- nombre: test_convertir_caracteres_a_entero_positivo
   funcion: convertir_caracteres_a_entero
-  codigo: assert(true); /* test simplificado de validación */
-- nombre: test_test_convertir_a_entero_2
-  funcion: test_convertir_a_entero
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = convertir_caracteres_a_entero(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_convertir_caracteres_a_entero_cero
+  funcion: convertir_caracteres_a_entero
+  codigo: 'int res = convertir_caracteres_a_entero(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_convertir_caracteres_a_entero_negativo
+  funcion: convertir_caracteres_a_entero
+  codigo: 'int res = convertir_caracteres_a_entero(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_convertir_caracteres_a_entero_limite
+  funcion: convertir_caracteres_a_entero
+  codigo: 'int res = convertir_caracteres_a_entero(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

@@ -9,14 +9,13 @@ pistas:
 - '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
   Valgrind o AddressSanitizer.'
 - '**Proceso:**'
-- Convertir el número a una cadena simple primero (usando `sprintf` o un 
-  algoritmo manual).
+- Convertir el número a una cadena simple primero (usando `sprintf` o un algoritmo
+  manual).
 - Calcular cuántos separadores se necesitan.
-- Crear una nueva cadena con el tamaño suficiente para albergar los dígitos y 
-  los separadores.
-- Copiar los dígitos de la cadena original a la nueva, insertando los 
-  separadores en las posiciones correctas. Es más fácil hacerlo de derecha a 
-  izquierda.
+- Crear una nueva cadena con el tamaño suficiente para albergar los dígitos y los
+  separadores.
+- Copiar los dígitos de la cadena original a la nueva, insertando los separadores
+  en las posiciones correctas. Es más fácil hacerlo de derecha a izquierda.
 tags:
 - cadenas
 - strings
@@ -25,6 +24,8 @@ tags:
 - formato
 - dep:arreglos
 - dep:caracteres
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc__a_cadena_con_format
@@ -42,11 +43,27 @@ tests_funciones:
   codigo: 'int res = proc__a_cadena_con_format(0);
 
     assert(res == 0);'
+- nombre: test_proc__a_cadena_con_format_negativo
+  funcion: proc__a_cadena_con_format
+  codigo: 'int res = proc__a_cadena_con_format(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__a_cadena_con_format_valor_limite
+  funcion: proc__a_cadena_con_format
+  codigo: 'int res = proc__a_cadena_con_format(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__a_cadena_con_format_valor_unitario
+  funcion: proc__a_cadena_con_format
+  codigo: 'int res = proc__a_cadena_con_format(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

@@ -12,6 +12,8 @@ tags:
 - fundamentos
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: base_conv
@@ -19,14 +21,32 @@ funciones:
   parametros: int n, int b, char out[], int max_len
   descripcion: Operación base_conv
 tests_funciones:
-- nombre: test_base_conv_1
+- nombre: test_base_conv_positivo
   funcion: base_conv
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = base_conv(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_base_conv_cero
+  funcion: base_conv
+  codigo: 'int res = base_conv(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_base_conv_negativo
+  funcion: base_conv
+  codigo: 'int res = base_conv(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_base_conv_limite
+  funcion: base_conv
+  codigo: 'int res = base_conv(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

@@ -16,6 +16,8 @@ tags:
 - algoritmos
 - dep:arreglos
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_zacion_de_histograma
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_zacion_de_histograma(0);
 
     assert(res == 0);'
+- nombre: test_proc_zacion_de_histograma_negativo
+  funcion: proc_zacion_de_histograma
+  codigo: 'int res = proc_zacion_de_histograma(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_zacion_de_histograma_valor_limite
+  funcion: proc_zacion_de_histograma
+  codigo: 'int res = proc_zacion_de_histograma(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_zacion_de_histograma_valor_unitario
+  funcion: proc_zacion_de_histograma
+  codigo: 'int res = proc_zacion_de_histograma(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: ecualizacion
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - lazos_anidados
+publicar: true

@@ -9,14 +9,62 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp4-2026
 rol_familia: uso
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: de_cadenas
+publicar: true
+funciones:
+- nombre: dividir_linea_csv
+  retorno: char **
+  parametros: const char *linea, char delimitador, size_t *cantidad_columnas
+  descripcion: Divide una línea delimitada en un arreglo dinámico de cadenas
+- nombre: liberar_arreglo_cadenas
+  retorno: void
+  parametros: char ***puntero_arreglo, size_t cantidad
+  descripcion: Libera cada cadena y el bloque de punteros del heap
+tests_funciones:
+- nombre: test_dividir_linea_csv_tres_campos
+  funcion: dividir_linea_csv
+  codigo: 'size_t cols = 0;
+
+    char **res = dividir_linea_csv("uno,dos,tres", '','', &cols);
+
+    assert(res != NULL && cols == 3 && strcmp(res[0], "uno") == 0);
+
+    liberar_arreglo_cadenas(&res, cols);'
+- nombre: test_dividir_linea_csv_un_campo
+  funcion: dividir_linea_csv
+  codigo: 'size_t cols = 0;
+
+    char **res = dividir_linea_csv("solo", '';'', &cols);
+
+    assert(res != NULL && cols == 1 && strcmp(res[0], "solo") == 0);
+
+    liberar_arreglo_cadenas(&res, cols);'
+- nombre: test_dividir_linea_csv_nulo
+  funcion: dividir_linea_csv
+  codigo: 'size_t cols = 0;
+
+    char **res = dividir_linea_csv(NULL, '','', &cols);
+
+    assert(res == NULL && cols == 0);'
+- nombre: test_liberar_arreglo_cadenas_seguro
+  funcion: liberar_arreglo_cadenas
+  codigo: 'size_t cols = 0;
+
+    char **res = dividir_linea_csv("a,b", '','', &cols);
+
+    liberar_arreglo_cadenas(&res, cols);
+
+    assert(res == NULL);'

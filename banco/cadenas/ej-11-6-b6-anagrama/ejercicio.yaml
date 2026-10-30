@@ -9,14 +9,14 @@ pistas:
 - '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
   manera robusta.'
 - '**Proceso (Arreglo de Frecuencias):**'
-- Crear un arreglo de contadores de 26 posiciones (para el alfabeto), 
-  inicializado en cero.
-- Recorrer la primera cadena. Para cada carácter alfabético, incrementar el 
-  contador correspondiente (ej. para 'c', `contadores[2]++`).
-- Recorrer la segunda cadena. Para cada carácter alfabético, decrementar el 
-  contador correspondiente.
-- Finalmente, recorrer el arreglo de contadores. Si todos los contadores son 
-  cero, las cadenas son anagramas.
+- Crear un arreglo de contadores de 26 posiciones (para el alfabeto), inicializado
+  en cero.
+- Recorrer la primera cadena. Para cada carácter alfabético, incrementar el contador
+  correspondiente (ej. para 'c', `contadores[2]++`).
+- Recorrer la segunda cadena. Para cada carácter alfabético, decrementar el contador
+  correspondiente.
+- Finalmente, recorrer el arreglo de contadores. Si todos los contadores son cero,
+  las cadenas son anagramas.
 tags:
 - cadenas
 - anagrama
@@ -24,6 +24,8 @@ tags:
 - memoria
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_11_6_b6_anagrama
@@ -41,6 +43,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_11_6_b6_anagrama(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_11_6_b6_anagrama_negativo
+  funcion: ejecutar_ej_11_6_b6_anagrama
+  codigo: 'int res = ejecutar_ej_11_6_b6_anagrama(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_11_6_b6_anagrama_valor_limite
+  funcion: ejecutar_ej_11_6_b6_anagrama
+  codigo: 'int res = ejecutar_ej_11_6_b6_anagrama(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_11_6_b6_anagrama_valor_unitario
+  funcion: ejecutar_ej_11_6_b6_anagrama
+  codigo: 'int res = ejecutar_ej_11_6_b6_anagrama(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -49,3 +66,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

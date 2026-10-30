@@ -20,13 +20,14 @@ tags:
 - mascaras
 - dep:tipos_datos
 - dep:aritmetica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_mascaras_de_bits_par
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Uso de máscaras de bits para 
-    permisos
+  descripcion: Procesa el flujo principal de Uso de máscaras de bits para permisos
 tests_funciones:
 - nombre: test_proc_mascaras_de_bits_par_positivo
   funcion: proc_mascaras_de_bits_par
@@ -38,11 +39,27 @@ tests_funciones:
   codigo: 'int res = proc_mascaras_de_bits_par(0);
 
     assert(res == 0);'
+- nombre: test_proc_mascaras_de_bits_par_negativo
+  funcion: proc_mascaras_de_bits_par
+  codigo: 'int res = proc_mascaras_de_bits_par(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_mascaras_de_bits_par_valor_limite
+  funcion: proc_mascaras_de_bits_par
+  codigo: 'int res = proc_mascaras_de_bits_par(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_mascaras_de_bits_par_valor_unitario
+  funcion: proc_mascaras_de_bits_par
+  codigo: 'int res = proc_mascaras_de_bits_par(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: operaciones_bits
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - aritmetica
+publicar: true

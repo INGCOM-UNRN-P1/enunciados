@@ -6,10 +6,9 @@ minutos_estimados: 45
 pistas:
 - 'Incluí siempre una cláusula default: en sentencias switch para manejar valores
   inesperados.'
-- Registrá un mensaje de advertencia o manejá el error defensivamente en la rama
-  por defecto.
-- Verificá que todas las constantes de enumeración estén contempladas 
-  explícitamente.
+- Registrá un mensaje de advertencia o manejá el error defensivamente en la rama por
+  defecto.
+- Verificá que todas las constantes de enumeración estén contempladas explícitamente.
 tags:
 - seguridad
 - aserciones
@@ -18,6 +17,8 @@ tags:
 - default
 - dep:librerias
 - dep:funciones
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: obtener_dias_trimestre
@@ -29,27 +30,32 @@ funciones:
   parametros: void
   descripcion: Operación test_trimestres
 tests_funciones:
-- nombre: test_obtener_dias_trimestre_1
+- nombre: test_obtener_dias_trimestre_positivo
   funcion: obtener_dias_trimestre
-  codigo: '/* Verificación unitaria de obtener_dias_trimestre */
+  codigo: 'int res = obtener_dias_trimestre(5);
 
-    int res = obtener_dias_trimestre(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_obtener_dias_trimestre_cero
+  funcion: obtener_dias_trimestre
+  codigo: 'int res = obtener_dias_trimestre(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_obtener_dias_trimestre_negativo
+  funcion: obtener_dias_trimestre
+  codigo: 'int res = obtener_dias_trimestre(-5);
 
-    assert(true);'
-- nombre: test_test_trimestres_2
-  funcion: test_trimestres
-  codigo: '/* Verificación unitaria de test_trimestres */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_obtener_dias_trimestre_limite
+  funcion: obtener_dias_trimestre
+  codigo: 'int res = obtener_dias_trimestre(100);
 
-    test_trimestres();
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

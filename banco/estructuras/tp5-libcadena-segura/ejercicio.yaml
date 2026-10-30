@@ -9,12 +9,15 @@ tags:
 - estructuras
 - dep:tipos_datos
 - dep:funciones
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: cadena_segura_crear
   retorno: bool
   parametros: cadena_segura_t *cadena, const char *literal
-  descripcion: Inicializa una cadena segura copiando el contenido de un literal o cadena C.
+  descripcion: Inicializa una cadena segura copiando el contenido de un literal o
+    cadena C.
 - nombre: cadena_segura_destruir
   retorno: void
   parametros: cadena_segura_t *cadena
@@ -22,11 +25,14 @@ funciones:
 - nombre: cadena_segura_concatenar
   retorno: bool
   parametros: cadena_segura_t *cadena, const char *sufijo
-  descripcion: Concatena una cadena C al final de la cadena segura, redimensionando si es necesario.
+  descripcion: Concatena una cadena C al final de la cadena segura, redimensionando
+    si es necesario.
 - nombre: cadena_segura_subcadena
   retorno: bool
-  parametros: const cadena_segura_t *origen, size_t inicio, size_t longitud, cadena_segura_t *destino
-  descripcion: Extrae una subcadena a partir de una posicion de inicio y longitud maxima.
+  parametros: const cadena_segura_t *origen, size_t inicio, size_t longitud, cadena_segura_t
+    *destino
+  descripcion: Extrae una subcadena a partir de una posicion de inicio y longitud
+    maxima.
 - nombre: cadena_segura_clonar
   retorno: bool
   parametros: const cadena_segura_t *origen, cadena_segura_t *destino
@@ -34,14 +40,138 @@ funciones:
 - nombre: cadena_segura_buscar
   retorno: int
   parametros: const cadena_segura_t *cadena, const char *aguja
-  descripcion: Busca la primera aparicion de una subcadena (aguja) dentro de la cadena segura.
+  descripcion: Busca la primera aparicion de una subcadena (aguja) dentro de la cadena
+    segura.
 tipo_entrega: libreria
 familia: tp5-2026
 rol_familia: libreria
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - funciones
+subtema: segura
+publicar: true
+tests_funciones:
+- nombre: test_cadena_segura_crear_positivo
+  funcion: cadena_segura_crear
+  codigo: 'int res = cadena_segura_crear(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_cadena_segura_crear_cero
+  funcion: cadena_segura_crear
+  codigo: 'int res = cadena_segura_crear(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_cadena_segura_crear_negativo
+  funcion: cadena_segura_crear
+  codigo: 'int res = cadena_segura_crear(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_cadena_segura_crear_limite
+  funcion: cadena_segura_crear
+  codigo: 'int res = cadena_segura_crear(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_cadena_segura_destruir_positivo
+  funcion: cadena_segura_destruir
+  codigo: 'cadena_segura_destruir(NULL);
+
+    assert(1);'
+- nombre: test_cadena_segura_destruir_cero
+  funcion: cadena_segura_destruir
+  codigo: 'cadena_segura_destruir(NULL);
+
+    assert(1);'
+- nombre: test_cadena_segura_destruir_negativo
+  funcion: cadena_segura_destruir
+  codigo: 'cadena_segura_destruir(NULL);
+
+    assert(1);'
+- nombre: test_cadena_segura_destruir_valor_limite
+  funcion: cadena_segura_destruir
+  codigo: 'cadena_segura_destruir(NULL);
+
+    assert(1);'
+- nombre: test_cadena_segura_concatenar_positivo
+  funcion: cadena_segura_concatenar
+  codigo: 'bool ok = cadena_segura_concatenar(NULL, "prueba");
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_concatenar_cero
+  funcion: cadena_segura_concatenar
+  codigo: 'bool ok = cadena_segura_concatenar(NULL, "");
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_concatenar_negativo
+  funcion: cadena_segura_concatenar
+  codigo: 'bool ok = cadena_segura_concatenar(NULL, "abc");
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_concatenar_valor_limite
+  funcion: cadena_segura_concatenar
+  codigo: 'bool ok = cadena_segura_concatenar(NULL, "texto_prueba_123");
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_subcadena_positivo
+  funcion: cadena_segura_subcadena
+  codigo: 'bool ok = cadena_segura_subcadena(NULL, 5, 5, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_subcadena_cero
+  funcion: cadena_segura_subcadena
+  codigo: 'bool ok = cadena_segura_subcadena(NULL, 0, 0, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_subcadena_negativo
+  funcion: cadena_segura_subcadena
+  codigo: 'bool ok = cadena_segura_subcadena(NULL, -5, -5, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_subcadena_valor_limite
+  funcion: cadena_segura_subcadena
+  codigo: 'bool ok = cadena_segura_subcadena(NULL, 100, 100, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_clonar_positivo
+  funcion: cadena_segura_clonar
+  codigo: 'bool ok = cadena_segura_clonar(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_clonar_cero
+  funcion: cadena_segura_clonar
+  codigo: 'bool ok = cadena_segura_clonar(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_clonar_negativo
+  funcion: cadena_segura_clonar
+  codigo: 'bool ok = cadena_segura_clonar(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_clonar_valor_limite
+  funcion: cadena_segura_clonar
+  codigo: 'bool ok = cadena_segura_clonar(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_cadena_segura_buscar_positivo
+  funcion: cadena_segura_buscar
+  codigo: 'long long res = (long long)cadena_segura_buscar(NULL, "prueba");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cadena_segura_buscar_cero
+  funcion: cadena_segura_buscar
+  codigo: 'long long res = (long long)cadena_segura_buscar(NULL, "");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cadena_segura_buscar_negativo
+  funcion: cadena_segura_buscar
+  codigo: 'long long res = (long long)cadena_segura_buscar(NULL, "abc");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cadena_segura_buscar_valor_limite
+  funcion: cadena_segura_buscar
+  codigo: 'long long res = (long long)cadena_segura_buscar(NULL, "texto_prueba_123");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'

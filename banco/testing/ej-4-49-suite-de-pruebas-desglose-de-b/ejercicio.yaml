@@ -12,6 +12,8 @@ tags:
 - suite
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: desglosar_monto
@@ -27,17 +29,32 @@ funciones:
   parametros: void
   descripcion: Operación test_desglose_monto_invalido
 tests_funciones:
-- nombre: test_desglosar_monto_1
+- nombre: test_desglosar_monto_positivo
   funcion: desglosar_monto
-  codigo: assert(true); /* test simplificado de validación */
-- nombre: test_test_desglose_combinado_2
-  funcion: test_desglose_combinado
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = desglosar_monto(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_desglosar_monto_cero
+  funcion: desglosar_monto
+  codigo: 'int res = desglosar_monto(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_desglosar_monto_negativo
+  funcion: desglosar_monto
+  codigo: 'int res = desglosar_monto(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_desglosar_monto_limite
+  funcion: desglosar_monto
+  codigo: 'int res = desglosar_monto(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

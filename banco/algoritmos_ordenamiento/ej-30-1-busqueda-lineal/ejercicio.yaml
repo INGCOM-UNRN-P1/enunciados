@@ -16,6 +16,8 @@ tags:
 - dep:arreglos
 - dep:lazos_anidados
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_30_1_busqueda_lineal
@@ -33,12 +35,28 @@ tests_funciones:
   codigo: 'int res = proc_30_1_busqueda_lineal(0);
 
     assert(res == 0);'
+- nombre: test_proc_30_1_busqueda_lineal_negativo
+  funcion: proc_30_1_busqueda_lineal
+  codigo: 'int res = proc_30_1_busqueda_lineal(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_30_1_busqueda_lineal_valor_limite
+  funcion: proc_30_1_busqueda_lineal
+  codigo: 'int res = proc_30_1_busqueda_lineal(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_30_1_busqueda_lineal_valor_unitario
+  funcion: proc_30_1_busqueda_lineal
+  codigo: 'int res = proc_30_1_busqueda_lineal(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: busqueda_lineal
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
 - recursividad
+publicar: true

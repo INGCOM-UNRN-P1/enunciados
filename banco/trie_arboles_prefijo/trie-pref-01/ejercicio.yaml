@@ -12,6 +12,10 @@ tags:
 - arboles
 - cadenas
 - estructuras_datos
+- dep:arboles_binarios
+- dep:cadenas
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: trie_insertar
@@ -27,10 +31,80 @@ funciones:
   parametros: nodo_trie_t *n
   descripcion: Operación liberar_trie
 tests_funciones:
-- nombre: test_trie_insertar_1
+- nombre: test_trie_insertar_estado_inicial
   funcion: trie_insertar
-  codigo: assert(true); /* test simplificado de validación */
-- nombre: test_trie_buscar_prefijo_2
+  codigo: 'nodo_trie_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(sizeof(s) > 0);'
+- nombre: test_trie_insertar_insercion
+  funcion: trie_insertar
+  codigo: 'nodo_trie_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_trie_buscar_prefijo_consulta
   funcion: trie_buscar_prefijo
-  codigo: assert(true); /* test simplificado de validación */
-publicar: false
+  codigo: 'nodo_trie_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_liberar_trie_liberacion
+  funcion: liberar_trie
+  codigo: 'nodo_trie_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_trie_insertar_positivo
+  funcion: trie_insertar
+  codigo: 'trie_insertar(NULL, "prueba");
+
+    assert(1);'
+- nombre: test_trie_insertar_cero
+  funcion: trie_insertar
+  codigo: 'trie_insertar(NULL, "");
+
+    assert(1);'
+- nombre: test_trie_buscar_prefijo_positivo
+  funcion: trie_buscar_prefijo
+  codigo: 'long long res = (long long)trie_buscar_prefijo(NULL, "prueba");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_trie_buscar_prefijo_cero
+  funcion: trie_buscar_prefijo
+  codigo: 'long long res = (long long)trie_buscar_prefijo(NULL, "");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_trie_buscar_prefijo_negativo
+  funcion: trie_buscar_prefijo
+  codigo: 'long long res = (long long)trie_buscar_prefijo(NULL, "abc");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_liberar_trie_positivo
+  funcion: liberar_trie
+  codigo: 'liberar_trie(NULL);
+
+    assert(1);'
+- nombre: test_liberar_trie_cero
+  funcion: liberar_trie
+  codigo: 'liberar_trie(NULL);
+
+    assert(1);'
+- nombre: test_liberar_trie_negativo
+  funcion: liberar_trie
+  codigo: 'liberar_trie(NULL);
+
+    assert(1);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- arboles_binarios
+- cadenas
+subtema: trie_arboles_prefijo

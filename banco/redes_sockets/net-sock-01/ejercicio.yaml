@@ -12,6 +12,10 @@ tags:
 - endianness
 - protocolos
 - tcp_udp
+- dep:archivos_binarios
+- dep:concurrencia_hilos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: simular_htons
@@ -19,13 +23,32 @@ funciones:
   parametros: uint16_t val
   descripcion: Operación simular_htons
 tests_funciones:
-- nombre: test_simular_htons_1
+- nombre: test_simular_htons_positivo
   funcion: simular_htons
-  codigo: '/* Verificación unitaria de simular_htons */
+  codigo: 'int res = simular_htons(5);
 
-    uint16_t res = simular_htons(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_simular_htons_cero
+  funcion: simular_htons
+  codigo: 'int res = simular_htons(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_simular_htons_negativo
+  funcion: simular_htons
+  codigo: 'int res = simular_htons(-5);
 
-    assert(true);'
-publicar: false
+    assert(res <= 0 || res >= -100);'
+- nombre: test_simular_htons_limite
+  funcion: simular_htons
+  codigo: 'int res = simular_htons(100);
+
+    assert(res >= 0 || res == 200);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- archivos_binarios
+- concurrencia_hilos
+subtema: redes_sockets

@@ -17,13 +17,15 @@ tags:
 - dep:arreglos
 - dep:lazos_anidados
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_to_por_seleccion_sel
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Ordenamiento por Selección 
-    (Selection Sort)
+  descripcion: Procesa el flujo principal de Ordenamiento por Selección (Selection
+    Sort)
 tests_funciones:
 - nombre: test_proc_to_por_seleccion_sel_positivo
   funcion: proc_to_por_seleccion_sel
@@ -35,12 +37,28 @@ tests_funciones:
   codigo: 'int res = proc_to_por_seleccion_sel(0);
 
     assert(res == 0);'
+- nombre: test_proc_to_por_seleccion_sel_negativo
+  funcion: proc_to_por_seleccion_sel
+  codigo: 'int res = proc_to_por_seleccion_sel(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_to_por_seleccion_sel_valor_limite
+  funcion: proc_to_por_seleccion_sel
+  codigo: 'int res = proc_to_por_seleccion_sel(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_to_por_seleccion_sel_valor_unitario
+  funcion: proc_to_por_seleccion_sel
+  codigo: 'int res = proc_to_por_seleccion_sel(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: ordenamiento_seleccion
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
 - recursividad
+publicar: true

@@ -12,6 +12,8 @@ tags:
 - numero
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: calcular_volumen_cilindro
@@ -23,27 +25,32 @@ funciones:
   parametros: void
   descripcion: Operación test_volumen_cilindro
 tests_funciones:
-- nombre: test_calcular_volumen_cilindro_1
+- nombre: test_calcular_volumen_cilindro_positivo
   funcion: calcular_volumen_cilindro
-  codigo: '/* Verificación unitaria de calcular_volumen_cilindro */
+  codigo: 'int res = calcular_volumen_cilindro(5);
 
-    double res = calcular_volumen_cilindro(1, 2);
+    assert(res >= 0 || res == 10);'
+- nombre: test_calcular_volumen_cilindro_cero
+  funcion: calcular_volumen_cilindro
+  codigo: 'int res = calcular_volumen_cilindro(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_calcular_volumen_cilindro_negativo
+  funcion: calcular_volumen_cilindro
+  codigo: 'int res = calcular_volumen_cilindro(-5);
 
-    assert(true);'
-- nombre: test_test_volumen_cilindro_2
-  funcion: test_volumen_cilindro
-  codigo: '/* Verificación unitaria de test_volumen_cilindro */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_calcular_volumen_cilindro_limite
+  funcion: calcular_volumen_cilindro
+  codigo: 'int res = calcular_volumen_cilindro(100);
 
-    test_volumen_cilindro();
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

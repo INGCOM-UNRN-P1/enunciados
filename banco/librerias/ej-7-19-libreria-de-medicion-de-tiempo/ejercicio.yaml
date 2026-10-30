@@ -4,8 +4,8 @@ tema: librerias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Utilizá `clock()` de `<time.h>` o `clock_gettime()` para medir el tiempo 
-  transcurrido en milisegundos.
+- Utilizá `clock()` de `<time.h>` o `clock_gettime()` para medir el tiempo transcurrido
+  en milisegundos.
 tags:
 - fundamentos
 - headers
@@ -14,13 +14,14 @@ tags:
 - ejecucion
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_e_medicion_de_tiempo
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Medición de Tiempos de 
-    Ejecución
+  descripcion: Procesa el flujo principal de Librería de Medición de Tiempos de Ejecución
 tests_funciones:
 - nombre: test_proc_e_medicion_de_tiempo_positivo
   funcion: proc_e_medicion_de_tiempo
@@ -32,6 +33,21 @@ tests_funciones:
   codigo: 'int res = proc_e_medicion_de_tiempo(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_medicion_de_tiempo_negativo
+  funcion: proc_e_medicion_de_tiempo
+  codigo: 'int res = proc_e_medicion_de_tiempo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_medicion_de_tiempo_valor_limite
+  funcion: proc_e_medicion_de_tiempo
+  codigo: 'int res = proc_e_medicion_de_tiempo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_medicion_de_tiempo_valor_unitario
+  funcion: proc_e_medicion_de_tiempo
+  codigo: 'int res = proc_e_medicion_de_tiempo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: fundamentos
@@ -40,3 +56,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

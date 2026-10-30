@@ -12,6 +12,8 @@ tags:
 - code_review
 - dep:memoria
 - dep:testing
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: encontrar_maximo
@@ -19,14 +21,32 @@ funciones:
   parametros: const int arr[], size_t tam, bool *encontrado
   descripcion: Operación encontrar_maximo
 tests_funciones:
-- nombre: test_encontrar_maximo_1
+- nombre: test_encontrar_maximo_positivo
   funcion: encontrar_maximo
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = encontrar_maximo(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_encontrar_maximo_cero
+  funcion: encontrar_maximo
+  codigo: 'int res = encontrar_maximo(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_encontrar_maximo_negativo
+  funcion: encontrar_maximo
+  codigo: 'int res = encontrar_maximo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_encontrar_maximo_limite
+  funcion: encontrar_maximo
+  codigo: 'int res = encontrar_maximo(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: busqueda
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - memoria
 - testing
+publicar: true

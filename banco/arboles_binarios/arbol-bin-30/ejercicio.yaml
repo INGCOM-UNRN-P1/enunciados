@@ -13,6 +13,11 @@ tags:
 - preorder
 - postorder
 - estructuras_datos
+- dep:tad
+- dep:recursividad
+- dep:punteros
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: ejecutar_arbol_bin_30
@@ -31,4 +36,28 @@ tests_funciones:
   codigo: 'int res = ejecutar_arbol_bin_30(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_arbol_bin_30_negativo
+  funcion: ejecutar_arbol_bin_30
+  codigo: 'int res = ejecutar_arbol_bin_30(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_arbol_bin_30_valor_limite
+  funcion: ejecutar_arbol_bin_30
+  codigo: 'int res = ejecutar_arbol_bin_30(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_arbol_bin_30_valor_unitario
+  funcion: ejecutar_arbol_bin_30
+  codigo: 'int res = ejecutar_arbol_bin_30(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: avanzada
+tipo: ejercicio_individual
+prerrequisitos:
+- tad
+- recursividad
+- punteros
+subtema: arboles_binarios

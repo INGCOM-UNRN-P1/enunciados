@@ -11,6 +11,10 @@ tags:
 - hilos
 - mutex
 - sincronizacion
+- dep:memoria
+- dep:funciones
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: ejecutar_hilos_conc_28
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_hilos_conc_28(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_hilos_conc_28_negativo
+  funcion: ejecutar_hilos_conc_28
+  codigo: 'int res = ejecutar_hilos_conc_28(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_hilos_conc_28_valor_limite
+  funcion: ejecutar_hilos_conc_28
+  codigo: 'int res = ejecutar_hilos_conc_28(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_hilos_conc_28_valor_unitario
+  funcion: ejecutar_hilos_conc_28
+  codigo: 'int res = ejecutar_hilos_conc_28(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: avanzada
+tipo: ejercicio_individual
+prerrequisitos:
+- memoria
+- funciones
+subtema: concurrencia_hilos

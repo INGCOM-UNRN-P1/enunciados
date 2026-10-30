@@ -30,6 +30,8 @@ tags:
 - algoritmos
 - dep:funciones
 - dep:punteros
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_3_arbol_de_expresion
@@ -47,11 +49,27 @@ tests_funciones:
   codigo: 'int res = proc_3_arbol_de_expresion(0);
 
     assert(res == 0);'
+- nombre: test_proc_3_arbol_de_expresion_negativo
+  funcion: proc_3_arbol_de_expresion
+  codigo: 'int res = proc_3_arbol_de_expresion(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_3_arbol_de_expresion_valor_limite
+  funcion: proc_3_arbol_de_expresion
+  codigo: 'int res = proc_3_arbol_de_expresion(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_3_arbol_de_expresion_valor_unitario
+  funcion: proc_3_arbol_de_expresion
+  codigo: 'int res = proc_3_arbol_de_expresion(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

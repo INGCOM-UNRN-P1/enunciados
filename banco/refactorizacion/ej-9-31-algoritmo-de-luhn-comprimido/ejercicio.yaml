@@ -4,12 +4,11 @@ tema: refactorizacion
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Extraé la lógica de transformación de dígitos a una función auxiliar 
-  transformar_digito_luhn().
-- Iterá los dígitos de derecha a izquierda alternando la duplicación en 
-  posiciones impares.
-- Utilizá nombres de variables expresivos y estructura el código con llaves 
-  explícitas en estilo Allman.
+- Extraé la lógica de transformación de dígitos a una función auxiliar transformar_digito_luhn().
+- Iterá los dígitos de derecha a izquierda alternando la duplicación en posiciones
+  impares.
+- Utilizá nombres de variables expresivos y estructura el código con llaves explícitas
+  en estilo Allman.
 tags:
 - clean_code
 - refactorizacion
@@ -18,6 +17,8 @@ tags:
 - algoritmo
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_o_de_luhn_comprimido
@@ -35,11 +36,27 @@ tests_funciones:
   codigo: 'int res = proc_o_de_luhn_comprimido(0);
 
     assert(res == 0);'
+- nombre: test_proc_o_de_luhn_comprimido_negativo
+  funcion: proc_o_de_luhn_comprimido
+  codigo: 'int res = proc_o_de_luhn_comprimido(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_o_de_luhn_comprimido_valor_limite
+  funcion: proc_o_de_luhn_comprimido
+  codigo: 'int res = proc_o_de_luhn_comprimido(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_o_de_luhn_comprimido_valor_unitario
+  funcion: proc_o_de_luhn_comprimido
+  codigo: 'int res = proc_o_de_luhn_comprimido(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

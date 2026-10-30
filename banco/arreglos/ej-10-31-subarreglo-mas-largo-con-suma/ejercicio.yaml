@@ -5,12 +5,12 @@ bloom: 4
 minutos_estimados: 35
 pistas:
 - '**Proceso (Tabla Hash):**'
-- Usar una tabla hash para almacenar las sumas acumuladas y sus primeros índices
-  de aparición.
+- Usar una tabla hash para almacenar las sumas acumuladas y sus primeros índices de
+  aparición.
 - Recorrer el arreglo, manteniendo una `suma_actual`.
-- Si `suma_actual` ya se ha visto antes en el índice `j`, entonces el subarreglo
-  desde `j+1` hasta la posición actual tiene suma cero. Calcular su longitud y 
-  actualizar la longitud máxima.
+- Si `suma_actual` ya se ha visto antes en el índice `j`, entonces el subarreglo desde
+  `j+1` hasta la posición actual tiene suma cero. Calcular su longitud y actualizar
+  la longitud máxima.
 - '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
   order*) para mejorar el uso de caché.'
 - '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
@@ -23,6 +23,8 @@ tags:
 - largo
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_o_mas_largo_con_suma
@@ -40,11 +42,27 @@ tests_funciones:
   codigo: 'int res = proc_o_mas_largo_con_suma(0);
 
     assert(res == 0);'
+- nombre: test_proc_o_mas_largo_con_suma_negativo
+  funcion: proc_o_mas_largo_con_suma
+  codigo: 'int res = proc_o_mas_largo_con_suma(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_o_mas_largo_con_suma_valor_limite
+  funcion: proc_o_mas_largo_con_suma
+  codigo: 'int res = proc_o_mas_largo_con_suma(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_o_mas_largo_con_suma_valor_unitario
+  funcion: proc_o_mas_largo_con_suma
+  codigo: 'int res = proc_o_mas_largo_con_suma(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: vectores
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

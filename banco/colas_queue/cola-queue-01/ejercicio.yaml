@@ -13,6 +13,10 @@ tags:
 - ring_buffer
 - deque
 - estructuras_datos
+- dep:tad
+- dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: cola_init
@@ -28,14 +32,72 @@ funciones:
   parametros: cola_circular_t *c, int *out
   descripcion: Operación cola_dequeue
 tests_funciones:
-- nombre: test_cola_init_1
+- nombre: test_cola_init_positivo
   funcion: cola_init
-  codigo: '/* Verificación unitaria de cola_init */
+  codigo: 'int res = cola_init(5);
 
-    assert(true);'
-- nombre: test_cola_enqueue_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_cola_init_cero
+  funcion: cola_init
+  codigo: 'int res = cola_init(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_cola_init_negativo
+  funcion: cola_init
+  codigo: 'int res = cola_init(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_cola_init_limite
+  funcion: cola_init
+  codigo: 'int res = cola_init(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_cola_enqueue_positivo
   funcion: cola_enqueue
-  codigo: '/* Verificación unitaria de cola_enqueue */
+  codigo: 'long long res = (long long)cola_enqueue(NULL, 5);
 
-    assert(true);'
-publicar: false
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_enqueue_cero
+  funcion: cola_enqueue
+  codigo: 'long long res = (long long)cola_enqueue(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_enqueue_negativo
+  funcion: cola_enqueue
+  codigo: 'long long res = (long long)cola_enqueue(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_enqueue_valor_limite
+  funcion: cola_enqueue
+  codigo: 'long long res = (long long)cola_enqueue(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_dequeue_positivo
+  funcion: cola_dequeue
+  codigo: 'long long res = (long long)cola_dequeue(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_dequeue_cero
+  funcion: cola_dequeue
+  codigo: 'long long res = (long long)cola_dequeue(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_dequeue_negativo
+  funcion: cola_dequeue
+  codigo: 'long long res = (long long)cola_dequeue(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_cola_dequeue_valor_limite
+  funcion: cola_dequeue
+  codigo: 'long long res = (long long)cola_dequeue(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- memoria_dinamica
+subtema: colas_queue

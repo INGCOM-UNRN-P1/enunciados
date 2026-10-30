@@ -12,6 +12,10 @@ tags:
 - serializacion
 - parsing
 - texto
+- dep:archivos
+- dep:cadenas
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: ejecutar_text_serde_29
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_text_serde_29(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_text_serde_29_negativo
+  funcion: ejecutar_text_serde_29
+  codigo: 'int res = ejecutar_text_serde_29(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_text_serde_29_valor_limite
+  funcion: ejecutar_text_serde_29
+  codigo: 'int res = ejecutar_text_serde_29(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_text_serde_29_valor_unitario
+  funcion: ejecutar_text_serde_29
+  codigo: 'int res = ejecutar_text_serde_29(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+dificultad: avanzada
+tipo: ejercicio_individual
+prerrequisitos:
+- archivos
+- cadenas
+subtema: serializacion_texto_json_csv

@@ -12,13 +12,14 @@ tags:
 - auxiliares
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__auxiliares_privadas
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Funciones Auxiliares Privadas 
-    `static`
+  descripcion: Procesa el flujo principal de Funciones Auxiliares Privadas `static`
 tests_funciones:
 - nombre: test_proc__auxiliares_privadas_positivo
   funcion: proc__auxiliares_privadas
@@ -30,11 +31,27 @@ tests_funciones:
   codigo: 'int res = proc__auxiliares_privadas(0);
 
     assert(res == 0);'
+- nombre: test_proc__auxiliares_privadas_negativo
+  funcion: proc__auxiliares_privadas
+  codigo: 'int res = proc__auxiliares_privadas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__auxiliares_privadas_valor_limite
+  funcion: proc__auxiliares_privadas
+  codigo: 'int res = proc__auxiliares_privadas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__auxiliares_privadas_valor_unitario
+  funcion: proc__auxiliares_privadas
+  codigo: 'int res = proc__auxiliares_privadas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

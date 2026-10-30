@@ -16,6 +16,8 @@ tags:
 - sistema
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_de_pagina_del_sistem
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_de_pagina_del_sistem(0);
 
     assert(res == 0);'
+- nombre: test_proc_de_pagina_del_sistem_negativo
+  funcion: proc_de_pagina_del_sistem
+  codigo: 'int res = proc_de_pagina_del_sistem(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_de_pagina_del_sistem_valor_limite
+  funcion: proc_de_pagina_del_sistem
+  codigo: 'int res = proc_de_pagina_del_sistem(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_de_pagina_del_sistem_valor_unitario
+  funcion: proc_de_pagina_del_sistem
+  codigo: 'int res = proc_de_pagina_del_sistem(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

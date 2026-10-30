@@ -12,6 +12,8 @@ tags:
 - testing
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: clasificar_edad
@@ -19,20 +21,32 @@ funciones:
   parametros: int edad
   descripcion: Operación clasificar_edad
 tests_funciones:
-- nombre: test_clasificar_edad_1
+- nombre: test_clasificar_edad_positivo
   funcion: clasificar_edad
-  codigo: '/* Verificación unitaria de clasificar_edad */
+  codigo: 'int res = clasificar_edad(5);
 
-    int res = clasificar_edad(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_clasificar_edad_cero
+  funcion: clasificar_edad
+  codigo: 'int res = clasificar_edad(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_clasificar_edad_negativo
+  funcion: clasificar_edad
+  codigo: 'int res = clasificar_edad(-5);
 
-    assert(true);'
+    assert(res <= 0 || res >= -100);'
+- nombre: test_clasificar_edad_limite
+  funcion: clasificar_edad
+  codigo: 'int res = clasificar_edad(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

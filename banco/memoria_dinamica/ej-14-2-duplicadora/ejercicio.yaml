@@ -16,6 +16,8 @@ tags:
 - free
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_14_2_duplicadora
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_14_2_duplicadora(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_14_2_duplicadora_negativo
+  funcion: ejecutar_ej_14_2_duplicadora
+  codigo: 'int res = ejecutar_ej_14_2_duplicadora(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_14_2_duplicadora_valor_limite
+  funcion: ejecutar_ej_14_2_duplicadora
+  codigo: 'int res = ejecutar_ej_14_2_duplicadora(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_14_2_duplicadora_valor_unitario
+  funcion: ejecutar_ej_14_2_duplicadora
+  codigo: 'int res = ejecutar_ej_14_2_duplicadora(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

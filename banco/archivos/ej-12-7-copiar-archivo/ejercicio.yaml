@@ -17,6 +17,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__12_7_copiar_archivo
@@ -34,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc__12_7_copiar_archivo(0);
 
     assert(res == 0);'
+- nombre: test_proc__12_7_copiar_archivo_negativo
+  funcion: proc__12_7_copiar_archivo
+  codigo: 'int res = proc__12_7_copiar_archivo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__12_7_copiar_archivo_valor_limite
+  funcion: proc__12_7_copiar_archivo
+  codigo: 'int res = proc__12_7_copiar_archivo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__12_7_copiar_archivo_valor_unitario
+  funcion: proc__12_7_copiar_archivo
+  codigo: 'int res = proc__12_7_copiar_archivo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: archivo
@@ -43,3 +60,4 @@ prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

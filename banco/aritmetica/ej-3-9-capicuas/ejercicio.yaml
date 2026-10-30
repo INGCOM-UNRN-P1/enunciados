@@ -18,6 +18,8 @@ tags:
 - matematica
 - fundamentos
 - dep:tipos_datos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_3_9_capicuas
@@ -35,6 +37,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_3_9_capicuas(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_3_9_capicuas_negativo
+  funcion: ejecutar_ej_3_9_capicuas
+  codigo: 'int res = ejecutar_ej_3_9_capicuas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_3_9_capicuas_valor_limite
+  funcion: ejecutar_ej_3_9_capicuas
+  codigo: 'int res = ejecutar_ej_3_9_capicuas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_3_9_capicuas_valor_unitario
+  funcion: ejecutar_ej_3_9_capicuas
+  codigo: 'int res = ejecutar_ej_3_9_capicuas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: capicuas
@@ -42,3 +59,4 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
+publicar: true

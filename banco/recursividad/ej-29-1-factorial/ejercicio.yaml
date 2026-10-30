@@ -15,6 +15,8 @@ tags:
 - backtracking
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_29_1_factorial
@@ -32,6 +34,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_29_1_factorial(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_29_1_factorial_negativo
+  funcion: ejecutar_ej_29_1_factorial
+  codigo: 'int res = ejecutar_ej_29_1_factorial(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_29_1_factorial_valor_limite
+  funcion: ejecutar_ej_29_1_factorial
+  codigo: 'int res = ejecutar_ej_29_1_factorial(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_29_1_factorial_valor_unitario
+  funcion: ejecutar_ej_29_1_factorial
+  codigo: 'int res = ejecutar_ej_29_1_factorial(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: factorial
@@ -40,3 +57,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

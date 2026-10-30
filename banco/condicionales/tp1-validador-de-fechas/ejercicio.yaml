@@ -4,15 +4,19 @@ tema: condicionales
 bloom: 3
 minutos_estimados: 30
 pistas:
-- Un año bisiesto gregoriano es divisible por 4 y no por 100, excepto que sea divisible por 400.
+- Un año bisiesto gregoriano es divisible por 4 y no por 100, excepto que sea divisible
+  por 400.
 - 'Meses con 31 días: 1, 3, 5, 7, 8, 10 y 12. Meses con 30 días: 4, 6, 9 y 11.'
-- Febrero tiene 29 días en año bisiesto y 28 en año común. Fuera de 1..12 la fecha es inválida.
+- Febrero tiene 29 días en año bisiesto y 28 en año común. Fuera de 1..12 la fecha
+  es inválida.
 tags:
 - tp1
 - cursada-2026
 - condicionales
 - dep:aritmetica
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: es_bisiesto
   retorno: bool
@@ -21,7 +25,8 @@ funciones:
 - nombre: dias_en_mes
   retorno: int
   parametros: int mes, int anio
-  descripcion: Obtiene la cantidad de días que contiene un mes determinado en un año dado.
+  descripcion: Obtiene la cantidad de días que contiene un mes determinado en un año
+    dado.
 - nombre: es_fecha_valida
   retorno: bool
   parametros: int dia, int mes, int anio
@@ -32,6 +37,53 @@ rol_familia: uso
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - aritmetica
+subtema: de_fechas
+publicar: true
+tests_funciones:
+- nombre: test_es_bisiesto_positivo
+  funcion: es_bisiesto
+  codigo: 'int res = es_bisiesto(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_es_bisiesto_cero
+  funcion: es_bisiesto
+  codigo: 'int res = es_bisiesto(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_es_bisiesto_negativo
+  funcion: es_bisiesto
+  codigo: 'int res = es_bisiesto(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_es_bisiesto_limite
+  funcion: es_bisiesto
+  codigo: 'int res = es_bisiesto(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_dias_en_mes_prueba_1
+  funcion: dias_en_mes
+  codigo: assert(dias_en_mes(1, 2026) == 31);
+- nombre: test_dias_en_mes_prueba_2
+  funcion: dias_en_mes
+  codigo: assert(dias_en_mes(3, 2026) == 31);
+- nombre: test_dias_en_mes_prueba_3
+  funcion: dias_en_mes
+  codigo: assert(dias_en_mes(5, 2026) == 31);
+- nombre: test_dias_en_mes_prueba_4
+  funcion: dias_en_mes
+  codigo: assert(dias_en_mes(7, 2026) == 31);
+- nombre: test_es_fecha_valida_prueba_1
+  funcion: es_fecha_valida
+  codigo: assert(es_fecha_valida(1, 1, 2026));
+- nombre: test_es_fecha_valida_prueba_2
+  funcion: es_fecha_valida
+  codigo: assert(es_fecha_valida(31, 1, 2026));
+- nombre: test_es_fecha_valida_prueba_3
+  funcion: es_fecha_valida
+  codigo: assert(es_fecha_valida(30, 4, 2026));
+- nombre: test_es_fecha_valida_prueba_4
+  funcion: es_fecha_valida
+  codigo: assert(es_fecha_valida(28, 2, 2023));

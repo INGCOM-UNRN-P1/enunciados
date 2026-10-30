@@ -16,6 +16,8 @@ tags:
 - memoria
 - dep:punteros
 - dep:estructuras
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: debug_free
@@ -23,9 +25,34 @@ funciones:
   parametros: void *ptr, const char *archivo, int linea
   descripcion: Operación debug_free
 tests_funciones:
-- nombre: test_debug_free_1
+- nombre: test_debug_free_bloque_pequeno
   funcion: debug_free
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'void *p = malloc(16);
+
+    debug_free(p, "test.c", 10);
+
+    assert(1);'
+- nombre: test_debug_free_bloque_medio
+  funcion: debug_free
+  codigo: 'void *p = malloc(64);
+
+    debug_free(p, "modulo.c", 42);
+
+    assert(1);'
+- nombre: test_debug_free_un_byte
+  funcion: debug_free
+  codigo: 'void *p = malloc(1);
+
+    debug_free(p, "main.c", 1);
+
+    assert(1);'
+- nombre: test_debug_free_bloque_grande
+  funcion: debug_free
+  codigo: 'void *p = malloc(128);
+
+    debug_free(p, "mem.c", 99);
+
+    assert(1);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
@@ -34,3 +61,4 @@ tipo: practica_guiada
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

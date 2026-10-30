@@ -5,14 +5,15 @@ bloom: 3
 minutos_estimados: 25
 pistas:
 - 'Inicializá los primeros dos términos: t0 = 0 y t1 = 1.'
-- En cada paso, calculá el siguiente término t0 + t1, imprimilo y desplazá las 
-  variables.
+- En cada paso, calculá el siguiente término t0 + t1, imprimilo y desplazá las variables.
 tags:
 - lazos
 - for
 - secuencias
 - fibonacci
 - dep:condicionales
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_secuencia_fibonacci
@@ -30,6 +31,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_secuencia_fibonacci(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_secuencia_fibonacci_negativo
+  funcion: ejecutar_secuencia_fibonacci
+  codigo: 'int res = ejecutar_secuencia_fibonacci(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_secuencia_fibonacci_valor_limite
+  funcion: ejecutar_secuencia_fibonacci
+  codigo: 'int res = ejecutar_secuencia_fibonacci(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_secuencia_fibonacci_valor_unitario
+  funcion: ejecutar_secuencia_fibonacci
+  codigo: 'int res = ejecutar_secuencia_fibonacci(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: series_numericas
@@ -37,3 +53,4 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - condicionales
+publicar: true

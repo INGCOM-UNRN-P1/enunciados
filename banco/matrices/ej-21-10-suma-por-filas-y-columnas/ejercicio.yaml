@@ -7,8 +7,8 @@ pistas:
 - '**Suma de Filas:**'
 - Recorrer cada fila con un lazo exterior.
 - Para cada fila, inicializar una `suma_fila` en 0.
-- Con un lazo interior, recorrer las columnas de esa fila y acumular los valores
-  en `suma_fila`.
+- Con un lazo interior, recorrer las columnas de esa fila y acumular los valores en
+  `suma_fila`.
 - Guardar el resultado en el arreglo de sumas de filas.
 - '**Suma de Columnas:**'
 - El proceso es inverso. El lazo exterior recorre las columnas.
@@ -27,6 +27,8 @@ tags:
 - filas
 - dep:arreglos
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_por_filas_y_columnas
@@ -44,6 +46,21 @@ tests_funciones:
   codigo: 'int res = proc_por_filas_y_columnas(0);
 
     assert(res == 0);'
+- nombre: test_proc_por_filas_y_columnas_negativo
+  funcion: proc_por_filas_y_columnas
+  codigo: 'int res = proc_por_filas_y_columnas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_por_filas_y_columnas_valor_limite
+  funcion: proc_por_filas_y_columnas
+  codigo: 'int res = proc_por_filas_y_columnas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_por_filas_y_columnas_valor_unitario
+  funcion: proc_por_filas_y_columnas
+  codigo: 'int res = proc_por_filas_y_columnas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: columnas
@@ -52,3 +69,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - lazos_anidados
+publicar: true

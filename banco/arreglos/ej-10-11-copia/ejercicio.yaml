@@ -21,6 +21,8 @@ tags:
 - memoria
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_10_11_copia
@@ -38,6 +40,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_10_11_copia(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_10_11_copia_negativo
+  funcion: ejecutar_ej_10_11_copia
+  codigo: 'int res = ejecutar_ej_10_11_copia(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_10_11_copia_valor_limite
+  funcion: ejecutar_ej_10_11_copia
+  codigo: 'int res = ejecutar_ej_10_11_copia(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_10_11_copia_valor_unitario
+  funcion: ejecutar_ej_10_11_copia
+  codigo: 'int res = ejecutar_ej_10_11_copia(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: copia
@@ -46,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

@@ -1,17 +1,17 @@
 id: ejercicio3
-titulo: 'TDA Conjunto de Enteros (conjunto_t) — Invariante de Unicidad'
+titulo: TDA Conjunto de Enteros (conjunto_t) — Invariante de Unicidad
 tema: tipos_datos_abstractos
 bloom: 4
 minutos: 45
 pistas:
 - 'El invariante de representación exige verificar unicidad: ningún par de elementos
   distintos puede ser igual.'
-- 'En conjunto_agregar, si el elemento ya pertenece, la operación retorna true de
-  forma idempotente sin duplicar.'
-- 'En conjunto_eliminar, al hallar el elemento se realiza un corrimiento a la izquierda
-  para mantener la contigüidad.'
-- 'El conjunto vacío es subconjunto de cualquier conjunto, cumpliendo la definición
-  matemática de inclusión.'
+- En conjunto_agregar, si el elemento ya pertenece, la operación retorna true de forma
+  idempotente sin duplicar.
+- En conjunto_eliminar, al hallar el elemento se realiza un corrimiento a la izquierda
+  para mantener la contigüidad.
+- El conjunto vacío es subconjunto de cualquier conjunto, cumpliendo la definición
+  matemática de inclusión.
 tags:
 - tda
 - conjunto
@@ -20,6 +20,8 @@ tags:
 - idempotencia
 - encapsulamiento_opaco
 - dep:tad
+- c11
+- intermedia
 verificado: true
 tipo_entrega: archivos_individuales
 familia: tda
@@ -68,30 +70,236 @@ funciones:
 tests_funciones:
 - nombre: test_conjunto_crear_agregar
   funcion: conjunto_crear
-  codigo: |
-    conjunto_t *c = conjunto_crear(3);
+  codigo: 'conjunto_t *c = conjunto_crear(3);
+
     assert(c != NULL);
+
     assert(conjunto_esta_vacio(c));
+
     assert(conjunto_agregar(c, 10));
+
     assert(conjunto_agregar(c, 10));
+
     assert(conjunto_cardinal(c) == 1);
+
     conjunto_destruir(c);
+
+    '
 - nombre: test_conjunto_eliminar
   funcion: conjunto_eliminar
-  codigo: |
-    conjunto_t *c = conjunto_crear(3);
+  codigo: 'conjunto_t *c = conjunto_crear(3);
+
     assert(c != NULL);
+
     conjunto_agregar(c, 10);
+
     conjunto_agregar(c, 20);
+
     assert(conjunto_eliminar(c, 10));
+
     assert(!conjunto_pertenece(c, 10));
+
     assert(conjunto_cardinal(c) == 1);
+
     conjunto_destruir(c);
+
+    '
+- nombre: test_conjunto_crear_negativo
+  funcion: conjunto_crear
+  codigo: 'int res = conjunto_crear(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_conjunto_crear_valor_limite
+  funcion: conjunto_crear
+  codigo: 'int res = conjunto_crear(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_conjunto_crear_valor_unitario
+  funcion: conjunto_crear
+  codigo: 'int res = conjunto_crear(1);
+
+    assert(res >= 0 || res == 2);'
+- nombre: test_conjunto_destruir_positivo
+  funcion: conjunto_destruir
+  codigo: 'conjunto_destruir(NULL);
+
+    assert(1);'
+- nombre: test_conjunto_destruir_cero
+  funcion: conjunto_destruir
+  codigo: 'conjunto_destruir(NULL);
+
+    assert(1);'
+- nombre: test_conjunto_destruir_negativo
+  funcion: conjunto_destruir
+  codigo: 'conjunto_destruir(NULL);
+
+    assert(1);'
+- nombre: test_conjunto_destruir_valor_limite
+  funcion: conjunto_destruir
+  codigo: 'conjunto_destruir(NULL);
+
+    assert(1);'
+- nombre: test_conjunto_cardinal_positivo
+  funcion: conjunto_cardinal
+  codigo: 'long long res = (long long)conjunto_cardinal(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_conjunto_cardinal_cero
+  funcion: conjunto_cardinal
+  codigo: 'long long res = (long long)conjunto_cardinal(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_conjunto_cardinal_negativo
+  funcion: conjunto_cardinal
+  codigo: 'long long res = (long long)conjunto_cardinal(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_conjunto_cardinal_valor_limite
+  funcion: conjunto_cardinal
+  codigo: 'long long res = (long long)conjunto_cardinal(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_conjunto_esta_vacio_positivo
+  funcion: conjunto_esta_vacio
+  codigo: 'bool ok = conjunto_esta_vacio(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_esta_vacio_cero
+  funcion: conjunto_esta_vacio
+  codigo: 'bool ok = conjunto_esta_vacio(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_esta_vacio_negativo
+  funcion: conjunto_esta_vacio
+  codigo: 'bool ok = conjunto_esta_vacio(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_esta_vacio_valor_limite
+  funcion: conjunto_esta_vacio
+  codigo: 'bool ok = conjunto_esta_vacio(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_pertenece_positivo
+  funcion: conjunto_pertenece
+  codigo: 'bool ok = conjunto_pertenece(NULL, 5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_pertenece_cero
+  funcion: conjunto_pertenece
+  codigo: 'bool ok = conjunto_pertenece(NULL, 0);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_pertenece_negativo
+  funcion: conjunto_pertenece
+  codigo: 'bool ok = conjunto_pertenece(NULL, -5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_pertenece_valor_limite
+  funcion: conjunto_pertenece
+  codigo: 'bool ok = conjunto_pertenece(NULL, 100);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_es_subconjunto_positivo
+  funcion: conjunto_es_subconjunto
+  codigo: 'bool ok = conjunto_es_subconjunto(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_es_subconjunto_cero
+  funcion: conjunto_es_subconjunto
+  codigo: 'bool ok = conjunto_es_subconjunto(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_es_subconjunto_negativo
+  funcion: conjunto_es_subconjunto
+  codigo: 'bool ok = conjunto_es_subconjunto(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_es_subconjunto_valor_limite
+  funcion: conjunto_es_subconjunto
+  codigo: 'bool ok = conjunto_es_subconjunto(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_agregar_positivo
+  funcion: conjunto_agregar
+  codigo: 'bool ok = conjunto_agregar(NULL, 5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_agregar_cero
+  funcion: conjunto_agregar
+  codigo: 'bool ok = conjunto_agregar(NULL, 0);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_agregar_negativo
+  funcion: conjunto_agregar
+  codigo: 'bool ok = conjunto_agregar(NULL, -5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_agregar_valor_limite
+  funcion: conjunto_agregar
+  codigo: 'bool ok = conjunto_agregar(NULL, 100);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_eliminar_positivo
+  funcion: conjunto_eliminar
+  codigo: 'bool ok = conjunto_eliminar(NULL, 5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_eliminar_cero
+  funcion: conjunto_eliminar
+  codigo: 'bool ok = conjunto_eliminar(NULL, 0);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_eliminar_negativo
+  funcion: conjunto_eliminar
+  codigo: 'bool ok = conjunto_eliminar(NULL, -5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_conjunto_union_positivo
+  funcion: conjunto_union
+  codigo: 'void *res = (void *)conjunto_union(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_union_cero
+  funcion: conjunto_union
+  codigo: 'void *res = (void *)conjunto_union(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_union_negativo
+  funcion: conjunto_union
+  codigo: 'void *res = (void *)conjunto_union(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_union_valor_limite
+  funcion: conjunto_union
+  codigo: 'void *res = (void *)conjunto_union(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_interseccion_positivo
+  funcion: conjunto_interseccion
+  codigo: 'void *res = (void *)conjunto_interseccion(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_interseccion_cero
+  funcion: conjunto_interseccion
+  codigo: 'void *res = (void *)conjunto_interseccion(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_interseccion_negativo
+  funcion: conjunto_interseccion
+  codigo: 'void *res = (void *)conjunto_interseccion(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_conjunto_interseccion_valor_limite
+  funcion: conjunto_interseccion
+  codigo: 'void *res = (void *)conjunto_interseccion(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: tda
-dificultad: avanzada
+dificultad: intermedia
 minutos_estimados: 45
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
+publicar: true

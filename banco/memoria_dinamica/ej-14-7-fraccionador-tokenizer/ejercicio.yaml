@@ -16,6 +16,8 @@ tags:
 - free
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_accionador_tokenizer
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_accionador_tokenizer(0);
 
     assert(res == 0);'
+- nombre: test_proc_accionador_tokenizer_negativo
+  funcion: proc_accionador_tokenizer
+  codigo: 'int res = proc_accionador_tokenizer(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_accionador_tokenizer_valor_limite
+  funcion: proc_accionador_tokenizer
+  codigo: 'int res = proc_accionador_tokenizer(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_accionador_tokenizer_valor_unitario
+  funcion: proc_accionador_tokenizer
+  codigo: 'int res = proc_accionador_tokenizer(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

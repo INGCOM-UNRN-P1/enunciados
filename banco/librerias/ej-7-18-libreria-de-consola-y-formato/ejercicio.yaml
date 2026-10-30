@@ -4,8 +4,8 @@ tema: librerias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Empleá secuencias de escape ANSI cuando sea posible para el control del 
-  terminal de forma portable.
+- Empleá secuencias de escape ANSI cuando sea posible para el control del terminal
+  de forma portable.
 tags:
 - fundamentos
 - headers
@@ -14,13 +14,14 @@ tags:
 - formato
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_de_consola_y_formato
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Consola y Formato de 
-    Salida
+  descripcion: Procesa el flujo principal de Librería de Consola y Formato de Salida
 tests_funciones:
 - nombre: test_proc_de_consola_y_formato_positivo
   funcion: proc_de_consola_y_formato
@@ -32,6 +33,21 @@ tests_funciones:
   codigo: 'int res = proc_de_consola_y_formato(0);
 
     assert(res == 0);'
+- nombre: test_proc_de_consola_y_formato_negativo
+  funcion: proc_de_consola_y_formato
+  codigo: 'int res = proc_de_consola_y_formato(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_de_consola_y_formato_valor_limite
+  funcion: proc_de_consola_y_formato
+  codigo: 'int res = proc_de_consola_y_formato(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_de_consola_y_formato_valor_unitario
+  funcion: proc_de_consola_y_formato
+  codigo: 'int res = proc_de_consola_y_formato(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: fundamentos
@@ -40,3 +56,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

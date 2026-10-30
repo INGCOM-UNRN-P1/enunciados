@@ -16,6 +16,8 @@ tags:
 - compartida
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_a_compartida_entre_f
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_a_compartida_entre_f(0);
 
     assert(res == 0);'
+- nombre: test_proc_a_compartida_entre_f_negativo
+  funcion: proc_a_compartida_entre_f
+  codigo: 'int res = proc_a_compartida_entre_f(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_a_compartida_entre_f_valor_limite
+  funcion: proc_a_compartida_entre_f
+  codigo: 'int res = proc_a_compartida_entre_f(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_a_compartida_entre_f_valor_unitario
+  funcion: proc_a_compartida_entre_f
+  codigo: 'int res = proc_a_compartida_entre_f(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

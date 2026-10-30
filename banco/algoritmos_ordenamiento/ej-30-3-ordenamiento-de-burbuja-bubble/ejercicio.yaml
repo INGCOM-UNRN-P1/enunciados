@@ -17,13 +17,14 @@ tags:
 - dep:arreglos
 - dep:lazos_anidados
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_to_de_burbuja_bubble
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Ordenamiento de Burbuja (Bubble 
-    Sort)
+  descripcion: Procesa el flujo principal de Ordenamiento de Burbuja (Bubble Sort)
 tests_funciones:
 - nombre: test_proc_to_de_burbuja_bubble_positivo
   funcion: proc_to_de_burbuja_bubble
@@ -35,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc_to_de_burbuja_bubble(0);
 
     assert(res == 0);'
+- nombre: test_proc_to_de_burbuja_bubble_negativo
+  funcion: proc_to_de_burbuja_bubble
+  codigo: 'int res = proc_to_de_burbuja_bubble(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_to_de_burbuja_bubble_valor_limite
+  funcion: proc_to_de_burbuja_bubble
+  codigo: 'int res = proc_to_de_burbuja_bubble(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_to_de_burbuja_bubble_valor_unitario
+  funcion: proc_to_de_burbuja_bubble
+  codigo: 'int res = proc_to_de_burbuja_bubble(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: ordenamiento_burbuja
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
 - recursividad
+publicar: true

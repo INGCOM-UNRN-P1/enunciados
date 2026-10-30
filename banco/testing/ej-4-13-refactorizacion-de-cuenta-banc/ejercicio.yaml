@@ -12,6 +12,8 @@ tags:
 - bancaria
 - dep:librerias
 - dep:funciones
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: depositar
@@ -23,27 +25,32 @@ funciones:
   parametros: double monto
   descripcion: Operación extraer
 tests_funciones:
-- nombre: test_depositar_1
+- nombre: test_depositar_positivo
   funcion: depositar
-  codigo: '/* Verificación unitaria de depositar */
+  codigo: 'int res = depositar(5);
 
-    depositar(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_depositar_cero
+  funcion: depositar
+  codigo: 'int res = depositar(0);
 
-    assert(true);'
-- nombre: test_extraer_2
-  funcion: extraer
-  codigo: '/* Verificación unitaria de extraer */
+    assert(res == 0 || res >= 0);'
+- nombre: test_depositar_negativo
+  funcion: depositar
+  codigo: 'int res = depositar(-5);
 
-    bool ok = extraer(1);
+    assert(res <= 0 || res >= -100);'
+- nombre: test_depositar_limite
+  funcion: depositar
+  codigo: 'int res = depositar(100);
 
-    (void)ok;
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

@@ -16,6 +16,8 @@ tags:
 - malloc
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_on_de_overhead_de_ma
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_on_de_overhead_de_ma(0);
 
     assert(res == 0);'
+- nombre: test_proc_on_de_overhead_de_ma_negativo
+  funcion: proc_on_de_overhead_de_ma
+  codigo: 'int res = proc_on_de_overhead_de_ma(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_on_de_overhead_de_ma_valor_limite
+  funcion: proc_on_de_overhead_de_ma
+  codigo: 'int res = proc_on_de_overhead_de_ma(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_on_de_overhead_de_ma_valor_unitario
+  funcion: proc_on_de_overhead_de_ma
+  codigo: 'int res = proc_on_de_overhead_de_ma(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

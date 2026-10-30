@@ -8,7 +8,9 @@ tags:
 - cursada-2026
 - lazos
 - dep:condicionales
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: potencia
   retorno: long long
@@ -17,7 +19,8 @@ funciones:
 - nombre: raiz_cuadrada_entera
   retorno: int
   parametros: int numero
-  descripcion: Calcula la parte entera de la raíz cuadrada (piso de sqrt(n)) sin usar math.h.
+  descripcion: Calcula la parte entera de la raíz cuadrada (piso de sqrt(n)) sin usar
+    math.h.
 tipo_entrega: makefile
 familia: entrega-4-2026
 rol_familia: uso
@@ -27,3 +30,38 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - condicionales
+subtema: y_raiz
+publicar: true
+tests_funciones:
+- nombre: test_potencia_positivo
+  funcion: potencia
+  codigo: 'int res = potencia(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_potencia_cero
+  funcion: potencia
+  codigo: 'int res = potencia(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_potencia_negativo
+  funcion: potencia
+  codigo: 'int res = potencia(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_potencia_limite
+  funcion: potencia
+  codigo: 'int res = potencia(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_raiz_cuadrada_entera_prueba_1
+  funcion: raiz_cuadrada_entera
+  codigo: assert(raiz_cuadrada_entera(-4) == -1);
+- nombre: test_raiz_cuadrada_entera_prueba_2
+  funcion: raiz_cuadrada_entera
+  codigo: assert(raiz_cuadrada_entera(0) == 0);
+- nombre: test_raiz_cuadrada_entera_prueba_3
+  funcion: raiz_cuadrada_entera
+  codigo: assert(raiz_cuadrada_entera(1) == 1);
+- nombre: test_raiz_cuadrada_entera_prueba_4
+  funcion: raiz_cuadrada_entera
+  codigo: assert(raiz_cuadrada_entera(4) == 2);

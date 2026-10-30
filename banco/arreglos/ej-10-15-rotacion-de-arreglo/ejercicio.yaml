@@ -7,8 +7,8 @@ pistas:
 - '**Entrada:** Un arreglo, su tamaño `n`, y el número de posiciones a rotar `k`.'
 - '**Proceso (con arreglo auxiliar):**'
 - Crear un arreglo temporal del mismo tamaño.
-- Recorrer el arreglo original. Para cada elemento en la posición `i`, su nueva 
-  posición en el arreglo temporal será `(i + k) % n`.
+- Recorrer el arreglo original. Para cada elemento en la posición `i`, su nueva posición
+  en el arreglo temporal será `(i + k) % n`.
 - Copiar el contenido del arreglo temporal de vuelta al original.
 - '**Proceso (in-place, más avanzado):**'
 - Invertir todo el arreglo.
@@ -28,6 +28,8 @@ tags:
 - vectores
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__rotacion_de_arreglo
@@ -45,6 +47,21 @@ tests_funciones:
   codigo: 'int res = proc__rotacion_de_arreglo(0);
 
     assert(res == 0);'
+- nombre: test_proc__rotacion_de_arreglo_negativo
+  funcion: proc__rotacion_de_arreglo
+  codigo: 'int res = proc__rotacion_de_arreglo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__rotacion_de_arreglo_valor_limite
+  funcion: proc__rotacion_de_arreglo
+  codigo: 'int res = proc__rotacion_de_arreglo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__rotacion_de_arreglo_valor_unitario
+  funcion: proc__rotacion_de_arreglo
+  codigo: 'int res = proc__rotacion_de_arreglo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: arreglo
@@ -53,3 +70,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

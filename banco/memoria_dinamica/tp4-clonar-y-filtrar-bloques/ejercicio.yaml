@@ -9,14 +9,64 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp4-2026
 rol_familia: uso
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: y_filtrar
+publicar: true
+funciones:
+- nombre: clonar_arreglo_enteros
+  retorno: int *
+  parametros: const int *origen, size_t cantidad
+  descripcion: Clona un arreglo de enteros en memoria dinámica del heap
+- nombre: filtrar_arreglo_pares
+  retorno: int *
+  parametros: const int *origen, size_t cantidad_origen, size_t *cantidad_pares
+  descripcion: Filtra números pares en un bloque dinámico exacto
+tests_funciones:
+- nombre: test_clonar_arreglo_enteros_exito
+  funcion: clonar_arreglo_enteros
+  codigo: 'int orig[] = {1, 2, 3};
+
+    int *clon = clonar_arreglo_enteros(orig, 3);
+
+    assert(clon != NULL && clon != orig && clon[1] == 2);
+
+    free(clon);'
+- nombre: test_clonar_arreglo_enteros_cero
+  funcion: clonar_arreglo_enteros
+  codigo: 'int *clon = clonar_arreglo_enteros(NULL, 0);
+
+    assert(clon == NULL);'
+- nombre: test_filtrar_arreglo_pares_algunos
+  funcion: filtrar_arreglo_pares
+  codigo: 'int orig[] = {1, 2, 3, 4, 5};
+
+    size_t cant = 0;
+
+    int *pares = filtrar_arreglo_pares(orig, 5, &cant);
+
+    assert(pares != NULL && cant == 2 && pares[0] == 2 && pares[1] == 4);
+
+    free(pares);'
+- nombre: test_filtrar_arreglo_pares_sin_pares
+  funcion: filtrar_arreglo_pares
+  codigo: 'int orig[] = {1, 3, 5};
+
+    size_t cant = 0;
+
+    int *pares = filtrar_arreglo_pares(orig, 3, &cant);
+
+    assert(cant == 0);
+
+    if (pares) free(pares);'

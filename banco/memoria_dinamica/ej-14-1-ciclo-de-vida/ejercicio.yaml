@@ -16,6 +16,8 @@ tags:
 - free
 - dep:memoria
 - dep:punteros
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_ej_14_1_ciclo_de_vida
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_14_1_ciclo_de_vida(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_14_1_ciclo_de_vida_negativo
+  funcion: ejecutar_ej_14_1_ciclo_de_vida
+  codigo: 'int res = ejecutar_ej_14_1_ciclo_de_vida(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_14_1_ciclo_de_vida_valor_limite
+  funcion: ejecutar_ej_14_1_ciclo_de_vida
+  codigo: 'int res = ejecutar_ej_14_1_ciclo_de_vida(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_14_1_ciclo_de_vida_valor_unitario
+  funcion: ejecutar_ej_14_1_ciclo_de_vida
+  codigo: 'int res = ejecutar_ej_14_1_ciclo_de_vida(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

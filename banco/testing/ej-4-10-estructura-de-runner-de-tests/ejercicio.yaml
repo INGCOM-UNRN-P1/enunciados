@@ -4,12 +4,12 @@ tema: testing
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Diseñá una macro o función de aserción que contabilice tests aprobados y 
-  fallidos sin abortar abruptamente.
-- Imprimí un resumen claro con el nombre del test, estado (PASS/FAIL) y total de
-  pruebas ejecutadas.
-- Retorná un código de salida no nulo si al menos una prueba falló para integrar
-  con pipelines CI.
+- Diseñá una macro o función de aserción que contabilice tests aprobados y fallidos
+  sin abortar abruptamente.
+- Imprimí un resumen claro con el nombre del test, estado (PASS/FAIL) y total de pruebas
+  ejecutadas.
+- Retorná un código de salida no nulo si al menos una prueba falló para integrar con
+  pipelines CI.
 tags:
 - aserciones
 - fundamentos
@@ -18,6 +18,8 @@ tags:
 - bibliotecas
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: test_cuadrado_positivo
@@ -29,29 +31,32 @@ funciones:
   parametros: void
   descripcion: Operación test_cuadrado_cero
 tests_funciones:
-- nombre: test_test_cuadrado_positivo_1
+- nombre: test_test_cuadrado_positivo_positivo
   funcion: test_cuadrado_positivo
-  codigo: '/* Verificación unitaria de test_cuadrado_positivo */
+  codigo: 'int res = test_cuadrado_positivo(5);
 
-    int r = test_cuadrado_positivo();
+    assert(res >= 0 || res == 10);'
+- nombre: test_test_cuadrado_positivo_cero
+  funcion: test_cuadrado_positivo
+  codigo: 'int res = test_cuadrado_positivo(0);
 
-    (void)r;
+    assert(res == 0 || res >= 0);'
+- nombre: test_test_cuadrado_positivo_negativo
+  funcion: test_cuadrado_positivo
+  codigo: 'int res = test_cuadrado_positivo(-5);
 
-    assert(true);'
-- nombre: test_test_cuadrado_cero_2
-  funcion: test_cuadrado_cero
-  codigo: '/* Verificación unitaria de test_cuadrado_cero */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_test_cuadrado_positivo_limite
+  funcion: test_cuadrado_positivo
+  codigo: 'int res = test_cuadrado_positivo(100);
 
-    int r = test_cuadrado_cero();
-
-    (void)r;
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

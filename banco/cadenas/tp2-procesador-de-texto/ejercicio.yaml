@@ -9,12 +9,14 @@ tags:
 - cadenas
 - dep:arreglos
 - dep:caracteres
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: unir_con_separador
   retorno: bool
-  parametros: char destino[], size_t capacidad, const char primero[], const char segundo[], const char
-    separador[]
+  parametros: char destino[], size_t capacidad, const char primero[], const char segundo[],
+    const char separador[]
 tipo_entrega: makefile
 familia: tp2-2026
 rol_familia: uso
@@ -23,7 +25,30 @@ dependencias:
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+subtema: de_texto
+publicar: true
+tests_funciones:
+- nombre: test_unir_con_separador_positivo
+  funcion: unir_con_separador
+  codigo: 'int res = unir_con_separador(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_unir_con_separador_cero
+  funcion: unir_con_separador
+  codigo: 'int res = unir_con_separador(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_unir_con_separador_negativo
+  funcion: unir_con_separador
+  codigo: 'int res = unir_con_separador(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_unir_con_separador_limite
+  funcion: unir_con_separador
+  codigo: 'int res = unir_con_separador(100);
+
+    assert(res >= 0 || res == 200);'

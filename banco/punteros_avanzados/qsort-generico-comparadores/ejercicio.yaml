@@ -4,12 +4,10 @@ tema: punteros_avanzados
 bloom: 4
 minutos_estimados: 35
 pistas:
-- La firma canónica de comparación es `int comparador(const void *a, const void 
-  *b)`.
-- Casteá los punteros opacos `const void *` a punteros de la estructura 
-  correspondiente.
-- Para cadenas usá `strcmp()`, y para valores de punto flotante evaluá 
-  diferencias con cuidado de signo.
+- La firma canónica de comparación es `int comparador(const void *a, const void *b)`.
+- Casteá los punteros opacos `const void *` a punteros de la estructura correspondiente.
+- Para cadenas usá `strcmp()`, y para valores de punto flotante evaluá diferencias
+  con cuidado de signo.
 tags:
 - punteros_avanzados
 - callbacks
@@ -17,6 +15,8 @@ tags:
 - generico
 - structs
 - dep:memoria_dinamica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: cmp_promedio_desc
@@ -32,20 +32,71 @@ funciones:
   parametros: const void *a, const void *b
   descripcion: Operación cmp_id_asc
 tests_funciones:
-- nombre: test_cmp_promedio_desc_1
+- nombre: test_cmp_promedio_desc_mayor
   funcion: cmp_promedio_desc
-  codigo: '/* Verificación unitaria de cmp_promedio_desc */
+  codigo: 'estudiante_t a = {1, "A", 9.0f}, b = {2, "B", 7.0f};
 
-    assert(true);'
-- nombre: test_cmp_nombre_asc_2
+    assert(cmp_promedio_desc(&a, &b) < 0);'
+- nombre: test_cmp_promedio_desc_menor
+  funcion: cmp_promedio_desc
+  codigo: 'estudiante_t a = {1, "A", 6.0f}, b = {2, "B", 8.0f};
+
+    assert(cmp_promedio_desc(&a, &b) > 0);'
+- nombre: test_cmp_promedio_desc_empate_id_menor
+  funcion: cmp_promedio_desc
+  codigo: 'estudiante_t a = {1, "A", 7.5f}, b = {2, "B", 7.5f};
+
+    assert(cmp_promedio_desc(&a, &b) < 0);'
+- nombre: test_cmp_promedio_desc_empate_id_mayor
+  funcion: cmp_promedio_desc
+  codigo: 'estudiante_t a = {5, "A", 7.5f}, b = {3, "B", 7.5f};
+
+    assert(cmp_promedio_desc(&a, &b) > 0);'
+- nombre: test_cmp_nombre_asc_menor
   funcion: cmp_nombre_asc
-  codigo: '/* Verificación unitaria de cmp_nombre_asc */
+  codigo: 'estudiante_t a = {1, "Ana", 8.0f}, b = {2, "Beto", 8.0f};
 
-    assert(true);'
+    assert(cmp_nombre_asc(&a, &b) < 0);'
+- nombre: test_cmp_nombre_asc_mayor
+  funcion: cmp_nombre_asc
+  codigo: 'estudiante_t a = {1, "Carlos", 8.0f}, b = {2, "Ana", 8.0f};
+
+    assert(cmp_nombre_asc(&a, &b) > 0);'
+- nombre: test_cmp_nombre_asc_mismo_nombre_prom_mayor
+  funcion: cmp_nombre_asc
+  codigo: 'estudiante_t a = {1, "Ana", 9.0f}, b = {2, "Ana", 7.0f};
+
+    assert(cmp_nombre_asc(&a, &b) < 0);'
+- nombre: test_cmp_nombre_asc_mismo_nombre_prom_menor
+  funcion: cmp_nombre_asc
+  codigo: 'estudiante_t a = {1, "Ana", 6.0f}, b = {2, "Ana", 8.0f};
+
+    assert(cmp_nombre_asc(&a, &b) > 0);'
+- nombre: test_cmp_id_asc_menor
+  funcion: cmp_id_asc
+  codigo: 'estudiante_t a = {1, "A", 8.0f}, b = {2, "B", 8.0f};
+
+    assert(cmp_id_asc(&a, &b) < 0);'
+- nombre: test_cmp_id_asc_mayor
+  funcion: cmp_id_asc
+  codigo: 'estudiante_t a = {5, "A", 8.0f}, b = {2, "B", 8.0f};
+
+    assert(cmp_id_asc(&a, &b) > 0);'
+- nombre: test_cmp_id_asc_igual
+  funcion: cmp_id_asc
+  codigo: 'estudiante_t a = {10, "A", 8.0f}, b = {10, "B", 8.0f};
+
+    assert(cmp_id_asc(&a, &b) == 0);'
+- nombre: test_cmp_id_asc_cero
+  funcion: cmp_id_asc
+  codigo: 'estudiante_t a = {0, "A", 8.0f}, b = {1, "B", 8.0f};
+
+    assert(cmp_id_asc(&a, &b) < 0);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: callbacks
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria_dinamica
+publicar: true

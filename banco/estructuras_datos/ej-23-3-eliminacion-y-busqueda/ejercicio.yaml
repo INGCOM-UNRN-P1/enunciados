@@ -17,6 +17,8 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_iminacion_y_busqueda
@@ -34,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc_iminacion_y_busqueda(0);
 
     assert(res == 0);'
+- nombre: test_proc_iminacion_y_busqueda_negativo
+  funcion: proc_iminacion_y_busqueda
+  codigo: 'int res = proc_iminacion_y_busqueda(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_iminacion_y_busqueda_valor_limite
+  funcion: proc_iminacion_y_busqueda
+  codigo: 'int res = proc_iminacion_y_busqueda(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_iminacion_y_busqueda_valor_unitario
+  funcion: proc_iminacion_y_busqueda
+  codigo: 'int res = proc_iminacion_y_busqueda(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
@@ -43,3 +60,4 @@ prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

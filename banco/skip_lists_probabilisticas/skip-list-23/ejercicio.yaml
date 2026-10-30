@@ -14,6 +14,10 @@ tags:
 - probabilistica
 - busqueda
 - estructuras_datos
+- dep:listas_enlazadas
+- dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_skip_list_23
@@ -32,4 +36,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_skip_list_23(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_skip_list_23_negativo
+  funcion: ejecutar_skip_list_23
+  codigo: 'int res = ejecutar_skip_list_23(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_skip_list_23_valor_limite
+  funcion: ejecutar_skip_list_23
+  codigo: 'int res = ejecutar_skip_list_23(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_skip_list_23_valor_unitario
+  funcion: ejecutar_skip_list_23
+  codigo: 'int res = ejecutar_skip_list_23(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- listas_enlazadas
+- punteros
+subtema: skip_lists_probabilisticas

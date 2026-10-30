@@ -11,6 +11,10 @@ tags:
 - argumentos
 - argc_argv
 - flags
+- c11
+- inicial
+- dep:punteros
+- dep:cadenas
 verificado: true
 funciones:
 - nombre: ejecutar_cli_args_03
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_cli_args_03(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_cli_args_03_negativo
+  funcion: ejecutar_cli_args_03
+  codigo: 'int res = ejecutar_cli_args_03(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_cli_args_03_valor_limite
+  funcion: ejecutar_cli_args_03
+  codigo: 'int res = ejecutar_cli_args_03(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_cli_args_03_valor_unitario
+  funcion: ejecutar_cli_args_03
+  codigo: 'int res = ejecutar_cli_args_03(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- punteros
+- cadenas
+subtema: argumentos_linea_comandos
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C

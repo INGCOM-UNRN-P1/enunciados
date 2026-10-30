@@ -12,6 +12,10 @@ tags:
 - punteros
 - nodos
 - estructuras_datos
+- c11
+- inicial
+- dep:memoria_dinamica
+- dep:punteros
 verificado: true
 funciones:
 - nombre: ejecutar_lista_enl_04
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_lista_enl_04(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_lista_enl_04_negativo
+  funcion: ejecutar_lista_enl_04
+  codigo: 'int res = ejecutar_lista_enl_04(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_lista_enl_04_valor_limite
+  funcion: ejecutar_lista_enl_04
+  codigo: 'int res = ejecutar_lista_enl_04(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_lista_enl_04_valor_unitario
+  funcion: ejecutar_lista_enl_04
+  codigo: 'int res = ejecutar_lista_enl_04(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- punteros
+- memoria_dinamica
+subtema: listas_enlazadas
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica

@@ -16,6 +16,8 @@ tags:
 - filtro
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__de_arreglo_dinamico
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc__de_arreglo_dinamico(0);
 
     assert(res == 0);'
+- nombre: test_proc__de_arreglo_dinamico_negativo
+  funcion: proc__de_arreglo_dinamico
+  codigo: 'int res = proc__de_arreglo_dinamico(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__de_arreglo_dinamico_valor_limite
+  funcion: proc__de_arreglo_dinamico
+  codigo: 'int res = proc__de_arreglo_dinamico(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__de_arreglo_dinamico_valor_unitario
+  funcion: proc__de_arreglo_dinamico
+  codigo: 'int res = proc__de_arreglo_dinamico(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: heap
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

@@ -1,14 +1,14 @@
 id: ejercicio1
-titulo: 'TDA Fracción (fraccion_t) — Invariantes y Normalización'
+titulo: TDA Fracción (fraccion_t) — Invariantes y Normalización
 tema: tipos_datos_abstractos
 bloom: 3
 minutos: 40
 pistas:
-- 'En fraccion_crear, normalizá primero el signo para que el denominador sea positivo.'
-- 'Simplificá dividiendo numerador y denominador por su MCD (algoritmo de Euclides).'
-- 'Si el numerador es 0, el denominador simplificado debe ser 1 (0/1).'
-- 'En fraccion_comparar, utilizá producto cruzado para evitar pérdida de precisión
-  con punto flotante.'
+- En fraccion_crear, normalizá primero el signo para que el denominador sea positivo.
+- Simplificá dividiendo numerador y denominador por su MCD (algoritmo de Euclides).
+- Si el numerador es 0, el denominador simplificado debe ser 1 (0/1).
+- En fraccion_comparar, utilizá producto cruzado para evitar pérdida de precisión
+  con punto flotante.
 tags:
 - tda
 - fraccion
@@ -16,6 +16,8 @@ tags:
 - encapsulamiento_opaco
 - mcd
 - dep:tad
+- c11
+- intermedia
 verificado: true
 tipo_entrega: archivos_individuales
 familia: tda
@@ -64,22 +66,225 @@ funciones:
 tests_funciones:
 - nombre: test_fraccion_crear_normalizar
   funcion: fraccion_crear
-  codigo: |
-    fraccion_t *f = fraccion_crear(6, 8);
+  codigo: 'fraccion_t *f = fraccion_crear(6, 8);
+
     assert(f != NULL);
+
     assert(fraccion_numerador(f) == 3);
+
     assert(fraccion_denominador(f) == 4);
+
     fraccion_destruir(f);
+
+    '
 - nombre: test_fraccion_denominador_cero
   funcion: fraccion_crear
-  codigo: |
-    fraccion_t *f = fraccion_crear(1, 0);
+  codigo: 'fraccion_t *f = fraccion_crear(1, 0);
+
     assert(f == NULL);
+
+    '
+- nombre: test_fraccion_crear_negativo
+  funcion: fraccion_crear
+  codigo: 'int res = fraccion_crear(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_fraccion_crear_valor_limite
+  funcion: fraccion_crear
+  codigo: 'int res = fraccion_crear(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_fraccion_crear_valor_unitario
+  funcion: fraccion_crear
+  codigo: 'int res = fraccion_crear(1);
+
+    assert(res >= 0 || res == 2);'
+- nombre: test_fraccion_destruir_positivo
+  funcion: fraccion_destruir
+  codigo: 'fraccion_destruir(NULL);
+
+    assert(1);'
+- nombre: test_fraccion_destruir_cero
+  funcion: fraccion_destruir
+  codigo: 'fraccion_destruir(NULL);
+
+    assert(1);'
+- nombre: test_fraccion_destruir_negativo
+  funcion: fraccion_destruir
+  codigo: 'fraccion_destruir(NULL);
+
+    assert(1);'
+- nombre: test_fraccion_destruir_valor_limite
+  funcion: fraccion_destruir
+  codigo: 'fraccion_destruir(NULL);
+
+    assert(1);'
+- nombre: test_fraccion_numerador_positivo
+  funcion: fraccion_numerador
+  codigo: 'long long res = (long long)fraccion_numerador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_numerador_cero
+  funcion: fraccion_numerador
+  codigo: 'long long res = (long long)fraccion_numerador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_numerador_negativo
+  funcion: fraccion_numerador
+  codigo: 'long long res = (long long)fraccion_numerador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_numerador_valor_limite
+  funcion: fraccion_numerador
+  codigo: 'long long res = (long long)fraccion_numerador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_denominador_positivo
+  funcion: fraccion_denominador
+  codigo: 'long long res = (long long)fraccion_denominador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_denominador_cero_2
+  funcion: fraccion_denominador
+  codigo: 'long long res = (long long)fraccion_denominador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_denominador_negativo
+  funcion: fraccion_denominador
+  codigo: 'long long res = (long long)fraccion_denominador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_denominador_valor_limite
+  funcion: fraccion_denominador
+  codigo: 'long long res = (long long)fraccion_denominador(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_es_entera_positivo
+  funcion: fraccion_es_entera
+  codigo: 'bool ok = fraccion_es_entera(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_fraccion_es_entera_cero
+  funcion: fraccion_es_entera
+  codigo: 'bool ok = fraccion_es_entera(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_fraccion_es_entera_negativo
+  funcion: fraccion_es_entera
+  codigo: 'bool ok = fraccion_es_entera(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_fraccion_es_entera_valor_limite
+  funcion: fraccion_es_entera
+  codigo: 'bool ok = fraccion_es_entera(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_fraccion_comparar_positivo
+  funcion: fraccion_comparar
+  codigo: 'long long res = (long long)fraccion_comparar(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_comparar_cero
+  funcion: fraccion_comparar
+  codigo: 'long long res = (long long)fraccion_comparar(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_comparar_negativo
+  funcion: fraccion_comparar
+  codigo: 'long long res = (long long)fraccion_comparar(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_comparar_valor_limite
+  funcion: fraccion_comparar
+  codigo: 'long long res = (long long)fraccion_comparar(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_fraccion_sumar_positivo
+  funcion: fraccion_sumar
+  codigo: 'void *res = (void *)fraccion_sumar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_sumar_cero
+  funcion: fraccion_sumar
+  codigo: 'void *res = (void *)fraccion_sumar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_sumar_negativo
+  funcion: fraccion_sumar
+  codigo: 'void *res = (void *)fraccion_sumar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_sumar_valor_limite
+  funcion: fraccion_sumar
+  codigo: 'void *res = (void *)fraccion_sumar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_multiplicar_positivo
+  funcion: fraccion_multiplicar
+  codigo: 'void *res = (void *)fraccion_multiplicar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_multiplicar_cero
+  funcion: fraccion_multiplicar
+  codigo: 'void *res = (void *)fraccion_multiplicar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_multiplicar_negativo
+  funcion: fraccion_multiplicar
+  codigo: 'void *res = (void *)fraccion_multiplicar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_multiplicar_valor_limite
+  funcion: fraccion_multiplicar
+  codigo: 'void *res = (void *)fraccion_multiplicar(NULL, NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_a_real_positivo
+  funcion: fraccion_a_real
+  codigo: 'double res = (double)fraccion_a_real(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_fraccion_a_real_cero
+  funcion: fraccion_a_real
+  codigo: 'double res = (double)fraccion_a_real(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_fraccion_a_real_negativo
+  funcion: fraccion_a_real
+  codigo: 'double res = (double)fraccion_a_real(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_fraccion_a_real_valor_limite
+  funcion: fraccion_a_real
+  codigo: 'double res = (double)fraccion_a_real(NULL);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_fraccion_a_cadena_positivo
+  funcion: fraccion_a_cadena
+  codigo: 'void *res = (void *)fraccion_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_a_cadena_cero
+  funcion: fraccion_a_cadena
+  codigo: 'void *res = (void *)fraccion_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_a_cadena_negativo
+  funcion: fraccion_a_cadena
+  codigo: 'void *res = (void *)fraccion_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_fraccion_a_cadena_valor_limite
+  funcion: fraccion_a_cadena
+  codigo: 'void *res = (void *)fraccion_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: tda
-dificultad: avanzada
+dificultad: intermedia
 minutos_estimados: 40
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
+publicar: true

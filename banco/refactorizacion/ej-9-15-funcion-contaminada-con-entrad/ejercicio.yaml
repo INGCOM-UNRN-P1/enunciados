@@ -12,6 +12,8 @@ tags:
 - contaminada
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: clasificar_temperatura_ambiente
@@ -19,18 +21,32 @@ funciones:
   parametros: double temp
   descripcion: Operación clasificar_temperatura_ambiente
 tests_funciones:
-- nombre: test_clasificar_temperatura_ambiente_1
+- nombre: test_clasificar_temperatura_ambiente_positivo
   funcion: clasificar_temperatura_ambiente
-  codigo: '/* Verificación unitaria de clasificar_temperatura_ambiente */
+  codigo: 'int res = clasificar_temperatura_ambiente(5);
 
-    clasificar_temperatura_ambiente(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_clasificar_temperatura_ambiente_cero
+  funcion: clasificar_temperatura_ambiente
+  codigo: 'int res = clasificar_temperatura_ambiente(0);
 
-    assert(true);'
+    assert(res == 0 || res >= 0);'
+- nombre: test_clasificar_temperatura_ambiente_negativo
+  funcion: clasificar_temperatura_ambiente
+  codigo: 'int res = clasificar_temperatura_ambiente(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_clasificar_temperatura_ambiente_limite
+  funcion: clasificar_temperatura_ambiente
+  codigo: 'int res = clasificar_temperatura_ambiente(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

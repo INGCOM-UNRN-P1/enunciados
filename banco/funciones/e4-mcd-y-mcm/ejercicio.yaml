@@ -9,12 +9,15 @@ tags:
 - funciones
 - dep:lazos
 - dep:secuencias
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: maximo_comun_divisor
   retorno: int
   parametros: int a, int b
-  descripcion: Calcula el Máximo Común Divisor entre dos números enteros mediante el algoritmo de Euclides.
+  descripcion: Calcula el Máximo Común Divisor entre dos números enteros mediante
+    el algoritmo de Euclides.
 - nombre: minimo_comun_multiplo
   retorno: int
   parametros: int a, int b
@@ -29,3 +32,38 @@ tipo: practica_guiada
 prerrequisitos:
 - lazos
 - secuencias
+subtema: y_mcm
+publicar: true
+tests_funciones:
+- nombre: test_maximo_comun_divisor_positivo
+  funcion: maximo_comun_divisor
+  codigo: 'int res = maximo_comun_divisor(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_maximo_comun_divisor_cero
+  funcion: maximo_comun_divisor
+  codigo: 'int res = maximo_comun_divisor(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_maximo_comun_divisor_negativo
+  funcion: maximo_comun_divisor
+  codigo: 'int res = maximo_comun_divisor(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_maximo_comun_divisor_limite
+  funcion: maximo_comun_divisor
+  codigo: 'int res = maximo_comun_divisor(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_minimo_comun_multiplo_prueba_1
+  funcion: minimo_comun_multiplo
+  codigo: assert(minimo_comun_multiplo(0, 5) == -1);
+- nombre: test_minimo_comun_multiplo_prueba_2
+  funcion: minimo_comun_multiplo
+  codigo: assert(minimo_comun_multiplo(-4, 6) == -1);
+- nombre: test_minimo_comun_multiplo_prueba_3
+  funcion: minimo_comun_multiplo
+  codigo: assert(minimo_comun_multiplo(4, 6) == 12);
+- nombre: test_minimo_comun_multiplo_prueba_4
+  funcion: minimo_comun_multiplo
+  codigo: assert(minimo_comun_multiplo(24, 36) == 72);

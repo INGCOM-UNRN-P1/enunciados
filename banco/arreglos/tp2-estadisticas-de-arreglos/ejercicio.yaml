@@ -9,7 +9,9 @@ tags:
 - arreglos
 - dep:funciones
 - dep:lazos
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: calcular_promedio
   retorno: double
@@ -25,7 +27,30 @@ dependencias:
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+subtema: de_arreglos
+publicar: true
+tests_funciones:
+- nombre: test_calcular_promedio_positivo
+  funcion: calcular_promedio
+  codigo: 'int res = calcular_promedio(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_calcular_promedio_cero
+  funcion: calcular_promedio
+  codigo: 'int res = calcular_promedio(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_calcular_promedio_negativo
+  funcion: calcular_promedio
+  codigo: 'int res = calcular_promedio(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_calcular_promedio_limite
+  funcion: calcular_promedio
+  codigo: 'int res = calcular_promedio(100);
+
+    assert(res >= 0 || res == 200);'

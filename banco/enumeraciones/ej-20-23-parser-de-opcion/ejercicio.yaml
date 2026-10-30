@@ -16,6 +16,8 @@ tags:
 - parser
 - dep:tipos_datos
 - dep:condicionales
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__23_parser_de_opcion
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc__23_parser_de_opcion(0);
 
     assert(res == 0);'
+- nombre: test_proc__23_parser_de_opcion_negativo
+  funcion: proc__23_parser_de_opcion
+  codigo: 'int res = proc__23_parser_de_opcion(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__23_parser_de_opcion_valor_limite
+  funcion: proc__23_parser_de_opcion
+  codigo: 'int res = proc__23_parser_de_opcion(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__23_parser_de_opcion_valor_unitario
+  funcion: proc__23_parser_de_opcion
+  codigo: 'int res = proc__23_parser_de_opcion(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - condicionales
+publicar: true

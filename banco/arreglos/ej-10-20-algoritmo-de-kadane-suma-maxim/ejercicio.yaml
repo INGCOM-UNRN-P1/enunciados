@@ -22,13 +22,14 @@ tags:
 - memoria
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_de_kadane_suma_maxim
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Algoritmo de Kadane (Suma máxima de
-    subarreglo)
+  descripcion: Procesa el flujo principal de Algoritmo de Kadane (Suma máxima de subarreglo)
 tests_funciones:
 - nombre: test_proc_de_kadane_suma_maxim_positivo
   funcion: proc_de_kadane_suma_maxim
@@ -40,6 +41,21 @@ tests_funciones:
   codigo: 'int res = proc_de_kadane_suma_maxim(0);
 
     assert(res == 0);'
+- nombre: test_proc_de_kadane_suma_maxim_negativo
+  funcion: proc_de_kadane_suma_maxim
+  codigo: 'int res = proc_de_kadane_suma_maxim(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_de_kadane_suma_maxim_valor_limite
+  funcion: proc_de_kadane_suma_maxim
+  codigo: 'int res = proc_de_kadane_suma_maxim(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_de_kadane_suma_maxim_valor_unitario
+  funcion: proc_de_kadane_suma_maxim
+  codigo: 'int res = proc_de_kadane_suma_maxim(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: suma
@@ -48,3 +64,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

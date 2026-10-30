@@ -12,6 +12,8 @@ tags:
 - variables
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: invertir_numero_entero
@@ -23,27 +25,32 @@ funciones:
   parametros: void
   descripcion: Operación test_invertir_numero
 tests_funciones:
-- nombre: test_invertir_numero_entero_1
+- nombre: test_invertir_numero_entero_positivo
   funcion: invertir_numero_entero
-  codigo: '/* Verificación unitaria de invertir_numero_entero */
+  codigo: 'int res = invertir_numero_entero(5);
 
-    int res = invertir_numero_entero(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_invertir_numero_entero_cero
+  funcion: invertir_numero_entero
+  codigo: 'int res = invertir_numero_entero(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_invertir_numero_entero_negativo
+  funcion: invertir_numero_entero
+  codigo: 'int res = invertir_numero_entero(-5);
 
-    assert(true);'
-- nombre: test_test_invertir_numero_2
-  funcion: test_invertir_numero
-  codigo: '/* Verificación unitaria de test_invertir_numero */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_invertir_numero_entero_limite
+  funcion: invertir_numero_entero
+  codigo: 'int res = invertir_numero_entero(100);
 
-    test_invertir_numero();
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

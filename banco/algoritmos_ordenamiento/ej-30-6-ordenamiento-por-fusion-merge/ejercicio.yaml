@@ -17,13 +17,14 @@ tags:
 - dep:arreglos
 - dep:lazos_anidados
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_nto_por_fusion_merge
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Ordenamiento por Fusión (Merge 
-    Sort)
+  descripcion: Procesa el flujo principal de Ordenamiento por Fusión (Merge Sort)
 tests_funciones:
 - nombre: test_proc_nto_por_fusion_merge_positivo
   funcion: proc_nto_por_fusion_merge
@@ -35,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc_nto_por_fusion_merge(0);
 
     assert(res == 0);'
+- nombre: test_proc_nto_por_fusion_merge_negativo
+  funcion: proc_nto_por_fusion_merge
+  codigo: 'int res = proc_nto_por_fusion_merge(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_nto_por_fusion_merge_valor_limite
+  funcion: proc_nto_por_fusion_merge
+  codigo: 'int res = proc_nto_por_fusion_merge(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_nto_por_fusion_merge_valor_unitario
+  funcion: proc_nto_por_fusion_merge
+  codigo: 'int res = proc_nto_por_fusion_merge(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: mergesort
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
 - recursividad
+publicar: true

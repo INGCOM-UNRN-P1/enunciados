@@ -11,6 +11,10 @@ tags:
 - eventos_discretos
 - colas
 - planificacion
+- dep:colas_prioridad_heaps
+- dep:tad
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_sim_event_11
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_sim_event_11(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_sim_event_11_negativo
+  funcion: ejecutar_sim_event_11
+  codigo: 'int res = ejecutar_sim_event_11(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_sim_event_11_valor_limite
+  funcion: ejecutar_sim_event_11
+  codigo: 'int res = ejecutar_sim_event_11(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_sim_event_11_valor_unitario
+  funcion: ejecutar_sim_event_11
+  codigo: 'int res = ejecutar_sim_event_11(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- colas_prioridad_heaps
+- tad
+subtema: simulacion_eventos_discretos

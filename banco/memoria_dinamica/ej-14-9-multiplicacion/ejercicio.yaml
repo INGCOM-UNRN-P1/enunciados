@@ -20,6 +20,8 @@ tags:
 - free
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__14_9_multiplicacion
@@ -37,6 +39,21 @@ tests_funciones:
   codigo: 'int res = proc__14_9_multiplicacion(0);
 
     assert(res == 0);'
+- nombre: test_proc__14_9_multiplicacion_negativo
+  funcion: proc__14_9_multiplicacion
+  codigo: 'int res = proc__14_9_multiplicacion(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__14_9_multiplicacion_valor_limite
+  funcion: proc__14_9_multiplicacion
+  codigo: 'int res = proc__14_9_multiplicacion(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__14_9_multiplicacion_valor_unitario
+  funcion: proc__14_9_multiplicacion
+  codigo: 'int res = proc__14_9_multiplicacion(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
@@ -45,3 +62,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

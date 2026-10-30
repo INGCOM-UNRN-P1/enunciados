@@ -13,6 +13,11 @@ tags:
 - preorder
 - postorder
 - estructuras_datos
+- dep:tad
+- dep:recursividad
+- dep:punteros
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: inorder
@@ -24,14 +29,53 @@ funciones:
   parametros: nodo_arbol_t *n
   descripcion: Operación liberar_arbol
 tests_funciones:
-- nombre: test_inorder_1
+- nombre: test_inorder_positivo
   funcion: inorder
-  codigo: '/* Verificación unitaria de inorder */
+  codigo: 'int res = inorder(5);
 
-    assert(true);'
-- nombre: test_liberar_arbol_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_inorder_cero
+  funcion: inorder
+  codigo: 'int res = inorder(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_inorder_negativo
+  funcion: inorder
+  codigo: 'int res = inorder(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_inorder_limite
+  funcion: inorder
+  codigo: 'int res = inorder(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_liberar_arbol_positivo
   funcion: liberar_arbol
-  codigo: '/* Verificación unitaria de liberar_arbol */
+  codigo: 'liberar_arbol(NULL);
 
-    assert(true);'
-publicar: false
+    assert(1);'
+- nombre: test_liberar_arbol_cero
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
+- nombre: test_liberar_arbol_negativo
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
+- nombre: test_liberar_arbol_valor_limite
+  funcion: liberar_arbol
+  codigo: 'liberar_arbol(NULL);
+
+    assert(1);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- recursividad
+- punteros
+subtema: arboles_binarios

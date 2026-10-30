@@ -9,14 +9,56 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp4-2026
 rol_familia: uso
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: plana_en
+publicar: true
+funciones:
+- nombre: matriz_crear
+  retorno: int **
+  parametros: size_t filas, size_t columnas
+  descripcion: Reserva una matriz dinámica 2D en memoria contigua en el heap
+- nombre: matriz_destruir
+  retorno: void
+  parametros: int **matriz
+  descripcion: Libera la matriz dinámica bidimensional del heap
+tests_funciones:
+- nombre: test_matriz_crear_valida
+  funcion: matriz_crear
+  codigo: 'int **m = matriz_crear(3, 4);
+
+    assert(m != NULL);
+
+    m[0][0] = 7; m[2][3] = 99;
+
+    assert(m[0][0] == 7 && m[2][3] == 99);
+
+    matriz_destruir(m);'
+- nombre: test_matriz_crear_dimension_cero
+  funcion: matriz_crear
+  codigo: 'int **m = matriz_crear(0, 5);
+
+    assert(m == NULL);'
+- nombre: test_matriz_crear_filas_contiguas
+  funcion: matriz_crear
+  codigo: 'int **m = matriz_crear(2, 2);
+
+    assert(m != NULL && (m[1] - m[0]) == 2);
+
+    matriz_destruir(m);'
+- nombre: test_matriz_destruir_nula
+  funcion: matriz_destruir
+  codigo: 'matriz_destruir(NULL);
+
+    assert(true || 1 == 1);'

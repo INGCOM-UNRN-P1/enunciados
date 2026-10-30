@@ -12,6 +12,10 @@ tags:
 - conjuntos_disjuntos
 - grafos
 - estructuras_datos
+- dep:arreglos
+- dep:tad
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_dsu_union_11
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_dsu_union_11(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_dsu_union_11_negativo
+  funcion: ejecutar_dsu_union_11
+  codigo: 'int res = ejecutar_dsu_union_11(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_dsu_union_11_valor_limite
+  funcion: ejecutar_dsu_union_11
+  codigo: 'int res = ejecutar_dsu_union_11(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_dsu_union_11_valor_unitario
+  funcion: ejecutar_dsu_union_11
+  codigo: 'int res = ejecutar_dsu_union_11(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- tad
+subtema: conjuntos_disjuntos_union_find

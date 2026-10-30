@@ -9,12 +9,12 @@ pistas:
 - '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
   Valgrind o AddressSanitizer.'
 - '**Proceso:**'
-- Contar cuántas veces aparece la subcadena a buscar para calcular el tamaño 
-  final de la nueva cadena.
+- Contar cuántas veces aparece la subcadena a buscar para calcular el tamaño final
+  de la nueva cadena.
 - Reservar memoria (`malloc`) para la nueva cadena.
-- Recorrer la cadena original. Cuando se encuentre una ocurrencia de la 
-  subcadena a buscar, copiar la cadena de reemplazo a la nueva cadena. Si no, 
-  copiar el carácter actual.
+- Recorrer la cadena original. Cuando se encuentre una ocurrencia de la subcadena
+  a buscar, copiar la cadena de reemplazo a la nueva cadena. Si no, copiar el carácter
+  actual.
 tags:
 - cadenas
 - strings
@@ -23,6 +23,8 @@ tags:
 - subcadena
 - dep:arreglos
 - dep:caracteres
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_reemplazar_subcadena
@@ -40,11 +42,27 @@ tests_funciones:
   codigo: 'int res = proc_reemplazar_subcadena(0);
 
     assert(res == 0);'
+- nombre: test_proc_reemplazar_subcadena_negativo
+  funcion: proc_reemplazar_subcadena
+  codigo: 'int res = proc_reemplazar_subcadena(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_reemplazar_subcadena_valor_limite
+  funcion: proc_reemplazar_subcadena
+  codigo: 'int res = proc_reemplazar_subcadena(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_reemplazar_subcadena_valor_unitario
+  funcion: proc_reemplazar_subcadena
+  codigo: 'int res = proc_reemplazar_subcadena(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

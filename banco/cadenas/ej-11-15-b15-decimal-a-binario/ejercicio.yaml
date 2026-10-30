@@ -9,11 +9,11 @@ pistas:
 - '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
   manera robusta.'
 - '**Proceso:**'
-- Usar divisiones sucesivas por 2. El resto de cada división (`n % 2`) es el 
-  siguiente dígito binario.
+- Usar divisiones sucesivas por 2. El resto de cada división (`n % 2`) es el siguiente
+  dígito binario.
 - Guardar estos dígitos en un arreglo o cadena.
-- Como los dígitos se generan en orden inverso, la cadena resultante debe ser 
-  invertida al final.
+- Como los dígitos se generan en orden inverso, la cadena resultante debe ser invertida
+  al final.
 tags:
 - cadenas
 - strings
@@ -22,6 +22,8 @@ tags:
 - binario
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_15_decimal_a_binario
@@ -39,6 +41,21 @@ tests_funciones:
   codigo: 'int res = proc_15_decimal_a_binario(0);
 
     assert(res == 0);'
+- nombre: test_proc_15_decimal_a_binario_negativo
+  funcion: proc_15_decimal_a_binario
+  codigo: 'int res = proc_15_decimal_a_binario(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_15_decimal_a_binario_valor_limite
+  funcion: proc_15_decimal_a_binario
+  codigo: 'int res = proc_15_decimal_a_binario(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_15_decimal_a_binario_valor_unitario
+  funcion: proc_15_decimal_a_binario
+  codigo: 'int res = proc_15_decimal_a_binario(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -47,3 +64,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

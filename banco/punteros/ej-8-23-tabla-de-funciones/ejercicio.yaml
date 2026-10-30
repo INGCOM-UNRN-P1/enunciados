@@ -16,6 +16,8 @@ tags:
 - direcciones
 - dep:funciones
 - dep:arreglos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: sumar
@@ -35,24 +37,54 @@ funciones:
   parametros: double a, double b
   descripcion: Operación dividir
 tests_funciones:
-- nombre: test_sumar_1
+- nombre: test_sumar_positivos
   funcion: sumar
-  codigo: '/* Verificación unitaria de sumar */
-
-    double res = sumar(1, 2);
-
-    (void)res;
-
-    assert(true);'
-- nombre: test_restar_2
+  codigo: assert(sumar(2.0, 3.0) == 5.0);
+- nombre: test_sumar_negativos
+  funcion: sumar
+  codigo: assert(sumar(-2.0, -3.0) == -5.0);
+- nombre: test_sumar_cero
+  funcion: sumar
+  codigo: assert(sumar(0.0, 5.0) == 5.0);
+- nombre: test_sumar_opuestos
+  funcion: sumar
+  codigo: assert(sumar(10.0, -10.0) == 0.0);
+- nombre: test_restar_positivos
   funcion: restar
-  codigo: '/* Verificación unitaria de restar */
-
-    double res = restar(1, 2);
-
-    (void)res;
-
-    assert(true);'
+  codigo: assert(restar(5.0, 3.0) == 2.0);
+- nombre: test_restar_menor_mayor
+  funcion: restar
+  codigo: assert(restar(3.0, 5.0) == -2.0);
+- nombre: test_restar_cero
+  funcion: restar
+  codigo: assert(restar(4.0, 0.0) == 4.0);
+- nombre: test_restar_identicos
+  funcion: restar
+  codigo: assert(restar(-5.0, -5.0) == 0.0);
+- nombre: test_multiplicar_positivos
+  funcion: multiplicar
+  codigo: assert(multiplicar(2.0, 3.0) == 6.0);
+- nombre: test_multiplicar_por_cero
+  funcion: multiplicar
+  codigo: assert(multiplicar(5.0, 0.0) == 0.0);
+- nombre: test_multiplicar_por_uno
+  funcion: multiplicar
+  codigo: assert(multiplicar(1.0, 7.5) == 7.5);
+- nombre: test_multiplicar_signos_opuestos
+  funcion: multiplicar
+  codigo: assert(multiplicar(-2.0, 4.0) == -8.0);
+- nombre: test_dividir_exacta
+  funcion: dividir
+  codigo: assert(dividir(6.0, 3.0) == 2.0);
+- nombre: test_dividir_decimal
+  funcion: dividir
+  codigo: assert(dividir(5.0, 2.0) == 2.5);
+- nombre: test_dividir_por_cero
+  funcion: dividir
+  codigo: assert(dividir(10.0, 0.0) == 0.0);
+- nombre: test_dividir_negativo
+  funcion: dividir
+  codigo: assert(dividir(-8.0, 2.0) == -4.0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: funciones
@@ -61,3 +93,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

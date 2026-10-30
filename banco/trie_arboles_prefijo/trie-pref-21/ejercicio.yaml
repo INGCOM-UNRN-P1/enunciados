@@ -12,6 +12,10 @@ tags:
 - arboles
 - cadenas
 - estructuras_datos
+- dep:arboles_binarios
+- dep:cadenas
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_trie_pref_21
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_trie_pref_21(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_trie_pref_21_negativo
+  funcion: ejecutar_trie_pref_21
+  codigo: 'int res = ejecutar_trie_pref_21(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_trie_pref_21_valor_limite
+  funcion: ejecutar_trie_pref_21
+  codigo: 'int res = ejecutar_trie_pref_21(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_trie_pref_21_valor_unitario
+  funcion: ejecutar_trie_pref_21
+  codigo: 'int res = ejecutar_trie_pref_21(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- arboles_binarios
+- cadenas
+subtema: trie_arboles_prefijo

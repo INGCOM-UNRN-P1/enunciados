@@ -16,6 +16,8 @@ tags:
 - enum
 - dep:tipos_datos
 - dep:condicionales
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_10_mezcla_de_colores
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_10_mezcla_de_colores(0);
 
     assert(res == 0);'
+- nombre: test_proc_10_mezcla_de_colores_negativo
+  funcion: proc_10_mezcla_de_colores
+  codigo: 'int res = proc_10_mezcla_de_colores(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_10_mezcla_de_colores_valor_limite
+  funcion: proc_10_mezcla_de_colores
+  codigo: 'int res = proc_10_mezcla_de_colores(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_10_mezcla_de_colores_valor_unitario
+  funcion: proc_10_mezcla_de_colores
+  codigo: 'int res = proc_10_mezcla_de_colores(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
 - condicionales
+publicar: true

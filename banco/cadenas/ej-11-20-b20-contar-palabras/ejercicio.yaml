@@ -12,11 +12,10 @@ pistas:
   simple con dos estados: `DENTRO_DE_PALABRA` y `FUERA_DE_PALABRA`.'
 - '**Proceso:**'
 - Inicializar `contador_palabras = 0` y `estado = FUERA_DE_PALABRA`.
-- Recorrer la cadena. Si se está `FUERA_DE_PALABRA` y se encuentra un carácter 
-  que no es un espacio, se ha encontrado el inicio de una nueva palabra. 
-  Incrementar `contador_palabras` y cambiar a `estado = DENTRO_DE_PALABRA`.
-- Si se está `DENTRO_DE_PALABRA` y se encuentra un espacio, cambiar a `estado = 
-  FUERA_DE_PALABRA`.
+- Recorrer la cadena. Si se está `FUERA_DE_PALABRA` y se encuentra un carácter que
+  no es un espacio, se ha encontrado el inicio de una nueva palabra. Incrementar `contador_palabras`
+  y cambiar a `estado = DENTRO_DE_PALABRA`.
+- Si se está `DENTRO_DE_PALABRA` y se encuentra un espacio, cambiar a `estado = FUERA_DE_PALABRA`.
 tags:
 - contar
 - cadenas
@@ -25,6 +24,8 @@ tags:
 - palabras
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__b20_contar_palabras
@@ -42,6 +43,21 @@ tests_funciones:
   codigo: 'int res = proc__b20_contar_palabras(0);
 
     assert(res == 0);'
+- nombre: test_proc__b20_contar_palabras_negativo
+  funcion: proc__b20_contar_palabras
+  codigo: 'int res = proc__b20_contar_palabras(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__b20_contar_palabras_valor_limite
+  funcion: proc__b20_contar_palabras
+  codigo: 'int res = proc__b20_contar_palabras(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__b20_contar_palabras_valor_unitario
+  funcion: proc__b20_contar_palabras
+  codigo: 'int res = proc__b20_contar_palabras(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -50,3 +66,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

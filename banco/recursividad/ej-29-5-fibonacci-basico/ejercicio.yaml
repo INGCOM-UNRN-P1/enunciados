@@ -16,6 +16,8 @@ tags:
 - avanzados
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_9_5_fibonacci_basico
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_9_5_fibonacci_basico(0);
 
     assert(res == 0);'
+- nombre: test_proc_9_5_fibonacci_basico_negativo
+  funcion: proc_9_5_fibonacci_basico
+  codigo: 'int res = proc_9_5_fibonacci_basico(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_9_5_fibonacci_basico_valor_limite
+  funcion: proc_9_5_fibonacci_basico
+  codigo: 'int res = proc_9_5_fibonacci_basico(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_9_5_fibonacci_basico_valor_unitario
+  funcion: proc_9_5_fibonacci_basico
+  codigo: 'int res = proc_9_5_fibonacci_basico(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: series_numericas
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

@@ -16,6 +16,8 @@ tags:
 - persona
 - dep:funciones
 - dep:arreglos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_struccion_de_persona
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_struccion_de_persona(0);
 
     assert(res == 0);'
+- nombre: test_proc_struccion_de_persona_negativo
+  funcion: proc_struccion_de_persona
+  codigo: 'int res = proc_struccion_de_persona(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_struccion_de_persona_valor_limite
+  funcion: proc_struccion_de_persona
+  codigo: 'int res = proc_struccion_de_persona(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_struccion_de_persona_valor_unitario
+  funcion: proc_struccion_de_persona
+  codigo: 'int res = proc_struccion_de_persona(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: estructuras
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

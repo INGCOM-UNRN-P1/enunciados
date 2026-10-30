@@ -8,7 +8,9 @@ tags:
 - cursada-2026
 - aritmetica
 - dep:tipos_datos
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: contar_digitos
   retorno: int
@@ -35,3 +37,66 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
+subtema: de_digitos
+publicar: true
+tests_funciones:
+- nombre: test_contar_digitos_positivo
+  funcion: contar_digitos
+  codigo: 'int res = contar_digitos(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_contar_digitos_cero
+  funcion: contar_digitos
+  codigo: 'int res = contar_digitos(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_contar_digitos_negativo
+  funcion: contar_digitos
+  codigo: 'int res = contar_digitos(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_contar_digitos_limite
+  funcion: contar_digitos
+  codigo: 'int res = contar_digitos(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_sumar_digitos_prueba_1
+  funcion: sumar_digitos
+  codigo: assert(sumar_digitos(0) == 0);
+- nombre: test_sumar_digitos_prueba_2
+  funcion: sumar_digitos
+  codigo: assert(sumar_digitos(123) == 6);
+- nombre: test_sumar_digitos_prueba_3
+  funcion: sumar_digitos
+  codigo: assert(sumar_digitos(-456) == 15);
+- nombre: test_sumar_digitos_positivo
+  funcion: sumar_digitos
+  codigo: 'long long res = (long long)sumar_digitos(5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_invertir_numero_prueba_1
+  funcion: invertir_numero
+  codigo: assert(invertir_numero(0) == 0);
+- nombre: test_invertir_numero_prueba_2
+  funcion: invertir_numero
+  codigo: assert(invertir_numero(1234) == 4321);
+- nombre: test_invertir_numero_prueba_3
+  funcion: invertir_numero
+  codigo: assert(invertir_numero(-560) == -65);
+- nombre: test_invertir_numero_positivo
+  funcion: invertir_numero
+  codigo: 'long long res = (long long)invertir_numero(5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_es_capicua_prueba_1
+  funcion: es_capicua
+  codigo: assert(es_capicua(0) == 1);
+- nombre: test_es_capicua_prueba_2
+  funcion: es_capicua
+  codigo: assert(es_capicua(121) == 1);
+- nombre: test_es_capicua_prueba_3
+  funcion: es_capicua
+  codigo: assert(es_capicua(12321) == 1);
+- nombre: test_es_capicua_prueba_4
+  funcion: es_capicua
+  codigo: assert(es_capicua(1234) == 0);

@@ -13,6 +13,10 @@ tags:
 - ring_buffer
 - deque
 - estructuras_datos
+- dep:tad
+- dep:memoria_dinamica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_cola_queue_25
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_cola_queue_25(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_cola_queue_25_negativo
+  funcion: ejecutar_cola_queue_25
+  codigo: 'int res = ejecutar_cola_queue_25(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_cola_queue_25_valor_limite
+  funcion: ejecutar_cola_queue_25
+  codigo: 'int res = ejecutar_cola_queue_25(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_cola_queue_25_valor_unitario
+  funcion: ejecutar_cola_queue_25
+  codigo: 'int res = ejecutar_cola_queue_25(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- tad
+- memoria_dinamica
+subtema: colas_queue

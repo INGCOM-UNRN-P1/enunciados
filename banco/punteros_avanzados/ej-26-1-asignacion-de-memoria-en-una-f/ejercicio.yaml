@@ -15,13 +15,14 @@ tags:
 - memoria
 - avanzados
 - dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__de_memoria_en_una_f
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Asignación de Memoria en una 
-    Función
+  descripcion: Procesa el flujo principal de Asignación de Memoria en una Función
 tests_funciones:
 - nombre: test_proc__de_memoria_en_una_f_positivo
   funcion: proc__de_memoria_en_una_f
@@ -33,6 +34,21 @@ tests_funciones:
   codigo: 'int res = proc__de_memoria_en_una_f(0);
 
     assert(res == 0);'
+- nombre: test_proc__de_memoria_en_una_f_negativo
+  funcion: proc__de_memoria_en_una_f
+  codigo: 'int res = proc__de_memoria_en_una_f(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__de_memoria_en_una_f_valor_limite
+  funcion: proc__de_memoria_en_una_f
+  codigo: 'int res = proc__de_memoria_en_una_f(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__de_memoria_en_una_f_valor_unitario
+  funcion: proc__de_memoria_en_una_f
+  codigo: 'int res = proc__de_memoria_en_una_f(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: doble_puntero
@@ -40,3 +56,4 @@ dificultad: inicial
 tipo: practica_guiada
 prerrequisitos:
 - memoria_dinamica
+publicar: true

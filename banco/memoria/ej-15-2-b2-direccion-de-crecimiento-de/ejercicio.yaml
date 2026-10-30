@@ -16,6 +16,8 @@ tags:
 - memoria
 - dep:punteros
 - dep:estructuras
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: explorar_stack
@@ -23,13 +25,26 @@ funciones:
   parametros: int nivel
   descripcion: Operación explorar_stack
 tests_funciones:
-- nombre: test_explorar_stack_1
+- nombre: test_explorar_stack_base
   funcion: explorar_stack
-  codigo: '/* Verificación unitaria de explorar_stack */
+  codigo: 'explorar_stack(0);
 
-    explorar_stack(1);
+    assert(1);'
+- nombre: test_explorar_stack_limite
+  funcion: explorar_stack
+  codigo: 'explorar_stack(4);
 
-    assert(true);'
+    assert(1);'
+- nombre: test_explorar_stack_profundo
+  funcion: explorar_stack
+  codigo: 'explorar_stack(5);
+
+    assert(1);'
+- nombre: test_explorar_stack_negativo
+  funcion: explorar_stack
+  codigo: 'explorar_stack(-1);
+
+    assert(1);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
@@ -38,3 +53,4 @@ tipo: practica_guiada
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

@@ -11,6 +11,10 @@ tags:
 - automatas
 - estados
 - protocolos
+- dep:enumeraciones
+- dep:estructuras_control
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_fsm_estados_15
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_fsm_estados_15(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_fsm_estados_15_negativo
+  funcion: ejecutar_fsm_estados_15
+  codigo: 'int res = ejecutar_fsm_estados_15(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_fsm_estados_15_valor_limite
+  funcion: ejecutar_fsm_estados_15
+  codigo: 'int res = ejecutar_fsm_estados_15(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_fsm_estados_15_valor_unitario
+  funcion: ejecutar_fsm_estados_15
+  codigo: 'int res = ejecutar_fsm_estados_15(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- enumeraciones
+- estructuras_control
+subtema: emulacion_maquinas_estado

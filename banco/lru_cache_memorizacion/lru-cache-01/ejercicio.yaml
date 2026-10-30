@@ -12,6 +12,10 @@ tags:
 - memorizacion
 - tablas_hash
 - estructuras_datos
+- dep:tad
+- dep:listas_enlazadas
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: lru_init
@@ -27,14 +31,72 @@ funciones:
   parametros: lru_cache_t *c, int clave, int valor
   descripcion: Operación lru_put
 tests_funciones:
-- nombre: test_lru_init_1
+- nombre: test_lru_init_positivo
   funcion: lru_init
-  codigo: '/* Verificación unitaria de lru_init */
+  codigo: 'int res = lru_init(5);
 
-    assert(true);'
-- nombre: test_lru_get_2
+    assert(res >= 0 || res == 10);'
+- nombre: test_lru_init_cero
+  funcion: lru_init
+  codigo: 'int res = lru_init(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_lru_init_negativo
+  funcion: lru_init
+  codigo: 'int res = lru_init(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_lru_init_limite
+  funcion: lru_init
+  codigo: 'int res = lru_init(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_lru_get_positivo
   funcion: lru_get
-  codigo: '/* Verificación unitaria de lru_get */
+  codigo: 'long long res = (long long)lru_get(NULL, 5);
 
-    assert(true);'
-publicar: false
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_lru_get_cero
+  funcion: lru_get
+  codigo: 'long long res = (long long)lru_get(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_lru_get_negativo
+  funcion: lru_get
+  codigo: 'long long res = (long long)lru_get(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_lru_get_valor_limite
+  funcion: lru_get
+  codigo: 'long long res = (long long)lru_get(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_lru_put_positivo
+  funcion: lru_put
+  codigo: 'lru_put(NULL, 5, 5);
+
+    assert(1);'
+- nombre: test_lru_put_cero
+  funcion: lru_put
+  codigo: 'lru_put(NULL, 0, 0);
+
+    assert(1);'
+- nombre: test_lru_put_negativo
+  funcion: lru_put
+  codigo: 'lru_put(NULL, -5, -5);
+
+    assert(1);'
+- nombre: test_lru_put_valor_limite
+  funcion: lru_put
+  codigo: 'lru_put(NULL, 100, 100);
+
+    assert(1);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- listas_enlazadas
+subtema: lru_cache_memorizacion

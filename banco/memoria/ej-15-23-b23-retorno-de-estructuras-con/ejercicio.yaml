@@ -16,6 +16,8 @@ tags:
 - dinamica
 - dep:punteros
 - dep:estructuras
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: procesar_numeros
@@ -23,22 +25,48 @@ funciones:
   parametros: int *entrada, size_t n
   descripcion: Operación procesar_numeros
 tests_funciones:
-- nombre: test_procesar_numeros_1
+- nombre: test_procesar_numeros_multiplica_por_dos
   funcion: procesar_numeros
-  codigo: '/* Verificación unitaria de procesar_numeros */
+  codigo: 'int a[] = {1, 2, 3};
 
-    int arr[] = {1, 2, 3, 4};
+    struct resultado_t r = procesar_numeros(a, 3);
 
-    struct resultado_t res = procesar_numeros(arr, 4);
+    assert(r.tamano == 3 && r.datos[0] == 2 && r.datos[2] == 6);
 
-    (void)res;
+    free(r.datos);'
+- nombre: test_procesar_numeros_negativos
+  funcion: procesar_numeros
+  codigo: 'int a[] = {-2, -5};
 
-    assert(true);'
+    struct resultado_t r = procesar_numeros(a, 2);
+
+    assert(r.tamano == 2 && r.datos[0] == -4 && r.datos[1] == -10);
+
+    free(r.datos);'
+- nombre: test_procesar_numeros_unitario
+  funcion: procesar_numeros
+  codigo: 'int a[] = {10};
+
+    struct resultado_t r = procesar_numeros(a, 1);
+
+    assert(r.tamano == 1 && r.datos[0] == 20);
+
+    free(r.datos);'
+- nombre: test_procesar_numeros_cero
+  funcion: procesar_numeros
+  codigo: 'int a[] = {0};
+
+    struct resultado_t r = procesar_numeros(a, 1);
+
+    assert(r.tamano == 1 && r.datos[0] == 0);
+
+    free(r.datos);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

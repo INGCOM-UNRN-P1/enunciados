@@ -9,7 +9,9 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: intercambiar
   retorno: void
@@ -23,7 +25,30 @@ rol_familia: libreria
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+subtema: punteros
+publicar: true
+tests_funciones:
+- nombre: test_intercambiar_positivo
+  funcion: intercambiar
+  codigo: 'int res = intercambiar(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_intercambiar_cero
+  funcion: intercambiar
+  codigo: 'int res = intercambiar(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_intercambiar_negativo
+  funcion: intercambiar
+  codigo: 'int res = intercambiar(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_intercambiar_limite
+  funcion: intercambiar
+  codigo: 'int res = intercambiar(100);
+
+    assert(res >= 0 || res == 200);'

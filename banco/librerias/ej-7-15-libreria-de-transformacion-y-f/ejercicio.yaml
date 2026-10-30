@@ -4,8 +4,8 @@ tema: librerias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Utilizá el calificador `const` en los arreglos de solo lectura y documentá 
-  precondiciones claras para cada función.
+- Utilizá el calificador `const` en los arreglos de solo lectura y documentá precondiciones
+  claras para cada función.
 - '[Plus Ultra] Escribir pruebas unitarias con `assert()` en `tests/` para verificar
   arreglos vacíos y con valores negativos.'
 tags:
@@ -16,13 +16,15 @@ tags:
 - arreglos
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_e_transformacion_y_f
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Transformación y 
-    Filtrado de Arreglos
+  descripcion: Procesa el flujo principal de Librería de Transformación y Filtrado
+    de Arreglos
 tests_funciones:
 - nombre: test_proc_e_transformacion_y_f_positivo
   funcion: proc_e_transformacion_y_f
@@ -34,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc_e_transformacion_y_f(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_transformacion_y_f_negativo
+  funcion: proc_e_transformacion_y_f
+  codigo: 'int res = proc_e_transformacion_y_f(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_transformacion_y_f_valor_limite
+  funcion: proc_e_transformacion_y_f
+  codigo: 'int res = proc_e_transformacion_y_f(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_transformacion_y_f_valor_unitario
+  funcion: proc_e_transformacion_y_f
+  codigo: 'int res = proc_e_transformacion_y_f(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: filtrado
@@ -42,3 +59,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

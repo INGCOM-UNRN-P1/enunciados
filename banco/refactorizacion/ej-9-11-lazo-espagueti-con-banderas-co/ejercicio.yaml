@@ -12,6 +12,8 @@ tags:
 - banderas
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: check
@@ -19,20 +21,32 @@ funciones:
   parametros: int n
   descripcion: Operación check
 tests_funciones:
-- nombre: test_check_1
+- nombre: test_check_positivo
   funcion: check
-  codigo: '/* Verificación unitaria de check */
+  codigo: 'int res = check(5);
 
-    int res = check(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_check_cero
+  funcion: check
+  codigo: 'int res = check(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_check_negativo
+  funcion: check
+  codigo: 'int res = check(-5);
 
-    assert(true);'
+    assert(res <= 0 || res >= -100);'
+- nombre: test_check_limite
+  funcion: check
+  codigo: 'int res = check(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

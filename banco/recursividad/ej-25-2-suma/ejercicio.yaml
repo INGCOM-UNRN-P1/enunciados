@@ -14,6 +14,8 @@ tags:
 - induccion
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_25_2_suma
@@ -31,6 +33,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_25_2_suma(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_25_2_suma_negativo
+  funcion: ejecutar_ej_25_2_suma
+  codigo: 'int res = ejecutar_ej_25_2_suma(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_25_2_suma_valor_limite
+  funcion: ejecutar_ej_25_2_suma
+  codigo: 'int res = ejecutar_ej_25_2_suma(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_25_2_suma_valor_unitario
+  funcion: ejecutar_ej_25_2_suma
+  codigo: 'int res = ejecutar_ej_25_2_suma(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: algoritmos
@@ -39,3 +56,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

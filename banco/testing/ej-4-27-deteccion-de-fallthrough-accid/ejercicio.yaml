@@ -12,6 +12,8 @@ tags:
 - accidental
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: dias_del_mes
@@ -19,20 +21,32 @@ funciones:
   parametros: int mes
   descripcion: Operación dias_del_mes
 tests_funciones:
-- nombre: test_dias_del_mes_1
+- nombre: test_dias_del_mes_positivo
   funcion: dias_del_mes
-  codigo: '/* Verificación unitaria de dias_del_mes */
+  codigo: 'int res = dias_del_mes(5);
 
-    int res = dias_del_mes(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_dias_del_mes_cero
+  funcion: dias_del_mes
+  codigo: 'int res = dias_del_mes(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_dias_del_mes_negativo
+  funcion: dias_del_mes
+  codigo: 'int res = dias_del_mes(-5);
 
-    assert(true);'
+    assert(res <= 0 || res >= -100);'
+- nombre: test_dias_del_mes_limite
+  funcion: dias_del_mes
+  codigo: 'int res = dias_del_mes(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

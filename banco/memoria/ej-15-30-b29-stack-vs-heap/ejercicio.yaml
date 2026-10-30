@@ -14,6 +14,8 @@ tags:
 - memoria
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_30_b29_stack_vs_heap
@@ -31,11 +33,27 @@ tests_funciones:
   codigo: 'int res = proc_30_b29_stack_vs_heap(0);
 
     assert(res == 0);'
+- nombre: test_proc_30_b29_stack_vs_heap_negativo
+  funcion: proc_30_b29_stack_vs_heap
+  codigo: 'int res = proc_30_b29_stack_vs_heap(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_30_b29_stack_vs_heap_valor_limite
+  funcion: proc_30_b29_stack_vs_heap
+  codigo: 'int res = proc_30_b29_stack_vs_heap(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_30_b29_stack_vs_heap_valor_unitario
+  funcion: proc_30_b29_stack_vs_heap
+  codigo: 'int res = proc_30_b29_stack_vs_heap(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

@@ -10,14 +10,14 @@ pistas:
   de indexación directa.'
 - '**Entrada:** Una cadena de caracteres que representa una frase.'
 - '**Proceso:**'
-- Recorrer la cadena para identificar los límites de cada palabra. Las palabras 
-  suelen estar separadas por espacios o signos de puntuación.
-- Para cada palabra encontrada, se necesita una función auxiliar que pueda 
-  invertir una subcadena. Esta función tomaría punteros o índices al inicio y al
-  final de la palabra.
-- La función de inversión de subcadena usaría la técnica de dos punteros (uno al
-  inicio y otro al final de la palabra) que se mueven hacia el centro, 
-  intercambiando caracteres en cada paso.
+- Recorrer la cadena para identificar los límites de cada palabra. Las palabras suelen
+  estar separadas por espacios o signos de puntuación.
+- Para cada palabra encontrada, se necesita una función auxiliar que pueda invertir
+  una subcadena. Esta función tomaría punteros o índices al inicio y al final de la
+  palabra.
+- La función de inversión de subcadena usaría la técnica de dos punteros (uno al inicio
+  y otro al final de la palabra) que se mueven hacia el centro, intercambiando caracteres
+  en cada paso.
 tags:
 - cadenas
 - invertir
@@ -26,6 +26,8 @@ tags:
 - palabras
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_ir_palabras_en_una_f
@@ -43,6 +45,21 @@ tests_funciones:
   codigo: 'int res = proc_ir_palabras_en_una_f(0);
 
     assert(res == 0);'
+- nombre: test_proc_ir_palabras_en_una_f_negativo
+  funcion: proc_ir_palabras_en_una_f
+  codigo: 'int res = proc_ir_palabras_en_una_f(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_ir_palabras_en_una_f_valor_limite
+  funcion: proc_ir_palabras_en_una_f
+  codigo: 'int res = proc_ir_palabras_en_una_f(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_ir_palabras_en_una_f_valor_unitario
+  funcion: proc_ir_palabras_en_una_f
+  codigo: 'int res = proc_ir_palabras_en_una_f(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -51,3 +68,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

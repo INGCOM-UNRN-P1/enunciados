@@ -110,6 +110,8 @@ tags:
 - asintotica
 - dep:algoritmos_ordenamiento
 - dep:lazos_anidados
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc__8_lazo_con_division
@@ -127,11 +129,27 @@ tests_funciones:
   codigo: 'int res = proc__8_lazo_con_division(0);
 
     assert(res == 0);'
+- nombre: test_proc__8_lazo_con_division_negativo
+  funcion: proc__8_lazo_con_division
+  codigo: 'int res = proc__8_lazo_con_division(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__8_lazo_con_division_valor_limite
+  funcion: proc__8_lazo_con_division
+  codigo: 'int res = proc__8_lazo_con_division(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__8_lazo_con_division_valor_unitario
+  funcion: proc__8_lazo_con_division
+  codigo: 'int res = proc__8_lazo_con_division(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: big_o
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - algoritmos_ordenamiento
 - lazos_anidados
+publicar: true

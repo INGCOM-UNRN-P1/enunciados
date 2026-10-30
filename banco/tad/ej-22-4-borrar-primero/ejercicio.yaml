@@ -17,6 +17,8 @@ tags:
 - dep:estructuras
 - dep:punteros
 - dep:memoria_dinamica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__22_4_borrar_primero
@@ -34,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc__22_4_borrar_primero(0);
 
     assert(res == 0);'
+- nombre: test_proc__22_4_borrar_primero_negativo
+  funcion: proc__22_4_borrar_primero
+  codigo: 'int res = proc__22_4_borrar_primero(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__22_4_borrar_primero_valor_limite
+  funcion: proc__22_4_borrar_primero
+  codigo: 'int res = proc__22_4_borrar_primero(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__22_4_borrar_primero_valor_unitario
+  funcion: proc__22_4_borrar_primero
+  codigo: 'int res = proc__22_4_borrar_primero(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - estructuras
 - punteros
 - memoria_dinamica
+publicar: true

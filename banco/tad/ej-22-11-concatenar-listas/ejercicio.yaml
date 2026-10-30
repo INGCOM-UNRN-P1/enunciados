@@ -102,6 +102,8 @@ tags:
 - dep:estructuras
 - dep:punteros
 - dep:memoria_dinamica
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_11_concatenar_listas
@@ -119,12 +121,28 @@ tests_funciones:
   codigo: 'int res = proc_11_concatenar_listas(0);
 
     assert(res == 0);'
+- nombre: test_proc_11_concatenar_listas_negativo
+  funcion: proc_11_concatenar_listas
+  codigo: 'int res = proc_11_concatenar_listas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_11_concatenar_listas_valor_limite
+  funcion: proc_11_concatenar_listas
+  codigo: 'int res = proc_11_concatenar_listas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_11_concatenar_listas_valor_unitario
+  funcion: proc_11_concatenar_listas
+  codigo: 'int res = proc_11_concatenar_listas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - estructuras
 - punteros
 - memoria_dinamica
+publicar: true

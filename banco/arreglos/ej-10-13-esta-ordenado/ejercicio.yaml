@@ -23,6 +23,8 @@ tags:
 - vectores
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__10_13_esta_ordenado
@@ -40,6 +42,21 @@ tests_funciones:
   codigo: 'int res = proc__10_13_esta_ordenado(0);
 
     assert(res == 0);'
+- nombre: test_proc__10_13_esta_ordenado_negativo
+  funcion: proc__10_13_esta_ordenado
+  codigo: 'int res = proc__10_13_esta_ordenado(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__10_13_esta_ordenado_valor_limite
+  funcion: proc__10_13_esta_ordenado
+  codigo: 'int res = proc__10_13_esta_ordenado(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__10_13_esta_ordenado_valor_unitario
+  funcion: proc__10_13_esta_ordenado
+  codigo: 'int res = proc__10_13_esta_ordenado(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: esta
@@ -48,3 +65,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

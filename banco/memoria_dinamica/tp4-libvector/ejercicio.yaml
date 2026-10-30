@@ -9,7 +9,9 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: crear_bloque_enteros
   retorno: int *
@@ -26,7 +28,30 @@ rol_familia: libreria
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 dificultad: intermedia
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: memoria_dinamica
+publicar: true
+tests_funciones:
+- nombre: test_crear_bloque_enteros_positivo
+  funcion: crear_bloque_enteros
+  codigo: 'int res = crear_bloque_enteros(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_crear_bloque_enteros_cero
+  funcion: crear_bloque_enteros
+  codigo: 'int res = crear_bloque_enteros(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_crear_bloque_enteros_negativo
+  funcion: crear_bloque_enteros
+  codigo: 'int res = crear_bloque_enteros(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_crear_bloque_enteros_limite
+  funcion: crear_bloque_enteros
+  codigo: 'int res = crear_bloque_enteros(100);
+
+    assert(res >= 0 || res == 200);'

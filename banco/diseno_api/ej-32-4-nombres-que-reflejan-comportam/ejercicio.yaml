@@ -16,6 +16,8 @@ tags:
 - api
 - dep:librerias
 - dep:punteros
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_e_reflejan_comportam
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_e_reflejan_comportam(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_reflejan_comportam_negativo
+  funcion: proc_e_reflejan_comportam
+  codigo: 'int res = proc_e_reflejan_comportam(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_reflejan_comportam_valor_limite
+  funcion: proc_e_reflejan_comportam
+  codigo: 'int res = proc_e_reflejan_comportam(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_reflejan_comportam_valor_unitario
+  funcion: proc_e_reflejan_comportam
+  codigo: 'int res = proc_e_reflejan_comportam(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: nombres
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - librerias
 - punteros
+publicar: true

@@ -4,12 +4,11 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 50
 pistas:
-- Un arena_t Allocator pre-reserva un bloque contiguo de memoria y despacha 
-  punteros incrementando un offset.
-- Para respetar la alineación de memoria a múltiplos de 8 bytes, ajustá el 
-  offset hacia arriba.
-- El reseteo de la arena simplemente pone el offset en 0 sin hacer free() 
-  individual.
+- Un arena_t Allocator pre-reserva un bloque contiguo de memoria y despacha punteros
+  incrementando un offset.
+- Para respetar la alineación de memoria a múltiplos de 8 bytes, ajustá el offset
+  hacia arriba.
+- El reseteo de la arena simplemente pone el offset en 0 sin hacer free() individual.
 tags:
 - memoria_dinamica
 - arena
@@ -18,6 +17,8 @@ tags:
 - punteros
 - dep:memoria
 - dep:punteros
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: arena_init
@@ -33,21 +34,136 @@ funciones:
   parametros: arena_t *arena
   descripcion: Operación arena_free
 tests_funciones:
-- nombre: test_arena_init_1
+- nombre: test_arena_init_capacidad
   funcion: arena_init
-  codigo: '/* Verificación unitaria de arena_init */
+  codigo: 'arena_t a;
 
-    assert(true);'
-- nombre: test_arena_reset_2
+    arena_init(&a, 1024);
+
+    assert(a.capacidad == 1024 && a.offset == 0 && a.buffer != NULL);
+
+    arena_free(&a);'
+- nombre: test_arena_init_pequena
+  funcion: arena_init
+  codigo: 'arena_t a;
+
+    arena_init(&a, 64);
+
+    assert(a.capacidad == 64 && a.offset == 0 && a.buffer != NULL);
+
+    arena_free(&a);'
+- nombre: test_arena_init_mediana
+  funcion: arena_init
+  codigo: 'arena_t a;
+
+    arena_init(&a, 256);
+
+    assert(a.capacidad == 256 && a.buffer != NULL);
+
+    arena_free(&a);'
+- nombre: test_arena_init_minima
+  funcion: arena_init
+  codigo: 'arena_t a;
+
+    arena_init(&a, 16);
+
+    assert(a.capacidad == 16 && a.buffer != NULL);
+
+    arena_free(&a);'
+- nombre: test_arena_reset_offset
   funcion: arena_reset
-  codigo: '/* Verificación unitaria de arena_reset */
+  codigo: 'arena_t a;
 
-    assert(true);'
+    arena_init(&a, 128);
+
+    a.offset = 64;
+
+    arena_reset(&a);
+
+    assert(a.offset == 0);
+
+    arena_free(&a);'
+- nombre: test_arena_reset_completa
+  funcion: arena_reset
+  codigo: 'arena_t a;
+
+    arena_init(&a, 128);
+
+    a.offset = 128;
+
+    arena_reset(&a);
+
+    assert(a.offset == 0);
+
+    arena_free(&a);'
+- nombre: test_arena_reset_neutro
+  funcion: arena_reset
+  codigo: 'arena_t a;
+
+    arena_init(&a, 128);
+
+    arena_reset(&a);
+
+    assert(a.offset == 0);
+
+    arena_free(&a);'
+- nombre: test_arena_reset_parcial
+  funcion: arena_reset
+  codigo: 'arena_t a;
+
+    arena_init(&a, 64);
+
+    a.offset = 32;
+
+    arena_reset(&a);
+
+    assert(a.offset == 0);
+
+    arena_free(&a);'
+- nombre: test_arena_free_libera
+  funcion: arena_free
+  codigo: 'arena_t a;
+
+    arena_init(&a, 128);
+
+    arena_free(&a);
+
+    assert(a.buffer == NULL && a.capacidad == 0 && a.offset == 0);'
+- nombre: test_arena_free_idempotente
+  funcion: arena_free
+  codigo: 'arena_t a;
+
+    arena_init(&a, 64);
+
+    arena_free(&a);
+
+    assert(a.buffer == NULL && a.capacidad == 0);'
+- nombre: test_arena_free_con_offset
+  funcion: arena_free
+  codigo: 'arena_t a;
+
+    arena_init(&a, 32);
+
+    a.offset = 16;
+
+    arena_free(&a);
+
+    assert(a.buffer == NULL && a.offset == 0);'
+- nombre: test_arena_free_grande
+  funcion: arena_free
+  codigo: 'arena_t a;
+
+    arena_init(&a, 256);
+
+    arena_free(&a);
+
+    assert(a.buffer == NULL);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: arena
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

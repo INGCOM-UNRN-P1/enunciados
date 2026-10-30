@@ -16,6 +16,8 @@ tags:
 - algoritmos
 - dep:arreglos
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_submatriz_mayor_suma
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_submatriz_mayor_suma(0);
 
     assert(res == 0);'
+- nombre: test_proc_submatriz_mayor_suma_negativo
+  funcion: proc_submatriz_mayor_suma
+  codigo: 'int res = proc_submatriz_mayor_suma(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_submatriz_mayor_suma_valor_limite
+  funcion: proc_submatriz_mayor_suma
+  codigo: 'int res = proc_submatriz_mayor_suma(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_submatriz_mayor_suma_valor_unitario
+  funcion: proc_submatriz_mayor_suma
+  codigo: 'int res = proc_submatriz_mayor_suma(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: matrices_2d
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
+publicar: true

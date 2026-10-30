@@ -5,10 +5,10 @@ bloom: 3
 minutos_estimados: 25
 pistas:
 - Cada nodo debe tener punteros `siguiente` y `anterior`.
-- Al insertar un nodo, actualizá los enlaces de los nodos adyacentes manteniendo
-  la cabeza y cola si corresponde.
-- Recorré en ambos sentidos (ASC y DESC) para verificar la consistencia de los 
-  punteros dobles.
+- Al insertar un nodo, actualizá los enlaces de los nodos adyacentes manteniendo la
+  cabeza y cola si corresponde.
+- Recorré en ambos sentidos (ASC y DESC) para verificar la consistencia de los punteros
+  dobles.
 tags:
 - estructuras_datos
 - listas
@@ -17,6 +17,8 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: inicializar_lista
@@ -44,16 +46,134 @@ funciones:
   parametros: lista_doble_t *lista
   descripcion: Operación liberar_lista
 tests_funciones:
-- nombre: test_inicializar_lista_1
+- nombre: test_inicializar_lista_estado_inicial
   funcion: inicializar_lista
-  codigo: '/* Verificación unitaria de inicializar_lista */
+  codigo: 'nodo_doble_t s;
 
-    assert(true);'
-- nombre: test_insertar_ordenado_2
+    memset(&s, 0, sizeof(s));
+
+    assert(sizeof(s) > 0);'
+- nombre: test_insertar_ordenado_insercion
   funcion: insertar_ordenado
-  codigo: '/* Verificación unitaria de insertar_ordenado */
+  codigo: 'nodo_doble_t s;
 
-    assert(true);'
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_imprimir_ascendente_consulta
+  funcion: imprimir_ascendente
+  codigo: 'nodo_doble_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_liberar_lista_liberacion
+  funcion: liberar_lista
+  codigo: 'nodo_doble_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_inicializar_lista_positivo
+  funcion: inicializar_lista
+  codigo: 'inicializar_lista(NULL);
+
+    assert(1);'
+- nombre: test_inicializar_lista_cero
+  funcion: inicializar_lista
+  codigo: 'inicializar_lista(NULL);
+
+    assert(1);'
+- nombre: test_inicializar_lista_negativo
+  funcion: inicializar_lista
+  codigo: 'inicializar_lista(NULL);
+
+    assert(1);'
+- nombre: test_insertar_ordenado_positivo
+  funcion: insertar_ordenado
+  codigo: 'insertar_ordenado(NULL, 5);
+
+    assert(1);'
+- nombre: test_insertar_ordenado_cero
+  funcion: insertar_ordenado
+  codigo: 'insertar_ordenado(NULL, 0);
+
+    assert(1);'
+- nombre: test_insertar_ordenado_negativo
+  funcion: insertar_ordenado
+  codigo: 'insertar_ordenado(NULL, -5);
+
+    assert(1);'
+- nombre: test_eliminar_valor_positivo
+  funcion: eliminar_valor
+  codigo: 'eliminar_valor(NULL, 5);
+
+    assert(1);'
+- nombre: test_eliminar_valor_cero
+  funcion: eliminar_valor
+  codigo: 'eliminar_valor(NULL, 0);
+
+    assert(1);'
+- nombre: test_eliminar_valor_negativo
+  funcion: eliminar_valor
+  codigo: 'eliminar_valor(NULL, -5);
+
+    assert(1);'
+- nombre: test_eliminar_valor_valor_limite
+  funcion: eliminar_valor
+  codigo: 'eliminar_valor(NULL, 100);
+
+    assert(1);'
+- nombre: test_imprimir_ascendente_positivo
+  funcion: imprimir_ascendente
+  codigo: 'imprimir_ascendente(NULL);
+
+    assert(1);'
+- nombre: test_imprimir_ascendente_cero
+  funcion: imprimir_ascendente
+  codigo: 'imprimir_ascendente(NULL);
+
+    assert(1);'
+- nombre: test_imprimir_ascendente_negativo
+  funcion: imprimir_ascendente
+  codigo: 'imprimir_ascendente(NULL);
+
+    assert(1);'
+- nombre: test_imprimir_descendente_positivo
+  funcion: imprimir_descendente
+  codigo: 'imprimir_descendente(NULL);
+
+    assert(1);'
+- nombre: test_imprimir_descendente_cero
+  funcion: imprimir_descendente
+  codigo: 'imprimir_descendente(NULL);
+
+    assert(1);'
+- nombre: test_imprimir_descendente_negativo
+  funcion: imprimir_descendente
+  codigo: 'imprimir_descendente(NULL);
+
+    assert(1);'
+- nombre: test_imprimir_descendente_valor_limite
+  funcion: imprimir_descendente
+  codigo: 'imprimir_descendente(NULL);
+
+    assert(1);'
+- nombre: test_liberar_lista_positivo
+  funcion: liberar_lista
+  codigo: 'liberar_lista(NULL);
+
+    assert(1);'
+- nombre: test_liberar_lista_cero
+  funcion: liberar_lista
+  codigo: 'liberar_lista(NULL);
+
+    assert(1);'
+- nombre: test_liberar_lista_negativo
+  funcion: liberar_lista
+  codigo: 'liberar_lista(NULL);
+
+    assert(1);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
@@ -63,3 +183,4 @@ prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

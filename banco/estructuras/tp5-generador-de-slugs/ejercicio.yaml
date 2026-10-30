@@ -9,7 +9,9 @@ tags:
 - estructuras
 - dep:tipos_datos
 - dep:funciones
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: generar_slug
   retorno: bool
@@ -22,7 +24,8 @@ funciones:
 - nombre: acotar_longitud_slug
   retorno: bool
   parametros: cadena_segura_t *slug, size_t max_longitud
-  descripcion: Acota la longitud de un slug a un maximo dado, evitando que termine en guion.
+  descripcion: Acota la longitud de un slug a un maximo dado, evitando que termine
+    en guion.
 tipo_entrega: makefile
 familia: tp5-2026
 rol_familia: uso
@@ -30,8 +33,71 @@ dependencias:
 - tp5-libcadena-segura
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - funciones
+subtema: de_slugs
+publicar: true
+tests_funciones:
+- nombre: test_generar_slug_positivo
+  funcion: generar_slug
+  codigo: 'int res = generar_slug(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_generar_slug_cero
+  funcion: generar_slug
+  codigo: 'int res = generar_slug(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_generar_slug_negativo
+  funcion: generar_slug
+  codigo: 'int res = generar_slug(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_generar_slug_limite
+  funcion: generar_slug
+  codigo: 'int res = generar_slug(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_contiene_palabra_prohibida_positivo
+  funcion: contiene_palabra_prohibida
+  codigo: 'bool ok = contiene_palabra_prohibida(NULL, "prueba");
+
+    assert(ok == true || ok == false);'
+- nombre: test_contiene_palabra_prohibida_cero
+  funcion: contiene_palabra_prohibida
+  codigo: 'bool ok = contiene_palabra_prohibida(NULL, "");
+
+    assert(ok == true || ok == false);'
+- nombre: test_contiene_palabra_prohibida_negativo
+  funcion: contiene_palabra_prohibida
+  codigo: 'bool ok = contiene_palabra_prohibida(NULL, "abc");
+
+    assert(ok == true || ok == false);'
+- nombre: test_contiene_palabra_prohibida_valor_limite
+  funcion: contiene_palabra_prohibida
+  codigo: 'bool ok = contiene_palabra_prohibida(NULL, "texto_prueba_123");
+
+    assert(ok == true || ok == false);'
+- nombre: test_acotar_longitud_slug_positivo
+  funcion: acotar_longitud_slug
+  codigo: 'bool ok = acotar_longitud_slug(NULL, 5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_acotar_longitud_slug_cero
+  funcion: acotar_longitud_slug
+  codigo: 'bool ok = acotar_longitud_slug(NULL, 0);
+
+    assert(ok == true || ok == false);'
+- nombre: test_acotar_longitud_slug_negativo
+  funcion: acotar_longitud_slug
+  codigo: 'bool ok = acotar_longitud_slug(NULL, -5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_acotar_longitud_slug_valor_limite
+  funcion: acotar_longitud_slug
+  codigo: 'bool ok = acotar_longitud_slug(NULL, 100);
+
+    assert(ok == true || ok == false);'

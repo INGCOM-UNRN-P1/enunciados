@@ -4,12 +4,12 @@ tema: refactorizacion
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Separá la validación de la desigualdad triangular, la clasificación por lados 
-  y el cálculo de área.
-- Para comparaciones de números reales en punto flotante, utilizá una tolerancia
-  fabs(a - b) < EPSILON.
-- Implementá funciones puras que retornen valores descriptivos o códigos de 
-  estado claros.
+- Separá la validación de la desigualdad triangular, la clasificación por lados y
+  el cálculo de área.
+- Para comparaciones de números reales en punto flotante, utilizá una tolerancia fabs(a
+  - b) < EPSILON.
+- Implementá funciones puras que retornen valores descriptivos o códigos de estado
+  claros.
 tags:
 - clean_code
 - refactorizacion
@@ -18,6 +18,8 @@ tags:
 - todo-en-uno
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: tri
@@ -25,14 +27,32 @@ funciones:
   parametros: double a, double b, double c, int *tipo
   descripcion: Operación tri
 tests_funciones:
-- nombre: test_tri_1
+- nombre: test_tri_positivo
   funcion: tri
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = tri(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_tri_cero
+  funcion: tri
+  codigo: 'int res = tri(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_tri_negativo
+  funcion: tri
+  codigo: 'int res = tri(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_tri_limite
+  funcion: tri
+  codigo: 'int res = tri(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

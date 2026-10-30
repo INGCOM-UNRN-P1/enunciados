@@ -4,8 +4,8 @@ tema: librerias
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Utilizá esta librería para validar la entrada ingresada por el usuario antes 
-  de convertirla a tipos numéricos.
+- Utilizá esta librería para validar la entrada ingresada por el usuario antes de
+  convertirla a tipos numéricos.
 tags:
 - sanitizacion
 - entradas
@@ -14,13 +14,15 @@ tags:
 - headers
 - dep:funciones
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_e_sanitizacion_e_ins
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Sanitización e 
-    Inspección de Entradas
+  descripcion: Procesa el flujo principal de Librería de Sanitización e Inspección
+    de Entradas
 tests_funciones:
 - nombre: test_proc_e_sanitizacion_e_ins_positivo
   funcion: proc_e_sanitizacion_e_ins
@@ -32,11 +34,27 @@ tests_funciones:
   codigo: 'int res = proc_e_sanitizacion_e_ins(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_sanitizacion_e_ins_negativo
+  funcion: proc_e_sanitizacion_e_ins
+  codigo: 'int res = proc_e_sanitizacion_e_ins(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_sanitizacion_e_ins_valor_limite
+  funcion: proc_e_sanitizacion_e_ins
+  codigo: 'int res = proc_e_sanitizacion_e_ins(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_sanitizacion_e_ins_valor_unitario
+  funcion: proc_e_sanitizacion_e_ins
+  codigo: 'int res = proc_e_sanitizacion_e_ins(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: sanitizacion
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

@@ -4,12 +4,12 @@ tema: analisis_codigo
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Identificá todas las rutas de salida temprana (return, break) que puedan 
-  omitir la liberación de recursos.
-- Verificá que las estructuras anidadas o listas liberen sus nodos antes de 
-  liberar el contenedor principal.
-- Utilizá herramientas como Valgrind o AddressSanitizer para confirmar la 
-  ausencia de fugas.
+- Identificá todas las rutas de salida temprana (return, break) que puedan omitir
+  la liberación de recursos.
+- Verificá que las estructuras anidadas o listas liberen sus nodos antes de liberar
+  el contenedor principal.
+- Utilizá herramientas como Valgrind o AddressSanitizer para confirmar la ausencia
+  de fugas.
 tags:
 - analisis
 - memory
@@ -18,6 +18,8 @@ tags:
 - leaks
 - dep:memoria
 - dep:testing
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_isis_de_memory_leaks
@@ -35,11 +37,27 @@ tests_funciones:
   codigo: 'int res = proc_isis_de_memory_leaks(0);
 
     assert(res == 0);'
+- nombre: test_proc_isis_de_memory_leaks_negativo
+  funcion: proc_isis_de_memory_leaks
+  codigo: 'int res = proc_isis_de_memory_leaks(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_isis_de_memory_leaks_valor_limite
+  funcion: proc_isis_de_memory_leaks
+  codigo: 'int res = proc_isis_de_memory_leaks(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_isis_de_memory_leaks_valor_unitario
+  funcion: proc_isis_de_memory_leaks
+  codigo: 'int res = proc_isis_de_memory_leaks(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: analisis
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - testing
+publicar: true

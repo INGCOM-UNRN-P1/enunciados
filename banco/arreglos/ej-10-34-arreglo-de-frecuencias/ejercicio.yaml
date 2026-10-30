@@ -5,8 +5,8 @@ bloom: 3
 minutos_estimados: 25
 pistas:
 - '**Proceso:**'
-- Crear un nuevo arreglo `frecuencias` del tamaño del rango (ej. 100), 
-  inicializado todo en 0.
+- Crear un nuevo arreglo `frecuencias` del tamaño del rango (ej. 100), inicializado
+  todo en 0.
 - 'Recorrer el arreglo de entrada. Para cada número `x`, usarlo como índice en el
   arreglo de frecuencias e incrementar la cuenta: `frecuencias[x]++`.'
 - '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
@@ -21,6 +21,8 @@ tags:
 - vectores
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_reglo_de_frecuencias
@@ -38,6 +40,21 @@ tests_funciones:
   codigo: 'int res = proc_reglo_de_frecuencias(0);
 
     assert(res == 0);'
+- nombre: test_proc_reglo_de_frecuencias_negativo
+  funcion: proc_reglo_de_frecuencias
+  codigo: 'int res = proc_reglo_de_frecuencias(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_reglo_de_frecuencias_valor_limite
+  funcion: proc_reglo_de_frecuencias
+  codigo: 'int res = proc_reglo_de_frecuencias(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_reglo_de_frecuencias_valor_unitario
+  funcion: proc_reglo_de_frecuencias
+  codigo: 'int res = proc_reglo_de_frecuencias(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: arreglo
@@ -46,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

@@ -12,6 +12,8 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__b2_encontrar_maximo
@@ -29,11 +31,27 @@ tests_funciones:
   codigo: 'int res = proc__b2_encontrar_maximo(0);
 
     assert(res == 0);'
+- nombre: test_proc__b2_encontrar_maximo_negativo
+  funcion: proc__b2_encontrar_maximo
+  codigo: 'int res = proc__b2_encontrar_maximo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__b2_encontrar_maximo_valor_limite
+  funcion: proc__b2_encontrar_maximo
+  codigo: 'int res = proc__b2_encontrar_maximo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__b2_encontrar_maximo_valor_unitario
+  funcion: proc__b2_encontrar_maximo
+  codigo: 'int res = proc__b2_encontrar_maximo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: encontrar
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

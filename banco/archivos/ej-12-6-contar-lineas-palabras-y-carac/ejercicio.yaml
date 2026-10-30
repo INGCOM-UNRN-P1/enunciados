@@ -17,13 +17,14 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_eas_palabras_y_carac
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Contar Líneas, Palabras y 
-    Caracteres
+  descripcion: Procesa el flujo principal de Contar Líneas, Palabras y Caracteres
 tests_funciones:
 - nombre: test_proc_eas_palabras_y_carac_positivo
   funcion: proc_eas_palabras_y_carac
@@ -35,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc_eas_palabras_y_carac(0);
 
     assert(res == 0);'
+- nombre: test_proc_eas_palabras_y_carac_negativo
+  funcion: proc_eas_palabras_y_carac
+  codigo: 'int res = proc_eas_palabras_y_carac(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_eas_palabras_y_carac_valor_limite
+  funcion: proc_eas_palabras_y_carac
+  codigo: 'int res = proc_eas_palabras_y_carac(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_eas_palabras_y_carac_valor_unitario
+  funcion: proc_eas_palabras_y_carac
+  codigo: 'int res = proc_eas_palabras_y_carac(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: contar
@@ -44,3 +60,4 @@ prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

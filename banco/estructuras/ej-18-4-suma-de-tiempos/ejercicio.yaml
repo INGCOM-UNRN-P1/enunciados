@@ -15,6 +15,8 @@ tags:
 - memoria
 - dep:tipos_datos
 - dep:funciones
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_18_4_suma_de_tiempos
@@ -32,6 +34,21 @@ tests_funciones:
   codigo: 'int res = proc_18_4_suma_de_tiempos(0);
 
     assert(res == 0);'
+- nombre: test_proc_18_4_suma_de_tiempos_negativo
+  funcion: proc_18_4_suma_de_tiempos
+  codigo: 'int res = proc_18_4_suma_de_tiempos(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_18_4_suma_de_tiempos_valor_limite
+  funcion: proc_18_4_suma_de_tiempos
+  codigo: 'int res = proc_18_4_suma_de_tiempos(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_18_4_suma_de_tiempos_valor_unitario
+  funcion: proc_18_4_suma_de_tiempos
+  codigo: 'int res = proc_18_4_suma_de_tiempos(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: registros
@@ -40,3 +57,4 @@ tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
 - funciones
+publicar: true

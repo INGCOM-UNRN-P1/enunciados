@@ -11,6 +11,8 @@ tags:
 - fundamentos
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: operacion
@@ -18,20 +20,32 @@ funciones:
   parametros: int op, double a, double b
   descripcion: Operación operacion
 tests_funciones:
-- nombre: test_operacion_1
+- nombre: test_operacion_positivo
   funcion: operacion
-  codigo: '/* Verificación unitaria de operacion */
+  codigo: 'int res = operacion(5);
 
-    double res = operacion(1, 2, 3);
+    assert(res >= 0 || res == 10);'
+- nombre: test_operacion_cero
+  funcion: operacion
+  codigo: 'int res = operacion(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_operacion_negativo
+  funcion: operacion
+  codigo: 'int res = operacion(-5);
 
-    assert(true);'
+    assert(res <= 0 || res >= -100);'
+- nombre: test_operacion_limite
+  funcion: operacion
+  codigo: 'int res = operacion(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

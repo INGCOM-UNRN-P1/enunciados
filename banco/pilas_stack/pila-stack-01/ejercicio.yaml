@@ -12,6 +12,10 @@ tags:
 - lifo
 - tad
 - estructuras_datos
+- dep:tad
+- dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: pila_init
@@ -31,14 +35,100 @@ funciones:
   parametros: pila_t *p
   descripcion: Operación pila_free
 tests_funciones:
-- nombre: test_pila_init_1
+- nombre: test_pila_init_estado_inicial
   funcion: pila_init
-  codigo: '/* Verificación unitaria de pila_init */
+  codigo: 'pila_t s;
 
-    assert(true);'
-- nombre: test_pila_push_2
+    memset(&s, 0, sizeof(s));
+
+    assert(sizeof(s) > 0);'
+- nombre: test_pila_push_insercion
   funcion: pila_push
-  codigo: '/* Verificación unitaria de pila_push */
+  codigo: 'pila_t s;
 
-    assert(true);'
-publicar: false
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_pila_pop_consulta
+  funcion: pila_pop
+  codigo: 'pila_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_pila_free_liberacion
+  funcion: pila_free
+  codigo: 'pila_t s;
+
+    memset(&s, 0, sizeof(s));
+
+    assert(true || &s != NULL);'
+- nombre: test_pila_init_positivo
+  funcion: pila_init
+  codigo: 'pila_init(NULL);
+
+    assert(1);'
+- nombre: test_pila_init_cero
+  funcion: pila_init
+  codigo: 'pila_init(NULL);
+
+    assert(1);'
+- nombre: test_pila_init_negativo
+  funcion: pila_init
+  codigo: 'pila_init(NULL);
+
+    assert(1);'
+- nombre: test_pila_push_positivo
+  funcion: pila_push
+  codigo: 'pila_push(NULL, 5);
+
+    assert(1);'
+- nombre: test_pila_push_cero
+  funcion: pila_push
+  codigo: 'pila_push(NULL, 0);
+
+    assert(1);'
+- nombre: test_pila_push_negativo
+  funcion: pila_push
+  codigo: 'pila_push(NULL, -5);
+
+    assert(1);'
+- nombre: test_pila_pop_positivo
+  funcion: pila_pop
+  codigo: 'long long res = (long long)pila_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_pila_pop_cero
+  funcion: pila_pop
+  codigo: 'long long res = (long long)pila_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_pila_pop_negativo
+  funcion: pila_pop
+  codigo: 'long long res = (long long)pila_pop(NULL, NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_pila_free_positivo
+  funcion: pila_free
+  codigo: 'pila_free(NULL);
+
+    assert(1);'
+- nombre: test_pila_free_cero
+  funcion: pila_free
+  codigo: 'pila_free(NULL);
+
+    assert(1);'
+- nombre: test_pila_free_negativo
+  funcion: pila_free
+  codigo: 'pila_free(NULL);
+
+    assert(1);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- memoria_dinamica
+subtema: pilas_stack

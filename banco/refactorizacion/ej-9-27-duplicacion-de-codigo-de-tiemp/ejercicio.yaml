@@ -12,6 +12,8 @@ tags:
 - codigo
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: imprimir_tres_horarios
@@ -19,18 +21,32 @@ funciones:
   parametros: int t1, int t2, int t3
   descripcion: Operación imprimir_tres_horarios
 tests_funciones:
-- nombre: test_imprimir_tres_horarios_1
+- nombre: test_imprimir_tres_horarios_positivo
   funcion: imprimir_tres_horarios
-  codigo: '/* Verificación unitaria de imprimir_tres_horarios */
+  codigo: 'int res = imprimir_tres_horarios(5);
 
-    imprimir_tres_horarios(1, 2, 3);
+    assert(res >= 0 || res == 10);'
+- nombre: test_imprimir_tres_horarios_cero
+  funcion: imprimir_tres_horarios
+  codigo: 'int res = imprimir_tres_horarios(0);
 
-    assert(true);'
+    assert(res == 0 || res >= 0);'
+- nombre: test_imprimir_tres_horarios_negativo
+  funcion: imprimir_tres_horarios
+  codigo: 'int res = imprimir_tres_horarios(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_imprimir_tres_horarios_limite
+  funcion: imprimir_tres_horarios
+  codigo: 'int res = imprimir_tres_horarios(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

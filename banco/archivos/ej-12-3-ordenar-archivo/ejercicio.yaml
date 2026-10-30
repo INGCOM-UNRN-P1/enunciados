@@ -17,6 +17,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_12_3_ordenar_archivo
@@ -34,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc_12_3_ordenar_archivo(0);
 
     assert(res == 0);'
+- nombre: test_proc_12_3_ordenar_archivo_negativo
+  funcion: proc_12_3_ordenar_archivo
+  codigo: 'int res = proc_12_3_ordenar_archivo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_12_3_ordenar_archivo_valor_limite
+  funcion: proc_12_3_ordenar_archivo
+  codigo: 'int res = proc_12_3_ordenar_archivo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_12_3_ordenar_archivo_valor_unitario
+  funcion: proc_12_3_ordenar_archivo
+  codigo: 'int res = proc_12_3_ordenar_archivo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: archivo
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

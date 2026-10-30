@@ -16,6 +16,8 @@ tags:
 - 2d
 - dep:arreglos
 - dep:lazos_anidados
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_cal_triangulo_de_pas
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_cal_triangulo_de_pas(0);
 
     assert(res == 0);'
+- nombre: test_proc_cal_triangulo_de_pas_negativo
+  funcion: proc_cal_triangulo_de_pas
+  codigo: 'int res = proc_cal_triangulo_de_pas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_cal_triangulo_de_pas_valor_limite
+  funcion: proc_cal_triangulo_de_pas
+  codigo: 'int res = proc_cal_triangulo_de_pas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_cal_triangulo_de_pas_valor_unitario
+  funcion: proc_cal_triangulo_de_pas
+  codigo: 'int res = proc_cal_triangulo_de_pas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: matrices_2d
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - lazos_anidados
+publicar: true

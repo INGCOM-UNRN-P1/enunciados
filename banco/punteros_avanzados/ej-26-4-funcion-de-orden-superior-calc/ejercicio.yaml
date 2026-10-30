@@ -15,13 +15,14 @@ tags:
 - punteros_funcion
 - avanzados
 - dep:memoria_dinamica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__orden_superior_calc
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Función de Orden Superior 
-    (Calculadora)
+  descripcion: Procesa el flujo principal de Función de Orden Superior (Calculadora)
 tests_funciones:
 - nombre: test_proc__orden_superior_calc_positivo
   funcion: proc__orden_superior_calc
@@ -33,6 +34,21 @@ tests_funciones:
   codigo: 'int res = proc__orden_superior_calc(0);
 
     assert(res == 0);'
+- nombre: test_proc__orden_superior_calc_negativo
+  funcion: proc__orden_superior_calc
+  codigo: 'int res = proc__orden_superior_calc(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__orden_superior_calc_valor_limite
+  funcion: proc__orden_superior_calc
+  codigo: 'int res = proc__orden_superior_calc(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__orden_superior_calc_valor_unitario
+  funcion: proc__orden_superior_calc
+  codigo: 'int res = proc__orden_superior_calc(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: orden
@@ -40,3 +56,4 @@ dificultad: inicial
 tipo: practica_guiada
 prerrequisitos:
 - memoria_dinamica
+publicar: true

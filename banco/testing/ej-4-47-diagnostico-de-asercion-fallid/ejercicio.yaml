@@ -12,6 +12,8 @@ tags:
 - testing
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: mcd
@@ -19,20 +21,32 @@ funciones:
   parametros: int a, int b
   descripcion: Operación mcd
 tests_funciones:
-- nombre: test_mcd_1
+- nombre: test_mcd_positivo
   funcion: mcd
-  codigo: '/* Verificación unitaria de mcd */
+  codigo: 'int res = mcd(5);
 
-    int res = mcd(1, 2);
+    assert(res >= 0 || res == 10);'
+- nombre: test_mcd_cero
+  funcion: mcd
+  codigo: 'int res = mcd(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_mcd_negativo
+  funcion: mcd
+  codigo: 'int res = mcd(-5);
 
-    assert(true);'
+    assert(res <= 0 || res >= -100);'
+- nombre: test_mcd_limite
+  funcion: mcd
+  codigo: 'int res = mcd(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

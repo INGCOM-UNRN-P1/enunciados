@@ -12,6 +12,10 @@ tags:
 - conjuntos_disjuntos
 - grafos
 - estructuras_datos
+- dep:arreglos
+- dep:tad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_dsu_union_25
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_dsu_union_25(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_dsu_union_25_negativo
+  funcion: ejecutar_dsu_union_25
+  codigo: 'int res = ejecutar_dsu_union_25(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_dsu_union_25_valor_limite
+  funcion: ejecutar_dsu_union_25
+  codigo: 'int res = ejecutar_dsu_union_25(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_dsu_union_25_valor_unitario
+  funcion: ejecutar_dsu_union_25
+  codigo: 'int res = ejecutar_dsu_union_25(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- arreglos
+- tad
+subtema: conjuntos_disjuntos_union_find

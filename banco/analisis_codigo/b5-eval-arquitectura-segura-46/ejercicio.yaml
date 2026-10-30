@@ -9,6 +9,9 @@ tags:
 - analisis_codigo
 - evaluar
 - c11
+- dep:memoria
+- dep:testing
+- avanzada
 verificado: true
 funciones:
 - nombre: inicializar
@@ -20,10 +23,58 @@ funciones:
   parametros: registro_seguro_46_t *r, const char *entrada
   descripcion: Operación validar_y_cargar
 tests_funciones:
-- nombre: test_inicializar_1
+- nombre: test_inicializar_estado_neutro
   funcion: inicializar
-  codigo: assert(true); /* test simplificado de validación */
-- nombre: test_validar_y_cargar_2
+  codigo: 'registro_seguro_46_t r;
+
+    inicializar(&r);
+
+    assert(r.longitud == 0);
+
+    assert(r.validado == 0);'
+- nombre: test_validar_y_cargar_exito
   funcion: validar_y_cargar
-  codigo: assert(true); /* test simplificado de validación */
-publicar: false
+  codigo: 'registro_seguro_46_t r;
+
+    inicializar(&r);
+
+    int ok = validar_y_cargar(&r, "datos_seguros");
+
+    assert(ok == 1);
+
+    assert(r.longitud == 13);
+
+    assert(r.validado == 1);'
+- nombre: test_validar_y_cargar_cadena_vacia
+  funcion: validar_y_cargar
+  codigo: 'registro_seguro_46_t r;
+
+    inicializar(&r);
+
+    int ok = validar_y_cargar(&r, "");
+
+    assert(ok == 0);'
+- nombre: test_validar_y_cargar_rechazo_desborde
+  funcion: validar_y_cargar
+  codigo: 'registro_seguro_46_t r;
+
+    inicializar(&r);
+
+    char overflow[256];
+
+    memset(overflow, ''A'', 255);
+
+    overflow[255] = ''\0'';
+
+    int ok = validar_y_cargar(&r, overflow);
+
+    assert(ok == 0 || ok == 1);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: avanzada
+tipo: ejercicio_individual
+prerrequisitos:
+- memoria
+- testing
+subtema: arquitectura_segura

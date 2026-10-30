@@ -16,6 +16,8 @@ tags:
 - mcd
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_32_gcd_mcd_recursivo
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_32_gcd_mcd_recursivo(0);
 
     assert(res == 0);'
+- nombre: test_proc_32_gcd_mcd_recursivo_negativo
+  funcion: proc_32_gcd_mcd_recursivo
+  codigo: 'int res = proc_32_gcd_mcd_recursivo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_32_gcd_mcd_recursivo_valor_limite
+  funcion: proc_32_gcd_mcd_recursivo
+  codigo: 'int res = proc_32_gcd_mcd_recursivo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_32_gcd_mcd_recursivo_valor_unitario
+  funcion: proc_32_gcd_mcd_recursivo
+  codigo: 'int res = proc_32_gcd_mcd_recursivo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: induccion
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

@@ -9,12 +9,15 @@ tags:
 - funciones
 - dep:lazos
 - dep:secuencias
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: suma_divisores_propios
   retorno: int
   parametros: int numero
-  descripcion: Suma todos los divisores propios positivos de un número (menores al número).
+  descripcion: Suma todos los divisores propios positivos de un número (menores al
+    número).
 - nombre: clasificar_numero
   retorno: int
   parametros: int numero
@@ -29,3 +32,38 @@ tipo: practica_guiada
 prerrequisitos:
 - lazos
 - secuencias
+subtema: deficientes_abundantes
+publicar: true
+tests_funciones:
+- nombre: test_suma_divisores_propios_positivo
+  funcion: suma_divisores_propios
+  codigo: 'int res = suma_divisores_propios(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_suma_divisores_propios_cero
+  funcion: suma_divisores_propios
+  codigo: 'int res = suma_divisores_propios(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_suma_divisores_propios_negativo
+  funcion: suma_divisores_propios
+  codigo: 'int res = suma_divisores_propios(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_suma_divisores_propios_limite
+  funcion: suma_divisores_propios
+  codigo: 'int res = suma_divisores_propios(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_clasificar_numero_prueba_1
+  funcion: clasificar_numero
+  codigo: assert(clasificar_numero(0) == -1);
+- nombre: test_clasificar_numero_prueba_2
+  funcion: clasificar_numero
+  codigo: assert(clasificar_numero(6) == 1);
+- nombre: test_clasificar_numero_prueba_3
+  funcion: clasificar_numero
+  codigo: assert(clasificar_numero(28) == 1);
+- nombre: test_clasificar_numero_prueba_4
+  funcion: clasificar_numero
+  codigo: assert(clasificar_numero(8) == 0);

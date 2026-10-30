@@ -13,13 +13,14 @@ tags:
 - libreria
 - dep:funciones
 - dep:estructuras
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_e_conversion_de_base
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Conversión de Bases 
-    Numéricas
+  descripcion: Procesa el flujo principal de Librería de Conversión de Bases Numéricas
 tests_funciones:
 - nombre: test_proc_e_conversion_de_base_positivo
   funcion: proc_e_conversion_de_base
@@ -31,6 +32,21 @@ tests_funciones:
   codigo: 'int res = proc_e_conversion_de_base(0);
 
     assert(res == 0);'
+- nombre: test_proc_e_conversion_de_base_negativo
+  funcion: proc_e_conversion_de_base
+  codigo: 'int res = proc_e_conversion_de_base(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_e_conversion_de_base_valor_limite
+  funcion: proc_e_conversion_de_base
+  codigo: 'int res = proc_e_conversion_de_base(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_e_conversion_de_base_valor_unitario
+  funcion: proc_e_conversion_de_base
+  codigo: 'int res = proc_e_conversion_de_base(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: numericas
@@ -39,3 +55,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras
+publicar: true

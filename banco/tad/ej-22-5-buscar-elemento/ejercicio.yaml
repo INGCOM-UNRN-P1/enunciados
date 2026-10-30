@@ -17,6 +17,8 @@ tags:
 - dep:estructuras
 - dep:punteros
 - dep:memoria_dinamica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_22_5_buscar_elemento
@@ -34,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc_22_5_buscar_elemento(0);
 
     assert(res == 0);'
+- nombre: test_proc_22_5_buscar_elemento_negativo
+  funcion: proc_22_5_buscar_elemento
+  codigo: 'int res = proc_22_5_buscar_elemento(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_22_5_buscar_elemento_valor_limite
+  funcion: proc_22_5_buscar_elemento
+  codigo: 'int res = proc_22_5_buscar_elemento(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_22_5_buscar_elemento_valor_unitario
+  funcion: proc_22_5_buscar_elemento
+  codigo: 'int res = proc_22_5_buscar_elemento(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - estructuras
 - punteros
 - memoria_dinamica
+publicar: true

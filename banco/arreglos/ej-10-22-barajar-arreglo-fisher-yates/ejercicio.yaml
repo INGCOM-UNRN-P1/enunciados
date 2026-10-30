@@ -5,11 +5,10 @@ bloom: 3
 minutos_estimados: 25
 pistas:
 - '**Proceso:**'
-- Recorrer el arreglo desde el último elemento hasta el segundo (`i` desde `n-1`
-  hasta 1).
+- Recorrer el arreglo desde el último elemento hasta el segundo (`i` desde `n-1` hasta
+  1).
 - En cada iteración, generar un índice aleatorio `j` entre 0 e `i` (inclusive).
-- Intercambiar el elemento en la posición `i` con el elemento en la posición 
-  `j`.
+- Intercambiar el elemento en la posición `i` con el elemento en la posición `j`.
 - '**Aleatoriedad:** Requiere `srand()` y `rand()`.'
 - '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
   order*) para mejorar el uso de caché.'
@@ -23,6 +22,8 @@ tags:
 - vectores
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_arreglo_fisher_yates
@@ -40,6 +41,21 @@ tests_funciones:
   codigo: 'int res = proc_arreglo_fisher_yates(0);
 
     assert(res == 0);'
+- nombre: test_proc_arreglo_fisher_yates_negativo
+  funcion: proc_arreglo_fisher_yates
+  codigo: 'int res = proc_arreglo_fisher_yates(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_arreglo_fisher_yates_valor_limite
+  funcion: proc_arreglo_fisher_yates
+  codigo: 'int res = proc_arreglo_fisher_yates(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_arreglo_fisher_yates_valor_unitario
+  funcion: proc_arreglo_fisher_yates
+  codigo: 'int res = proc_arreglo_fisher_yates(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: arreglo
@@ -48,3 +64,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

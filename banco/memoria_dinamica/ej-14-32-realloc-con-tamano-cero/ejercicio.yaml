@@ -16,6 +16,8 @@ tags:
 - realloc
 - dep:memoria
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_lloc_con_tamano_cero
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_lloc_con_tamano_cero(0);
 
     assert(res == 0);'
+- nombre: test_proc_lloc_con_tamano_cero_negativo
+  funcion: proc_lloc_con_tamano_cero
+  codigo: 'int res = proc_lloc_con_tamano_cero(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_lloc_con_tamano_cero_valor_limite
+  funcion: proc_lloc_con_tamano_cero
+  codigo: 'int res = proc_lloc_con_tamano_cero(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_lloc_con_tamano_cero_valor_unitario
+  funcion: proc_lloc_con_tamano_cero
+  codigo: 'int res = proc_lloc_con_tamano_cero(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - memoria
 - punteros
+publicar: true

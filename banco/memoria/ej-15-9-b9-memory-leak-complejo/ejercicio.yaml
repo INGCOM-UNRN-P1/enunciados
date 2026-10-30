@@ -16,6 +16,8 @@ tags:
 - complejo
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: agregar_nodo
@@ -23,16 +25,52 @@ funciones:
   parametros: struct nodo_t **cabeza, int valor
   descripcion: Operación agregar_nodo
 tests_funciones:
-- nombre: test_agregar_nodo_1
+- nombre: test_agregar_nodo_cabeza_vacia
   funcion: agregar_nodo
-  codigo: '/* Verificación unitaria de agregar_nodo */
+  codigo: 'struct nodo_t *c = NULL;
 
-    assert(true);'
+    agregar_nodo(&c, 10);
+
+    assert(c != NULL && c->dato == 10);
+
+    free(c);'
+- nombre: test_agregar_nodo_multiples
+  funcion: agregar_nodo
+  codigo: 'struct nodo_t *c = NULL;
+
+    agregar_nodo(&c, 1);
+
+    agregar_nodo(&c, 2);
+
+    assert(c->dato == 2 && c->siguiente->dato == 1);
+
+    free(c->siguiente);
+
+    free(c);'
+- nombre: test_agregar_nodo_negativo
+  funcion: agregar_nodo
+  codigo: 'struct nodo_t *c = NULL;
+
+    agregar_nodo(&c, -5);
+
+    assert(c->dato == -5);
+
+    free(c);'
+- nombre: test_agregar_nodo_cero
+  funcion: agregar_nodo
+  codigo: 'struct nodo_t *c = NULL;
+
+    agregar_nodo(&c, 0);
+
+    assert(c->dato == 0);
+
+    free(c);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

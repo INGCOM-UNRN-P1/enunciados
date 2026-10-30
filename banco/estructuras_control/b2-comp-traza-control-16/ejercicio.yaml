@@ -9,6 +9,9 @@ tags:
 - estructuras_control
 - comprender
 - c11
+- dep:condicionales
+- dep:lazos
+- inicial
 verificado: true
 funciones:
 - nombre: proc_omp_traza_control_16
@@ -27,4 +30,27 @@ tests_funciones:
   codigo: 'int res = proc_omp_traza_control_16(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_proc_omp_traza_control_16_negativo
+  funcion: proc_omp_traza_control_16
+  codigo: 'int res = proc_omp_traza_control_16(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_omp_traza_control_16_valor_limite
+  funcion: proc_omp_traza_control_16
+  codigo: 'int res = proc_omp_traza_control_16(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_omp_traza_control_16_valor_unitario
+  funcion: proc_omp_traza_control_16
+  codigo: 'int res = proc_omp_traza_control_16(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- condicionales
+- lazos
+subtema: traza_control

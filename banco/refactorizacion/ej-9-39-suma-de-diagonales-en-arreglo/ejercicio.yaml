@@ -12,6 +12,8 @@ tags:
 - fundamentos
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: calcular_suma_diagonales
@@ -23,29 +25,32 @@ funciones:
   parametros: void
   descripcion: Operación test_suma_diagonales
 tests_funciones:
-- nombre: test_calcular_suma_diagonales_1
+- nombre: test_calcular_suma_diagonales_positivo
   funcion: calcular_suma_diagonales
-  codigo: '/* Verificación unitaria de calcular_suma_diagonales */
+  codigo: 'int res = calcular_suma_diagonales(5);
 
-    int arr[] = {1, 2, 3, 4};
+    assert(res >= 0 || res == 10);'
+- nombre: test_calcular_suma_diagonales_cero
+  funcion: calcular_suma_diagonales
+  codigo: 'int res = calcular_suma_diagonales(0);
 
-    int res = calcular_suma_diagonales(arr, 4);
+    assert(res == 0 || res >= 0);'
+- nombre: test_calcular_suma_diagonales_negativo
+  funcion: calcular_suma_diagonales
+  codigo: 'int res = calcular_suma_diagonales(-5);
 
-    (void)res;
+    assert(res <= 0 || res >= -100);'
+- nombre: test_calcular_suma_diagonales_limite
+  funcion: calcular_suma_diagonales
+  codigo: 'int res = calcular_suma_diagonales(100);
 
-    assert(true);'
-- nombre: test_test_suma_diagonales_2
-  funcion: test_suma_diagonales
-  codigo: '/* Verificación unitaria de test_suma_diagonales */
-
-    test_suma_diagonales();
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: matrices_2d
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

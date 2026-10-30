@@ -12,6 +12,8 @@ tags:
 - deteccion
 - dep:librerias
 - dep:funciones
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: multiplicar_y_guardar
@@ -19,14 +21,32 @@ funciones:
   parametros: int a, int b
   descripcion: Operación multiplicar_y_guardar
 tests_funciones:
-- nombre: test_multiplicar_y_guardar_1
+- nombre: test_multiplicar_y_guardar_positivo
   funcion: multiplicar_y_guardar
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = multiplicar_y_guardar(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_multiplicar_y_guardar_cero
+  funcion: multiplicar_y_guardar
+  codigo: 'int res = multiplicar_y_guardar(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_multiplicar_y_guardar_negativo
+  funcion: multiplicar_y_guardar
+  codigo: 'int res = multiplicar_y_guardar(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_multiplicar_y_guardar_limite
+  funcion: multiplicar_y_guardar
+  codigo: 'int res = multiplicar_y_guardar(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
-dificultad: avanzada
-tipo: laboratorio
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

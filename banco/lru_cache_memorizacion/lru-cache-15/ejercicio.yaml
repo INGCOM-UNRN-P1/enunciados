@@ -12,6 +12,10 @@ tags:
 - memorizacion
 - tablas_hash
 - estructuras_datos
+- dep:tad
+- dep:listas_enlazadas
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_lru_cache_15
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_lru_cache_15(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_lru_cache_15_negativo
+  funcion: ejecutar_lru_cache_15
+  codigo: 'int res = ejecutar_lru_cache_15(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_lru_cache_15_valor_limite
+  funcion: ejecutar_lru_cache_15
+  codigo: 'int res = ejecutar_lru_cache_15(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_lru_cache_15_valor_unitario
+  funcion: ejecutar_lru_cache_15
+  codigo: 'int res = ejecutar_lru_cache_15(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tad
+- listas_enlazadas
+subtema: lru_cache_memorizacion

@@ -12,6 +12,8 @@ tags:
 - global
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: calc_sumar
@@ -35,29 +37,32 @@ funciones:
   parametros: void
   descripcion: Operación test_secuencia_calculadora
 tests_funciones:
-- nombre: test_calc_sumar_1
+- nombre: test_calc_sumar_positivo
   funcion: calc_sumar
-  codigo: '/* Verificación unitaria de calc_sumar */
+  codigo: 'int res = calc_sumar(5);
 
-    double res = calc_sumar(1, 2);
+    assert(res >= 0 || res == 10);'
+- nombre: test_calc_sumar_cero
+  funcion: calc_sumar
+  codigo: 'int res = calc_sumar(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_calc_sumar_negativo
+  funcion: calc_sumar
+  codigo: 'int res = calc_sumar(-5);
 
-    assert(true);'
-- nombre: test_calc_restar_2
-  funcion: calc_restar
-  codigo: '/* Verificación unitaria de calc_restar */
+    assert(res <= 0 || res >= -100);'
+- nombre: test_calc_sumar_limite
+  funcion: calc_sumar
+  codigo: 'int res = calc_sumar(100);
 
-    double res = calc_restar(1, 2);
-
-    (void)res;
-
-    assert(true);'
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

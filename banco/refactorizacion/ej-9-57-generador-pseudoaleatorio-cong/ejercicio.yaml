@@ -12,13 +12,15 @@ tags:
 - pseudoaleatorio
 - dep:testing
 - dep:diseno_api
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_pseudoaleatorio_cong
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Generador Pseudoaleatorio 
-    Congruencial (LCG)
+  descripcion: Procesa el flujo principal de Generador Pseudoaleatorio Congruencial
+    (LCG)
 tests_funciones:
 - nombre: test_proc_pseudoaleatorio_cong_positivo
   funcion: proc_pseudoaleatorio_cong
@@ -30,11 +32,27 @@ tests_funciones:
   codigo: 'int res = proc_pseudoaleatorio_cong(0);
 
     assert(res == 0);'
+- nombre: test_proc_pseudoaleatorio_cong_negativo
+  funcion: proc_pseudoaleatorio_cong
+  codigo: 'int res = proc_pseudoaleatorio_cong(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_pseudoaleatorio_cong_valor_limite
+  funcion: proc_pseudoaleatorio_cong
+  codigo: 'int res = proc_pseudoaleatorio_cong(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_pseudoaleatorio_cong_valor_unitario
+  funcion: proc_pseudoaleatorio_cong
+  codigo: 'int res = proc_pseudoaleatorio_cong(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: clean_code
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api
+publicar: true

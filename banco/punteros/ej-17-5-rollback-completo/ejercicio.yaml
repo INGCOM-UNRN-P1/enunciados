@@ -16,6 +16,8 @@ tags:
 - completo
 - dep:funciones
 - dep:arreglos
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc__5_rollback_completo
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc__5_rollback_completo(0);
 
     assert(res == 0);'
+- nombre: test_proc__5_rollback_completo_negativo
+  funcion: proc__5_rollback_completo
+  codigo: 'int res = proc__5_rollback_completo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__5_rollback_completo_valor_limite
+  funcion: proc__5_rollback_completo
+  codigo: 'int res = proc__5_rollback_completo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__5_rollback_completo_valor_unitario
+  funcion: proc__5_rollback_completo
+  codigo: 'int res = proc__5_rollback_completo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: estructuras
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

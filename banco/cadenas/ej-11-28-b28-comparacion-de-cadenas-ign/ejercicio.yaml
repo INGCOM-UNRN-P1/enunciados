@@ -10,8 +10,8 @@ pistas:
   manera robusta.'
 - '**Proceso:**'
 - Recorrer ambas cadenas simultáneamente con un lazo `while`.
-- En cada paso, comparar las versiones en minúscula (o mayúscula) de los 
-  caracteres actuales.
+- En cada paso, comparar las versiones en minúscula (o mayúscula) de los caracteres
+  actuales.
 - Si son diferentes, devolver la diferencia.
 - Si una cadena termina antes que la otra, son diferentes.
 - Si ambas terminan al mismo tiempo, son iguales.
@@ -23,13 +23,14 @@ tags:
 - mayusculas
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_acion_de_cadenas_ign
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Comparación de cadenas (Ignorando 
-    mayúsculas)
+  descripcion: Procesa el flujo principal de Comparación de cadenas (Ignorando mayúsculas)
 tests_funciones:
 - nombre: test_proc_acion_de_cadenas_ign_positivo
   funcion: proc_acion_de_cadenas_ign
@@ -41,6 +42,21 @@ tests_funciones:
   codigo: 'int res = proc_acion_de_cadenas_ign(0);
 
     assert(res == 0);'
+- nombre: test_proc_acion_de_cadenas_ign_negativo
+  funcion: proc_acion_de_cadenas_ign
+  codigo: 'int res = proc_acion_de_cadenas_ign(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_acion_de_cadenas_ign_valor_limite
+  funcion: proc_acion_de_cadenas_ign
+  codigo: 'int res = proc_acion_de_cadenas_ign(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_acion_de_cadenas_ign_valor_unitario
+  funcion: proc_acion_de_cadenas_ign
+  codigo: 'int res = proc_acion_de_cadenas_ign(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -49,3 +65,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

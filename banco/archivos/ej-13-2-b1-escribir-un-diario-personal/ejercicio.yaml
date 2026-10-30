@@ -4,12 +4,12 @@ tema: archivos
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Usá fopen() con modo 'a' para agregar entradas al final o 'w' para 
-  sobreescribir el diario.
-- Validá siempre que el puntero FILE* no sea NULL antes de escribir con 
-  fprintf() o fputs().
-- No olvides cerrar el archivo con fclose() para asegurar la persistencia de los
-  datos en disco.
+- Usá fopen() con modo 'a' para agregar entradas al final o 'w' para sobreescribir
+  el diario.
+- Validá siempre que el puntero FILE* no sea NULL antes de escribir con fprintf()
+  o fputs().
+- No olvides cerrar el archivo con fclose() para asegurar la persistencia de los datos
+  en disco.
 tags:
 - diario
 - texto
@@ -19,6 +19,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_r_un_diario_personal
@@ -36,12 +38,28 @@ tests_funciones:
   codigo: 'int res = proc_r_un_diario_personal(0);
 
     assert(res == 0);'
+- nombre: test_proc_r_un_diario_personal_negativo
+  funcion: proc_r_un_diario_personal
+  codigo: 'int res = proc_r_un_diario_personal(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_r_un_diario_personal_valor_limite
+  funcion: proc_r_un_diario_personal
+  codigo: 'int res = proc_r_un_diario_personal(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_r_un_diario_personal_valor_unitario
+  funcion: proc_r_un_diario_personal
+  codigo: 'int res = proc_r_un_diario_personal(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: diario
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

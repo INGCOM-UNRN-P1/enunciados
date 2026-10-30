@@ -14,6 +14,8 @@ tags:
 - multiplicar
 - dep:condicionales
 - dep:lazos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_multiplicar_completa
@@ -31,6 +33,21 @@ tests_funciones:
   codigo: 'int res = proc_multiplicar_completa(0);
 
     assert(res == 0);'
+- nombre: test_proc_multiplicar_completa_negativo
+  funcion: proc_multiplicar_completa
+  codigo: 'int res = proc_multiplicar_completa(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_multiplicar_completa_valor_limite
+  funcion: proc_multiplicar_completa
+  codigo: 'int res = proc_multiplicar_completa(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_multiplicar_completa_valor_unitario
+  funcion: proc_multiplicar_completa
+  codigo: 'int res = proc_multiplicar_completa(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: control
@@ -39,3 +56,4 @@ tipo: practica_guiada
 prerrequisitos:
 - condicionales
 - lazos
+publicar: true

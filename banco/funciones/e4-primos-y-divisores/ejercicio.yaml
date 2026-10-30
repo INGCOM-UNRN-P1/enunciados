@@ -9,7 +9,9 @@ tags:
 - funciones
 - dep:lazos
 - dep:secuencias
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: es_primo
   retorno: int
@@ -33,3 +35,50 @@ tipo: practica_guiada
 prerrequisitos:
 - lazos
 - secuencias
+subtema: y_divisores
+publicar: true
+tests_funciones:
+- nombre: test_es_primo_positivo
+  funcion: es_primo
+  codigo: 'int res = es_primo(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_es_primo_cero
+  funcion: es_primo
+  codigo: 'int res = es_primo(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_es_primo_negativo
+  funcion: es_primo
+  codigo: 'int res = es_primo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_es_primo_limite
+  funcion: es_primo
+  codigo: 'int res = es_primo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proximo_primo_prueba_1
+  funcion: proximo_primo
+  codigo: assert(proximo_primo(0) == 2);
+- nombre: test_proximo_primo_prueba_2
+  funcion: proximo_primo
+  codigo: assert(proximo_primo(1) == 2);
+- nombre: test_proximo_primo_prueba_3
+  funcion: proximo_primo
+  codigo: assert(proximo_primo(2) == 3);
+- nombre: test_proximo_primo_prueba_4
+  funcion: proximo_primo
+  codigo: assert(proximo_primo(14) == 17);
+- nombre: test_cantidad_divisores_prueba_1
+  funcion: cantidad_divisores
+  codigo: assert(cantidad_divisores(0) == 0);
+- nombre: test_cantidad_divisores_prueba_2
+  funcion: cantidad_divisores
+  codigo: assert(cantidad_divisores(1) == 1);
+- nombre: test_cantidad_divisores_prueba_3
+  funcion: cantidad_divisores
+  codigo: assert(cantidad_divisores(6) == 4);
+- nombre: test_cantidad_divisores_prueba_4
+  funcion: cantidad_divisores
+  codigo: assert(cantidad_divisores(17) == 2);

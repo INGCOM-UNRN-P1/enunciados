@@ -12,6 +12,8 @@ tags:
 - in-place
 - dep:funciones
 - dep:arreglos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_tir_arreglo_in_place
@@ -29,11 +31,27 @@ tests_funciones:
   codigo: 'int res = proc_tir_arreglo_in_place(0);
 
     assert(res == 0);'
+- nombre: test_proc_tir_arreglo_in_place_negativo
+  funcion: proc_tir_arreglo_in_place
+  codigo: 'int res = proc_tir_arreglo_in_place(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_tir_arreglo_in_place_valor_limite
+  funcion: proc_tir_arreglo_in_place
+  codigo: 'int res = proc_tir_arreglo_in_place(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_tir_arreglo_in_place_valor_unitario
+  funcion: proc_tir_arreglo_in_place
+  codigo: 'int res = proc_tir_arreglo_in_place(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: invertir
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

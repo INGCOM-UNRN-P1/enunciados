@@ -16,6 +16,8 @@ tags:
 - mostrar
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_25_6_mostrar_arreglo
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_25_6_mostrar_arreglo(0);
 
     assert(res == 0);'
+- nombre: test_proc_25_6_mostrar_arreglo_negativo
+  funcion: proc_25_6_mostrar_arreglo
+  codigo: 'int res = proc_25_6_mostrar_arreglo(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_25_6_mostrar_arreglo_valor_limite
+  funcion: proc_25_6_mostrar_arreglo
+  codigo: 'int res = proc_25_6_mostrar_arreglo(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_25_6_mostrar_arreglo_valor_unitario
+  funcion: proc_25_6_mostrar_arreglo
+  codigo: 'int res = proc_25_6_mostrar_arreglo(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arreglo
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

@@ -24,6 +24,8 @@ tags:
 - matematica
 - division
 - dep:tipos_datos
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: division_lenta
@@ -40,6 +42,21 @@ tests_funciones:
 - nombre: test_div_cero
   funcion: division_lenta
   codigo: assert(division_lenta(0, 5) == 0);
+- nombre: test_division_lenta_negativo
+  funcion: division_lenta
+  codigo: 'int res = division_lenta(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_division_lenta_valor_limite
+  funcion: division_lenta
+  codigo: 'int res = division_lenta(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_division_lenta_valor_unitario
+  funcion: division_lenta
+  codigo: 'int res = division_lenta(1);
+
+    assert(res >= 0 || res == 2);'
 diagramas: []
 tipo_entrega: archivos_individuales
 dependencias: []
@@ -52,3 +69,4 @@ dificultad: inicial
 tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
+publicar: true

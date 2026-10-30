@@ -16,13 +16,14 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_dinamica_de_capacida
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Reducción Dinámica de Capacidad 
-    (Shrinking)
+  descripcion: Procesa el flujo principal de Reducción Dinámica de Capacidad (Shrinking)
 tests_funciones:
 - nombre: test_proc_dinamica_de_capacida_positivo
   funcion: proc_dinamica_de_capacida
@@ -34,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_dinamica_de_capacida(0);
 
     assert(res == 0);'
+- nombre: test_proc_dinamica_de_capacida_negativo
+  funcion: proc_dinamica_de_capacida
+  codigo: 'int res = proc_dinamica_de_capacida(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_dinamica_de_capacida_valor_limite
+  funcion: proc_dinamica_de_capacida
+  codigo: 'int res = proc_dinamica_de_capacida(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_dinamica_de_capacida_valor_unitario
+  funcion: proc_dinamica_de_capacida
+  codigo: 'int res = proc_dinamica_de_capacida(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: shrinking
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+publicar: true

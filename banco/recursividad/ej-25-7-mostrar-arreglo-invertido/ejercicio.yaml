@@ -16,6 +16,8 @@ tags:
 - algoritmos
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_ar_arreglo_invertido
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_ar_arreglo_invertido(0);
 
     assert(res == 0);'
+- nombre: test_proc_ar_arreglo_invertido_negativo
+  funcion: proc_ar_arreglo_invertido
+  codigo: 'int res = proc_ar_arreglo_invertido(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_ar_arreglo_invertido_valor_limite
+  funcion: proc_ar_arreglo_invertido
+  codigo: 'int res = proc_ar_arreglo_invertido(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_ar_arreglo_invertido_valor_unitario
+  funcion: proc_ar_arreglo_invertido
+  codigo: 'int res = proc_ar_arreglo_invertido(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: invertido
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

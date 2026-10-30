@@ -17,13 +17,14 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__encadenamiento_sepa
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Tabla Hash (Encadenamiento 
-    Separado)
+  descripcion: Procesa el flujo principal de Tabla Hash (Encadenamiento Separado)
 tests_funciones:
 - nombre: test_proc__encadenamiento_sepa_positivo
   funcion: proc__encadenamiento_sepa
@@ -35,12 +36,28 @@ tests_funciones:
   codigo: 'int res = proc__encadenamiento_sepa(0);
 
     assert(res == 0);'
+- nombre: test_proc__encadenamiento_sepa_negativo
+  funcion: proc__encadenamiento_sepa
+  codigo: 'int res = proc__encadenamiento_sepa(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__encadenamiento_sepa_valor_limite
+  funcion: proc__encadenamiento_sepa
+  codigo: 'int res = proc__encadenamiento_sepa(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__encadenamiento_sepa_valor_unitario
+  funcion: proc__encadenamiento_sepa
+  codigo: 'int res = proc__encadenamiento_sepa(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

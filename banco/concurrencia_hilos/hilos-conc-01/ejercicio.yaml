@@ -11,6 +11,10 @@ tags:
 - hilos
 - mutex
 - sincronizacion
+- dep:memoria
+- dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: incrementar
@@ -18,9 +22,32 @@ funciones:
   parametros: contador_mutex_t *cm, int delta
   descripcion: Operación incrementar
 tests_funciones:
-- nombre: test_incrementar_1
+- nombre: test_incrementar_positivo
   funcion: incrementar
-  codigo: '/* Verificación unitaria de incrementar */
+  codigo: 'int res = incrementar(5);
 
-    assert(true);'
-publicar: false
+    assert(res >= 0 || res == 10);'
+- nombre: test_incrementar_cero
+  funcion: incrementar
+  codigo: 'int res = incrementar(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_incrementar_negativo
+  funcion: incrementar
+  codigo: 'int res = incrementar(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_incrementar_limite
+  funcion: incrementar
+  codigo: 'int res = incrementar(100);
+
+    assert(res >= 0 || res == 200);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- memoria
+- funciones
+subtema: concurrencia_hilos

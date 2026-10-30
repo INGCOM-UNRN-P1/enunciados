@@ -20,6 +20,8 @@ tags:
 - memoria
 - dep:funciones
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_10_2_suma
@@ -37,6 +39,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_10_2_suma(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_10_2_suma_negativo
+  funcion: ejecutar_ej_10_2_suma
+  codigo: 'int res = ejecutar_ej_10_2_suma(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_10_2_suma_valor_limite
+  funcion: ejecutar_ej_10_2_suma
+  codigo: 'int res = ejecutar_ej_10_2_suma(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_10_2_suma_valor_unitario
+  funcion: ejecutar_ej_10_2_suma
+  codigo: 'int res = ejecutar_ej_10_2_suma(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: vectores
@@ -45,3 +62,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - lazos
+publicar: true

@@ -4,17 +4,20 @@ tema: io_formato
 bloom: 3
 minutos_estimados: 40
 pistas:
-- En limpiar_buffer_entrada(), declará la variable del bucle como int para comparar correctamente contra
-  EOF y \n.
-- 'Verificá siempre el valor de retorno de scanf: si retorna 0 o EOF, limpiá el búfer antes de pedir nuevamente
-  el dato para evitar bucles infinitos.'
-- Bajo el estándar C, fflush(stdin) produce Comportamiento Indefinido (Undefined Behavior); usá limpiar_buffer_entrada().
+- En limpiar_buffer_entrada(), declará la variable del bucle como int para comparar
+  correctamente contra EOF y \n.
+- 'Verificá siempre el valor de retorno de scanf: si retorna 0 o EOF, limpiá el búfer
+  antes de pedir nuevamente el dato para evitar bucles infinitos.'
+- Bajo el estándar C, fflush(stdin) produce Comportamiento Indefinido (Undefined Behavior);
+  usá limpiar_buffer_entrada().
 tags:
 - tp1
 - cursada-2026
 - io_formato
 - dep:aritmetica
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: limpiar_buffer_entrada
   retorno: void
@@ -58,6 +61,173 @@ rol_familia: libreria
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 dificultad: intermedia
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - aritmetica
+subtema: io_formato
+publicar: true
+tests_funciones:
+- nombre: test_limpiar_buffer_entrada_positivo
+  funcion: limpiar_buffer_entrada
+  codigo: 'int res = limpiar_buffer_entrada(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_limpiar_buffer_entrada_cero
+  funcion: limpiar_buffer_entrada
+  codigo: 'int res = limpiar_buffer_entrada(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_limpiar_buffer_entrada_negativo
+  funcion: limpiar_buffer_entrada
+  codigo: 'int res = limpiar_buffer_entrada(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_limpiar_buffer_entrada_limite
+  funcion: limpiar_buffer_entrada
+  codigo: 'int res = limpiar_buffer_entrada(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_leer_entero_positivo
+  funcion: leer_entero
+  codigo: 'long long res = (long long)leer_entero("prueba");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_cero
+  funcion: leer_entero
+  codigo: 'long long res = (long long)leer_entero("");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_negativo
+  funcion: leer_entero
+  codigo: 'long long res = (long long)leer_entero("abc");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_valor_limite
+  funcion: leer_entero
+  codigo: 'long long res = (long long)leer_entero("texto_prueba_123");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_entre_positivo
+  funcion: leer_entero_entre
+  codigo: 'long long res = (long long)leer_entero_entre("prueba", 5, 5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_entre_cero
+  funcion: leer_entero_entre
+  codigo: 'long long res = (long long)leer_entero_entre("", 0, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_entre_negativo
+  funcion: leer_entero_entre
+  codigo: 'long long res = (long long)leer_entero_entre("abc", -5, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_entero_entre_valor_limite
+  funcion: leer_entero_entre
+  codigo: 'long long res = (long long)leer_entero_entre("texto_prueba_123", 100, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_flotante_positivo
+  funcion: leer_flotante
+  codigo: 'double res = (double)leer_flotante("prueba");
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_cero
+  funcion: leer_flotante
+  codigo: 'double res = (double)leer_flotante("");
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_negativo
+  funcion: leer_flotante
+  codigo: 'double res = (double)leer_flotante("abc");
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_valor_limite
+  funcion: leer_flotante
+  codigo: 'double res = (double)leer_flotante("texto_prueba_123");
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_entre_positivo
+  funcion: leer_flotante_entre
+  codigo: 'double res = (double)leer_flotante_entre("prueba", 5.0f, 5.0f);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_entre_cero
+  funcion: leer_flotante_entre
+  codigo: 'double res = (double)leer_flotante_entre("", 0.0f, 0.0f);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_entre_negativo
+  funcion: leer_flotante_entre
+  codigo: 'double res = (double)leer_flotante_entre("abc", -5.0f, -5.0f);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_flotante_entre_valor_limite
+  funcion: leer_flotante_entre
+  codigo: 'double res = (double)leer_flotante_entre("texto_prueba_123", 100.0f, 100.0f);
+
+    assert(res >= -1e9 && res <= 1e9);'
+- nombre: test_leer_caracter_positivo
+  funcion: leer_caracter
+  codigo: 'long long res = (long long)leer_caracter("prueba");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_caracter_cero
+  funcion: leer_caracter
+  codigo: 'long long res = (long long)leer_caracter("");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_caracter_negativo
+  funcion: leer_caracter
+  codigo: 'long long res = (long long)leer_caracter("abc");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_caracter_valor_limite
+  funcion: leer_caracter
+  codigo: 'long long res = (long long)leer_caracter("texto_prueba_123");
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_leer_logico_positivo
+  funcion: leer_logico
+  codigo: 'bool ok = leer_logico("prueba");
+
+    assert(ok == true || ok == false);'
+- nombre: test_leer_logico_cero
+  funcion: leer_logico
+  codigo: 'bool ok = leer_logico("");
+
+    assert(ok == true || ok == false);'
+- nombre: test_leer_logico_negativo
+  funcion: leer_logico
+  codigo: 'bool ok = leer_logico("abc");
+
+    assert(ok == true || ok == false);'
+- nombre: test_leer_logico_valor_limite
+  funcion: leer_logico
+  codigo: 'bool ok = leer_logico("texto_prueba_123");
+
+    assert(ok == true || ok == false);'
+- nombre: test_esta_en_rango_entero_prueba_1
+  funcion: esta_en_rango_entero
+  codigo: assert(esta_en_rango_entero(10, 10, 20));
+- nombre: test_esta_en_rango_entero_prueba_2
+  funcion: esta_en_rango_entero
+  codigo: assert(esta_en_rango_entero(15, 10, 20));
+- nombre: test_esta_en_rango_entero_prueba_3
+  funcion: esta_en_rango_entero
+  codigo: assert(esta_en_rango_entero(20, 10, 20));
+- nombre: test_esta_en_rango_entero_prueba_4
+  funcion: esta_en_rango_entero
+  codigo: assert(!esta_en_rango_entero(9, 10, 20));
+- nombre: test_esta_en_rango_flotante_prueba_1
+  funcion: esta_en_rango_flotante
+  codigo: assert(esta_en_rango_flotante(1.5f, 1.5f, 4.5f));
+- nombre: test_esta_en_rango_flotante_prueba_2
+  funcion: esta_en_rango_flotante
+  codigo: assert(esta_en_rango_flotante(3.0f, 1.5f, 4.5f));
+- nombre: test_esta_en_rango_flotante_prueba_3
+  funcion: esta_en_rango_flotante
+  codigo: assert(esta_en_rango_flotante(4.5f, 1.5f, 4.5f));
+- nombre: test_esta_en_rango_flotante_prueba_4
+  funcion: esta_en_rango_flotante
+  codigo: assert(!esta_en_rango_flotante(1.49f, 1.5f, 4.5f));

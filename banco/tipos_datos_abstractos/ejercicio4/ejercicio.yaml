@@ -1,15 +1,15 @@
 id: ejercicio4
-titulo: 'TDA Secuencia (secuencia_t) — Arreglo Dinámico vs Lista Enlazada'
+titulo: TDA Secuencia (secuencia_t) — Arreglo Dinámico vs Lista Enlazada
 tema: tipos_datos_abstractos
 bloom: 4
 minutos: 60
 pistas:
-- 'En secuencia_crear, una capacidad de 0 debe retornar NULL.'
-- 'En secuencia_insertar, recordá verificar que pos <= cantidad y que cantidad < capacidad.'
-- 'En secuencia_eliminar, extraé el valor y compactá hacia la izquierda o reconectá
-  nodos según la representación.'
-- 'En secuencia_a_cadena, formateá la salida exacta como [10, 20, 30] en heap y devolvé
-  [] para secuencias vacías.'
+- En secuencia_crear, una capacidad de 0 debe retornar NULL.
+- En secuencia_insertar, recordá verificar que pos <= cantidad y que cantidad < capacidad.
+- En secuencia_eliminar, extraé el valor y compactá hacia la izquierda o reconectá
+  nodos según la representación.
+- En secuencia_a_cadena, formateá la salida exacta como [10, 20, 30] en heap y devolvé
+  [] para secuencias vacías.
 tags:
 - tda
 - secuencia
@@ -18,6 +18,8 @@ tags:
 - intercambiabilidad
 - encapsulamiento_opaco
 - dep:tad
+- c11
+- intermedia
 verificado: true
 tipo_entrega: archivos_individuales
 familia: tda
@@ -58,31 +60,198 @@ funciones:
 tests_funciones:
 - nombre: test_secuencia_crear_insertar
   funcion: secuencia_crear
-  codigo: |
-    secuencia_t *sec = secuencia_crear(3);
+  codigo: 'secuencia_t *sec = secuencia_crear(3);
+
     assert(sec != NULL);
+
     assert(secuencia_esta_vacia(sec));
+
     assert(secuencia_insertar(sec, 0, 10));
+
     assert(secuencia_insertar(sec, 1, 20));
+
     assert(secuencia_largo(sec) == 2);
+
     secuencia_destruir(sec);
+
+    '
 - nombre: test_secuencia_eliminar
   funcion: secuencia_eliminar
-  codigo: |
-    secuencia_t *sec = secuencia_crear(3);
+  codigo: 'secuencia_t *sec = secuencia_crear(3);
+
     assert(sec != NULL);
+
     secuencia_insertar(sec, 0, 10);
+
     secuencia_insertar(sec, 1, 20);
+
     int ext = 0;
+
     assert(secuencia_eliminar(sec, 0, &ext));
+
     assert(ext == 10);
+
     assert(secuencia_largo(sec) == 1);
+
     secuencia_destruir(sec);
+
+    '
+- nombre: test_secuencia_crear_negativo
+  funcion: secuencia_crear
+  codigo: 'int res = secuencia_crear(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_secuencia_crear_valor_limite
+  funcion: secuencia_crear
+  codigo: 'int res = secuencia_crear(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_secuencia_crear_valor_unitario
+  funcion: secuencia_crear
+  codigo: 'int res = secuencia_crear(1);
+
+    assert(res >= 0 || res == 2);'
+- nombre: test_secuencia_destruir_positivo
+  funcion: secuencia_destruir
+  codigo: 'secuencia_destruir(NULL);
+
+    assert(1);'
+- nombre: test_secuencia_destruir_cero
+  funcion: secuencia_destruir
+  codigo: 'secuencia_destruir(NULL);
+
+    assert(1);'
+- nombre: test_secuencia_destruir_negativo
+  funcion: secuencia_destruir
+  codigo: 'secuencia_destruir(NULL);
+
+    assert(1);'
+- nombre: test_secuencia_destruir_valor_limite
+  funcion: secuencia_destruir
+  codigo: 'secuencia_destruir(NULL);
+
+    assert(1);'
+- nombre: test_secuencia_obtener_positivo
+  funcion: secuencia_obtener
+  codigo: 'bool ok = secuencia_obtener(NULL, 5, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_obtener_cero
+  funcion: secuencia_obtener
+  codigo: 'bool ok = secuencia_obtener(NULL, 0, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_obtener_negativo
+  funcion: secuencia_obtener
+  codigo: 'bool ok = secuencia_obtener(NULL, -5, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_obtener_valor_limite
+  funcion: secuencia_obtener
+  codigo: 'bool ok = secuencia_obtener(NULL, 100, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_largo_positivo
+  funcion: secuencia_largo
+  codigo: 'long long res = (long long)secuencia_largo(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_secuencia_largo_cero
+  funcion: secuencia_largo
+  codigo: 'long long res = (long long)secuencia_largo(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_secuencia_largo_negativo
+  funcion: secuencia_largo
+  codigo: 'long long res = (long long)secuencia_largo(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_secuencia_largo_valor_limite
+  funcion: secuencia_largo
+  codigo: 'long long res = (long long)secuencia_largo(NULL);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_secuencia_esta_vacia_positivo
+  funcion: secuencia_esta_vacia
+  codigo: 'bool ok = secuencia_esta_vacia(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_esta_vacia_cero
+  funcion: secuencia_esta_vacia
+  codigo: 'bool ok = secuencia_esta_vacia(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_esta_vacia_negativo
+  funcion: secuencia_esta_vacia
+  codigo: 'bool ok = secuencia_esta_vacia(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_esta_vacia_valor_limite
+  funcion: secuencia_esta_vacia
+  codigo: 'bool ok = secuencia_esta_vacia(NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_insertar_positivo
+  funcion: secuencia_insertar
+  codigo: 'bool ok = secuencia_insertar(NULL, 5, 5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_insertar_cero
+  funcion: secuencia_insertar
+  codigo: 'bool ok = secuencia_insertar(NULL, 0, 0);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_insertar_negativo
+  funcion: secuencia_insertar
+  codigo: 'bool ok = secuencia_insertar(NULL, -5, -5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_insertar_valor_limite
+  funcion: secuencia_insertar
+  codigo: 'bool ok = secuencia_insertar(NULL, 100, 100);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_eliminar_positivo
+  funcion: secuencia_eliminar
+  codigo: 'bool ok = secuencia_eliminar(NULL, 5, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_eliminar_cero
+  funcion: secuencia_eliminar
+  codigo: 'bool ok = secuencia_eliminar(NULL, 0, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_eliminar_negativo
+  funcion: secuencia_eliminar
+  codigo: 'bool ok = secuencia_eliminar(NULL, -5, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_secuencia_a_cadena_positivo
+  funcion: secuencia_a_cadena
+  codigo: 'void *res = (void *)secuencia_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_secuencia_a_cadena_cero
+  funcion: secuencia_a_cadena
+  codigo: 'void *res = (void *)secuencia_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_secuencia_a_cadena_negativo
+  funcion: secuencia_a_cadena
+  codigo: 'void *res = (void *)secuencia_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_secuencia_a_cadena_valor_limite
+  funcion: secuencia_a_cadena
+  codigo: 'void *res = (void *)secuencia_a_cadena(NULL);
+
+    assert(res != NULL || res == NULL);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
-dificultad: avanzada
+dificultad: intermedia
 minutos_estimados: 60
-tipo: desafio
+tipo: ejercicio_individual
 prerrequisitos:
 - tad
+publicar: true

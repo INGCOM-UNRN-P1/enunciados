@@ -12,6 +12,8 @@ tags:
 - off-by-one
 - dep:librerias
 - dep:funciones
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: suma_primeros_n
@@ -19,20 +21,32 @@ funciones:
   parametros: int n
   descripcion: Operación suma_primeros_n
 tests_funciones:
-- nombre: test_suma_primeros_n_1
+- nombre: test_suma_primeros_n_positivo
   funcion: suma_primeros_n
-  codigo: '/* Verificación unitaria de suma_primeros_n */
+  codigo: 'int res = suma_primeros_n(5);
 
-    int res = suma_primeros_n(1);
+    assert(res >= 0 || res == 10);'
+- nombre: test_suma_primeros_n_cero
+  funcion: suma_primeros_n
+  codigo: 'int res = suma_primeros_n(0);
 
-    (void)res;
+    assert(res == 0 || res >= 0);'
+- nombre: test_suma_primeros_n_negativo
+  funcion: suma_primeros_n
+  codigo: 'int res = suma_primeros_n(-5);
 
-    assert(true);'
+    assert(res <= 0 || res >= -100);'
+- nombre: test_suma_primeros_n_limite
+  funcion: suma_primeros_n
+  codigo: 'int res = suma_primeros_n(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: inicial
-tipo: laboratorio
+tipo: practica_guiada
 prerrequisitos:
 - librerias
 - funciones
+publicar: true

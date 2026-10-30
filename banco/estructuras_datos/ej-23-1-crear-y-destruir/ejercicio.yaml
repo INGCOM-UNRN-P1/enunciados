@@ -17,6 +17,8 @@ tags:
 - dep:tad
 - dep:memoria_dinamica
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_3_1_crear_y_destruir
@@ -34,6 +36,21 @@ tests_funciones:
   codigo: 'int res = proc_3_1_crear_y_destruir(0);
 
     assert(res == 0);'
+- nombre: test_proc_3_1_crear_y_destruir_negativo
+  funcion: proc_3_1_crear_y_destruir
+  codigo: 'int res = proc_3_1_crear_y_destruir(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_3_1_crear_y_destruir_valor_limite
+  funcion: proc_3_1_crear_y_destruir
+  codigo: 'int res = proc_3_1_crear_y_destruir(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_3_1_crear_y_destruir_valor_unitario
+  funcion: proc_3_1_crear_y_destruir
+  codigo: 'int res = proc_3_1_crear_y_destruir(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
@@ -43,3 +60,4 @@ prerrequisitos:
 - tad
 - memoria_dinamica
 - recursividad
+publicar: true

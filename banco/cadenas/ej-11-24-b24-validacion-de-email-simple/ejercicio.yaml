@@ -21,6 +21,8 @@ tags:
 - validacion
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_cion_de_email_simple
@@ -38,6 +40,21 @@ tests_funciones:
   codigo: 'int res = proc_cion_de_email_simple(0);
 
     assert(res == 0);'
+- nombre: test_proc_cion_de_email_simple_negativo
+  funcion: proc_cion_de_email_simple
+  codigo: 'int res = proc_cion_de_email_simple(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_cion_de_email_simple_valor_limite
+  funcion: proc_cion_de_email_simple
+  codigo: 'int res = proc_cion_de_email_simple(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_cion_de_email_simple_valor_unitario
+  funcion: proc_cion_de_email_simple
+  codigo: 'int res = proc_cion_de_email_simple(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -46,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

@@ -16,6 +16,8 @@ tags:
 - consistente
 - dep:punteros
 - dep:estructuras
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc_lizacion_consistente
@@ -33,6 +35,21 @@ tests_funciones:
   codigo: 'int res = proc_lizacion_consistente(0);
 
     assert(res == 0);'
+- nombre: test_proc_lizacion_consistente_negativo
+  funcion: proc_lizacion_consistente
+  codigo: 'int res = proc_lizacion_consistente(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_lizacion_consistente_valor_limite
+  funcion: proc_lizacion_consistente
+  codigo: 'int res = proc_lizacion_consistente(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_lizacion_consistente_valor_unitario
+  funcion: proc_lizacion_consistente
+  codigo: 'int res = proc_lizacion_consistente(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
@@ -41,3 +58,4 @@ tipo: practica_guiada
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

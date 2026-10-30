@@ -9,14 +9,64 @@ tags:
 - memoria_dinamica
 - dep:memoria
 - dep:punteros
-verificado: false
+- c11
+- avanzada
+verificado: true
 tipo_entrega: makefile
 familia: tp4-2026
 rol_familia: uso
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
-dificultad: desafio
-tipo: laboratorio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
+subtema: dinamico_multilinea
+publicar: true
+funciones:
+- nombre: cargar_matriz_csv
+  retorno: int **
+  parametros: const char *ruta_archivo, size_t *filas, size_t *columnas
+  descripcion: Carga una matriz bidimensional de enteros desde un archivo CSV
+- nombre: calcular_estadisticas_columnas
+  retorno: float *
+  parametros: int **matriz, size_t filas, size_t columnas
+  descripcion: Calcula el promedio de cada columna en un arreglo dinámico de floats
+tests_funciones:
+- nombre: test_cargar_matriz_csv_archivo_inexistente
+  funcion: cargar_matriz_csv
+  codigo: 'size_t f = 0, c = 0;
+
+    int **m = cargar_matriz_csv("no_existe.csv", &f, &c);
+
+    assert(m == NULL);'
+- nombre: test_calcular_estadisticas_columnas_valido
+  funcion: calcular_estadisticas_columnas
+  codigo: 'int f0[] = {10, 20};
+
+    int f1[] = {30, 40};
+
+    int *m[] = {f0, f1};
+
+    float *stats = calcular_estadisticas_columnas(m, 2, 2);
+
+    assert(stats != NULL && stats[0] == 20.0f && stats[1] == 30.0f);
+
+    free(stats);'
+- nombre: test_calcular_estadisticas_columnas_nulo
+  funcion: calcular_estadisticas_columnas
+  codigo: 'float *stats = calcular_estadisticas_columnas(NULL, 0, 0);
+
+    assert(stats == NULL);'
+- nombre: test_calcular_estadisticas_columnas_una_fila
+  funcion: calcular_estadisticas_columnas
+  codigo: 'int f0[] = {5, 15};
+
+    int *m[] = {f0};
+
+    float *stats = calcular_estadisticas_columnas(m, 1, 2);
+
+    assert(stats != NULL && stats[0] == 5.0f && stats[1] == 15.0f);
+
+    free(stats);'

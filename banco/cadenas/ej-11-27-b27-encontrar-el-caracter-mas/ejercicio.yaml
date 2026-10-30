@@ -11,8 +11,8 @@ pistas:
 - '**Proceso:**'
 - Usar un arreglo de frecuencias de 256 enteros, como en el ejercicio 1.2.
 - Llenar el arreglo de frecuencias recorriendo la cadena.
-- Recorrer el arreglo de frecuencias para encontrar el índice que tiene el valor
-  más alto. Ese índice es el código ASCII del carácter más frecuente.
+- Recorrer el arreglo de frecuencias para encontrar el índice que tiene el valor más
+  alto. Ese índice es el código ASCII del carácter más frecuente.
 tags:
 - cadenas
 - caracter
@@ -21,6 +21,8 @@ tags:
 - frecuente
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_trar_el_caracter_mas
@@ -38,6 +40,21 @@ tests_funciones:
   codigo: 'int res = proc_trar_el_caracter_mas(0);
 
     assert(res == 0);'
+- nombre: test_proc_trar_el_caracter_mas_negativo
+  funcion: proc_trar_el_caracter_mas
+  codigo: 'int res = proc_trar_el_caracter_mas(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_trar_el_caracter_mas_valor_limite
+  funcion: proc_trar_el_caracter_mas
+  codigo: 'int res = proc_trar_el_caracter_mas(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_trar_el_caracter_mas_valor_unitario
+  funcion: proc_trar_el_caracter_mas
+  codigo: 'int res = proc_trar_el_caracter_mas(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -46,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

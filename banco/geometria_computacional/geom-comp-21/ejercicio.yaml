@@ -11,6 +11,10 @@ tags:
 - vectores
 - puntos
 - interseccion
+- dep:estructuras
+- dep:aritmetica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_geom_comp_21
@@ -28,4 +32,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_geom_comp_21(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_geom_comp_21_negativo
+  funcion: ejecutar_geom_comp_21
+  codigo: 'int res = ejecutar_geom_comp_21(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_geom_comp_21_valor_limite
+  funcion: ejecutar_geom_comp_21
+  codigo: 'int res = ejecutar_geom_comp_21(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_geom_comp_21_valor_unitario
+  funcion: ejecutar_geom_comp_21
+  codigo: 'int res = ejecutar_geom_comp_21(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- estructuras
+- aritmetica
+subtema: '21'

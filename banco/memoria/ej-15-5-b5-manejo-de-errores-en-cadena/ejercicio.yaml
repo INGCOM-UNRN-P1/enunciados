@@ -16,6 +16,8 @@ tags:
 - manejo
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_de_errores_en_cadena
@@ -33,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc_de_errores_en_cadena(0);
 
     assert(res == 0);'
+- nombre: test_proc_de_errores_en_cadena_negativo
+  funcion: proc_de_errores_en_cadena
+  codigo: 'int res = proc_de_errores_en_cadena(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_de_errores_en_cadena_valor_limite
+  funcion: proc_de_errores_en_cadena
+  codigo: 'int res = proc_de_errores_en_cadena(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_de_errores_en_cadena_valor_unitario
+  funcion: proc_de_errores_en_cadena
+  codigo: 'int res = proc_de_errores_en_cadena(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

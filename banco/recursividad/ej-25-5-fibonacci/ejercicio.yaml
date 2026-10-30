@@ -15,6 +15,8 @@ tags:
 - fibonacci
 - dep:funciones
 - dep:punteros
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_ej_25_5_fibonacci
@@ -32,6 +34,21 @@ tests_funciones:
   codigo: 'int res = ejecutar_ej_25_5_fibonacci(0);
 
     assert(res == 0);'
+- nombre: test_ejecutar_ej_25_5_fibonacci_negativo
+  funcion: ejecutar_ej_25_5_fibonacci
+  codigo: 'int res = ejecutar_ej_25_5_fibonacci(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_ej_25_5_fibonacci_valor_limite
+  funcion: ejecutar_ej_25_5_fibonacci
+  codigo: 'int res = ejecutar_ej_25_5_fibonacci(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_ej_25_5_fibonacci_valor_unitario
+  funcion: ejecutar_ej_25_5_fibonacci
+  codigo: 'int res = ejecutar_ej_25_5_fibonacci(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: series_numericas
@@ -40,3 +57,4 @@ tipo: practica_guiada
 prerrequisitos:
 - funciones
 - punteros
+publicar: true

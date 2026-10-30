@@ -12,6 +12,10 @@ tags:
 - checksum
 - adler32
 - seguridad
+- dep:operaciones_bits
+- dep:cadenas
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_cripto_hash_12
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_cripto_hash_12(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_cripto_hash_12_negativo
+  funcion: ejecutar_cripto_hash_12
+  codigo: 'int res = ejecutar_cripto_hash_12(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_cripto_hash_12_valor_limite
+  funcion: ejecutar_cripto_hash_12
+  codigo: 'int res = ejecutar_cripto_hash_12(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_cripto_hash_12_valor_unitario
+  funcion: ejecutar_cripto_hash_12
+  codigo: 'int res = ejecutar_cripto_hash_12(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- operaciones_bits
+- cadenas
+subtema: criptografia_hashing

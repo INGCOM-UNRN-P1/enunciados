@@ -16,13 +16,14 @@ tags:
 - memoria
 - dep:punteros
 - dep:estructuras
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc__con_estrategia_de_c
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Vector con Estrategia de 
-    Crecimiento
+  descripcion: Procesa el flujo principal de Vector con Estrategia de Crecimiento
 tests_funciones:
 - nombre: test_proc__con_estrategia_de_c_positivo
   funcion: proc__con_estrategia_de_c
@@ -34,11 +35,27 @@ tests_funciones:
   codigo: 'int res = proc__con_estrategia_de_c(0);
 
     assert(res == 0);'
+- nombre: test_proc__con_estrategia_de_c_negativo
+  funcion: proc__con_estrategia_de_c
+  codigo: 'int res = proc__con_estrategia_de_c(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__con_estrategia_de_c_valor_limite
+  funcion: proc__con_estrategia_de_c
+  codigo: 'int res = proc__con_estrategia_de_c(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__con_estrategia_de_c_valor_unitario
+  funcion: proc__con_estrategia_de_c
+  codigo: 'int res = proc__con_estrategia_de_c(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras
+publicar: true

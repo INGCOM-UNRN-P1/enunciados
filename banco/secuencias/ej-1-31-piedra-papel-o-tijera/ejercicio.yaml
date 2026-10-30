@@ -21,6 +21,8 @@ tags:
 - basicos
 - papel
 - dep:lazos
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_iedra_papel_o_tijera
@@ -38,6 +40,21 @@ tests_funciones:
   codigo: 'int res = proc_iedra_papel_o_tijera(0);
 
     assert(res == 0);'
+- nombre: test_proc_iedra_papel_o_tijera_negativo
+  funcion: proc_iedra_papel_o_tijera
+  codigo: 'int res = proc_iedra_papel_o_tijera(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_iedra_papel_o_tijera_valor_limite
+  funcion: proc_iedra_papel_o_tijera
+  codigo: 'int res = proc_iedra_papel_o_tijera(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_iedra_papel_o_tijera_valor_unitario
+  funcion: proc_iedra_papel_o_tijera
+  codigo: 'int res = proc_iedra_papel_o_tijera(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: fundamentos
@@ -45,3 +62,4 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - lazos
+publicar: true

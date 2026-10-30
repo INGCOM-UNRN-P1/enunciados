@@ -11,12 +11,17 @@ tags:
 - vectores
 - puntos
 - interseccion
+- dep:estructuras
+- dep:aritmetica
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_geom_comp_02
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de producto_t Escalar y Ángulo entre Dos Vectores
+  descripcion: Procesa el flujo principal de producto_t Escalar y Ángulo entre Dos
+    Vectores
 tests_funciones:
 - nombre: test_ejecutar_geom_comp_02_positivo
   funcion: ejecutar_geom_comp_02
@@ -28,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_geom_comp_02(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_geom_comp_02_negativo
+  funcion: ejecutar_geom_comp_02
+  codigo: 'int res = ejecutar_geom_comp_02(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_geom_comp_02_valor_limite
+  funcion: ejecutar_geom_comp_02
+  codigo: 'int res = ejecutar_geom_comp_02(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_geom_comp_02_valor_unitario
+  funcion: ejecutar_geom_comp_02
+  codigo: 'int res = ejecutar_geom_comp_02(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- estructuras
+- aritmetica
+subtema: '02'

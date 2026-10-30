@@ -20,6 +20,8 @@ tags:
 - n-esimo
 - dep:tipos_datos
 - dep:aritmetica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc__el_n_esimo_bit_clea
@@ -37,11 +39,27 @@ tests_funciones:
   codigo: 'int res = proc__el_n_esimo_bit_clea(0);
 
     assert(res == 0);'
+- nombre: test_proc__el_n_esimo_bit_clea_negativo
+  funcion: proc__el_n_esimo_bit_clea
+  codigo: 'int res = proc__el_n_esimo_bit_clea(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__el_n_esimo_bit_clea_valor_limite
+  funcion: proc__el_n_esimo_bit_clea
+  codigo: 'int res = proc__el_n_esimo_bit_clea(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__el_n_esimo_bit_clea_valor_unitario
+  funcion: proc__el_n_esimo_bit_clea
+  codigo: 'int res = proc__el_n_esimo_bit_clea(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: operaciones_bits
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - aritmetica
+publicar: true

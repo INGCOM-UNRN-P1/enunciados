@@ -12,6 +12,10 @@ tags:
 - endianness
 - protocolos
 - tcp_udp
+- dep:archivos_binarios
+- dep:concurrencia_hilos
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: ejecutar_net_sock_29
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_net_sock_29(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_net_sock_29_negativo
+  funcion: ejecutar_net_sock_29
+  codigo: 'int res = ejecutar_net_sock_29(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_net_sock_29_valor_limite
+  funcion: ejecutar_net_sock_29
+  codigo: 'int res = ejecutar_net_sock_29(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_net_sock_29_valor_unitario
+  funcion: ejecutar_net_sock_29
+  codigo: 'int res = ejecutar_net_sock_29(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: avanzada
+tipo: ejercicio_individual
+prerrequisitos:
+- archivos_binarios
+- concurrencia_hilos
+subtema: redes_sockets

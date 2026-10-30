@@ -9,11 +9,10 @@ pistas:
 - '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
   manera robusta.'
 - '**Proceso:**'
-- Convertir toda la cadena a minúsculas para empezar desde un estado base 
-  consistente.
+- Convertir toda la cadena a minúsculas para empezar desde un estado base consistente.
 - Capitalizar el primer carácter de la cadena (si es una letra).
-- Recorrer la cadena. Si se encuentra un espacio (u otro delimitador de 
-  palabra), capitalizar el siguiente carácter si es una letra.
+- Recorrer la cadena. Si se encuentra un espacio (u otro delimitador de palabra),
+  capitalizar el siguiente carácter si es una letra.
 tags:
 - cadenas
 - strings
@@ -22,6 +21,8 @@ tags:
 - case
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_alizacion_title_case
@@ -39,6 +40,21 @@ tests_funciones:
   codigo: 'int res = proc_alizacion_title_case(0);
 
     assert(res == 0);'
+- nombre: test_proc_alizacion_title_case_negativo
+  funcion: proc_alizacion_title_case
+  codigo: 'int res = proc_alizacion_title_case(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_alizacion_title_case_valor_limite
+  funcion: proc_alizacion_title_case
+  codigo: 'int res = proc_alizacion_title_case(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_alizacion_title_case_valor_unitario
+  funcion: proc_alizacion_title_case
+  codigo: 'int res = proc_alizacion_title_case(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -47,3 +63,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

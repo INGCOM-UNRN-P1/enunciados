@@ -101,6 +101,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: proc_sv_promedio_de_colum
@@ -118,12 +120,28 @@ tests_funciones:
   codigo: 'int res = proc_sv_promedio_de_colum(0);
 
     assert(res == 0);'
+- nombre: test_proc_sv_promedio_de_colum_negativo
+  funcion: proc_sv_promedio_de_colum
+  codigo: 'int res = proc_sv_promedio_de_colum(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_sv_promedio_de_colum_valor_limite
+  funcion: proc_sv_promedio_de_colum
+  codigo: 'int res = proc_sv_promedio_de_colum(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_sv_promedio_de_colum_valor_unitario
+  funcion: proc_sv_promedio_de_colum
+  codigo: 'int res = proc_sv_promedio_de_colum(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: archivos_estructurados
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

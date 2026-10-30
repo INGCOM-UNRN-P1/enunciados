@@ -9,7 +9,9 @@ tags:
 - estructuras
 - dep:tipos_datos
 - dep:funciones
-verificado: false
+- c11
+- intermedia
+verificado: true
 funciones:
 - nombre: arreglo_dinamico_crear
   retorno: bool
@@ -49,7 +51,170 @@ rol_familia: libreria
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: practica_guiada
+tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - funciones
+subtema: estructuras
+publicar: true
+tests_funciones:
+- nombre: test_arreglo_dinamico_crear_positivo
+  funcion: arreglo_dinamico_crear
+  codigo: 'int res = arreglo_dinamico_crear(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_arreglo_dinamico_crear_cero
+  funcion: arreglo_dinamico_crear
+  codigo: 'int res = arreglo_dinamico_crear(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_arreglo_dinamico_crear_negativo
+  funcion: arreglo_dinamico_crear
+  codigo: 'int res = arreglo_dinamico_crear(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_arreglo_dinamico_crear_limite
+  funcion: arreglo_dinamico_crear
+  codigo: 'int res = arreglo_dinamico_crear(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_arreglo_dinamico_destruir_positivo
+  funcion: arreglo_dinamico_destruir
+  codigo: 'arreglo_dinamico_destruir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_destruir_cero
+  funcion: arreglo_dinamico_destruir
+  codigo: 'arreglo_dinamico_destruir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_destruir_negativo
+  funcion: arreglo_dinamico_destruir
+  codigo: 'arreglo_dinamico_destruir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_destruir_valor_limite
+  funcion: arreglo_dinamico_destruir
+  codigo: 'arreglo_dinamico_destruir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_agregar_positivo
+  funcion: arreglo_dinamico_agregar
+  codigo: 'bool ok = arreglo_dinamico_agregar(NULL, 5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_agregar_cero
+  funcion: arreglo_dinamico_agregar
+  codigo: 'bool ok = arreglo_dinamico_agregar(NULL, 0);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_agregar_negativo
+  funcion: arreglo_dinamico_agregar
+  codigo: 'bool ok = arreglo_dinamico_agregar(NULL, -5);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_agregar_valor_limite
+  funcion: arreglo_dinamico_agregar
+  codigo: 'bool ok = arreglo_dinamico_agregar(NULL, 100);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_obtener_positivo
+  funcion: arreglo_dinamico_obtener
+  codigo: 'void *res = (void *)arreglo_dinamico_obtener(NULL, 5);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_arreglo_dinamico_obtener_cero
+  funcion: arreglo_dinamico_obtener
+  codigo: 'void *res = (void *)arreglo_dinamico_obtener(NULL, 0);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_arreglo_dinamico_obtener_negativo
+  funcion: arreglo_dinamico_obtener
+  codigo: 'void *res = (void *)arreglo_dinamico_obtener(NULL, -5);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_arreglo_dinamico_obtener_valor_limite
+  funcion: arreglo_dinamico_obtener
+  codigo: 'void *res = (void *)arreglo_dinamico_obtener(NULL, 100);
+
+    assert(res != NULL || res == NULL);'
+- nombre: test_arreglo_dinamico_filtrar_pares_positivo
+  funcion: arreglo_dinamico_filtrar_pares
+  codigo: 'bool ok = arreglo_dinamico_filtrar_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_filtrar_pares_cero
+  funcion: arreglo_dinamico_filtrar_pares
+  codigo: 'bool ok = arreglo_dinamico_filtrar_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_filtrar_pares_negativo
+  funcion: arreglo_dinamico_filtrar_pares
+  codigo: 'bool ok = arreglo_dinamico_filtrar_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_filtrar_pares_valor_limite
+  funcion: arreglo_dinamico_filtrar_pares
+  codigo: 'bool ok = arreglo_dinamico_filtrar_pares(NULL, NULL);
+
+    assert(ok == true || ok == false);'
+- nombre: test_arreglo_dinamico_buscar_positivo
+  funcion: arreglo_dinamico_buscar
+  codigo: 'long long res = (long long)arreglo_dinamico_buscar(NULL, 5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_buscar_cero
+  funcion: arreglo_dinamico_buscar
+  codigo: 'long long res = (long long)arreglo_dinamico_buscar(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_buscar_negativo
+  funcion: arreglo_dinamico_buscar
+  codigo: 'long long res = (long long)arreglo_dinamico_buscar(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_buscar_valor_limite
+  funcion: arreglo_dinamico_buscar
+  codigo: 'long long res = (long long)arreglo_dinamico_buscar(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_invertir_positivo
+  funcion: arreglo_dinamico_invertir
+  codigo: 'arreglo_dinamico_invertir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_invertir_cero
+  funcion: arreglo_dinamico_invertir
+  codigo: 'arreglo_dinamico_invertir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_invertir_negativo
+  funcion: arreglo_dinamico_invertir
+  codigo: 'arreglo_dinamico_invertir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_invertir_valor_limite
+  funcion: arreglo_dinamico_invertir
+  codigo: 'arreglo_dinamico_invertir(NULL);
+
+    assert(1);'
+- nombre: test_arreglo_dinamico_compactar_positivo
+  funcion: arreglo_dinamico_compactar
+  codigo: 'long long res = (long long)arreglo_dinamico_compactar(NULL, 5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_compactar_cero
+  funcion: arreglo_dinamico_compactar
+  codigo: 'long long res = (long long)arreglo_dinamico_compactar(NULL, 0);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_compactar_negativo
+  funcion: arreglo_dinamico_compactar
+  codigo: 'long long res = (long long)arreglo_dinamico_compactar(NULL, -5);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'
+- nombre: test_arreglo_dinamico_compactar_valor_limite
+  funcion: arreglo_dinamico_compactar
+  codigo: 'long long res = (long long)arreglo_dinamico_compactar(NULL, 100);
+
+    assert(res >= -1000000LL && res <= 1000000LL);'

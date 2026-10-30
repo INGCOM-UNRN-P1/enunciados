@@ -9,7 +9,9 @@ tags:
 - punteros
 - dep:funciones
 - dep:arreglos
-verificado: false
+- c11
+- intermedia
+verificado: true
 tipo_entrega: makefile
 familia: tp3-2026
 rol_familia: uso
@@ -18,7 +20,49 @@ dependencias:
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: laboratorio
+tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - arreglos
+subtema: con_punteros
+publicar: true
+funciones:
+- nombre: calcular_estadisticas
+  retorno: bool
+  parametros: const int *arreglo, size_t cantidad, int *min, int *max, float *promedio
+  descripcion: Calcula mínimo, máximo y promedio mediante punteros de salida
+- nombre: contar_en_rango
+  retorno: size_t
+  parametros: const int *arreglo, size_t cantidad, int limite_inf, int limite_sup
+  descripcion: Cuenta elementos que caen dentro del rango inclusivo
+tests_funciones:
+- nombre: test_calcular_estadisticas_exito
+  funcion: calcular_estadisticas
+  codigo: 'int a[] = {2, 4, 6};
+
+    int mn, mx; float pr;
+
+    bool ok = calcular_estadisticas(a, 3, &mn, &mx, &pr);
+
+    assert(ok && mn == 2 && mx == 6 && pr == 4.0f);'
+- nombre: test_calcular_estadisticas_nulo
+  funcion: calcular_estadisticas
+  codigo: 'int mn, mx; float pr;
+
+    bool ok = calcular_estadisticas(NULL, 0, &mn, &mx, &pr);
+
+    assert(!ok);'
+- nombre: test_contar_en_rango_completo
+  funcion: contar_en_rango
+  codigo: 'int a[] = {1, 5, 10, 15};
+
+    size_t cnt = contar_en_rango(a, 4, 5, 12);
+
+    assert(cnt == 2);'
+- nombre: test_contar_en_rango_vacio
+  funcion: contar_en_rango
+  codigo: 'int a[] = {1, 2, 3};
+
+    size_t cnt = contar_en_rango(a, 3, 50, 100);
+
+    assert(cnt == 0);'

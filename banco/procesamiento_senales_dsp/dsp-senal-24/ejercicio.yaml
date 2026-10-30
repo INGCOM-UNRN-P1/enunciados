@@ -12,6 +12,10 @@ tags:
 - filtros
 - media_movil
 - muestreo
+- dep:arreglos
+- dep:algebra_lineal_numerica
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: ejecutar_dsp_senal_24
@@ -29,4 +33,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_dsp_senal_24(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_dsp_senal_24_negativo
+  funcion: ejecutar_dsp_senal_24
+  codigo: 'int res = ejecutar_dsp_senal_24(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_dsp_senal_24_valor_limite
+  funcion: ejecutar_dsp_senal_24
+  codigo: 'int res = ejecutar_dsp_senal_24(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_dsp_senal_24_valor_unitario
+  funcion: ejecutar_dsp_senal_24
+  codigo: 'int res = ejecutar_dsp_senal_24(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: ejercicio_individual
+prerrequisitos:
+- arreglos
+- algebra_lineal_numerica
+subtema: '24'

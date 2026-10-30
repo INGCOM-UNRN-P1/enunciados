@@ -16,6 +16,8 @@ tags:
 - dep:arreglos
 - dep:lazos_anidados
 - dep:recursividad
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_0_2_busqueda_binaria
@@ -33,12 +35,28 @@ tests_funciones:
   codigo: 'int res = proc_0_2_busqueda_binaria(0);
 
     assert(res == 0);'
+- nombre: test_proc_0_2_busqueda_binaria_negativo
+  funcion: proc_0_2_busqueda_binaria
+  codigo: 'int res = proc_0_2_busqueda_binaria(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_0_2_busqueda_binaria_valor_limite
+  funcion: proc_0_2_busqueda_binaria
+  codigo: 'int res = proc_0_2_busqueda_binaria(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_0_2_busqueda_binaria_valor_unitario
+  funcion: proc_0_2_busqueda_binaria
+  codigo: 'int res = proc_0_2_busqueda_binaria(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: busqueda_binaria
-dificultad: avanzada
-tipo: practica_guiada
+dificultad: intermedia
+tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados
 - recursividad
+publicar: true

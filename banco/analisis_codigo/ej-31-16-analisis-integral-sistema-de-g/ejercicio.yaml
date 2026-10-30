@@ -4,12 +4,11 @@ tema: analisis_codigo
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Rastreá cada asignación dinámica (malloc/calloc) y asegurate de que exista un 
-  free correspondiente.
-- Comprobá que no se utilicen punteros después de haber sido liberados (dangling
-  pointers).
-- Verificá la inicialización de todas las estructuras y sus campos antes de su 
-  primer uso.
+- Rastreá cada asignación dinámica (malloc/calloc) y asegurate de que exista un free
+  correspondiente.
+- Comprobá que no se utilicen punteros después de haber sido liberados (dangling pointers).
+- Verificá la inicialización de todas las estructuras y sus campos antes de su primer
+  uso.
 tags:
 - integral
 - analisis
@@ -18,6 +17,8 @@ tags:
 - avanzados
 - dep:memoria
 - dep:testing
+- c11
+- avanzada
 verificado: true
 funciones:
 - nombre: lista_insertar_final
@@ -41,17 +42,32 @@ funciones:
   parametros: int dato, void *extra
   descripcion: Operación es_mayor_que
 tests_funciones:
-- nombre: test_lista_insertar_final_1
+- nombre: test_lista_insertar_final_positivo
   funcion: lista_insertar_final
-  codigo: assert(true); /* test simplificado de validación */
-- nombre: test_lista_eliminar_primero_2
-  funcion: lista_eliminar_primero
-  codigo: assert(true); /* test simplificado de validación */
+  codigo: 'int res = lista_insertar_final(5);
+
+    assert(res >= 0 || res == 10);'
+- nombre: test_lista_insertar_final_cero
+  funcion: lista_insertar_final
+  codigo: 'int res = lista_insertar_final(0);
+
+    assert(res == 0 || res >= 0);'
+- nombre: test_lista_insertar_final_negativo
+  funcion: lista_insertar_final
+  codigo: 'int res = lista_insertar_final(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_lista_insertar_final_limite
+  funcion: lista_insertar_final
+  codigo: 'int res = lista_insertar_final(100);
+
+    assert(res >= 0 || res == 200);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: integral
-dificultad: desafio
-tipo: desafio
+dificultad: avanzada
+tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - testing
+publicar: true

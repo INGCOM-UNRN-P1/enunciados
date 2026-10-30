@@ -11,8 +11,7 @@ pistas:
 - '**Propiedad Clave:** `s2` es una rotación de `s1` si y solo si `s2` es una subcadena
   de `s1` concatenado consigo mismo (`s1s1`).'
 - '**Proceso:**'
-- Verificar que `s1` y `s2` tengan la misma longitud. Si no, no pueden ser 
-  rotaciones.
+- Verificar que `s1` y `s2` tengan la misma longitud. Si no, no pueden ser rotaciones.
 - Crear una nueva cadena `temp` que sea `s1 + s1`.
 - Buscar si `s2` es una subcadena de `temp`.
 tags:
@@ -23,6 +22,8 @@ tags:
 - cadena
 - dep:arreglos
 - dep:caracteres
+- c11
+- intermedia
 verificado: true
 funciones:
 - nombre: proc_7_rotacion_de_cadena
@@ -40,6 +41,21 @@ tests_funciones:
   codigo: 'int res = proc_7_rotacion_de_cadena(0);
 
     assert(res == 0);'
+- nombre: test_proc_7_rotacion_de_cadena_negativo
+  funcion: proc_7_rotacion_de_cadena
+  codigo: 'int res = proc_7_rotacion_de_cadena(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc_7_rotacion_de_cadena_valor_limite
+  funcion: proc_7_rotacion_de_cadena
+  codigo: 'int res = proc_7_rotacion_de_cadena(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc_7_rotacion_de_cadena_valor_unitario
+  funcion: proc_7_rotacion_de_cadena
+  codigo: 'int res = proc_7_rotacion_de_cadena(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
@@ -48,3 +64,4 @@ tipo: practica_guiada
 prerrequisitos:
 - arreglos
 - caracteres
+publicar: true

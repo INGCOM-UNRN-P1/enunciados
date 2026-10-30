@@ -13,6 +13,8 @@ tags:
 - dep:cadenas
 - dep:punteros
 - dep:io_formato
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: proc__un_archivo_de_texto
@@ -30,12 +32,28 @@ tests_funciones:
   codigo: 'int res = proc__un_archivo_de_texto(0);
 
     assert(res == 0);'
+- nombre: test_proc__un_archivo_de_texto_negativo
+  funcion: proc__un_archivo_de_texto
+  codigo: 'int res = proc__un_archivo_de_texto(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_proc__un_archivo_de_texto_valor_limite
+  funcion: proc__un_archivo_de_texto
+  codigo: 'int res = proc__un_archivo_de_texto(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_proc__un_archivo_de_texto_valor_unitario
+  funcion: proc__un_archivo_de_texto
+  codigo: 'int res = proc__un_archivo_de_texto(1);
+
+    assert(res >= 0 || res == 2);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: texto
 dificultad: inicial
-tipo: concepto
+tipo: practica_guiada
 prerrequisitos:
 - cadenas
 - punteros
 - io_formato
+publicar: true

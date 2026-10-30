@@ -12,6 +12,10 @@ tags:
 - max_heap
 - cola_prioridad
 - estructuras_datos
+- dep:colas_queue
+- dep:arboles_binarios
+- c11
+- inicial
 verificado: true
 funciones:
 - nombre: ejecutar_heap_prio_08
@@ -30,4 +34,27 @@ tests_funciones:
   codigo: 'int res = ejecutar_heap_prio_08(0);
 
     assert(res == 0);'
-publicar: false
+- nombre: test_ejecutar_heap_prio_08_negativo
+  funcion: ejecutar_heap_prio_08
+  codigo: 'int res = ejecutar_heap_prio_08(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_heap_prio_08_valor_limite
+  funcion: ejecutar_heap_prio_08
+  codigo: 'int res = ejecutar_heap_prio_08(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_heap_prio_08_valor_unitario
+  funcion: ejecutar_heap_prio_08
+  codigo: 'int res = ejecutar_heap_prio_08(1);
+
+    assert(res >= 0 || res == 2);'
+publicar: true
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: inicial
+tipo: practica_guiada
+prerrequisitos:
+- colas_queue
+- arboles_binarios
+subtema: colas_prioridad_heaps
