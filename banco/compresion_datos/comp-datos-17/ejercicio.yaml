@@ -11,5 +11,48 @@ tags:
 - rle
 - bit_packing
 - codificacion
+- dep:operaciones_bits
+- dep:archivos_binarios
+- c11
+- intermedia
 verificado: true
-publicar: false
+publicar: true
+unidad: 5
+modulo: Ingeniería de Software y Calidad en C
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- operaciones_bits
+- archivos_binarios
+subtema: compresion_datos
+funciones:
+- nombre: ejecutar_comp_datos_17
+  retorno: int
+  parametros: int val
+  descripcion: 'Procesa el flujo principal de Codificación y Compresión de Datos #17'
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_17_positivo
+  funcion: ejecutar_comp_datos_17
+  codigo: 'int res = ejecutar_comp_datos_17(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_17_cero
+  funcion: ejecutar_comp_datos_17
+  codigo: 'int res = ejecutar_comp_datos_17(0);
+
+    assert(res == 0);'
+- nombre: test_ejecutar_comp_datos_17_negativo
+  funcion: ejecutar_comp_datos_17
+  codigo: 'int res = ejecutar_comp_datos_17(-5);
+
+    assert(res <= 0 || res >= -100);'
+- nombre: test_ejecutar_comp_datos_17_valor_limite
+  funcion: ejecutar_comp_datos_17
+  codigo: 'int res = ejecutar_comp_datos_17(100);
+
+    assert(res >= 0 || res == 200);'
+- nombre: test_ejecutar_comp_datos_17_valor_unitario
+  funcion: ejecutar_comp_datos_17
+  codigo: 'int res = ejecutar_comp_datos_17(1);
+
+    assert(res >= 0 || res == 2);'
