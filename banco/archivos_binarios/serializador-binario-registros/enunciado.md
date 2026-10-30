@@ -5,7 +5,7 @@ Estructura del formato de archivo/búfer:
   - `magic` (4 bytes): `0x42494E31` ("BIN1")
   - `version` (4 bytes): `1`
   - `checksum` (4 bytes): XOR acumulado de todos los datos de registros.
-- **Payload:** $N$ registros de tipo `Producto` (`id`: uint32, `precio`: float, `stock`: uint32).
+- **Payload:** $N$ registros de tipo `producto_t` (`id`: uint32, `precio`: float, `stock`: uint32).
 
 Comandos interactivos:
 - `CREATE <N>`: Crea $N$ registros en memoria.
@@ -30,16 +30,16 @@ uint32_t calcular_checksum(const uint8_t *data, size_t len);
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Archivo válido
+:::{tab-item} Lectura de registro
 ```text
-Entrada: "datos.txt" con 3 registros
-Salida: 3 registros procesados
+Entrada: "datos.bin" con 2 registros válidos
+Salida: 2 registros leídos
 ```
 :::
 :::{tab-item} Archivo inexistente
 ```text
-Entrada: "no_existe.bin"
-Salida: Manejo de error (NULL / código -1)
+Entrada: "faltante.dat"
+Salida: Manejo seguro sin abortar (NULL / -1)
 ```
 :::
 ::::
@@ -48,13 +48,13 @@ Salida: Manejo de error (NULL / código -1)
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
 2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
-5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+3. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de operar.
+4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
 - [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
 - [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 :::{hint} Consideraciones Didácticas

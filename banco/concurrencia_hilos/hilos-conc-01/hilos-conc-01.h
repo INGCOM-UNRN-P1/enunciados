@@ -6,6 +6,6 @@
 #include <stdint.h>
 
 /* Operación incrementar */
-void incrementar(t_ContadorMutex *cm, int delta);
+void incrementar(contador_mutex_t *cm, int delta);
 
 #endif /* EJERCICIO_HILOS_CONC_01_H */

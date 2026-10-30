@@ -15,7 +15,7 @@ verificado: true
 funciones:
 - nombre: incrementar
   retorno: void
-  parametros: t_ContadorMutex *cm, int delta
+  parametros: contador_mutex_t *cm, int delta
   descripcion: Operación incrementar
 tests_funciones:
 - nombre: test_incrementar_1

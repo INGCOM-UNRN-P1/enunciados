@@ -255,13 +255,10 @@ Creá biblioteca estática (.a) y usala en programa.
 
 ```{code-block} bash
 :linenos:
-# Compilar objetos
 gcc -c modulo1.c modulo2.c
 
-# Crear biblioteca estática
 ar rcs libmibiblioteca.a modulo1.o modulo2.o
 
-# Usar biblioteca
 gcc main.c -L. -lmibiblioteca -o programa
 
 ```
@@ -278,16 +275,12 @@ Creá biblioteca compartida (.so) y usala.
 
 ```{code-block} bash
 :linenos:
-# Compilar con PIC (Position Independent Code)
 gcc -fPIC -c modulo.c
 
-# Crear biblioteca compartida
 gcc -shared modulo.o -o libmodulo.so
 
-# Compilar programa
 gcc main.c -L. -lmodulo -o programa
 
-# Ejecutar (necesita encontrar .so)
 export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 ./programa
 
@@ -383,9 +376,6 @@ endif
 all: $(TARGET)
 	@echo "Compiled in $(MODE) mode"
 
-# Uso:
-# make              # Release
-# make MODE=debug   # Debug
 
 ```
 
@@ -420,11 +410,9 @@ Configurá cross-compilation para diferentes arquitecturas.
 
 ```{code-block} makefile
 :linenos:
-# Compilación nativa
 CC_NATIVE = gcc
 TARGET_NATIVE = programa
 
-# Cross-compilation para ARM
 CC_ARM = arm-linux-gnueabi-gcc
 TARGET_ARM = programa_arm
 
@@ -492,7 +480,6 @@ add_executable(programa
 
 target_link_libraries(programa m)
 
-# Tests
 enable_testing()
 add_executable(tests tests/test_main.c)
 add_test(NAME tests COMMAND tests)
@@ -510,7 +497,6 @@ make
 
 ---
 
-## Notas Finales
 
 :::{tip} Proceso de Compilación
 
@@ -535,38 +521,6 @@ make
 
 :::
 
-:::{note} Sintaxis de Makefile
-
-**Regla básica:**
-``` makefile
-target: dependencias
-	comando
-```
-- **target:** Archivo a generar
-- **dependencias:** Archivos necesarios
-- **comando:** Qué ejecutar (debe empezar con TAB)
-
-**Variables:**
-``` makefile
-CC = gcc
-CFLAGS = -Wall
-
-$(CC) $(CFLAGS) programa.c
-```
-
-**Variables automáticas:**
-- `$@`: Target
-- `$<`: Primera dependencia
-- `$^`: Todas las dependencias
-- `$*`: Stem (parte que coincide con %)
-
-**Patrones:**
-``` makefile
-%.o: %.c
-	$(CC) -c $< -o $@
-```
-
-:::
 
 :::{warning} Errores Comunes
 
@@ -630,38 +584,6 @@ $(CC) $(CFLAGS) programa.c
 
 :::
 
-:::{note} Herramientas Útiles
-
-**Análisis:**
-- `cppcheck`: Análisis estático
-- `valgrind`: Detección de memory leaks
-- `gdb`: Debugger
-- `clang-format`: Formateo automático
-
-**Build Systems:**
-- `make`: Clásico, universal
-- `cmake`: Moderno, cross-platform
-- `autotools`: GNU standard (configure, make, make install)
-- `ninja`: Muy rápido
-
-**Comandos útiles:**
-```{code-block} bash
-:linenos:
-# Ver símbolos en objeto
-nm programa.o
-
-# Ver bibliotecas dinámicas necesarias
-ldd programa
-
-# Ver tamaño de secciones
-size programa
-
-# Desensamblar
-objdump -d programa.o
-
-```
-
-:::
 
 Estas consignas cubren compilación desde comandos básicos hasta proyectos
 complejos multi-archivo con automatización profesional.
@@ -681,13 +603,13 @@ int proc_nsajes_de_depuracion(int val);
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Valor positivo
+:::{tab-item} Entrada con valor 5
 ```text
 Entrada: 5
 Salida / Retorno: 10
 ```
 :::
-:::{tab-item} Valor cero o negativo
+:::{tab-item} Entrada con valor 0
 ```text
 Entrada: 0
 Salida / Retorno: 0
@@ -698,12 +620,12 @@ Salida / Retorno: 0
 ### ⚠️ Precondiciones y Casos Borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
 - [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
 - [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 :::{hint} Consideraciones Didácticas

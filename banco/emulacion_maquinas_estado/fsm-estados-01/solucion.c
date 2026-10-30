@@ -4,7 +4,7 @@
  */
 #include <stdio.h>
 
-typedef enum { ESTADO_PAR, ESTADO_IMPAR } t_EstadoParidad;
+typedef enum { ESTADO_PAR, ESTADO_IMPAR } estado_paridad_e;
 
 
 int ejecutar_fsm_estados_01(int val)
@@ -15,7 +15,7 @@ int ejecutar_fsm_estados_01(int val)
 
 int main(void) {
     char bit = 0;
-    t_EstadoParidad estado = ESTADO_PAR;
+    estado_paridad_e estado = ESTADO_PAR;
     while (scanf(" %c", &bit) == 1 && (bit == '0' || bit == '1')) {
         if (bit == '1') {
             estado = (estado == ESTADO_PAR) ? ESTADO_IMPAR : ESTADO_PAR;

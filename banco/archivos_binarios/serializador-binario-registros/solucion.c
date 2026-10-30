@@ -17,14 +17,14 @@ typedef struct
     uint32_t version;
     uint32_t count;
     uint32_t checksum;
-} HeaderBinario;
+} header_binario_t;
 
 typedef struct
 {
     uint32_t id;
     float precio;
     uint32_t stock;
-} Producto;
+} producto_t;
 
 uint32_t calcular_checksum(const uint8_t *data, size_t len)
 {
@@ -38,7 +38,7 @@ uint32_t calcular_checksum(const uint8_t *data, size_t len)
 
 int main(void)
 {
-    Producto *productos = NULL;
+    producto_t *productos = NULL;
     uint32_t count = 0;
 
     uint8_t *buffer_serializado = NULL;
@@ -53,7 +53,7 @@ int main(void)
             if (scanf("%u", &count) == 1 && count > 0)
             {
                 free(productos);
-                Producto *nuevos_prod = (Producto *)malloc(sizeof(Producto) * count);
+                producto_t *nuevos_prod = (producto_t *)malloc(sizeof(producto_t) * count);
                 if (nuevos_prod == NULL)
                 {
                     productos = NULL;
@@ -74,8 +74,8 @@ int main(void)
         {
             if (productos != NULL && count > 0)
             {
-                size_t payload_size = sizeof(Producto) * count;
-                tamano_serializado = sizeof(HeaderBinario) + payload_size;
+                size_t payload_size = sizeof(producto_t) * count;
+                tamano_serializado = sizeof(header_binario_t) + payload_size;
                 free(buffer_serializado);
                 uint8_t *buf = (uint8_t *)malloc(tamano_serializado);
                 if (buf == NULL)
@@ -86,24 +86,24 @@ int main(void)
                 }
                 buffer_serializado = buf;
 
-                HeaderBinario hdr;
+                header_binario_t hdr;
                 hdr.magic = MAGIC_HEADER;
                 hdr.version = FORMAT_VERSION;
                 hdr.count = count;
                 hdr.checksum = calcular_checksum((const uint8_t *)productos, payload_size);
 
-                memcpy(buffer_serializado, &hdr, sizeof(HeaderBinario));
-                memcpy(buffer_serializado + sizeof(HeaderBinario), productos, payload_size);
+                memcpy(buffer_serializado, &hdr, sizeof(header_binario_t));
+                memcpy(buffer_serializado + sizeof(header_binario_t), productos, payload_size);
 
                 printf("SAVED bytes=%zu checksum=0x%08X\n", tamano_serializado, hdr.checksum);
             }
         }
         else if (strcmp(comando, "LOAD") == 0)
         {
-            if (buffer_serializado != NULL && tamano_serializado >= sizeof(HeaderBinario))
+            if (buffer_serializado != NULL && tamano_serializado >= sizeof(header_binario_t))
             {
-                HeaderBinario hdr;
-                memcpy(&hdr, buffer_serializado, sizeof(HeaderBinario));
+                header_binario_t hdr;
+                memcpy(&hdr, buffer_serializado, sizeof(header_binario_t));
 
                 if (hdr.magic != MAGIC_HEADER || hdr.version != FORMAT_VERSION)
                 {
@@ -111,14 +111,14 @@ int main(void)
                 }
                 else
                 {
-                    size_t payload_size = sizeof(Producto) * hdr.count;
-                    if (tamano_serializado != sizeof(HeaderBinario) + payload_size)
+                    size_t payload_size = sizeof(producto_t) * hdr.count;
+                    if (tamano_serializado != sizeof(header_binario_t) + payload_size)
                     {
                         printf("ERROR_TAMANO\n");
                     }
                     else
                     {
-                        const uint8_t *payload_ptr = buffer_serializado + sizeof(HeaderBinario);
+                        const uint8_t *payload_ptr = buffer_serializado + sizeof(header_binario_t);
                         uint32_t check = calcular_checksum(payload_ptr, payload_size);
                         if (check != hdr.checksum)
                         {
@@ -127,7 +127,7 @@ int main(void)
                         else
                         {
                             free(productos);
-                            Producto *prod_cargados = (Producto *)malloc(payload_size);
+                            producto_t *prod_cargados = (producto_t *)malloc(payload_size);
                             if (prod_cargados == NULL)
                             {
                                 productos = NULL;

@@ -7,16 +7,16 @@
 typedef struct {
     long contador;
     int bloqueado;
-} t_ContadorMutex;
+} contador_mutex_t;
 
-void incrementar(t_ContadorMutex *cm, int delta) {
+void incrementar(contador_mutex_t *cm, int delta) {
     cm->bloqueado = 1;
     cm->contador += delta;
     cm->bloqueado = 0;
 }
 
 int main(void) {
-    t_ContadorMutex cm = {0, 0};
+    contador_mutex_t cm = {0, 0};
     int delta = 0;
     while (scanf("%d", &delta) == 1 && delta != 0) {
         incrementar(&cm, delta);

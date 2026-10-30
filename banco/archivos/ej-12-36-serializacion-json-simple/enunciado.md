@@ -10,7 +10,6 @@ Escribí y leé una estructura simple en formato JSON.
 
 ---
 
-## Notas Finales
 
 :::{danger} Manejo de Errores Crítico
 
@@ -67,32 +66,6 @@ Agregar `b` para binario: `"rb"`, `"wb"`, `"ab"`, etc.
 
 :::
 
-:::{note} Funciones Clave
-
-**Texto:**
-- `fgets(buffer, size, fp)` - Lee línea
-- `fputs(string, fp)` - Escribe string
-- `fprintf(fp, formato, ...)` - Escribe formateado
-- `fscanf(fp, formato, ...)` - Lee formateado
-
-**Binario:**
-- `fread(buffer, size, count, fp)` - Lee bloques
-- `fwrite(buffer, size, count, fp)` - Escribe bloques
-
-**Posicionamiento:**
-- `fseek(fp, offset, origen)` - Mueve posición
-  - `SEEK_SET`: desde inicio
-  - `SEEK_CUR`: desde posición actual
-  - `SEEK_END`: desde final
-- `ftell(fp)` - Retorna posición actual
-- `rewind(fp)` - Va al inicio (equiv. `fseek(fp, 0, SEEK_SET)`)
-
-**Estado:**
-- `feof(fp)` - Verifica fin de archivo
-- `ferror(fp)` - Verifica error
-- `clearerr(fp)` - Limpia flags de error/EOF
-
-:::
 
 :::{warning} Errores Comunes
 
@@ -190,13 +163,13 @@ int proc_lizacion_json_simple(int val);
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Valor positivo
+:::{tab-item} Entrada con valor 5
 ```text
 Entrada: 5
 Salida / Retorno: 10
 ```
 :::
-:::{tab-item} Valor cero o negativo
+:::{tab-item} Entrada con valor 0
 ```text
 Entrada: 0
 Salida / Retorno: 0
@@ -207,13 +180,13 @@ Salida / Retorno: 0
 ### ⚠️ Precondiciones y Casos Borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-5. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de leer o escribir.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+2. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de operar.
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
 - [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
 - [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 :::{hint} Consideraciones Didácticas
