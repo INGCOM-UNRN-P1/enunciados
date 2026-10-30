@@ -1,0 +1,30 @@
+id: b2-comp-traza-control-03
+titulo: Evaluación de Condiciones Compuestas en Cortocircuito
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_03
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Evaluación de Condiciones Compuestas
+    en Cortocircuito
+tests_funciones:
+- nombre: test_proc_omp_traza_control_03_positivo
+  funcion: proc_omp_traza_control_03
+  codigo: 'int res = proc_omp_traza_control_03(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_03_cero
+  funcion: proc_omp_traza_control_03
+  codigo: 'int res = proc_omp_traza_control_03(0);
+
+    assert(res == 0);'
+publicar: false

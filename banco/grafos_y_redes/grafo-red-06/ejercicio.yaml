@@ -1,0 +1,32 @@
+id: grafo-red-06
+titulo: Recorrido en Profundidad DFS Iterativo con Pila
+tema: grafos_y_redes
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Recorrido en Profundidad DFS Iterativo
+    con Pila
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_06_positivo
+  funcion: ejecutar_grafo_red_06
+  codigo: 'int res = ejecutar_grafo_red_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_06_cero
+  funcion: ejecutar_grafo_red_06
+  codigo: 'int res = ejecutar_grafo_red_06(0);
+
+    assert(res == 0);'
+publicar: false

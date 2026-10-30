@@ -1,0 +1,32 @@
+id: fsm-estados-06
+titulo: Tokenizador de Cadenas de Texto y Secuencias de Escape
+tema: emulacion_maquinas_estado
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Tokenizador de Cadenas de Texto y Secuencias
+    de Escape
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_06_positivo
+  funcion: ejecutar_fsm_estados_06
+  codigo: 'int res = ejecutar_fsm_estados_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_06_cero
+  funcion: ejecutar_fsm_estados_06
+  codigo: 'int res = ejecutar_fsm_estados_06(0);
+
+    assert(res == 0);'
+publicar: false

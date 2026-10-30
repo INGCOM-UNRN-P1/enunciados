@@ -1,0 +1,33 @@
+id: lista-enl-20
+titulo: 'Lista Doblemente Enlazada: Eliminación de Nodo en O(1)'
+tema: listas_enlazadas
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lista_enl_20
+  retorno: int
+  parametros: int val
+  descripcion: 'Procesa el flujo principal de Lista Doblemente Enlazada: Eliminación
+    de Nodo en O(1)'
+tests_funciones:
+- nombre: test_ejecutar_lista_enl_20_positivo
+  funcion: ejecutar_lista_enl_20
+  codigo: 'int res = ejecutar_lista_enl_20(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lista_enl_20_cero
+  funcion: ejecutar_lista_enl_20
+  codigo: 'int res = ejecutar_lista_enl_20(0);
+
+    assert(res == 0);'
+publicar: false

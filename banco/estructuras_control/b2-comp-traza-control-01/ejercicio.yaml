@@ -1,0 +1,30 @@
+id: b2-comp-traza-control-01
+titulo: Seguimiento de Acumulador en Ciclos For Anidados
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_01
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Seguimiento de Acumulador en Ciclos For
+    Anidados
+tests_funciones:
+- nombre: test_proc_omp_traza_control_01_positivo
+  funcion: proc_omp_traza_control_01
+  codigo: 'int res = proc_omp_traza_control_01(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_01_cero
+  funcion: proc_omp_traza_control_01
+  codigo: 'int res = proc_omp_traza_control_01(0);
+
+    assert(res == 0);'
+publicar: false

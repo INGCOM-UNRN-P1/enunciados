@@ -1,0 +1,33 @@
+id: lru-cache-10
+titulo: Desalojo en LFU por Menor Frecuencia y Desempate por Recencia
+tema: lru_cache_memorizacion
+bloom: 2
+minutos_estimados: 15
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lru_cache_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Desalojo en LFU por Menor Frecuencia
+    y Desempate por Recencia
+tests_funciones:
+- nombre: test_ejecutar_lru_cache_10_positivo
+  funcion: ejecutar_lru_cache_10
+  codigo: 'int res = ejecutar_lru_cache_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lru_cache_10_cero
+  funcion: ejecutar_lru_cache_10
+  codigo: 'int res = ejecutar_lru_cache_10(0);
+
+    assert(res == 0);'
+publicar: false

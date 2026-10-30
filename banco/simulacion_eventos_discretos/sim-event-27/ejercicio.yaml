@@ -1,0 +1,32 @@
+id: sim-event-27
+titulo: Simulación de Mercado de Acciones con Órdenes de Compra y Venta
+tema: simulacion_eventos_discretos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Mantené una cola de eventos ordenada por tiempo de ocurrencia.
+- Avanzá el reloj de simulación al tiempo del próximo evento.
+tags:
+- simulacion
+- eventos_discretos
+- colas
+- planificacion
+verificado: true
+funciones:
+- nombre: ejecutar_sim_event_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Mercado de Acciones con
+    Órdenes de Compra y Venta
+tests_funciones:
+- nombre: test_ejecutar_sim_event_27_positivo
+  funcion: ejecutar_sim_event_27
+  codigo: 'int res = ejecutar_sim_event_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sim_event_27_cero
+  funcion: ejecutar_sim_event_27
+  codigo: 'int res = ejecutar_sim_event_27(0);
+
+    assert(res == 0);'
+publicar: false

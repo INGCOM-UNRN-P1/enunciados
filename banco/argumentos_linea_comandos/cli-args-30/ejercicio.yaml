@@ -1,0 +1,32 @@
+id: cli-args-30
+titulo: Integración Completa de CLI con Despacho de Comandos
+tema: argumentos_linea_comandos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_30
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Integración Completa de CLI con Despacho
+    de Comandos
+tests_funciones:
+- nombre: test_ejecutar_cli_args_30_positivo
+  funcion: ejecutar_cli_args_30
+  codigo: 'int res = ejecutar_cli_args_30(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_30_cero
+  funcion: ejecutar_cli_args_30
+  codigo: 'int res = ejecutar_cli_args_30(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,32 @@
+id: fsm-estados-05
+titulo: FSM de Extracción de Comentarios de Código Fuente
+tema: emulacion_maquinas_estado
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_05
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de FSM de Extracción de Comentarios de Código
+    Fuente
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_05_positivo
+  funcion: ejecutar_fsm_estados_05
+  codigo: 'int res = ejecutar_fsm_estados_05(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_05_cero
+  funcion: ejecutar_fsm_estados_05
+  codigo: 'int res = ejecutar_fsm_estados_05(0);
+
+    assert(res == 0);'
+publicar: false

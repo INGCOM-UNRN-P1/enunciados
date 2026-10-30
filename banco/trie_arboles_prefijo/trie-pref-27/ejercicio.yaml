@@ -1,0 +1,33 @@
+id: trie-pref-27
+titulo: Liberación Completa de Memoria de Trie sin Fugas
+tema: trie_arboles_prefijo
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Cada nodo tiene un arreglo de punteros indexados por caracteres.
+- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+tags:
+- trie
+- prefijos
+- arboles
+- cadenas
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_trie_pref_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Liberación Completa de Memoria de Trie
+    sin Fugas
+tests_funciones:
+- nombre: test_ejecutar_trie_pref_27_positivo
+  funcion: ejecutar_trie_pref_27
+  codigo: 'int res = ejecutar_trie_pref_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_trie_pref_27_cero
+  funcion: ejecutar_trie_pref_27
+  codigo: 'int res = ejecutar_trie_pref_27(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,32 @@
+id: cripto-hash-10
+titulo: Cifrado de Flujo Simplificado Tipo RC4
+tema: criptografia_hashing
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
+- Usá operaciones bitwise y sumas modulares.
+tags:
+- criptografia
+- hash
+- checksum
+- adler32
+- seguridad
+verificado: true
+funciones:
+- nombre: ejecutar_cripto_hash_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cifrado de Flujo Simplificado Tipo RC4
+tests_funciones:
+- nombre: test_ejecutar_cripto_hash_10_positivo
+  funcion: ejecutar_cripto_hash_10
+  codigo: 'int res = ejecutar_cripto_hash_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cripto_hash_10_cero
+  funcion: ejecutar_cripto_hash_10
+  codigo: 'int res = ejecutar_cripto_hash_10(0);
+
+    assert(res == 0);'
+publicar: false

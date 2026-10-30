@@ -1,0 +1,32 @@
+id: fsm-estados-24
+titulo: FSM de Control de Ascensor y Solicitud de Pisos
+tema: emulacion_maquinas_estado
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_24
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de FSM de Control de Ascensor y Solicitud
+    de Pisos
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_24_positivo
+  funcion: ejecutar_fsm_estados_24
+  codigo: 'int res = ejecutar_fsm_estados_24(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_24_cero
+  funcion: ejecutar_fsm_estados_24
+  codigo: 'int res = ejecutar_fsm_estados_24(0);
+
+    assert(res == 0);'
+publicar: false

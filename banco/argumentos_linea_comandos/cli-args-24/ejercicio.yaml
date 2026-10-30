@@ -1,0 +1,32 @@
+id: cli-args-24
+titulo: Procesamiento de Archivos de Configuración Pasados por CLI
+tema: argumentos_linea_comandos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_24
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Procesamiento de Archivos de Configuración
+    Pasados por CLI
+tests_funciones:
+- nombre: test_ejecutar_cli_args_24_positivo
+  funcion: ejecutar_cli_args_24
+  codigo: 'int res = ejecutar_cli_args_24(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_24_cero
+  funcion: ejecutar_cli_args_24
+  codigo: 'int res = ejecutar_cli_args_24(0);
+
+    assert(res == 0);'
+publicar: false

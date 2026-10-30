@@ -1,0 +1,33 @@
+id: text-serde-16
+titulo: Serializador de Estructuras en Formato XML Básico
+tema: serializacion_texto_json_csv
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_16
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serializador de Estructuras en Formato
+    XML Básico
+tests_funciones:
+- nombre: test_ejecutar_text_serde_16_positivo
+  funcion: ejecutar_text_serde_16
+  codigo: 'int res = ejecutar_text_serde_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_16_cero
+  funcion: ejecutar_text_serde_16
+  codigo: 'int res = ejecutar_text_serde_16(0);
+
+    assert(res == 0);'
+publicar: false

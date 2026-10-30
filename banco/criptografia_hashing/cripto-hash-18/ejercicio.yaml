@@ -1,0 +1,33 @@
+id: cripto-hash-18
+titulo: Derivación de Claves por Hash Consecutivo Tipo PBKDF
+tema: criptografia_hashing
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
+- Usá operaciones bitwise y sumas modulares.
+tags:
+- criptografia
+- hash
+- checksum
+- adler32
+- seguridad
+verificado: true
+funciones:
+- nombre: ejecutar_cripto_hash_18
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Derivación de Claves por Hash Consecutivo
+    Tipo PBKDF
+tests_funciones:
+- nombre: test_ejecutar_cripto_hash_18_positivo
+  funcion: ejecutar_cripto_hash_18
+  codigo: 'int res = ejecutar_cripto_hash_18(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cripto_hash_18_cero
+  funcion: ejecutar_cripto_hash_18
+  codigo: 'int res = ejecutar_cripto_hash_18(0);
+
+    assert(res == 0);'
+publicar: false

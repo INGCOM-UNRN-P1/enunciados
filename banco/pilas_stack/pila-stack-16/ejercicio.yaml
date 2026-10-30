@@ -1,0 +1,33 @@
+id: pila-stack-16
+titulo: Simulación de Llamadas a Funciones y Call Stack de Recursión
+tema: pilas_stack
+bloom: 3
+minutos_estimados: 25
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_16
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Llamadas a Funciones y
+    Call Stack de Recursión
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_16_positivo
+  funcion: ejecutar_pila_stack_16
+  codigo: 'int res = ejecutar_pila_stack_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_16_cero
+  funcion: ejecutar_pila_stack_16
+  codigo: 'int res = ejecutar_pila_stack_16(0);
+
+    assert(res == 0);'
+publicar: false

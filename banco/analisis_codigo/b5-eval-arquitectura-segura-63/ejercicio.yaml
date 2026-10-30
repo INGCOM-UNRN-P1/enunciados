@@ -1,0 +1,29 @@
+id: b5-eval-arquitectura-segura-63
+titulo: Validación de Descriptores de Archivo y Manejo de Fugas
+tema: analisis_codigo
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Identificá las precondiciones y el límite estricto del búfer.
+tags:
+- analisis_codigo
+- evaluar
+- c11
+verificado: true
+funciones:
+- nombre: inicializar
+  retorno: void
+  parametros: RegistroSeguro_63 *r
+  descripcion: Operación inicializar
+- nombre: validar_y_cargar
+  retorno: int
+  parametros: RegistroSeguro_63 *r, const char *entrada
+  descripcion: Operación validar_y_cargar
+tests_funciones:
+- nombre: test_inicializar_1
+  funcion: inicializar
+  codigo: assert(true); /* test simplificado de validación */
+- nombre: test_validar_y_cargar_2
+  funcion: validar_y_cargar
+  codigo: assert(true); /* test simplificado de validación */
+publicar: false

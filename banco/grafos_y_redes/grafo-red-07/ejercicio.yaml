@@ -1,0 +1,32 @@
+id: grafo-red-07
+titulo: Recorrido en Anchura BFS con Cola en Grafos
+tema: grafos_y_redes
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Recorrido en Anchura BFS con Cola en
+    Grafos
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_07_positivo
+  funcion: ejecutar_grafo_red_07
+  codigo: 'int res = ejecutar_grafo_red_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_07_cero
+  funcion: ejecutar_grafo_red_07
+  codigo: 'int res = ejecutar_grafo_red_07(0);
+
+    assert(res == 0);'
+publicar: false

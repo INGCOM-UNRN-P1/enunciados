@@ -1,0 +1,33 @@
+id: dsu-union-15
+titulo: Simulación de Percolación en Grilla 2D con DSU
+tema: conjuntos_disjuntos_union_find
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Aplicá compresión de caminos en find para aplanar el árbol.
+- Uní por rango o tamaño para mantener los árboles balanceados.
+tags:
+- dsu
+- union_find
+- conjuntos_disjuntos
+- grafos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_dsu_union_15
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Percolación en Grilla 2D
+    con DSU
+tests_funciones:
+- nombre: test_ejecutar_dsu_union_15_positivo
+  funcion: ejecutar_dsu_union_15
+  codigo: 'int res = ejecutar_dsu_union_15(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsu_union_15_cero
+  funcion: ejecutar_dsu_union_15
+  codigo: 'int res = ejecutar_dsu_union_15(0);
+
+    assert(res == 0);'
+publicar: false

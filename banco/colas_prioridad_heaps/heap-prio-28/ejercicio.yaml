@@ -1,0 +1,32 @@
+id: heap-prio-28
+titulo: Búsqueda de Rango en Montículos Binarios
+tema: colas_prioridad_heaps
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
+- El padre de un nodo i está en (i - 1) / 2.
+tags:
+- heap
+- min_heap
+- max_heap
+- cola_prioridad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_heap_prio_28
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Búsqueda de Rango en Montículos Binarios
+tests_funciones:
+- nombre: test_ejecutar_heap_prio_28_positivo
+  funcion: ejecutar_heap_prio_28
+  codigo: 'int res = ejecutar_heap_prio_28(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_heap_prio_28_cero
+  funcion: ejecutar_heap_prio_28
+  codigo: 'int res = ejecutar_heap_prio_28(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,34 @@
+id: cola-queue-21
+titulo: Planificación de Procesos por Múltiples Colas Multinivel Feedback
+tema: colas_queue
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Planificación de Procesos por Múltiples
+    Colas Multinivel Feedback
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_21_positivo
+  funcion: ejecutar_cola_queue_21
+  codigo: 'int res = ejecutar_cola_queue_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_21_cero
+  funcion: ejecutar_cola_queue_21
+  codigo: 'int res = ejecutar_cola_queue_21(0);
+
+    assert(res == 0);'
+publicar: false

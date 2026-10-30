@@ -1,0 +1,34 @@
+id: cola-queue-27
+titulo: Eliminación de Elementos Pares en una Cola Preservando el Orden
+tema: colas_queue
+bloom: 5
+minutos_estimados: 45
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Eliminación de Elementos Pares en una
+    Cola Preservando el Orden
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_27_positivo
+  funcion: ejecutar_cola_queue_27
+  codigo: 'int res = ejecutar_cola_queue_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_27_cero
+  funcion: ejecutar_cola_queue_27
+  codigo: 'int res = ejecutar_cola_queue_27(0);
+
+    assert(res == 0);'
+publicar: false

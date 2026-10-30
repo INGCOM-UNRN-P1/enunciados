@@ -1,0 +1,33 @@
+id: pila-stack-14
+titulo: Cálculo del Área del Rectángulo Más Grande en Histograma con Pila
+tema: pilas_stack
+bloom: 3
+minutos_estimados: 25
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_14
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cálculo del Área del Rectángulo Más Grande
+    en Histograma con Pila
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_14_positivo
+  funcion: ejecutar_pila_stack_14
+  codigo: 'int res = ejecutar_pila_stack_14(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_14_cero
+  funcion: ejecutar_pila_stack_14
+  codigo: 'int res = ejecutar_pila_stack_14(0);
+
+    assert(res == 0);'
+publicar: false

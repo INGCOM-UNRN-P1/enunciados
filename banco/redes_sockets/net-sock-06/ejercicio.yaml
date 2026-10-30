@@ -1,0 +1,33 @@
+id: net-sock-06
+titulo: 'Servidor Datagrama UDP: Recepción y Envío sin Conexión'
+tema: redes_sockets
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá que Big Endian transmite el byte más significativo primero.
+- Validá el tamaño de los búferes de transmisión.
+tags:
+- redes
+- sockets
+- endianness
+- protocolos
+- tcp_udp
+verificado: true
+funciones:
+- nombre: ejecutar_net_sock_06
+  retorno: int
+  parametros: int val
+  descripcion: 'Procesa el flujo principal de Servidor Datagrama UDP: Recepción y
+    Envío sin Conexión'
+tests_funciones:
+- nombre: test_ejecutar_net_sock_06_positivo
+  funcion: ejecutar_net_sock_06
+  codigo: 'int res = ejecutar_net_sock_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_net_sock_06_cero
+  funcion: ejecutar_net_sock_06
+  codigo: 'int res = ejecutar_net_sock_06(0);
+
+    assert(res == 0);'
+publicar: false

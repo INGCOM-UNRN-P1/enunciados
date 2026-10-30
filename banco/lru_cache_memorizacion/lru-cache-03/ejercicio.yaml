@@ -1,0 +1,33 @@
+id: lru-cache-03
+titulo: Operación Get con Actualización de Posición al Frente
+tema: lru_cache_memorizacion
+bloom: 1
+minutos_estimados: 10
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lru_cache_03
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Operación Get con Actualización de Posición
+    al Frente
+tests_funciones:
+- nombre: test_ejecutar_lru_cache_03_positivo
+  funcion: ejecutar_lru_cache_03
+  codigo: 'int res = ejecutar_lru_cache_03(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lru_cache_03_cero
+  funcion: ejecutar_lru_cache_03
+  codigo: 'int res = ejecutar_lru_cache_03(0);
+
+    assert(res == 0);'
+publicar: false

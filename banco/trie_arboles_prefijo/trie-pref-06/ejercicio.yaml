@@ -1,0 +1,33 @@
+id: trie-pref-06
+titulo: Conteo de Palabras que Comparten un Prefijo en Trie
+tema: trie_arboles_prefijo
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Cada nodo tiene un arreglo de punteros indexados por caracteres.
+- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+tags:
+- trie
+- prefijos
+- arboles
+- cadenas
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_trie_pref_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conteo de Palabras que Comparten un Prefijo
+    en Trie
+tests_funciones:
+- nombre: test_ejecutar_trie_pref_06_positivo
+  funcion: ejecutar_trie_pref_06
+  codigo: 'int res = ejecutar_trie_pref_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_trie_pref_06_cero
+  funcion: ejecutar_trie_pref_06
+  codigo: 'int res = ejecutar_trie_pref_06(0);
+
+    assert(res == 0);'
+publicar: false

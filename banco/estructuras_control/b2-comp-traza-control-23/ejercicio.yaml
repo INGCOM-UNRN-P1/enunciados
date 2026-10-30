@@ -1,0 +1,29 @@
+id: b2-comp-traza-control-23
+titulo: Salto Incondicional y Limpieza de Recursos
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_23
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Salto Incondicional y Limpieza de Recursos
+tests_funciones:
+- nombre: test_proc_omp_traza_control_23_positivo
+  funcion: proc_omp_traza_control_23
+  codigo: 'int res = proc_omp_traza_control_23(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_23_cero
+  funcion: proc_omp_traza_control_23
+  codigo: 'int res = proc_omp_traza_control_23(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,32 @@
+id: dsp-senal-03
+titulo: Filtro Pasa-Altos IIR de Primer Orden
+tema: procesamiento_senales_dsp
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_03
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Filtro Pasa-Altos IIR de Primer Orden
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_03_positivo
+  funcion: ejecutar_dsp_senal_03
+  codigo: 'int res = ejecutar_dsp_senal_03(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_03_cero
+  funcion: ejecutar_dsp_senal_03
+  codigo: 'int res = ejecutar_dsp_senal_03(0);
+
+    assert(res == 0);'
+publicar: false

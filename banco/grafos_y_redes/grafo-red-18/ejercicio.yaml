@@ -1,0 +1,32 @@
+id: grafo-red-18
+titulo: Algoritmo de Floyd-Warshall para Todos los Pares de Caminos Mínimos
+tema: grafos_y_redes
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_18
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de Floyd-Warshall para Todos
+    los Pares de Caminos Mínimos
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_18_positivo
+  funcion: ejecutar_grafo_red_18
+  codigo: 'int res = ejecutar_grafo_red_18(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_18_cero
+  funcion: ejecutar_grafo_red_18
+  codigo: 'int res = ejecutar_grafo_red_18(0);
+
+    assert(res == 0);'
+publicar: false

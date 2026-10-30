@@ -1,0 +1,31 @@
+id: hilos-conc-23
+titulo: Manejo de Señales en Aplicaciones Multihilo
+tema: concurrencia_hilos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_23
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Manejo de Señales en Aplicaciones Multihilo
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_23_positivo
+  funcion: ejecutar_hilos_conc_23
+  codigo: 'int res = ejecutar_hilos_conc_23(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_23_cero
+  funcion: ejecutar_hilos_conc_23
+  codigo: 'int res = ejecutar_hilos_conc_23(0);
+
+    assert(res == 0);'
+publicar: false

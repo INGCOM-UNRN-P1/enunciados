@@ -1,0 +1,32 @@
+id: comp-datos-30
+titulo: Pipeline Híbrido de Compresión BWT más MTF más RLE
+tema: compresion_datos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_30
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Pipeline Híbrido de Compresión BWT más
+    MTF más RLE
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_30_positivo
+  funcion: ejecutar_comp_datos_30
+  codigo: 'int res = ejecutar_comp_datos_30(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_30_cero
+  funcion: ejecutar_comp_datos_30
+  codigo: 'int res = ejecutar_comp_datos_30(0);
+
+    assert(res == 0);'
+publicar: false

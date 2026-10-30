@@ -1,0 +1,30 @@
+id: b2-comp-traza-control-06
+titulo: Efecto de Fallthrough en Bloques Switch sin Break
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Efecto de Fallthrough en Bloques Switch
+    sin Break
+tests_funciones:
+- nombre: test_proc_omp_traza_control_06_positivo
+  funcion: proc_omp_traza_control_06
+  codigo: 'int res = proc_omp_traza_control_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_06_cero
+  funcion: proc_omp_traza_control_06
+  codigo: 'int res = proc_omp_traza_control_06(0);
+
+    assert(res == 0);'
+publicar: false

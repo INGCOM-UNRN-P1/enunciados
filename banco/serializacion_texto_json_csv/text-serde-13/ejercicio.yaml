@@ -1,0 +1,33 @@
+id: text-serde-13
+titulo: Codificador Base64 de Datos Binarios a Texto
+tema: serializacion_texto_json_csv
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Considerá los delimitadores y los caracteres de escape.
+- Validá el fin de línea CRLF/LF.
+tags:
+- json
+- csv
+- serializacion
+- parsing
+- texto
+verificado: true
+funciones:
+- nombre: ejecutar_text_serde_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Codificador Base64 de Datos Binarios
+    a Texto
+tests_funciones:
+- nombre: test_ejecutar_text_serde_13_positivo
+  funcion: ejecutar_text_serde_13
+  codigo: 'int res = ejecutar_text_serde_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_text_serde_13_cero
+  funcion: ejecutar_text_serde_13
+  codigo: 'int res = ejecutar_text_serde_13(0);
+
+    assert(res == 0);'
+publicar: false

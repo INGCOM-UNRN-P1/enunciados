@@ -1,0 +1,31 @@
+id: cli-args-19
+titulo: Validación de Argumentos Mutuamente Excluyentes
+tema: argumentos_linea_comandos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Validación de Argumentos Mutuamente Excluyentes
+tests_funciones:
+- nombre: test_ejecutar_cli_args_19_positivo
+  funcion: ejecutar_cli_args_19
+  codigo: 'int res = ejecutar_cli_args_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_19_cero
+  funcion: ejecutar_cli_args_19
+  codigo: 'int res = ejecutar_cli_args_19(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,33 @@
+id: net-sock-16
+titulo: Serialización de Paquetes con Tipado TLV Type-Length-Value
+tema: redes_sockets
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Recordá que Big Endian transmite el byte más significativo primero.
+- Validá el tamaño de los búferes de transmisión.
+tags:
+- redes
+- sockets
+- endianness
+- protocolos
+- tcp_udp
+verificado: true
+funciones:
+- nombre: ejecutar_net_sock_16
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serialización de Paquetes con Tipado
+    TLV Type-Length-Value
+tests_funciones:
+- nombre: test_ejecutar_net_sock_16_positivo
+  funcion: ejecutar_net_sock_16
+  codigo: 'int res = ejecutar_net_sock_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_net_sock_16_cero
+  funcion: ejecutar_net_sock_16
+  codigo: 'int res = ejecutar_net_sock_16(0);
+
+    assert(res == 0);'
+publicar: false

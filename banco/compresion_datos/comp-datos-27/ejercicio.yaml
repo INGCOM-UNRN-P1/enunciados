@@ -1,0 +1,32 @@
+id: comp-datos-27
+titulo: Codificación RLE con Búsqueda de Repeticiones de Palabras
+tema: compresion_datos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Codificación RLE con Búsqueda de Repeticiones
+    de Palabras
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_27_positivo
+  funcion: ejecutar_comp_datos_27
+  codigo: 'int res = ejecutar_comp_datos_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_27_cero
+  funcion: ejecutar_comp_datos_27
+  codigo: 'int res = ejecutar_comp_datos_27(0);
+
+    assert(res == 0);'
+publicar: false

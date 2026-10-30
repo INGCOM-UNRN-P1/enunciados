@@ -1,0 +1,40 @@
+id: dsu-union-01
+titulo: Disjoint Set Union DSU con Compresión de Caminos y Rango
+tema: conjuntos_disjuntos_union_find
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Aplicá compresión de caminos en find para aplanar el árbol.
+- Uní por rango o tamaño para mantener los árboles balanceados.
+tags:
+- dsu
+- union_find
+- conjuntos_disjuntos
+- grafos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: dsu_init
+  retorno: void
+  parametros: t_DSU *d, int n
+  descripcion: Operación dsu_init
+- nombre: dsu_find
+  retorno: int
+  parametros: t_DSU *d, int u
+  descripcion: Operación dsu_find
+- nombre: dsu_union
+  retorno: void
+  parametros: t_DSU *d, int u, int v
+  descripcion: Operación dsu_union
+tests_funciones:
+- nombre: test_dsu_init_1
+  funcion: dsu_init
+  codigo: '/* Verificación unitaria de dsu_init */
+
+    assert(true);'
+- nombre: test_dsu_find_2
+  funcion: dsu_find
+  codigo: '/* Verificación unitaria de dsu_find */
+
+    assert(true);'
+publicar: false

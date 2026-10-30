@@ -1,0 +1,33 @@
+id: avl-tree-27
+titulo: Impresión Visual de Estructura de Árbol AVL con Indentación
+tema: arboles_balanceados_avl
+bloom: 5
+minutos_estimados: 45
+pistas:
+- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
+- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+tags:
+- avl
+- arboles_balanceados
+- rotaciones
+- factor_balance
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_avl_tree_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Impresión Visual de Estructura de Árbol
+    AVL con Indentación
+tests_funciones:
+- nombre: test_ejecutar_avl_tree_27_positivo
+  funcion: ejecutar_avl_tree_27
+  codigo: 'int res = ejecutar_avl_tree_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_avl_tree_27_cero
+  funcion: ejecutar_avl_tree_27
+  codigo: 'int res = ejecutar_avl_tree_27(0);
+
+    assert(res == 0);'
+publicar: false

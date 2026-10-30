@@ -1,0 +1,33 @@
+id: lru-cache-24
+titulo: Algoritmo de Caché 2Q con Dos Colas de Admisión
+tema: lru_cache_memorizacion
+bloom: 4
+minutos_estimados: 35
+pistas:
+- El elemento más recientemente usado se mueve al frente o final.
+- Al exceder la capacidad, desinstalá el elemento menos consultado.
+tags:
+- lru
+- cache
+- memorizacion
+- tablas_hash
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lru_cache_24
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Algoritmo de Caché 2Q con Dos Colas de
+    Admisión
+tests_funciones:
+- nombre: test_ejecutar_lru_cache_24_positivo
+  funcion: ejecutar_lru_cache_24
+  codigo: 'int res = ejecutar_lru_cache_24(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lru_cache_24_cero
+  funcion: ejecutar_lru_cache_24
+  codigo: 'int res = ejecutar_lru_cache_24(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,32 @@
+id: comp-datos-29
+titulo: Medición de Tasa de Compresión y Entropía de Shannon
+tema: compresion_datos
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_29
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Medición de Tasa de Compresión y Entropía
+    de Shannon
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_29_positivo
+  funcion: ejecutar_comp_datos_29
+  codigo: 'int res = ejecutar_comp_datos_29(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_29_cero
+  funcion: ejecutar_comp_datos_29
+  codigo: 'int res = ejecutar_comp_datos_29(0);
+
+    assert(res == 0);'
+publicar: false

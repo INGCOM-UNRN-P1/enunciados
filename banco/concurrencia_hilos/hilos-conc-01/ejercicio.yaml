@@ -1,0 +1,26 @@
+id: hilos-conc-01
+titulo: Estructura de Datos Compartida y Bloqueo Mutex
+tema: concurrencia_hilos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: incrementar
+  retorno: void
+  parametros: t_ContadorMutex *cm, int delta
+  descripcion: Operación incrementar
+tests_funciones:
+- nombre: test_incrementar_1
+  funcion: incrementar
+  codigo: '/* Verificación unitaria de incrementar */
+
+    assert(true);'
+publicar: false

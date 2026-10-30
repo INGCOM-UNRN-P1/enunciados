@@ -1,0 +1,32 @@
+id: fsm-estados-15
+titulo: FSM de Validación de Formato de Fechas ISO-8601
+tema: emulacion_maquinas_estado
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_15
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de FSM de Validación de Formato de Fechas
+    ISO-8601
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_15_positivo
+  funcion: ejecutar_fsm_estados_15
+  codigo: 'int res = ejecutar_fsm_estados_15(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_15_cero
+  funcion: ejecutar_fsm_estados_15
+  codigo: 'int res = ejecutar_fsm_estados_15(0);
+
+    assert(res == 0);'
+publicar: false

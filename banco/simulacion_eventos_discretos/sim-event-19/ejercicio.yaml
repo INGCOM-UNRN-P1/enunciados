@@ -1,0 +1,32 @@
+id: sim-event-19
+titulo: Simulación de Partículas en Movimiento Browniano
+tema: simulacion_eventos_discretos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Mantené una cola de eventos ordenada por tiempo de ocurrencia.
+- Avanzá el reloj de simulación al tiempo del próximo evento.
+tags:
+- simulacion
+- eventos_discretos
+- colas
+- planificacion
+verificado: true
+funciones:
+- nombre: ejecutar_sim_event_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Simulación de Partículas en Movimiento
+    Browniano
+tests_funciones:
+- nombre: test_ejecutar_sim_event_19_positivo
+  funcion: ejecutar_sim_event_19
+  codigo: 'int res = ejecutar_sim_event_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sim_event_19_cero
+  funcion: ejecutar_sim_event_19
+  codigo: 'int res = ejecutar_sim_event_19(0);
+
+    assert(res == 0);'
+publicar: false

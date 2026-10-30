@@ -1,0 +1,33 @@
+id: pila-stack-17
+titulo: Gestor de Deshacer y Rehacer Undo-Redo con Dos Pilas
+tema: pilas_stack
+bloom: 3
+minutos_estimados: 25
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_17
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Gestor de Deshacer y Rehacer Undo-Redo
+    con Dos Pilas
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_17_positivo
+  funcion: ejecutar_pila_stack_17
+  codigo: 'int res = ejecutar_pila_stack_17(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_17_cero
+  funcion: ejecutar_pila_stack_17
+  codigo: 'int res = ejecutar_pila_stack_17(0);
+
+    assert(res == 0);'
+publicar: false

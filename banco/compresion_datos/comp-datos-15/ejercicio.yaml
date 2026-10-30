@@ -1,0 +1,32 @@
+id: comp-datos-15
+titulo: Serialización del Árbol de Huffman en Cabecera
+tema: compresion_datos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_15
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Serialización del Árbol de Huffman en
+    Cabecera
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_15_positivo
+  funcion: ejecutar_comp_datos_15
+  codigo: 'int res = ejecutar_comp_datos_15(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_15_cero
+  funcion: ejecutar_comp_datos_15
+  codigo: 'int res = ejecutar_comp_datos_15(0);
+
+    assert(res == 0);'
+publicar: false

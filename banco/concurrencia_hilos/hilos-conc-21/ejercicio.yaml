@@ -1,0 +1,32 @@
+id: hilos-conc-21
+titulo: Planificación de Tareas Concurrente por Prioridad
+tema: concurrencia_hilos
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Planificación de Tareas Concurrente por
+    Prioridad
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_21_positivo
+  funcion: ejecutar_hilos_conc_21
+  codigo: 'int res = ejecutar_hilos_conc_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_21_cero
+  funcion: ejecutar_hilos_conc_21
+  codigo: 'int res = ejecutar_hilos_conc_21(0);
+
+    assert(res == 0);'
+publicar: false

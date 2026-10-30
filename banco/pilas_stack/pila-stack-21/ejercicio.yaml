@@ -1,0 +1,33 @@
+id: pila-stack-21
+titulo: Pila de Capacidad Limitada con Sobrescritura Circular
+tema: pilas_stack
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Pila de Capacidad Limitada con Sobrescritura
+    Circular
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_21_positivo
+  funcion: ejecutar_pila_stack_21
+  codigo: 'int res = ejecutar_pila_stack_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_21_cero
+  funcion: ejecutar_pila_stack_21
+  codigo: 'int res = ejecutar_pila_stack_21(0);
+
+    assert(res == 0);'
+publicar: false

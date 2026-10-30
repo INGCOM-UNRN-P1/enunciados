@@ -1,0 +1,32 @@
+id: fsm-estados-19
+titulo: Controlador de Reproductor Multimedia con FSM
+tema: emulacion_maquinas_estado
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Controlador de Reproductor Multimedia
+    con FSM
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_19_positivo
+  funcion: ejecutar_fsm_estados_19
+  codigo: 'int res = ejecutar_fsm_estados_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_19_cero
+  funcion: ejecutar_fsm_estados_19
+  codigo: 'int res = ejecutar_fsm_estados_19(0);
+
+    assert(res == 0);'
+publicar: false

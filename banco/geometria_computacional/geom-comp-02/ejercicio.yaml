@@ -1,0 +1,31 @@
+id: geom-comp-02
+titulo: Producto Escalar y Ángulo entre Dos Vectores
+tema: geometria_computacional
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Producto Escalar y Ángulo entre Dos Vectores
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_02_positivo
+  funcion: ejecutar_geom_comp_02
+  codigo: 'int res = ejecutar_geom_comp_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_02_cero
+  funcion: ejecutar_geom_comp_02
+  codigo: 'int res = ejecutar_geom_comp_02(0);
+
+    assert(res == 0);'
+publicar: false

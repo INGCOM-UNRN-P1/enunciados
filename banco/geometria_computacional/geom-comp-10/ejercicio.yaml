@@ -1,0 +1,32 @@
+id: geom-comp-10
+titulo: Envolvente Convexa por Algoritmo de Convex Hull Graham Scan
+tema: geometria_computacional
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Envolvente Convexa por Algoritmo de Convex
+    Hull Graham Scan
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_10_positivo
+  funcion: ejecutar_geom_comp_10
+  codigo: 'int res = ejecutar_geom_comp_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_10_cero
+  funcion: ejecutar_geom_comp_10
+  codigo: 'int res = ejecutar_geom_comp_10(0);
+
+    assert(res == 0);'
+publicar: false

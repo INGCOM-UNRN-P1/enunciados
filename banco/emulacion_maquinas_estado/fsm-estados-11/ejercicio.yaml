@@ -1,0 +1,32 @@
+id: fsm-estados-11
+titulo: Controlador de Semáforo de Cruce Peatonal con FSM
+tema: emulacion_maquinas_estado
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Controlador de Semáforo de Cruce Peatonal
+    con FSM
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_11_positivo
+  funcion: ejecutar_fsm_estados_11
+  codigo: 'int res = ejecutar_fsm_estados_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_11_cero
+  funcion: ejecutar_fsm_estados_11
+  codigo: 'int res = ejecutar_fsm_estados_11(0);
+
+    assert(res == 0);'
+publicar: false

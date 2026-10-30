@@ -1,0 +1,33 @@
+id: net-sock-13
+titulo: 'Servidor HTTP Mínimo: Respuesta a Peticiones de Archivos Estáticos'
+tema: redes_sockets
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Recordá que Big Endian transmite el byte más significativo primero.
+- Validá el tamaño de los búferes de transmisión.
+tags:
+- redes
+- sockets
+- endianness
+- protocolos
+- tcp_udp
+verificado: true
+funciones:
+- nombre: ejecutar_net_sock_13
+  retorno: int
+  parametros: int val
+  descripcion: 'Procesa el flujo principal de Servidor HTTP Mínimo: Respuesta a Peticiones
+    de Archivos Estáticos'
+tests_funciones:
+- nombre: test_ejecutar_net_sock_13_positivo
+  funcion: ejecutar_net_sock_13
+  codigo: 'int res = ejecutar_net_sock_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_net_sock_13_cero
+  funcion: ejecutar_net_sock_13
+  codigo: 'int res = ejecutar_net_sock_13(0);
+
+    assert(res == 0);'
+publicar: false

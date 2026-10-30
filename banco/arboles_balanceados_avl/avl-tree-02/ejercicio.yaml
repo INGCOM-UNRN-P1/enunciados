@@ -1,0 +1,33 @@
+id: avl-tree-02
+titulo: Rotación Simple a la Izquierda en Árbol AVL
+tema: arboles_balanceados_avl
+bloom: 1
+minutos_estimados: 10
+pistas:
+- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
+- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+tags:
+- avl
+- arboles_balanceados
+- rotaciones
+- factor_balance
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_avl_tree_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Rotación Simple a la Izquierda en Árbol
+    AVL
+tests_funciones:
+- nombre: test_ejecutar_avl_tree_02_positivo
+  funcion: ejecutar_avl_tree_02
+  codigo: 'int res = ejecutar_avl_tree_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_avl_tree_02_cero
+  funcion: ejecutar_avl_tree_02
+  codigo: 'int res = ejecutar_avl_tree_02(0);
+
+    assert(res == 0);'
+publicar: false

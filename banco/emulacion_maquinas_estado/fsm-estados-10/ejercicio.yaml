@@ -1,0 +1,32 @@
+id: fsm-estados-10
+titulo: Emulador de Máquina de Café y Monedero con FSM
+tema: emulacion_maquinas_estado
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_10
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Emulador de Máquina de Café y Monedero
+    con FSM
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_10_positivo
+  funcion: ejecutar_fsm_estados_10
+  codigo: 'int res = ejecutar_fsm_estados_10(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_10_cero
+  funcion: ejecutar_fsm_estados_10
+  codigo: 'int res = ejecutar_fsm_estados_10(0);
+
+    assert(res == 0);'
+publicar: false

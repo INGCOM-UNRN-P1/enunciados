@@ -1,0 +1,33 @@
+id: avl-tree-20
+titulo: Búsqueda del K-ésimo Menor Elemento en AVL Aumentado
+tema: arboles_balanceados_avl
+bloom: 3
+minutos_estimados: 25
+pistas:
+- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
+- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+tags:
+- avl
+- arboles_balanceados
+- rotaciones
+- factor_balance
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_avl_tree_20
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Búsqueda del K-ésimo Menor Elemento en
+    AVL Aumentado
+tests_funciones:
+- nombre: test_ejecutar_avl_tree_20_positivo
+  funcion: ejecutar_avl_tree_20
+  codigo: 'int res = ejecutar_avl_tree_20(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_avl_tree_20_cero
+  funcion: ejecutar_avl_tree_20
+  codigo: 'int res = ejecutar_avl_tree_20(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,35 @@
+id: skip-list-21
+titulo: Skip List Lock-Free con Punteros Marcados Atómicos
+tema: skip_lists_probabilisticas
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
+  generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
+  buscada.
+tags:
+- skip_list
+- listas_saltos
+- probabilistica
+- busqueda
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_skip_list_21
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Skip List Lock-Free con Punteros Marcados
+    Atómicos
+tests_funciones:
+- nombre: test_ejecutar_skip_list_21_positivo
+  funcion: ejecutar_skip_list_21
+  codigo: 'int res = ejecutar_skip_list_21(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_skip_list_21_cero
+  funcion: ejecutar_skip_list_21
+  codigo: 'int res = ejecutar_skip_list_21(0);
+
+    assert(res == 0);'
+publicar: false

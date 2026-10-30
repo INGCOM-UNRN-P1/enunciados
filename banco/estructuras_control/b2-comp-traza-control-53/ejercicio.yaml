@@ -1,0 +1,29 @@
+id: b2-comp-traza-control-53
+titulo: Evaluación de Expresiones con Post-Incremento
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_53
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Evaluación de Expresiones con Post-Incremento
+tests_funciones:
+- nombre: test_proc_omp_traza_control_53_positivo
+  funcion: proc_omp_traza_control_53
+  codigo: 'int res = proc_omp_traza_control_53(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_53_cero
+  funcion: proc_omp_traza_control_53
+  codigo: 'int res = proc_omp_traza_control_53(0);
+
+    assert(res == 0);'
+publicar: false

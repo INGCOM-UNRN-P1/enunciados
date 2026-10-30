@@ -1,0 +1,33 @@
+id: heap-prio-04
+titulo: Operación de Heapify Lineal sobre Arreglo Desordenado
+tema: colas_prioridad_heaps
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
+- El padre de un nodo i está en (i - 1) / 2.
+tags:
+- heap
+- min_heap
+- max_heap
+- cola_prioridad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_heap_prio_04
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Operación de Heapify Lineal sobre Arreglo
+    Desordenado
+tests_funciones:
+- nombre: test_ejecutar_heap_prio_04_positivo
+  funcion: ejecutar_heap_prio_04
+  codigo: 'int res = ejecutar_heap_prio_04(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_heap_prio_04_cero
+  funcion: ejecutar_heap_prio_04
+  codigo: 'int res = ejecutar_heap_prio_04(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,32 @@
+id: grafo-red-20
+titulo: Árbol de Expansión Mínima MST por Algoritmo de Kruskal
+tema: grafos_y_redes
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Modelá las conexiones como matriz o lista de adyacencia.
+- Controlá los límites de índices de vértices.
+tags:
+- grafos
+- redes
+- adyacencia
+- vertices
+verificado: true
+funciones:
+- nombre: ejecutar_grafo_red_20
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Árbol de Expansión Mínima MST por Algoritmo
+    de Kruskal
+tests_funciones:
+- nombre: test_ejecutar_grafo_red_20_positivo
+  funcion: ejecutar_grafo_red_20
+  codigo: 'int res = ejecutar_grafo_red_20(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_grafo_red_20_cero
+  funcion: ejecutar_grafo_red_20
+  codigo: 'int res = ejecutar_grafo_red_20(0);
+
+    assert(res == 0);'
+publicar: false

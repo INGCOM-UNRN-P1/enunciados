@@ -1,0 +1,34 @@
+id: cola-queue-22
+titulo: Cola de Trabajo Lock-Free de Un Productor y Un Consumidor SPSC
+tema: colas_queue
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_22
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Cola de Trabajo Lock-Free de Un Productor
+    y Un Consumidor SPSC
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_22_positivo
+  funcion: ejecutar_cola_queue_22
+  codigo: 'int res = ejecutar_cola_queue_22(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_22_cero
+  funcion: ejecutar_cola_queue_22
+  codigo: 'int res = ejecutar_cola_queue_22(0);
+
+    assert(res == 0);'
+publicar: false

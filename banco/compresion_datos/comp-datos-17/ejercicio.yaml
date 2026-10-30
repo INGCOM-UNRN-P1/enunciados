@@ -1,0 +1,15 @@
+id: comp-datos-17
+titulo: 'Codificación y Compresión de Datos #17'
+tema: compresion_datos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+publicar: false

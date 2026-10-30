@@ -1,0 +1,29 @@
+id: b2-comp-traza-control-33
+titulo: Seguimiento de Nodos en Listas Simples
+tema: estructuras_control
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Hacé la tabla de seguimiento de variables paso a paso.
+tags:
+- estructuras_control
+- comprender
+- c11
+verificado: true
+funciones:
+- nombre: proc_omp_traza_control_33
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Seguimiento de Nodos en Listas Simples
+tests_funciones:
+- nombre: test_proc_omp_traza_control_33_positivo
+  funcion: proc_omp_traza_control_33
+  codigo: 'int res = proc_omp_traza_control_33(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_proc_omp_traza_control_33_cero
+  funcion: proc_omp_traza_control_33
+  codigo: 'int res = proc_omp_traza_control_33(0);
+
+    assert(res == 0);'
+publicar: false

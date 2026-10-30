@@ -1,0 +1,32 @@
+id: comp-datos-05
+titulo: Empaquetado de Enteros de 4 Bits en Bytes Compactos
+tema: compresion_datos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_05
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Empaquetado de Enteros de 4 Bits en Bytes
+    Compactos
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_05_positivo
+  funcion: ejecutar_comp_datos_05
+  codigo: 'int res = ejecutar_comp_datos_05(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_05_cero
+  funcion: ejecutar_comp_datos_05
+  codigo: 'int res = ejecutar_comp_datos_05(0);
+
+    assert(res == 0);'
+publicar: false

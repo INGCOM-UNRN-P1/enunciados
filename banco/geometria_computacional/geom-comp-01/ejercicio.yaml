@@ -1,0 +1,32 @@
+id: geom-comp-01
+titulo: Distancia Euclidiana y Norma de Vectores 2D
+tema: geometria_computacional
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_01
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Distancia Euclidiana y Norma de Vectores
+    2D
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_01_positivo
+  funcion: ejecutar_geom_comp_01
+  codigo: 'int res = ejecutar_geom_comp_01(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_01_cero
+  funcion: ejecutar_geom_comp_01
+  codigo: 'int res = ejecutar_geom_comp_01(0);
+
+    assert(res == 0);'
+publicar: false

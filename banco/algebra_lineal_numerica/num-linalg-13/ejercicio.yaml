@@ -1,0 +1,32 @@
+id: num-linalg-13
+titulo: Interpolación Polinómica por Fórmula de Lagrange
+tema: algebra_lineal_numerica
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Verificá divisiones por cero en el denominador de convergencia.
+- Controlá el criterio de parada del método iterativo.
+tags:
+- algebra_lineal
+- metodos_numericos
+- newton_raphson
+- matrices
+verificado: true
+funciones:
+- nombre: ejecutar_num_linalg_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Interpolación Polinómica por Fórmula
+    de Lagrange
+tests_funciones:
+- nombre: test_ejecutar_num_linalg_13_positivo
+  funcion: ejecutar_num_linalg_13
+  codigo: 'int res = ejecutar_num_linalg_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_num_linalg_13_cero
+  funcion: ejecutar_num_linalg_13
+  codigo: 'int res = ejecutar_num_linalg_13(0);
+
+    assert(res == 0);'
+publicar: false

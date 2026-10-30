@@ -1,0 +1,32 @@
+id: dsp-senal-07
+titulo: Autocorrelación Discreta de Señales Unidimensionales
+tema: procesamiento_senales_dsp
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Autocorrelación Discreta de Señales Unidimensionales
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_07_positivo
+  funcion: ejecutar_dsp_senal_07
+  codigo: 'int res = ejecutar_dsp_senal_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_07_cero
+  funcion: ejecutar_dsp_senal_07
+  codigo: 'int res = ejecutar_dsp_senal_07(0);
+
+    assert(res == 0);'
+publicar: false

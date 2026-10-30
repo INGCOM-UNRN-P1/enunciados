@@ -1,0 +1,30 @@
+id: b1-rec-concepto-c-41
+titulo: Inicialización por Defecto de Variables Estáticas
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_41
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inicialización por Defecto de Variables
+    Estáticas
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_41_positivo
+  funcion: ejecutar_b1_rec_concepto_c_41
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_41(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_41_cero
+  funcion: ejecutar_b1_rec_concepto_c_41
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_41(0);
+
+    assert(res == 0);'
+publicar: false

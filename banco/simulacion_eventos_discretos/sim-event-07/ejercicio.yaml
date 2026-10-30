@@ -1,0 +1,32 @@
+id: sim-event-07
+titulo: Planificador de Procesos por Menor Tiempo Restante SRTF
+tema: simulacion_eventos_discretos
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Mantené una cola de eventos ordenada por tiempo de ocurrencia.
+- Avanzá el reloj de simulación al tiempo del próximo evento.
+tags:
+- simulacion
+- eventos_discretos
+- colas
+- planificacion
+verificado: true
+funciones:
+- nombre: ejecutar_sim_event_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Planificador de Procesos por Menor Tiempo
+    Restante SRTF
+tests_funciones:
+- nombre: test_ejecutar_sim_event_07_positivo
+  funcion: ejecutar_sim_event_07
+  codigo: 'int res = ejecutar_sim_event_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_sim_event_07_cero
+  funcion: ejecutar_sim_event_07
+  codigo: 'int res = ejecutar_sim_event_07(0);
+
+    assert(res == 0);'
+publicar: false

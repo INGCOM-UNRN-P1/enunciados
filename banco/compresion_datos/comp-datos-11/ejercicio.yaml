@@ -1,0 +1,32 @@
+id: comp-datos-11
+titulo: Codificación de Caracteres por Frecuencia Fija
+tema: compresion_datos
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_11
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Codificación de Caracteres por Frecuencia
+    Fija
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_11_positivo
+  funcion: ejecutar_comp_datos_11
+  codigo: 'int res = ejecutar_comp_datos_11(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_11_cero
+  funcion: ejecutar_comp_datos_11
+  codigo: 'int res = ejecutar_comp_datos_11(0);
+
+    assert(res == 0);'
+publicar: false

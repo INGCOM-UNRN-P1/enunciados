@@ -1,0 +1,32 @@
+id: hilos-conc-03
+titulo: Sección Crítica con Mutex Reentrante Recursivo
+tema: concurrencia_hilos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Identificá las variables compartidas y las variables locales a cada hilo.
+- Evitá deadlocks garantizando orden de adquisición de bloqueos.
+tags:
+- concurrencia
+- hilos
+- mutex
+- sincronizacion
+verificado: true
+funciones:
+- nombre: ejecutar_hilos_conc_03
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Sección Crítica con Mutex Reentrante
+    Recursivo
+tests_funciones:
+- nombre: test_ejecutar_hilos_conc_03_positivo
+  funcion: ejecutar_hilos_conc_03
+  codigo: 'int res = ejecutar_hilos_conc_03(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_hilos_conc_03_cero
+  funcion: ejecutar_hilos_conc_03
+  codigo: 'int res = ejecutar_hilos_conc_03(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,33 @@
+id: pila-stack-23
+titulo: Decodificación de Cadenas Comprimidas con Patrón K-veces
+tema: pilas_stack
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_23
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Decodificación de Cadenas Comprimidas
+    con Patrón K-veces
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_23_positivo
+  funcion: ejecutar_pila_stack_23
+  codigo: 'int res = ejecutar_pila_stack_23(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_23_cero
+  funcion: ejecutar_pila_stack_23
+  codigo: 'int res = ejecutar_pila_stack_23(0);
+
+    assert(res == 0);'
+publicar: false

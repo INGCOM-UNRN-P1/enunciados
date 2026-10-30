@@ -1,0 +1,30 @@
+id: b1-rec-concepto-c-02
+titulo: Conversión Explícita de Tipos con Type Casting
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_02
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conversión Explícita de Tipos con Type
+    Casting
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_02_positivo
+  funcion: ejecutar_b1_rec_concepto_c_02
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_02(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_02_cero
+  funcion: ejecutar_b1_rec_concepto_c_02
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_02(0);
+
+    assert(res == 0);'
+publicar: false

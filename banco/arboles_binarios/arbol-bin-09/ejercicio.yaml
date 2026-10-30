@@ -1,0 +1,34 @@
+id: arbol-bin-09
+titulo: Verificación de Árbol Binario Balanceado en Altura
+tema: arboles_binarios
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
+- Usá recursión para recorrer subárboles izquierdo y derecho.
+tags:
+- arboles
+- arbol_binario
+- inorder
+- preorder
+- postorder
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_arbol_bin_09
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Verificación de Árbol Binario Balanceado
+    en Altura
+tests_funciones:
+- nombre: test_ejecutar_arbol_bin_09_positivo
+  funcion: ejecutar_arbol_bin_09
+  codigo: 'int res = ejecutar_arbol_bin_09(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_arbol_bin_09_cero
+  funcion: ejecutar_arbol_bin_09
+  codigo: 'int res = ejecutar_arbol_bin_09(0);
+
+    assert(res == 0);'
+publicar: false

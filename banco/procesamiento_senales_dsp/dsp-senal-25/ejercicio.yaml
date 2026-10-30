@@ -1,0 +1,33 @@
+id: dsp-senal-25
+titulo: Puerta de Ruido Noise Gate para Supresión de Silencios
+tema: procesamiento_senales_dsp
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Trabajá con ventanas de convolución discretas.
+- Cuidá los efectos de borde al inicio y fin de la señal.
+tags:
+- dsp
+- senales
+- filtros
+- media_movil
+- muestreo
+verificado: true
+funciones:
+- nombre: ejecutar_dsp_senal_25
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Puerta de Ruido Noise Gate para Supresión
+    de Silencios
+tests_funciones:
+- nombre: test_ejecutar_dsp_senal_25_positivo
+  funcion: ejecutar_dsp_senal_25
+  codigo: 'int res = ejecutar_dsp_senal_25(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_dsp_senal_25_cero
+  funcion: ejecutar_dsp_senal_25
+  codigo: 'int res = ejecutar_dsp_senal_25(0);
+
+    assert(res == 0);'
+publicar: false

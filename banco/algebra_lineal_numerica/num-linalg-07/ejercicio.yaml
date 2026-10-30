@@ -1,0 +1,31 @@
+id: num-linalg-07
+titulo: Inversión de Matrices por Método de Gauss-Jordan
+tema: algebra_lineal_numerica
+bloom: 2
+minutos_estimados: 15
+pistas:
+- Verificá divisiones por cero en el denominador de convergencia.
+- Controlá el criterio de parada del método iterativo.
+tags:
+- algebra_lineal
+- metodos_numericos
+- newton_raphson
+- matrices
+verificado: true
+funciones:
+- nombre: ejecutar_num_linalg_07
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inversión de Matrices por Método de Gauss-Jordan
+tests_funciones:
+- nombre: test_ejecutar_num_linalg_07_positivo
+  funcion: ejecutar_num_linalg_07
+  codigo: 'int res = ejecutar_num_linalg_07(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_num_linalg_07_cero
+  funcion: ejecutar_num_linalg_07
+  codigo: 'int res = ejecutar_num_linalg_07(0);
+
+    assert(res == 0);'
+publicar: false

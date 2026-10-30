@@ -1,0 +1,33 @@
+id: cola-queue-25
+titulo: Deque con Arreglo Dinámico Circular Redimensionable
+tema: colas_queue
+bloom: 4
+minutos_estimados: 35
+pistas:
+- La cola opera bajo política FIFO (First-In, First-Out).
+- Usá el operador módulo % para avanzar los índices circularmente.
+tags:
+- cola
+- queue
+- fifo
+- ring_buffer
+- deque
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_cola_queue_25
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Deque con Arreglo Dinámico Circular Redimensionable
+tests_funciones:
+- nombre: test_ejecutar_cola_queue_25_positivo
+  funcion: ejecutar_cola_queue_25
+  codigo: 'int res = ejecutar_cola_queue_25(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cola_queue_25_cero
+  funcion: ejecutar_cola_queue_25
+  codigo: 'int res = ejecutar_cola_queue_25(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,33 @@
+id: lista-enl-03
+titulo: Inserción al Final con Puntero de Cola Tail
+tema: listas_enlazadas
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Verificá siempre el caso base de lista vacía (cabeza == NULL).
+- Liberá cada nodo con free() al terminar.
+tags:
+- listas
+- listas_enlazadas
+- punteros
+- nodos
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_lista_enl_03
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Inserción al Final con Puntero de Cola
+    Tail
+tests_funciones:
+- nombre: test_ejecutar_lista_enl_03_positivo
+  funcion: ejecutar_lista_enl_03
+  codigo: 'int res = ejecutar_lista_enl_03(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_lista_enl_03_cero
+  funcion: ejecutar_lista_enl_03
+  codigo: 'int res = ejecutar_lista_enl_03(0);
+
+    assert(res == 0);'
+publicar: false

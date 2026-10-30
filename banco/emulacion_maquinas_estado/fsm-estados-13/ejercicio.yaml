@@ -1,0 +1,32 @@
+id: fsm-estados-13
+titulo: FSM de Desempaquetado de Tramas Binarias de Red
+tema: emulacion_maquinas_estado
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de FSM de Desempaquetado de Tramas Binarias
+    de Red
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_13_positivo
+  funcion: ejecutar_fsm_estados_13
+  codigo: 'int res = ejecutar_fsm_estados_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_13_cero
+  funcion: ejecutar_fsm_estados_13
+  codigo: 'int res = ejecutar_fsm_estados_13(0);
+
+    assert(res == 0);'
+publicar: false

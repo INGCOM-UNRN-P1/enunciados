@@ -1,0 +1,32 @@
+id: cripto-hash-13
+titulo: Función Hash Criptográfica SHA-1 Simplificada
+tema: criptografia_hashing
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
+- Usá operaciones bitwise y sumas modulares.
+tags:
+- criptografia
+- hash
+- checksum
+- adler32
+- seguridad
+verificado: true
+funciones:
+- nombre: ejecutar_cripto_hash_13
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Función Hash Criptográfica SHA-1 Simplificada
+tests_funciones:
+- nombre: test_ejecutar_cripto_hash_13_positivo
+  funcion: ejecutar_cripto_hash_13
+  codigo: 'int res = ejecutar_cripto_hash_13(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cripto_hash_13_cero
+  funcion: ejecutar_cripto_hash_13
+  codigo: 'int res = ejecutar_cripto_hash_13(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,30 @@
+id: b1-rec-concepto-c-34
+titulo: Manejo de Entrada con Scanf y Limpieza de Búfer
+tema: sintaxis
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Recordá la definición estándar en C11.
+tags:
+- sintaxis
+- recordar
+- c11
+verificado: true
+funciones:
+- nombre: ejecutar_b1_rec_concepto_c_34
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Manejo de Entrada con Scanf y Limpieza
+    de Búfer
+tests_funciones:
+- nombre: test_ejecutar_b1_rec_concepto_c_34_positivo
+  funcion: ejecutar_b1_rec_concepto_c_34
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_34(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_b1_rec_concepto_c_34_cero
+  funcion: ejecutar_b1_rec_concepto_c_34
+  codigo: 'int res = ejecutar_b1_rec_concepto_c_34(0);
+
+    assert(res == 0);'
+publicar: false

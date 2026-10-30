@@ -1,0 +1,32 @@
+id: num-linalg-23
+titulo: Generación de Números con Distribución Normal Box-Muller
+tema: algebra_lineal_numerica
+bloom: 4
+minutos_estimados: 35
+pistas:
+- Verificá divisiones por cero en el denominador de convergencia.
+- Controlá el criterio de parada del método iterativo.
+tags:
+- algebra_lineal
+- metodos_numericos
+- newton_raphson
+- matrices
+verificado: true
+funciones:
+- nombre: ejecutar_num_linalg_23
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Generación de Números con Distribución
+    Normal Box-Muller
+tests_funciones:
+- nombre: test_ejecutar_num_linalg_23_positivo
+  funcion: ejecutar_num_linalg_23
+  codigo: 'int res = ejecutar_num_linalg_23(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_num_linalg_23_cero
+  funcion: ejecutar_num_linalg_23
+  codigo: 'int res = ejecutar_num_linalg_23(0);
+
+    assert(res == 0);'
+publicar: false

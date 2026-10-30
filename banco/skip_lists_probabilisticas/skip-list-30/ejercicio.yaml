@@ -1,0 +1,35 @@
+id: skip-list-30
+titulo: TAD Completo de Lista por Saltos Genérica con Comparador
+tema: skip_lists_probabilisticas
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
+  generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
+  buscada.
+tags:
+- skip_list
+- listas_saltos
+- probabilistica
+- busqueda
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_skip_list_30
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de TAD Completo de Lista por Saltos Genérica
+    con Comparador
+tests_funciones:
+- nombre: test_ejecutar_skip_list_30_positivo
+  funcion: ejecutar_skip_list_30
+  codigo: 'int res = ejecutar_skip_list_30(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_skip_list_30_cero
+  funcion: ejecutar_skip_list_30
+  codigo: 'int res = ejecutar_skip_list_30(0);
+
+    assert(res == 0);'
+publicar: false

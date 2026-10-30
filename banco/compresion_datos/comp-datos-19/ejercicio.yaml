@@ -1,0 +1,32 @@
+id: comp-datos-19
+titulo: Codificación LZW con Actualización Dinámica de Diccionario
+tema: compresion_datos
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Analizá la secuencia y agrupá repeticiones consecutivas.
+- Preservá el orden de decodificación.
+tags:
+- compresion
+- rle
+- bit_packing
+- codificacion
+verificado: true
+funciones:
+- nombre: ejecutar_comp_datos_19
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Codificación LZW con Actualización Dinámica
+    de Diccionario
+tests_funciones:
+- nombre: test_ejecutar_comp_datos_19_positivo
+  funcion: ejecutar_comp_datos_19
+  codigo: 'int res = ejecutar_comp_datos_19(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_comp_datos_19_cero
+  funcion: ejecutar_comp_datos_19
+  codigo: 'int res = ejecutar_comp_datos_19(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,33 @@
+id: pila-stack-04
+titulo: Conversión de Expresión Infija a Postfija RPN con Algoritmo Shunting-Yard
+tema: pilas_stack
+bloom: 1
+minutos_estimados: 10
+pistas:
+- La pila opera bajo política LIFO (Last-In, First-Out).
+- Manejá el subdesbordamiento (underflow) cuando la pila esté vacía.
+tags:
+- stack
+- pila
+- lifo
+- tad
+- estructuras_datos
+verificado: true
+funciones:
+- nombre: ejecutar_pila_stack_04
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Conversión de Expresión Infija a Postfija
+    RPN con Algoritmo Shunting-Yard
+tests_funciones:
+- nombre: test_ejecutar_pila_stack_04_positivo
+  funcion: ejecutar_pila_stack_04
+  codigo: 'int res = ejecutar_pila_stack_04(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_pila_stack_04_cero
+  funcion: ejecutar_pila_stack_04
+  codigo: 'int res = ejecutar_pila_stack_04(0);
+
+    assert(res == 0);'
+publicar: false

@@ -1,0 +1,32 @@
+id: fsm-estados-27
+titulo: Parser de Líneas de Log con Niveles de Severidad
+tema: emulacion_maquinas_estado
+bloom: 5
+minutos_estimados: 45
+pistas:
+- Definí los estados usando un enum.
+- Usá un switch-case o matriz de transición.
+tags:
+- fsm
+- automatas
+- estados
+- protocolos
+verificado: true
+funciones:
+- nombre: ejecutar_fsm_estados_27
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Parser de Líneas de Log con Niveles de
+    Severidad
+tests_funciones:
+- nombre: test_ejecutar_fsm_estados_27_positivo
+  funcion: ejecutar_fsm_estados_27
+  codigo: 'int res = ejecutar_fsm_estados_27(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_fsm_estados_27_cero
+  funcion: ejecutar_fsm_estados_27
+  codigo: 'int res = ejecutar_fsm_estados_27(0);
+
+    assert(res == 0);'
+publicar: false

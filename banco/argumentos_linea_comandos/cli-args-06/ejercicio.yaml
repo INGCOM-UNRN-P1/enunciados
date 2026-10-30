@@ -1,0 +1,32 @@
+id: cli-args-06
+titulo: Manejo de Flags Repetidas y Conteo de Verbosidad
+tema: argumentos_linea_comandos
+bloom: 1
+minutos_estimados: 10
+pistas:
+- Analizá cada token de entrada de forma secuencial.
+- Validá los límites del búfer de caracteres.
+tags:
+- cli
+- argumentos
+- argc_argv
+- flags
+verificado: true
+funciones:
+- nombre: ejecutar_cli_args_06
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Manejo de Flags Repetidas y Conteo de
+    Verbosidad
+tests_funciones:
+- nombre: test_ejecutar_cli_args_06_positivo
+  funcion: ejecutar_cli_args_06
+  codigo: 'int res = ejecutar_cli_args_06(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_cli_args_06_cero
+  funcion: ejecutar_cli_args_06
+  codigo: 'int res = ejecutar_cli_args_06(0);
+
+    assert(res == 0);'
+publicar: false

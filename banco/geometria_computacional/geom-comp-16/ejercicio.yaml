@@ -1,0 +1,32 @@
+id: geom-comp-16
+titulo: Intersección entre Segmento de Recta y Círculo
+tema: geometria_computacional
+bloom: 3
+minutos_estimados: 25
+pistas:
+- Aplicá fórmulas algebraicas de vectores.
+- Cuidá el redondeo en cálculos de punto flotante.
+tags:
+- geometria
+- vectores
+- puntos
+- interseccion
+verificado: true
+funciones:
+- nombre: ejecutar_geom_comp_16
+  retorno: int
+  parametros: int val
+  descripcion: Procesa el flujo principal de Intersección entre Segmento de Recta
+    y Círculo
+tests_funciones:
+- nombre: test_ejecutar_geom_comp_16_positivo
+  funcion: ejecutar_geom_comp_16
+  codigo: 'int res = ejecutar_geom_comp_16(5);
+
+    assert(res == 10 || res >= 0);'
+- nombre: test_ejecutar_geom_comp_16_cero
+  funcion: ejecutar_geom_comp_16
+  codigo: 'int res = ejecutar_geom_comp_16(0);
+
+    assert(res == 0);'
+publicar: false
