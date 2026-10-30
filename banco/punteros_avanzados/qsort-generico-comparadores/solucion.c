@@ -12,12 +12,12 @@ typedef struct
     int id;
     char nombre[32];
     float promedio;
-} Estudiante;
+} estudiante_t;
 
 int cmp_promedio_desc(const void *a, const void *b)
 {
-    const Estudiante *ea = (const Estudiante *)a;
-    const Estudiante *eb = (const Estudiante *)b;
+    const estudiante_t *ea = (const estudiante_t *)a;
+    const estudiante_t *eb = (const estudiante_t *)b;
 
     if (eb->promedio > ea->promedio)
     {
@@ -32,8 +32,8 @@ int cmp_promedio_desc(const void *a, const void *b)
 
 int cmp_nombre_asc(const void *a, const void *b)
 {
-    const Estudiante *ea = (const Estudiante *)a;
-    const Estudiante *eb = (const Estudiante *)b;
+    const estudiante_t *ea = (const estudiante_t *)a;
+    const estudiante_t *eb = (const estudiante_t *)b;
     int r = strcmp(ea->nombre, eb->nombre);
     if (r != 0)
     {
@@ -44,15 +44,15 @@ int cmp_nombre_asc(const void *a, const void *b)
 
 int cmp_id_asc(const void *a, const void *b)
 {
-    const Estudiante *ea = (const Estudiante *)a;
-    const Estudiante *eb = (const Estudiante *)b;
+    const estudiante_t *ea = (const estudiante_t *)a;
+    const estudiante_t *eb = (const estudiante_t *)b;
     return (ea->id - eb->id);
 }
 
 int main(void)
 {
     int cantidad = 0;
-    Estudiante *estudiantes = NULL;
+    estudiante_t *estudiantes = NULL;
     char comando[32] = {0};
 
     while (scanf("%31s", comando) == 1)
@@ -62,7 +62,7 @@ int main(void)
             if (scanf("%d", &cantidad) == 1 && cantidad > 0)
             {
                 free(estudiantes);
-                Estudiante *nuevos_estudiantes = (Estudiante *)malloc(sizeof(Estudiante) * (size_t)cantidad);
+                estudiante_t *nuevos_estudiantes = (estudiante_t *)malloc(sizeof(estudiante_t) * (size_t)cantidad);
                 if (nuevos_estudiantes == NULL)
                 {
                     estudiantes = NULL;
@@ -83,21 +83,21 @@ int main(void)
         {
             if (estudiantes != NULL && cantidad > 0)
             {
-                qsort(estudiantes, (size_t)cantidad, sizeof(Estudiante), cmp_promedio_desc);
+                qsort(estudiantes, (size_t)cantidad, sizeof(estudiante_t), cmp_promedio_desc);
             }
         }
         else if (strcmp(comando, "SORT_NOMBRE_ASC") == 0)
         {
             if (estudiantes != NULL && cantidad > 0)
             {
-                qsort(estudiantes, (size_t)cantidad, sizeof(Estudiante), cmp_nombre_asc);
+                qsort(estudiantes, (size_t)cantidad, sizeof(estudiante_t), cmp_nombre_asc);
             }
         }
         else if (strcmp(comando, "SORT_ID_ASC") == 0)
         {
             if (estudiantes != NULL && cantidad > 0)
             {
-                qsort(estudiantes, (size_t)cantidad, sizeof(Estudiante), cmp_id_asc);
+                qsort(estudiantes, (size_t)cantidad, sizeof(estudiante_t), cmp_id_asc);
             }
         }
         else if (strcmp(comando, "SHOW") == 0)

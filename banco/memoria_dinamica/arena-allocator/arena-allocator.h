@@ -6,10 +6,10 @@
 #include <stdint.h>
 
 /* Operación arena_init */
-void arena_init(Arena *arena, size_t capacidad);
+void arena_init(arena_t *arena, size_t capacidad);
 /* Operación arena_reset */
-void arena_reset(Arena *arena);
+void arena_reset(arena_t *arena);
 /* Operación arena_free */
-void arena_free(Arena *arena);
+void arena_free(arena_t *arena);
 
 #endif /* EJERCICIO_ARENA_ALLOCATOR_H */

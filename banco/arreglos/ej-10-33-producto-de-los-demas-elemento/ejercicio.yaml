@@ -1,5 +1,5 @@
 id: ej-10-33-producto-de-los-demas-elemento
-titulo: Producto de los demás elementos
+titulo: producto_t de los demás elementos
 tema: arreglos
 bloom: 3
 minutos_estimados: 25
@@ -28,7 +28,7 @@ funciones:
 - nombre: proc_e_los_demas_elemento
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Producto de los demás elementos
+  descripcion: Procesa el flujo principal de producto_t de los demás elementos
 tests_funciones:
 - nombre: test_proc_e_los_demas_elemento_positivo
   funcion: proc_e_los_demas_elemento

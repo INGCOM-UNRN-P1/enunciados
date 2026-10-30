@@ -9,7 +9,6 @@ Representá una matriz dispersa (muchos ceros) eficientemente.
 
 ---
 
-## Notas Finales
 
 :::{tip} Patrones de Recorrido
 
@@ -100,24 +99,6 @@ for (int i = 0; i < N; i++)
 
 :::
 
-:::{note} Inicialización de Matrices
-
-**Todo en cero:**
-``` c
-int matriz[3][4] = {0};
-```
-
-**Valores específicos:**
-``` c
-int matriz[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-```
-
-**Parcial (resto en cero):**
-``` c
-int matriz[3][3] = {{1}, {2}, {3}}; // Primera columna con valores
-```
-
-:::
 
 :::{tip} Eficiencia y Cache
 
@@ -136,25 +117,6 @@ matriz[i][j]
 
 :::
 
-:::{note} Matrices como Parámetros
-
-```{code-block} c
-:linenos:
-// Opción 1: Tamaño fijo
-void procesar(int matriz[3][4])
-{
-}
-// Opción 2: VLA (C99)
-void procesar(int filas, int cols, int matriz[filas][cols])
-{
-}
-// Opción 3: Puntero con dimensiones
-void procesar(int filas, int cols, int (*matriz)[cols])
-{
-}
-```
-
-:::
 
 Estas consignas cubren arrays bidimensionales desde operaciones básicas hasta
 algoritmos complejos, preparando para trabajar con matrices dinámicas en apuntes
@@ -175,13 +137,13 @@ int proc_triz_dispersa_sparse(int val);
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Valor positivo
+:::{tab-item} Entrada con valor 5
 ```text
 Entrada: 5
 Salida / Retorno: 10
 ```
 :::
-:::{tab-item} Valor cero o negativo
+:::{tab-item} Entrada con valor 0
 ```text
 Entrada: 0
 Salida / Retorno: 0
@@ -192,12 +154,13 @@ Salida / Retorno: 0
 ### ⚠️ Precondiciones y Casos Borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
 - [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
 - [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 :::{hint} Consideraciones Didácticas

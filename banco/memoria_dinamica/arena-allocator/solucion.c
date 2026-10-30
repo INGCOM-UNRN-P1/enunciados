@@ -1,5 +1,5 @@
 /*
- * Arena Allocator con alineacion a 8 bytes
+ * arena_t Allocator con alineacion a 8 bytes
  * Catedra Programacion I - UNRN
  */
 
@@ -13,9 +13,9 @@ typedef struct
     uint8_t *buffer;
     size_t capacidad;
     size_t offset;
-} Arena;
+} arena_t;
 
-void arena_init(Arena *arena, size_t capacidad)
+void arena_init(arena_t *arena, size_t capacidad)
 {
     uint8_t *buf = (uint8_t *)malloc(capacidad);
     if (buf == NULL)
@@ -30,7 +30,7 @@ void arena_init(Arena *arena, size_t capacidad)
     arena->offset = 0;
 }
 
-static void *arena_alloc(Arena *arena, size_t bytes, size_t alineacion)
+static void *arena_alloc(arena_t *arena, size_t bytes, size_t alineacion)
 {
     if (arena->buffer == NULL)
     {
@@ -46,12 +46,12 @@ static void *arena_alloc(Arena *arena, size_t bytes, size_t alineacion)
     return ptr;
 }
 
-void arena_reset(Arena *arena)
+void arena_reset(arena_t *arena)
 {
     arena->offset = 0;
 }
 
-void arena_free(Arena *arena)
+void arena_free(arena_t *arena)
 {
     if (arena->buffer != NULL)
     {
@@ -64,7 +64,7 @@ void arena_free(Arena *arena)
 
 int main(void)
 {
-    Arena arena = {NULL, 0, 0};
+    arena_t arena = {NULL, 0, 0};
     char comando[32] = {0};
     size_t param = 0;
 

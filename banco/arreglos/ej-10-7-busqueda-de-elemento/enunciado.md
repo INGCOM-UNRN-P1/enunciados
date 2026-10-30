@@ -28,24 +28,6 @@ int busqueda_lineal(const int arreglo[], size_t tamano, int buscado);
 int proc_busqueda_de_elemento(int val);
 ```
 
-:::{note} Casos borde y precondiciones
-
-Prestá especial atención a estas situaciones, que tu implementación debe
-resolver correctamente:
-
--   **Arreglo vacío** (`tamano == 0`): el lazo no debe ejecutarse ni una
-    iteración y la función devuelve `-1`.
--   **Elemento ausente**: se recorre el arreglo completo sin éxito y se
-    devuelve `-1`.
--   **Elemento repetido**: se devuelve el índice de la **primera**
-    aparición (por ejemplo, en `{4, -2, 7, 0, -2, 9}` el valor `-2`
-    aparece en los índices 1 y 4: el resultado correcto es `1`).
--   **Elemento en los extremos**: verificá el comportamiento cuando el
-    elemento buscado está en el índice `0` o en el índice `tamano - 1`.
--   **Valores negativos en el arreglo**: son elementos válidos y deben
-    poder buscarse en igualdad de condiciones.
-
-:::
 
 :::{tip} Ejemplos de ejecución
 :class: dropdown
@@ -119,13 +101,13 @@ int proc_busqueda_de_elemento(int val);
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Valor positivo
+:::{tab-item} Entrada con valor 5
 ```text
 Entrada: 5
 Salida / Retorno: 10
 ```
 :::
-:::{tab-item} Valor cero o negativo
+:::{tab-item} Entrada con valor 0
 ```text
 Entrada: 0
 Salida / Retorno: 0
@@ -136,12 +118,13 @@ Salida / Retorno: 0
 ### ⚠️ Precondiciones y Casos Borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
 - [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
 - [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 :::{hint} Consideraciones Didácticas

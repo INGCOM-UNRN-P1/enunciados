@@ -7,15 +7,40 @@ Usa la biblioteca del ejercicio `tp2-libcadenas`.
 ### 📋 Contrato de las Funciones
 
 ```c
-bool unir_con_separador(char destino[],
-                        size_t capacidad,
-                        const char primero[],
-                        const char segundo[],
-                        const char separador[]);
+/*
+ * Operación principal de unir_con_separador
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
+bool unir_con_separador(char destino[], size_t capacidad, const char primero[], const char segundo[], const char separador[]);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Cadena estándar
+```text
+Entrada: "Algoritmos C11"
+Salida: Cadena procesada
+```
+:::
+:::{tab-item} Cadena vacía
+```text
+Entrada: ""
+Salida: Longitud 0 / Código 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Terminación nula:** Asegurar que todas las cadenas de texto conserven el terminador nulo `\0` dentro de los límites del buffer.
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

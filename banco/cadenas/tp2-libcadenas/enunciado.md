@@ -15,7 +15,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
    `capacidad - 1` caracteres, se agrega `'\0'` y se retorna `false` (o un
    código de error) para alertar al llamador sobre la pérdida de datos.
 
-### Comparación de Seguridad
 
 | Operación         | Enfoque Clásico Inseguro (`<string.h>`)                            | Enfoque Seguro (`libcadenas`)                                                                                          |
 | :---------------- | :----------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
@@ -23,7 +22,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
 | **Concatenación** | `strcat(dst, src)`: Anexa sin verificar el espacio residual.       | `cadena_concatenar(destino, capacidad, origen)`: Verifica espacio disponible, anexa sin desbordar y asegura `\0`.      |
 | **Medición**      | `strlen(s)`: Lee memoria indefinidamente si falta `\0`.            | `cadena_longitud(cadena, capacidad)`: No examina más de `capacidad` bytes en memoria.                                  |
 
-### Ejercicio B.1: Medición de longitud
 
 - **Firma**:
   ```c
@@ -32,7 +30,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
 - **Descripción**: Cuenta caracteres antes de `'\0'`, inspeccionando a lo sumo
   `capacidad` bytes. Retorna `capacidad` si no hay terminador en ese rango.
 
-### Ejercicio B.2: Copia con control de Búfer
 
 - **Firma**:
   ```c
@@ -41,7 +38,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
 - **Descripción**: Copia `origen` en `destino`. Si trunca, coloca `'\0'` en
   `capacidad - 1` y retorna `false`. Retorna `true` si cupo completa.
 
-### Ejercicio B.3: Concatenación
 
 - **Firma**:
   ```c
@@ -51,7 +47,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
   `destino`, asegurando terminador nulo sin superar `capacidad`. Retorna `false`
   si truncó.
 
-### Ejercicio B.4: Normalización a mayúsculas
 
 - **Firma**:
   ```c
@@ -60,7 +55,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
 - **Descripción**: Convierte in-place caracteres minúsculas a mayúsculas dentro
   del límite de `capacidad`. Retorna el conteo de conversiones efectuadas.
 
-### Ejercicio B.5: Subcadena Segura (_slice_)
 
 - **Consigna**: Extraer una porción de `origen` a partir de `inicio`, copiando a
   lo sumo `cantidad` caracteres en un búfer destino seguro de tamaño acotado
@@ -68,7 +62,6 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
 - **Desafío de diseño**:
   - Garantizar terminador `\0` en destino y retorno de estado o conteo copiado.
 
-### Ejercicio B.6: Entero a Cadena Decimal (_itoa seguro_)
 
 - **Consigna**: Convertir un `int valor` (positivo, negativo o cero,
   contemplando `INT_MIN`) a caracteres ASCII decimales dentro de un búfer seguro
@@ -79,17 +72,61 @@ Una **cadena segura** en esta cátedra cumple cuatro principios:
 ### 📋 Contrato de las Funciones
 
 ```c
+/*
+ * Operación principal de cadena_longitud
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 size_t cadena_longitud(const char cadena[], size_t capacidad);
 
+/*
+ * Operación principal de cadena_copiar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 bool cadena_copiar(char destino[], size_t capacidad, const char origen[]);
 
+/*
+ * Operación principal de cadena_concatenar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 bool cadena_concatenar(char destino[], size_t capacidad, const char origen[]);
 
+/*
+ * Operación principal de cadena_a_mayusculas
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 size_t cadena_a_mayusculas(char cadena[], size_t capacidad);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Cadena estándar
+```text
+Entrada: "Algoritmos C11"
+Salida: Cadena procesada
+```
+:::
+:::{tab-item} Cadena vacía
+```text
+Entrada: ""
+Salida: Longitud 0 / Código 0
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Terminación nula:** Asegurar que todas las cadenas de texto conserven el terminador nulo `\0` dentro de los límites del buffer.
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

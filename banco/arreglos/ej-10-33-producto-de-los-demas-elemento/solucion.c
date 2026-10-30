@@ -1,5 +1,5 @@
 /*
- * Ejercicio: Producto de los demás elementos
+ * Ejercicio: producto_t de los demás elementos
  * Cátedra Programación I - UNRN
  */
 
@@ -14,6 +14,6 @@ int proc_e_los_demas_elemento(int val)
 
 int main(void)
 {
-    /* TODO: Implementación de Producto de los demás elementos */
+    /* TODO: Implementación de producto_t de los demás elementos */
     return 0;
 }

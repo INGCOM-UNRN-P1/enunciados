@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Producto de Hadamard */
+/* Procesa el flujo principal de producto_t de Hadamard */
 int proc_producto_de_hadamard(int val);
 
 #endif /* EJERCICIO_EJ_21_21_PRODUCTO_DE_HADAMARD_H */

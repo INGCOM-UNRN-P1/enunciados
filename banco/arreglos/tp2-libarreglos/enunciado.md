@@ -1,5 +1,3 @@
-### Ejercicio A.1: Sumatoria de Elementos
-
 - **Firma**:
   ```c
   long long arreglo_sumar(const int arreglo[], size_t cantidad);
@@ -7,7 +5,6 @@
 - **Descripción**: Calcula y retorna la suma de los elementos del arreglo.
 - **Contrato**: Si `arreglo == NULL` o `cantidad == 0`, retorna `0`.
 
-### Ejercicio A.2: Búsqueda Lineal
 
 - **Firma**:
   ```c
@@ -19,7 +16,6 @@
   ($0 \le \text{índice} < \text{cantidad}$) o `-1` si no existe o ante entradas
   nulas.
 
-### Ejercicio A.3: Inversión In-Place
 
 - **Firma**:
   ```c
@@ -29,7 +25,6 @@
   adicional.
 - **Contrato**: Si `arreglo == NULL` o `cantidad <= 1`, no realiza cambios.
 
-### Ejercicio A.4: Verificación de Orden Ascendente
 
 - **Firma**:
   ```c
@@ -41,7 +36,6 @@
   `cantidad <= 1`; retorna `false` si encuentra elementos fuera de orden o si
   `arreglo == NULL`.
 
-### Ejercicio A.5: Conteo de Ocurrencias
 
 - **Firma**:
   ```c
@@ -52,7 +46,6 @@
 - **Contrato**: Retorna el total de coincidencias; retorna `0` si
   `arreglo == NULL` o si `cantidad == 0`.
 
-### Ejercicio A.6: Compactación In-Place
 
 - **Consigna**: Eliminar todas las apariciones de un valor entero dentro de un
   arreglo, compactando los elementos restantes hacia la izquierda sin dejar
@@ -67,7 +60,6 @@
 > [!NOTE] La firma es parte del diseño: es necesario decidir nombre, parámetros
 > y tipo de retorno respetando las convenciones de la cátedra.
 
-### Ejercicio A.7: Fusión Ordenada (_Merge_)
 
 - **Consigna**: Dados dos arreglos ordenados ascendentemente, fusionar sus
   elementos en un tercer arreglo destino de capacidad finita, manteniéndolo
@@ -85,19 +77,67 @@
 ### 📋 Contrato de las Funciones
 
 ```c
+/*
+ * Operación principal de arreglo_sumar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 long long arreglo_sumar(const int arreglo[], size_t cantidad);
 
+/*
+ * Operación principal de arreglo_buscar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 int arreglo_buscar(const int arreglo[], size_t cantidad, int buscado);
 
+/*
+ * Operación principal de arreglo_invertir
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 void arreglo_invertir(int arreglo[], size_t cantidad);
 
+/*
+ * Operación principal de arreglo_ordenado
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 bool arreglo_ordenado(const int arreglo[], size_t cantidad);
 
+/*
+ * Operación principal de arreglo_contar
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
+ */
 size_t arreglo_contar(const int arreglo[], size_t cantidad, int buscado);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

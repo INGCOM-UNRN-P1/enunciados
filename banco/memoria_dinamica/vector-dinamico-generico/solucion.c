@@ -14,9 +14,9 @@ typedef struct
     int *datos;
     size_t longitud;
     size_t capacidad;
-} VectorDinamico;
+} vector_dinamico_t;
 
-void vector_init(VectorDinamico *vec)
+void vector_init(vector_dinamico_t *vec)
 {
     vec->capacidad = CAPACIDAD_INICIAL;
     vec->longitud = 0;
@@ -30,7 +30,7 @@ void vector_init(VectorDinamico *vec)
     vec->datos = d;
 }
 
-void vector_push(VectorDinamico *vec, int valor)
+void vector_push(vector_dinamico_t *vec, int valor)
 {
     if (vec->datos == NULL)
     {
@@ -54,7 +54,7 @@ void vector_push(VectorDinamico *vec, int valor)
     vec->datos[vec->longitud++] = valor;
 }
 
-void vector_pop(VectorDinamico *vec)
+void vector_pop(vector_dinamico_t *vec)
 {
     if (vec->longitud == 0 || vec->datos == NULL)
     {
@@ -65,7 +65,7 @@ void vector_pop(VectorDinamico *vec)
     printf("%d\n", v);
 }
 
-void vector_get(const VectorDinamico *vec, size_t index)
+void vector_get(const vector_dinamico_t *vec, size_t index)
 {
     if (vec->datos == NULL || index >= vec->longitud)
     {
@@ -75,7 +75,7 @@ void vector_get(const VectorDinamico *vec, size_t index)
     printf("%d\n", vec->datos[index]);
 }
 
-void vector_free(VectorDinamico *vec)
+void vector_free(vector_dinamico_t *vec)
 {
     if (vec->datos != NULL)
     {
@@ -88,7 +88,7 @@ void vector_free(VectorDinamico *vec)
 
 int main(void)
 {
-    VectorDinamico vec;
+    vector_dinamico_t vec;
     vector_init(&vec);
 
     char op[32] = {0};

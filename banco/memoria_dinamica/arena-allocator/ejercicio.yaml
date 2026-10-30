@@ -1,10 +1,10 @@
 id: arena-allocator
-titulo: Asignador de Memoria por Bloques (Arena Allocator)
+titulo: Asignador de Memoria por Bloques (arena_t Allocator)
 tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 50
 pistas:
-- Un Arena Allocator pre-reserva un bloque contiguo de memoria y despacha 
+- Un arena_t Allocator pre-reserva un bloque contiguo de memoria y despacha 
   punteros incrementando un offset.
 - Para respetar la alineación de memoria a múltiplos de 8 bytes, ajustá el 
   offset hacia arriba.
@@ -22,15 +22,15 @@ verificado: true
 funciones:
 - nombre: arena_init
   retorno: void
-  parametros: Arena *arena, size_t capacidad
+  parametros: arena_t *arena, size_t capacidad
   descripcion: Operación arena_init
 - nombre: arena_reset
   retorno: void
-  parametros: Arena *arena
+  parametros: arena_t *arena
   descripcion: Operación arena_reset
 - nombre: arena_free
   retorno: void
-  parametros: Arena *arena
+  parametros: arena_t *arena
   descripcion: Operación arena_free
 tests_funciones:
 - nombre: test_arena_init_1

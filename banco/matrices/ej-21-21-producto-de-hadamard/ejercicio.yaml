@@ -1,5 +1,5 @@
 id: ej-21-21-producto-de-hadamard
-titulo: Producto de Hadamard
+titulo: producto_t de Hadamard
 tema: matrices
 bloom: 3
 minutos_estimados: 25
@@ -21,7 +21,7 @@ funciones:
 - nombre: proc_producto_de_hadamard
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Producto de Hadamard
+  descripcion: Procesa el flujo principal de producto_t de Hadamard
 tests_funciones:
 - nombre: test_proc_producto_de_hadamard_positivo
   funcion: proc_producto_de_hadamard

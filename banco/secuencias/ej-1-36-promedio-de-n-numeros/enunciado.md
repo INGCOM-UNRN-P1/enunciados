@@ -15,63 +15,48 @@ $$
 
 ```c
 /*
- * Procesa el flujo principal del promedio de N números.
- * Precondiciones: `val` recibe la cantidad N de datos a promediar.
- * Postcondiciones: Si `val > 0`, lee la secuencia de `val` números, calcula el promedio,
- *       lo muestra por pantalla y devuelve un valor >= 0.
- *       Si `val <= 0`, no realiza ninguna división y devuelve 0.
+ * Procesa el flujo principal de Promedio de N Números
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
 int proc_romedio_de_n_numeros(int val);
+
 ```
 
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Secuencia típica
+:::{tab-item} Entrada con valor 5
 ```text
-¿Cuántos números vas a ingresar? 3
-Número 1: 4
-Número 2: 8
-Número 3: 6
-El promedio es: 6.00
+Entrada: 5
+Salida / Retorno: 10
 ```
 :::
-:::{tab-item} Secuencia con negativos y decimales
+:::{tab-item} Entrada con valor 0
 ```text
-¿Cuántos números vas a ingresar? 4
-Número 1: 10.5
-Número 2: 20
-Número 3: -5
-Número 4: 4.5
-El promedio es: 7.50
-```
-:::
-:::{tab-item} Cantidad inválida
-```text
-¿Cuántos números vas a ingresar? 0
-Error: la cantidad de números debe ser mayor a cero.
+Entrada: 0
+Salida / Retorno: 0
 ```
 :::
 ::::
 
 ### ⚠️ Precondiciones y Casos Borde
 
-1. **Secuencia vacía ($N = 0$):** El promedio no está definido. No debes dividir: mostrar mensaje de error y terminar sin calcular.
-2. **Cantidad negativa ($N < 0$):** Una cantidad de datos nunca puede ser negativa; se trata igual que el caso anterior.
-3. **Secuencia unitaria ($N = 1$):** El promedio es igual al único número ingresado. Es el recorrido mínimo del ciclo.
-4. **Números negativos o decimales:** La secuencia puede contener valores negativos y/o decimales. Usar variables `double` para no perder precisión.
-5. **Validez del formato:** Asumir que cada número se ingresa bien formado.
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 
 ### 🎯 Criterios de Aceptación
 
-- [ ] El programa lee primero $N$ y luego recorre la secuencia con un **ciclo contado** (`for`) de exactamente $N$ iteraciones.
-- [ ] La suma se acumula en una variable `double` inicializada en `0` **antes** del ciclo.
-- [ ] El promedio se calcula **después** del recorrido, dividiendo la suma por $N$.
-- [ ] Si $N \le 0$, no se realiza ninguna división y se muestra un mensaje de error.
-- [ ] La salida coincide con el formato de los ejemplos (dos decimales).
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
 
 :::{hint} Consideraciones Didácticas
-- Acumulador para la suma inicializado en `0` antes de iniciar el ciclo.
-- Validar que la cantidad $N$ de datos sea mayor a cero para evitar división por cero.
-- Calcular, en el mismo recorrido, el valor máximo y el mínimo del conjunto.
+- **Entrada Inicial:** Leer la cantidad de números a promediar ($N$).
+- **Variables:** Se necesita un `acumulador` para la suma y un contador.
+- **Proceso:**
+- **Salida:** Mostrar el promedio calculado.
+- Validar que la cantidad N de datos sea mayor a cero para evitar división por cero.
+- Calcular en el mismo recorrido el valor máximo y mínimo del conjunto.
 :::

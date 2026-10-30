@@ -18,7 +18,6 @@ pasando de la indexación estática al uso riguroso de:
 Contiene primitivas fundamentales de manipulación por referencia y recorrido de
 arreglos disponibles para todo el proyecto.
 
-### `intercambiar`
 
 - **Firma provista**:
   ```c
@@ -29,7 +28,6 @@ arreglos disponibles para todo el proyecto.
 - **Casos borde**: Si algún puntero es `NULL`, no produce ningún efecto. Si
   ambos punteros son iguales, el valor se preserva.
 
-### `obtener_min_max`
 
 - **Firma provista**:
   ```c
@@ -45,13 +43,47 @@ arreglos disponibles para todo el proyecto.
 ### 📋 Contrato de las Funciones
 
 ```c
+/*
+ * Operación principal de intercambiar
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
 void intercambiar(int *primer, int *segundo);
 
+/*
+ * Operación principal de obtener_min_max
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
 bool obtener_min_max(const int *arreglo, size_t cantidad, int *minimo, int *maximo);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

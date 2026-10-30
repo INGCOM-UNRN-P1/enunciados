@@ -1,5 +1,5 @@
 /*
- * Ejercicio: Producto de Hadamard
+ * Ejercicio: producto_t de Hadamard
  * Cátedra Programación I - UNRN
  */
 
@@ -14,6 +14,6 @@ int proc_producto_de_hadamard(int val)
 
 int main(void)
 {
-    /* TODO: Implementación de Producto de Hadamard */
+    /* TODO: Implementación de producto_t de Hadamard */
     return 0;
 }

@@ -303,7 +303,6 @@ Implementá tu propio `malloc` y `free` usando `sbrk` o un buffer grande.
 
 ---
 
-## Notas Finales
 
 :::{danger} Errores Fatales a Evitar
 
@@ -319,14 +318,11 @@ Implementá tu propio `malloc` y `free` usando `sbrk` o un buffer grande.
 
 ```{code-block} bash
 :linenos:
-# Valgrind - detecta leaks y accesos inválidos
 valgrind --leak-check=full --show-leak-kinds=all ./programa
 
-# AddressSanitizer - más rápido, menos completo
 gcc -fsanitize=address -g programa.c -o programa
 ./programa
 
-# Verificar código de salida de Valgrind
 valgrind ./programa
 echo $?  # 0 si no hay errores
 
@@ -334,15 +330,6 @@ echo $?  # 0 si no hay errores
 
 :::
 
-:::{note} Patrones Comunes
-
-1. **Siempre liberar en orden inverso a asignación**
-2. **Usar `calloc` para inicialización a cero**
-3. **Verificar `realloc` antes de reasignar puntero original**
-4. **Mantener punteros a NULL después de `free`**
-5. **Encapsular estructuras dinámicas en funciones de gestión**
-
-:::
 
 Estas consignas cubren todos los aspectos de memoria dinámica: asignación
 básica, redimensionamiento, estructuras complejas, gestión avanzada y prevención
@@ -363,13 +350,13 @@ int proc__pila_stack_dinamica(int val);
 ### 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
-:::{tab-item} Valor positivo
+:::{tab-item} Entrada con valor 5
 ```text
 Entrada: 5
 Salida / Retorno: 10
 ```
 :::
-:::{tab-item} Valor cero o negativo
+:::{tab-item} Entrada con valor 0
 ```text
 Entrada: 0
 Salida / Retorno: 0
@@ -380,15 +367,16 @@ Salida / Retorno: 0
 ### ⚠️ Precondiciones y Casos Borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-3. **Gestión de memoria:** Toda memoria solicitada mediante `malloc`/`calloc` debe ser validada y eventualmente liberada con `free`.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+2. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
 - [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
 - [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante Valgrind o AddressSanitizer.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
 
 :::{hint} Consideraciones Didácticas
 - Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos en caso de error.

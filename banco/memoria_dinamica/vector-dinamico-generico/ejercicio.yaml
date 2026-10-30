@@ -20,23 +20,23 @@ verificado: true
 funciones:
 - nombre: vector_init
   retorno: void
-  parametros: VectorDinamico *vec
+  parametros: vector_dinamico_t *vec
   descripcion: Operación vector_init
 - nombre: vector_push
   retorno: void
-  parametros: VectorDinamico *vec, int valor
+  parametros: vector_dinamico_t *vec, int valor
   descripcion: Operación vector_push
 - nombre: vector_pop
   retorno: void
-  parametros: VectorDinamico *vec
+  parametros: vector_dinamico_t *vec
   descripcion: Operación vector_pop
 - nombre: vector_get
   retorno: void
-  parametros: const VectorDinamico *vec, size_t index
+  parametros: const vector_dinamico_t *vec, size_t index
   descripcion: Operación vector_get
 - nombre: vector_free
   retorno: void
-  parametros: VectorDinamico *vec
+  parametros: vector_dinamico_t *vec
   descripcion: Operación vector_free
 tests_funciones:
 - nombre: test_vector_init_1
