@@ -1,115 +1,247 @@
 # Temario del banco: lo lee `deckard export myst` para el sitio (títulos, unidades, grafo y rutas).
 # `requiere` son los prerrequisitos de cada tema; los ejercicios los declaran con `dep:<tema>`.
+# `apunte` son las páginas del apunte (rutas en su repositorio) que explican el tema: el sitio enlaza
+# a ellas y `deckard export apunte` escribe en ellas los ejercicios del tema (trazabilidad, Ola 34).
+
+# URL publicadas de los dos sitios, para los enlaces entre ellos.
+sitios:
+  apunte: https://ingcom-unrn-p1.github.io
+  enunciados: https://ingcom-unrn-p1.github.io/enunciados
 
 temas:
   entorno_y_git:
     titulo: "Entorno de Trabajo y Git"
     requiere: []
+    apunte: [guias/entorno.md, guias/git.md, guias/github.md]
   sintaxis:
     titulo: "Sintaxis Básica de C"
     requiere: []
+    apunte: [apunte/bloque_1_fundamentos/2_gradual.md]
   tipos_datos:
     titulo: "Tipos de Datos Primitivos"
     requiere: [sintaxis]
+    apunte: [apunte/bloque_1_fundamentos/2_gradual.md, apunte/bloque_2_memoria/8_numeros.md]
   aritmetica:
     titulo: "Aritmética y Operadores"
     requiere: [tipos_datos]
+    apunte: [apunte/bloque_2_memoria/8_numeros.md, apunte/bloque_2_memoria/9_casts.md]
   io_formato:
     titulo: "Entrada y Salida Formateada (I/O)"
     requiere: [aritmetica]
+    apunte: [apunte/bloque_1_fundamentos/2_gradual.md]
   condicionales:
     titulo: "Estructuras Condicionales"
     requiere: [aritmetica]
+    apunte: [apunte/bloque_1_fundamentos/3_control_flujo.md]
   lazos:
     titulo: "Estructuras Repetitivas (Lazos)"
     requiere: [condicionales]
+    apunte: [apunte/bloque_1_fundamentos/3_control_flujo.md]
   lazos_anidados:
     titulo: "Lazos Anidados"
     requiere: [lazos]
+    apunte: [apunte/bloque_1_fundamentos/3_control_flujo.md]
   secuencias:
     titulo: "Procesamiento de Secuencias"
     requiere: [lazos]
+    apunte: [apunte/bloque_2_memoria/3_secuencias.md]
   estructuras_control:
     titulo: "Estructuras de Control"
     requiere: [condicionales, lazos]
+    apunte: [apunte/bloque_1_fundamentos/3_control_flujo.md]
   funciones:
     titulo: "Funciones y Parámetros"
     requiere: [lazos, secuencias]
+    apunte: [apunte/bloque_1_fundamentos/4_funciones.md]
   caracteres:
     titulo: "Manipulación de Caracteres"
     requiere: [tipos_datos, funciones]
+    apunte: [apunte/bloque_2_memoria/3_secuencias.md]
   arreglos:
     titulo: "Arreglos Unidimensionales (Vectores)"
     requiere: [funciones, lazos]
+    apunte: [apunte/bloque_2_memoria/3_secuencias.md]
   cadenas:
     titulo: "Cadenas de Caracteres (Strings)"
     requiere: [arreglos, caracteres]
+    apunte: [apunte/bloque_2_memoria/3_secuencias.md]
   matrices:
     titulo: "Matrices y Arreglos Multidimensionales"
     requiere: [arreglos, lazos_anidados]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/1_matrices.md, apunte/bloque_3_algoritmos_estructuras/1A_matrices_dinamicas.md]
   punteros:
     titulo: "Punteros y Direccionamiento"
     requiere: [funciones, arreglos]
+    apunte: [apunte/bloque_2_memoria/2_punteros.md, apunte/bloque_2_memoria/6_aritmetica.md]
   estructuras:
     titulo: "Estructuras de Datos Compuestas (struct)"
     requiere: [tipos_datos, funciones]
+    apunte: [apunte/bloque_2_memoria/7_estructuras.md, apunte/bloque_2_memoria/10_alias_tipos.md]
   enumeraciones:
     titulo: "Enumeraciones (enum)"
     requiere: [tipos_datos, condicionales]
+    apunte: [apunte/bloque_2_memoria/11_enums.md]
   operaciones_bits:
     titulo: "Operaciones a Nivel de Bits"
     requiere: [tipos_datos, aritmetica]
+    apunte: [apunte/bloque_4_avanzados/5_binarios_bitwise.md]
   memoria:
     titulo: "Modelo de Memoria en C"
     requiere: [punteros, estructuras]
+    apunte: [apunte/bloque_2_memoria/1_modelo_memoria.md]
   memoria_dinamica:
     titulo: "Gestión de Memoria Dinámica (Heap)"
     requiere: [memoria, punteros]
+    apunte: [apunte/bloque_2_memoria/5_memoria_dinamica.md]
   punteros_avanzados:
     titulo: "Punteros Avanzados y Punteros a Función"
     requiere: [memoria_dinamica]
+    apunte: [apunte/bloque_4_avanzados/2_punteros_funciones.md, apunte/bloque_2_memoria/6_aritmetica.md]
   recursividad:
     titulo: "Recursividad"
     requiere: [funciones, punteros]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/7_recursividad_intro.md, apunte/bloque_4_avanzados/7_recursividad_avanzada.md]
   algoritmos_ordenamiento:
     titulo: "Algoritmos de Ordenamiento"
     requiere: [arreglos, lazos_anidados, recursividad]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/6_complejidad.md]
   complejidad:
     titulo: "Complejidad Algorítmica"
     requiere: [algoritmos_ordenamiento, lazos_anidados]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/6_complejidad.md]
   archivos:
     titulo: "Manejo de Archivos de Texto"
     requiere: [cadenas, punteros, io_formato]
+    apunte: [apunte/bloque_2_memoria/4_archivos_texto.md]
   archivos_binarios:
     titulo: "Archivos Binarios"
     requiere: [archivos, estructuras, memoria]
+    apunte: [apunte/bloque_4_avanzados/4_binarios_archivos.md]
   librerias:
     titulo: "Bibliotecas y Modularización"
     requiere: [funciones, estructuras]
+    apunte: [apunte/bloque_1_fundamentos/5_compilacion.md, apunte/bloque_1_fundamentos/8_makefiles.md]
   build_systems:
     titulo: "Sistemas de Construcción (Build Systems)"
     requiere: [librerias]
+    apunte: [apunte/bloque_1_fundamentos/8_makefiles.md]
   diseno_api:
     titulo: "Diseño de APIs y Módulos"
     requiere: [librerias, punteros]
+    apunte: [apunte/bloque_4_avanzados/9_api_diseno.md, apunte/bloque_4_avanzados/10_api_ingenieria.md]
   tad:
     titulo: "Tipos Abstractos de Datos (TAD)"
     requiere: [estructuras, punteros, memoria_dinamica]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/2_tad.md, apunte/bloque_3_algoritmos_estructuras/2A_ownership_tads.md]
   tipos_datos_abstractos:
     titulo: "Tipos de Datos Abstractos Avanzados"
     requiere: [tad]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/2_tad.md, apunte/bloque_4_avanzados/3_opacos.md]
   estructuras_datos:
     titulo: "Estructuras de Datos Dinámicas"
     requiere: [tad, memoria_dinamica, recursividad]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/3_tad_pilas_colas.md]
   testing:
     titulo: "Testing Unitario y Verificación"
     requiere: [librerias, funciones]
+    apunte: [apunte/bloque_1_fundamentos/6_testing_basico.md, apunte/bloque_3_algoritmos_estructuras/4_testing_avanzado.md]
   refactorizacion:
     titulo: "Refactorización y Calidad de Código"
     requiere: [testing, diseno_api]
+    apunte: [apunte/bloque_4_avanzados/8_idiomatico.md]
   analisis_codigo:
     titulo: "Análisis y Trazado de Código"
     requiere: [memoria, testing]
+    apunte: [apunte/bloque_1_fundamentos/7_contratos_intro.md, apunte/bloque_3_algoritmos_estructuras/5_contratos_formales.md]
+  # Temas de estructuras de datos y aplicaciones (prototipos publicados en el banco).
+  algebra_lineal_numerica:
+    titulo: "Álgebra Lineal Numérica"
+    requiere: [matrices, algoritmos_ordenamiento]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/1_matrices.md, apunte/bloque_3_algoritmos_estructuras/1A_matrices_dinamicas.md]
+  arboles_binarios:
+    titulo: "Árboles Binarios"
+    requiere: [tad, recursividad, punteros]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/7_recursividad_intro.md, apunte/bloque_3_algoritmos_estructuras/2A_ownership_tads.md]
+  arboles_balanceados_avl:
+    titulo: "Árboles Balanceados (AVL)"
+    requiere: [arboles_binarios]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/7_recursividad_intro.md, apunte/bloque_3_algoritmos_estructuras/6_complejidad.md]
+  argumentos_linea_comandos:
+    titulo: "Argumentos de Línea de Comandos"
+    requiere: [punteros, cadenas]
+    apunte: [apunte/bloque_2_memoria/2_punteros.md, apunte/bloque_2_memoria/3_secuencias.md]
+  colas_queue:
+    titulo: "Colas (TAD)"
+    requiere: [tad, memoria_dinamica]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/3_tad_pilas_colas.md]
+  pilas_stack:
+    titulo: "Pilas (TAD)"
+    requiere: [tad, memoria_dinamica]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/3_tad_pilas_colas.md]
+  listas_enlazadas:
+    titulo: "Listas Enlazadas"
+    requiere: [memoria_dinamica, punteros]
+    apunte: [apunte/bloque_2_memoria/5_memoria_dinamica.md, apunte/bloque_3_algoritmos_estructuras/2A_ownership_tads.md]
+  colas_prioridad_heaps:
+    titulo: "Colas de Prioridad y Montículos"
+    requiere: [colas_queue, arboles_binarios]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/3_tad_pilas_colas.md]
+  conjuntos_disjuntos_union_find:
+    titulo: "Conjuntos Disjuntos (Union-Find)"
+    requiere: [arreglos, tad]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/2_tad.md]
+  trie_arboles_prefijo:
+    titulo: "Tries (Árboles de Prefijos)"
+    requiere: [arboles_binarios, cadenas]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/2A_ownership_tads.md, apunte/bloque_2_memoria/3_secuencias.md]
+  skip_lists_probabilisticas:
+    titulo: "Skip Lists Probabilísticas"
+    requiere: [listas_enlazadas, punteros]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/2A_ownership_tads.md]
+  lru_cache_memorizacion:
+    titulo: "Cachés LRU y Memoización"
+    requiere: [tad, listas_enlazadas]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/6A_localidad_representacion.md]
+  grafos_y_redes:
+    titulo: "Grafos y Redes"
+    requiere: [estructuras_datos, matrices]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/1A_matrices_dinamicas.md, apunte/bloque_3_algoritmos_estructuras/2_tad.md]
+  geometria_computacional:
+    titulo: "Geometría Computacional"
+    requiere: [estructuras, aritmetica]
+    apunte: [apunte/bloque_2_memoria/7_estructuras.md]
+  procesamiento_senales_dsp:
+    titulo: "Procesamiento de Señales (DSP)"
+    requiere: [arreglos, algebra_lineal_numerica]
+    apunte: [apunte/bloque_2_memoria/3_secuencias.md, apunte/bloque_2_memoria/8_numeros.md]
+  emulacion_maquinas_estado:
+    titulo: "Máquinas de Estado y Emulación"
+    requiere: [enumeraciones, estructuras_control]
+    apunte: [apunte/bloque_2_memoria/11_enums.md, apunte/bloque_1_fundamentos/3_control_flujo.md]
+  serializacion_texto_json_csv:
+    titulo: "Serialización en Texto (JSON y CSV)"
+    requiere: [archivos, cadenas]
+    apunte: [apunte/bloque_2_memoria/4_archivos_texto.md]
+  compresion_datos:
+    titulo: "Compresión de Datos"
+    requiere: [operaciones_bits, archivos_binarios]
+    apunte: [apunte/bloque_4_avanzados/5_binarios_bitwise.md, apunte/bloque_4_avanzados/4_binarios_archivos.md]
+  criptografia_hashing:
+    titulo: "Criptografía y Funciones de Hash"
+    requiere: [operaciones_bits, cadenas]
+    apunte: [apunte/bloque_4_avanzados/5_binarios_bitwise.md]
+  concurrencia_hilos:
+    titulo: "Concurrencia con Hilos"
+    requiere: [memoria, funciones]
+    apunte: [apunte/bloque_4_avanzados/11_hilos.md]
+  redes_sockets:
+    titulo: "Redes y Sockets"
+    requiere: [archivos_binarios, concurrencia_hilos]
+    apunte: [apunte/bloque_4_avanzados/12_sockets.md]
+  simulacion_eventos_discretos:
+    titulo: "Simulación de Eventos Discretos"
+    requiere: [colas_prioridad_heaps, tad]
+    apunte: [apunte/bloque_3_algoritmos_estructuras/3_tad_pilas_colas.md]
 
 unidades:
   - id: unidad_1
