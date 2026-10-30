@@ -35,7 +35,6 @@ Salida / Retorno: 0
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles (números entre 1 y 100) antes de operar.
 2. **Entrada inválida o caracteres:** Gestionar entradas no numéricas limpiando el buffer de entrada para prevenir bucles infinitos en `scanf`.
 3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con valores <= 0 retornando control de forma segura.
-
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

@@ -27,7 +27,6 @@ Funciones auxiliares provistas e implementadas:
 - `bool esta_en_rango_flotante(float valor, float min, float max)`: Predicado de
   pertenencia a rango flotante cerrado `[min, max]`.
 
-### Flujo interactivo y búfer de línea
 
 En sistemas operativos tipo POSIX y bajo la biblioteca estándar de C, el flujo
 `stdin` conectado a una terminal opera por defecto con **almacenamiento en búfer
@@ -35,7 +34,6 @@ de línea** (_line-buffered_). Esto significa que el sistema operativo no
 transfiere ningún carácter al programa hasta que el usuario pulsa la tecla
 **Enter** (`\n`).
 
-### Qué pasa cuando usamos `scanf`
 
 Cuando llamás `scanf("%d", &variable)` o `scanf("%f", &variable)`:
 
@@ -45,7 +43,6 @@ Cuando llamás `scanf("%d", &variable)` o `scanf("%f", &variable)`:
 3. El carácter `'\n'` (y cualquier texto posterior no procesado) **permanece en
    el búfer `stdin`**.
 
-### El problema del salto de línea residual
 
 Si no limpiás el flujo:
 
@@ -57,7 +54,6 @@ Si no limpiás el flujo:
   la siguiente iteración, esas mismas letras siguen en el búfer, provocando un
   ciclo infinito de lecturas fallidas.
 
-### Solución canónica: `limpiar_buffer_entrada`
 
 La librería `consola` provee la solución estándar:
 
@@ -83,7 +79,6 @@ void limpiar_buffer_entrada(void)
    consume y descarta byte por byte del búfer hasta vaciar el salto de línea
    generado por Enter o hasta alcanzar el fin del flujo (`EOF`).
 
-### Prohibición absoluta de `fflush(stdin)`
 
 En muchos foros o materiales desactualizados se sugiere erróneamente usar
 `fflush(stdin)`.
@@ -104,87 +99,102 @@ En muchos foros o materiales desactualizados se sugiere erróneamente usar
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Limpia el bufer de entrada estandar descartando caracteres hasta
- *        el salto de linea o EOF.
+/*
+ * Limpia el bufer de entrada estandar descartando caracteres hasta
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 void limpiar_buffer_entrada(void);
 
-/**
- * @brief Lee un numero entero desde la entrada estandar mostrando un mensaje.
- *
- * @param mensaje Mensaje o prompt a mostrar al usuario.
- * @return int El numero entero ingresado por el usuario.
+/*
+ * Lee un numero entero desde la entrada estandar mostrando un mensaje.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 int leer_entero(const char *mensaje);
 
-/**
- * @brief Lee un numero entero dentro de un rango inclusivo [min, max].
- *
- * @param mensaje Mensaje o prompt a mostrar al usuario.
- * @param min Limite inferior admisible.
- * @param max Limite superior admisible.
- * @return int El numero entero dentro del rango ingresado.
+/*
+ * Lee un numero entero dentro de un rango inclusivo [min, max].
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 int leer_entero_entre(const char *mensaje, int min, int max);
 
-/**
- * @brief Lee un numero de coma flotante desde la entrada estandar.
- *
- * @param mensaje Mensaje o prompt a mostrar al usuario.
- * @return float El numero flotante ingresado por el usuario.
+/*
+ * Lee un numero de coma flotante desde la entrada estandar.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 float leer_flotante(const char *mensaje);
 
-/**
- * @brief Lee un numero flotante dentro de un rango inclusivo [min, max].
- *
- * @param mensaje Mensaje o prompt a mostrar al usuario.
- * @param min Limite inferior admisible.
- * @param max Limite superior admisible.
- * @return float El numero flotante dentro del rango ingresado.
+/*
+ * Lee un numero flotante dentro de un rango inclusivo [min, max].
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 float leer_flotante_entre(const char *mensaje, float min, float max);
 
-/**
- * @brief Lee un unico caracter desde la entrada estandar mostrando un mensaje.
- *
- * @param mensaje Mensaje o prompt a mostrar al usuario.
- * @return char El caracter ingresado por el usuario.
+/*
+ * Lee un unico caracter desde la entrada estandar mostrando un mensaje.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 char leer_caracter(const char *mensaje);
 
-/**
- * @brief Lee un valor logico (booleano) desde la entrada estandar.
- *
- * @param mensaje Mensaje o prompt a mostrar al usuario.
- * @return bool Valor de verdad obtenido (true o false).
+/*
+ * Lee un valor logico (booleano) desde la entrada estandar.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool leer_logico(const char *mensaje);
 
-/**
- * @brief Determina si un valor entero se encuentra dentro de [min, max].
- *
- * @param valor Valor entero a verificar.
- * @param min Limite inferior del rango.
- * @param max Limite superior del rango.
- * @return bool true si min <= valor <= max, false en caso contrario.
+/*
+ * Determina si un valor entero se encuentra dentro de [min, max].
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
 bool esta_en_rango_entero(int valor, int min, int max);
 
-/**
- * @brief Determina si un valor flotante se encuentra dentro de [min, max].
- *
- * @param valor Valor flotante a verificar.
- * @param min Limite inferior del rango.
- * @param max Limite superior del rango.
- * @return bool true si min <= valor <= max, false en caso contrario.
+/*
+ * Determina si un valor flotante se encuentra dentro de [min, max].
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
 bool esta_en_rango_flotante(float valor, float min, float max);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- En limpiar_buffer_entrada(), declará la variable del bucle como int para comparar correctamente contra EOF y \n.
+- Verificá siempre el valor de retorno de scanf: si retorna 0 o EOF, limpiá el búfer antes de pedir nuevamente el dato para evitar bucles infinitos.
+- Bajo el estándar C, fflush(stdin) produce Comportamiento Indefinido (Undefined Behavior); usá limpiar_buffer_entrada().
+:::

@@ -1,5 +1,5 @@
 /*
- * Ejercicio: Producto por Sumas Recursivas
+ * Ejercicio: producto_t por Sumas Recursivas
  * Cátedra Programación I - UNRN
  */
 
@@ -14,6 +14,6 @@ int proc_por_sumas_recursivas(int val)
 
 int main(void)
 {
-    /* TODO: Implementación de Producto por Sumas Recursivas */
+    /* TODO: Implementación de producto_t por Sumas Recursivas */
     return 0;
 }

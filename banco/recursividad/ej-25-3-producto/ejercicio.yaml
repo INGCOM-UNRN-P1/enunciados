@@ -1,5 +1,5 @@
 id: ej-25-3-producto
-titulo: Producto
+titulo: producto_t
 tema: recursividad
 bloom: 4
 minutos_estimados: 35
@@ -20,7 +20,7 @@ funciones:
 - nombre: ejecutar_ej_25_3_producto
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Producto
+  descripcion: Procesa el flujo principal de producto_t
 tests_funciones:
 - nombre: test_ejecutar_ej_25_3_producto_positivo
   funcion: ejecutar_ej_25_3_producto

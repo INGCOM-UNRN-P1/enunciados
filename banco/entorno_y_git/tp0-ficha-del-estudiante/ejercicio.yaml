@@ -1,5 +1,5 @@
 id: tp0-ficha-del-estudiante
-titulo: Ficha del Estudiante y Formulario GitHub/Email
+titulo: Ficha del estudiante_t y Formulario GitHub/Email
 tema: entorno_y_git
 bloom: 1
 minutos_estimados: 5
@@ -14,3 +14,6 @@ unidad: 1
 modulo: Fundamentos y Estructuras de Control
 dificultad: inicial
 tipo: concepto
+tests:
+- nombre: test_ficha_estudiante
+  archivo: ficha.txt

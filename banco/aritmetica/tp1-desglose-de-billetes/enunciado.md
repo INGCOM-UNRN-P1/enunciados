@@ -15,45 +15,59 @@ $10.000, $5.000, $2.000, $1.000, $500, $200 y $100).
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Determina si un monto solicitado es admisible para su retiro.
- *
- * Un monto es válido si es estrictamente positivo y múltiplo de la
- * denominación mínima de billete disponible en el cajero ($100).
- *
- * @param monto Monto solicitado a retirar.
- * @return bool true si el monto es mayor a cero y múltiplo de 100,
- *         false en caso contrario.
+/*
+ * Determina si un monto solicitado es admisible para su retiro.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 bool es_monto_valido(int monto);
 
-/**
- * @brief Calcula la cantidad de billetes de una denominación dada.
- *
- * Realiza la división entera entre el monto disponible y la denominación
- * del billete correspondiente.
- *
- * @param monto Monto remanente a descomponer.
- * @param denominacion Valor nominal del billete a evaluar.
- * @return int Cantidad entera de billetes de esa denominación.
+/*
+ * Calcula la cantidad de billetes de una denominación dada.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 int calcular_cantidad_billetes(int monto, int denominacion);
 
-/**
- * @brief Calcula el remanente de monto tras descontar billetes.
- *
- * Obtiene el residuo de la división entera entre el monto y la denominación
- * indicada.
- *
- * @param monto Monto actual antes de descontar los billetes.
- * @param denominacion Valor nominal del billete evaluado.
- * @return int Monto remanente tras descontar los billetes posibles.
+/*
+ * Calcula el remanente de monto tras descontar billetes.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 int calcular_resto_monto(int monto, int denominacion);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Para determinar cuántos billetes de un valor facial entregar, usá la división entera monto / denominacion.
+- Para calcular el saldo remanente a cubrir con denominaciones menores, usá el operador residuo monto % denominacion.
+- Recorré las denominaciones en orden estrictamente descendente: 20000, 10000, 5000, 2000, 1000, 500, 200 y 100.
+:::

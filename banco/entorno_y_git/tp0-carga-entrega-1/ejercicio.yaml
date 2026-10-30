@@ -14,3 +14,6 @@ unidad: 1
 modulo: Fundamentos y Estructuras de Control
 dificultad: inicial
 tipo: concepto
+tests:
+- nombre: test_git_status
+  comando: git status

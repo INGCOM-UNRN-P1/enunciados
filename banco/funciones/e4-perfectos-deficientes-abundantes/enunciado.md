@@ -12,26 +12,46 @@
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Suma todos los divisores propios positivos de un número (menores al número).
- * @param numero Entero positivo.
- * @return Suma de divisores propios, o -1 si numero <= 0.
+/*
+ * Suma todos los divisores propios positivos de un número (menores al número).
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 int suma_divisores_propios(int numero);
 
-/**
- * @brief Clasifica un número según la suma de sus divisores propios:
- *        1: Perfecto (suma == numero)
- *        0: Deficiente (suma < numero)
- *        2: Abundante (suma > numero)
- * @param numero Entero positivo.
- * @return Código de clasificación (1, 0, 2), o -1 si numero <= 0.
+/*
+ * Clasifica un número según la suma de sus divisores propios:
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 int clasificar_numero(int numero);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

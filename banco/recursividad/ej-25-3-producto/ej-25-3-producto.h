@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Producto */
+/* Procesa el flujo principal de producto_t */
 int ejecutar_ej_25_3_producto(int val);
 
 #endif /* EJERCICIO_EJ_25_3_PRODUCTO_H */

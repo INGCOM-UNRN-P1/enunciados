@@ -8,46 +8,59 @@ Validador de fechas del calendario gregoriano y cómputo de años bisiestos.
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Determina si un año dado es bisiesto según el calendario gregoriano.
- *
- * Un año es bisiesto si es divisible por 4 y no por 100, o si es divisible
- * por 400.
- *
- * @param anio Año a evaluar.
- * @return bool true si el año es bisiesto, false en caso contrario.
+/*
+ * Determina si un año dado es bisiesto según el calendario gregoriano.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 bool es_bisiesto(int anio);
 
-/**
- * @brief Obtiene la cantidad de días que contiene un mes determinado en un año dado.
- *
- * Considera los meses de 30 y 31 días, y calcula 29 o 28 días para febrero
- * según si el año es bisiesto o no. Si el mes está fuera del rango [1, 12],
- * retorna 0.
- *
- * @param mes Mes a consultar (1 a 12).
- * @param anio Año correspondiente al mes.
- * @return int Cantidad de días del mes, o 0 si el mes es inválido.
+/*
+ * Obtiene la cantidad de días que contiene un mes determinado en un año dado.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 int dias_en_mes(int mes, int anio);
 
-/**
- * @brief Valida si una combinación de día, mes y año representa una fecha válida.
- *
- * Una fecha es válida si el año es mayor a cero, el mes se encuentra entre 1 y 12,
- * y el día está en el rango [1, dias_en_mes(mes, anio)].
- *
- * @param dia Día a validar.
- * @param mes Mes a validar.
- * @param anio Año a validar.
- * @return bool true si la fecha es válida, false en caso contrario.
+/*
+ * Valida si una combinación de día, mes y año representa una fecha válida.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 bool es_fecha_valida(int dia, int mes, int anio);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+
+:::{hint} Consideraciones Didácticas
+- Un año bisiesto gregoriano es divisible por 4 y no por 100, excepto que sea divisible por 400.
+- Meses con 31 días: 1, 3, 5, 7, 8, 10 y 12. Meses con 30 días: 4, 6, 9 y 11.
+- Febrero tiene 29 días en año bisiesto y 28 en año común. Fuera de 1..12 la fecha es inválida.
+:::

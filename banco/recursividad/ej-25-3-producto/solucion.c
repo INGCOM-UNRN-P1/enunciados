@@ -1,5 +1,5 @@
 /*
- * Ejercicio: Producto
+ * Ejercicio: producto_t
  * Cátedra Programación I - UNRN
  */
 
@@ -14,6 +14,6 @@ int ejecutar_ej_25_3_producto(int val)
 
 int main(void)
 {
-    /* TODO: Implementación de Producto */
+    /* TODO: Implementación de producto_t */
     return 0;
 }

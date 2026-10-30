@@ -45,7 +45,6 @@ Salida / Retorno: 1
 2. **Cadena vacía o cruce de índices:** Si `inicio >= fin`, se alcanzó el caso base con éxito (retorna 1).
 3. **Terminación nula:** Asegurar que la cadena esté debidamente terminada en `\0`.
 4. **Valores fuera de rango:** Verificar que los índices `inicio` y `fin` no sean negativos ni excedan la longitud de la cadena.
-
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

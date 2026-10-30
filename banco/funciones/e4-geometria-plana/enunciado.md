@@ -15,39 +15,60 @@
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Calcula el perímetro de un círculo a partir de su radio.
- * @param radio Radio del círculo (>= 0).
- * @return Perímetro (2 * PI * radio), o -1.0f si radio < 0.
+/*
+ * Calcula el perímetro de un círculo a partir de su radio.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 float perimetro_circulo(float radio);
 
-/**
- * @brief Calcula el área de un círculo a partir de su radio.
- * @param radio Radio del círculo (>= 0).
- * @return Área (PI * radio^2), o -1.0f si radio < 0.
+/*
+ * Calcula el área de un círculo a partir de su radio.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 float area_circulo(float radio);
 
-/**
- * @brief Calcula el área de un triángulo a partir de base y altura.
- * @param base Longitud de la base (> 0).
- * @param altura Longitud de la altura (> 0).
- * @return Área ((base * altura) / 2), o -1.0f si base <= 0 o altura <= 0.
+/*
+ * Calcula el área de un triángulo a partir de base y altura.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 float area_triangulo(float base, float altura);
 
-/**
- * @brief Calcula la hipotenusa de un triángulo rectángulo dados sus dos catetos.
- * @param cateto_a Longitud del primer cateto (> 0).
- * @param cateto_b Longitud del segundo cateto (> 0).
- * @return Longitud de la hipotenusa sqrt(a^2 + b^2), o -1.0f si algún cateto <= 0.
+/*
+ * Calcula la hipotenusa de un triángulo rectángulo dados sus dos catetos.
+ * Precondiciones: Parámetros dentro del dominio válido de la operación.
+ * Postcondiciones: Retorna el valor procesado.
  */
 float calcular_hipotenusa(float cateto_a, float cateto_b);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.

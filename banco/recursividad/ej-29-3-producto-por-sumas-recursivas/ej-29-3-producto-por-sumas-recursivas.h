@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Producto por Sumas Recursivas */
+/* Procesa el flujo principal de producto_t por Sumas Recursivas */
 int proc_por_sumas_recursivas(int val);
 
 #endif /* EJERCICIO_EJ_29_3_PRODUCTO_POR_SUMAS_RECURSIVAS_H */
