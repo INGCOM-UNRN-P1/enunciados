@@ -11,15 +11,15 @@ typedef struct {
     int frente;
     int final;
     int cantidad;
-} t_ColaCircular;
+} cola_circular_t;
 
-void cola_init(t_ColaCircular *c) {
+void cola_init(cola_circular_t *c) {
     c->frente = 0;
     c->final = 0;
     c->cantidad = 0;
 }
 
-int cola_enqueue(t_ColaCircular *c, int val) {
+int cola_enqueue(cola_circular_t *c, int val) {
     if (c->cantidad >= CAPACIDAD) return 0;
     c->datos[c->final] = val;
     c->final = (c->final + 1) % CAPACIDAD;
@@ -27,7 +27,7 @@ int cola_enqueue(t_ColaCircular *c, int val) {
     return 1;
 }
 
-int cola_dequeue(t_ColaCircular *c, int *out) {
+int cola_dequeue(cola_circular_t *c, int *out) {
     if (c->cantidad <= 0) return 0;
     *out = c->datos[c->frente];
     c->frente = (c->frente + 1) % CAPACIDAD;
@@ -36,7 +36,7 @@ int cola_dequeue(t_ColaCircular *c, int *out) {
 }
 
 int main(void) {
-    t_ColaCircular c;
+    cola_circular_t c;
     cola_init(&c);
     int v = 0;
     while (scanf("%d", &v) == 1 && v != 0) {

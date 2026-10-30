@@ -6,11 +6,11 @@
 #include <stdint.h>
 
 /* Operación rpn_init */
-void rpn_init(PilaRPN *p);
+void rpn_init(pila_rpn_t *p);
 /* Operación rpn_push */
-int rpn_push(PilaRPN *p, long v);
+int rpn_push(pila_rpn_t *p, long v);
 /* Operación rpn_pop */
-int rpn_pop(PilaRPN *p, long *out);
+int rpn_pop(pila_rpn_t *p, long *out);
 /* Operación evaluar_linea */
 void evaluar_linea(char *linea);
 

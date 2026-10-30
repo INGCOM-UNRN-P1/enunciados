@@ -16,11 +16,11 @@ verificado: true
 funciones:
 - nombre: imprimir_lista
   retorno: void
-  parametros: const t_Nodo *cabeza
+  parametros: const nodo_t *cabeza
   descripcion: Operación imprimir_lista
 - nombre: liberar_lista
   retorno: void
-  parametros: t_Nodo *cabeza
+  parametros: nodo_t *cabeza
   descripcion: Operación liberar_lista
 tests_funciones:
 - nombre: test_imprimir_lista_1

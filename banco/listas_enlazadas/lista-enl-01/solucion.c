@@ -8,35 +8,35 @@
 typedef struct Nodo {
     int dato;
     struct Nodo *siguiente;
-} t_Nodo;
+} nodo_t;
 
-static t_Nodo *insertar_frente(t_Nodo *cabeza, int valor) {
-    t_Nodo *nuevo = (t_Nodo *)malloc(sizeof(t_Nodo));
+static nodo_t *insertar_frente(nodo_t *cabeza, int valor) {
+    nodo_t *nuevo = (nodo_t *)malloc(sizeof(nodo_t));
     if (nuevo == NULL) return cabeza;
     nuevo->dato = valor;
     nuevo->siguiente = cabeza;
     return nuevo;
 }
 
-void imprimir_lista(const t_Nodo *cabeza) {
-    const t_Nodo *act = cabeza;
+void imprimir_lista(const nodo_t *cabeza) {
+    const nodo_t *act = cabeza;
     while (act != NULL) {
         printf("%d%c", act->dato, (act->siguiente == NULL) ? '\n' : ' ');
         act = act->siguiente;
     }
 }
 
-void liberar_lista(t_Nodo *cabeza) {
-    t_Nodo *act = cabeza;
+void liberar_lista(nodo_t *cabeza) {
+    nodo_t *act = cabeza;
     while (act != NULL) {
-        t_Nodo *temp = act->siguiente;
+        nodo_t *temp = act->siguiente;
         free(act);
         act = temp;
     }
 }
 
 int main(void) {
-    t_Nodo *cabeza = NULL;
+    nodo_t *cabeza = NULL;
     int v = 0;
     while (scanf("%d", &v) == 1 && v != 0) {
         cabeza = insertar_frente(cabeza, v);

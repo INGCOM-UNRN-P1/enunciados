@@ -7,16 +7,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct NodoBST
+typedef struct nodo_bst_t
 {
     int dato;
-    struct NodoBST *izq;
-    struct NodoBST *der;
-} NodoBST;
+    struct nodo_bst_t *izq;
+    struct nodo_bst_t *der;
+} nodo_bst_t;
 
-static NodoBST *crear_nodo(int valor)
+static nodo_bst_t *crear_nodo(int valor)
 {
-    NodoBST *n = (NodoBST *)malloc(sizeof(NodoBST));
+    nodo_bst_t *n = (nodo_bst_t *)malloc(sizeof(nodo_bst_t));
     if (n == NULL)
     {
         return NULL;
@@ -27,7 +27,7 @@ static NodoBST *crear_nodo(int valor)
     return n;
 }
 
-static NodoBST *insertar_bst(NodoBST *raiz, int valor)
+static nodo_bst_t *insertar_bst(nodo_bst_t *raiz, int valor)
 {
     if (raiz == NULL)
     {
@@ -44,7 +44,7 @@ static NodoBST *insertar_bst(NodoBST *raiz, int valor)
     return raiz;
 }
 
-int buscar_bst(const NodoBST *raiz, int valor)
+int buscar_bst(const nodo_bst_t *raiz, int valor)
 {
     if (raiz == NULL)
     {
@@ -61,7 +61,7 @@ int buscar_bst(const NodoBST *raiz, int valor)
     return buscar_bst(raiz->der, valor);
 }
 
-int calcular_altura(const NodoBST *raiz)
+int calcular_altura(const nodo_bst_t *raiz)
 {
     if (raiz == NULL)
     {
@@ -72,7 +72,7 @@ int calcular_altura(const NodoBST *raiz)
     return 1 + (alt_izq > alt_der ? alt_izq : alt_der);
 }
 
-void recorrido_inorder(const NodoBST *raiz)
+void recorrido_inorder(const nodo_bst_t *raiz)
 {
     if (raiz != NULL)
     {
@@ -82,7 +82,7 @@ void recorrido_inorder(const NodoBST *raiz)
     }
 }
 
-void recorrido_preorder(const NodoBST *raiz)
+void recorrido_preorder(const nodo_bst_t *raiz)
 {
     if (raiz != NULL)
     {
@@ -92,7 +92,7 @@ void recorrido_preorder(const NodoBST *raiz)
     }
 }
 
-void liberar_arbol(NodoBST *raiz)
+void liberar_arbol(nodo_bst_t *raiz)
 {
     if (raiz != NULL)
     {
@@ -104,7 +104,7 @@ void liberar_arbol(NodoBST *raiz)
 
 int main(void)
 {
-    NodoBST *raiz = NULL;
+    nodo_bst_t *raiz = NULL;
     char comando[32] = {0};
     int valor = 0;
 

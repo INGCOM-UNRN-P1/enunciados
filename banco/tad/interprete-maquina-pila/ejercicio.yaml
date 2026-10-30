@@ -22,15 +22,15 @@ verificado: true
 funciones:
 - nombre: inicializar_pila
   retorno: void
-  parametros: PilaVirtual *p
+  parametros: pila_virtual_t *p
   descripcion: Operación inicializar_pila
 - nombre: push
   retorno: int
-  parametros: PilaVirtual *p, long v
+  parametros: pila_virtual_t *p, long v
   descripcion: Operación push
 - nombre: pop
   retorno: int
-  parametros: PilaVirtual *p, long *out
+  parametros: pila_virtual_t *p, long *out
   descripcion: Operación pop
 tests_funciones:
 - nombre: test_inicializar_pila_1

@@ -17,15 +17,15 @@ verificado: true
 funciones:
 - nombre: cola_init
   retorno: void
-  parametros: t_ColaCircular *c
+  parametros: cola_circular_t *c
   descripcion: Operación cola_init
 - nombre: cola_enqueue
   retorno: int
-  parametros: t_ColaCircular *c, int val
+  parametros: cola_circular_t *c, int val
   descripcion: Operación cola_enqueue
 - nombre: cola_dequeue
   retorno: int
-  parametros: t_ColaCircular *c, int *out
+  parametros: cola_circular_t *c, int *out
   descripcion: Operación cola_dequeue
 tests_funciones:
 - nombre: test_cola_init_1

@@ -6,10 +6,10 @@
 #include <stdint.h>
 
 /* Operación inicializar_pila */
-void inicializar_pila(PilaVirtual *p);
+void inicializar_pila(pila_virtual_t *p);
 /* Operación push */
-int push(PilaVirtual *p, long v);
+int push(pila_virtual_t *p, long v);
 /* Operación pop */
-int pop(PilaVirtual *p, long *out);
+int pop(pila_virtual_t *p, long *out);
 
 #endif /* EJERCICIO_INTERPRETE_MAQUINA_PILA_H */

@@ -10,10 +10,10 @@
 typedef struct NodoSkip {
     int valor;
     struct NodoSkip *siguiente[MAX_LEVEL];
-} t_NodoSkip;
+} nodo_skip_t;
 
-static t_NodoSkip *crear_nodo_skip(int val) {
-    t_NodoSkip *n = (t_NodoSkip *)calloc(1, sizeof(t_NodoSkip));
+static nodo_skip_t *crear_nodo_skip(int val) {
+    nodo_skip_t *n = (nodo_skip_t *)calloc(1, sizeof(nodo_skip_t));
     if (n != NULL) n->valor = val;
     return n;
 }
@@ -26,10 +26,10 @@ int ejecutar_skip_list_01(int val)
 }
 
 int main(void) {
-    t_NodoSkip *cabeza = crear_nodo_skip(-1);
-    t_NodoSkip *n1 = crear_nodo_skip(10);
-    t_NodoSkip *n2 = crear_nodo_skip(20);
-    t_NodoSkip *n3 = crear_nodo_skip(30);
+    nodo_skip_t *cabeza = crear_nodo_skip(-1);
+    nodo_skip_t *n1 = crear_nodo_skip(10);
+    nodo_skip_t *n2 = crear_nodo_skip(20);
+    nodo_skip_t *n3 = crear_nodo_skip(30);
 
     cabeza->siguiente[0] = n1;
     n1->siguiente[0] = n2;
@@ -39,7 +39,7 @@ int main(void) {
     n2->siguiente[1] = n3;
 
     int buscado = 20;
-    t_NodoSkip *curr = cabeza;
+    nodo_skip_t *curr = cabeza;
     for (int lvl = 1; lvl >= 0; lvl--) {
         while (curr->siguiente[lvl] != NULL && curr->siguiente[lvl]->valor < buscado) {
             curr = curr->siguiente[lvl];

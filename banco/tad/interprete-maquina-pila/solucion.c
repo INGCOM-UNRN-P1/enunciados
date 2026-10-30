@@ -13,14 +13,14 @@ typedef struct
 {
     long datos[CAPACIDAD_PILA];
     int sp;
-} PilaVirtual;
+} pila_virtual_t;
 
-void inicializar_pila(PilaVirtual *p)
+void inicializar_pila(pila_virtual_t *p)
 {
     p->sp = 0;
 }
 
-int push(PilaVirtual *p, long v)
+int push(pila_virtual_t *p, long v)
 {
     if (p->sp >= CAPACIDAD_PILA)
     {
@@ -31,7 +31,7 @@ int push(PilaVirtual *p, long v)
     return 1;
 }
 
-int pop(PilaVirtual *p, long *out)
+int pop(pila_virtual_t *p, long *out)
 {
     if (p->sp <= 0)
     {
@@ -44,7 +44,7 @@ int pop(PilaVirtual *p, long *out)
 
 int main(void)
 {
-    PilaVirtual p;
+    pila_virtual_t p;
     inicializar_pila(&p);
 
     char op[32] = {0};

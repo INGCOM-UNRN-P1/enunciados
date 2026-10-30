@@ -27,23 +27,23 @@ funciones:
   descripcion: Operación funcion_hash_djb2
 - nombre: inicializar_tabla
   retorno: void
-  parametros: TablaHash *tabla
+  parametros: tabla_hash_t *tabla
   descripcion: Operación inicializar_tabla
 - nombre: insertar_o_actualizar
   retorno: void
-  parametros: TablaHash *tabla, const char *clave, int valor
+  parametros: tabla_hash_t *tabla, const char *clave, int valor
   descripcion: Operación insertar_o_actualizar
 - nombre: buscar_clave
   retorno: void
-  parametros: const TablaHash *tabla, const char *clave
+  parametros: const tabla_hash_t *tabla, const char *clave
   descripcion: Operación buscar_clave
 - nombre: eliminar_clave
   retorno: void
-  parametros: TablaHash *tabla, const char *clave
+  parametros: tabla_hash_t *tabla, const char *clave
   descripcion: Operación eliminar_clave
 - nombre: destruir_tabla
   retorno: void
-  parametros: TablaHash *tabla
+  parametros: tabla_hash_t *tabla
   descripcion: Operación destruir_tabla
 tests_funciones:
 - nombre: test_funcion_hash_djb2_1

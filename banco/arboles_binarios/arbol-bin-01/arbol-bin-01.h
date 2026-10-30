@@ -6,8 +6,8 @@
 #include <stdint.h>
 
 /* Operación inorder */
-void inorder(const t_NodoArbol *n);
+void inorder(const nodo_arbol_t *n);
 /* Operación liberar_arbol */
-void liberar_arbol(t_NodoArbol *n);
+void liberar_arbol(nodo_arbol_t *n);
 
 #endif /* EJERCICIO_ARBOL_BIN_01_H */

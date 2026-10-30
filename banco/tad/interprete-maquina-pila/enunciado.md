@@ -22,21 +22,21 @@ Instrucciones soportadas:
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void inicializar_pila(PilaVirtual *p);
+void inicializar_pila(pila_virtual_t *p);
 
 /*
  * Operación push
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-int push(PilaVirtual *p, long v);
+int push(pila_virtual_t *p, long v);
 
 /*
  * Operación pop
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-int pop(PilaVirtual *p, long *out);
+int pop(pila_virtual_t *p, long *out);
 
 ```
 
@@ -62,8 +62,7 @@ Retorno seguro / estado vacío
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
 2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
 3. **Gestión de memoria:** Toda memoria solicitada mediante `malloc`/`calloc` debe ser validada y eventualmente liberada con `free`.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

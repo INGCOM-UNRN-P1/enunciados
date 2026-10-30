@@ -18,35 +18,35 @@ Comandos:
  * Precondiciones: val representa el parámetro de entrada del flujo.
  * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
-int buscar_bst(const NodoBST *raiz, int valor);
+int buscar_bst(const nodo_bst_t *raiz, int valor);
 
 /*
  * Operación calcular_altura
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-int calcular_altura(const NodoBST *raiz);
+int calcular_altura(const nodo_bst_t *raiz);
 
 /*
  * Operación recorrido_inorder
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void recorrido_inorder(const NodoBST *raiz);
+void recorrido_inorder(const nodo_bst_t *raiz);
 
 /*
  * Operación recorrido_preorder
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void recorrido_preorder(const NodoBST *raiz);
+void recorrido_preorder(const nodo_bst_t *raiz);
 
 /*
  * Operación liberar_arbol
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void liberar_arbol(NodoBST *raiz);
+void liberar_arbol(nodo_bst_t *raiz);
 
 ```
 
@@ -72,8 +72,7 @@ Retorno seguro / estado vacío
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
 2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
 3. **Gestión de memoria:** Toda memoria solicitada mediante `malloc`/`calloc` debe ser validada y eventualmente liberada con `free`.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

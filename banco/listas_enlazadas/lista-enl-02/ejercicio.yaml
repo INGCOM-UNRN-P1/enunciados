@@ -16,7 +16,7 @@ verificado: true
 funciones:
 - nombre: imprimir_y_liberar
   retorno: void
-  parametros: t_Nodo *cabeza
+  parametros: nodo_t *cabeza
   descripcion: Operación imprimir_y_liberar
 tests_funciones:
 - nombre: test_imprimir_y_liberar_1

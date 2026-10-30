@@ -11,15 +11,15 @@
 typedef struct NodoTrie {
     struct NodoTrie *hijos[ALFABETO];
     int es_fin_palabra;
-} t_NodoTrie;
+} nodo_trie_t;
 
-static t_NodoTrie *crear_nodo(void) {
-    t_NodoTrie *n = (t_NodoTrie *)calloc(1, sizeof(t_NodoTrie));
+static nodo_trie_t *crear_nodo(void) {
+    nodo_trie_t *n = (nodo_trie_t *)calloc(1, sizeof(nodo_trie_t));
     return n;
 }
 
-void trie_insertar(t_NodoTrie *raiz, const char *palabra) {
-    t_NodoTrie *actual = raiz;
+void trie_insertar(nodo_trie_t *raiz, const char *palabra) {
+    nodo_trie_t *actual = raiz;
     for (size_t i = 0; palabra[i] != '\0'; i++) {
         int idx = palabra[i] - 'a';
         if (idx < 0 || idx >= ALFABETO) continue;
@@ -31,8 +31,8 @@ void trie_insertar(t_NodoTrie *raiz, const char *palabra) {
     actual->es_fin_palabra = 1;
 }
 
-int trie_buscar_prefijo(const t_NodoTrie *raiz, const char *prefijo) {
-    const t_NodoTrie *actual = raiz;
+int trie_buscar_prefijo(const nodo_trie_t *raiz, const char *prefijo) {
+    const nodo_trie_t *actual = raiz;
     for (size_t i = 0; prefijo[i] != '\0'; i++) {
         int idx = prefijo[i] - 'a';
         if (idx < 0 || idx >= ALFABETO || actual->hijos[idx] == NULL) {
@@ -43,7 +43,7 @@ int trie_buscar_prefijo(const t_NodoTrie *raiz, const char *prefijo) {
     return 1;
 }
 
-void liberar_trie(t_NodoTrie *n) {
+void liberar_trie(nodo_trie_t *n) {
     if (n == NULL) return;
     for (int i = 0; i < ALFABETO; i++) {
         liberar_trie(n->hijos[i]);
@@ -52,7 +52,7 @@ void liberar_trie(t_NodoTrie *n) {
 }
 
 int main(void) {
-    t_NodoTrie *raiz = crear_nodo();
+    nodo_trie_t *raiz = crear_nodo();
     char palabra[64] = {0};
     while (scanf("%63s", palabra) == 1 && strcmp(palabra, "FIN") != 0) {
         trie_insertar(raiz, palabra);

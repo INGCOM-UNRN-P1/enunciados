@@ -12,14 +12,14 @@ typedef struct {
     int valores[MAX_CAP];
     int tamano;
     int capacidad;
-} t_LRUCache;
+} lru_cache_t;
 
-void lru_init(t_LRUCache *c, int cap) {
+void lru_init(lru_cache_t *c, int cap) {
     c->tamano = 0;
     c->capacidad = (cap > MAX_CAP) ? MAX_CAP : cap;
 }
 
-int lru_get(t_LRUCache *c, int clave) {
+int lru_get(lru_cache_t *c, int clave) {
     for (int i = 0; i < c->tamano; i++) {
         if (c->claves[i] == clave) {
             int val = c->valores[i];
@@ -35,7 +35,7 @@ int lru_get(t_LRUCache *c, int clave) {
     return -1;
 }
 
-void lru_put(t_LRUCache *c, int clave, int valor) {
+void lru_put(lru_cache_t *c, int clave, int valor) {
     if (lru_get(c, clave) != -1) {
         c->valores[c->tamano - 1] = valor;
         return;
@@ -53,7 +53,7 @@ void lru_put(t_LRUCache *c, int clave, int valor) {
 }
 
 int main(void) {
-    t_LRUCache c;
+    lru_cache_t c;
     lru_init(&c, 2);
     lru_put(&c, 1, 10);
     lru_put(&c, 2, 20);

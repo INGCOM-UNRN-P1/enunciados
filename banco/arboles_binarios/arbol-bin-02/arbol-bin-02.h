@@ -6,8 +6,8 @@
 #include <stdint.h>
 
 /* Operación contar_hojas */
-int contar_hojas(const t_NodoArbol *n);
+int contar_hojas(const nodo_arbol_t *n);
 /* Operación liberar_arbol */
-void liberar_arbol(t_NodoArbol *n);
+void liberar_arbol(nodo_arbol_t *n);
 
 #endif /* EJERCICIO_ARBOL_BIN_02_H */

@@ -16,82 +16,81 @@ typedef struct cadena_segura {
 | `longitud` | `size_t` | Cantidad de caracteres útiles (equivalente a `strlen(texto)`). |
 | `capacidad` | `size_t` | Bytes asignados en heap (siempre `>= longitud + 1`). |
 
-#### Contratos de la API (`cadena_segura.h`)
-
-- `bool cadena_segura_crear(cadena_segura_t *cadena, const char *literal);`  
-  Inicializa `cadena` copiando el contenido de `literal`. Si `literal == NULL`, crea una cadena vacía (`""`). Retorna `false` ante error de asignación o puntero nulo.
-- `void cadena_segura_destruir(cadena_segura_t *cadena);`  
-  Libera el buffer `texto` en heap y resetea `longitud` y `capacidad` a 0. Operación segura ante punteros `NULL`.
-- `bool cadena_segura_concatenar(cadena_segura_t *cadena, const char *sufijo);`  
-  Anexa `sufijo` al final de `cadena`. Si la longitud resultante excede la capacidad disponible, redimensiona el bloque en heap.
-- `bool cadena_segura_subcadena(const cadena_segura_t *origen, size_t inicio, size_t longitud, cadena_segura_t *destino);`  
-  Extrae hasta `longitud` caracteres a partir del índice `inicio` y genera una nueva `cadena_segura_t` en `destino`.
-- `bool cadena_segura_clonar(const cadena_segura_t *origen, cadena_segura_t *destino);`  
-  Crea una copia profunda (*deep copy*) e independiente de `origen` en `destino`.
-- `int cadena_segura_buscar(const cadena_segura_t *cadena, const char *aguja);`  
-  Busca la primera aparición de la subcadena `aguja`. Retorna el índice 0-based de inicio, o `-1` si no coincide o parámetros inválidos.
+#
 
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Inicializa una cadena segura copiando el contenido de un literal o cadena C.
- *
- * @param cadena Puntero a la estructura cadena_segura_t a inicializar.
- * @param literal Puntero a la cadena de caracteres origen (o NULL para cadena vacia).
- * @return true si la reserva de memoria fue exitosa, false en caso contrario.
+/*
+ * Inicializa una cadena segura copiando el contenido de un literal o cadena C.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool cadena_segura_crear(cadena_segura_t *cadena, const char *literal);
 
-/**
- * @brief Libera la memoria dinamica asociada y restablece los campos a cero.
- *
- * @param cadena Puntero a la estructura cadena_segura_t a destruir.
+/*
+ * Libera la memoria dinamica asociada y restablece los campos a cero.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 void cadena_segura_destruir(cadena_segura_t *cadena);
 
-/**
- * @brief Concatena una cadena C al final de la cadena segura, redimensionando si es necesario.
- *
- * @param cadena Puntero a la estructura cadena_segura_t destino.
- * @param sufijo Puntero a la cadena a anexar (si es NULL o vacia, no modifica la cadena).
- * @return true si la operacion fue exitosa, false en caso de fallo de asignacion de memoria.
+/*
+ * Concatena una cadena C al final de la cadena segura, redimensionando si es necesario.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool cadena_segura_concatenar(cadena_segura_t *cadena, const char *sufijo);
 
-/**
- * @brief Extrae una subcadena a partir de una posicion de inicio y longitud maxima.
- *
- * @param origen Puntero a la cadena segura de origen.
- * @param inicio Indice base (0-indexado) donde comienza la subcadena.
- * @param longitud Cantidad maxima de caracteres a extraer.
- * @param destino Puntero a la estructura donde se inicializara la nueva subcadena.
- * @return true si se extrajo y creo exitosamente la subcadena, false en caso de error.
+/*
+ * Extrae una subcadena a partir de una posicion de inicio y longitud maxima.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool cadena_segura_subcadena(const cadena_segura_t *origen, size_t inicio, size_t longitud, cadena_segura_t *destino);
 
-/**
- * @brief Crea un clon profundo independiente de la cadena de origen.
- *
- * @param origen Puntero a la cadena segura a duplicar.
- * @param destino Puntero a la estructura donde se creara la copia independiente.
- * @return true si la clonacion fue exitosa, false en caso de error.
+/*
+ * Crea un clon profundo independiente de la cadena de origen.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool cadena_segura_clonar(const cadena_segura_t *origen, cadena_segura_t *destino);
 
-/**
- * @brief Busca la primera aparicion de una subcadena (aguja) dentro de la cadena segura.
- *
- * @param cadena Puntero a la cadena segura donde buscar.
- * @param aguja Subcadena a localizar en la cadena.
- * @return Indice base 0 de la primera coincidencia, o -1 si no se encuentra o parametros invalidos.
+/*
+ * Busca la primera aparicion de una subcadena (aguja) dentro de la cadena segura.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 int cadena_segura_buscar(const cadena_segura_t *cadena, const char *aguja);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
-- [ ] Sin fugas ni accesos inválidos a memoria (`valgrind` / sanitizers).
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.

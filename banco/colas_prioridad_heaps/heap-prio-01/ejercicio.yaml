@@ -16,15 +16,15 @@ verificado: true
 funciones:
 - nombre: heap_init
   retorno: void
-  parametros: t_MinHeap *h
+  parametros: min_heap_t *h
   descripcion: Operación heap_init
 - nombre: heap_push
   retorno: void
-  parametros: t_MinHeap *h, int val
+  parametros: min_heap_t *h, int val
   descripcion: Operación heap_push
 - nombre: heap_pop
   retorno: int
-  parametros: t_MinHeap *h, int *out
+  parametros: min_heap_t *h, int *out
   descripcion: Operación heap_pop
 tests_funciones:
 - nombre: test_heap_init_1

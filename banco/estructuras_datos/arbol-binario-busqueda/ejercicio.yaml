@@ -21,23 +21,23 @@ verificado: true
 funciones:
 - nombre: buscar_bst
   retorno: int
-  parametros: const NodoBST *raiz, int valor
+  parametros: const nodo_bst_t *raiz, int valor
   descripcion: Operación buscar_bst
 - nombre: calcular_altura
   retorno: int
-  parametros: const NodoBST *raiz
+  parametros: const nodo_bst_t *raiz
   descripcion: Operación calcular_altura
 - nombre: recorrido_inorder
   retorno: void
-  parametros: const NodoBST *raiz
+  parametros: const nodo_bst_t *raiz
   descripcion: Operación recorrido_inorder
 - nombre: recorrido_preorder
   retorno: void
-  parametros: const NodoBST *raiz
+  parametros: const nodo_bst_t *raiz
   descripcion: Operación recorrido_preorder
 - nombre: liberar_arbol
   retorno: void
-  parametros: NodoBST *raiz
+  parametros: nodo_bst_t *raiz
   descripcion: Operación liberar_arbol
 tests_funciones:
 - nombre: test_buscar_bst_1

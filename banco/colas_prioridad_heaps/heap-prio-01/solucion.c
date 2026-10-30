@@ -10,11 +10,11 @@
 typedef struct {
     int datos[MAX_HEAP];
     int tamano;
-} t_MinHeap;
+} min_heap_t;
 
-void heap_init(t_MinHeap *h) { h->tamano = 0; }
+void heap_init(min_heap_t *h) { h->tamano = 0; }
 
-void heap_push(t_MinHeap *h, int val) {
+void heap_push(min_heap_t *h, int val) {
     if (h->tamano >= MAX_HEAP) return;
     int idx = h->tamano++;
     h->datos[idx] = val;
@@ -26,7 +26,7 @@ void heap_push(t_MinHeap *h, int val) {
     }
 }
 
-int heap_pop(t_MinHeap *h, int *out) {
+int heap_pop(min_heap_t *h, int *out) {
     if (h->tamano <= 0) return 0;
     *out = h->datos[0];
     h->datos[0] = h->datos[--h->tamano];
@@ -46,7 +46,7 @@ int heap_pop(t_MinHeap *h, int *out) {
 }
 
 int main(void) {
-    t_MinHeap h;
+    min_heap_t h;
     heap_init(&h);
     int val = 0;
     while (scanf("%d", &val) == 1 && val != 0) {

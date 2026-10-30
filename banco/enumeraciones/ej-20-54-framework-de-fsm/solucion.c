@@ -7,24 +7,24 @@ typedef enum
     FSM_ESTADO_2,
     // ... más estados
     FSM_ESTADO_MAX
-} estado_fsm_t;
+} estado_fsm_e;
 typedef enum
 {
     FSM_EVENTO_0,
     FSM_EVENTO_1,
     // ... más eventos
     FSM_EVENTO_MAX
-} evento_fsm_t;
+} evento_fsm_e;
 typedef struct
 {
-    estado_fsm_t desde;
-    estado_fsm_t hasta;
-    evento_fsm_t evento;
+    estado_fsm_e desde;
+    estado_fsm_e hasta;
+    evento_fsm_e evento;
     void (*accion)(void *contexto);
 } transicion_t;
 typedef struct
 {
-    estado_fsm_t estado_actual;
+    estado_fsm_e estado_actual;
     transicion_t transiciones[MAX_TRANSICIONES];
     int num_transiciones;
     void *contexto;

@@ -9,23 +9,23 @@
 typedef struct {
     int padre[MAX_NODOS];
     int rango[MAX_NODOS];
-} t_DSU;
+} dsu_t;
 
-void dsu_init(t_DSU *d, int n) {
+void dsu_init(dsu_t *d, int n) {
     for (int i = 0; i < n; i++) {
         d->padre[i] = i;
         d->rango[i] = 0;
     }
 }
 
-int dsu_find(t_DSU *d, int u) {
+int dsu_find(dsu_t *d, int u) {
     if (d->padre[u] != u) {
         d->padre[u] = dsu_find(d, d->padre[u]);
     }
     return d->padre[u];
 }
 
-void dsu_union(t_DSU *d, int u, int v) {
+void dsu_union(dsu_t *d, int u, int v) {
     int ru = dsu_find(d, u);
     int rv = dsu_find(d, v);
     if (ru != rv) {
@@ -41,7 +41,7 @@ void dsu_union(t_DSU *d, int u, int v) {
 }
 
 int main(void) {
-    t_DSU dsu;
+    dsu_t dsu;
     int n = 0, operaciones = 0;
     if (scanf("%d %d", &n, &operaciones) != 2 || n <= 0 || n > MAX_NODOS) return 0;
     dsu_init(&dsu, n);

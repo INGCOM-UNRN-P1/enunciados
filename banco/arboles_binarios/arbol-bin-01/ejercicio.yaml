@@ -17,11 +17,11 @@ verificado: true
 funciones:
 - nombre: inorder
   retorno: void
-  parametros: const t_NodoArbol *n
+  parametros: const nodo_arbol_t *n
   descripcion: Operación inorder
 - nombre: liberar_arbol
   retorno: void
-  parametros: t_NodoArbol *n
+  parametros: nodo_arbol_t *n
   descripcion: Operación liberar_arbol
 tests_funciones:
 - nombre: test_inorder_1

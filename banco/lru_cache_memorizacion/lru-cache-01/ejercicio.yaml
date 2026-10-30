@@ -16,15 +16,15 @@ verificado: true
 funciones:
 - nombre: lru_init
   retorno: void
-  parametros: t_LRUCache *c, int cap
+  parametros: lru_cache_t *c, int cap
   descripcion: Operación lru_init
 - nombre: lru_get
   retorno: int
-  parametros: t_LRUCache *c, int clave
+  parametros: lru_cache_t *c, int clave
   descripcion: Operación lru_get
 - nombre: lru_put
   retorno: void
-  parametros: t_LRUCache *c, int clave, int valor
+  parametros: lru_cache_t *c, int clave, int valor
   descripcion: Operación lru_put
 tests_funciones:
 - nombre: test_lru_init_1

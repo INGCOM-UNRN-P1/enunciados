@@ -9,10 +9,10 @@ typedef struct NodoArbol {
     int valor;
     struct NodoArbol *izq;
     struct NodoArbol *der;
-} t_NodoArbol;
+} nodo_arbol_t;
 
-static t_NodoArbol *crear_nodo(int v) {
-    t_NodoArbol *n = (t_NodoArbol *)malloc(sizeof(t_NodoArbol));
+static nodo_arbol_t *crear_nodo(int v) {
+    nodo_arbol_t *n = (nodo_arbol_t *)malloc(sizeof(nodo_arbol_t));
     if (n == NULL) return NULL;
     n->valor = v;
     n->izq = NULL;
@@ -20,13 +20,13 @@ static t_NodoArbol *crear_nodo(int v) {
     return n;
 }
 
-int contar_hojas(const t_NodoArbol *n) {
+int contar_hojas(const nodo_arbol_t *n) {
     if (n == NULL) return 0;
     if (n->izq == NULL && n->der == NULL) return 1;
     return contar_hojas(n->izq) + contar_hojas(n->der);
 }
 
-void liberar_arbol(t_NodoArbol *n) {
+void liberar_arbol(nodo_arbol_t *n) {
     if (n != NULL) {
         liberar_arbol(n->izq);
         liberar_arbol(n->der);
@@ -35,7 +35,7 @@ void liberar_arbol(t_NodoArbol *n) {
 }
 
 int main(void) {
-    t_NodoArbol *raiz = crear_nodo(10);
+    nodo_arbol_t *raiz = crear_nodo(10);
     if (raiz != NULL) {
         raiz->izq = crear_nodo(5);
         raiz->der = crear_nodo(15);

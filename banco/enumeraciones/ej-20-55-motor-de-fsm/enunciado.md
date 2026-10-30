@@ -3,10 +3,10 @@ Implementar el motor que procesa eventos y ejecuta transiciones.
 
 
 ``` c
-void fsm_inicializar(maquina_estados_t *fsm, estado_fsm_t inicial);
+void fsm_inicializar(maquina_estados_t *fsm, estado_fsm_e inicial);
 bool fsm_agregar_transicion(maquina_estados_t *fsm, transicion_t trans);
-bool fsm_procesar_evento(maquina_estados_t *fsm, evento_fsm_t evento);
-estado_fsm_t fsm_estado_actual(const maquina_estados_t *fsm);
+bool fsm_procesar_evento(maquina_estados_t *fsm, evento_fsm_e evento);
+estado_fsm_e fsm_estado_actual(const maquina_estados_t *fsm);
 ```
 
 ## Análisis Comparativo de Enums
@@ -43,8 +43,7 @@ Salida / Retorno: 0
 ### ⚠️ Precondiciones y Casos Borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

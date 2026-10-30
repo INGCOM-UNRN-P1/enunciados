@@ -21,27 +21,27 @@ verificado: true
 funciones:
 - nombre: inicializar_lista
   retorno: void
-  parametros: ListaDoble *lista
+  parametros: lista_doble_t *lista
   descripcion: Operación inicializar_lista
 - nombre: insertar_ordenado
   retorno: void
-  parametros: ListaDoble *lista, int valor
+  parametros: lista_doble_t *lista, int valor
   descripcion: Operación insertar_ordenado
 - nombre: eliminar_valor
   retorno: void
-  parametros: ListaDoble *lista, int valor
+  parametros: lista_doble_t *lista, int valor
   descripcion: Operación eliminar_valor
 - nombre: imprimir_ascendente
   retorno: void
-  parametros: const ListaDoble *lista
+  parametros: const lista_doble_t *lista
   descripcion: Operación imprimir_ascendente
 - nombre: imprimir_descendente
   retorno: void
-  parametros: const ListaDoble *lista
+  parametros: const lista_doble_t *lista
   descripcion: Operación imprimir_descendente
 - nombre: liberar_lista
   retorno: void
-  parametros: ListaDoble *lista
+  parametros: lista_doble_t *lista
   descripcion: Operación liberar_lista
 tests_funciones:
 - nombre: test_inicializar_lista_1

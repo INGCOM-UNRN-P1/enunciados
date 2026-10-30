@@ -16,15 +16,15 @@ verificado: true
 funciones:
 - nombre: dsu_init
   retorno: void
-  parametros: t_DSU *d, int n
+  parametros: dsu_t *d, int n
   descripcion: Operación dsu_init
 - nombre: dsu_find
   retorno: int
-  parametros: t_DSU *d, int u
+  parametros: dsu_t *d, int u
   descripcion: Operación dsu_find
 - nombre: dsu_union
   retorno: void
-  parametros: t_DSU *d, int u, int v
+  parametros: dsu_t *d, int u, int v
   descripcion: Operación dsu_union
 tests_funciones:
 - nombre: test_dsu_init_1

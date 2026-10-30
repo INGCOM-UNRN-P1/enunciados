@@ -16,101 +16,95 @@ typedef struct arreglo_dinamico {
 | `cantidad` | `size_t` | Cantidad de elementos enteros válidos almacenados. |
 | `capacidad` | `size_t` | Capacidad física total reservada (alcanza para `capacidad` enteros sin realocar). |
 
-#### Contratos de la API (`dinamicos.h`)
-
-- `bool arreglo_dinamico_crear(arreglo_dinamico_t *arreglo, size_t capacidad_inicial);`  
-  Inicializa `arreglo` reservando espacio para `capacidad_inicial` enteros. Si `capacidad_inicial == 0`, asigna una capacidad mínima por defecto (4). Retorna `false` ante puntero nulo o fallo de `malloc`.
-- `void arreglo_dinamico_destruir(arreglo_dinamico_t *arreglo);`  
-  Libera la memoria de `datos` en heap y resetea `cantidad` y `capacidad` a 0. Tolera punteros `NULL` o llamadas repetidas sin errores.
-- `bool arreglo_dinamico_agregar(arreglo_dinamico_t *arreglo, int valor);`  
-  Agrega `valor` al final. Si `cantidad == capacidad`, duplica la capacidad mediante `realloc`. Retorna `false` si falla la asignación.
-- `int *arreglo_dinamico_obtener(const arreglo_dinamico_t *arreglo, size_t indice);`  
-  Retorna un puntero al elemento en `indice`. Si `arreglo == NULL` o `indice >= cantidad`, retorna `NULL`.
-- `bool arreglo_dinamico_filtrar_pares(const arreglo_dinamico_t *origen, arreglo_dinamico_t *destino);`  
-  Crea e inicializa `destino` con los elementos pares de `origen` preservando el orden original.
-- `int arreglo_dinamico_buscar(const arreglo_dinamico_t *arreglo, int valor);`  
-  Retorna el índice 0-based de la primera aparición de `valor`, o `-1` si no existe o ante parámetros inválidos.
-- `void arreglo_dinamico_invertir(arreglo_dinamico_t *arreglo);`  
-  Invierte los elementos del arreglo *in-place*. Sin efecto si `arreglo == NULL` o `cantidad <= 1`.
-- `size_t arreglo_dinamico_compactar(arreglo_dinamico_t *arreglo, int valor);`  
-  Elimina todas las ocurrencias de `valor` desplazando los elementos contiguos sin dejar huecos. Retorna la cantidad de elementos eliminados.
+#
 
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Inicializa un arreglo dinamico reservando capacidad inicial.
- *
- * @param arreglo Puntero a la estructura arreglo_dinamico_t a inicializar.
- * @param capacidad_inicial Capacidad inicial solicitada (si es 0, asigna 4).
- * @return true si la inicializacion fue exitosa, false en caso de error.
+/*
+ * Inicializa un arreglo dinamico reservando capacidad inicial.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool arreglo_dinamico_crear(arreglo_dinamico_t *arreglo, size_t capacidad_inicial);
 
-/**
- * @brief Libera la memoria en heap del arreglo y restablece los campos a cero.
- *
- * @param arreglo Puntero a la estructura arreglo_dinamico_t a destruir.
+/*
+ * Libera la memoria en heap del arreglo y restablece los campos a cero.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 void arreglo_dinamico_destruir(arreglo_dinamico_t *arreglo);
 
-/**
- * @brief Agrega un valor al final del arreglo, redimensionando si es necesario.
- *
- * @param arreglo Puntero a la estructura arreglo_dinamico_t.
- * @param valor Entero a insertar.
- * @return true si se inserto exitosamente, false en caso de fallo de memoria.
+/*
+ * Agrega un valor al final del arreglo, redimensionando si es necesario.
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
 bool arreglo_dinamico_agregar(arreglo_dinamico_t *arreglo, int valor);
 
-/**
- * @brief Obtiene un puntero al elemento en la posicion indicada.
- *
- * @param arreglo Puntero constante a la estructura arreglo_dinamico_t.
- * @param indice Posicion del elemento a consultar.
- * @return Puntero al entero solicitado, o NULL si indice fuera de rango.
+/*
+ * Obtiene un puntero al elemento en la posicion indicada.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-int *arreglo_dinamico_obtener(const arreglo_dinamico_t *arreglo, size_t indice);
+int * arreglo_dinamico_obtener(const arreglo_dinamico_t *arreglo, size_t indice);
 
-/**
- * @brief Filtra los numeros pares del arreglo origen hacia un nuevo destino.
- *
- * @param origen Puntero al arreglo fuente de lectura.
- * @param destino Puntero al arreglo destino que sera creado y poblado.
- * @return true si el filtrado fue exitoso, false ante error de asignacion o NULL.
+/*
+ * Filtra los numeros pares del arreglo origen hacia un nuevo destino.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-bool arreglo_dinamico_filtrar_pares(const arreglo_dinamico_t *origen,
-                                    arreglo_dinamico_t *destino);
+bool arreglo_dinamico_filtrar_pares(const arreglo_dinamico_t *origen, arreglo_dinamico_t *destino);
 
-/**
- * @brief Busca la primera aparicion de un valor en el arreglo.
- *
- * @param arreglo Puntero constante al arreglo donde buscar.
- * @param valor Entero a buscar.
- * @return Indice de la primera aparicion (>= 0), o -1 si no se encuentra.
+/*
+ * Busca la primera aparicion de un valor en el arreglo.
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
 int arreglo_dinamico_buscar(const arreglo_dinamico_t *arreglo, int valor);
 
-/**
- * @brief Invierte el orden de los elementos del arreglo in-place.
- *
- * @param arreglo Puntero al arreglo a invertir.
+/*
+ * Invierte el orden de los elementos del arreglo in-place.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 void arreglo_dinamico_invertir(arreglo_dinamico_t *arreglo);
 
-/**
- * @brief Elimina todas las ocurrencias de un valor compactando in-place.
- *
- * @param arreglo Puntero al arreglo a compactar.
- * @param valor Entero a eliminar.
- * @return Cantidad de elementos eliminados del arreglo.
+/*
+ * Elimina todas las ocurrencias de un valor compactando in-place.
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
 size_t arreglo_dinamico_compactar(arreglo_dinamico_t *arreglo, int valor);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
-- [ ] Sin fugas ni accesos inválidos a memoria (`valgrind` / sanitizers).
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.

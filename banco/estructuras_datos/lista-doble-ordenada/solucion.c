@@ -7,28 +7,28 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct NodoDoble
+typedef struct nodo_doble_t
 {
     int dato;
-    struct NodoDoble *anterior;
-    struct NodoDoble *siguiente;
-} NodoDoble;
+    struct nodo_doble_t *anterior;
+    struct nodo_doble_t *siguiente;
+} nodo_doble_t;
 
 typedef struct
 {
-    NodoDoble *cabeza;
-    NodoDoble *cola;
-} ListaDoble;
+    nodo_doble_t *cabeza;
+    nodo_doble_t *cola;
+} lista_doble_t;
 
-void inicializar_lista(ListaDoble *lista)
+void inicializar_lista(lista_doble_t *lista)
 {
     lista->cabeza = NULL;
     lista->cola = NULL;
 }
 
-void insertar_ordenado(ListaDoble *lista, int valor)
+void insertar_ordenado(lista_doble_t *lista, int valor)
 {
-    NodoDoble *nuevo = (NodoDoble *)malloc(sizeof(NodoDoble));
+    nodo_doble_t *nuevo = (nodo_doble_t *)malloc(sizeof(nodo_doble_t));
     if (nuevo == NULL)
     {
         return;
@@ -60,7 +60,7 @@ void insertar_ordenado(ListaDoble *lista, int valor)
         return;
     }
 
-    NodoDoble *actual = lista->cabeza;
+    nodo_doble_t *actual = lista->cabeza;
     while (actual != NULL && actual->dato < valor)
     {
         actual = actual->siguiente;
@@ -72,9 +72,9 @@ void insertar_ordenado(ListaDoble *lista, int valor)
     actual->anterior = nuevo;
 }
 
-void eliminar_valor(ListaDoble *lista, int valor)
+void eliminar_valor(lista_doble_t *lista, int valor)
 {
-    NodoDoble *actual = lista->cabeza;
+    nodo_doble_t *actual = lista->cabeza;
     while (actual != NULL && actual->dato != valor)
     {
         actual = actual->siguiente;
@@ -108,9 +108,9 @@ void eliminar_valor(ListaDoble *lista, int valor)
     free(actual);
 }
 
-void imprimir_ascendente(const ListaDoble *lista)
+void imprimir_ascendente(const lista_doble_t *lista)
 {
-    NodoDoble *actual = lista->cabeza;
+    nodo_doble_t *actual = lista->cabeza;
     while (actual != NULL)
     {
         printf("%d%c", actual->dato, actual->siguiente ? ' ' : '\n');
@@ -122,9 +122,9 @@ void imprimir_ascendente(const ListaDoble *lista)
     }
 }
 
-void imprimir_descendente(const ListaDoble *lista)
+void imprimir_descendente(const lista_doble_t *lista)
 {
-    NodoDoble *actual = lista->cola;
+    nodo_doble_t *actual = lista->cola;
     while (actual != NULL)
     {
         printf("%d%c", actual->dato, actual->anterior ? ' ' : '\n');
@@ -136,12 +136,12 @@ void imprimir_descendente(const ListaDoble *lista)
     }
 }
 
-void liberar_lista(ListaDoble *lista)
+void liberar_lista(lista_doble_t *lista)
 {
-    NodoDoble *actual = lista->cabeza;
+    nodo_doble_t *actual = lista->cabeza;
     while (actual != NULL)
     {
-        NodoDoble *aux = actual->siguiente;
+        nodo_doble_t *aux = actual->siguiente;
         free(actual);
         actual = aux;
     }
@@ -151,7 +151,7 @@ void liberar_lista(ListaDoble *lista)
 
 int main(void)
 {
-    ListaDoble lista;
+    lista_doble_t lista;
     inicializar_lista(&lista);
 
     char comando[32] = {0};

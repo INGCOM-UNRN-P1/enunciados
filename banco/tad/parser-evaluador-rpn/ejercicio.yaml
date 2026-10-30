@@ -22,15 +22,15 @@ verificado: true
 funciones:
 - nombre: rpn_init
   retorno: void
-  parametros: PilaRPN *p
+  parametros: pila_rpn_t *p
   descripcion: Operación rpn_init
 - nombre: rpn_push
   retorno: int
-  parametros: PilaRPN *p, long v
+  parametros: pila_rpn_t *p, long v
   descripcion: Operación rpn_push
 - nombre: rpn_pop
   retorno: int
-  parametros: PilaRPN *p, long *out
+  parametros: pila_rpn_t *p, long *out
   descripcion: Operación rpn_pop
 - nombre: evaluar_linea
   retorno: void

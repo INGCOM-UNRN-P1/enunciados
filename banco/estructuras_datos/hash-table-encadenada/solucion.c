@@ -9,17 +9,17 @@
 
 #define TAMANO_TABLA 17
 
-typedef struct NodoHash
+typedef struct nodo_hash_t
 {
     char clave[64];
     int valor;
-    struct NodoHash *siguiente;
-} NodoHash;
+    struct nodo_hash_t *siguiente;
+} nodo_hash_t;
 
 typedef struct
 {
-    NodoHash *cubetas[TAMANO_TABLA];
-} TablaHash;
+    nodo_hash_t *cubetas[TAMANO_TABLA];
+} tabla_hash_t;
 
 unsigned long funcion_hash_djb2(const char *str)
 {
@@ -33,7 +33,7 @@ unsigned long funcion_hash_djb2(const char *str)
     return hash % TAMANO_TABLA;
 }
 
-void inicializar_tabla(TablaHash *tabla)
+void inicializar_tabla(tabla_hash_t *tabla)
 {
     for (int i = 0; i < TAMANO_TABLA; i++)
     {
@@ -41,10 +41,10 @@ void inicializar_tabla(TablaHash *tabla)
     }
 }
 
-void insertar_o_actualizar(TablaHash *tabla, const char *clave, int valor)
+void insertar_o_actualizar(tabla_hash_t *tabla, const char *clave, int valor)
 {
     unsigned long indice = funcion_hash_djb2(clave);
-    NodoHash *actual = tabla->cubetas[indice];
+    nodo_hash_t *actual = tabla->cubetas[indice];
 
     while (actual != NULL)
     {
@@ -56,7 +56,7 @@ void insertar_o_actualizar(TablaHash *tabla, const char *clave, int valor)
         actual = actual->siguiente;
     }
 
-    NodoHash *nuevo = (NodoHash *)malloc(sizeof(NodoHash));
+    nodo_hash_t *nuevo = (nodo_hash_t *)malloc(sizeof(nodo_hash_t));
     if (nuevo == NULL)
     {
         return;
@@ -69,10 +69,10 @@ void insertar_o_actualizar(TablaHash *tabla, const char *clave, int valor)
     tabla->cubetas[indice] = nuevo;
 }
 
-void buscar_clave(const TablaHash *tabla, const char *clave)
+void buscar_clave(const tabla_hash_t *tabla, const char *clave)
 {
     unsigned long indice = funcion_hash_djb2(clave);
-    NodoHash *actual = tabla->cubetas[indice];
+    nodo_hash_t *actual = tabla->cubetas[indice];
 
     while (actual != NULL)
     {
@@ -86,11 +86,11 @@ void buscar_clave(const TablaHash *tabla, const char *clave)
     printf("NO_ENCONTRADO\n");
 }
 
-void eliminar_clave(TablaHash *tabla, const char *clave)
+void eliminar_clave(tabla_hash_t *tabla, const char *clave)
 {
     unsigned long indice = funcion_hash_djb2(clave);
-    NodoHash *actual = tabla->cubetas[indice];
-    NodoHash *anterior = NULL;
+    nodo_hash_t *actual = tabla->cubetas[indice];
+    nodo_hash_t *anterior = NULL;
 
     while (actual != NULL)
     {
@@ -114,14 +114,14 @@ void eliminar_clave(TablaHash *tabla, const char *clave)
     printf("NO_ENCONTRADO\n");
 }
 
-void destruir_tabla(TablaHash *tabla)
+void destruir_tabla(tabla_hash_t *tabla)
 {
     for (int i = 0; i < TAMANO_TABLA; i++)
     {
-        NodoHash *actual = tabla->cubetas[i];
+        nodo_hash_t *actual = tabla->cubetas[i];
         while (actual != NULL)
         {
-            NodoHash *auxiliar = actual->siguiente;
+            nodo_hash_t *auxiliar = actual->siguiente;
             free(actual);
             actual = auxiliar;
         }
@@ -131,7 +131,7 @@ void destruir_tabla(TablaHash *tabla)
 
 int main(void)
 {
-    TablaHash mi_tabla;
+    tabla_hash_t mi_tabla;
     inicializar_tabla(&mi_tabla);
 
     char comando[32] = {0};

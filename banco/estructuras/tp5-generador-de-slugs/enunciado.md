@@ -12,38 +12,55 @@ Usa la biblioteca del ejercicio `tp5-libcadena-segura`.
 ### 📋 Contrato de las Funciones
 
 ```c
-/**
- * @brief Transforma un titulo en un slug normalizado en minusculas,
- * reemplazando caracteres no alfanumericos por guiones y eliminando guiones repetidos o en bordes.
- *
- * @param titulo Puntero a la cadena segura de origen.
- * @param slug Puntero a la estructura donde se creara el slug resultante.
- * @return true si se genero correctamente el slug, false en caso de error o parametros invalidos.
+/*
+ * Transforma un titulo en un slug normalizado en minusculas,
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool generar_slug(const cadena_segura_t *titulo, cadena_segura_t *slug);
 
-/**
- * @brief Verifica si una cadena contiene una palabra prohibida o subcadena especifica.
- *
- * @param texto Puntero a la cadena segura a evaluar.
- * @param palabra Subcadena a buscar.
- * @return true si la palabra se encuentra en el texto, false si no o parametros invalidos.
+/*
+ * Verifica si una cadena contiene una palabra prohibida o subcadena especifica.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool contiene_palabra_prohibida(const cadena_segura_t *texto, const char *palabra);
 
-/**
- * @brief Acota la longitud de un slug a un maximo dado, evitando que termine en guion.
- *
- * @param slug Puntero al slug a recortar (se modifica in-situ).
- * @param max_longitud Longitud maxima deseada.
- * @return true si la operacion fue exitosa, false en caso de error o parametros invalidos.
+/*
+ * Acota la longitud de un slug a un maximo dado, evitando que termine en guion.
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
 bool acotar_longitud_slug(cadena_segura_t *slug, size_t max_longitud);
+
 ```
 
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
-- [ ] El código compila limpio con `-std=c11 -Wall -Wextra -Werror`.
-- [ ] Pasan todas las pruebas de `prueba.c` (`make test`).
-- [ ] Cada función valida sus precondiciones y documenta su contrato.
-- [ ] Sin fugas ni accesos inválidos a memoria (`valgrind` / sanitizers).
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.

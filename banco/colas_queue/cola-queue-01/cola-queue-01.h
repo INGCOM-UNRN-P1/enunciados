@@ -6,10 +6,10 @@
 #include <stdint.h>
 
 /* Operación cola_init */
-void cola_init(t_ColaCircular *c);
+void cola_init(cola_circular_t *c);
 /* Operación cola_enqueue */
-int cola_enqueue(t_ColaCircular *c, int val);
+int cola_enqueue(cola_circular_t *c, int val);
 /* Operación cola_dequeue */
-int cola_dequeue(t_ColaCircular *c, int *out);
+int cola_dequeue(cola_circular_t *c, int *out);
 
 #endif /* EJERCICIO_COLA_QUEUE_01_H */

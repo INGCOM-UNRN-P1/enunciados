@@ -24,35 +24,35 @@ unsigned long funcion_hash_djb2(const char *str);
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void inicializar_tabla(TablaHash *tabla);
+void inicializar_tabla(tabla_hash_t *tabla);
 
 /*
  * Operación insertar_o_actualizar
  * Precondiciones: val representa el parámetro de entrada del flujo.
  * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
  */
-void insertar_o_actualizar(TablaHash *tabla, const char *clave, int valor);
+void insertar_o_actualizar(tabla_hash_t *tabla, const char *clave, int valor);
 
 /*
  * Operación buscar_clave
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void buscar_clave(const TablaHash *tabla, const char *clave);
+void buscar_clave(const tabla_hash_t *tabla, const char *clave);
 
 /*
  * Operación eliminar_clave
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void eliminar_clave(TablaHash *tabla, const char *clave);
+void eliminar_clave(tabla_hash_t *tabla, const char *clave);
 
 /*
  * Operación destruir_tabla
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void destruir_tabla(TablaHash *tabla);
+void destruir_tabla(tabla_hash_t *tabla);
 
 ```
 
@@ -78,8 +78,7 @@ Retorno seguro / estado vacío
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
 2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
 3. **Gestión de memoria:** Toda memoria solicitada mediante `malloc`/`calloc` debe ser validada y eventualmente liberada con `free`.
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

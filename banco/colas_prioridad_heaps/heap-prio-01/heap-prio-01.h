@@ -6,10 +6,10 @@
 #include <stdint.h>
 
 /* Operación heap_init */
-void heap_init(t_MinHeap *h);
+void heap_init(min_heap_t *h);
 /* Operación heap_push */
-void heap_push(t_MinHeap *h, int val);
+void heap_push(min_heap_t *h, int val);
 /* Operación heap_pop */
-int heap_pop(t_MinHeap *h, int *out);
+int heap_pop(min_heap_t *h, int *out);
 
 #endif /* EJERCICIO_HEAP_PRIO_01_H */

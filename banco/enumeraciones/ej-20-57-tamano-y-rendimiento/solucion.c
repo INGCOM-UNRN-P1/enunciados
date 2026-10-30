@@ -5,7 +5,7 @@ typedef enum
     HTTP_BAD_REQUEST = 400,
     HTTP_NOT_FOUND = 404,
     HTTP_SERVER_ERROR = 500
-} http_status_t;
+} http_status_e;
 
 
 int proc_tamano_y_rendimiento(int val)

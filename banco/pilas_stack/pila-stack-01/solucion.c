@@ -11,15 +11,15 @@ typedef struct {
     int *datos;
     int tope;
     int capacidad;
-} t_Pila;
+} pila_t;
 
-void pila_init(t_Pila *p) {
+void pila_init(pila_t *p) {
     p->capacidad = CAPACIDAD_INICIAL;
     p->tope = 0;
     p->datos = (int *)malloc(sizeof(int) * p->capacidad);
 }
 
-void pila_push(t_Pila *p, int val) {
+void pila_push(pila_t *p, int val) {
     if (p->datos == NULL) return;
     if (p->tope >= p->capacidad) {
         int nueva_cap = p->capacidad * 2;
@@ -31,20 +31,20 @@ void pila_push(t_Pila *p, int val) {
     p->datos[p->tope++] = val;
 }
 
-int pila_pop(t_Pila *p, int *out) {
+int pila_pop(pila_t *p, int *out) {
     if (p->datos == NULL || p->tope <= 0) return 0;
     *out = p->datos[--p->tope];
     return 1;
 }
 
-void pila_free(t_Pila *p) {
+void pila_free(pila_t *p) {
     if (p->datos != NULL) { free(p->datos); p->datos = NULL; }
     p->tope = 0;
     p->capacidad = 0;
 }
 
 int main(void) {
-    t_Pila p;
+    pila_t p;
     pila_init(&p);
     int v = 0;
     while (scanf("%d", &v) == 1 && v != 0) {

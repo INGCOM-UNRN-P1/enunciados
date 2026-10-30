@@ -16,19 +16,19 @@ verificado: true
 funciones:
 - nombre: pila_init
   retorno: void
-  parametros: t_Pila *p
+  parametros: pila_t *p
   descripcion: Operación pila_init
 - nombre: pila_push
   retorno: void
-  parametros: t_Pila *p, int val
+  parametros: pila_t *p, int val
   descripcion: Operación pila_push
 - nombre: pila_pop
   retorno: int
-  parametros: t_Pila *p, int *out
+  parametros: pila_t *p, int *out
   descripcion: Operación pila_pop
 - nombre: pila_free
   retorno: void
-  parametros: t_Pila *p
+  parametros: pila_t *p
   descripcion: Operación pila_free
 tests_funciones:
 - nombre: test_pila_init_1

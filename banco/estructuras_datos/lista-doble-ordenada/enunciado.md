@@ -1,8 +1,4 @@
-# Lista Doblemente Enlazada con Inserción Ordenada
-
-## 📖 Consigna
-
-Implementá un Tipo Abstracto de Datos (TAD) `ListaDoble` que administre una colección dinámica de números enteros, asegurando que los elementos se mantengan permanentemente ordenados de forma ascendente ante cada inserción.
+Implementá un Tipo Abstracto de Datos (TAD) `lista_doble_t` que administre una colección dinámica de números enteros, asegurando que los elementos se mantengan permanentemente ordenados de forma ascendente ante cada inserción.
 
 La estructura debe mantener tanto un puntero al primer nodo (`cabeza`) como al último nodo (`cola`), permitiendo recorridos eficientes en ambos sentidos y optimizando las inserciones en los extremos.
 
@@ -15,15 +11,14 @@ El programa principal debe procesar comandos desde la entrada estándar:
 
 ---
 
-## 📋 Prototipos y Contratos de las Funciones
 
 ```c
 /*
  * Inicializa la lista doble seteando cabeza y cola en NULL.
- * Precondición: 'lista' apunta a una estructura ListaDoble válida en memoria.
+ * Precondición: 'lista' apunta a una estructura lista_doble_t válida en memoria.
  * Postcondición: lista->cabeza == NULL y lista->cola == NULL.
  */
-void inicializar_lista(ListaDoble *lista);
+void inicializar_lista(lista_doble_t *lista);
 
 /*
  * Inserta un valor entero manteniendo el orden ascendente de la lista.
@@ -31,7 +26,7 @@ void inicializar_lista(ListaDoble *lista);
  * Postcondición: Se reserva un nuevo nodo con malloc; se ubica en su posición
  *                correspondiente actualizando los punteros 'siguiente' y 'anterior'.
  */
-void insertar_ordenado(ListaDoble *lista, int valor);
+void insertar_ordenado(lista_doble_t *lista, int valor);
 
 /*
  * Elimina la primera ocurrencia de 'valor' de la lista si existe.
@@ -39,28 +34,27 @@ void insertar_ordenado(ListaDoble *lista, int valor);
  * Postcondición: Si el elemento existe, se desvincula de sus vecinos, se actualiza
  *                cabeza/cola si correspondía, y se libera la memoria con free().
  */
-void eliminar_valor(ListaDoble *lista, int valor);
+void eliminar_valor(lista_doble_t *lista, int valor);
 
 /*
  * Recorre la lista de cabeza a cola imprimiendo cada valor separado por espacio.
  */
-void imprimir_ascendente(const ListaDoble *lista);
+void imprimir_ascendente(const lista_doble_t *lista);
 
 /*
  * Recorre la lista de cola a cabeza imprimiendo cada valor separado por espacio.
  */
-void imprimir_descendente(const ListaDoble *lista);
+void imprimir_descendente(const lista_doble_t *lista);
 
 /*
  * Libera secuencialmente todos los nodos dinámicos de la lista.
  * Postcondición: Toda la memoria heap es liberada; cabeza y cola quedan en NULL.
  */
-void liberar_lista(ListaDoble *lista);
+void liberar_lista(lista_doble_t *lista);
 ```
 
 ---
 
-## 🧪 Ejemplos de Ejecución
 
 ::::{tab-set}
 :::{tab-item} Inserción y Recorridos
@@ -104,7 +98,6 @@ EXIT
 
 ---
 
-## ⚠️ Precondiciones y Casos Borde
 
 1. **Punteros nulos:** Las funciones deben verificar que el puntero `lista != NULL` antes de desreferenciar.
 2. **Fallo de memoria:** En `insertar_ordenado`, verificar siempre que el valor retornado por `malloc` no sea `NULL`.
@@ -117,9 +110,92 @@ EXIT
 
 ---
 
-## 🎯 Criterios de Aceptación
 
 - [ ] Las inserciones mantienen invariantemente el orden ascendente: para todo nodo $i$, $i->dato \le i->siguiente->dato$.
 - [ ] La navegación bidireccional (`PRINT_ASC` y `PRINT_DESC`) es consistente en todo momento.
 - [ ] No existen fugas de memoria (*memory leaks*) al procesar `EXIT` (verificable con Valgrind: 0 bytes en uso).
 - [ ] El programa no sufre desbordes de buffer ni desreferenciación de punteros colgantes (*dangling pointers*).
+
+### 📋 Contrato de las Funciones
+
+```c
+/*
+ * Operación inicializar_lista
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void inicializar_lista(lista_doble_t *lista);
+
+/*
+ * Operación insertar_ordenado
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+void insertar_ordenado(lista_doble_t *lista, int valor);
+
+/*
+ * Operación eliminar_valor
+ * Precondiciones: val representa el parámetro de entrada del flujo.
+ * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ */
+void eliminar_valor(lista_doble_t *lista, int valor);
+
+/*
+ * Operación imprimir_ascendente
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void imprimir_ascendente(const lista_doble_t *lista);
+
+/*
+ * Operación imprimir_descendente
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void imprimir_descendente(const lista_doble_t *lista);
+
+/*
+ * Operación liberar_lista
+ * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
+ * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
+ */
+void liberar_lista(lista_doble_t *lista);
+
+```
+
+### 🧪 Ejemplos de Ejecución
+
+::::{tab-set}
+:::{tab-item} Caso general
+```text
+val = 10
+Salida: Retorno calculado correctamente
+```
+:::
+:::{tab-item} Caso límite
+```text
+val = 0
+Salida: Retorno neutral o código de validación
+```
+:::
+::::
+
+### ⚠️ Precondiciones y Casos Borde
+
+1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
+2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
+3. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
+4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+### 🎯 Criterios de Aceptación
+
+- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
+- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
+- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
+- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
+
+:::{hint} Consideraciones Didácticas
+- Cada nodo debe tener punteros `siguiente` y `anterior`.
+- Al insertar un nodo, actualizá los enlaces de los nodos adyacentes manteniendo la cabeza y cola si corresponde.
+- Recorré en ambos sentidos (ASC y DESC) para verificar la consistencia de los punteros dobles.
+:::

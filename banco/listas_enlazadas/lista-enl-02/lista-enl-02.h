@@ -6,6 +6,6 @@
 #include <stdint.h>
 
 /* Operación imprimir_y_liberar */
-void imprimir_y_liberar(t_Nodo *cabeza);
+void imprimir_y_liberar(nodo_t *cabeza);
 
 #endif /* EJERCICIO_LISTA_ENL_02_H */

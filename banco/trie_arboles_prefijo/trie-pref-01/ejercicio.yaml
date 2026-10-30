@@ -16,15 +16,15 @@ verificado: true
 funciones:
 - nombre: trie_insertar
   retorno: void
-  parametros: t_NodoTrie *raiz, const char *palabra
+  parametros: nodo_trie_t *raiz, const char *palabra
   descripcion: Operación trie_insertar
 - nombre: trie_buscar_prefijo
   retorno: int
-  parametros: const t_NodoTrie *raiz, const char *prefijo
+  parametros: const nodo_trie_t *raiz, const char *prefijo
   descripcion: Operación trie_buscar_prefijo
 - nombre: liberar_trie
   retorno: void
-  parametros: t_NodoTrie *n
+  parametros: nodo_trie_t *n
   descripcion: Operación liberar_trie
 tests_funciones:
 - nombre: test_trie_insertar_1

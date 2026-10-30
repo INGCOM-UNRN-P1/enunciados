@@ -6,16 +6,16 @@
 #include <stdint.h>
 
 /* Operación inicializar_lista */
-void inicializar_lista(ListaDoble *lista);
+void inicializar_lista(lista_doble_t *lista);
 /* Operación insertar_ordenado */
-void insertar_ordenado(ListaDoble *lista, int valor);
+void insertar_ordenado(lista_doble_t *lista, int valor);
 /* Operación eliminar_valor */
-void eliminar_valor(ListaDoble *lista, int valor);
+void eliminar_valor(lista_doble_t *lista, int valor);
 /* Operación imprimir_ascendente */
-void imprimir_ascendente(const ListaDoble *lista);
+void imprimir_ascendente(const lista_doble_t *lista);
 /* Operación imprimir_descendente */
-void imprimir_descendente(const ListaDoble *lista);
+void imprimir_descendente(const lista_doble_t *lista);
 /* Operación liberar_lista */
-void liberar_lista(ListaDoble *lista);
+void liberar_lista(lista_doble_t *lista);
 
 #endif /* EJERCICIO_LISTA_DOBLE_ORDENADA_H */

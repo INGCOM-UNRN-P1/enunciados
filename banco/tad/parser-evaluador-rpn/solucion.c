@@ -14,14 +14,14 @@ typedef struct
 {
     long datos[MAX_PILA];
     int tope;
-} PilaRPN;
+} pila_rpn_t;
 
-void rpn_init(PilaRPN *p)
+void rpn_init(pila_rpn_t *p)
 {
     p->tope = 0;
 }
 
-int rpn_push(PilaRPN *p, long v)
+int rpn_push(pila_rpn_t *p, long v)
 {
     if (p->tope >= MAX_PILA)
     {
@@ -31,7 +31,7 @@ int rpn_push(PilaRPN *p, long v)
     return 1;
 }
 
-int rpn_pop(PilaRPN *p, long *out)
+int rpn_pop(pila_rpn_t *p, long *out)
 {
     if (p->tope <= 0)
     {
@@ -43,7 +43,7 @@ int rpn_pop(PilaRPN *p, long *out)
 
 void evaluar_linea(char *linea)
 {
-    PilaRPN p;
+    pila_rpn_t p;
     rpn_init(&p);
 
     char *token = strtok(linea, " \t\r\n");
