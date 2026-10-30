@@ -1,5 +1,5 @@
 id: geom-comp-03
-titulo: Producto Vectorial 2D y Determinación de Orientación
+titulo: producto_t Vectorial 2D y Determinación de Orientación
 tema: geometria_computacional
 bloom: 1
 minutos_estimados: 10
@@ -16,7 +16,7 @@ funciones:
 - nombre: ejecutar_geom_comp_03
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Producto Vectorial 2D y Determinación
+  descripcion: Procesa el flujo principal de producto_t Vectorial 2D y Determinación
     de Orientación
 tests_funciones:
 - nombre: test_ejecutar_geom_comp_03_positivo

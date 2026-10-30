@@ -1,5 +1,5 @@
 /*
- * Bitmap Compacto con Operaciones a Nivel de Bits
+ * bitmap_t Compacto con Operaciones a Nivel de Bits
  * Catedra Programacion I - UNRN
  */
 
@@ -13,9 +13,9 @@ typedef struct
     uint8_t *bytes;
     size_t total_bits;
     size_t num_bytes;
-} Bitmap;
+} bitmap_t;
 
-void bitmap_init(Bitmap *bm, size_t total_bits)
+void bitmap_init(bitmap_t *bm, size_t total_bits)
 {
     bm->total_bits = total_bits;
     bm->num_bytes = (total_bits + 7) / 8;
@@ -30,7 +30,7 @@ void bitmap_init(Bitmap *bm, size_t total_bits)
     bm->bytes = b;
 }
 
-void bitmap_set(Bitmap *bm, size_t index)
+void bitmap_set(bitmap_t *bm, size_t index)
 {
     if (bm->bytes != NULL && index < bm->total_bits)
     {
@@ -38,7 +38,7 @@ void bitmap_set(Bitmap *bm, size_t index)
     }
 }
 
-void bitmap_clear(Bitmap *bm, size_t index)
+void bitmap_clear(bitmap_t *bm, size_t index)
 {
     if (bm->bytes != NULL && index < bm->total_bits)
     {
@@ -46,7 +46,7 @@ void bitmap_clear(Bitmap *bm, size_t index)
     }
 }
 
-int bitmap_test(const Bitmap *bm, size_t index)
+int bitmap_test(const bitmap_t *bm, size_t index)
 {
     if (bm->bytes == NULL || index >= bm->total_bits)
     {
@@ -55,7 +55,7 @@ int bitmap_test(const Bitmap *bm, size_t index)
     return (bm->bytes[index / 8] & (uint8_t)(1 << (index % 8))) ? 1 : 0;
 }
 
-size_t bitmap_count(const Bitmap *bm)
+size_t bitmap_count(const bitmap_t *bm)
 {
     if (bm->bytes == NULL)
     {
@@ -74,7 +74,7 @@ size_t bitmap_count(const Bitmap *bm)
     return contador;
 }
 
-void bitmap_free(Bitmap *bm)
+void bitmap_free(bitmap_t *bm)
 {
     if (bm->bytes != NULL)
     {
@@ -87,7 +87,7 @@ void bitmap_free(Bitmap *bm)
 
 int main(void)
 {
-    Bitmap bm = {NULL, 0, 0};
+    bitmap_t bm = {NULL, 0, 0};
     char comando[32] = {0};
     size_t index = 0;
 

@@ -1,5 +1,5 @@
 id: b5-eval-arquitectura-segura-42
-titulo: Arquitectura de Memoria con Asignador de Arena con Cuota
+titulo: Arquitectura de Memoria con Asignador de arena_t con Cuota
 tema: analisis_codigo
 bloom: 5
 minutos_estimados: 45
@@ -13,11 +13,11 @@ verificado: true
 funciones:
 - nombre: inicializar
   retorno: void
-  parametros: RegistroSeguro_42 *r
+  parametros: registro_seguro_42_t *r
   descripcion: Operación inicializar
 - nombre: validar_y_cargar
   retorno: int
-  parametros: RegistroSeguro_42 *r, const char *entrada
+  parametros: registro_seguro_42_t *r, const char *entrada
   descripcion: Operación validar_y_cargar
 tests_funciones:
 - nombre: test_inicializar_1

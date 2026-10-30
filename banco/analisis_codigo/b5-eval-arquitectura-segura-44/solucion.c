@@ -12,15 +12,15 @@ typedef struct {
     char datos[MAX_BUFFER];
     size_t longitud;
     int validado;
-} RegistroSeguro_44;
+} registro_seguro_44_t;
 
-void inicializar(RegistroSeguro_44 *r) {
+void inicializar(registro_seguro_44_t *r) {
     memset(r->datos, 0, sizeof(r->datos));
     r->longitud = 0;
     r->validado = 0;
 }
 
-int validar_y_cargar(RegistroSeguro_44 *r, const char *entrada) {
+int validar_y_cargar(registro_seguro_44_t *r, const char *entrada) {
     size_t len = strlen(entrada);
     if (len >= MAX_BUFFER || len == 0) {
         return 0;
@@ -33,7 +33,7 @@ int validar_y_cargar(RegistroSeguro_44 *r, const char *entrada) {
 }
 
 int main(void) {
-    RegistroSeguro_44 reg;
+    registro_seguro_44_t reg;
     inicializar(&reg);
     char buf[256] = {0};
     if (scanf("%255s", buf) == 1) {

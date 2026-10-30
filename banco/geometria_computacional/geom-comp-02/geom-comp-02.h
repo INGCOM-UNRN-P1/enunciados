@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Producto Escalar y Ángulo entre Dos Vectores */
+/* Procesa el flujo principal de producto_t Escalar y Ángulo entre Dos Vectores */
 int ejecutar_geom_comp_02(int val);
 
 #endif /* EJERCICIO_GEOM_COMP_02_H */

@@ -13,11 +13,11 @@ verificado: true
 funciones:
 - nombre: inicializar
   retorno: void
-  parametros: RegistroSeguro_37 *r
+  parametros: registro_seguro_37_t *r
   descripcion: Operación inicializar
 - nombre: validar_y_cargar
   retorno: int
-  parametros: RegistroSeguro_37 *r, const char *entrada
+  parametros: registro_seguro_37_t *r, const char *entrada
   descripcion: Operación validar_y_cargar
 tests_funciones:
 - nombre: test_inicializar_1

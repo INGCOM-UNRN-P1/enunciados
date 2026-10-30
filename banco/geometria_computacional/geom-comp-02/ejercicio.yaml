@@ -1,5 +1,5 @@
 id: geom-comp-02
-titulo: Producto Escalar y Ángulo entre Dos Vectores
+titulo: producto_t Escalar y Ángulo entre Dos Vectores
 tema: geometria_computacional
 bloom: 1
 minutos_estimados: 10
@@ -16,7 +16,7 @@ funciones:
 - nombre: ejecutar_geom_comp_02
   retorno: int
   parametros: int val
-  descripcion: Procesa el flujo principal de Producto Escalar y Ángulo entre Dos Vectores
+  descripcion: Procesa el flujo principal de producto_t Escalar y Ángulo entre Dos Vectores
 tests_funciones:
 - nombre: test_ejecutar_geom_comp_02_positivo
   funcion: ejecutar_geom_comp_02

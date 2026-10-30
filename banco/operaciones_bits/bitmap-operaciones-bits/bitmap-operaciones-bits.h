@@ -6,16 +6,16 @@
 #include <stdint.h>
 
 /* Operación bitmap_init */
-void bitmap_init(Bitmap *bm, size_t total_bits);
+void bitmap_init(bitmap_t *bm, size_t total_bits);
 /* Operación bitmap_set */
-void bitmap_set(Bitmap *bm, size_t index);
+void bitmap_set(bitmap_t *bm, size_t index);
 /* Operación bitmap_clear */
-void bitmap_clear(Bitmap *bm, size_t index);
+void bitmap_clear(bitmap_t *bm, size_t index);
 /* Operación bitmap_test */
-int bitmap_test(const Bitmap *bm, size_t index);
+int bitmap_test(const bitmap_t *bm, size_t index);
 /* Operación bitmap_count */
-size_t bitmap_count(const Bitmap *bm);
+size_t bitmap_count(const bitmap_t *bm);
 /* Operación bitmap_free */
-void bitmap_free(Bitmap *bm);
+void bitmap_free(bitmap_t *bm);
 
 #endif /* EJERCICIO_BITMAP_OPERACIONES_BITS_H */

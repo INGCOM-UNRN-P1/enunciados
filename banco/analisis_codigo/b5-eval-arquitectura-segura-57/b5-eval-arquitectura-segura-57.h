@@ -6,8 +6,8 @@
 #include <stdint.h>
 
 /* Operación inicializar */
-void inicializar(RegistroSeguro_57 *r);
+void inicializar(registro_seguro_57_t *r);
 /* Operación validar_y_cargar */
-int validar_y_cargar(RegistroSeguro_57 *r, const char *entrada);
+int validar_y_cargar(registro_seguro_57_t *r, const char *entrada);
 
 #endif /* EJERCICIO_B5_EVAL_ARQUITECTURA_SEGURA_57_H */

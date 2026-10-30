@@ -1,5 +1,5 @@
 id: bitmap-operaciones-bits
-titulo: Estructura de Bitmap Compacto y Operaciones Bitwise
+titulo: Estructura de bitmap_t Compacto y Operaciones Bitwise
 tema: operaciones_bits
 bloom: 4
 minutos_estimados: 40
@@ -21,27 +21,27 @@ verificado: true
 funciones:
 - nombre: bitmap_init
   retorno: void
-  parametros: Bitmap *bm, size_t total_bits
+  parametros: bitmap_t *bm, size_t total_bits
   descripcion: Operación bitmap_init
 - nombre: bitmap_set
   retorno: void
-  parametros: Bitmap *bm, size_t index
+  parametros: bitmap_t *bm, size_t index
   descripcion: Operación bitmap_set
 - nombre: bitmap_clear
   retorno: void
-  parametros: Bitmap *bm, size_t index
+  parametros: bitmap_t *bm, size_t index
   descripcion: Operación bitmap_clear
 - nombre: bitmap_test
   retorno: int
-  parametros: const Bitmap *bm, size_t index
+  parametros: const bitmap_t *bm, size_t index
   descripcion: Operación bitmap_test
 - nombre: bitmap_count
   retorno: size_t
-  parametros: const Bitmap *bm
+  parametros: const bitmap_t *bm
   descripcion: Operación bitmap_count
 - nombre: bitmap_free
   retorno: void
-  parametros: Bitmap *bm
+  parametros: bitmap_t *bm
   descripcion: Operación bitmap_free
 tests_funciones:
 - nombre: test_bitmap_init_1

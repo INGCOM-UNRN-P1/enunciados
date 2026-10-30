@@ -1,4 +1,4 @@
-Implementar una estructura de Bitmap (arreglo de bits compacto) que administre un rango de $N$ bits utilizando la mínima cantidad de memoria (`uint8_t` contiguos).
+Implementar una estructura de bitmap_t (arreglo de bits compacto) que administre un rango de $N$ bits utilizando la mínima cantidad de memoria (`uint8_t` contiguos).
 
 Comandos:
 - `INIT <total_bits>`: Inicializa el bitmap a 0 con tamaño `<total_bits>`.
@@ -16,42 +16,42 @@ Comandos:
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void bitmap_init(Bitmap *bm, size_t total_bits);
+void bitmap_init(bitmap_t *bm, size_t total_bits);
 
 /*
  * Operación bitmap_set
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void bitmap_set(Bitmap *bm, size_t index);
+void bitmap_set(bitmap_t *bm, size_t index);
 
 /*
  * Operación bitmap_clear
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void bitmap_clear(Bitmap *bm, size_t index);
+void bitmap_clear(bitmap_t *bm, size_t index);
 
 /*
  * Operación bitmap_test
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-int bitmap_test(const Bitmap *bm, size_t index);
+int bitmap_test(const bitmap_t *bm, size_t index);
 
 /*
  * Operación bitmap_count
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-size_t bitmap_count(const Bitmap *bm);
+size_t bitmap_count(const bitmap_t *bm);
 
 /*
  * Operación bitmap_free
  * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
  * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
  */
-void bitmap_free(Bitmap *bm);
+void bitmap_free(bitmap_t *bm);
 
 ```
 
@@ -76,8 +76,7 @@ Retorno 0 o manejo de borde
 
 1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
 2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
-6. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
+3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
 ### 🎯 Criterios de Aceptación
 
 - [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).

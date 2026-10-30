@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Producto Vectorial 2D y Determinación de Orientación */
+/* Procesa el flujo principal de producto_t Vectorial 2D y Determinación de Orientación */
 int ejecutar_geom_comp_03(int val);
 
 #endif /* EJERCICIO_GEOM_COMP_03_H */
