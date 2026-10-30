@@ -1,0 +1,140 @@
+# Temario del banco: lo lee `deckard export myst` para el sitio (títulos, unidades, grafo y rutas).
+# `requiere` son los prerrequisitos de cada tema; los ejercicios los declaran con `dep:<tema>`.
+
+temas:
+  sintaxis:
+    titulo: "Sintaxis Básica de C"
+    requiere: []
+  tipos_datos:
+    titulo: "Tipos de Datos Primitivos"
+    requiere: [sintaxis]
+  aritmetica:
+    titulo: "Aritmética y Operadores"
+    requiere: [tipos_datos]
+  io_formato:
+    titulo: "Entrada y Salida Formateada (I/O)"
+    requiere: [aritmetica]
+  condicionales:
+    titulo: "Estructuras Condicionales"
+    requiere: [aritmetica]
+  lazos:
+    titulo: "Estructuras Repetitivas (Lazos)"
+    requiere: [condicionales]
+  lazos_anidados:
+    titulo: "Lazos Anidados"
+    requiere: [lazos]
+  secuencias:
+    titulo: "Procesamiento de Secuencias"
+    requiere: [lazos]
+  estructuras_control:
+    titulo: "Estructuras de Control"
+    requiere: [condicionales, lazos]
+  funciones:
+    titulo: "Funciones y Parámetros"
+    requiere: [lazos, secuencias]
+  caracteres:
+    titulo: "Manipulación de Caracteres"
+    requiere: [tipos_datos, funciones]
+  arreglos:
+    titulo: "Arreglos Unidimensionales (Vectores)"
+    requiere: [funciones, lazos]
+  cadenas:
+    titulo: "Cadenas de Caracteres (Strings)"
+    requiere: [arreglos, caracteres]
+  matrices:
+    titulo: "Matrices y Arreglos Multidimensionales"
+    requiere: [arreglos, lazos_anidados]
+  punteros:
+    titulo: "Punteros y Direccionamiento"
+    requiere: [funciones, arreglos]
+  estructuras:
+    titulo: "Estructuras de Datos Compuestas (struct)"
+    requiere: [tipos_datos, funciones]
+  enumeraciones:
+    titulo: "Enumeraciones (enum)"
+    requiere: [tipos_datos, condicionales]
+  operaciones_bits:
+    titulo: "Operaciones a Nivel de Bits"
+    requiere: [tipos_datos, aritmetica]
+  memoria:
+    titulo: "Modelo de Memoria en C"
+    requiere: [punteros, estructuras]
+  memoria_dinamica:
+    titulo: "Gestión de Memoria Dinámica (Heap)"
+    requiere: [memoria, punteros]
+  punteros_avanzados:
+    titulo: "Punteros Avanzados y Punteros a Función"
+    requiere: [memoria_dinamica]
+  recursividad:
+    titulo: "Recursividad"
+    requiere: [funciones, punteros]
+  algoritmos_ordenamiento:
+    titulo: "Algoritmos de Ordenamiento"
+    requiere: [arreglos, lazos_anidados, recursividad]
+  complejidad:
+    titulo: "Complejidad Algorítmica"
+    requiere: [algoritmos_ordenamiento, lazos_anidados]
+  archivos:
+    titulo: "Manejo de Archivos de Texto"
+    requiere: [cadenas, punteros, io_formato]
+  archivos_binarios:
+    titulo: "Archivos Binarios"
+    requiere: [archivos, estructuras, memoria]
+  librerias:
+    titulo: "Bibliotecas y Modularización"
+    requiere: [funciones, estructuras]
+  build_systems:
+    titulo: "Sistemas de Construcción (Build Systems)"
+    requiere: [librerias]
+  diseno_api:
+    titulo: "Diseño de APIs y Módulos"
+    requiere: [librerias, punteros]
+  tad:
+    titulo: "Tipos Abstractos de Datos (TAD)"
+    requiere: [estructuras, punteros, memoria_dinamica]
+  tipos_datos_abstractos:
+    titulo: "Tipos de Datos Abstractos Avanzados"
+    requiere: [tad]
+  estructuras_datos:
+    titulo: "Estructuras de Datos Dinámicas"
+    requiere: [tad, memoria_dinamica, recursividad]
+  testing:
+    titulo: "Testing Unitario y Verificación"
+    requiere: [librerias, funciones]
+  refactorizacion:
+    titulo: "Refactorización y Calidad de Código"
+    requiere: [testing, diseno_api]
+  analisis_codigo:
+    titulo: "Análisis y Trazado de Código"
+    requiere: [memoria, testing]
+
+unidades:
+  - id: unidad_1
+    titulo: "Unidad 1: Fundamentos y Estructuras de Control"
+    temas: [sintaxis, tipos_datos, aritmetica, io_formato, condicionales, lazos, lazos_anidados, funciones, secuencias]
+  - id: unidad_2
+    titulo: "Unidad 2: Tipos Compuestos y Direccionamiento"
+    temas: [arreglos, matrices, cadenas, caracteres, punteros, estructuras, enumeraciones]
+  - id: unidad_3
+    titulo: "Unidad 3: Memoria Dinámica y Persistencia"
+    temas: [memoria, memoria_dinamica, punteros_avanzados, archivos, archivos_binarios]
+  - id: unidad_4
+    titulo: "Unidad 4: Tipos Abstractos y Algorítmica"
+    temas: [estructuras_datos, tad, tipos_datos_abstractos, recursividad, algoritmos_ordenamiento, complejidad]
+  - id: unidad_5
+    titulo: "Unidad 5: Ingeniería de Software y Calidad en C"
+    temas: [testing, librerias, build_systems, diseno_api, refactorizacion, analisis_codigo, operaciones_bits]
+
+rutas:
+  - titulo: "Memoria dinámica y tipos abstractos de datos"
+    descripcion: "Progresión medular de la materia para estructuras de datos persistentes y dinámicas."
+    camino: "sintaxis ➔ tipos_datos ➔ funciones ➔ arreglos ➔ punteros ➔ memoria ➔ memoria_dinamica ➔ tad ➔ estructuras_datos"
+  - titulo: "Algoritmia, búsqueda y complejidad"
+    descripcion: "Optimización y eficiencia temporal y espacial."
+    camino: "lazos ➔ lazos_anidados ➔ arreglos ➔ recursividad ➔ algoritmos_ordenamiento ➔ complejidad"
+  - titulo: "Persistencia y entrada/salida en disco"
+    descripcion: "Archivos secuenciales y registros binarios estructurados."
+    camino: "io_formato + cadenas + punteros ➔ archivos (texto) ➔ estructuras ➔ archivos_binarios"
+  - titulo: "Ingeniería de software, testing y calidad en C"
+    descripcion: "Módulos robustos, aserciones, diseño de APIs y refactorización continua."
+    camino: "funciones ➔ librerias ➔ diseno_api ➔ testing ➔ refactorizacion ➔ analisis_codigo"

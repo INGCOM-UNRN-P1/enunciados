@@ -1,7 +1,9 @@
 export/*
 
+# Generado por `deckard export myst` (lo arma el CI): páginas, paquetes y catálogo
+sitio/
+
 # MyST build outputs
 _build
-paquetes/
 __pycache__/
 *.pyc

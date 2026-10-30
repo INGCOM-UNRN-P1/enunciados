@@ -1,0 +1,69 @@
+# Sitio del banco: deckard genera desde banco/, guias/ y temas.yaml las páginas MyST,
+# el TOC de myst.yml, un .ripkg por ejercicio y paquetes/catalogo.json; nada de eso se versiona.
+name: Sitio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un solo despliegue a la vez; no se cancela el que está en curso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # deckard fijado a un commit publicado (nunca por nombre en PyPI).
+  DECKARD: git+https://github.com/INGCOM-UNRN/deckard@d19a36dc73eff637cf61060761d190e8e8d4bcc8
+  BASE_URL: /${{ github.event.repository.name }}
+
+jobs:
+  construir:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.12"
+
+      # Falla si hay ejercicios inválidos en el banco o un paquete no se puede armar.
+      - name: Páginas, TOC, paquetes .ripkg y catálogo
+        run: uvx --from "$DECKARD" deckard export myst
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Instalar MyST
+        run: npm install -g mystmd
+
+      - name: Construir el HTML
+        run: myst build --html
+
+      # Los paquetes y el catálogo con URL estable (<sitio>/paquetes/catalogo.json),
+      # además de las copias que MyST enlaza desde cada página.
+      - name: Publicar paquetes y catálogo
+        run: cp -r sitio/paquetes _build/html/paquetes
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _build/html
+
+  desplegar:
+    if: github.event_name != 'pull_request'
+    needs: construir
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - id: despliegue
+        uses: actions/deploy-pages@v4
