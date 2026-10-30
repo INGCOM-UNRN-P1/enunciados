@@ -1,0 +1,38 @@
+nombre: 'Trabajo Práctico 0: Preparación de Entorno, Git y Primeros Programas'
+minutos_totales: 90
+temas:
+- entorno_desarrollo
+- git_y_github
+- compilacion_basica
+- estructura_repositorio
+distribucion_bloom:
+  RECORDAR: 2
+  COMPRENDER: 2
+identificador: tp0
+cursada: 2026
+ejercicios:
+- id: tp0-entorno
+  id_practica: entorno
+  titulo: Diagnóstico y Verificación del Entorno Portable (diagnose-env.sh)
+  minutos: 20
+  bloom: 1
+- id: tp0-saludo
+  id_practica: saludo
+  titulo: Primer Programa en C (saludo.c / Hola Mundo)
+  minutos: 15
+  bloom: 1
+- id: tp0-carga-entrega-1
+  id_practica: entrega_1
+  titulo: Carga de Código Fuente de Práctica 1 (Introducción)
+  minutos: 25
+  bloom: 2
+- id: tp0-carga-entrega-2
+  id_practica: entrega_2
+  titulo: Carga de Código Fuente de Práctica 2 (Estructuras de Control)
+  minutos: 25
+  bloom: 2
+- id: tp0-ficha-del-estudiante
+  id_practica: ficha
+  titulo: Ficha del Estudiante y Formulario GitHub/Email
+  minutos: 5
+  bloom: 1

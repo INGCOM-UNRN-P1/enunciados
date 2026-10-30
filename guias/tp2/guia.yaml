@@ -1,0 +1,77 @@
+nombre: 'Trabajo Práctico 2: Arreglos de Enteros y Cadenas Seguras'
+minutos_totales: 240
+temas:
+- arreglos_unidimensionales
+- memoria_y_limites
+- cadenas_seguras
+- terminacion_nula
+- buffer_bounds
+- const_correctness
+distribucion_bloom:
+  COMPRENDER: 3
+  APLICAR: 6
+  ANALIZAR: 4
+identificador: tp2
+cursada: 2026
+ejercicios:
+- id: tp2-libarreglos
+  id_practica: libarreglos
+  titulo: Biblioteca de Arreglos de Enteros (libarreglos)
+  minutos: 90
+  bloom: 3
+  subpuntos:
+  - id: arreglo_sumar
+    titulo: Sumatoria de Elementos
+    bloom: 2
+  - id: arreglo_buscar
+    titulo: Búsqueda Lineal
+    bloom: 3
+  - id: arreglo_invertir
+    titulo: Inversión In-Place
+    bloom: 3
+  - id: arreglo_ordenado
+    titulo: Verificación de Orden Ascendente
+    bloom: 3
+  - id: arreglo_contar
+    titulo: Conteo de Ocurrencias
+    bloom: 2
+  - id: arreglo_compactar
+    titulo: Compactación In-Place (Sin prototipo previo)
+    bloom: 4
+  - id: arreglo_fusionar
+    titulo: Fusión Ordenada Acotada (Sin prototipo previo)
+    bloom: 4
+- id: tp2-libcadenas
+  id_practica: libcadenas
+  titulo: Biblioteca de Cadenas Seguras (libcadenas)
+  minutos: 110
+  bloom: 4
+  subpuntos:
+  - id: cadena_longitud
+    titulo: Medición Segura de Longitud
+    bloom: 2
+  - id: cadena_copiar
+    titulo: Copia Segura con Control de Búfer
+    bloom: 3
+  - id: cadena_concatenar
+    titulo: Concatenación Segura
+    bloom: 3
+  - id: cadena_a_mayusculas
+    titulo: Normalización a Mayúsculas Segura
+    bloom: 3
+  - id: cadena_subcadena
+    titulo: Extracción de Subcadena Segura (Sin prototipo previo)
+    bloom: 4
+  - id: cadena_de_entero
+    titulo: Conversión de Entero a Cadena Decimal Segura (Sin prototipo previo)
+    bloom: 4
+- id: tp2-estadisticas-de-arreglos
+  id_practica: ejercicio1
+  titulo: Aplicación de Estadísticas de Arreglos
+  minutos: 20
+  bloom: 3
+- id: tp2-procesador-de-texto
+  id_practica: ejercicio2
+  titulo: Procesador de Texto con Cadenas Seguras
+  minutos: 20
+  bloom: 3

@@ -1,0 +1,89 @@
+nombre: 'Trabajo Práctico 4: Memoria Dinámica en C11 (Sin Structs)'
+minutos_totales: 270
+temas:
+- memoria_dinamica
+- malloc_calloc_realloc_free
+- cadenas_dinamicas_seguras
+- punteros_dobles
+- arreglos_de_cadenas
+- matrices_planas_en_heap
+- memory_leaks_valgrind
+distribucion_bloom:
+  COMPRENDER: 2
+  APLICAR: 6
+  ANALIZAR: 5
+identificador: tp4
+cursada: 2026
+ejercicios:
+- id: tp4-libvector
+  id_practica: libvector
+  titulo: Biblioteca de Bloques Dinámicos (libvector)
+  minutos: 40
+  bloom: 3
+  subpuntos:
+  - id: crear_bloque_enteros
+    titulo: Creación de Bloque de Enteros
+    bloom: 3
+  - id: liberar_bloque_enteros
+    titulo: Liberación Segura con Puntero Doble
+    bloom: 2
+  - id: redimensionar_bloque_enteros
+    titulo: Redimensionamiento Dinámico Seguro
+    bloom: 3
+  - id: fusionar_bloques_enteros
+    titulo: Fusión de Bloques en Heap (Sin prototipo previo)
+    bloom: 4
+  - id: agregar_al_bloque_enteros
+    titulo: Inserción con Reasignación Doble (Sin prototipo previo)
+    bloom: 4
+- id: tp4-libstring
+  id_practica: libstring
+  titulo: Biblioteca de Cadenas Dinámicas (libstring)
+  minutos: 40
+  bloom: 3
+  subpuntos:
+  - id: cadena_duplicar_segura
+    titulo: Clonación Segura en Heap
+    bloom: 3
+  - id: cadena_unir_dinamica
+    titulo: Concatenación con Asignación Exacta
+    bloom: 3
+  - id: cadena_liberar_segura
+    titulo: Liberación Segura con Puntero Doble
+    bloom: 2
+  - id: cadena_subcadena_dinamica
+    titulo: Extracción de Subcadena en Heap (Sin prototipo previo)
+    bloom: 4
+  - id: cadena_invertir_dinamica
+    titulo: Reversión en Nuevo Bloque Heap (Sin prototipo previo)
+    bloom: 4
+- id: tp4-clonar-y-filtrar-bloques
+  id_practica: ejercicio1
+  titulo: Clonación y Filtrado Dinámico de Enteros
+  minutos: 30
+  bloom: 3
+- id: tp4-normalizar-cadenas-dinamicas
+  id_practica: ejercicio2
+  titulo: Normalización y Recorte Dinámico de Cadenas
+  minutos: 30
+  bloom: 3
+- id: tp4-invertir-y-partir-cadenas
+  id_practica: ejercicio3
+  titulo: Reversión y Particionado Dinámico de Cadenas
+  minutos: 30
+  bloom: 3
+- id: tp4-matriz-plana-en-heap
+  id_practica: ejercicio4
+  titulo: Bloque Contiguo 2D Simulado en Heap
+  minutos: 35
+  bloom: 4
+- id: tp4-lista-de-cadenas-en-heap
+  id_practica: ejercicio5
+  titulo: Tokenización y Listas de Cadenas en Heap (char**)
+  minutos: 35
+  bloom: 4
+- id: tp4-texto-dinamico-multilinea
+  id_practica: ejercicio6
+  titulo: Procesamiento de Texto Dinámico Multilínea
+  minutos: 40
+  bloom: 5

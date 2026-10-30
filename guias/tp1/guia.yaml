@@ -1,0 +1,44 @@
+nombre: 'Trabajo Práctico 1: Introducción a C, Modularización y E/S en Consola'
+minutos_totales: 180
+temas:
+- modularizacion
+- tipos_primitivos
+- estructuras_repeticion
+- estructuras_condicionales
+- aritmetica_entera
+distribucion_bloom:
+  COMPRENDER: 1
+  APLICAR: 5
+identificador: tp1
+cursada: 2026
+ejercicios:
+- id: tp1-libconsola
+  id_practica: consola
+  titulo: Librería de Consola y Limpieza de Búfer
+  minutos: 40
+  bloom: 3
+- id: tp1-conversor-temperatura
+  id_practica: ejercicio1
+  titulo: Conversor de Temperatura Celsius y Fahrenheit
+  minutos: 20
+  bloom: 2
+- id: tp1-estadistica-secuencial
+  id_practica: ejercicio2
+  titulo: Calculadora Estadística Secuencial
+  minutos: 30
+  bloom: 3
+- id: tp1-validador-de-fechas
+  id_practica: ejercicio3
+  titulo: Validador de Fechas y Año Bisiesto
+  minutos: 30
+  bloom: 3
+- id: tp1-clasificador-de-triangulos
+  id_practica: ejercicio4
+  titulo: Validador y Clasificador de Triángulos
+  minutos: 35
+  bloom: 3
+- id: tp1-desglose-de-billetes
+  id_practica: ejercicio5
+  titulo: Desglose de Billetes de Cajero Automático
+  minutos: 35
+  bloom: 3

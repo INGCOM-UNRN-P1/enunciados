@@ -1,0 +1,38 @@
+nombre: Entrega 1 — Primeros Programas en C
+identificador: entrega-1
+moodle_id: 1228009
+minutos_totales: 130
+distribucion_bloom:
+  RECORDAR: 1
+  COMPRENDER: 2
+  APLICAR: 4
+cursada: 2026
+ejercicios:
+- id: hola-mundo
+  minutos: 10
+  bloom: 1
+  tema: sintaxis
+- id: secuencia-ascendente
+  minutos: 15
+  bloom: 2
+  tema: lazos
+- id: par-o-impar
+  minutos: 15
+  bloom: 2
+  tema: condicionales
+- id: invertir-numero
+  minutos: 20
+  bloom: 3
+  tema: aritmetica
+- id: contador-digitos
+  minutos: 20
+  bloom: 3
+  tema: aritmetica
+- id: vocales-consonantes
+  minutos: 25
+  bloom: 3
+  tema: caracteres
+- id: conversor-calificaciones
+  minutos: 25
+  bloom: 3
+  tema: condicionales

@@ -1,0 +1,38 @@
+nombre: Entrega 2 — Estructuras de Control y Lazos
+identificador: entrega-2
+moodle_id: 1236012
+minutos_totales: 185
+distribucion_bloom:
+  COMPRENDER: 2
+  APLICAR: 3
+  ANALIZAR: 2
+cursada: 2026
+ejercicios:
+- id: suma-n-numeros
+  minutos: 15
+  bloom: 2
+  tema: lazos
+- id: pares-en-rango
+  minutos: 20
+  bloom: 2
+  tema: lazos
+- id: validacion-entrada
+  minutos: 25
+  bloom: 3
+  tema: estructuras_control
+- id: secuencia-fibonacci
+  minutos: 25
+  bloom: 3
+  tema: lazos
+- id: tabla-multiplicar
+  minutos: 25
+  bloom: 3
+  tema: lazos_anidados
+- id: numeros-perfectos
+  minutos: 35
+  bloom: 4
+  tema: lazos_anidados
+- id: rombo-asteriscos
+  minutos: 40
+  bloom: 4
+  tema: lazos_anidados

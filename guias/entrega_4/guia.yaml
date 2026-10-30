@@ -1,0 +1,70 @@
+nombre: Entrega 4 — Programación Modular y Makefiles
+identificador: entrega-4
+moodle_id: 1240320
+tipo_entrega: makefiles_individuales
+minutos_totales: 180
+distribucion_bloom:
+  APLICAR: 7
+  ANALIZAR: 3
+cursada: 2026
+ejercicios:
+- id: e4-primos-y-divisores
+  id_practica: ejercicio1
+  titulo: Números Primos y Divisores
+  minutos: 20
+  bloom: 3
+  tema: funciones
+- id: e4-sucesion-fibonacci
+  id_practica: ejercicio2
+  titulo: Sucesión de Fibonacci
+  minutos: 15
+  bloom: 3
+  tema: recursion
+- id: e4-factorial-y-combinatoria
+  id_practica: ejercicio3
+  titulo: Factorial y Combinatoria
+  minutos: 15
+  bloom: 3
+  tema: funciones
+- id: e4-mcd-y-mcm
+  id_practica: ejercicio4
+  titulo: Máximo Común Divisor (MCD) y Mínimo Común Múltiplo (MCM)
+  minutos: 15
+  bloom: 3
+  tema: algoritmos
+- id: e4-analisis-de-digitos
+  id_practica: ejercicio5
+  titulo: Análisis y Transformación de Dígitos
+  minutos: 20
+  bloom: 3
+  tema: modularizacion
+- id: e4-potencia-y-raiz-entera
+  id_practica: ejercicio6
+  titulo: Potenciación Entera y Raíz Cuadrada Entera
+  minutos: 15
+  bloom: 3
+  tema: lazos
+- id: e4-decimal-y-binario
+  id_practica: ejercicio7
+  titulo: Conversión Decimal y Binario (Escalar)
+  minutos: 20
+  bloom: 3
+  tema: representacion_datos
+- id: e4-perfectos-deficientes-abundantes
+  id_practica: ejercicio8
+  titulo: Clasificación de Números (Perfectos, Deficientes y Abundantes)
+  minutos: 20
+  bloom: 3
+  tema: modularizacion
+- id: e4-conversion-temperatura
+  id_practica: ejercicio9
+  titulo: Conversión de Unidades de Temperatura
+  minutos: 15
+  bloom: 3
+  tema: punto_flotante
+- id: e4-geometria-plana
+  id_practica: ejercicio10
+  titulo: Geometría Plana y Trigonometría
+  minutos: 25
+  bloom: 4
+  tema: modularizacion
