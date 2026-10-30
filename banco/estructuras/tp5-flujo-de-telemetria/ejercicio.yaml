@@ -1,0 +1,37 @@
+id: tp5-flujo-de-telemetria
+titulo: Flujo de Telemetría y Filtrado con libdinamicos
+tema: estructuras
+bloom: 4
+minutos_estimados: 40
+tags:
+- tp5
+- cursada-2026
+- estructuras
+- dep:tipos_datos
+- dep:funciones
+verificado: false
+funciones:
+- nombre: cargar_muestras
+  retorno: bool
+  parametros: arreglo_dinamico_t *muestras, const int *valores, size_t n
+- nombre: calcular_promedio
+  retorno: double
+  parametros: const arreglo_dinamico_t *muestras
+- nombre: depurar_lecturas_erroneas
+  retorno: size_t
+  parametros: arreglo_dinamico_t *muestras, int codigo_error
+- nombre: extraer_eventos_pares
+  retorno: bool
+  parametros: const arreglo_dinamico_t *muestras, arreglo_dinamico_t *eventos
+tipo_entrega: makefile
+familia: tp5-2026
+rol_familia: uso
+dependencias:
+- tp5-libdinamicos
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- tipos_datos
+- funciones

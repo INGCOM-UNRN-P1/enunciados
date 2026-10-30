@@ -1,0 +1,35 @@
+id: e4-conversion-temperatura
+titulo: Conversión de Unidades de Temperatura
+tema: funciones
+bloom: 3
+minutos_estimados: 15
+tags:
+- entrega-4
+- cursada-2026
+- funciones
+- dep:lazos
+- dep:secuencias
+verificado: false
+funciones:
+- nombre: celsius_a_fahrenheit
+  retorno: float
+  parametros: float celsius
+  descripcion: Convierte grados Celsius a grados Fahrenheit (F = C * 9/5 + 32).
+- nombre: fahrenheit_a_celsius
+  retorno: float
+  parametros: float fahrenheit
+  descripcion: Convierte grados Fahrenheit a grados Celsius (C = (F - 32) * 5/9).
+- nombre: celsius_a_kelvin
+  retorno: float
+  parametros: float celsius
+  descripcion: Convierte grados Celsius a Kelvin (K = C + 273.15).
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

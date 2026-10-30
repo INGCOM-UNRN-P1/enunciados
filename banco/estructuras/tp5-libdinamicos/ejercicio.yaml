@@ -1,0 +1,55 @@
+id: tp5-libdinamicos
+titulo: Biblioteca de Arreglo Dinámico Encapsulado (libdinamicos)
+tema: estructuras
+bloom: 3
+minutos_estimados: 50
+tags:
+- tp5
+- cursada-2026
+- estructuras
+- dep:tipos_datos
+- dep:funciones
+verificado: false
+funciones:
+- nombre: arreglo_dinamico_crear
+  retorno: bool
+  parametros: arreglo_dinamico_t *arreglo, size_t capacidad_inicial
+  descripcion: Inicializa un arreglo dinamico reservando capacidad inicial.
+- nombre: arreglo_dinamico_destruir
+  retorno: void
+  parametros: arreglo_dinamico_t *arreglo
+  descripcion: Libera la memoria en heap del arreglo y restablece los campos a cero.
+- nombre: arreglo_dinamico_agregar
+  retorno: bool
+  parametros: arreglo_dinamico_t *arreglo, int valor
+  descripcion: Agrega un valor al final del arreglo, redimensionando si es necesario.
+- nombre: arreglo_dinamico_obtener
+  retorno: int *
+  parametros: const arreglo_dinamico_t *arreglo, size_t indice
+  descripcion: Obtiene un puntero al elemento en la posicion indicada.
+- nombre: arreglo_dinamico_filtrar_pares
+  retorno: bool
+  parametros: const arreglo_dinamico_t *origen, arreglo_dinamico_t *destino
+  descripcion: Filtra los numeros pares del arreglo origen hacia un nuevo destino.
+- nombre: arreglo_dinamico_buscar
+  retorno: int
+  parametros: const arreglo_dinamico_t *arreglo, int valor
+  descripcion: Busca la primera aparicion de un valor en el arreglo.
+- nombre: arreglo_dinamico_invertir
+  retorno: void
+  parametros: arreglo_dinamico_t *arreglo
+  descripcion: Invierte el orden de los elementos del arreglo in-place.
+- nombre: arreglo_dinamico_compactar
+  retorno: size_t
+  parametros: arreglo_dinamico_t *arreglo, int valor
+  descripcion: Elimina todas las ocurrencias de un valor compactando in-place.
+tipo_entrega: libreria
+familia: tp5-2026
+rol_familia: libreria
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- funciones

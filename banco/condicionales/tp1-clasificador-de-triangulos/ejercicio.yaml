@@ -1,0 +1,40 @@
+id: tp1-clasificador-de-triangulos
+titulo: Validador y Clasificador de Triángulos
+tema: condicionales
+bloom: 3
+minutos_estimados: 35
+pistas:
+- 'Desigualdad triangular: cada lado debe ser menor a la suma de los otros dos (a < b + c && b < a + c
+  && c < a + b) y todos mayores a cero.'
+- 'Clasificación: Equilátero (tres lados iguales), Isósceles (dos lados iguales) o Escaleno (tres lados
+  distintos).'
+- 'Rectángulo: verifica Pitágoras con tolerancia epsilon (fabsf(h*h - (c1*c1 + c2*c2)) < 0.001f) identificando
+  primero cuál es el lado mayor.'
+tags:
+- tp1
+- cursada-2026
+- condicionales
+- dep:aritmetica
+verificado: false
+funciones:
+- nombre: es_triangulo_valido
+  retorno: bool
+  parametros: float lado_a, float lado_b, float lado_c
+  descripcion: Determina si tres longitudes pueden formar un triángulo válido.
+- nombre: clasificar_triangulo
+  retorno: int
+  parametros: float lado_a, float lado_b, float lado_c
+  descripcion: Clasifica un triángulo según las longitudes de sus lados.
+- nombre: es_triangulo_rectangulo
+  retorno: bool
+  parametros: float lado_a, float lado_b, float lado_c
+  descripcion: Determina si un triángulo es rectángulo mediante Pitágoras.
+tipo_entrega: makefile
+familia: tp1-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- aritmetica

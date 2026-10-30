@@ -1,0 +1,38 @@
+id: tp2-libarreglos
+titulo: Biblioteca de Arreglos de Enteros (libarreglos)
+tema: arreglos
+bloom: 3
+minutos_estimados: 90
+tags:
+- tp2
+- cursada-2026
+- arreglos
+- dep:funciones
+- dep:lazos
+verificado: false
+funciones:
+- nombre: arreglo_sumar
+  retorno: long long
+  parametros: const int arreglo[], size_t cantidad
+- nombre: arreglo_buscar
+  retorno: int
+  parametros: const int arreglo[], size_t cantidad, int buscado
+- nombre: arreglo_invertir
+  retorno: void
+  parametros: int arreglo[], size_t cantidad
+- nombre: arreglo_ordenado
+  retorno: bool
+  parametros: const int arreglo[], size_t cantidad
+- nombre: arreglo_contar
+  retorno: size_t
+  parametros: const int arreglo[], size_t cantidad, int buscado
+tipo_entrega: libreria
+familia: tp2-2026
+rol_familia: libreria
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- lazos

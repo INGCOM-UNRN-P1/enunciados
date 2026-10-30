@@ -1,0 +1,22 @@
+id: tp4-invertir-y-partir-cadenas
+titulo: Reversión y Particionado Dinámico de Cadenas
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 30
+tags:
+- tp4
+- cursada-2026
+- memoria_dinamica
+- dep:memoria
+- dep:punteros
+verificado: false
+tipo_entrega: makefile
+familia: tp4-2026
+rol_familia: uso
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- memoria
+- punteros

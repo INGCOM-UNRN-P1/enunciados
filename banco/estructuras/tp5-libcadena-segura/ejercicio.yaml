@@ -1,0 +1,47 @@
+id: tp5-libcadena-segura
+titulo: Biblioteca de Cadena Dinámica Segura (libcadena_segura)
+tema: estructuras
+bloom: 3
+minutos_estimados: 50
+tags:
+- tp5
+- cursada-2026
+- estructuras
+- dep:tipos_datos
+- dep:funciones
+verificado: false
+funciones:
+- nombre: cadena_segura_crear
+  retorno: bool
+  parametros: cadena_segura_t *cadena, const char *literal
+  descripcion: Inicializa una cadena segura copiando el contenido de un literal o cadena C.
+- nombre: cadena_segura_destruir
+  retorno: void
+  parametros: cadena_segura_t *cadena
+  descripcion: Libera la memoria dinamica asociada y restablece los campos a cero.
+- nombre: cadena_segura_concatenar
+  retorno: bool
+  parametros: cadena_segura_t *cadena, const char *sufijo
+  descripcion: Concatena una cadena C al final de la cadena segura, redimensionando si es necesario.
+- nombre: cadena_segura_subcadena
+  retorno: bool
+  parametros: const cadena_segura_t *origen, size_t inicio, size_t longitud, cadena_segura_t *destino
+  descripcion: Extrae una subcadena a partir de una posicion de inicio y longitud maxima.
+- nombre: cadena_segura_clonar
+  retorno: bool
+  parametros: const cadena_segura_t *origen, cadena_segura_t *destino
+  descripcion: Crea un clon profundo independiente de la cadena de origen.
+- nombre: cadena_segura_buscar
+  retorno: int
+  parametros: const cadena_segura_t *cadena, const char *aguja
+  descripcion: Busca la primera aparicion de una subcadena (aguja) dentro de la cadena segura.
+tipo_entrega: libreria
+familia: tp5-2026
+rol_familia: libreria
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos
+- funciones

@@ -1,0 +1,6 @@
+--- Validacion de Consola ---
+Ingrese edad (1-120): Error: el valor debe estar entre 1 y 120.
+Ingrese edad (1-120): Edad: 30
+Ingrese altura (0.50-2.50): Error: el valor debe estar entre 0.50 y 2.50.
+Ingrese altura (0.50-2.50): Altura: 1.80 m
+Confirmar registro (s/n): Registro: Confirmado

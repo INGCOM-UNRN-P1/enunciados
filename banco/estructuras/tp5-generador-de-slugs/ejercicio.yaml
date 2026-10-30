@@ -1,0 +1,37 @@
+id: tp5-generador-de-slugs
+titulo: Generador de Slugs Web y Sanitización con libcadena_segura
+tema: estructuras
+bloom: 4
+minutos_estimados: 40
+tags:
+- tp5
+- cursada-2026
+- estructuras
+- dep:tipos_datos
+- dep:funciones
+verificado: false
+funciones:
+- nombre: generar_slug
+  retorno: bool
+  parametros: const cadena_segura_t *titulo, cadena_segura_t *slug
+  descripcion: Transforma un titulo en un slug normalizado en minusculas,
+- nombre: contiene_palabra_prohibida
+  retorno: bool
+  parametros: const cadena_segura_t *texto, const char *palabra
+  descripcion: Verifica si una cadena contiene una palabra prohibida o subcadena especifica.
+- nombre: acotar_longitud_slug
+  retorno: bool
+  parametros: cadena_segura_t *slug, size_t max_longitud
+  descripcion: Acota la longitud de un slug a un maximo dado, evitando que termine en guion.
+tipo_entrega: makefile
+familia: tp5-2026
+rol_familia: uso
+dependencias:
+- tp5-libcadena-segura
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- tipos_datos
+- funciones

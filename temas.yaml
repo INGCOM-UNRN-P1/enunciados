@@ -2,6 +2,9 @@
 # `requiere` son los prerrequisitos de cada tema; los ejercicios los declaran con `dep:<tema>`.
 
 temas:
+  entorno_y_git:
+    titulo: "Entorno de Trabajo y Git"
+    requiere: []
   sintaxis:
     titulo: "Sintaxis Básica de C"
     requiere: []
@@ -111,7 +114,7 @@ temas:
 unidades:
   - id: unidad_1
     titulo: "Unidad 1: Fundamentos y Estructuras de Control"
-    temas: [sintaxis, tipos_datos, aritmetica, io_formato, condicionales, lazos, lazos_anidados, funciones, secuencias]
+    temas: [entorno_y_git, sintaxis, tipos_datos, aritmetica, io_formato, condicionales, lazos, lazos_anidados, funciones, secuencias]
   - id: unidad_2
     titulo: "Unidad 2: Tipos Compuestos y Direccionamiento"
     temas: [arreglos, matrices, cadenas, caracteres, punteros, estructuras, enumeraciones]

@@ -1,0 +1,31 @@
+id: e4-factorial-y-combinatoria
+titulo: Factorial y Combinatoria
+tema: funciones
+bloom: 3
+minutos_estimados: 15
+tags:
+- entrega-4
+- cursada-2026
+- funciones
+- dep:lazos
+- dep:secuencias
+verificado: false
+funciones:
+- nombre: factorial
+  retorno: long long
+  parametros: int n
+  descripcion: Calcula el factorial de un número entero no negativo (n!).
+- nombre: combinatorio
+  retorno: long long
+  parametros: int n, int k
+  descripcion: Calcula el número combinatorio C(n, k) = n! / (k! * (n - k)!).
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

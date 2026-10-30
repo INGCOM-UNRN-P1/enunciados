@@ -1,0 +1,24 @@
+id: tp3-copia-e-inversion-con-punteros
+titulo: Copia e Inversión In-Place con Punteros
+tema: punteros
+bloom: 3
+minutos_estimados: 35
+tags:
+- tp3
+- cursada-2026
+- punteros
+- dep:funciones
+- dep:arreglos
+verificado: false
+tipo_entrega: makefile
+familia: tp3-2026
+rol_familia: uso
+dependencias:
+- tp3-libpunteros
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- funciones
+- arreglos

@@ -1,0 +1,29 @@
+id: e4-decimal-y-binario
+titulo: Conversión Decimal y Binario (Escalar)
+tema: aritmetica
+bloom: 3
+minutos_estimados: 20
+tags:
+- entrega-4
+- cursada-2026
+- aritmetica
+- dep:tipos_datos
+verificado: false
+funciones:
+- nombre: decimal_a_binario
+  retorno: long long
+  parametros: int numero
+  descripcion: Convierte un número decimal no negativo a su representación en binario como valor entero.
+- nombre: binario_a_decimal
+  retorno: int
+  parametros: long long binario
+  descripcion: Convierte un valor entero que representa dígitos binarios (0 y 1) a su valor decimal.
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- tipos_datos

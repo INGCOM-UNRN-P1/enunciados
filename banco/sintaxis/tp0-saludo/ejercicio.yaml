@@ -1,0 +1,16 @@
+id: tp0-saludo
+titulo: Primer Programa en C (saludo.c / Hola Mundo)
+tema: sintaxis
+bloom: 1
+minutos_estimados: 15
+tags:
+- tp0
+- cursada-2026
+- sintaxis
+verificado: false
+tipo_entrega: archivos_individuales
+familia: tp0-2026
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: inicial
+tipo: concepto

@@ -1,0 +1,31 @@
+id: e4-perfectos-deficientes-abundantes
+titulo: Clasificación de Números (Perfectos, Deficientes y Abundantes)
+tema: funciones
+bloom: 3
+minutos_estimados: 20
+tags:
+- entrega-4
+- cursada-2026
+- funciones
+- dep:lazos
+- dep:secuencias
+verificado: false
+funciones:
+- nombre: suma_divisores_propios
+  retorno: int
+  parametros: int numero
+  descripcion: Suma todos los divisores propios positivos de un número (menores al número).
+- nombre: clasificar_numero
+  retorno: int
+  parametros: int numero
+  descripcion: 'Clasifica un número según la suma de sus divisores propios:'
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

@@ -1,0 +1,22 @@
+id: tp4-matriz-plana-en-heap
+titulo: Bloque Contiguo 2D Simulado en Heap
+tema: memoria_dinamica
+bloom: 4
+minutos_estimados: 35
+tags:
+- tp4
+- cursada-2026
+- memoria_dinamica
+- dep:memoria
+- dep:punteros
+verificado: false
+tipo_entrega: makefile
+familia: tp4-2026
+rol_familia: uso
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+dificultad: avanzada
+tipo: laboratorio
+prerrequisitos:
+- memoria
+- punteros

@@ -1,0 +1,63 @@
+id: tp1-libconsola
+titulo: Librería de Consola y Limpieza de Búfer
+tema: io_formato
+bloom: 3
+minutos_estimados: 40
+pistas:
+- En limpiar_buffer_entrada(), declará la variable del bucle como int para comparar correctamente contra
+  EOF y \n.
+- 'Verificá siempre el valor de retorno de scanf: si retorna 0 o EOF, limpiá el búfer antes de pedir nuevamente
+  el dato para evitar bucles infinitos.'
+- Bajo el estándar C, fflush(stdin) produce Comportamiento Indefinido (Undefined Behavior); usá limpiar_buffer_entrada().
+tags:
+- tp1
+- cursada-2026
+- io_formato
+- dep:aritmetica
+verificado: false
+funciones:
+- nombre: limpiar_buffer_entrada
+  retorno: void
+  parametros: void
+  descripcion: Limpia el bufer de entrada estandar descartando caracteres hasta
+- nombre: leer_entero
+  retorno: int
+  parametros: const char *mensaje
+  descripcion: Lee un numero entero desde la entrada estandar mostrando un mensaje.
+- nombre: leer_entero_entre
+  retorno: int
+  parametros: const char *mensaje, int min, int max
+  descripcion: Lee un numero entero dentro de un rango inclusivo [min, max].
+- nombre: leer_flotante
+  retorno: float
+  parametros: const char *mensaje
+  descripcion: Lee un numero de coma flotante desde la entrada estandar.
+- nombre: leer_flotante_entre
+  retorno: float
+  parametros: const char *mensaje, float min, float max
+  descripcion: Lee un numero flotante dentro de un rango inclusivo [min, max].
+- nombre: leer_caracter
+  retorno: char
+  parametros: const char *mensaje
+  descripcion: Lee un unico caracter desde la entrada estandar mostrando un mensaje.
+- nombre: leer_logico
+  retorno: bool
+  parametros: const char *mensaje
+  descripcion: Lee un valor logico (booleano) desde la entrada estandar.
+- nombre: esta_en_rango_entero
+  retorno: bool
+  parametros: int valor, int min, int max
+  descripcion: Determina si un valor entero se encuentra dentro de [min, max].
+- nombre: esta_en_rango_flotante
+  retorno: bool
+  parametros: float valor, float min, float max
+  descripcion: Determina si un valor flotante se encuentra dentro de [min, max].
+tipo_entrega: libreria
+familia: tp1-2026
+rol_familia: libreria
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- aritmetica

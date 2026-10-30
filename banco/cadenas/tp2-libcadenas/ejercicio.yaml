@@ -1,0 +1,35 @@
+id: tp2-libcadenas
+titulo: Biblioteca de Cadenas Seguras (libcadenas)
+tema: cadenas
+bloom: 4
+minutos_estimados: 110
+tags:
+- tp2
+- cursada-2026
+- cadenas
+- dep:arreglos
+- dep:caracteres
+verificado: false
+funciones:
+- nombre: cadena_longitud
+  retorno: size_t
+  parametros: const char cadena[], size_t capacidad
+- nombre: cadena_copiar
+  retorno: bool
+  parametros: char destino[], size_t capacidad, const char origen[]
+- nombre: cadena_concatenar
+  retorno: bool
+  parametros: char destino[], size_t capacidad, const char origen[]
+- nombre: cadena_a_mayusculas
+  retorno: size_t
+  parametros: char cadena[], size_t capacidad
+tipo_entrega: libreria
+familia: tp2-2026
+rol_familia: libreria
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- arreglos
+- caracteres

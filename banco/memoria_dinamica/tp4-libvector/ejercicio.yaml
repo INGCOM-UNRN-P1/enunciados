@@ -1,0 +1,32 @@
+id: tp4-libvector
+titulo: Biblioteca de Bloques Dinámicos (libvector)
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 40
+tags:
+- tp4
+- cursada-2026
+- memoria_dinamica
+- dep:memoria
+- dep:punteros
+verificado: false
+funciones:
+- nombre: crear_bloque_enteros
+  retorno: int *
+  parametros: size_t cantidad
+- nombre: liberar_bloque_enteros
+  retorno: void
+  parametros: int **puntero_bloque
+- nombre: redimensionar_bloque_enteros
+  retorno: int *
+  parametros: int *bloque, size_t nueva_cantidad
+tipo_entrega: libreria
+familia: tp4-2026
+rol_familia: libreria
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- memoria
+- punteros

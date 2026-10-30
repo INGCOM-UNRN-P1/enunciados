@@ -1,0 +1,37 @@
+id: tp1-validador-de-fechas
+titulo: Validador de Fechas y Año Bisiesto
+tema: condicionales
+bloom: 3
+minutos_estimados: 30
+pistas:
+- Un año bisiesto gregoriano es divisible por 4 y no por 100, excepto que sea divisible por 400.
+- 'Meses con 31 días: 1, 3, 5, 7, 8, 10 y 12. Meses con 30 días: 4, 6, 9 y 11.'
+- Febrero tiene 29 días en año bisiesto y 28 en año común. Fuera de 1..12 la fecha es inválida.
+tags:
+- tp1
+- cursada-2026
+- condicionales
+- dep:aritmetica
+verificado: false
+funciones:
+- nombre: es_bisiesto
+  retorno: bool
+  parametros: int anio
+  descripcion: Determina si un año dado es bisiesto según el calendario gregoriano.
+- nombre: dias_en_mes
+  retorno: int
+  parametros: int mes, int anio
+  descripcion: Obtiene la cantidad de días que contiene un mes determinado en un año dado.
+- nombre: es_fecha_valida
+  retorno: bool
+  parametros: int dia, int mes, int anio
+  descripcion: Valida si una combinación de día, mes y año representa una fecha válida.
+tipo_entrega: makefile
+familia: tp1-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- aritmetica

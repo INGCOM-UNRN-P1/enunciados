@@ -1,0 +1,39 @@
+id: tp1-estadistica-secuencial
+titulo: Calculadora Estadística Secuencial
+tema: secuencias
+bloom: 3
+minutos_estimados: 30
+pistas:
+- Procesá los números a medida que ingresan en una única pasada; no uses arreglos.
+- Inicializá el mínimo y el máximo con el primer valor ingresado (índice 0) para contemplar series puramente
+  negativas.
+- El promedio es la división entre la suma acumulada y la cantidad de elementos ingresados convertida
+  a float.
+tags:
+- tp1
+- cursada-2026
+- secuencias
+- dep:lazos
+verificado: false
+funciones:
+- nombre: calcular_promedio
+  retorno: float
+  parametros: float suma, int cantidad
+  descripcion: Calcula el promedio a partir de una suma acumulada y la cantidad
+- nombre: actualizar_minimo
+  retorno: float
+  parametros: float actual_min, float nuevo_valor
+  descripcion: Actualiza el valor mínimo comparándolo con un nuevo valor.
+- nombre: actualizar_maximo
+  retorno: float
+  parametros: float actual_max, float nuevo_valor
+  descripcion: Actualiza el valor máximo comparándolo con un nuevo valor.
+tipo_entrega: makefile
+familia: tp1-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- lazos

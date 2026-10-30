@@ -1,0 +1,29 @@
+id: tp2-procesador-de-texto
+titulo: Procesador de Texto con Cadenas Seguras
+tema: cadenas
+bloom: 3
+minutos_estimados: 20
+tags:
+- tp2
+- cursada-2026
+- cadenas
+- dep:arreglos
+- dep:caracteres
+verificado: false
+funciones:
+- nombre: unir_con_separador
+  retorno: bool
+  parametros: char destino[], size_t capacidad, const char primero[], const char segundo[], const char
+    separador[]
+tipo_entrega: makefile
+familia: tp2-2026
+rol_familia: uso
+dependencias:
+- tp2-libcadenas
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- arreglos
+- caracteres

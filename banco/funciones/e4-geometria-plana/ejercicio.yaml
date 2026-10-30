@@ -1,0 +1,39 @@
+id: e4-geometria-plana
+titulo: Geometría Plana y Trigonometría
+tema: funciones
+bloom: 4
+minutos_estimados: 25
+tags:
+- entrega-4
+- cursada-2026
+- funciones
+- dep:lazos
+- dep:secuencias
+verificado: false
+funciones:
+- nombre: perimetro_circulo
+  retorno: float
+  parametros: float radio
+  descripcion: Calcula el perímetro de un círculo a partir de su radio.
+- nombre: area_circulo
+  retorno: float
+  parametros: float radio
+  descripcion: Calcula el área de un círculo a partir de su radio.
+- nombre: area_triangulo
+  retorno: float
+  parametros: float base, float altura
+  descripcion: Calcula el área de un triángulo a partir de base y altura.
+- nombre: calcular_hipotenusa
+  retorno: float
+  parametros: float cateto_a, float cateto_b
+  descripcion: Calcula la hipotenusa de un triángulo rectángulo dados sus dos catetos.
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: avanzada
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

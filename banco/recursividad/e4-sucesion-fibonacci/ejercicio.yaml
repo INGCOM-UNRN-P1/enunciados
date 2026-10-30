@@ -1,0 +1,31 @@
+id: e4-sucesion-fibonacci
+titulo: Sucesión de Fibonacci
+tema: recursividad
+bloom: 3
+minutos_estimados: 15
+tags:
+- entrega-4
+- cursada-2026
+- recursividad
+- dep:funciones
+- dep:punteros
+verificado: false
+funciones:
+- nombre: fibonacci
+  retorno: int
+  parametros: int n
+  descripcion: Calcula el n-ésimo término de la sucesión de Fibonacci (F0 = 0, F1 = 1).
+- nombre: suma_fibonacci
+  retorno: int
+  parametros: int n
+  descripcion: Calcula la suma acumulada de los primeros n términos de Fibonacci (de F0 hasta Fn).
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 4
+modulo: Tipos Abstractos y Algorítmica
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- punteros

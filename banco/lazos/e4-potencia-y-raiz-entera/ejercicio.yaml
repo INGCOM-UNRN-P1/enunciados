@@ -1,0 +1,29 @@
+id: e4-potencia-y-raiz-entera
+titulo: Potenciación Entera y Raíz Cuadrada Entera
+tema: lazos
+bloom: 3
+minutos_estimados: 15
+tags:
+- entrega-4
+- cursada-2026
+- lazos
+- dep:condicionales
+verificado: false
+funciones:
+- nombre: potencia
+  retorno: long long
+  parametros: int base, int exponente
+  descripcion: Calcula la potencia entera de una base elevada a un exponente no negativo.
+- nombre: raiz_cuadrada_entera
+  retorno: int
+  parametros: int numero
+  descripcion: Calcula la parte entera de la raíz cuadrada (piso de sqrt(n)) sin usar math.h.
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- condicionales

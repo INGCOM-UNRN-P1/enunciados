@@ -1,0 +1,32 @@
+id: tp4-libstring
+titulo: Biblioteca de Cadenas Dinámicas (libstring)
+tema: memoria_dinamica
+bloom: 3
+minutos_estimados: 40
+tags:
+- tp4
+- cursada-2026
+- memoria_dinamica
+- dep:memoria
+- dep:punteros
+verificado: false
+funciones:
+- nombre: cadena_duplicar_segura
+  retorno: char *
+  parametros: const char *origen, size_t capacidad_max
+- nombre: cadena_unir_dinamica
+  retorno: char *
+  parametros: const char *primera, size_t cap_primera, const char *segunda, size_t cap_segunda
+- nombre: cadena_liberar_segura
+  retorno: void
+  parametros: char **puntero_cadena
+tipo_entrega: libreria
+familia: tp4-2026
+rol_familia: libreria
+unidad: 3
+modulo: Memoria Dinámica y Persistencia
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- memoria
+- punteros

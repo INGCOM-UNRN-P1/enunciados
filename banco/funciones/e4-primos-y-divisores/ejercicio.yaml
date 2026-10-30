@@ -1,0 +1,35 @@
+id: e4-primos-y-divisores
+titulo: Números Primos y Divisores
+tema: funciones
+bloom: 3
+minutos_estimados: 20
+tags:
+- entrega-4
+- cursada-2026
+- funciones
+- dep:lazos
+- dep:secuencias
+verificado: false
+funciones:
+- nombre: es_primo
+  retorno: int
+  parametros: int numero
+  descripcion: Determina si un número entero positivo es primo.
+- nombre: proximo_primo
+  retorno: int
+  parametros: int numero
+  descripcion: Encuentra el menor número primo estrictamente mayor que el número dado.
+- nombre: cantidad_divisores
+  retorno: int
+  parametros: int numero
+  descripcion: Cuenta la cantidad total de divisores positivos de un número.
+tipo_entrega: makefile
+familia: entrega-4-2026
+rol_familia: uso
+unidad: 1
+modulo: Fundamentos y Estructuras de Control
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- lazos
+- secuencias

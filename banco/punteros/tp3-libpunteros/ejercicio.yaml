@@ -1,0 +1,29 @@
+id: tp3-libpunteros
+titulo: Biblioteca de Punteros (libpunteros)
+tema: punteros
+bloom: 3
+minutos_estimados: 35
+tags:
+- tp3
+- cursada-2026
+- punteros
+- dep:funciones
+- dep:arreglos
+verificado: false
+funciones:
+- nombre: intercambiar
+  retorno: void
+  parametros: int *primer, int *segundo
+- nombre: obtener_min_max
+  retorno: bool
+  parametros: const int *arreglo, size_t cantidad, int *minimo, int *maximo
+tipo_entrega: libreria
+familia: tp3-2026
+rol_familia: libreria
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: practica_guiada
+prerrequisitos:
+- funciones
+- arreglos

@@ -1,0 +1,31 @@
+id: tp2-estadisticas-de-arreglos
+titulo: Aplicación de Estadísticas de Arreglos
+tema: arreglos
+bloom: 3
+minutos_estimados: 20
+tags:
+- tp2
+- cursada-2026
+- arreglos
+- dep:funciones
+- dep:lazos
+verificado: false
+funciones:
+- nombre: calcular_promedio
+  retorno: double
+  parametros: const int arreglo[], size_t cantidad
+- nombre: contiene_valor
+  retorno: bool
+  parametros: const int arreglo[], size_t cantidad, int valor
+tipo_entrega: makefile
+familia: tp2-2026
+rol_familia: uso
+dependencias:
+- tp2-libarreglos
+unidad: 2
+modulo: Tipos Compuestos y Direccionamiento
+dificultad: intermedia
+tipo: laboratorio
+prerrequisitos:
+- funciones
+- lazos
