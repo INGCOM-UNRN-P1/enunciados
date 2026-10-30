@@ -8,6 +8,16 @@ sitios:
   apunte: https://ingcom-unrn-p1.github.io
   enunciados: https://ingcom-unrn-p1.github.io/enunciados
 
+# Normas de estilo del apunte que se señalan en cada ejercicio cuyo código (solución o cabecera)
+# coincide con `cuando` (expresión regular).
+reglas:
+  0x3004h:  # typedef con sufijo _t en estructuras y uniones, _e en enumeraciones
+    apunte: reglas/30_memoria/0x3004h.md
+    cuando: '\b(struct|union|enum)\b'
+  0x3020h:  # definición del tipo separada de la declaración de variables
+    apunte: reglas/30_memoria/0x3020h.md
+    cuando: '\b(struct|union|enum)\s+\w*\s*\{'
+
 temas:
   entorno_y_git:
     titulo: "Entorno de Trabajo y Git"
