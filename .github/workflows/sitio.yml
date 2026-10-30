@@ -20,7 +20,7 @@ concurrency:
 
 env:
   # deckard fijado a un commit publicado (nunca por nombre en PyPI).
-  DECKARD: git+https://github.com/INGCOM-UNRN/deckard@d19a36dc73eff637cf61060761d190e8e8d4bcc8
+  DECKARD: git+https://github.com/INGCOM-UNRN/deckard@fe58c5eb95f1c4795453082c755a9b09be2c6946
   BASE_URL: /${{ github.event.repository.name }}
 
 jobs:

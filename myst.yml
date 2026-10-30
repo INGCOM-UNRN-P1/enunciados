@@ -29,8 +29,7 @@ project:
   - id: unrn
     name: Universidad Nacional de Río Negro
     ror: 048zgak80
-  # El TOC lo genera el CI con `deckard export myst` (ver .github/workflows/sitio.yml),
-  # junto con todo sitio/. En local, `deckard export myst && myst start` reescribe este
-  # archivo: no commitear ese cambio (`git checkout myst.yml`).
-  toc:
-  - file: sitio/index.md
+  # Configuración generada: `deckard export myst` escribe el toc entre estas dos marcas
+  # (en el CI, ver .github/workflows/sitio.yml). No editar a mano ni commitear lo generado.
+  # deckard export myst: inicio
+  # deckard export myst: fin
