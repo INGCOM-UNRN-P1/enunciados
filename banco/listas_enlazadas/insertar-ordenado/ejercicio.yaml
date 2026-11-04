@@ -1,0 +1,14 @@
+id: insertar-ordenado
+titulo: Inserción en una lista enlazada ordenada
+tema: listas_enlazadas
+bloom: 3
+minutos_estimados: 30
+tags: [listas, punteros, memoria_dinamica]
+pistas:
+  - Con un puntero a puntero (nodo_t **) el caso de insertar al principio deja de ser especial.
+  - Reservá el nodo con malloc y verificá que no sea NULL antes de enlazarlo.
+funciones:
+  - nombre: insertar_ordenado
+    retorno: bool
+    parametros: nodo_t **cabeza, int valor
+    descripcion: Inserta valor manteniendo la lista ordenada de menor a mayor.

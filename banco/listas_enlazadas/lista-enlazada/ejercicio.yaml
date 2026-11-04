@@ -1,0 +1,22 @@
+id: lista-enlazada
+titulo: TDA Lista simplemente enlazada dinámica
+tema: listas_enlazadas
+bloom: 3
+minutos_estimados: 40
+tags: [listas, tda, memoria_dinamica, punteros]
+pistas:
+  - Para eliminar sin caso especial de cabeza, podés usar un puntero doble nodo_t **actual = cabeza.
+  - Al destruir, guardá el puntero al siguiente antes de liberar el nodo actual con free.
+funciones:
+  - nombre: lista_insertar_inicio
+    retorno: bool
+    parametros: nodo_t **cabeza, int valor
+    descripcion: Reserva un nodo con valor y lo enlaza al inicio de la lista.
+  - nombre: lista_eliminar
+    retorno: bool
+    parametros: nodo_t **cabeza, int valor
+    descripcion: Elimina la primera ocurrencia de valor liberando su memoria; devuelve false si no existe.
+  - nombre: lista_destruir
+    retorno: void
+    parametros: nodo_t **cabeza
+    descripcion: Libera todos los nodos de la lista y asigna NULL a *cabeza.

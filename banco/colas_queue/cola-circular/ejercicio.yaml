@@ -1,0 +1,22 @@
+id: cola-circular
+titulo: TDA Cola acotada sobre arreglo circular
+tema: colas_queue
+bloom: 3
+minutos_estimados: 35
+tags: [colas, arreglos, tda, memoria_estatica]
+pistas:
+  - 'Usá el operador módulo % para avanzar los índices circularmente: (idx + 1) % CAPACIDAD.'
+  - El campo cantidad permite diferenciar una cola vacía (cantidad == 0) de una llena (cantidad == CAPACIDAD).
+funciones:
+  - nombre: cola_inicializar
+    retorno: void
+    parametros: cola_t *cola
+    descripcion: Inicializa la cola vacía reseteando índices y cantidad.
+  - nombre: cola_encolar
+    retorno: bool
+    parametros: cola_t *cola, int valor
+    descripcion: Encola un valor al final; devuelve false si la cola está llena.
+  - nombre: cola_desencolar
+    retorno: bool
+    parametros: cola_t *cola, int *valor
+    descripcion: Desencola el valor del frente en *valor; devuelve false si la cola está vacía.

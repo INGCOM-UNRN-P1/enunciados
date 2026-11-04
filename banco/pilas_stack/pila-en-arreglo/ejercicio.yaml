@@ -1,0 +1,18 @@
+id: pila-en-arreglo
+titulo: Pila acotada sobre un arreglo
+tema: pilas_stack
+bloom: 3
+minutos_estimados: 25
+tags: [pilas, arreglos, tad]
+pistas:
+  - El tope vale -1 cuando la pila está vacía; push incrementa antes de escribir.
+  - La pila está llena cuando tope == CAPACIDAD - 1.
+funciones:
+  - nombre: pila_push
+    retorno: bool
+    parametros: pila_t *pila, int valor
+    descripcion: Apila valor; devuelve false si la pila está llena.
+  - nombre: pila_pop
+    retorno: bool
+    parametros: pila_t *pila, int *valor
+    descripcion: Desapila en *valor; devuelve false si la pila está vacía.

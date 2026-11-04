@@ -1,0 +1,22 @@
+id: abb-tda
+titulo: TDA Árbol Binario de Búsqueda
+tema: arboles_binarios
+bloom: 4
+minutos_estimados: 45
+tags: [arboles, bst, tda, memoria_dinamica, recursion]
+pistas:
+  - 'En abb_insertar, el caso base es cuando *raiz es NULL: ahí se crea el nodo con malloc.'
+  - Al destruir el árbol recursivamente, liberá los subárboles izquierdo y derecho antes de liberar la raíz (postorden).
+funciones:
+  - nombre: abb_insertar
+    retorno: bool
+    parametros: nodo_abb_t **raiz, int clave
+    descripcion: Inserta clave respetando el orden del ABB; devuelve false si ya existe o si falla malloc.
+  - nombre: abb_buscar
+    retorno: bool
+    parametros: const nodo_abb_t *raiz, int clave
+    descripcion: Devuelve true si la clave existe en el árbol; false en caso contrario.
+  - nombre: abb_destruir
+    retorno: void
+    parametros: nodo_abb_t **raiz
+    descripcion: Libera todos los nodos del árbol en postorden y asigna NULL a *raiz.
