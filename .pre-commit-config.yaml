@@ -1,0 +1,11 @@
+# Hooks de pre-commit del banco (https://pre-commit.com): `pre-commit install` una vez por clon.
+repos:
+  # Diagramas de estructuras: cada bloque ```estructura de un enunciado se dibuja en
+  # <ejercicio>/diagramas/estructura-<hash>.svg y se versiona; `deckard export myst` (en el CI)
+  # publica esa imagen y `deckard lint` falla si falta. Si el hook escribe o borra un SVG, el
+  # commit se corta: revisá y agregá los cambios (git add) y volvé a commitear.
+  - repo: https://github.com/INGCOM-UNRN/alucarD
+    rev: 979f4ace1511ed4c6489e3f90f2d20189b726e41
+    hooks:
+      - id: alucard-diagramas
+        files: ^banco/.*\.md$
