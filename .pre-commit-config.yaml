@@ -5,7 +5,7 @@ repos:
   # publica esa imagen y `deckard lint` falla si falta. Si el hook escribe o borra un SVG, el
   # commit se corta: revisá y agregá los cambios (git add) y volvé a commitear.
   - repo: https://github.com/INGCOM-UNRN/alucarD
-    rev: 979f4ace1511ed4c6489e3f90f2d20189b726e41
+    rev: b071a535677356d76a04e70c48e7c8c95a2a0923
     hooks:
       - id: alucard-diagramas
         files: ^banco/.*\.md$
