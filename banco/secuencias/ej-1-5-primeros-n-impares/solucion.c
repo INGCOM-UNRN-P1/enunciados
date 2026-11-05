@@ -1,19 +1,14 @@
-/*
- * Ejercicio: Primeros N Impares
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int proc_5_primeros_n_impares(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Primeros N Impares */
+    int n;
+
+    if (scanf("%d", &n) != 1 || n < 1)
+        return 1;
+
+    for (long long k = 1; k <= n; k++)
+        printf("%lld\n", 2 * k - 1);
+
     return 0;
 }

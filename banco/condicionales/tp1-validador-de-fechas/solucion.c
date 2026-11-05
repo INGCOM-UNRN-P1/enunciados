@@ -52,3 +52,34 @@ bool es_fecha_valida(int dia, int mes, int anio)
     dias_max = dias_en_mes(mes, anio);
     return (dia >= 1 && dia <= dias_max);
 }
+
+#include <stdio.h>
+
+static int leer_rango(const char *mensaje, int minimo, int maximo, int *valor)
+{
+    do {
+        printf("%s", mensaje);
+        if (scanf("%d", valor) != 1)
+            return 0;
+    } while (*valor < minimo || *valor > maximo);
+    return 1;
+}
+
+int main(void)
+{
+    char continuar;
+    do {
+        int anio, mes, dia;
+        if (!leer_rango("Ingrese año (ej: 2026): ", 1, 9999, &anio) ||
+            !leer_rango("Ingrese mes (1-12): ", 1, 12, &mes) ||
+            !leer_rango("Ingrese día (1-31): ", 1, 31, &dia))
+            return 1;
+        printf("La fecha %02d/%02d/%04d %ses válida.\n", dia, mes, anio,
+               es_fecha_valida(dia, mes, anio) ? "" : "NO ");
+        printf("El año %d %ses bisiesto.\n", anio, es_bisiesto(anio) ? "" : "no ");
+        printf("¿Desea validar otra fecha? (s/n): ");
+        if (scanf(" %c", &continuar) != 1)
+            return 0;
+    } while (continuar == 's' || continuar == 'S');
+    return 0;
+}

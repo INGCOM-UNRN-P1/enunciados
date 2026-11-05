@@ -1,76 +1,57 @@
 id: bitmap-operaciones-bits
-titulo: Estructura de bitmap_t Compacto y Operaciones Bitwise
+titulo: Estructura compacta de bitmap_t
 tema: operaciones_bits
 bloom: 4
 minutos_estimados: 40
 pistas:
-- Para un bit $n$, el byte que lo contiene es `n / 8` y la posición dentro del byte
-  es `n % 8`.
-- 'Para encender el bit: `buffer[n / 8] |= (1 << (n % 8))`.'
-- 'Para apagar el bit: `buffer[n / 8] &= ~(1 << (n % 8))`.'
-- 'Para consultar el bit: `(buffer[n / 8] & (1 << (n % 8))) != 0`.'
+  - El byte es index / 8 y el desplazamiento es index % 8.
 tags:
-- operaciones_bits
-- bitwise
-- bitmap
-- mascaras
-- optimizacion
-- dep:tipos_datos
-- dep:aritmetica
-- c11
-- intermedia
+  - operaciones_bits
+  - bitwise
+  - bitmap
+  - c11
+  - intermedia
 verificado: true
 funciones:
-- nombre: bitmap_init
-  retorno: void
-  parametros: bitmap_t *bm, size_t total_bits
-  descripcion: Operación bitmap_init
-- nombre: bitmap_set
-  retorno: void
-  parametros: bitmap_t *bm, size_t index
-  descripcion: Operación bitmap_set
-- nombre: bitmap_clear
-  retorno: void
-  parametros: bitmap_t *bm, size_t index
-  descripcion: Operación bitmap_clear
-- nombre: bitmap_test
-  retorno: int
-  parametros: const bitmap_t *bm, size_t index
-  descripcion: Operación bitmap_test
-- nombre: bitmap_count
-  retorno: size_t
-  parametros: const bitmap_t *bm
-  descripcion: Operación bitmap_count
-- nombre: bitmap_free
-  retorno: void
-  parametros: bitmap_t *bm
-  descripcion: Operación bitmap_free
+  - nombre: bitmap_init
+    retorno: void
+    parametros: bitmap_t *bm, size_t total_bits
+    descripcion: Inicializa el bitmap con todos sus bits apagados.
+  - nombre: bitmap_set
+    retorno: void
+    parametros: bitmap_t *bm, size_t index
+    descripcion: Enciende el índice válido indicado.
+  - nombre: bitmap_clear
+    retorno: void
+    parametros: bitmap_t *bm, size_t index
+    descripcion: Apaga el índice válido indicado.
+  - nombre: bitmap_test
+    retorno: int
+    parametros: const bitmap_t *bm, size_t index
+    descripcion: Indica si el índice válido está encendido.
+  - nombre: bitmap_count
+    retorno: size_t
+    parametros: const bitmap_t *bm
+    descripcion: Cuenta los bits encendidos.
+  - nombre: bitmap_free
+    retorno: void
+    parametros: bitmap_t *bm
+    descripcion: Libera y reinicia el bitmap.
 tests_funciones:
-- nombre: test_bitmap_init_positivo
-  funcion: bitmap_init
-  codigo: 'int res = bitmap_init(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_bitmap_init_cero
-  funcion: bitmap_init
-  codigo: 'int res = bitmap_init(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_bitmap_init_negativo
-  funcion: bitmap_init
-  codigo: 'int res = bitmap_init(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_bitmap_init_limite
-  funcion: bitmap_init
-  codigo: 'int res = bitmap_init(100);
-
-    assert(res >= 0 || res == 200);'
+  - nombre: test_bitmap_de_5_bits
+    funcion: bitmap_count
+    codigo: 'bitmap_t bm = {NULL, 0, 0}; bitmap_init(&bm, 5); assert(bm.total_bits == 5 && bm.num_bytes == 1); bitmap_set(&bm, 0); bitmap_set(&bm, 4); assert(bitmap_test(&bm, 0) == 1 && bitmap_test(&bm, 4) == 1); assert(bitmap_count(&bm) == 2); bitmap_clear(&bm, 0); assert(bitmap_count(&bm) == 1); bitmap_free(&bm); assert(bm.bytes == NULL && bm.total_bits == 0 && bm.num_bytes == 0);'
+  - nombre: test_limites_y_cero
+    funcion: bitmap_init
+    codigo: 'bitmap_t bm = {NULL, 0, 0}; bitmap_init(&bm, 0); assert(bitmap_count(&bm) == 0 && bitmap_test(&bm, 0) == 0); bitmap_set(&bm, 0); bitmap_clear(&bm, 0); bitmap_free(&bm); bitmap_set(NULL, 0); bitmap_clear(NULL, 0); bitmap_free(NULL); assert(bitmap_test(NULL, 0) == 0 && bitmap_count(NULL) == 0);'
+  - nombre: test_cruza_byte_y_fuera_de_rango
+    funcion: bitmap_set
+    codigo: 'bitmap_t bm = {NULL, 0, 0}; bitmap_init(&bm, 9); bitmap_set(&bm, 8); bitmap_set(&bm, 9); assert(bitmap_test(&bm, 8) == 1 && bitmap_test(&bm, 9) == 0); assert(bitmap_count(&bm) == 1); bitmap_free(&bm);'
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: operaciones_bits
 dificultad: intermedia
 prerrequisitos:
-- tipos_datos
-- aritmetica
+  - tipos_datos
+  - aritmetica
 publicar: true

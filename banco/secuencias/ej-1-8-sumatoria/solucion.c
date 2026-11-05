@@ -1,19 +1,16 @@
-/*
- * Ejercicio: Sumatoria
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int ejecutar_ej_1_8_sumatoria(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Sumatoria */
+    int n, m;
+
+    if (scanf("%d%d", &n, &m) != 2 || n > m)
+        return 1;
+
+    long long suma = 0;
+    for (long long i = n; i <= m; i++)
+        suma += i;
+
+    printf("%lld\n", suma);
     return 0;
 }

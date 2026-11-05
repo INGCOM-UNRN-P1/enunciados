@@ -1,19 +1,14 @@
-/*
- * Ejercicio: Secuencia Descendente
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int proc_ecuencia_descendente(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Secuencia Descendente */
+    int n, m;
+
+    if (scanf("%d%d", &n, &m) != 2)
+        return 1;
+
+    for (long long i = n; i > m; i--)
+        printf("%lld\n", i);
+
     return 0;
 }

@@ -1,19 +1,14 @@
-/*
- * Ejercicio: Rectángulo
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int ejecutar_ej_1_17_rectangulo(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Rectángulo */
+    double largo, ancho;
+
+    if (scanf("%lf%lf", &largo, &ancho) != 2 || largo <= 0 || ancho <= 0)
+        return 1;
+
+    double area = largo * ancho;
+    double perimetro = 2 * (largo + ancho);
+    printf("%.2f\n%.2f\n", area, perimetro);
     return 0;
 }

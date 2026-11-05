@@ -1,86 +1,79 @@
-/*
- * bitmap_t Compacto con Operaciones a Nivel de Bits
- * Catedra Programacion I - UNRN
- */
+#include "bitmap-operaciones-bits.h"
 
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct
-{
-    uint8_t *bytes;
-    size_t total_bits;
-    size_t num_bytes;
-} bitmap_t;
-
 void bitmap_init(bitmap_t *bm, size_t total_bits)
 {
-    bm->total_bits = total_bits;
-    bm->num_bytes = (total_bits + 7) / 8;
-    uint8_t *b = (uint8_t *)calloc(bm->num_bytes, sizeof(uint8_t));
-    if (b == NULL)
-    {
-        bm->bytes = NULL;
-        bm->total_bits = 0;
-        bm->num_bytes = 0;
+    if (bm == NULL) {
         return;
     }
-    bm->bytes = b;
+
+    bm->bytes = NULL;
+    bm->total_bits = 0;
+    bm->num_bytes = 0;
+
+    /* Avoid overflow in total_bits + 7. */
+    size_t num_bytes = total_bits / 8 + (total_bits % 8 != 0);
+    if (num_bytes == 0) {
+        return;
+    }
+
+    uint8_t *bytes = calloc(num_bytes, sizeof(*bytes));
+    if (bytes != NULL) {
+        bm->bytes = bytes;
+        bm->total_bits = total_bits;
+        bm->num_bytes = num_bytes;
+    }
 }
 
 void bitmap_set(bitmap_t *bm, size_t index)
 {
-    if (bm->bytes != NULL && index < bm->total_bits)
-    {
-        bm->bytes[index / 8] |= (uint8_t)(1 << (index % 8));
+    if (bm != NULL && bm->bytes != NULL && index < bm->total_bits) {
+        bm->bytes[index / 8] |= (uint8_t)(1u << (index % 8));
     }
 }
 
 void bitmap_clear(bitmap_t *bm, size_t index)
 {
-    if (bm->bytes != NULL && index < bm->total_bits)
-    {
-        bm->bytes[index / 8] &= (uint8_t)(~(1 << (index % 8)));
+    if (bm != NULL && bm->bytes != NULL && index < bm->total_bits) {
+        bm->bytes[index / 8] &= (uint8_t)~(1u << (index % 8));
     }
 }
 
 int bitmap_test(const bitmap_t *bm, size_t index)
 {
-    if (bm->bytes == NULL || index >= bm->total_bits)
-    {
+    if (bm == NULL || bm->bytes == NULL || index >= bm->total_bits) {
         return 0;
     }
-    return (bm->bytes[index / 8] & (uint8_t)(1 << (index % 8))) ? 1 : 0;
+    return (bm->bytes[index / 8] & (uint8_t)(1u << (index % 8))) != 0;
 }
 
 size_t bitmap_count(const bitmap_t *bm)
 {
-    if (bm->bytes == NULL)
-    {
+    if (bm == NULL || bm->bytes == NULL) {
         return 0;
     }
-    size_t contador = 0;
-    for (size_t i = 0; i < bm->num_bytes; i++)
-    {
-        uint8_t b = bm->bytes[i];
-        while (b > 0)
-        {
-            contador += (size_t)(b & 1);
-            b >>= 1;
+
+    size_t count = 0;
+    for (size_t i = 0; i < bm->num_bytes; ++i) {
+        uint8_t byte = bm->bytes[i];
+        while (byte != 0) {
+            byte &= (uint8_t)(byte - 1u);
+            ++count;
         }
     }
-    return contador;
+    return count;
 }
 
 void bitmap_free(bitmap_t *bm)
 {
-    if (bm->bytes != NULL)
-    {
-        free(bm->bytes);
-        bm->bytes = NULL;
+    if (bm == NULL) {
+        return;
     }
+    free(bm->bytes);
+    bm->bytes = NULL;
     bm->total_bits = 0;
     bm->num_bytes = 0;
 }
@@ -88,46 +81,26 @@ void bitmap_free(bitmap_t *bm)
 int main(void)
 {
     bitmap_t bm = {NULL, 0, 0};
-    char comando[32] = {0};
-    size_t index = 0;
+    char comando[32];
+    size_t index;
 
-    while (scanf("%31s", comando) == 1)
-    {
-        if (strcmp(comando, "INIT") == 0)
-        {
-            if (scanf("%zu", &index) == 1)
-            {
-                bitmap_free(&bm);
-                bitmap_init(&bm, index);
-            }
-        }
-        else if (strcmp(comando, "SET") == 0)
-        {
-            if (scanf("%zu", &index) == 1)
-            {
-                bitmap_set(&bm, index);
-            }
-        }
-        else if (strcmp(comando, "CLEAR") == 0)
-        {
-            if (scanf("%zu", &index) == 1)
-            {
-                bitmap_clear(&bm, index);
-            }
-        }
-        else if (strcmp(comando, "TEST") == 0)
-        {
-            if (scanf("%zu", &index) == 1)
-            {
-                printf("%d\n", bitmap_test(&bm, index));
-            }
-        }
-        else if (strcmp(comando, "COUNT") == 0)
-        {
+    while (scanf("%31s", comando) == 1) {
+        if (strcmp(comando, "INIT") == 0) {
+            if (scanf("%zu", &index) != 1) break;
+            bitmap_free(&bm);
+            bitmap_init(&bm, index);
+        } else if (strcmp(comando, "SET") == 0) {
+            if (scanf("%zu", &index) != 1) break;
+            bitmap_set(&bm, index);
+        } else if (strcmp(comando, "CLEAR") == 0) {
+            if (scanf("%zu", &index) != 1) break;
+            bitmap_clear(&bm, index);
+        } else if (strcmp(comando, "TEST") == 0) {
+            if (scanf("%zu", &index) != 1) break;
+            printf("%d\n", bitmap_test(&bm, index));
+        } else if (strcmp(comando, "COUNT") == 0) {
             printf("%zu\n", bitmap_count(&bm));
-        }
-        else if (strcmp(comando, "EXIT") == 0)
-        {
+        } else if (strcmp(comando, "EXIT") == 0) {
             break;
         }
     }

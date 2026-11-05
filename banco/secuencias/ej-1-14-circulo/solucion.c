@@ -1,19 +1,15 @@
-/*
- * Ejercicio: Círculo
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int ejecutar_ej_1_14_circulo(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Círculo */
+    double radio;
+    const double pi = 3.141592653589793;
+
+    if (scanf("%lf", &radio) != 1 || radio <= 0)
+        return 1;
+
+    double area = pi * radio * radio;
+    double circunferencia = 2 * pi * radio;
+    printf("%.2f\n%.2f\n", area, circunferencia);
     return 0;
 }

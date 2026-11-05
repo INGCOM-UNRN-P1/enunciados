@@ -44,45 +44,37 @@ publicar: true
 tests_funciones:
 - nombre: test_es_bisiesto_positivo
   funcion: es_bisiesto
-  codigo: 'int res = es_bisiesto(5);
-
-    assert(res >= 0 || res == 10);'
+  codigo: assert(es_bisiesto(2024)); assert(es_bisiesto(2000));
 - nombre: test_es_bisiesto_cero
   funcion: es_bisiesto
-  codigo: 'int res = es_bisiesto(0);
-
-    assert(res == 0 || res >= 0);'
+  codigo: assert(!es_bisiesto(0));
 - nombre: test_es_bisiesto_negativo
   funcion: es_bisiesto
-  codigo: 'int res = es_bisiesto(-5);
-
-    assert(res <= 0 || res >= -100);'
+  codigo: assert(!es_bisiesto(-4));
 - nombre: test_es_bisiesto_limite
   funcion: es_bisiesto
-  codigo: 'int res = es_bisiesto(100);
-
-    assert(res >= 0 || res == 200);'
+  codigo: assert(!es_bisiesto(1900)); assert(!es_bisiesto(2100));
 - nombre: test_dias_en_mes_prueba_1
   funcion: dias_en_mes
-  codigo: assert(dias_en_mes(1, 2026) == 31);
+  codigo: assert(dias_en_mes(2, 2024) == 29);
 - nombre: test_dias_en_mes_prueba_2
   funcion: dias_en_mes
-  codigo: assert(dias_en_mes(3, 2026) == 31);
+  codigo: assert(dias_en_mes(2, 1900) == 28);
 - nombre: test_dias_en_mes_prueba_3
   funcion: dias_en_mes
-  codigo: assert(dias_en_mes(5, 2026) == 31);
+  codigo: assert(dias_en_mes(4, 2026) == 30);
 - nombre: test_dias_en_mes_prueba_4
   funcion: dias_en_mes
-  codigo: assert(dias_en_mes(7, 2026) == 31);
+  codigo: assert(dias_en_mes(13, 2026) == 0);
 - nombre: test_es_fecha_valida_prueba_1
   funcion: es_fecha_valida
-  codigo: assert(es_fecha_valida(1, 1, 2026));
+  codigo: assert(es_fecha_valida(29, 2, 2024));
 - nombre: test_es_fecha_valida_prueba_2
   funcion: es_fecha_valida
-  codigo: assert(es_fecha_valida(31, 1, 2026));
+  codigo: assert(!es_fecha_valida(29, 2, 2023));
 - nombre: test_es_fecha_valida_prueba_3
   funcion: es_fecha_valida
-  codigo: assert(es_fecha_valida(30, 4, 2026));
+  codigo: assert(!es_fecha_valida(31, 4, 2026));
 - nombre: test_es_fecha_valida_prueba_4
   funcion: es_fecha_valida
-  codigo: assert(es_fecha_valida(28, 2, 2023));
+  codigo: assert(!es_fecha_valida(1, 1, 0));

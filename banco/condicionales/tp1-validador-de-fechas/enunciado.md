@@ -31,33 +31,13 @@ bool es_fecha_valida(int dia, int mes, int anio);
 
 ```
 
-### 🧪 Ejemplos de Ejecución
+### Casos de referencia
 
-::::{tab-set}
-:::{tab-item} Caso general
-```text
-val = 10
-Salida: Retorno calculado correctamente
-```
-:::
-:::{tab-item} Caso límite
-```text
-val = 0
-Salida: Retorno neutral o código de validación
-```
-:::
-::::
+- `es_bisiesto(2000)` retorna `true`; `es_bisiesto(1900)` retorna `false`.
+- `dias_en_mes(2, 2024)` retorna `29`; `dias_en_mes(13, 2024)` retorna `0`.
+- `es_fecha_valida(29, 2, 2024)` retorna `true`; `es_fecha_valida(29, 2, 2023)` retorna `false`.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+Las funciones reciben año, mes y día como enteros; no se requiere implementar un programa interactivo.
 
 :::{hint} Consideraciones Didácticas
 - Un año bisiesto gregoriano es divisible por 4 y no por 100, excepto que sea divisible por 400.

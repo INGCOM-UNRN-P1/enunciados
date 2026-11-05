@@ -1,19 +1,15 @@
-/*
- * Ejercicio: Estado de aprobación de calificación
- * Cátedra Programación I - UNRN
- */
-
+#include <stdbool.h>
 #include <stdio.h>
 
-
-int proc_aprobacion_de_califi(int val)
+bool aprobo(int nota)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    return nota >= 4;
 }
 
 int main(void)
 {
-    /* TODO: Implementación de Estado de aprobación de calificación */
+    int nota;
+    if (scanf("%d", &nota) != 1) return 1;
+    puts(aprobo(nota) ? "Aprobado" : "Desaprobado");
     return 0;
 }
