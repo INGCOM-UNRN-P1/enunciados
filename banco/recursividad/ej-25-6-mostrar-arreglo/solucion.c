@@ -1,19 +1,13 @@
-/*
- * Ejercicio: Mostrar arreglo
- * Cátedra Programación I - UNRN
- */
+#include "ej-25-6-mostrar-arreglo.h"
 
-#include <stdio.h>
-
-
-int proc_25_6_mostrar_arreglo(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Mostrar arreglo */
-    return 0;
+void proc_25_6_mostrar_arreglo(FILE *salida, const int *arreglo,
+                              size_t longitud) {
+    if (salida == NULL || arreglo == NULL || longitud == 0) {
+        return;
+    }
+    fprintf(salida, "%d", arreglo[0]);
+    if (longitud > 1) {
+        fputc(' ', salida);
+        proc_25_6_mostrar_arreglo(salida, arreglo + 1, longitud - 1);
+    }
 }

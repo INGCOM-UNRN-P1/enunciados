@@ -1,46 +1,12 @@
-Imprimir el primer elemento y luego llamar a la función con el resto del
-arreglo.
+# Mostrar arreglo recursivamente
 
-### 📋 Contrato de las Funciones
+Implementá `proc_25_6_mostrar_arreglo` para imprimir los elementos de un arreglo
+de enteros en orden. La función debe imprimir el primer elemento y luego llamarse
+recursivamente con el resto del arreglo.
 
-```c
-/*
- * Procesa el flujo principal de Mostrar arreglo
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_25_6_mostrar_arreglo(int val);
+La interfaz está declarada en `ej-25-6-mostrar-arreglo.h`. Recibe el flujo de
+salida, el arreglo y su longitud. Los elementos se imprimen separados por un
+espacio, sin espacio ni salto de línea al final. Una longitud cero no imprime
+nada; en ese caso el puntero al arreglo puede ser nulo.
 
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Ejemplo: para `{4, -2, 9}` imprime `4 -2 9`.

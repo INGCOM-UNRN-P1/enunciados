@@ -8,19 +8,17 @@ tags:
 - cursada-2026
 - recursividad
 - dep:funciones
-- dep:punteros
 - c11
-- intermedia
 verificado: true
 funciones:
 - nombre: fibonacci
   retorno: int
-  parametros: int n
+  parametros: int posicion
   descripcion: Calcula el n-ésimo término de la sucesión de Fibonacci (F0 = 0, F1
     = 1).
 - nombre: suma_fibonacci
   retorno: int
-  parametros: int n
+  parametros: int hasta_posicion
   descripcion: Calcula la suma acumulada de los primeros n términos de Fibonacci (de
     F0 hasta Fn).
 tipo_entrega: makefile
@@ -32,30 +30,24 @@ dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
 - funciones
-- punteros
 subtema: fibonacci
 publicar: true
 tests_funciones:
 - nombre: test_fibonacci_positivo
   funcion: fibonacci
-  codigo: 'int res = fibonacci(5);
-
-    assert(res >= 0 || res == 10);'
+  codigo: assert(fibonacci(5) == 5);
 - nombre: test_fibonacci_cero
   funcion: fibonacci
-  codigo: 'int res = fibonacci(0);
-
-    assert(res == 0 || res >= 0);'
+  codigo: assert(fibonacci(0) == 0);
 - nombre: test_fibonacci_negativo
   funcion: fibonacci
-  codigo: 'int res = fibonacci(-5);
-
-    assert(res <= 0 || res >= -100);'
+  codigo: assert(fibonacci(-5) == -1);
 - nombre: test_fibonacci_limite
   funcion: fibonacci
-  codigo: 'int res = fibonacci(100);
-
-    assert(res >= 0 || res == 200);'
+  codigo: assert(fibonacci(46) == 1836311903);
+- nombre: test_fibonacci_overflow
+  funcion: fibonacci
+  codigo: assert(fibonacci(47) == -1);
 - nombre: test_suma_fibonacci_prueba_1
   funcion: suma_fibonacci
   codigo: assert(suma_fibonacci(-1) == -1);
@@ -68,3 +60,6 @@ tests_funciones:
 - nombre: test_suma_fibonacci_prueba_4
   funcion: suma_fibonacci
   codigo: assert(suma_fibonacci(4) == 7);
+- nombre: test_suma_fibonacci_overflow
+  funcion: suma_fibonacci
+  codigo: assert(suma_fibonacci(45) == -1);

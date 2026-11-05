@@ -11,53 +11,40 @@ pistas:
 tags:
 - contar
 - lineas
-- memoria
 - io_disco
 - palabras
-- dep:cadenas
-- dep:punteros
-- dep:io_formato
 - c11
 - intermedia
+- archivos
 verificado: true
 funciones:
-- nombre: proc_eas_palabras_y_carac
+- nombre: contar_archivo
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Contar Líneas, Palabras y Caracteres
+  parametros: const char *ruta, size_t *lineas, size_t *palabras, size_t *caracteres
+  descripcion: Abre el archivo en modo binario; cuenta bytes, palabras delimitadas
+    por espacios en blanco y líneas como saltos de línea más una última línea sin
+    salto final. Devuelve 0 en éxito y -1 ante error.
 tests_funciones:
-- nombre: test_proc_eas_palabras_y_carac_positivo
-  funcion: proc_eas_palabras_y_carac
-  codigo: 'int res = proc_eas_palabras_y_carac(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_eas_palabras_y_carac_cero
-  funcion: proc_eas_palabras_y_carac
-  codigo: 'int res = proc_eas_palabras_y_carac(0);
-
-    assert(res == 0);'
-- nombre: test_proc_eas_palabras_y_carac_negativo
-  funcion: proc_eas_palabras_y_carac
-  codigo: 'int res = proc_eas_palabras_y_carac(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_eas_palabras_y_carac_valor_limite
-  funcion: proc_eas_palabras_y_carac
-  codigo: 'int res = proc_eas_palabras_y_carac(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_eas_palabras_y_carac_valor_unitario
-  funcion: proc_eas_palabras_y_carac
-  codigo: 'int res = proc_eas_palabras_y_carac(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_conteo_con_ultima_linea_sin_salto
+  funcion: contar_archivo
+  codigo: extern int mkstemp(char *); extern int close(int); char ruta[]="/tmp/deckard_wc_XXXXXX";
+    int fd=mkstemp(ruta); FILE *f; size_t l,p,c; assert(fd>=0); assert(close(fd)==0);
+    f=fopen(ruta,"wb"); assert(f); assert(fwrite("hola mundo\nC",1,12,f)==12); assert(fclose(f)==0);
+    assert(contar_archivo(ruta,&l,&p,&c)==0); assert(l==2&&p==3&&c==12); assert(remove(ruta)==0);
+- nombre: test_archivo_vacio
+  funcion: contar_archivo
+  codigo: extern int mkstemp(char *); extern int close(int); char ruta[]="/tmp/deckard_wc_XXXXXX";
+    int fd=mkstemp(ruta); size_t l=9,p=9,c=9; assert(fd>=0); assert(close(fd)==0);
+    assert(contar_archivo(ruta,&l,&p,&c)==0); assert(l==0&&p==0&&c==0); assert(remove(ruta)==0);
+- nombre: test_puntero_nulo
+  funcion: contar_archivo
+  codigo: extern int mkstemp(char *); extern int close(int); size_t l,p,c; assert(contar_archivo(NULL,&l,&p,&c)==-1);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
-subtema: contar
+subtema: 6-contar-lineas-palabras-y-carac
 dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
-- cadenas
-- punteros
+- archivos
 - io_formato
 publicar: true

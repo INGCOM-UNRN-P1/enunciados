@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_EJ_21_5_TRANSPOSICION_H
-#define EJERCICIO_EJ_21_5_TRANSPOSICION_H
+#ifndef EJ_21_5_TRANSPOSICION_H
+#define EJ_21_5_TRANSPOSICION_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Transposición */
-int ejecutar_ej_21_5_transposicion(int val);
+int transponer_matriz(size_t filas, size_t columnas, const int *entrada, int *salida);
 
-#endif /* EJERCICIO_EJ_21_5_TRANSPOSICION_H */
+#endif /* EJ_21_5_TRANSPOSICION_H */

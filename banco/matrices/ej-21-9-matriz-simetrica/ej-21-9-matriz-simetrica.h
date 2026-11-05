@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_EJ_21_9_MATRIZ_SIMETRICA_H
-#define EJERCICIO_EJ_21_9_MATRIZ_SIMETRICA_H
+#ifndef EJ_21_9_MATRIZ_SIMETRICA_H
+#define EJ_21_9_MATRIZ_SIMETRICA_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Matriz simétrica */
-int proc_1_9_matriz_simetrica(int val);
+bool es_simetrica(size_t n, const int *matriz);
 
-#endif /* EJERCICIO_EJ_21_9_MATRIZ_SIMETRICA_H */
+#endif /* EJ_21_9_MATRIZ_SIMETRICA_H */

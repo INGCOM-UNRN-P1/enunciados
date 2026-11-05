@@ -3,14 +3,11 @@
  * Programación 1 - Ingeniería en Computación - UNRN Andina
  */
 
-#include <stdio.h>
 #include <assert.h>
 #include "ejercicio2.h"
 
 int main(void) {
-    printf("Ejecutando pruebas de Ejercicio 2...\n");
-
-    // Pruebas fibonacci
+    /* Fibonacci */
     assert(fibonacci(-1) == -1);
     assert(fibonacci(0) == 0);
     assert(fibonacci(1) == 1);
@@ -21,12 +18,16 @@ int main(void) {
     assert(fibonacci(6) == 8);
     assert(fibonacci(7) == 13);
 
-    // Pruebas suma_fibonacci
+    assert(fibonacci(45) == 1134903170);
+    assert(fibonacci(46) == 1836311903);
+    assert(fibonacci(47) == -1);
+
+    /* Sumas inclusivas */
     assert(suma_fibonacci(-1) == -1);
     assert(suma_fibonacci(0) == 0);
-    assert(suma_fibonacci(1) == 1); // 0 + 1
-    assert(suma_fibonacci(4) == 7); // 0 + 1 + 1 + 2 + 3
-
-    printf("Todas las pruebas del Ejercicio 2 pasaron con exito.\n");
+    assert(suma_fibonacci(1) == 1);
+    assert(suma_fibonacci(4) == 7);
+    assert(suma_fibonacci(44) == 1836311902);
+    assert(suma_fibonacci(45) == -1);
     return 0;
 }

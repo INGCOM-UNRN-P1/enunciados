@@ -1,49 +1,17 @@
-Implementar una versión simple del comando `wc` de Unix. El programa debe
-recibir una ruta de archivo y reportar el número total de líneas, palabras y
-caracteres que contiene.
+# Contar líneas, palabras y caracteres
 
-### 📋 Contrato de las Funciones
+Implementá una versión simple de `wc` mediante:
 
 ```c
-/*
- * Procesa el flujo principal de Contar Líneas, Palabras y Caracteres
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_eas_palabras_y_carac(int val);
-
+int contar_archivo(const char *ruta, size_t *lineas, size_t *palabras,
+                   size_t *caracteres);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La función cuenta bytes, palabras separadas por caracteres de espacio en blanco
+y líneas. Las líneas se cuentan por cada `\n`, más una línea final si el archivo
+no termina en `\n` y contiene bytes. Devuelve `0` en éxito y `-1` si la ruta,
+alguna salida o una operación de archivo falla; ante error no modifica los
+contadores.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de operar.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
-- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
-:::
+El programa recibe una sola ruta como argumento y reporta los tres conteos.
+Un archivo vacío produce tres ceros.

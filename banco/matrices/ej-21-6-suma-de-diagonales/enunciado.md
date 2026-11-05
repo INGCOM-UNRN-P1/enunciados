@@ -28,31 +28,14 @@ Suma Diagonal Secundaria: `3 + 5 + 7 = 15`
 ### 📋 Contrato de las Funciones
 
 ```c
-/*
- * Procesa el flujo principal de Suma de diagonales
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_6_suma_de_diagonales(int val);
-
+int sumar_diagonales(size_t n, const int *matriz, int *principal, int *secundaria);
 ```
+
+Requiere `n > 0`, un arreglo de al menos `n * n` enteros y punteros de salida válidos. Retorna `0` en éxito o `-1` ante argumentos inválidos o si una suma no cabe en `int`; en error no modifica las salidas. El centro de orden impar pertenece a ambas diagonales y se suma en cada una.
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Los casos definidos en `ejercicio.yaml` prueban la operación, dimensiones límite e índices o punteros inválidos.
 
 ### ⚠️ Precondiciones y Casos Borde
 

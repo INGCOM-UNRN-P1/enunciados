@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_EJ_21_6_SUMA_DE_DIAGONALES_H
-#define EJERCICIO_EJ_21_6_SUMA_DE_DIAGONALES_H
+#ifndef EJ_21_6_SUMA_DE_DIAGONALES_H
+#define EJ_21_6_SUMA_DE_DIAGONALES_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Suma de diagonales */
-int proc_6_suma_de_diagonales(int val);
+int sumar_diagonales(size_t n, const int *matriz, int *principal, int *secundaria);
 
-#endif /* EJERCICIO_EJ_21_6_SUMA_DE_DIAGONALES_H */
+#endif /* EJ_21_6_SUMA_DE_DIAGONALES_H */

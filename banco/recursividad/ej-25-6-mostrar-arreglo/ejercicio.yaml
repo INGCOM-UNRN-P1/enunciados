@@ -1,61 +1,52 @@
 id: ej-25-6-mostrar-arreglo
-titulo: Mostrar arreglo
+titulo: Mostrar arreglo recursivamente
 tema: recursividad
 bloom: 3
 minutos_estimados: 25
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
 tags:
-- recursividad
-- arreglo
-- induccion
-- algoritmos
-- mostrar
-- dep:funciones
-- dep:punteros
-- c11
-- intermedia
+  - recursividad
+  - arreglo
+  - induccion
+  - c11
 verificado: true
 funciones:
-- nombre: proc_25_6_mostrar_arreglo
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Mostrar arreglo
-tests_funciones:
-- nombre: test_proc_25_6_mostrar_arreglo_positivo
-  funcion: proc_25_6_mostrar_arreglo
-  codigo: 'int res = proc_25_6_mostrar_arreglo(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_25_6_mostrar_arreglo_cero
-  funcion: proc_25_6_mostrar_arreglo
-  codigo: 'int res = proc_25_6_mostrar_arreglo(0);
-
-    assert(res == 0);'
-- nombre: test_proc_25_6_mostrar_arreglo_negativo
-  funcion: proc_25_6_mostrar_arreglo
-  codigo: 'int res = proc_25_6_mostrar_arreglo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_25_6_mostrar_arreglo_valor_limite
-  funcion: proc_25_6_mostrar_arreglo
-  codigo: 'int res = proc_25_6_mostrar_arreglo(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_25_6_mostrar_arreglo_valor_unitario
-  funcion: proc_25_6_mostrar_arreglo
-  codigo: 'int res = proc_25_6_mostrar_arreglo(1);
-
-    assert(res >= 0 || res == 2);'
+  - nombre: proc_25_6_mostrar_arreglo
+    retorno: void
+    parametros: FILE *salida, const int *arreglo, size_t longitud
+    descripcion: Imprime recursivamente los elementos separados por espacios.
+tipo_entrega: makefile
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
-subtema: arreglo
 dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
-- funciones
-- punteros
+  - funciones
+  - punteros
+subtema: arreglo
 publicar: true
+tests_funciones:
+  - nombre: test_mostrar_arreglo_orden_y_formato
+    funcion: proc_25_6_mostrar_arreglo
+    codigo: |
+      FILE *salida = tmpfile();
+      assert(salida != NULL);
+      const int valores[] = {4, -2, 9};
+      proc_25_6_mostrar_arreglo(salida, valores, 3);
+      fflush(salida);
+      rewind(salida);
+      assert(fgetc(salida) == '4');
+      assert(fgetc(salida) == ' ');
+      assert(fgetc(salida) == '-');
+      assert(fgetc(salida) == '2');
+      assert(fgetc(salida) == ' ');
+      assert(fgetc(salida) == '9');
+      assert(fgetc(salida) == EOF);
+      fclose(salida);
+  - nombre: test_mostrar_arreglo_vacio
+    funcion: proc_25_6_mostrar_arreglo
+    codigo: |
+      FILE *salida = tmpfile();
+      assert(salida != NULL);
+      proc_25_6_mostrar_arreglo(salida, NULL, 0);
+      assert(ftell(salida) == 0);
+      fclose(salida);

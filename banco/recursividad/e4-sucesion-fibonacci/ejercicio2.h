@@ -9,14 +9,14 @@
 /**
  * @brief Calcula el n-ésimo término de la sucesión de Fibonacci (F0 = 0, F1 = 1).
  * @param n Posición (base 0).
- * @return El valor del término, o -1 si n < 0.
+ * @return El valor del término, o -1 si n no cabe en el rango int.
  */
 int fibonacci(int n);
 
 /**
  * @brief Calcula la suma acumulada de los primeros n términos de Fibonacci (de F0 hasta Fn).
  * @param n Cantidad de términos inclusive.
- * @return La suma acumulada, o -1 si n < 0.
+ * @return La suma acumulada, o -1 si n < 0 o n > 44.
  */
 int suma_fibonacci(int n);
 

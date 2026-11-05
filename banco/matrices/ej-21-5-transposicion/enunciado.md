@@ -27,31 +27,14 @@ Matriz $A^T$ (3x2):
 ### 📋 Contrato de las Funciones
 
 ```c
-/*
- * Procesa el flujo principal de Transposición
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_ej_21_5_transposicion(int val);
-
+int transponer_matriz(size_t filas, size_t columnas, const int *entrada, int *salida);
 ```
+
+Requiere dimensiones positivas, arreglos con capacidad para `filas * columnas` enteros y regiones de entrada y salida que no se solapen. Retorna `0` al completar la operación o `-1` si una dimensión es cero o un puntero es nulo. La salida representa una matriz `columnas × filas` en orden por filas.
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Los casos definidos en `ejercicio.yaml` prueban la operación, dimensiones límite e índices o punteros inválidos.
 
 ### ⚠️ Precondiciones y Casos Borde
 

@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_EJ_21_7_MATRIZ_IDENTIDAD_H
-#define EJERCICIO_EJ_21_7_MATRIZ_IDENTIDAD_H
+#ifndef EJ_21_7_MATRIZ_IDENTIDAD_H
+#define EJ_21_7_MATRIZ_IDENTIDAD_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Matriz identidad */
-int proc_1_7_matriz_identidad(int val);
+int generar_identidad(size_t n, int *matriz);
 
-#endif /* EJERCICIO_EJ_21_7_MATRIZ_IDENTIDAD_H */
+#endif /* EJ_21_7_MATRIZ_IDENTIDAD_H */

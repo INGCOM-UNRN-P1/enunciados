@@ -49,31 +49,14 @@ flowchart TD
 ### 📋 Contrato de las Funciones
 
 ```c
-/*
- * Procesa el flujo principal de Matriz simétrica
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_1_9_matriz_simetrica(int val);
-
+bool es_simetrica(size_t n, const int *matriz);
 ```
+
+Recibe una matriz cuadrada row-major de orden `n`. Retorna `false` si `n` es cero o el puntero es nulo; en otro caso informa si cada elemento fuera de la diagonal coincide con su reflejo respecto de la diagonal principal.
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Los casos definidos en `ejercicio.yaml` prueban la operación, dimensiones límite e índices o punteros inválidos.
 
 ### ⚠️ Precondiciones y Casos Borde
 

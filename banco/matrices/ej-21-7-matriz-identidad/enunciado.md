@@ -27,31 +27,14 @@ Tamaño n = 3
 ### 📋 Contrato de las Funciones
 
 ```c
-/*
- * Procesa el flujo principal de Matriz identidad
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_1_7_matriz_identidad(int val);
-
+int generar_identidad(size_t n, int *matriz);
 ```
+
+Requiere `n > 0` y espacio para al menos `n * n` enteros. Retorna `0` en éxito o `-1` si `n` es cero o el puntero es nulo.
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Los casos definidos en `ejercicio.yaml` prueban la operación, dimensiones límite e índices o punteros inválidos.
 
 ### ⚠️ Precondiciones y Casos Borde
 

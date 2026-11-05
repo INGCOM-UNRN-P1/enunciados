@@ -1,49 +1,10 @@
-Implementar un programa que compare dos archivos de texto e indique si son
-idénticos o no. Opcionalmente, puede reportar la primera línea y número de
-columna donde difieren.
+# Comparar archivos
 
-### 📋 Contrato de las Funciones
+Implementá `int comparar_archivos(const char *ruta_a, const char *ruta_b)` y un
+programa que reciba ambas rutas como argumentos. La comparación debe considerar
+todos los bytes, incluso bytes nulos.
 
-```c
-/*
- * Procesa el flujo principal de Comparar Archivos
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc__9_comparar_archivos(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Acceso a archivos:** Verificar que los punteros `FILE*` retornados por `fopen` sean distintos de `NULL` antes de operar.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificar la correcta apertura del archivo y controlar errores de E/S con `ferror` y `feof`.
-- Soportar rutas complejas y asegurar el cierre del archivo en todos los caminos de ejecución.
-:::
+La función devuelve `0` si los archivos son idénticos, `1` si difieren y `-1` si
+alguna ruta no es válida o hay un error al abrir, leer o cerrar. El programa
+reporta si son idénticos o distintos y termina con error ante el retorno `-1`.
+La primera posición distinta puede reportarse como extensión opcional.

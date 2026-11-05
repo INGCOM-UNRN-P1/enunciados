@@ -1,11 +1,12 @@
-#ifndef EJERCICIO_EJ_21_15_INTERCAMBIAR_FILAS_O_COLUMNAS_H
-#define EJERCICIO_EJ_21_15_INTERCAMBIAR_FILAS_O_COLUMNAS_H
+#ifndef EJ_21_15_INTERCAMBIAR_FILAS_O_COLUMNAS_H
+#define EJ_21_15_INTERCAMBIAR_FILAS_O_COLUMNAS_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Intercambiar filas o columnas */
-int proc_iar_filas_o_columnas(int val);
+int intercambiar_filas(size_t filas, size_t columnas, int *matriz, size_t f1, size_t f2);
+int intercambiar_columnas(size_t filas, size_t columnas, int *matriz, size_t c1, size_t c2);
 
-#endif /* EJERCICIO_EJ_21_15_INTERCAMBIAR_FILAS_O_COLUMNAS_H */
+#endif /* EJ_21_15_INTERCAMBIAR_FILAS_O_COLUMNAS_H */

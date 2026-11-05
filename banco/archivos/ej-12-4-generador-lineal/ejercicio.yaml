@@ -10,54 +10,42 @@ pistas:
   los caminos de ejecución.'
 tags:
 - lineal
-- memoria
 - generador
 - io_disco
 - archivos
-- dep:cadenas
-- dep:punteros
-- dep:io_formato
 - c11
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_2_4_generador_lineal
+- nombre: generar_lineal
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Generador lineal
+  parametros: const char *ruta, int cantidad, int inicio, int paso
+  descripcion: Escribe cantidad valores, uno por línea, comenzando en inicio y sumando
+    paso; devuelve 0 si pudo escribir el archivo y -1 ante error.
 tests_funciones:
-- nombre: test_proc_2_4_generador_lineal_positivo
-  funcion: proc_2_4_generador_lineal
-  codigo: 'int res = proc_2_4_generador_lineal(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_2_4_generador_lineal_cero
-  funcion: proc_2_4_generador_lineal
-  codigo: 'int res = proc_2_4_generador_lineal(0);
-
-    assert(res == 0);'
-- nombre: test_proc_2_4_generador_lineal_negativo
-  funcion: proc_2_4_generador_lineal
-  codigo: 'int res = proc_2_4_generador_lineal(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_2_4_generador_lineal_valor_limite
-  funcion: proc_2_4_generador_lineal
-  codigo: 'int res = proc_2_4_generador_lineal(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_2_4_generador_lineal_valor_unitario
-  funcion: proc_2_4_generador_lineal
-  codigo: 'int res = proc_2_4_generador_lineal(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_cantidad_y_secuencia
+  funcion: generar_lineal
+  codigo: extern int mkstemp(char *); extern int close(int); char ruta[]="/tmp/deckard_lineal_XXXXXX";
+    int fd=mkstemp(ruta); FILE *f; char b[64]; assert(fd>=0); assert(close(fd)==0);
+    assert(generar_lineal(ruta,3,10,2)==0); f=fopen(ruta,"r"); assert(f); assert(fgets(b,sizeof
+    b,f)&&strcmp(b,"3\n")==0); assert(fgets(b,sizeof b,f)&&strcmp(b,"10\n")==0); assert(fgets(b,sizeof
+    b,f)&&strcmp(b,"12\n")==0); assert(fgets(b,sizeof b,f)&&strcmp(b,"14\n")==0);
+    assert(!fgets(b,sizeof b,f)); fclose(f); assert(remove(ruta)==0);
+- nombre: test_cero_elementos
+  funcion: generar_lineal
+  codigo: extern int mkstemp(char *); extern int close(int); char ruta[]="/tmp/deckard_lineal_XXXXXX";
+    int fd=mkstemp(ruta); FILE *f; char b[8]; assert(fd>=0); assert(close(fd)==0);
+    assert(generar_lineal(ruta,0,10,2)==0); f=fopen(ruta,"r"); assert(f); assert(fgets(b,sizeof
+    b,f)&&strcmp(b,"0\n")==0); assert(!fgets(b,sizeof b,f)); fclose(f); assert(remove(ruta)==0);
+- nombre: test_ruta_nula
+  funcion: generar_lineal
+  codigo: extern int mkstemp(char *); extern int close(int); assert(generar_lineal(NULL,1,0,1)==-1);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
-subtema: busqueda_lineal
+subtema: 4-generador-lineal
 dificultad: intermedia
 tipo: practica_guiada
 prerrequisitos:
-- cadenas
-- punteros
+- archivos
 - io_formato
 publicar: true

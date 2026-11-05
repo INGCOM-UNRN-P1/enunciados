@@ -4,10 +4,10 @@ tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
-  order*) para mejorar el uso de caché.'
-- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
-  de los límites del contenedor.'
+- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar
+  el uso de caché.'
+- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro de los límites del
+  contenedor.'
 tags:
 - matrices
 - matriz
@@ -20,36 +20,30 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_1_14_reflejar_matriz
+- nombre: reflejar_matriz_horizontal
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Reflejar matriz
+  parametros: size_t filas, size_t columnas, int *matriz
+  descripcion: Intercambia primera y última fila, y así sucesivamente.
+- nombre: reflejar_matriz_vertical
+  retorno: int
+  parametros: size_t filas, size_t columnas, int *matriz
+  descripcion: Intercambia primera y última columna, y así sucesivamente.
 tests_funciones:
-- nombre: test_proc_1_14_reflejar_matriz_positivo
-  funcion: proc_1_14_reflejar_matriz
-  codigo: 'int res = proc_1_14_reflejar_matriz(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_1_14_reflejar_matriz_cero
-  funcion: proc_1_14_reflejar_matriz
-  codigo: 'int res = proc_1_14_reflejar_matriz(0);
-
-    assert(res == 0);'
-- nombre: test_proc_1_14_reflejar_matriz_negativo
-  funcion: proc_1_14_reflejar_matriz
-  codigo: 'int res = proc_1_14_reflejar_matriz(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_1_14_reflejar_matriz_valor_limite
-  funcion: proc_1_14_reflejar_matriz
-  codigo: 'int res = proc_1_14_reflejar_matriz(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_1_14_reflejar_matriz_valor_unitario
-  funcion: proc_1_14_reflejar_matriz
-  codigo: 'int res = proc_1_14_reflejar_matriz(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_reflejo_horizontal_rectangular
+  funcion: reflejar_matriz_horizontal
+  codigo: int m[] = {1,2,3,4,5,6}; assert(reflejar_matriz_horizontal(2,3,m)==0); assert(m[0]==4&&m[1]==5&&m[2]==6&&m[3]==1&&m[4]==2&&m[5]==3);
+- nombre: test_reflejo_vertical_rectangular
+  funcion: reflejar_matriz_vertical
+  codigo: int m[] = {1,2,3,4,5,6}; assert(reflejar_matriz_vertical(2,3,m)==0); assert(m[0]==3&&m[1]==2&&m[2]==1&&m[3]==6&&m[4]==5&&m[5]==4);
+- nombre: test_reflejo_tamano_impar
+  funcion: reflejar_matriz_vertical
+  codigo: int m[] = {1,2,3,4,5,6,7,8,9}; assert(reflejar_matriz_vertical(3,3,m)==0); assert(m[0]==3&&m[1]==2&&m[2]==1&&m[4]==5&&m[6]==9);
+- nombre: test_reflejo_argumentos_invalidos
+  funcion: reflejar_matriz_vertical
+  codigo: int m[] = {1}; assert(reflejar_matriz_horizontal(0,1,m)==-1); assert(reflejar_matriz_vertical(1,1,NULL)==-1);
+- nombre: test_rechaza_dimensiones_que_desbordan_size_t
+  funcion: reflejar_matriz_horizontal
+  codigo: int m[] = {1}; assert(reflejar_matriz_horizontal(2,SIZE_MAX,m)==-1);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: matrices_2d

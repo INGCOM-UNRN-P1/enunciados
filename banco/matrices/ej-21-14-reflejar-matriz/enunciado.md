@@ -5,31 +5,15 @@ otra que la refleje verticalmente (la primera columna con la última, etc.).
 ### 📋 Contrato de las Funciones
 
 ```c
-/*
- * Procesa el flujo principal de Reflejar matriz
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_1_14_reflejar_matriz(int val);
-
+int reflejar_matriz_horizontal(size_t filas, size_t columnas, int *matriz);
+int reflejar_matriz_vertical(size_t filas, size_t columnas, int *matriz);
 ```
+
+Requiere dimensiones positivas y espacio para `filas * columnas` enteros. Retorna `0` en éxito o `-1` si una dimensión es cero o el puntero es nulo. En esta consigna, el reflejo horizontal intercambia filas (eje horizontal) y el vertical intercambia columnas (eje vertical).
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Los casos definidos en `ejercicio.yaml` prueban la operación, dimensiones límite e índices o punteros inválidos.
 
 ### ⚠️ Precondiciones y Casos Borde
 

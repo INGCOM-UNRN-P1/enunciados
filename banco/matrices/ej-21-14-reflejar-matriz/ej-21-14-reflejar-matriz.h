@@ -1,11 +1,12 @@
-#ifndef EJERCICIO_EJ_21_14_REFLEJAR_MATRIZ_H
-#define EJERCICIO_EJ_21_14_REFLEJAR_MATRIZ_H
+#ifndef EJ_21_14_REFLEJAR_MATRIZ_H
+#define EJ_21_14_REFLEJAR_MATRIZ_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Reflejar matriz */
-int proc_1_14_reflejar_matriz(int val);
+int reflejar_matriz_horizontal(size_t filas, size_t columnas, int *matriz);
+int reflejar_matriz_vertical(size_t filas, size_t columnas, int *matriz);
 
-#endif /* EJERCICIO_EJ_21_14_REFLEJAR_MATRIZ_H */
+#endif /* EJ_21_14_REFLEJAR_MATRIZ_H */

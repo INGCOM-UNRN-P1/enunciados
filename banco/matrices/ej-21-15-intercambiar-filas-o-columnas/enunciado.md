@@ -5,31 +5,15 @@ columnas especificadas.
 ### 📋 Contrato de las Funciones
 
 ```c
-/*
- * Procesa el flujo principal de Intercambiar filas o columnas
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_iar_filas_o_columnas(int val);
-
+int intercambiar_filas(size_t filas, size_t columnas, int *matriz, size_t f1, size_t f2);
+int intercambiar_columnas(size_t filas, size_t columnas, int *matriz, size_t c1, size_t c2);
 ```
+
+Las matrices usan almacenamiento row-major y los índices comienzan en cero. Se requiere espacio para `filas * columnas` enteros. Las funciones retornan `0` en éxito o `-1` si una dimensión es cero, el puntero es nulo o algún índice está fuera de rango; en error no modifican la matriz.
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Los casos definidos en `ejercicio.yaml` prueban la operación, dimensiones límite e índices o punteros inválidos.
 
 ### ⚠️ Precondiciones y Casos Borde
 
