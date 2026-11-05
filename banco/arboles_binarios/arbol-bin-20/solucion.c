@@ -1,20 +1,3 @@
-/*
- * Arbol Binario #20
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_20(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_20_NODOS: %d\n", nodos + 20);
-    }
-    return 0;
-}
+#include "arbol-bin-20.h"
+static nodo_arbol_bin_20_t *walk(nodo_arbol_bin_20_t*n,nodo_arbol_bin_20_t**p){if(!n)return NULL;nodo_arbol_bin_20_t*r=n->der;walk(n->izq,p);n->izq=*p;if(*p)(*p)->der=n;*p=n;walk(r,p);return n;}
+nodo_arbol_bin_20_t *convertir_inorder_20(nodo_arbol_bin_20_t*r){nodo_arbol_bin_20_t*p=NULL;walk(r,&p);while(p&&p->izq)p=p->izq;return p;}

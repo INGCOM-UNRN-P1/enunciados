@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - simple
@@ -18,38 +17,22 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_a_simple_clave_valor
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Mapa Simple (Clave-Valor)
+- nombre: mapa_poner
+  retorno: bool
+  parametros: mapa_t *m, const char *clave, const char *valor
+  descripcion: 'mapa_poner: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc_a_simple_clave_valor_positivo
-  funcion: proc_a_simple_clave_valor
-  codigo: 'int res = proc_a_simple_clave_valor(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_a_simple_clave_valor_cero
-  funcion: proc_a_simple_clave_valor
-  codigo: 'int res = proc_a_simple_clave_valor(0);
-
-    assert(res == 0);'
-- nombre: test_proc_a_simple_clave_valor_negativo
-  funcion: proc_a_simple_clave_valor
-  codigo: 'int res = proc_a_simple_clave_valor(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_a_simple_clave_valor_valor_limite
-  funcion: proc_a_simple_clave_valor
-  codigo: 'int res = proc_a_simple_clave_valor(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_a_simple_clave_valor_valor_unitario
-  funcion: proc_a_simple_clave_valor
-  codigo: 'int res = proc_a_simple_clave_valor(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_mapa_poner_inserta_busca
+  funcion: mapa_poner
+  codigo: mapa_t m;mapa_iniciar(&m);assert(mapa_poner(&m,"color","azul"));assert(strcmp(mapa_obtener(&m,"color"),"azul")==0);mapa_liberar(&m);
+- nombre: test_mapa_poner_actualiza
+  funcion: mapa_poner
+  codigo: mapa_t m;mapa_iniciar(&m);assert(mapa_poner(&m,"k","uno"));assert(mapa_poner(&m,"k","dos"));assert(m.cantidad==1&&strcmp(mapa_obtener(&m,"k"),"dos")==0);mapa_liberar(&m);
+- nombre: test_mapa_poner_ausente
+  funcion: mapa_poner
+  codigo: mapa_t m;mapa_iniciar(&m);assert(mapa_obtener(&m,"x")==NULL);mapa_liberar(&m);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

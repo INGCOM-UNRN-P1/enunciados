@@ -4,10 +4,7 @@ tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
-  order*) para mejorar el uso de caché.'
-- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
-  de los límites del contenedor.'
+- Recorra filas y columnas respetando los límites.
 tags:
 - matrices
 - vandermonde
@@ -20,36 +17,18 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_atriz_de_vandermonde
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Matriz de Vandermonde
+- nombre: matriz_vandermonde
+  retorno: double **
+  parametros: double *x, int n, int m
+  descripcion: 'Genere una matriz de Vandermonde de n filas y m columnas: V[i][j] = x[i] elevado a j.
+    Devuelva NULL si las dimensiones no son positivas, x es NULL o falla la reserva. Libere cada fila
+    y después el vector de filas.'
 tests_funciones:
-- nombre: test_proc_atriz_de_vandermonde_positivo
-  funcion: proc_atriz_de_vandermonde
-  codigo: 'int res = proc_atriz_de_vandermonde(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_atriz_de_vandermonde_cero
-  funcion: proc_atriz_de_vandermonde
-  codigo: 'int res = proc_atriz_de_vandermonde(0);
-
-    assert(res == 0);'
-- nombre: test_proc_atriz_de_vandermonde_negativo
-  funcion: proc_atriz_de_vandermonde
-  codigo: 'int res = proc_atriz_de_vandermonde(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_atriz_de_vandermonde_valor_limite
-  funcion: proc_atriz_de_vandermonde
-  codigo: 'int res = proc_atriz_de_vandermonde(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_atriz_de_vandermonde_valor_unitario
-  funcion: proc_atriz_de_vandermonde
-  codigo: 'int res = proc_atriz_de_vandermonde(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: casos_de_comportamiento
+  funcion: matriz_vandermonde
+  codigo: double x[]={-2,0,3}; double **v=matriz_vandermonde(x,3,4); assert(v && v[0][0]==1 && v[0][3]==-8
+    && v[1][1]==0 && v[2][3]==27); for(int i=0;i<3;i++)free(v[i]); free(v); assert(!matriz_vandermonde(NULL,3,4));
+    assert(!matriz_vandermonde(x,0,4));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: matrices_2d

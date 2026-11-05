@@ -2,10 +2,6 @@
 #define EJERCICIO_EJ_14_29_SUB_ARREGLO_DINAMICO_H
 
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+int *copiar_subarreglo(const int *datos, size_t total, size_t inicio, size_t longitud);
 
-/* Procesa el flujo principal de Sub-arreglo Dinámico */
-int proc_sub_arreglo_dinamico(int val);
-
-#endif /* EJERCICIO_EJ_14_29_SUB_ARREGLO_DINAMICO_H */
+#endif

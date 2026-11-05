@@ -4,10 +4,8 @@ tema: memoria_dinamica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.'
 tags:
 - heap
 - errores
@@ -18,38 +16,23 @@ tags:
 - dep:punteros
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_de_errores_de_malloc
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Manejo de Errores de malloc
+- nombre: reservar_arreglo
+  retorno: void *
+  parametros: size_t cantidad, size_t tamano
+  descripcion: 'reservar_arreglo: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc_de_errores_de_malloc_positivo
-  funcion: proc_de_errores_de_malloc
-  codigo: 'int res = proc_de_errores_de_malloc(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_de_errores_de_malloc_cero
-  funcion: proc_de_errores_de_malloc
-  codigo: 'int res = proc_de_errores_de_malloc(0);
-
-    assert(res == 0);'
-- nombre: test_proc_de_errores_de_malloc_negativo
-  funcion: proc_de_errores_de_malloc
-  codigo: 'int res = proc_de_errores_de_malloc(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_de_errores_de_malloc_valor_limite
-  funcion: proc_de_errores_de_malloc
-  codigo: 'int res = proc_de_errores_de_malloc(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_de_errores_de_malloc_valor_unitario
-  funcion: proc_de_errores_de_malloc
-  codigo: 'int res = proc_de_errores_de_malloc(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_reservar_arreglo_reserva_tamano
+  funcion: reservar_arreglo
+  codigo: int*p=reservar_arreglo(4,sizeof *p); assert(p); for(int i=0;i<4;i++)p[i]=i; assert(p[3]==3);
+    free(p);
+- nombre: test_reservar_arreglo_rechaza_cero
+  funcion: reservar_arreglo
+  codigo: assert(reservar_arreglo(0,sizeof(int))==NULL); assert(reservar_arreglo(3,0)==NULL);
+- nombre: test_reservar_arreglo_evita_overflow
+  funcion: reservar_arreglo
+  codigo: assert(reservar_arreglo(SIZE_MAX,2)==NULL);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

@@ -1,21 +1,8 @@
-enum opcion_menu
-{
-    MENU_NUEVO = 1,
-    MENU_ABRIR,
-    MENU_GUARDAR,
-    MENU_CERRAR,
-    MENU_SALIR,
-    MENU_INVALIDO = -1
-};
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+#include <limits.h>
+#include "ej-20-22-detectar-conflictos.h"
 
-
-int proc__detectar_conflictos(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+bool opciones_compatibles(unsigned int o){unsigned known=OPT_OPTIMIZAR|OPT_DEBUG|OPT_WARNINGS|OPT_WARNINGS_EXTRA|OPT_PEDANTIC;return !(o&~known)&&!((o&OPT_OPTIMIZAR)&&(o&OPT_DEBUG));}

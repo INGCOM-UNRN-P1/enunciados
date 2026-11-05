@@ -5,52 +5,30 @@ bloom: 5
 minutos_estimados: 45
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
-- avanzada
+- intermedia
+- arbol_bin_30
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_30
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de TAD Completo de Árbol Binario con Recorridos
-    Funcionales e Iteradores
+- nombre: iterador_siguiente_30
+  retorno: bool
+  parametros: iterador_30_t *it, int *valor
+  descripcion: TAD Completo de Árbol Binario con Recorridos Funcionales e Iteradores
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_30_positivo
-  funcion: ejecutar_arbol_bin_30
-  codigo: 'int res = ejecutar_arbol_bin_30(5);
+- nombre: test_funcional_30
+  funcion: iterador_siguiente_30
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_30_cero
-  funcion: ejecutar_arbol_bin_30
-  codigo: 'int res = ejecutar_arbol_bin_30(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_30_negativo
-  funcion: ejecutar_arbol_bin_30
-  codigo: 'int res = ejecutar_arbol_bin_30(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_30_valor_limite
-  funcion: ejecutar_arbol_bin_30
-  codigo: 'int res = ejecutar_arbol_bin_30(100);
+    #include "arbol-bin-30.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_30_valor_unitario
-  funcion: ejecutar_arbol_bin_30
-  codigo: 'int res = ejecutar_arbol_bin_30(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_30_t a={1,0,0}; iterador_30_t i; int x; assert(iterador_iniciar_30(&i,&a)&&iterador_siguiente_30(&i,&x)&&x==1&&!iterador_siguiente_30(&i,&x));'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

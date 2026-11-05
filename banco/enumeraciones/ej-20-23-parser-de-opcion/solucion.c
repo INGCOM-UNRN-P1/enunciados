@@ -1,19 +1,8 @@
-/*
- * Ejercicio: Parser de opción
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+#include <limits.h>
+#include "ej-20-23-parser-de-opcion.h"
 
-
-int proc__23_parser_de_opcion(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Parser de opción */
-    return 0;
-}
+enum opcion_menu parsear_opcion(int x){return x>=MENU_NUEVO&&x<=MENU_SALIR?(enum opcion_menu)x:MENU_INVALIDO;}

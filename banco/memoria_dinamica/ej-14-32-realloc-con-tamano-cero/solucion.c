@@ -1,19 +1,26 @@
-/*
- * Ejercicio: realloc con Tamaño Cero
- * Cátedra Programación I - UNRN
- */
-
+#include "ej-14-32-realloc-con-tamano-cero.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-
-int proc_lloc_con_tamano_cero(int val)
+void *realloc_tamano_cero(void *bloque)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    return realloc(bloque, 0);
 }
 
 int main(void)
 {
-    /* TODO: Implementación de realloc con Tamaño Cero */
-    return 0;
+    void *bloque = malloc(1);
+    if (!bloque) {
+        fputs("No se pudo reservar el bloque inicial.\n", stderr);
+        return EXIT_FAILURE;
+    }
+
+    void *resultado = realloc_tamano_cero(bloque);
+    if (resultado) {
+        puts("Esta implementación devolvió un puntero no nulo para tamaño cero.");
+        free(resultado);
+    } else {
+        puts("Esta implementación devolvió NULL; no se desreferencia el puntero anterior.");
+    }
+    return EXIT_SUCCESS;
 }

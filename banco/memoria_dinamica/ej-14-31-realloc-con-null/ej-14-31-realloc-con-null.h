@@ -2,10 +2,6 @@
 #define EJERCICIO_EJ_14_31_REALLOC_CON_NULL_H
 
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+void *realloc_desde_null(size_t bytes);
 
-/* Procesa el flujo principal de realloc con NULL */
-int proc__31_realloc_con_null(int val);
-
-#endif /* EJERCICIO_EJ_14_31_REALLOC_CON_NULL_H */
+#endif

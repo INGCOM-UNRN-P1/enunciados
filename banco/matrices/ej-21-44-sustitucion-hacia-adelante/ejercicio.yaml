@@ -4,10 +4,7 @@ tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
+- Recorra filas y columnas respetando los límites.
 tags:
 - matrices
 - hacia
@@ -20,36 +17,18 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_ucion_hacia_adelante
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Sustitución hacia adelante
+- nombre: sustitucion_adelante
+  retorno: double *
+  parametros: double **L, double *b, int n
+  descripcion: Resuelva Lx=b por sustitución hacia adelante para una matriz triangular inferior de orden
+    n. Devuelva un vector reservado para la persona llamadora; devuelva NULL si los argumentos son inválidos,
+    algún elemento diagonal es cero o falla la reserva.
 tests_funciones:
-- nombre: test_proc_ucion_hacia_adelante_positivo
-  funcion: proc_ucion_hacia_adelante
-  codigo: 'int res = proc_ucion_hacia_adelante(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_ucion_hacia_adelante_cero
-  funcion: proc_ucion_hacia_adelante
-  codigo: 'int res = proc_ucion_hacia_adelante(0);
-
-    assert(res == 0);'
-- nombre: test_proc_ucion_hacia_adelante_negativo
-  funcion: proc_ucion_hacia_adelante
-  codigo: 'int res = proc_ucion_hacia_adelante(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_ucion_hacia_adelante_valor_limite
-  funcion: proc_ucion_hacia_adelante
-  codigo: 'int res = proc_ucion_hacia_adelante(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_ucion_hacia_adelante_valor_unitario
-  funcion: proc_ucion_hacia_adelante
-  codigo: 'int res = proc_ucion_hacia_adelante(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: casos_de_comportamiento
+  funcion: sustitucion_adelante
+  codigo: double a[]={2,0,0},c[]={3,1,0},d[]={1,-1,2},b[]={4,7,4}; double *L[]={a,c,d}; double *x=sustitucion_adelante(L,b,3);
+    assert(x && x[0]==2 && x[1]==1 && x[2]==1.5); free(x); c[1]=0; assert(!sustitucion_adelante(L,b,3));
+    assert(!sustitucion_adelante(NULL,b,3));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: hacia

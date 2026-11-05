@@ -1,11 +1,10 @@
 #ifndef EJERCICIO_EJ_14_26_FILTRO_DE_ARREGLO_DINAMICO_H
 #define EJERCICIO_EJ_14_26_FILTRO_DE_ARREGLO_DINAMICO_H
 
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+typedef bool (*predicado_int_t)(int valor);
+int *filtrar_arreglo(const int *datos, size_t n, predicado_int_t predicado,
+                     size_t *cantidad);
 
-/* Procesa el flujo principal de Filtro de Arreglo Dinámico */
-int proc__de_arreglo_dinamico(int val);
-
-#endif /* EJERCICIO_EJ_14_26_FILTRO_DE_ARREGLO_DINAMICO_H */
+#endif

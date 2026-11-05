@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - memoria
@@ -18,38 +17,19 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__31_realloc_con_null
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de realloc con NULL
+- nombre: realloc_desde_null
+  retorno: void *
+  parametros: size_t bytes
+  descripcion: 'realloc_desde_null: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc__31_realloc_con_null_positivo
-  funcion: proc__31_realloc_con_null
-  codigo: 'int res = proc__31_realloc_con_null(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__31_realloc_con_null_cero
-  funcion: proc__31_realloc_con_null
-  codigo: 'int res = proc__31_realloc_con_null(0);
-
-    assert(res == 0);'
-- nombre: test_proc__31_realloc_con_null_negativo
-  funcion: proc__31_realloc_con_null
-  codigo: 'int res = proc__31_realloc_con_null(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__31_realloc_con_null_valor_limite
-  funcion: proc__31_realloc_con_null
-  codigo: 'int res = proc__31_realloc_con_null(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__31_realloc_con_null_valor_unitario
-  funcion: proc__31_realloc_con_null
-  codigo: 'int res = proc__31_realloc_con_null(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_realloc_desde_null_reserva_memoria
+  funcion: realloc_desde_null
+  codigo: int*p=realloc_desde_null(4*sizeof *p);assert(p);p[0]=3;p[3]=9;assert(p[0]==3&&p[3]==9);free(p);
+- nombre: test_realloc_desde_null_tamano_cero
+  funcion: realloc_desde_null
+  codigo: void *p = realloc_desde_null(0); free(p);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

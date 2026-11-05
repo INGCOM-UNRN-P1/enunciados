@@ -1,19 +1,3 @@
-/*
- * Ejercicio: Liberación Profunda
- * Cátedra Programación I - UNRN
- */
-
-#include <stdio.h>
-
-
-int proc__liberacion_profunda(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Liberación Profunda */
-    return 0;
-}
+#include "ej-14-22-liberacion-profunda.h"
+#include <stdlib.h>
+void liberar_historial(char**h,size_t n){if(!h)return;for(size_t i=0;i<n;i++)free(h[i]);free(h);}

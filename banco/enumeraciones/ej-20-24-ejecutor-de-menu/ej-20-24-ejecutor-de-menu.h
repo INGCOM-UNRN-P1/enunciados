@@ -1,11 +1,12 @@
-#ifndef EJERCICIO_EJ_20_24_EJECUTOR_DE_MENU_H
-#define EJERCICIO_EJ_20_24_EJECUTOR_DE_MENU_H
-
+#ifndef EJERCICIO_EJ_20_24_H
+#define EJERCICIO_EJ_20_24_H
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Ejecutor de menú */
-int proc__24_ejecutor_de_menu(int val);
+enum opcion_menu { MENU_NUEVO=1, MENU_ABRIR, MENU_GUARDAR, MENU_CERRAR, MENU_SALIR, MENU_INVALIDO=-1 };
+const char *ejecutar_opcion(enum opcion_menu opcion);
 
-#endif /* EJERCICIO_EJ_20_24_EJECUTOR_DE_MENU_H */
+#endif

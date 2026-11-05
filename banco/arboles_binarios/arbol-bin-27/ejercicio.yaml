@@ -5,52 +5,30 @@ bloom: 5
 minutos_estimados: 45
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
-- avanzada
+- intermedia
+- arbol_bin_27
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_27
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Serialización de Árbol Binario a Cadena
-    de Texto y Deserialización
+- nombre: serializar_27
+  retorno: bool
+  parametros: const nodo_arbol_bin_27_t *raiz, char *buffer, size_t capacidad
+  descripcion: Serialización de Árbol Binario a Cadena de Texto y Deserialización
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_27_positivo
-  funcion: ejecutar_arbol_bin_27
-  codigo: 'int res = ejecutar_arbol_bin_27(5);
+- nombre: test_funcional_27
+  funcion: serializar_27
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_27_cero
-  funcion: ejecutar_arbol_bin_27
-  codigo: 'int res = ejecutar_arbol_bin_27(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_27_negativo
-  funcion: ejecutar_arbol_bin_27
-  codigo: 'int res = ejecutar_arbol_bin_27(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_27_valor_limite
-  funcion: ejecutar_arbol_bin_27
-  codigo: 'int res = ejecutar_arbol_bin_27(100);
+    #include "arbol-bin-27.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_27_valor_unitario
-  funcion: ejecutar_arbol_bin_27
-  codigo: 'int res = ejecutar_arbol_bin_27(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_27_t r={1,0,0}; char b[16]; assert(serializar_27(&r,b,sizeof b)&&strcmp(b,"1,#,#,")==0);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

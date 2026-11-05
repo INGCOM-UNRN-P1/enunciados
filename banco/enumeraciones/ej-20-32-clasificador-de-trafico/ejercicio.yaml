@@ -3,53 +3,29 @@ titulo: Clasificador de tráfico
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+pistas: []
 tags:
-- tipos
-- memoria
-- clasificador
-- enum
+- enumeraciones
 - trafico
-- dep:tipos_datos
-- dep:condicionales
+- clasificacion
+- protocolos
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_sificador_de_trafico
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Clasificador de tráfico
+- nombre: clasificar_paquete
+  retorno: enum tipo_trafico
+  parametros: const paquete_red_t *paquete
+  descripcion: API funcional de Clasificador de tráfico
 tests_funciones:
-- nombre: test_proc_sificador_de_trafico_positivo
-  funcion: proc_sificador_de_trafico
-  codigo: 'int res = proc_sificador_de_trafico(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_sificador_de_trafico_cero
-  funcion: proc_sificador_de_trafico
-  codigo: 'int res = proc_sificador_de_trafico(0);
-
-    assert(res == 0);'
-- nombre: test_proc_sificador_de_trafico_negativo
-  funcion: proc_sificador_de_trafico
-  codigo: 'int res = proc_sificador_de_trafico(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_sificador_de_trafico_valor_limite
-  funcion: proc_sificador_de_trafico
-  codigo: 'int res = proc_sificador_de_trafico(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_sificador_de_trafico_valor_unitario
-  funcion: proc_sificador_de_trafico
-  codigo: 'int res = proc_sificador_de_trafico(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_32_puerto_web
+  funcion: clasificar_paquete
+  codigo: paquete_red_t p={PROTOCOLO_TCP,TRAFICO_NORMAL,50000,443,100}; assert(clasificar_paquete(&p)==TRAFICO_NORMAL);
+- nombre: test_32_puerto_alto
+  funcion: clasificar_paquete
+  codigo: paquete_red_t p={PROTOCOLO_TCP,TRAFICO_NORMAL,50000,9000,100}; assert(clasificar_paquete(&p)==TRAFICO_SOSPECHOSO);
+- nombre: test_32_flujo_grande
+  funcion: clasificar_paquete
+  codigo: paquete_red_t p={PROTOCOLO_TCP,TRAFICO_NORMAL,1,80,100000000}; assert(clasificar_paquete(&p)==TRAFICO_MALICIOSO);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

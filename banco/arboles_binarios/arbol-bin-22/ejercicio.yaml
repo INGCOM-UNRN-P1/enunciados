@@ -1,56 +1,36 @@
 id: arbol-bin-22
-titulo: Vistas Superior, Inferior, Izquierda y Derecha de Árbol Binario
+titulo: Vistas superior, inferior, izquierda y derecha de árbol binario
 tema: arboles_binarios
 bloom: 4
 minutos_estimados: 35
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
 - intermedia
+- arbol_bin_22
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_22
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Vistas Superior, Inferior, Izquierda
-    y Derecha de Árbol Binario
+- nombre: vista_lateral_22
+  retorno: bool
+  parametros: const nodo_arbol_bin_22_t *raiz, bool desde_izquierda, int *valores, size_t capacidad, size_t *cantidad
+  descripcion: Obtiene la vista izquierda o derecha, un nodo por profundidad.
+- nombre: vista_vertical_22
+  retorno: bool
+  parametros: const nodo_arbol_bin_22_t *raiz, bool inferior, int *valores, size_t capacidad, size_t *cantidad
+  descripcion: Obtiene la vista superior o inferior, un nodo por distancia horizontal.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_22_positivo
-  funcion: ejecutar_arbol_bin_22
-  codigo: 'int res = ejecutar_arbol_bin_22(5);
+- nombre: test_vistas_con_colisiones_horizontal
+  funcion: vista_vertical_22
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_22_cero
-  funcion: ejecutar_arbol_bin_22
-  codigo: 'int res = ejecutar_arbol_bin_22(0);
+    #include "arbol-bin-22.h"
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_22_negativo
-  funcion: ejecutar_arbol_bin_22
-  codigo: 'int res = ejecutar_arbol_bin_22(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_22_valor_limite
-  funcion: ejecutar_arbol_bin_22
-  codigo: 'int res = ejecutar_arbol_bin_22(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_22_valor_unitario
-  funcion: ejecutar_arbol_bin_22
-  codigo: 'int res = ejecutar_arbol_bin_22(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_22_t a={7,0,0}, b={15,0,0}, l={5,0,&a}, r={20,&b,0}, root={10,&l,&r}; int v[3]; size_t n; assert(vista_vertical_22(&root,false,v,3,&n)&&n==3&&v[0]==5&&v[1]==10&&v[2]==20);
+    assert(vista_vertical_22(&root,true,v,3,&n)&&n==3&&v[0]==5&&v[1]==15&&v[2]==20); assert(vista_lateral_22(&root,true,v,3,&n)&&n==3&&v[0]==10&&v[1]==5&&v[2]==7);
+    assert(vista_lateral_22(&root,false,v,3,&n)&&n==3&&v[0]==10&&v[1]==20&&v[2]==15);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

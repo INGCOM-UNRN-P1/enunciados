@@ -4,10 +4,8 @@ tema: memoria_dinamica
 bloom: 4
 minutos_estimados: 35
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.'
 tags:
 - heap
 - memoria
@@ -18,38 +16,22 @@ tags:
 - dep:punteros
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_amica_en_bloque_cont
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Matriz Dinámica en Bloque Contiguo
+- nombre: matriz_crear_contigua
+  retorno: bool
+  parametros: matriz_t *m, size_t filas, size_t columnas
+  descripcion: 'matriz_crear_contigua: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc_amica_en_bloque_cont_positivo
-  funcion: proc_amica_en_bloque_cont
-  codigo: 'int res = proc_amica_en_bloque_cont(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_amica_en_bloque_cont_cero
-  funcion: proc_amica_en_bloque_cont
-  codigo: 'int res = proc_amica_en_bloque_cont(0);
-
-    assert(res == 0);'
-- nombre: test_proc_amica_en_bloque_cont_negativo
-  funcion: proc_amica_en_bloque_cont
-  codigo: 'int res = proc_amica_en_bloque_cont(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_amica_en_bloque_cont_valor_limite
-  funcion: proc_amica_en_bloque_cont
-  codigo: 'int res = proc_amica_en_bloque_cont(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_amica_en_bloque_cont_valor_unitario
-  funcion: proc_amica_en_bloque_cont
-  codigo: 'int res = proc_amica_en_bloque_cont(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_matriz_crear_contigua_bloque_contiguo
+  funcion: matriz_crear_contigua
+  codigo: matriz_t m;assert(matriz_crear_contigua(&m,2,3));assert(m.datos[1]==m.datos[0]+3);m.datos[1][2]=9;assert(m.bloque[5]==9);matriz_liberar(&m);
+- nombre: test_matriz_crear_contigua_filas_independientes
+  funcion: matriz_crear_contigua
+  codigo: matriz_t m;assert(matriz_crear_filas(&m,2,2));assert(m.datos[1]!=m.datos[0]+2);matriz_liberar(&m);
+- nombre: test_matriz_crear_contigua_dimensiones_invalidas
+  funcion: matriz_crear_contigua
+  codigo: matriz_t m;assert(!matriz_crear_contigua(&m,0,2));assert(!matriz_crear_filas(&m,2,0));
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: matrices_2d

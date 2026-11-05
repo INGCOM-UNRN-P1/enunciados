@@ -5,52 +5,30 @@ bloom: 5
 minutos_estimados: 45
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
-- avanzada
+- intermedia
+- arbol_bin_28
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_28
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de la Profundidad Mínima de Raíz
-    a Hoja
+- nombre: profundidad_minima_28
+  retorno: size_t
+  parametros: const nodo_arbol_bin_28_t *raiz
+  descripcion: Cálculo de la Profundidad Mínima de Raíz a Hoja
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_28_positivo
-  funcion: ejecutar_arbol_bin_28
-  codigo: 'int res = ejecutar_arbol_bin_28(5);
+- nombre: test_funcional_28
+  funcion: profundidad_minima_28
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_28_cero
-  funcion: ejecutar_arbol_bin_28
-  codigo: 'int res = ejecutar_arbol_bin_28(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_28_negativo
-  funcion: ejecutar_arbol_bin_28
-  codigo: 'int res = ejecutar_arbol_bin_28(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_28_valor_limite
-  funcion: ejecutar_arbol_bin_28
-  codigo: 'int res = ejecutar_arbol_bin_28(100);
+    #include "arbol-bin-28.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_28_valor_unitario
-  funcion: ejecutar_arbol_bin_28
-  codigo: 'int res = ejecutar_arbol_bin_28(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_28_t a={2,0,0}, b={3,0,0}, r={1,&a,&b}; assert(profundidad_minima_28(&r)==2);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

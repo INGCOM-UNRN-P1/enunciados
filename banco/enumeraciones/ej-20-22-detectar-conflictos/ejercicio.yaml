@@ -3,53 +3,29 @@ titulo: Detectar conflictos
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+pistas: []
 tags:
-- tipos
-- detectar
-- memoria
-- enum
+- enumeraciones
+- flags
 - conflictos
-- dep:tipos_datos
-- dep:condicionales
+- compilacion
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc__detectar_conflictos
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Detectar conflictos
+- nombre: opciones_compatibles
+  retorno: bool
+  parametros: unsigned int opciones
+  descripcion: API funcional de Detectar conflictos
 tests_funciones:
-- nombre: test_proc__detectar_conflictos_positivo
-  funcion: proc__detectar_conflictos
-  codigo: 'int res = proc__detectar_conflictos(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__detectar_conflictos_cero
-  funcion: proc__detectar_conflictos
-  codigo: 'int res = proc__detectar_conflictos(0);
-
-    assert(res == 0);'
-- nombre: test_proc__detectar_conflictos_negativo
-  funcion: proc__detectar_conflictos
-  codigo: 'int res = proc__detectar_conflictos(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__detectar_conflictos_valor_limite
-  funcion: proc__detectar_conflictos
-  codigo: 'int res = proc__detectar_conflictos(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__detectar_conflictos_valor_unitario
-  funcion: proc__detectar_conflictos
-  codigo: 'int res = proc__detectar_conflictos(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_22_sin_conflicto
+  funcion: opciones_compatibles
+  codigo: assert(opciones_compatibles(OPT_DEBUG|OPT_WARNINGS));
+- nombre: test_22_conflicto
+  funcion: opciones_compatibles
+  codigo: assert(!opciones_compatibles(OPT_OPTIMIZAR|OPT_DEBUG));
+- nombre: test_22_flag_desconocido
+  funcion: opciones_compatibles
+  codigo: assert(!opciones_compatibles(1u<<9));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

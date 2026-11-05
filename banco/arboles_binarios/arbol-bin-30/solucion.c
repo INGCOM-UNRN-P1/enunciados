@@ -1,20 +1,3 @@
-/*
- * Arbol Binario #30
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_30(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_30_NODOS: %d\n", nodos + 30);
-    }
-    return 0;
-}
+#include "arbol-bin-30.h"
+bool iterador_iniciar_30(iterador_30_t*i,const nodo_arbol_bin_30_t*r){if(!i)return false;i->tope=0;i->actual=r;return true;}
+bool iterador_siguiente_30(iterador_30_t*i,int*v){if(!i||!v)return false;while(i->actual||i->tope){while(i->actual){if(i->tope==128)return false;i->pila[i->tope++]=i->actual;i->actual=i->actual->izq;}const nodo_arbol_bin_30_t*n=i->pila[--i->tope];*v=n->valor;i->actual=n->der;return true;}return false;}

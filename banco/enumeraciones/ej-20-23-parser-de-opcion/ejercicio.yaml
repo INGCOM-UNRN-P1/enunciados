@@ -3,53 +3,28 @@ titulo: Parser de opción
 tema: enumeraciones
 bloom: 4
 minutos_estimados: 35
-pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+pistas: []
 tags:
-- tipos
-- opcion
-- memoria
-- enum
-- parser
-- dep:tipos_datos
-- dep:condicionales
+- enumeraciones
+- menu
+- parseo
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: proc__23_parser_de_opcion
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Parser de opción
+- nombre: parsear_opcion
+  retorno: enum opcion_menu
+  parametros: int entrada
+  descripcion: API funcional de Parser de opción
 tests_funciones:
-- nombre: test_proc__23_parser_de_opcion_positivo
-  funcion: proc__23_parser_de_opcion
-  codigo: 'int res = proc__23_parser_de_opcion(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__23_parser_de_opcion_cero
-  funcion: proc__23_parser_de_opcion
-  codigo: 'int res = proc__23_parser_de_opcion(0);
-
-    assert(res == 0);'
-- nombre: test_proc__23_parser_de_opcion_negativo
-  funcion: proc__23_parser_de_opcion
-  codigo: 'int res = proc__23_parser_de_opcion(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__23_parser_de_opcion_valor_limite
-  funcion: proc__23_parser_de_opcion
-  codigo: 'int res = proc__23_parser_de_opcion(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__23_parser_de_opcion_valor_unitario
-  funcion: proc__23_parser_de_opcion
-  codigo: 'int res = proc__23_parser_de_opcion(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_23_opcion_primera
+  funcion: parsear_opcion
+  codigo: assert(parsear_opcion(1)==MENU_NUEVO);
+- nombre: test_23_opcion_ultima
+  funcion: parsear_opcion
+  codigo: assert(parsear_opcion(5)==MENU_SALIR);
+- nombre: test_23_opcion_fuera_de_rango
+  funcion: parsear_opcion
+  codigo: assert(parsear_opcion(0)==MENU_INVALIDO&&parsear_opcion(6)==MENU_INVALIDO);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

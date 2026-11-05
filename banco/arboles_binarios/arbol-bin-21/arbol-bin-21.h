@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_ARBOL_BIN_21_H
-#define EJERCICIO_ARBOL_BIN_21_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_21_H
+#define ARBOL_BIN_21_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Árbol de Expresión Aritmética y Evaluación de Expresiones */
-int ejecutar_arbol_bin_21(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_21_H */
+#include <stddef.h>
+typedef struct nodo_expr_21 { double numero; char operador; struct nodo_expr_21 *izq, *der; } nodo_expr_21_t;
+bool evaluar_expresion_21(const nodo_expr_21_t *raiz, double *resultado);
+#endif

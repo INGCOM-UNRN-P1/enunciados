@@ -3,53 +3,26 @@ titulo: Crear y decodificar cabecera
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+pistas: []
 tags:
-- tipos
-- crear
-- memoria
-- enum
-- decodificar
-- dep:tipos_datos
-- dep:condicionales
+- enumeraciones
+- protocolo
+- campos-de-bits
+- cabeceras
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_decodificar_cabecera
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Crear y decodificar cabecera
+- nombre: crear_cabecera
+  retorno: cabecera_mensaje_t
+  parametros: enum tipo_mensaje tipo, unsigned int prioridad, unsigned int secuencia
+  descripcion: API funcional de Crear y decodificar cabecera
 tests_funciones:
-- nombre: test_proc_decodificar_cabecera_positivo
-  funcion: proc_decodificar_cabecera
-  codigo: 'int res = proc_decodificar_cabecera(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_decodificar_cabecera_cero
-  funcion: proc_decodificar_cabecera
-  codigo: 'int res = proc_decodificar_cabecera(0);
-
-    assert(res == 0);'
-- nombre: test_proc_decodificar_cabecera_negativo
-  funcion: proc_decodificar_cabecera
-  codigo: 'int res = proc_decodificar_cabecera(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_decodificar_cabecera_valor_limite
-  funcion: proc_decodificar_cabecera
-  codigo: 'int res = proc_decodificar_cabecera(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_decodificar_cabecera_valor_unitario
-  funcion: proc_decodificar_cabecera
-  codigo: 'int res = proc_decodificar_cabecera(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_19_campos
+  funcion: crear_cabecera
+  codigo: cabecera_mensaje_t c=crear_cabecera(MSG_NACK,3,15); assert(c.tipo==MSG_NACK&&c.prioridad==3&&c.secuencia==15);
+- nombre: test_19_rechaza_rango
+  funcion: crear_cabecera
+  codigo: cabecera_mensaje_t c=crear_cabecera((enum tipo_mensaje)8,4,16); assert(c.tipo==0&&c.prioridad==0&&c.secuencia==0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

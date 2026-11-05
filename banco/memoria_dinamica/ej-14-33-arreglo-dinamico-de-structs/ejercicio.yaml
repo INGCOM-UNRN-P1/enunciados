@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - dinamico
@@ -18,38 +17,22 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__dinamico_de_structs
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Arreglo Dinámico de Structs
+- nombre: productos_agregar
+  retorno: bool
+  parametros: productos_t *p, int id, const char *nombre
+  descripcion: 'productos_agregar: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc__dinamico_de_structs_positivo
-  funcion: proc__dinamico_de_structs
-  codigo: 'int res = proc__dinamico_de_structs(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__dinamico_de_structs_cero
-  funcion: proc__dinamico_de_structs
-  codigo: 'int res = proc__dinamico_de_structs(0);
-
-    assert(res == 0);'
-- nombre: test_proc__dinamico_de_structs_negativo
-  funcion: proc__dinamico_de_structs
-  codigo: 'int res = proc__dinamico_de_structs(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__dinamico_de_structs_valor_limite
-  funcion: proc__dinamico_de_structs
-  codigo: 'int res = proc__dinamico_de_structs(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__dinamico_de_structs_valor_unitario
-  funcion: proc__dinamico_de_structs
-  codigo: 'int res = proc__dinamico_de_structs(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_productos_agregar_agrega_busca
+  funcion: productos_agregar
+  codigo: productos_t p;productos_iniciar(&p);assert(productos_agregar(&p,7,"lapiz"));const producto_t*x=productos_buscar(&p,7);assert(x&&strcmp(x->nombre,"lapiz")==0);productos_liberar(&p);
+- nombre: test_productos_agregar_duplica_id
+  funcion: productos_agregar
+  codigo: productos_t p;productos_iniciar(&p);assert(productos_agregar(&p,1,"a"));assert(!productos_agregar(&p,1,"b"));assert(p.cantidad==1);productos_liberar(&p);
+- nombre: test_productos_agregar_crece
+  funcion: productos_agregar
+  codigo: productos_t p;productos_iniciar(&p);for(int i=0;i<8;i++)assert(productos_agregar(&p,i,"x"));assert(p.cantidad==8&&p.capacidad>=8);productos_liberar(&p);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

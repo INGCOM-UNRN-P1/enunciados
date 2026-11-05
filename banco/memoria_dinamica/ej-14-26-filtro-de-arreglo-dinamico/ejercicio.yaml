@@ -4,10 +4,8 @@ tema: memoria_dinamica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.'
 tags:
 - heap
 - dinamico
@@ -18,38 +16,29 @@ tags:
 - dep:punteros
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__de_arreglo_dinamico
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Filtro de Arreglo Dinámico
+- nombre: filtrar_arreglo
+  retorno: int *
+  parametros: const int *datos, size_t n, predicado_int_t predicado, size_t *cantidad
+  descripcion: Copia en memoria dinámica los elementos aceptados por un predicado, preservando el orden.
 tests_funciones:
-- nombre: test_proc__de_arreglo_dinamico_positivo
-  funcion: proc__de_arreglo_dinamico
-  codigo: 'int res = proc__de_arreglo_dinamico(5);
+- nombre: test_filtrar_arreglo_predicado
+  funcion: filtrar_arreglo
+  codigo: 'bool es_par(int x) { return x % 2 == 0; }
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__de_arreglo_dinamico_cero
-  funcion: proc__de_arreglo_dinamico
-  codigo: 'int res = proc__de_arreglo_dinamico(0);
+    int a[]={3,2,4,1,6}; size_t n; int*r=filtrar_arreglo(a,5,es_par,&n); assert(r&&n==3&&r[0]==2&&r[1]==4&&r[2]==6);
+    free(r);'
+- nombre: test_filtrar_arreglo_sin_coincidencias
+  funcion: filtrar_arreglo
+  codigo: 'bool siempre_falso(int x) { (void)x; return false; }
 
-    assert(res == 0);'
-- nombre: test_proc__de_arreglo_dinamico_negativo
-  funcion: proc__de_arreglo_dinamico
-  codigo: 'int res = proc__de_arreglo_dinamico(-5);
+    int a[]={1,3}; size_t n=7; assert(filtrar_arreglo(a,2,siempre_falso,&n)==NULL&&n==0);'
+- nombre: test_filtrar_arreglo_vacio
+  funcion: filtrar_arreglo
+  codigo: 'bool siempre_verdadero(int x) { (void)x; return true; }
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__de_arreglo_dinamico_valor_limite
-  funcion: proc__de_arreglo_dinamico
-  codigo: 'int res = proc__de_arreglo_dinamico(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__de_arreglo_dinamico_valor_unitario
-  funcion: proc__de_arreglo_dinamico
-  codigo: 'int res = proc__de_arreglo_dinamico(1);
-
-    assert(res >= 0 || res == 2);'
+    size_t n; assert(filtrar_arreglo(NULL,0,siempre_verdadero,&n)==NULL&&n==0);'
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: heap

@@ -3,9 +3,9 @@
 
 #include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
+typedef struct { size_t filas, columnas; int **datos; int *bloque; } matriz_t;
+bool matriz_crear_filas(matriz_t *m, size_t filas, size_t columnas);
+bool matriz_crear_contigua(matriz_t *m, size_t filas, size_t columnas);
+void matriz_liberar(matriz_t *m);
 
-/* Procesa el flujo principal de Matriz Dinámica en Bloque Contiguo */
-int proc_amica_en_bloque_cont(int val);
-
-#endif /* EJERCICIO_EJ_14_30_MATRIZ_DINAMICA_EN_BLOQUE_CONT_H */
+#endif

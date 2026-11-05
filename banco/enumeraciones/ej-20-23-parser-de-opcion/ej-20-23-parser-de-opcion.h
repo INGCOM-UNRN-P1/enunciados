@@ -1,11 +1,12 @@
-#ifndef EJERCICIO_EJ_20_23_PARSER_DE_OPCION_H
-#define EJERCICIO_EJ_20_23_PARSER_DE_OPCION_H
-
+#ifndef EJERCICIO_EJ_20_23_H
+#define EJERCICIO_EJ_20_23_H
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Parser de opción */
-int proc__23_parser_de_opcion(int val);
+enum opcion_menu { MENU_NUEVO=1, MENU_ABRIR, MENU_GUARDAR, MENU_CERRAR, MENU_SALIR, MENU_INVALIDO=-1 };
+enum opcion_menu parsear_opcion(int entrada);
 
-#endif /* EJERCICIO_EJ_20_23_PARSER_DE_OPCION_H */
+#endif

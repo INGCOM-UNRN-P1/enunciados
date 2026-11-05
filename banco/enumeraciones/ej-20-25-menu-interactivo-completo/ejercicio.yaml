@@ -3,53 +3,36 @@ titulo: Menú interactivo completo
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+pistas: []
 tags:
-- tipos
-- memoria
-- enum
-- interactivo
-- completo
-- dep:tipos_datos
-- dep:condicionales
+- enumeraciones
+- menu
+- bucle
+- entrada-salida
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_interactivo_completo
+- nombre: ejecutar_menu
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Menú interactivo completo
+  parametros: FILE *entrada, FILE *salida
+  descripcion: Muestra el menú, procesa entradas hasta MENU_SALIR y retorna la cantidad de entradas procesadas
+    (o -1 si un flujo es nulo).
 tests_funciones:
-- nombre: test_proc_interactivo_completo_positivo
-  funcion: proc_interactivo_completo
-  codigo: 'int res = proc_interactivo_completo(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_interactivo_completo_cero
-  funcion: proc_interactivo_completo
-  codigo: 'int res = proc_interactivo_completo(0);
-
-    assert(res == 0);'
-- nombre: test_proc_interactivo_completo_negativo
-  funcion: proc_interactivo_completo
-  codigo: 'int res = proc_interactivo_completo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_interactivo_completo_valor_limite
-  funcion: proc_interactivo_completo
-  codigo: 'int res = proc_interactivo_completo(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_interactivo_completo_valor_unitario
-  funcion: proc_interactivo_completo
-  codigo: 'int res = proc_interactivo_completo(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_25_muestra_menu_repite_y_termina
+  funcion: ejecutar_menu
+  codigo: 'FILE *i=tmpfile(),*o=tmpfile(); char b[512]={0}; fputs("x\n9\n1\n5\n",i); rewind(i); assert(ejecutar_menu(i,o)==3);
+    rewind(o); assert(fread(b,1,sizeof b-1,o)>0); assert(strcmp(b,"1. Nuevo\n2. Abrir\n3. Guardar\n4.
+    Cerrar\n5. Salir\nOpcion: invalido\n1. Nuevo\n2. Abrir\n3. Guardar\n4. Cerrar\n5. Salir\nOpcion: invalido\n1.
+    Nuevo\n2. Abrir\n3. Guardar\n4. Cerrar\n5. Salir\nOpcion: nuevo\n1. Nuevo\n2. Abrir\n3. Guardar\n4.
+    Cerrar\n5. Salir\nOpcion: salir\n")==0); fclose(i); fclose(o);'
+- nombre: test_25_salida_inmediata_muestra_menu
+  funcion: ejecutar_menu
+  codigo: 'FILE *i=tmpfile(),*o=tmpfile(); char b[256]={0}; fputs("5\n",i); rewind(i); assert(ejecutar_menu(i,o)==0);
+    rewind(o); assert(fread(b,1,sizeof b-1,o)>0); assert(strstr(b,"1. Nuevo\n2. Abrir\n3. Guardar\n4.
+    Cerrar\n5. Salir\nOpcion: salir\n")!=NULL); fclose(i); fclose(o);'
+- nombre: test_25_rechaza_flujos_nulos
+  funcion: ejecutar_menu
+  codigo: assert(ejecutar_menu(NULL,NULL)==-1);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

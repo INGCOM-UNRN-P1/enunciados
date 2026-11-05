@@ -3,53 +3,15 @@ titulo: Tabla de conversión
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+pistas: []
 tags:
+- enumeraciones
 - conversion
-- tipos
-- tabla
-- memoria
-- enum
-- dep:tipos_datos
-- dep:condicionales
+- duplicado
 - c11
-- inicial
-verificado: true
-funciones:
-- nombre: proc__tabla_de_conversion
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Tabla de conversión
-tests_funciones:
-- nombre: test_proc__tabla_de_conversion_positivo
-  funcion: proc__tabla_de_conversion
-  codigo: 'int res = proc__tabla_de_conversion(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__tabla_de_conversion_cero
-  funcion: proc__tabla_de_conversion
-  codigo: 'int res = proc__tabla_de_conversion(0);
-
-    assert(res == 0);'
-- nombre: test_proc__tabla_de_conversion_negativo
-  funcion: proc__tabla_de_conversion
-  codigo: 'int res = proc__tabla_de_conversion(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__tabla_de_conversion_valor_limite
-  funcion: proc__tabla_de_conversion
-  codigo: 'int res = proc__tabla_de_conversion(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__tabla_de_conversion_valor_unitario
-  funcion: proc__tabla_de_conversion
-  codigo: 'int res = proc__tabla_de_conversion(1);
-
-    assert(res >= 0 || res == 2);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados
@@ -58,4 +20,4 @@ tipo: practica_guiada
 prerrequisitos:
 - tipos_datos
 - condicionales
-publicar: true
+publicar: false

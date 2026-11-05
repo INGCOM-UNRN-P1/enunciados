@@ -1,20 +1,2 @@
-/*
- * Arbol Binario #28
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_28(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_28_NODOS: %d\n", nodos + 28);
-    }
-    return 0;
-}
+#include "arbol-bin-28.h"
+size_t profundidad_minima_28(const nodo_arbol_bin_28_t*n){if(!n)return 0;if(!n->izq)return 1+profundidad_minima_28(n->der);if(!n->der)return 1+profundidad_minima_28(n->izq);size_t a=profundidad_minima_28(n->izq),b=profundidad_minima_28(n->der);return 1+(a<b?a:b);}

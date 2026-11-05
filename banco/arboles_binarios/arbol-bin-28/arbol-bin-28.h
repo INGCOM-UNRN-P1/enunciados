@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_ARBOL_BIN_28_H
-#define EJERCICIO_ARBOL_BIN_28_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_28_H
+#define ARBOL_BIN_28_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Cálculo de la Profundidad Mínima de Raíz a Hoja */
-int ejecutar_arbol_bin_28(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_28_H */
+#include <stddef.h>
+typedef struct nodo_arbol_bin_28_t { int valor; struct nodo_arbol_bin_28_t *izq, *der; } nodo_arbol_bin_28_t;
+size_t profundidad_minima_28(const nodo_arbol_bin_28_t *raiz);
+#endif

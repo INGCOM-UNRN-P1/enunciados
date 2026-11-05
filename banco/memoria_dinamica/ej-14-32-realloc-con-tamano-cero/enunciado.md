@@ -1,51 +1,29 @@
-Escribir un pequeño programa que demuestre que `realloc(ptr, 0)` se comporta de
-manera idéntica a `free(ptr)`. Verificar que el puntero original ya no es válido
-después de la operación.
+C11 deja el comportamiento de `realloc(ptr, 0)` dependiente de la
+implementación. Una implementación puede liberar el bloque y devolver `NULL`,
+o tratar la llamada como una reserva de tamaño no nulo, con un resultado que
+no debe usarse para acceder al objeto. Por eso no se puede afirmar de forma
+portable que la llamada sea equivalente a `free(ptr)` ni deducir el estado del
+bloque solo por comprobar el resultado.
 
-### 📋 Contrato de las Funciones
+Escribir un pequeño programa que ejecute `realloc(ptr, 0)`, informe si la
+implementación devolvió `NULL` o un puntero, y no vuelva a acceder al puntero
+original. Si la llamada devuelve un puntero no nulo, el programa debe liberar
+ese resultado. No intente validar una dirección liberada ni asumir que todas
+las implementaciones responden igual.
+
+### Contrato de las funciones
 
 ```c
-/*
- * Procesa el flujo principal de realloc con Tamaño Cero
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_lloc_con_tamano_cero(int val);
-
+void *realloc_tamano_cero(void *bloque);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La función devuelve exactamente el resultado de `realloc(bloque, 0)`. El
+significado de ese resultado y el tratamiento del bloque original dependen de
+la implementación de C. El ejercicio queda marcado como no publicable mientras
+no se pueda establecer una expectativa portable para el resultado.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+### Casos a contemplar
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
-- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
-:::
+- Ejecutar el programa sin desreferenciar el bloque original después de la llamada.
+- Liberar el resultado si no es `NULL`.
+- No usar el valor devuelto como prueba portable de que el bloque anterior fue liberado.

@@ -1,11 +1,13 @@
-#ifndef EJERCICIO_EJ_20_29_FUNCIONES_DE_CONVERSION_GENERI_H
-#define EJERCICIO_EJ_20_29_FUNCIONES_DE_CONVERSION_GENERI_H
-
+#ifndef EJERCICIO_EJ_20_29_H
+#define EJERCICIO_EJ_20_29_H
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Funciones de conversión genéricas */
-int proc_de_conversion_generi(int val);
+typedef struct { int valor; const char *nombre; } enum_string_t;
+const char *enum_a_string(int valor,const enum_string_t *tabla,size_t tam);
+int string_a_enum(const char *nombre,const enum_string_t *tabla,size_t tam,int valor_defecto);
 
-#endif /* EJERCICIO_EJ_20_29_FUNCIONES_DE_CONVERSION_GENERI_H */
+#endif

@@ -3,53 +3,42 @@ titulo: Gestión de estado
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+pistas: []
 tags:
-- tipos
-- memoria
-- gestion
-- enum
+- enumeraciones
+- juego
+- transiciones
 - estado
-- dep:tipos_datos
-- dep:condicionales
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_31_gestion_de_estado
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Gestión de estado
+- nombre: pausar_juego
+  retorno: void
+  parametros: juego_t *juego
+  descripcion: API funcional de Gestión de estado
+- nombre: reanudar_juego
+  retorno: void
+  parametros: juego_t *juego
+  descripcion: API funcional de Gestión de estado
+- nombre: perder_vida
+  retorno: void
+  parametros: juego_t *juego
+  descripcion: API funcional de Gestión de estado
+- nombre: ganar_nivel
+  retorno: void
+  parametros: juego_t *juego
+  descripcion: API funcional de Gestión de estado
 tests_funciones:
-- nombre: test_proc_31_gestion_de_estado_positivo
-  funcion: proc_31_gestion_de_estado
-  codigo: 'int res = proc_31_gestion_de_estado(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_31_gestion_de_estado_cero
-  funcion: proc_31_gestion_de_estado
-  codigo: 'int res = proc_31_gestion_de_estado(0);
-
-    assert(res == 0);'
-- nombre: test_proc_31_gestion_de_estado_negativo
-  funcion: proc_31_gestion_de_estado
-  codigo: 'int res = proc_31_gestion_de_estado(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_31_gestion_de_estado_valor_limite
-  funcion: proc_31_gestion_de_estado
-  codigo: 'int res = proc_31_gestion_de_estado(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_31_gestion_de_estado_valor_unitario
-  funcion: proc_31_gestion_de_estado
-  codigo: 'int res = proc_31_gestion_de_estado(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_31_pausa_reanuda
+  funcion: pausar_juego
+  codigo: juego_t j={JUEGO_JUGANDO,DIFICULTAD_NORMAL,0,1,3}; pausar_juego(&j); assert(j.estado==JUEGO_PAUSADO);
+    reanudar_juego(&j); assert(j.estado==JUEGO_JUGANDO);
+- nombre: test_31_pierde_ultima_vida
+  funcion: perder_vida
+  codigo: juego_t j={JUEGO_JUGANDO,DIFICULTAD_NORMAL,0,1,1}; perder_vida(&j); assert(j.vidas==0&&j.estado==JUEGO_GAME_OVER);
+- nombre: test_31_sube_nivel
+  funcion: ganar_nivel
+  codigo: juego_t j={JUEGO_JUGANDO,DIFICULTAD_NORMAL,0,1,3}; ganar_nivel(&j); assert(j.nivel==2&&j.puntuacion==100);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

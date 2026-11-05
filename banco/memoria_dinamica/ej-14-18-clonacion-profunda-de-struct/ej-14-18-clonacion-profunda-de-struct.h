@@ -2,10 +2,8 @@
 #define EJERCICIO_EJ_14_18_CLONACION_PROFUNDA_DE_STRUCT_H
 
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+typedef struct { char *nombre; int *notas; size_t cantidad_notas; } ficha_t;
+ficha_t *ficha_clonar(const ficha_t *original);
+void ficha_liberar(ficha_t *ficha);
 
-/* Procesa el flujo principal de Clonación Profunda de Struct */
-int proc_n_profunda_de_struct(int val);
-
-#endif /* EJERCICIO_EJ_14_18_CLONACION_PROFUNDA_DE_STRUCT_H */
+#endif

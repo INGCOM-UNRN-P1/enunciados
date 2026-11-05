@@ -1,29 +1,11 @@
-/*
- * Solucion modelo para ej-20-31-gestion-de-estado
- * Catedra Programacion I - UNRN
- */
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include <stdbool.h>
+#include <limits.h>
+#include "ej-20-31-gestion-de-estado.h"
 
-
-int proc_31_gestion_de_estado(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    int n = 0;
-    if (scanf("%d", &n) == 1)
-    {
-        printf("OK %d\n", n);
-    }
-    else
-    {
-        printf("OK\n");
-    }
-    return 0;
-}
+void pausar_juego(juego_t*j){if(j&&j->estado==JUEGO_JUGANDO)j->estado=JUEGO_PAUSADO;}
+void reanudar_juego(juego_t*j){if(j&&j->estado==JUEGO_PAUSADO)j->estado=JUEGO_JUGANDO;}
+void perder_vida(juego_t*j){if(!j||j->estado!=JUEGO_JUGANDO)return;if(j->vidas)j->vidas--;if(!j->vidas)j->estado=JUEGO_GAME_OVER;}
+void ganar_nivel(juego_t*j){if(!j||j->estado!=JUEGO_JUGANDO)return;if(j->nivel<UINT_MAX)j->nivel++;if(j->puntuacion<=UINT_MAX-100)j->puntuacion+=100;}

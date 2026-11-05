@@ -5,52 +5,31 @@ bloom: 3
 minutos_estimados: 25
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
 - intermedia
+- arbol_bin_20
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_20
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conversión de Árbol Binario a Lista Doblemente
-    Enlazada Inorder
+- nombre: convertir_inorder_20
+  retorno: nodo_arbol_bin_20_t *
+  parametros: nodo_arbol_bin_20_t *raiz
+  descripcion: Conversión de Árbol Binario a Lista Doblemente Enlazada Inorder
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_20_positivo
-  funcion: ejecutar_arbol_bin_20
-  codigo: 'int res = ejecutar_arbol_bin_20(5);
+- nombre: test_funcional_20
+  funcion: convertir_inorder_20
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_20_cero
-  funcion: ejecutar_arbol_bin_20
-  codigo: 'int res = ejecutar_arbol_bin_20(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_20_negativo
-  funcion: ejecutar_arbol_bin_20
-  codigo: 'int res = ejecutar_arbol_bin_20(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_20_valor_limite
-  funcion: ejecutar_arbol_bin_20
-  codigo: 'int res = ejecutar_arbol_bin_20(100);
+    #include "arbol-bin-20.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_20_valor_unitario
-  funcion: ejecutar_arbol_bin_20
-  codigo: 'int res = ejecutar_arbol_bin_20(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_20_t a={2,0,0}, b={1,&a,0}; nodo_arbol_bin_20_t *h=convertir_inorder_20(&b); assert(h==&a &&
+    h->der==&b && b.izq==&a);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

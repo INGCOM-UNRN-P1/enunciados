@@ -5,52 +5,30 @@ bloom: 4
 minutos_estimados: 35
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
 - intermedia
+- arbol_bin_21
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_21
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Árbol de Expresión Aritmética y Evaluación
-    de Expresiones
+- nombre: evaluar_expresion_21
+  retorno: bool
+  parametros: const nodo_expr_21_t *raiz, double *resultado
+  descripcion: Árbol de Expresión Aritmética y Evaluación de Expresiones
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_21_positivo
-  funcion: ejecutar_arbol_bin_21
-  codigo: 'int res = ejecutar_arbol_bin_21(5);
+- nombre: test_funcional_21
+  funcion: evaluar_expresion_21
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_21_cero
-  funcion: ejecutar_arbol_bin_21
-  codigo: 'int res = ejecutar_arbol_bin_21(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_21_negativo
-  funcion: ejecutar_arbol_bin_21
-  codigo: 'int res = ejecutar_arbol_bin_21(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_21_valor_limite
-  funcion: ejecutar_arbol_bin_21
-  codigo: 'int res = ejecutar_arbol_bin_21(100);
+    #include "arbol-bin-21.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_21_valor_unitario
-  funcion: ejecutar_arbol_bin_21
-  codigo: 'int res = ejecutar_arbol_bin_21(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_expr_21_t a={2,0,0,0}, b={3,0,0,0}, r={0,''+'',&a,&b}; double x; assert(evaluar_expresion_21(&r,&x) && x==5);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

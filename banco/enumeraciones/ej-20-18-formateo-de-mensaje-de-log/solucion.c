@@ -1,25 +1,8 @@
-enum tipo_mensaje
-{
-    MSG_DATOS = 0,
-    MSG_ACK = 1,
-    MSG_NACK = 2,
-    MSG_RESET = 3
-};
-typedef struct
-{
-    unsigned int tipo : 2;      // 2 bits para tipo (0-3)
-    unsigned int prioridad : 2; // 2 bits para prioridad (0-3)
-    unsigned int secuencia : 4; // 4 bits para número de secuencia (0-15)
-} cabecera_mensaje_t;
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+#include <limits.h>
+#include "ej-20-18-formateo-de-mensaje-de-log.h"
 
-
-int proc_eo_de_mensaje_de_log(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+int formatear_log(enum nivel_log n,const char *m,char *b,size_t z){static const char *l[]={"DEBUG","INFO","WARNING","ERROR"}; if(!b||!z)return -1; b[0]=0; if(!m||n<LOG_DEBUG||n>LOG_ERROR)return -1; int r=snprintf(b,z,"[%s] %s",l[n],m); if(r<0||(size_t)r>=z){b[z-1]=0;return -1;} return r;}

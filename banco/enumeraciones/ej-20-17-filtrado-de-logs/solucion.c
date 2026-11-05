@@ -1,19 +1,8 @@
-/*
- * Ejercicio: Filtrado de logs
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
+#include <limits.h>
+#include "ej-20-17-filtrado-de-logs.h"
 
-
-int proc__17_filtrado_de_logs(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Filtrado de logs */
-    return 0;
-}
+bool debe_registrar(enum nivel_log m, enum nivel_log min) { return m >= LOG_DEBUG && m <= LOG_ERROR && min >= LOG_DEBUG && min <= LOG_ERROR && m >= min; }

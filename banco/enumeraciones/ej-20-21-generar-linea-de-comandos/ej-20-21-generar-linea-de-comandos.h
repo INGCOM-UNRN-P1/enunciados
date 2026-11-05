@@ -1,11 +1,12 @@
-#ifndef EJERCICIO_EJ_20_21_GENERAR_LINEA_DE_COMANDOS_H
-#define EJERCICIO_EJ_20_21_GENERAR_LINEA_DE_COMANDOS_H
-
+#ifndef EJERCICIO_EJ_20_21_H
+#define EJERCICIO_EJ_20_21_H
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <limits.h>
 
-/* Procesa el flujo principal de Generar línea de comandos */
-int proc_ar_linea_de_comandos(int val);
+enum opcion_compilacion { OPT_NINGUNA=0, OPT_OPTIMIZAR=1<<0, OPT_DEBUG=1<<1, OPT_WARNINGS=1<<2, OPT_WARNINGS_EXTRA=1<<3, OPT_PEDANTIC=1<<4 };
+int generar_comando_compilacion(unsigned int opciones, char *buffer, size_t tam);
 
-#endif /* EJERCICIO_EJ_20_21_GENERAR_LINEA_DE_COMANDOS_H */
+#endif

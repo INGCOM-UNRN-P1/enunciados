@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - historial
@@ -18,38 +17,25 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_istorial_de_comandos
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Historial de Comandos
+- nombre: historial_agregar
+  retorno: bool
+  parametros: historial_t *h, const char *comando
+  descripcion: 'historial_agregar: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc_istorial_de_comandos_positivo
-  funcion: proc_istorial_de_comandos
-  codigo: 'int res = proc_istorial_de_comandos(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_istorial_de_comandos_cero
-  funcion: proc_istorial_de_comandos
-  codigo: 'int res = proc_istorial_de_comandos(0);
-
-    assert(res == 0);'
-- nombre: test_proc_istorial_de_comandos_negativo
-  funcion: proc_istorial_de_comandos
-  codigo: 'int res = proc_istorial_de_comandos(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_istorial_de_comandos_valor_limite
-  funcion: proc_istorial_de_comandos
-  codigo: 'int res = proc_istorial_de_comandos(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_istorial_de_comandos_valor_unitario
-  funcion: proc_istorial_de_comandos
-  codigo: 'int res = proc_istorial_de_comandos(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_historial_agregar_crece_y_guarda
+  funcion: historial_agregar
+  codigo: historial_t h; historial_iniciar(&h); assert(historial_agregar(&h,"ls")); assert(historial_agregar(&h,"cd
+    /tmp")); assert(strcmp(historial_obtener(&h,0),"ls")==0); assert(strcmp(historial_obtener(&h,1),"cd
+    /tmp")==0); historial_liberar(&h); assert(h.cantidad==0 && h.comandos==NULL);
+- nombre: test_historial_agregar_rechaza_null
+  funcion: historial_agregar
+  codigo: historial_t h; historial_iniciar(&h); assert(!historial_agregar(&h,NULL)); assert(h.cantidad==0);
+    historial_liberar(&h);
+- nombre: test_historial_agregar_indice_invalido
+  funcion: historial_agregar
+  codigo: historial_t h; historial_iniciar(&h); assert(historial_obtener(&h,0)==NULL); historial_liberar(&h);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - lista
@@ -18,38 +17,25 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__de_compras_dinamica
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Lista de Compras Dinámica
+- nombre: lista_compras_agregar
+  retorno: bool
+  parametros: lista_compras_t *l, const char *item
+  descripcion: 'lista_compras_agregar: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc__de_compras_dinamica_positivo
-  funcion: proc__de_compras_dinamica
-  codigo: 'int res = proc__de_compras_dinamica(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__de_compras_dinamica_cero
-  funcion: proc__de_compras_dinamica
-  codigo: 'int res = proc__de_compras_dinamica(0);
-
-    assert(res == 0);'
-- nombre: test_proc__de_compras_dinamica_negativo
-  funcion: proc__de_compras_dinamica
-  codigo: 'int res = proc__de_compras_dinamica(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__de_compras_dinamica_valor_limite
-  funcion: proc__de_compras_dinamica
-  codigo: 'int res = proc__de_compras_dinamica(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__de_compras_dinamica_valor_unitario
-  funcion: proc__de_compras_dinamica
-  codigo: 'int res = proc__de_compras_dinamica(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_lista_compras_agregar_agregar_items
+  funcion: lista_compras_agregar
+  codigo: lista_compras_t l; lista_compras_iniciar(&l); assert(lista_compras_agregar(&l,"pan")); assert(lista_compras_agregar(&l,"leche"));
+    assert(strcmp(l.items[1],"leche")==0); assert(lista_compras_eliminar(&l,"pan")); assert(l.cantidad==1
+    && strcmp(l.items[0],"leche")==0); lista_compras_liberar(&l); assert(l.items==NULL && l.cantidad==0);
+- nombre: test_lista_compras_agregar_rechazo_null
+  funcion: lista_compras_agregar
+  codigo: lista_compras_t l; lista_compras_iniciar(&l); assert(!lista_compras_agregar(&l,NULL)); lista_compras_liberar(&l);
+- nombre: test_lista_compras_agregar_crecimiento
+  funcion: lista_compras_agregar
+  codigo: lista_compras_t l; lista_compras_iniciar(&l); for(int i=0;i<10;i++)assert(lista_compras_agregar(&l,"x"));
+    assert(l.cantidad==10 && l.capacidad>=10); lista_compras_liberar(&l);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: listas_enlazadas

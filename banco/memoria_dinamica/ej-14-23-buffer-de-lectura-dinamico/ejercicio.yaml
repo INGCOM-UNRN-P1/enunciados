@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - dinamico
@@ -18,38 +17,24 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__de_lectura_dinamico
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Buffer de Lectura Dinámico
+- nombre: leer_linea_dinamica
+  retorno: char *
+  parametros: FILE *entrada
+  descripcion: 'leer_linea_dinamica: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc__de_lectura_dinamico_positivo
-  funcion: proc__de_lectura_dinamico
-  codigo: 'int res = proc__de_lectura_dinamico(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__de_lectura_dinamico_cero
-  funcion: proc__de_lectura_dinamico
-  codigo: 'int res = proc__de_lectura_dinamico(0);
-
-    assert(res == 0);'
-- nombre: test_proc__de_lectura_dinamico_negativo
-  funcion: proc__de_lectura_dinamico
-  codigo: 'int res = proc__de_lectura_dinamico(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__de_lectura_dinamico_valor_limite
-  funcion: proc__de_lectura_dinamico
-  codigo: 'int res = proc__de_lectura_dinamico(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__de_lectura_dinamico_valor_unitario
-  funcion: proc__de_lectura_dinamico
-  codigo: 'int res = proc__de_lectura_dinamico(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_leer_linea_dinamica_linea_larga
+  funcion: leer_linea_dinamica
+  codigo: FILE *f=tmpfile(); assert(f); for(int i=0;i<300;i++)fputc('a',f); fputc('\n',f); rewind(f);
+    char *s=leer_linea_dinamica(f); assert(s && strlen(s)==300); free(s); fclose(f);
+- nombre: test_leer_linea_dinamica_linea_vacia
+  funcion: leer_linea_dinamica
+  codigo: FILE *f=tmpfile(); assert(f); fputc('\n',f); rewind(f); char *s=leer_linea_dinamica(f); assert(s
+    && s[0]=='\0'); free(s); fclose(f);
+- nombre: test_leer_linea_dinamica_eof
+  funcion: leer_linea_dinamica
+  codigo: FILE *f=tmpfile(); assert(f); assert(leer_linea_dinamica(f)==NULL); fclose(f);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

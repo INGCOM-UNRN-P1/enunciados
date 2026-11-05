@@ -5,52 +5,30 @@ bloom: 4
 minutos_estimados: 35
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
 - intermedia
+- arbol_bin_23
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_23
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Suma de Nodos en Nivel K-ésimo de un
-    Árbol Binario
+- nombre: suma_nivel_23
+  retorno: long long
+  parametros: const nodo_arbol_bin_23_t *raiz, size_t k
+  descripcion: Suma de Nodos en Nivel K-ésimo de un Árbol Binario
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_23_positivo
-  funcion: ejecutar_arbol_bin_23
-  codigo: 'int res = ejecutar_arbol_bin_23(5);
+- nombre: test_funcional_23
+  funcion: suma_nivel_23
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_23_cero
-  funcion: ejecutar_arbol_bin_23
-  codigo: 'int res = ejecutar_arbol_bin_23(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_23_negativo
-  funcion: ejecutar_arbol_bin_23
-  codigo: 'int res = ejecutar_arbol_bin_23(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_23_valor_limite
-  funcion: ejecutar_arbol_bin_23
-  codigo: 'int res = ejecutar_arbol_bin_23(100);
+    #include "arbol-bin-23.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_23_valor_unitario
-  funcion: ejecutar_arbol_bin_23
-  codigo: 'int res = ejecutar_arbol_bin_23(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_23_t a={2,0,0}, b={3,0,0}, r={1,&a,&b}; assert(suma_nivel_23(&r,1)==5); assert(suma_nivel_23(&r,0)==1);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

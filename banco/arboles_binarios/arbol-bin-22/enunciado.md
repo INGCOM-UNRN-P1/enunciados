@@ -1,48 +1,16 @@
-Calcular propiedades estructurales y relaciones padre-hijo para el árbol binario #22.
+# Vistas superior, inferior, izquierda y derecha de un árbol binario
 
-### 📋 Contrato de las Funciones
+Implementa las cuatro vistas de un árbol binario. Las vistas izquierda y derecha devuelven el primer nodo visible en cada profundidad. Las vistas superior e inferior agrupan los nodos por distancia horizontal: la raíz tiene distancia 0, el hijo izquierdo reduce la distancia en 1 y el derecho la aumenta en 1. Se devuelve un nodo por columna, ordenando las columnas desde la más a la izquierda hasta la más a la derecha.
+
+En la vista superior se elige el nodo de menor profundidad de cada columna; en la inferior, el de mayor profundidad. Si dos nodos empatan en profundidad, se conserva el primero encontrado al recorrer primero los subárboles izquierdos.
 
 ```c
-/*
- * Procesa el flujo principal de Vistas Superior, Inferior, Izquierda y Derecha de Árbol Binario
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_arbol_bin_22(int val);
-
+bool vista_lateral_22(const nodo_arbol_bin_22_t *raiz, bool desde_izquierda,
+                      int *valores, size_t capacidad, size_t *cantidad);
+bool vista_vertical_22(const nodo_arbol_bin_22_t *raiz, bool inferior,
+                       int *valores, size_t capacidad, size_t *cantidad);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Las funciones escriben como máximo `capacidad` valores, informan cuántos escribieron mediante `cantidad` y aceptan un árbol vacío. Devuelven `false` si los parámetros de salida son inválidos o si falla una reserva de memoria.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
-:::
+Ejemplo: raíz `10`, hijos `5` y `20`, y nietos `7` (hijo derecho de 5) y `15` (hijo izquierdo de 20): la vista superior es `5, 10, 20`; la inferior es `5, 15, 20`; las vistas laterales son `10, 5, 7` y `10, 20, 15`.

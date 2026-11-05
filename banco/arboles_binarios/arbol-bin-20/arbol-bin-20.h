@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_ARBOL_BIN_20_H
-#define EJERCICIO_ARBOL_BIN_20_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_20_H
+#define ARBOL_BIN_20_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Conversión de Árbol Binario a Lista Doblemente Enlazada Inorder */
-int ejecutar_arbol_bin_20(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_20_H */
+#include <stddef.h>
+typedef struct nodo_arbol_bin_20_t { int valor; struct nodo_arbol_bin_20_t *izq, *der; } nodo_arbol_bin_20_t;
+nodo_arbol_bin_20_t *convertir_inorder_20(nodo_arbol_bin_20_t *raiz);
+#endif

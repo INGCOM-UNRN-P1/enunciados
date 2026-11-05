@@ -5,51 +5,30 @@ bloom: 4
 minutos_estimados: 35
 pistas:
 - Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
 - c11
 - intermedia
+- arbol_bin_25
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_25
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conteo de Nodos con Exactamente un Hijo
+- nombre: contar_un_hijo_25
+  retorno: size_t
+  parametros: const nodo_arbol_bin_25_t *raiz
+  descripcion: Conteo de Nodos con Exactamente un Hijo
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_25_positivo
-  funcion: ejecutar_arbol_bin_25
-  codigo: 'int res = ejecutar_arbol_bin_25(5);
+- nombre: test_funcional_25
+  funcion: contar_un_hijo_25
+  codigo: '#include <assert.h>
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_25_cero
-  funcion: ejecutar_arbol_bin_25
-  codigo: 'int res = ejecutar_arbol_bin_25(0);
+    #include <stdlib.h>
 
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_25_negativo
-  funcion: ejecutar_arbol_bin_25
-  codigo: 'int res = ejecutar_arbol_bin_25(-5);
+    #include <string.h>
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_25_valor_limite
-  funcion: ejecutar_arbol_bin_25
-  codigo: 'int res = ejecutar_arbol_bin_25(100);
+    #include "arbol-bin-25.h"
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_25_valor_unitario
-  funcion: ejecutar_arbol_bin_25
-  codigo: 'int res = ejecutar_arbol_bin_25(1);
-
-    assert(res >= 0 || res == 2);'
+    nodo_arbol_bin_25_t a={2,0,0}, r={1,&a,0}; assert(contar_un_hijo_25(&r)==1);'
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

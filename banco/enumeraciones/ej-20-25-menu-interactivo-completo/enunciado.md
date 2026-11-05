@@ -1,88 +1,22 @@
-Implementar un lazo principal que muestre el menú, lea la opción del usuario y
-ejecute la acción hasta que el usuario seleccione `MENU_SALIR`.
+# Menú interactivo completo
 
-## Tipos de Figuras Geométricas con Unión
+Implementá un lazo que muestre el menú, lea una opción y ejecute su acción hasta que se seleccione `MENU_SALIR`. El menú debe mostrarse antes de cada lectura:
 
-Combinar enumeraciones, estructuras y uniones para representar diferentes
-figuras geométricas.
-
-
-
-```{code-block} c
-:linenos:
-enum tipo_figura
-{
-    FIGURA_CIRCULO,
-    FIGURA_RECTANGULO,
-    FIGURA_TRIANGULO
-};
-typedef struct
-{
-    double radio;
-} circulo_t;
-typedef struct
-{
-    double base;
-    double altura;
-} rectangulo_t;
-typedef struct
-{
-    double lado_a;
-    double lado_b;
-    double lado_c;
-} triangulo_t;
-typedef struct
-{
-    enum tipo_figura tipo;
-    union
-    {
-        circulo_t circulo;
-        rectangulo_t rectangulo;
-        triangulo_t triangulo;
-    } datos;
-} figura_t;
-```
-
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Menú interactivo completo
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_interactivo_completo(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Valor positivo
 ```text
-Entrada: 5
-Salida / Retorno: 10
+1. Nuevo
+2. Abrir
+3. Guardar
+4. Cerrar
+5. Salir
+Opcion:
 ```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
 
-### ⚠️ Precondiciones y Casos Borde
+Las opciones 1 a 4 escriben, respectivamente, `nuevo`, `abrir`, `guardar` o `cerrar`, cada una seguida de un salto de línea. Una entrada vacía, no numérica o fuera del rango 1–5 escribe `invalido` y el menú vuelve a mostrarse. La opción 5 escribe `salir` y termina el lazo. Cada línea se procesa como una entrada; el texto adicional que no sea espacio invalida esa línea.
 
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
+## Contrato
 
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+`ejecutar_menu(entrada, salida)` usa los flujos provistos y retorna la cantidad de entradas procesadas que no fueron `MENU_SALIR`, incluyendo entradas inválidas. Si recibe un puntero nulo, retorna `-1`. Si el flujo de entrada termina antes de seleccionar Salir, retorna la cantidad procesada hasta entonces.
 
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+## Compilación
+
+Usar C11 con `-Wall -Wextra -Werror`.

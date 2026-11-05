@@ -3,53 +3,29 @@ titulo: Inicializar juego
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
-  oculta en el archivo `.c`.'
-- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
-  la estructura de forma segura.'
+pistas: []
 tags:
-- tipos
+- enumeraciones
 - juego
-- memoria
-- enum
-- inicializar
-- dep:tipos_datos
-- dep:condicionales
+- estado
+- dificultad
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_30_inicializar_juego
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Inicializar juego
+- nombre: inicializar_juego
+  retorno: juego_t
+  parametros: enum dificultad dif
+  descripcion: API funcional de Inicializar juego
 tests_funciones:
-- nombre: test_proc_30_inicializar_juego_positivo
-  funcion: proc_30_inicializar_juego
-  codigo: 'int res = proc_30_inicializar_juego(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_30_inicializar_juego_cero
-  funcion: proc_30_inicializar_juego
-  codigo: 'int res = proc_30_inicializar_juego(0);
-
-    assert(res == 0);'
-- nombre: test_proc_30_inicializar_juego_negativo
-  funcion: proc_30_inicializar_juego
-  codigo: 'int res = proc_30_inicializar_juego(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_30_inicializar_juego_valor_limite
-  funcion: proc_30_inicializar_juego
-  codigo: 'int res = proc_30_inicializar_juego(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_30_inicializar_juego_valor_unitario
-  funcion: proc_30_inicializar_juego
-  codigo: 'int res = proc_30_inicializar_juego(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_30_dificultad_facil
+  funcion: inicializar_juego
+  codigo: juego_t j=inicializar_juego(DIFICULTAD_FACIL); assert(j.estado==JUEGO_MENU&&j.vidas==5&&j.nivel==1&&j.puntuacion==0);
+- nombre: test_30_dificultad_experto
+  funcion: inicializar_juego
+  codigo: assert(inicializar_juego(DIFICULTAD_EXPERTO).vidas==1);
+- nombre: test_30_dificultad_invalida
+  funcion: inicializar_juego
+  codigo: assert(inicializar_juego((enum dificultad)99).dificultad==DIFICULTAD_NORMAL);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

@@ -1,20 +1,3 @@
-/*
- * Arbol Binario #29
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_29(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_29_NODOS: %d\n", nodos + 29);
-    }
-    return 0;
-}
+#include "arbol-bin-29.h"
+static const nodo_arbol_bin_29_t*find(const nodo_arbol_bin_29_t*n,int v){if(!n||n->valor==v)return n;const nodo_arbol_bin_29_t*p=find(n->izq,v);return p?p:find(n->der,v);} static const nodo_arbol_bin_29_t*common(const nodo_arbol_bin_29_t*n,int a,int b){if(!n||n->valor==a||n->valor==b)return n;const nodo_arbol_bin_29_t*x=common(n->izq,a,b),*y=common(n->der,a,b);return x&&y?n:x?x:y;} static int dep(const nodo_arbol_bin_29_t*n,int v){if(!n)return -1;if(n->valor==v)return 0;int x=dep(n->izq,v);if(x<0)x=dep(n->der,v);return x<0?-1:x+1;}
+int distancia_29(const nodo_arbol_bin_29_t*r,int a,int b){if(!find(r,a)||!find(r,b))return -1;const nodo_arbol_bin_29_t*c=common(r,a,b);return dep(c,a)+dep(c,b);}

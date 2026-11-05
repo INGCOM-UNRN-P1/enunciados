@@ -4,10 +4,9 @@ tema: memoria_dinamica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
+- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación total de recursos
+  en caso de error.'
+- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante Valgrind o AddressSanitizer.'
 tags:
 - heap
 - irregular
@@ -18,38 +17,24 @@ tags:
 - dep:punteros
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_regular_ragged_array
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Matriz Irregular (Ragged Array)
+- nombre: matriz_irregular_crear
+  retorno: bool
+  parametros: matriz_irregular_t *m, const size_t *columnas, size_t filas
+  descripcion: 'matriz_irregular_crear: operación principal del ejercicio'
 tests_funciones:
-- nombre: test_proc_regular_ragged_array_positivo
-  funcion: proc_regular_ragged_array
-  codigo: 'int res = proc_regular_ragged_array(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_regular_ragged_array_cero
-  funcion: proc_regular_ragged_array
-  codigo: 'int res = proc_regular_ragged_array(0);
-
-    assert(res == 0);'
-- nombre: test_proc_regular_ragged_array_negativo
-  funcion: proc_regular_ragged_array
-  codigo: 'int res = proc_regular_ragged_array(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_regular_ragged_array_valor_limite
-  funcion: proc_regular_ragged_array
-  codigo: 'int res = proc_regular_ragged_array(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_regular_ragged_array_valor_unitario
-  funcion: proc_regular_ragged_array
-  codigo: 'int res = proc_regular_ragged_array(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_matriz_irregular_crear_filas_distintas
+  funcion: matriz_irregular_crear
+  codigo: size_t c[]={2,0,3}; matriz_irregular_t m; assert(matriz_irregular_crear(&m,c,3)); assert(m.filas==3
+    && m.columnas[0]==2 && m.columnas[1]==0 && m.columnas[2]==3); m.datos[0][1]=7; m.datos[2][2]=9; assert(m.datos[0][1]==7
+    && m.datos[2][2]==9); matriz_irregular_liberar(&m); assert(m.datos==NULL);
+- nombre: test_matriz_irregular_crear_vacia
+  funcion: matriz_irregular_crear
+  codigo: matriz_irregular_t m; assert(matriz_irregular_crear(&m,NULL,0)); assert(m.filas==0); matriz_irregular_liberar(&m);
+- nombre: test_matriz_irregular_crear_argumentos
+  funcion: matriz_irregular_crear
+  codigo: size_t c=1; assert(!matriz_irregular_crear(NULL,&c,1)); matriz_irregular_t m; assert(!matriz_irregular_crear(&m,NULL,1));
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: matrices_2d

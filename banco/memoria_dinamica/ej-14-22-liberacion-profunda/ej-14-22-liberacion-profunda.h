@@ -2,10 +2,6 @@
 #define EJERCICIO_EJ_14_22_LIBERACION_PROFUNDA_H
 
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+void liberar_historial(char **historial, size_t n_comandos);
 
-/* Procesa el flujo principal de Liberación Profunda */
-int proc__liberacion_profunda(int val);
-
-#endif /* EJERCICIO_EJ_14_22_LIBERACION_PROFUNDA_H */
+#endif

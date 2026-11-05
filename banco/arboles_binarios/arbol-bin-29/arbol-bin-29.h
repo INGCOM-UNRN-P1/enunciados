@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_ARBOL_BIN_29_H
-#define EJERCICIO_ARBOL_BIN_29_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_29_H
+#define ARBOL_BIN_29_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Distancia entre Dos Nodos Arbitrarios en Árbol Binario */
-int ejecutar_arbol_bin_29(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_29_H */
+#include <stddef.h>
+typedef struct nodo_arbol_bin_29_t { int valor; struct nodo_arbol_bin_29_t *izq, *der; } nodo_arbol_bin_29_t;
+int distancia_29(const nodo_arbol_bin_29_t *raiz, int a, int b);
+#endif

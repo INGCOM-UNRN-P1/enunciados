@@ -1,20 +1,2 @@
-/*
- * Arbol Binario #21
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_21(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_21_NODOS: %d\n", nodos + 21);
-    }
-    return 0;
-}
+#include "arbol-bin-21.h"
+bool evaluar_expresion_21(const nodo_expr_21_t*n,double*out){if(!n||!out)return false;if(!n->izq&&!n->der){*out=n->numero;return true;}if(!n->izq||!n->der)return false;double a,b;if(!evaluar_expresion_21(n->izq,&a)||!evaluar_expresion_21(n->der,&b))return false;switch(n->operador){case '+':*out=a+b;break;case '-':*out=a-b;break;case '*':*out=a*b;break;case '/':if(b==0)return false;*out=a/b;break;default:return false;}return true;}

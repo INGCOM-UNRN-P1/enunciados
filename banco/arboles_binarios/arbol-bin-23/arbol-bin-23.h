@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_ARBOL_BIN_23_H
-#define EJERCICIO_ARBOL_BIN_23_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_23_H
+#define ARBOL_BIN_23_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Suma de Nodos en Nivel K-ésimo de un Árbol Binario */
-int ejecutar_arbol_bin_23(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_23_H */
+#include <stddef.h>
+typedef struct nodo_arbol_bin_23_t { int valor; struct nodo_arbol_bin_23_t *izq, *der; } nodo_arbol_bin_23_t;
+long long suma_nivel_23(const nodo_arbol_bin_23_t *raiz, size_t k);
+#endif

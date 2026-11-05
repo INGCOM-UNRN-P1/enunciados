@@ -3,52 +3,29 @@ titulo: Cálculo de área
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+pistas: []
 tags:
-- calculo
-- tipos
-- enum
-- memoria
-- dep:tipos_datos
-- dep:condicionales
+- enumeraciones
+- figuras
+- uniones
+- geometria
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_0_26_calculo_de_area
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de área
+- nombre: calcular_area
+  retorno: double
+  parametros: const figura_t *figura
+  descripcion: API funcional de Cálculo de área
 tests_funciones:
-- nombre: test_proc_0_26_calculo_de_area_positivo
-  funcion: proc_0_26_calculo_de_area
-  codigo: 'int res = proc_0_26_calculo_de_area(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_0_26_calculo_de_area_cero
-  funcion: proc_0_26_calculo_de_area
-  codigo: 'int res = proc_0_26_calculo_de_area(0);
-
-    assert(res == 0);'
-- nombre: test_proc_0_26_calculo_de_area_negativo
-  funcion: proc_0_26_calculo_de_area
-  codigo: 'int res = proc_0_26_calculo_de_area(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_0_26_calculo_de_area_valor_limite
-  funcion: proc_0_26_calculo_de_area
-  codigo: 'int res = proc_0_26_calculo_de_area(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_0_26_calculo_de_area_valor_unitario
-  funcion: proc_0_26_calculo_de_area
-  codigo: 'int res = proc_0_26_calculo_de_area(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_26_area_rectangulo
+  funcion: calcular_area
+  codigo: figura_t f={.tipo=FIGURA_RECTANGULO,.datos.rectangulo={3,4}}; assert(fabs(calcular_area(&f)-12.0)<1e-9);
+- nombre: test_26_triangulo_heron
+  funcion: calcular_area
+  codigo: figura_t f={.tipo=FIGURA_TRIANGULO,.datos.triangulo={3,4,5}}; assert(fabs(calcular_area(&f)-6.0)<1e-9);
+- nombre: test_26_puntero_nulo
+  funcion: calcular_area
+  codigo: assert(calcular_area(NULL)<0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

@@ -3,53 +3,27 @@ titulo: Formateo de mensaje de log
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+pistas: []
 tags:
+- enumeraciones
+- logs
 - formateo
-- tipos
-- mensaje
-- memoria
-- enum
-- dep:tipos_datos
-- dep:condicionales
+- cadenas
 - c11
-- inicial
 verificado: true
 funciones:
-- nombre: proc_eo_de_mensaje_de_log
+- nombre: formatear_log
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Formateo de mensaje de log
+  parametros: enum nivel_log nivel, const char *mensaje, char *buffer, size_t tam
+  descripcion: API funcional de Formateo de mensaje de log
 tests_funciones:
-- nombre: test_proc_eo_de_mensaje_de_log_positivo
-  funcion: proc_eo_de_mensaje_de_log
-  codigo: 'int res = proc_eo_de_mensaje_de_log(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_eo_de_mensaje_de_log_cero
-  funcion: proc_eo_de_mensaje_de_log
-  codigo: 'int res = proc_eo_de_mensaje_de_log(0);
-
-    assert(res == 0);'
-- nombre: test_proc_eo_de_mensaje_de_log_negativo
-  funcion: proc_eo_de_mensaje_de_log
-  codigo: 'int res = proc_eo_de_mensaje_de_log(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_eo_de_mensaje_de_log_valor_limite
-  funcion: proc_eo_de_mensaje_de_log
-  codigo: 'int res = proc_eo_de_mensaje_de_log(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_eo_de_mensaje_de_log_valor_unitario
-  funcion: proc_eo_de_mensaje_de_log
-  codigo: 'int res = proc_eo_de_mensaje_de_log(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_18_mensaje_formateado
+  funcion: formatear_log
+  codigo: char b[64]; assert(formatear_log(LOG_ERROR,"Archivo no encontrado",b,sizeof b)==29); assert(strcmp(b,"[ERROR]
+    Archivo no encontrado")==0);
+- nombre: test_18_tamano_insuficiente
+  funcion: formatear_log
+  codigo: char b[4]; assert(formatear_log(LOG_INFO,"x",b,sizeof b)==-1);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: registro_eventos
