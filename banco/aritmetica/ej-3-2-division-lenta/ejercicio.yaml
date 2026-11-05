@@ -5,18 +5,9 @@ bloom: 2
 minutos_estimados: 15
 starter_code: ''
 pistas:
-- '**Entrada:** Dos enteros positivos, `dividendo` y `divisor`.'
-- '**Proceso:** Se resta el `divisor` del `dividendo` de forma repetida hasta que
-  el `dividendo` sea menor que el `divisor`. Se necesita un contador (`cociente`)
-  que se incrementa en cada resta exitosa.'
-- El lazo (preferiblemente `while`) se ejecuta mientras `dividendo >= divisor`.
-- '**Salida:** El valor final del contador es el cociente, y el valor final del `dividendo`
-  (lo que sobra) es el resto. definición interna oculta en el archivo `.c`. para copiar
-  la estructura de forma segura.'
-- '[Plus Ultra] Validar que el divisor sea estrictamente mayor que cero retornando
-  un código de error si es cero.'
-- '[Plus Ultra] Calcular simultáneamente el cociente y el resto sin usar los operadores
-  / ni %.'
+- Repetí la resta del divisor y contá cuántas veces puede hacerse hasta que el resto sea menor que el
+  divisor.
+- El cociente se trunca hacia cero; el divisor cero produce 0.
 tags:
 - fundamentos
 - lenta
@@ -31,32 +22,23 @@ funciones:
 - nombre: division_lenta
   retorno: int
   parametros: int dividendo, int divisor
-  descripcion: Calcula cociente de division mediante restas sucesivas
+  descripcion: Implementa División lenta.
 tests_funciones:
-- nombre: test_div_exacta
+- nombre: test_division_lenta_exacta
   funcion: division_lenta
   codigo: assert(division_lenta(12, 3) == 4);
-- nombre: test_div_inexacta
+- nombre: test_division_lenta_resto
   funcion: division_lenta
   codigo: assert(division_lenta(14, 3) == 4);
-- nombre: test_div_cero
+- nombre: test_division_lenta_signo
+  funcion: division_lenta
+  codigo: assert(division_lenta(-14, 3) == -4);
+- nombre: test_division_lenta_cero
   funcion: division_lenta
   codigo: assert(division_lenta(0, 5) == 0);
-- nombre: test_division_lenta_negativo
+- nombre: test_division_lenta_divisor_cero
   funcion: division_lenta
-  codigo: 'int res = division_lenta(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_division_lenta_valor_limite
-  funcion: division_lenta
-  codigo: 'int res = division_lenta(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_division_lenta_valor_unitario
-  funcion: division_lenta
-  codigo: 'int res = division_lenta(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: assert(division_lenta(5, 0) == 0);
 diagramas: []
 tipo_entrega: archivos_individuales
 dependencias: []

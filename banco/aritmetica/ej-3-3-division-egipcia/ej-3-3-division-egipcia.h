@@ -1,11 +1,6 @@
 #ifndef EJERCICIO_EJ_3_3_DIVISION_EGIPCIA_H
 #define EJERCICIO_EJ_3_3_DIVISION_EGIPCIA_H
 
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+int division_egipcia(int dividendo, int divisor, int *resto);
 
-/* Procesa el flujo principal de División egipcia */
-int proc_3_3_division_egipcia(int val);
-
-#endif /* EJERCICIO_EJ_3_3_DIVISION_EGIPCIA_H */
+#endif

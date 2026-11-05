@@ -5,7 +5,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Lógica de Funciones Matemáticas Básicas */
-int resolver_ej_6(int n);
+double sumar(double a, double b);
+double restar(double a, double b);
+double multiplicar(double a, double b);
+/* Retorna NAN cuando b == 0. */
+double dividir(double a, double b);
 
 #endif /* EJERCICIO_EJ_5_6_FUNCIONES_MATEMATICAS_BASICAS_H */

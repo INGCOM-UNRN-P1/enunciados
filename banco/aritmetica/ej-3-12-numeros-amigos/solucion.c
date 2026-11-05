@@ -1,19 +1,14 @@
-/*
- * Ejercicio: Números Amigos
- * Cátedra Programación I - UNRN
- */
+#include "ej-3-12-numeros-amigos.h"
 
-#include <stdio.h>
-
-
-int proc__3_12_numeros_amigos(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
+static int suma_divisores_propios(int n) {
+    if (n <= 1) return 0;
+    int suma = 1;
+    for (int d = 2; d <= n / d; ++d) if (n % d == 0) {
+        suma += d;
+        if (d != n / d) suma += n / d;
+    }
+    return suma;
 }
-
-int main(void)
-{
-    /* TODO: Implementación de Números Amigos */
-    return 0;
+int son_amigos(int a, int b) {
+    return a > 0 && b > 0 && a != b && suma_divisores_propios(a) == b && suma_divisores_propios(b) == a;
 }

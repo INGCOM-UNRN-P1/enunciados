@@ -11,31 +11,37 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: resolver_ej_6
-  retorno: int
-  parametros: int n
-  descripcion: Lógica de Funciones Matemáticas Básicas
+- nombre: sumar
+  retorno: double
+  parametros: double a, double b
+  descripcion: Devuelve la suma de a y b
+- nombre: restar
+  retorno: double
+  parametros: double a, double b
+  descripcion: Devuelve la diferencia a menos b
+- nombre: multiplicar
+  retorno: double
+  parametros: double a, double b
+  descripcion: Devuelve el producto de a y b
+- nombre: dividir
+  retorno: double
+  parametros: double a, double b
+  descripcion: Devuelve a dividido por b o NAN si b es cero
 tests_funciones:
-- nombre: test_resolver_ej_6_positivo
-  funcion: resolver_ej_6
-  codigo: 'int res = resolver_ej_6(5);
+- nombre: test_suma
+  funcion: sumar
+  codigo: assert(sumar(1.5, 2.0) == 3.5);
+- nombre: test_resta
+  funcion: restar
+  codigo: assert(restar(2.0, 5.0) == -3.0);
+- nombre: test_multiplicacion
+  funcion: multiplicar
+  codigo: assert(multiplicar(-2.0, 3.0) == -6.0);
+- nombre: test_division
+  funcion: dividir
+  codigo: 'assert(dividir(7.0, 2.0) == 3.5);
 
-    assert(res >= 0 || res == 10);'
-- nombre: test_resolver_ej_6_cero
-  funcion: resolver_ej_6
-  codigo: 'int res = resolver_ej_6(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_resolver_ej_6_negativo
-  funcion: resolver_ej_6
-  codigo: 'int res = resolver_ej_6(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_resolver_ej_6_limite
-  funcion: resolver_ej_6
-  codigo: 'int res = resolver_ej_6(100);
-
-    assert(res >= 0 || res == 200);'
+    assert(dividir(1.0, 0.0) != dividir(1.0, 0.0));'
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: funciones_general

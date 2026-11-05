@@ -1,51 +1,16 @@
-Creá funciones para operaciones matemáticas: `sumar`, `restar`, `multiplicar`,
-`dividir`.
+# Funciones Matemáticas Básicas
 
-**Orientación:**
-- Cada función recibe dos `double` y retorna el resultado
-- `dividir` debe verificar divisor != 0
-- En `main`, usá las funciones en una calculadora simple
+Implementá las funciones `sumar`, `restar`, `multiplicar` y `dividir` declaradas
+en `ej-5-6-funciones-matematicas-basicas.h`. Las tres primeras reciben dos
+`double` y retornan el resultado de su operación.
 
+`dividir` recibe dos operandos y retorna el cociente. Si el divisor vale cero,
+retorna `NAN` de `<math.h>`.
 
+Las funciones no realizan entrada ni salida. En `main`, mostrá una calculadora
+sencilla que use las cuatro operaciones.
 
----
-(ejercicio_5_7)=
-
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Lógica de Funciones Matemáticas Básicas
- * Precondiciones: Parámetros dentro del dominio válido de la operación.
- * Postcondiciones: Retorna el valor procesado.
- */
-int resolver_ej_6(int n);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Caso general
-```text
-val = 10
-Retorno esperado calculado
-```
-:::
-:::{tab-item} Caso límite
-```text
-val = 0
-Retorno 0 o manejo de borde
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+Para la calculadora, leé dos números separados por un operador (`+`, `-`, `*`
+o `/`), por ejemplo `7 / 2`. Mostrá el resultado con dos decimales. Si el
+divisor es cero, mostrá `División por cero`; si el operador no es válido,
+mostrá `Operación inválida`. Terminá cada resultado con un salto de línea.

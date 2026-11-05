@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Acrónimo */
-int ejecutar_ej_11_31_b31_acronimo(int val);
+/* Escribe el acrónimo en salida; devuelve -1 ante argumentos inválidos o falta de espacio. */
+int generar_acronimo(const char *frase, char *salida, size_t capacidad);
 
 #endif /* EJERCICIO_EJ_11_31_B31_ACRONIMO_H */

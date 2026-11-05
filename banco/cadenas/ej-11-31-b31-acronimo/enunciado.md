@@ -1,94 +1,11 @@
-#### Descripción
-Escribir una función que genere un acrónimo a partir de una frase, tomando la
-primera letra de cada palabra.
+#### Acrónimo
 
-
-
-:::{tip} Lógica y Consideraciones
-
--   **Proceso:**
-    1.  Recorrer la cadena.
-    2.  Usar una bandera o estado para saber si el carácter actual es el inicio
-        de una nueva palabra.
-    3.  Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a
-        la cadena de resultado.
-
-:::
-
-:::{tip} Ayuda (pseudocódigo)
-:class: dropdown
-```{code-block} pseudocode
-:linenos:
-FUNCION generar_acronimo(frase)
-VARIABLES:
-    acronimo (cadena)
-    es_inicio_de_palabra (booleano)
-INICIO
-    acronimo = ""
-    es_inicio_de_palabra = VERDADERO
-
-    PARA cada caracter c en frase HACER
-        SI es_letra(c) Y es_inicio_de_palabra ENTONCES
-            AÑADIR convertir_a_mayuscula(c) a acronimo
-            es_inicio_de_palabra = FALSO
-        SINO SI c == ' ' ENTONCES
-            es_inicio_de_palabra = VERDADERO
-        FIN SI
-    FIN PARA
-    RETORNAR acronimo
-FIN FUNCION
-
-```
-
-:::
-
-### 📋 Contrato de las Funciones
+Implementá `generar_acronimo`, que toma la primera letra de cada palabra de una frase y la escribe en mayúsculas en el búfer de salida. Las palabras están separadas por cualquier espacio en blanco reconocido por `isspace`; los elementos que no comienzan con una letra no aportan una inicial.
 
 ```c
-/*
- * Procesa el flujo principal de Acrónimo
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_ej_11_31_b31_acronimo(int val);
-
+int generar_acronimo(const char *frase, char *salida, size_t capacidad);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La función devuelve `0` al completar el resultado, incluso si no encontró letras. Devuelve `-1` si algún puntero es nulo, la capacidad es cero o no hay espacio para todas las iniciales y el terminador. Ante falta de espacio, deja `salida` como cadena vacía. La salida siempre termina en `\\0` si el búfer es válido y tiene capacidad positiva.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Terminación nula:** Asegurar que todas las cadenas de texto conserven el terminador nulo `\0` dentro de los límites del buffer.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-- **Proceso:**
-- Recorrer la cadena.
-- Usar una bandera o estado para saber si el carácter actual es el inicio de una nueva palabra.
-- Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a la cadena de resultado.
-:::
+Ejemplo: la frase `"Universidad Nacional de Rio Negro"` produce `"UNDRN"`.

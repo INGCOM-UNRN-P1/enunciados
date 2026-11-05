@@ -2,12 +2,19 @@
 
 ## Ejercicio 5.6 - Funciones Matemáticas Básicas ⭐☆☆☆☆
 
-Creá funciones para operaciones matemáticas: `sumar`, `restar`, `multiplicar`,
-`dividir`.
+Implementá las funciones declaradas en el encabezado:
+
+```c
+double sumar(double a, double b);
+double restar(double a, double b);
+double multiplicar(double a, double b);
+double dividir(double a, double b);
+```
 
 **Orientación:**
 - Cada función recibe dos `double` y retorna el resultado
-- `dividir` debe verificar divisor != 0
+- `dividir` retorna `NAN` (de `<math.h>`) cuando el divisor es cero; en otro
+  caso retorna el cociente.
 - En `main`, usá las funciones en una calculadora simple
 
 
@@ -23,3 +30,8 @@ Creá funciones para operaciones matemáticas: `sumar`, `restar`, `multiplicar`,
 
 ---
 (ejercicio_5_7)=
+
+Para la calculadora, leé dos números separados por un operador (`+`, `-`, `*`
+o `/`), por ejemplo `7 / 2`. Mostrá el resultado con dos decimales. Si el
+divisor es cero, mostrá `División por cero`; si el operador no es válido,
+mostrá `Operación inválida`. Terminá cada resultado con un salto de línea.

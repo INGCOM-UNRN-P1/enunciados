@@ -1,19 +1,7 @@
-/*
- * Ejercicio: Números Primos
- * Cátedra Programación I - UNRN
- */
+#include "ej-3-10-numeros-primos.h"
 
-#include <stdio.h>
-
-
-int proc__3_10_numeros_primos(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Números Primos */
-    return 0;
+int es_primo(int n) {
+    if (n < 2) return 0;
+    for (int d = 2; d <= n / d; ++d) if (n % d == 0) return 0;
+    return 1;
 }

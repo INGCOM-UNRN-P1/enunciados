@@ -1,19 +1,29 @@
-/*
- * Ejercicio: b.32 - Distancia de Hamming
- * Cátedra Programación I - UNRN
- */
+#include "ej-11-32-b32-distancia-de-hamming.h"
 
-#include <stdio.h>
+#include <string.h>
+#include <limits.h>
 
-
-int proc_distancia_de_hamming(int val)
+int distancia_hamming(const char *cadena1, const char *cadena2)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
+    size_t distancia = 0;
 
-int main(void)
-{
-    /* TODO: Implementación de b.32 - Distancia de Hamming */
-    return 0;
+    if (cadena1 == NULL || cadena2 == NULL) {
+        return -1;
+    }
+
+    size_t longitud = strlen(cadena1);
+    if (longitud != strlen(cadena2)) {
+        return -1;
+    }
+
+    for (size_t i = 0; i < longitud; i++) {
+        if (cadena1[i] != cadena2[i]) {
+            distancia++;
+        }
+    }
+
+    if (distancia > (size_t)INT_MAX) {
+        return -1;
+    }
+    return (int)distancia;
 }

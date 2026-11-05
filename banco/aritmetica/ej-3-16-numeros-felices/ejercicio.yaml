@@ -4,16 +4,8 @@ tema: aritmetica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '**Entrada:** Un entero positivo `n`.'
-- '**Proceso:** Usar un lazo `while`. En cada iteración, calcular la suma de los cuadrados
-  de los dígitos del número actual. El lazo debe terminar si el número se convierte
-  en 1 (feliz) o si se detecta un ciclo (no feliz). Para detectar ciclos, se puede
-  guardar los números ya vistos en un arreglo o simplemente detectar si se llega al
-  número 4. filas (*row-major order*) para mejorar el uso de caché. estrictamente
-  dentro de los límites del contenedor.'
-- '[Plus Ultra] Detectar ciclos usando un límite de iteraciones para números que no
-  son felices.'
-- '[Plus Ultra] Listar todos los números felices comprendidos entre 1 y 100.'
+- En cada paso reemplazá el número por la suma de los cuadrados de sus dígitos.
+- La secuencia de un número no feliz entra en el ciclo que contiene al 4.
 tags:
 - fundamentos
 - aritmetica
@@ -25,36 +17,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_3_16_numeros_felices
+- nombre: es_feliz
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Números Felices
+  parametros: int n
+  descripcion: Implementa Números Felices.
 tests_funciones:
-- nombre: test_proc_3_16_numeros_felices_positivo
-  funcion: proc_3_16_numeros_felices
-  codigo: 'int res = proc_3_16_numeros_felices(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_3_16_numeros_felices_cero
-  funcion: proc_3_16_numeros_felices
-  codigo: 'int res = proc_3_16_numeros_felices(0);
-
-    assert(res == 0);'
-- nombre: test_proc_3_16_numeros_felices_negativo
-  funcion: proc_3_16_numeros_felices
-  codigo: 'int res = proc_3_16_numeros_felices(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_3_16_numeros_felices_valor_limite
-  funcion: proc_3_16_numeros_felices
-  codigo: 'int res = proc_3_16_numeros_felices(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_3_16_numeros_felices_valor_unitario
-  funcion: proc_3_16_numeros_felices
-  codigo: 'int res = proc_3_16_numeros_felices(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_es_feliz_feliz
+  funcion: es_feliz
+  codigo: assert(es_feliz(19) == 1);
+- nombre: test_es_feliz_no_feliz
+  funcion: es_feliz
+  codigo: assert(es_feliz(4) == 0);
+- nombre: test_es_feliz_un_digito_feliz
+  funcion: es_feliz
+  codigo: assert(es_feliz(1) == 1);
+- nombre: test_es_feliz_cero
+  funcion: es_feliz
+  codigo: assert(es_feliz(0) == 0);
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: fundamentos

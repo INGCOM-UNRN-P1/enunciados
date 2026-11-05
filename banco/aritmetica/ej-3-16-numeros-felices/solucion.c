@@ -1,19 +1,12 @@
-/*
- * Ejercicio: Números Felices
- * Cátedra Programación I - UNRN
- */
+#include "ej-3-16-numeros-felices.h"
 
-#include <stdio.h>
-
-
-int proc_3_16_numeros_felices(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
+static int suma_cuadrados_digitos(int n) {
+    int suma = 0;
+    while (n > 0) { int d = n % 10; suma += d * d; n /= 10; }
+    return suma;
 }
-
-int main(void)
-{
-    /* TODO: Implementación de Números Felices */
-    return 0;
+int es_feliz(int n) {
+    if (n <= 0) return 0;
+    while (n != 1 && n != 4) n = suma_cuadrados_digitos(n);
+    return n == 1;
 }

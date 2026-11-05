@@ -1,19 +1,31 @@
-/*
- * Ejercicio: b.31 - Acrónimo
- * Cátedra Programación I - UNRN
- */
+#include "ej-11-31-b31-acronimo.h"
 
-#include <stdio.h>
+#include <ctype.h>
 
-
-int ejecutar_ej_11_31_b31_acronimo(int val)
+int generar_acronimo(const char *frase, char *salida, size_t capacidad)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
+    size_t usados = 0;
+    int inicio_palabra = 1;
 
-int main(void)
-{
-    /* TODO: Implementación de b.31 - Acrónimo */
+    if (frase == NULL || salida == NULL || capacidad == 0) {
+        return -1;
+    }
+
+    for (const unsigned char *p = (const unsigned char *)frase; *p != '\0'; p++) {
+        if (isspace(*p)) {
+            inicio_palabra = 1;
+        } else {
+            if (inicio_palabra && isalpha(*p)) {
+                if (usados + 1 >= capacidad) {
+                    salida[0] = '\0';
+                    return -1;
+                }
+                salida[usados++] = (char)toupper(*p);
+            }
+            inicio_palabra = 0;
+        }
+    }
+
+    salida[usados] = '\0';
     return 0;
 }

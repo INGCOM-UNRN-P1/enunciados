@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Distancia de Hamming */
-int proc_distancia_de_hamming(int val);
+/* Devuelve -1 si las cadenas son NULL o tienen distinta longitud. */
+int distancia_hamming(const char *cadena1, const char *cadena2);
 
 #endif /* EJERCICIO_EJ_11_32_B32_DISTANCIA_DE_HAMMING_H */

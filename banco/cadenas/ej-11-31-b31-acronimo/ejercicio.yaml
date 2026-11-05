@@ -4,16 +4,13 @@ tema: cadenas
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad
+  máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 - '**Proceso:**'
 - Recorrer la cadena.
-- Usar una bandera o estado para saber si el carácter actual es el inicio de una nueva
-  palabra.
-- Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a la cadena
-  de resultado.
+- Usar una bandera o estado para saber si el carácter actual es el inicio de una nueva palabra.
+- Si es el inicio de una palabra y es una letra, añadirla (en mayúscula) a la cadena de resultado.
 tags:
 - acronimo
 - cadenas
@@ -25,36 +22,31 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_ej_11_31_b31_acronimo
+- nombre: generar_acronimo
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Acrónimo
+  parametros: const char *frase, char *salida, size_t capacidad
+  descripcion: Escribe en salida la primera letra de cada palabra en mayúscula; devuelve 0 si tuvo éxito
+    y -1 si los argumentos o la capacidad no son válidos.
 tests_funciones:
-- nombre: test_ejecutar_ej_11_31_b31_acronimo_positivo
-  funcion: ejecutar_ej_11_31_b31_acronimo
-  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_ej_11_31_b31_acronimo_cero
-  funcion: ejecutar_ej_11_31_b31_acronimo
-  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_ej_11_31_b31_acronimo_negativo
-  funcion: ejecutar_ej_11_31_b31_acronimo
-  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_ej_11_31_b31_acronimo_valor_limite
-  funcion: ejecutar_ej_11_31_b31_acronimo
-  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_ej_11_31_b31_acronimo_valor_unitario
-  funcion: ejecutar_ej_11_31_b31_acronimo
-  codigo: 'int res = ejecutar_ej_11_31_b31_acronimo(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: acronimo_frase_conocida
+  funcion: generar_acronimo
+  codigo: char salida[8]; assert(generar_acronimo("Universidad Nacional de Rio Negro", salida, sizeof
+    salida) == 0); assert(strcmp(salida, "UNDRN") == 0);
+- nombre: acronimo_espacios_repetidos
+  funcion: generar_acronimo
+  codigo: char salida[8]; assert(generar_acronimo("  programming   in C ", salida, sizeof salida) == 0);
+    assert(strcmp(salida, "PIC") == 0);
+- nombre: acronimo_sin_letras
+  funcion: generar_acronimo
+  codigo: char salida[2] = "x"; assert(generar_acronimo("123 !", salida, sizeof salida) == 0); assert(strcmp(salida,
+    "") == 0);
+- nombre: acronimo_sin_capacidad
+  funcion: generar_acronimo
+  codigo: char salida[2]; assert(generar_acronimo("Very Long", salida, sizeof salida) == -1);
+- nombre: acronimo_argumentos_nulos
+  funcion: generar_acronimo
+  codigo: char salida[2]; assert(generar_acronimo(NULL, salida, sizeof salida) == -1); assert(generar_acronimo("abc",
+    salida, 0) == -1);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
