@@ -3,11 +3,7 @@ titulo: Nombre del día
 tema: enumeraciones
 bloom: 1
 minutos_estimados: 10
-pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+pistas: []
 tags:
 - nombre
 - tipos
@@ -17,38 +13,22 @@ tags:
 - dep:condicionales
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__20_3_nombre_del_dia
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Nombre del día
+- nombre: nombre_dia
+  retorno: const char *
+  parametros: enum dia_semana dia
+  descripcion: Retorna el nombre en español del día; para valores inválidos retorna "Desconocido".
 tests_funciones:
-- nombre: test_proc__20_3_nombre_del_dia_positivo
-  funcion: proc__20_3_nombre_del_dia
-  codigo: 'int res = proc__20_3_nombre_del_dia(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__20_3_nombre_del_dia_cero
-  funcion: proc__20_3_nombre_del_dia
-  codigo: 'int res = proc__20_3_nombre_del_dia(0);
-
-    assert(res == 0);'
-- nombre: test_proc__20_3_nombre_del_dia_negativo
-  funcion: proc__20_3_nombre_del_dia
-  codigo: 'int res = proc__20_3_nombre_del_dia(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__20_3_nombre_del_dia_valor_limite
-  funcion: proc__20_3_nombre_del_dia
-  codigo: 'int res = proc__20_3_nombre_del_dia(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__20_3_nombre_del_dia_valor_unitario
-  funcion: proc__20_3_nombre_del_dia
-  codigo: 'int res = proc__20_3_nombre_del_dia(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_nombre_dia_1
+  funcion: nombre_dia
+  codigo: if (!(strcmp(nombre_dia(LUNES), "Lunes") == 0)) abort();
+- nombre: test_nombre_dia_2
+  funcion: nombre_dia
+  codigo: if (!(strcmp(nombre_dia(MIERCOLES), "Miercoles") == 0)) abort();
+- nombre: test_nombre_dia_3
+  funcion: nombre_dia
+  codigo: if (!(strcmp(nombre_dia(DOMINGO), "Domingo") == 0)) abort();
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

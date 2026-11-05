@@ -1,11 +1,10 @@
-#ifndef EJERCICIO_EJ_20_2_ES_DIA_LABORAL_H
-#define EJERCICIO_EJ_20_2_ES_DIA_LABORAL_H
+#ifndef EJ_20_2_ES_DIA_LABORAL_H
+#define EJ_20_2_ES_DIA_LABORAL_H
 
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Es día laboral */
-int proc__20_2_es_dia_laboral(int val);
+enum dia_semana { LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO };
 
-#endif /* EJERCICIO_EJ_20_2_ES_DIA_LABORAL_H */
+bool es_dia_laboral(enum dia_semana dia);
+
+#endif

@@ -3,11 +3,7 @@ titulo: Día siguiente
 tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
-pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+pistas: []
 tags:
 - tipos
 - siguiente
@@ -17,38 +13,23 @@ tags:
 - dep:condicionales
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_ej_20_1_dia_siguiente
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Día siguiente
+- nombre: dia_siguiente
+  retorno: enum dia_semana
+  parametros: enum dia_semana dia_actual
+  descripcion: Retorna el día siguiente en el ciclo lunes-domingo; si el valor no pertenece a la enumeración,
+    lo retorna sin cambios.
 tests_funciones:
-- nombre: test_ejecutar_ej_20_1_dia_siguiente_positivo
-  funcion: ejecutar_ej_20_1_dia_siguiente
-  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_ej_20_1_dia_siguiente_cero
-  funcion: ejecutar_ej_20_1_dia_siguiente
-  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_ej_20_1_dia_siguiente_negativo
-  funcion: ejecutar_ej_20_1_dia_siguiente
-  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_ej_20_1_dia_siguiente_valor_limite
-  funcion: ejecutar_ej_20_1_dia_siguiente
-  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_ej_20_1_dia_siguiente_valor_unitario
-  funcion: ejecutar_ej_20_1_dia_siguiente
-  codigo: 'int res = ejecutar_ej_20_1_dia_siguiente(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dia_siguiente_1
+  funcion: dia_siguiente
+  codigo: if (!(dia_siguiente(LUNES) == MARTES)) abort();
+- nombre: test_dia_siguiente_2
+  funcion: dia_siguiente
+  codigo: if (!(dia_siguiente(SABADO) == DOMINGO)) abort();
+- nombre: test_dia_siguiente_3
+  funcion: dia_siguiente
+  codigo: if (!(dia_siguiente(DOMINGO) == LUNES)) abort();
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

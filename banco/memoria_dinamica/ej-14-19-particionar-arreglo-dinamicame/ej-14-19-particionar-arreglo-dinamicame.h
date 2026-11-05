@@ -5,7 +5,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Particionar Arreglo Dinámicamente */
-int proc_r_arreglo_dinamicame(int val);
+bool particionar_arreglo(const int *arreglo, size_t n,
+                         int **pares, size_t *cant_pares,
+                         int **impares, size_t *cant_impares);
 
 #endif /* EJERCICIO_EJ_14_19_PARTICIONAR_ARREGLO_DINAMICAME_H */

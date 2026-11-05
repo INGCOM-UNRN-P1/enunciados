@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Traza de matriz */
-int proc_1_25_traza_de_matriz(int val);
+/* Retorna la suma de la diagonal principal; 0 para matriz nula o tamaño inválido. */
+double traza(double **matriz, int n);
 
 #endif /* EJERCICIO_EJ_21_25_TRAZA_DE_MATRIZ_H */

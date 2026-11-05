@@ -1,19 +1,7 @@
-/*
- * Ejercicio: Día siguiente
- * Cátedra Programación I - UNRN
- */
+#include "ej-20-1-dia-siguiente.h"
 
-#include <stdio.h>
-
-
-int ejecutar_ej_20_1_dia_siguiente(int val)
+enum dia_semana dia_siguiente(enum dia_semana dia_actual)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Día siguiente */
-    return 0;
+    if (dia_actual < LUNES || dia_actual > DOMINGO) return dia_actual;
+    return dia_actual == DOMINGO ? LUNES : (enum dia_semana)(dia_actual + 1);
 }

@@ -1,21 +1,10 @@
-enum estado_red
-{
-    DESCONECTADO,
-    CONECTANDO,
-    CONECTADO,
-    DESCONECTANDO,
-    ERROR_TIMEOUT,
-    ERROR_AUTH
-};
+#include "ej-20-3-nombre-del-dia.h"
 
-
-int proc__20_3_nombre_del_dia(int val)
+const char *nombre_dia(enum dia_semana dia)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
+    static const char *const nombres[] = {
+        "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"
+    };
+    if (dia < LUNES || dia > DOMINGO) return "Desconocido";
+    return nombres[dia];
 }

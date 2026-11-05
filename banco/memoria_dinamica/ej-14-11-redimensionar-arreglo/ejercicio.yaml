@@ -20,36 +20,53 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: proc_edimensionar_arreglo
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Redimensionar Arreglo
+- nombre: redimensionar_arreglo
+  retorno: int*
+  parametros: int *arr, size_t nuevo_tamano
+  descripcion: Cambia el tamaño de un arreglo dinámico conservando sus datos
 tests_funciones:
-- nombre: test_proc_edimensionar_arreglo_positivo
-  funcion: proc_edimensionar_arreglo
-  codigo: 'int res = proc_edimensionar_arreglo(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_edimensionar_arreglo_cero
-  funcion: proc_edimensionar_arreglo
-  codigo: 'int res = proc_edimensionar_arreglo(0);
-
-    assert(res == 0);'
-- nombre: test_proc_edimensionar_arreglo_negativo
-  funcion: proc_edimensionar_arreglo
-  codigo: 'int res = proc_edimensionar_arreglo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_edimensionar_arreglo_valor_limite
-  funcion: proc_edimensionar_arreglo
-  codigo: 'int res = proc_edimensionar_arreglo(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_edimensionar_arreglo_valor_unitario
-  funcion: proc_edimensionar_arreglo
-  codigo: 'int res = proc_edimensionar_arreglo(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_redimensionar_arreglo_expande
+  funcion: redimensionar_arreglo
+  codigo: |
+    int *a = malloc(2 * sizeof(*a));
+    assert(a != NULL);
+    a[0] = 12; a[1] = -7;
+    int *b = redimensionar_arreglo(a, 5);
+    assert(b != NULL && b[0] == 12 && b[1] == -7);
+    b[2] = 42;
+    free(b);
+- nombre: test_redimensionar_arreglo_contrae
+  funcion: redimensionar_arreglo
+  codigo: |
+    int *a = malloc(4 * sizeof(*a));
+    assert(a != NULL);
+    for (size_t i = 0; i < 4; i++) a[i] = (int)i + 3;
+    int *b = redimensionar_arreglo(a, 2);
+    assert(b != NULL && b[0] == 3 && b[1] == 4);
+    free(b);
+- nombre: test_redimensionar_arreglo_cero_libera
+  funcion: redimensionar_arreglo
+  codigo: |
+    int *a = malloc(sizeof(*a));
+    assert(a != NULL);
+    a[0] = 9;
+    assert(redimensionar_arreglo(a, 0) == NULL);
+- nombre: test_redimensionar_arreglo_puntero_nulo
+  funcion: redimensionar_arreglo
+  codigo: |
+    int *a = redimensionar_arreglo(NULL, 3);
+    assert(a != NULL);
+    a[0] = 5;
+    free(a);
+- nombre: test_redimensionar_arreglo_overflow_conserva_bloque
+  funcion: redimensionar_arreglo
+  codigo: |
+    int *a = malloc(sizeof(*a));
+    assert(a != NULL);
+    a[0] = 31;
+    int *b = redimensionar_arreglo(a, SIZE_MAX);
+    assert(b == NULL && a[0] == 31);
+    free(a);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

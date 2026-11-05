@@ -20,36 +20,49 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_r_arreglo_dinamicame
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Particionar Arreglo Dinámicamente
+- nombre: particionar_arreglo
+  retorno: bool
+  parametros: const int *arreglo, size_t n, int **pares, size_t *cant_pares, int **impares, size_t *cant_impares
+  descripcion: Separa pares e impares preservando el orden y transfiere los arreglos al llamador
 tests_funciones:
-- nombre: test_proc_r_arreglo_dinamicame_positivo
-  funcion: proc_r_arreglo_dinamicame
-  codigo: 'int res = proc_r_arreglo_dinamicame(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_r_arreglo_dinamicame_cero
-  funcion: proc_r_arreglo_dinamicame
-  codigo: 'int res = proc_r_arreglo_dinamicame(0);
-
-    assert(res == 0);'
-- nombre: test_proc_r_arreglo_dinamicame_negativo
-  funcion: proc_r_arreglo_dinamicame
-  codigo: 'int res = proc_r_arreglo_dinamicame(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_r_arreglo_dinamicame_valor_limite
-  funcion: proc_r_arreglo_dinamicame
-  codigo: 'int res = proc_r_arreglo_dinamicame(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_r_arreglo_dinamicame_valor_unitario
-  funcion: proc_r_arreglo_dinamicame
-  codigo: 'int res = proc_r_arreglo_dinamicame(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_particionar_arreglo_caso_mixto
+  funcion: particionar_arreglo
+  codigo: |
+    int entrada[] = {7, 2, -3, 0, 8, 5, -4, 1};
+    int *pares = NULL, *impares = NULL;
+    size_t np = 0, ni = 0;
+    assert(particionar_arreglo(entrada, 8, &pares, &np, &impares, &ni));
+    assert(np == 4 && ni == 4);
+    int ep[] = {2, 0, 8, -4}, ei[] = {7, -3, 5, 1};
+    for (size_t i = 0; i < np; i++) assert(pares[i] == ep[i]);
+    for (size_t i = 0; i < ni; i++) assert(impares[i] == ei[i]);
+    free(pares); free(impares);
+- nombre: test_particionar_arreglo_vacio
+  funcion: particionar_arreglo
+  codigo: |
+    int *pares = (int *)1, *impares = (int *)1;
+    size_t np = 7, ni = 9;
+    assert(particionar_arreglo(NULL, 0, &pares, &np, &impares, &ni) == false);
+    int dummy = 0;
+    assert(particionar_arreglo(&dummy, 0, &pares, &np, &impares, &ni));
+    assert(pares == NULL && impares == NULL && np == 0 && ni == 0);
+- nombre: test_particionar_arreglo_una_clase
+  funcion: particionar_arreglo
+  codigo: |
+    int entrada[] = {-4, 0, 2};
+    int *pares = NULL, *impares = (int *)1;
+    size_t np = 0, ni = 7;
+    assert(particionar_arreglo(entrada, 3, &pares, &np, &impares, &ni));
+    assert(np == 3 && ni == 0 && impares == NULL);
+    assert(pares[0] == -4 && pares[1] == 0 && pares[2] == 2);
+    free(pares);
+- nombre: test_particionar_arreglo_punteros_invalidos
+  funcion: particionar_arreglo
+  codigo: |
+    int x = 1; int *p = NULL; size_t n = 0;
+    assert(!particionar_arreglo(&x, 1, NULL, &n, &p, &n));
+    assert(!particionar_arreglo(&x, 1, &p, &n, NULL, &n));
+    assert(!particionar_arreglo(&x, 1, &p, NULL, &p, &n));
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: gestion_heap

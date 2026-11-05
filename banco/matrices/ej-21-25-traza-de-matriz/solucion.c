@@ -1,19 +1,18 @@
-/*
- * Ejercicio: Traza de matriz
- * Cátedra Programación I - UNRN
- */
+#include "ej-21-25-traza-de-matriz.h"
 
-#include <stdio.h>
-
-
-int proc_1_25_traza_de_matriz(int val)
+double traza(double **matriz, int n)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
+    double suma = 0.0;
+    int i;
 
-int main(void)
-{
-    /* TODO: Implementación de Traza de matriz */
-    return 0;
+    if (matriz == NULL || n <= 0) {
+        return 0.0;
+    }
+    for (i = 0; i < n; i++) {
+        if (matriz[i] == NULL) {
+            return 0.0;
+        }
+        suma += matriz[i][i];
+    }
+    return suma;
 }

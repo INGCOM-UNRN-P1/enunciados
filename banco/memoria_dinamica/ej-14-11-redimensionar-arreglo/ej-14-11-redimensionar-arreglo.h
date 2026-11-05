@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Redimensionar Arreglo */
-int proc_edimensionar_arreglo(int val);
+/* Devuelve el bloque redimensionado; ante fallo, arr conserva su validez. */
+int *redimensionar_arreglo(int *arr, size_t nuevo_tamano);
 
 #endif /* EJERCICIO_EJ_14_11_REDIMENSIONAR_ARREGLO_H */

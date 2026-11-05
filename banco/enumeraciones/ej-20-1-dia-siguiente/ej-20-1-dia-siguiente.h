@@ -1,11 +1,10 @@
-#ifndef EJERCICIO_EJ_20_1_DIA_SIGUIENTE_H
-#define EJERCICIO_EJ_20_1_DIA_SIGUIENTE_H
+#ifndef EJ_20_1_DIA_SIGUIENTE_H
+#define EJ_20_1_DIA_SIGUIENTE_H
 
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Día siguiente */
-int ejecutar_ej_20_1_dia_siguiente(int val);
+enum dia_semana { LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO };
 
-#endif /* EJERCICIO_EJ_20_1_DIA_SIGUIENTE_H */
+enum dia_semana dia_siguiente(enum dia_semana dia_actual);
+
+#endif

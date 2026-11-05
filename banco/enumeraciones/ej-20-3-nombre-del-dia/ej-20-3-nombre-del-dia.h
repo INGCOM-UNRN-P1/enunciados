@@ -1,11 +1,10 @@
-#ifndef EJERCICIO_EJ_20_3_NOMBRE_DEL_DIA_H
-#define EJERCICIO_EJ_20_3_NOMBRE_DEL_DIA_H
+#ifndef EJ_20_3_NOMBRE_DEL_DIA_H
+#define EJ_20_3_NOMBRE_DEL_DIA_H
 
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Nombre del día */
-int proc__20_3_nombre_del_dia(int val);
+enum dia_semana { LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO };
 
-#endif /* EJERCICIO_EJ_20_3_NOMBRE_DEL_DIA_H */
+const char * nombre_dia(enum dia_semana dia);
+
+#endif

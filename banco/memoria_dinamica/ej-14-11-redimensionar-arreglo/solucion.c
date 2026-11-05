@@ -1,19 +1,17 @@
-/*
- * Ejercicio: Redimensionar Arreglo
- * Cátedra Programación I - UNRN
- */
+#include "ej-14-11-redimensionar-arreglo.h"
 
-#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
 
-
-int proc_edimensionar_arreglo(int val)
+int *redimensionar_arreglo(int *arr, size_t nuevo_tamano)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
+    if (nuevo_tamano == 0) {
+        free(arr);
+        return NULL;
+    }
+    if (nuevo_tamano > SIZE_MAX / sizeof(*arr)) {
+        return NULL;
+    }
 
-int main(void)
-{
-    /* TODO: Implementación de Redimensionar Arreglo */
-    return 0;
+    return realloc(arr, nuevo_tamano * sizeof(*arr));
 }
