@@ -1,46 +1,15 @@
-Calcular valor de digest o cifrado simétrico según el algoritmo criptográfico #9.
-
-### 📋 Contrato de las Funciones
+Implementá una transición del generador pseudoaleatorio Xorshift32:
 
 ```c
-/*
- * Procesa el flujo principal de Generador de Números Pseudoaleatorios Xorshift32
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_cripto_hash_09(int val);
-
+#include <stdint.h>
+uint32_t xorshift32(uint32_t estado);
 ```
 
-### 🧪 Ejemplos de Ejecución
+A partir del estado de 32 bits, aplicá en orden `estado ^= estado << 13`,
+`estado ^= estado >> 17` y `estado ^= estado << 5`. Devolvé el nuevo estado;
+quien llama debe conservarlo para generar el siguiente valor. Las operaciones
+se realizan sobre 32 bits sin signo.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
-- Usá operaciones bitwise y sumas modulares.
-:::
+Con semilla 1 los primeros estados son `0x00042021` y `0x04080601`. El estado
+cero produce siempre cero: para obtener una secuencia no constante elegí una
+semilla distinta de cero. Este generador no es apto para seguridad criptográfica.

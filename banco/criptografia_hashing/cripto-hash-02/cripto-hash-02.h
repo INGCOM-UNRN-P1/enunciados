@@ -2,10 +2,8 @@
 #define EJERCICIO_CRIPTO_HASH_02_H
 
 #include <stddef.h>
-#include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Cálculo de Suma de Verificación CRC-32 */
-int ejecutar_cripto_hash_02(int val);
+uint32_t crc32_ieee(const unsigned char *datos, size_t longitud);
 
-#endif /* EJERCICIO_CRIPTO_HASH_02_H */
+#endif

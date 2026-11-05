@@ -1,28 +1,21 @@
-# Validador de Fechas
+# Validador de fechas
 
-## Ejercicio 5.21 - Validador de Fechas ⭐⭐⭐⭐☆
+Implementá las siguientes funciones para fechas del calendario gregoriano:
 
-Implementá funciones para trabajar con fechas:
-- `bool es_fecha_valida(int dia, int mes, int anio)`
-- `int dias_del_mes(int mes, int anio)`
-- `bool es_bisiesto(int anio)`
-- `int dia_del_anio(int dia, int mes, int anio)`
+```c
+#include <stdbool.h>
+bool es_bisiesto(int anio);
+int dias_del_mes(int mes, int anio);
+bool es_fecha_valida(int dia, int mes, int anio);
+int dia_del_anio(int dia, int mes, int anio);
+```
 
-**Orientación:**
-- Reutilizá funciones entre sí
-- Validá rangos apropiados
-- `dia_del_anio` suma días desde inicio del año
+Los años válidos son positivos y los meses van de 1 a 12. Un año es bisiesto
+si es divisible por 400, o si es divisible por 4 y no por 100. `dias_del_mes`
+devuelve 0 ante mes o año inválido; `es_bisiesto` devuelve falso ante año
+inválido. `es_fecha_valida` comprueba todos los componentes. `dia_del_anio`
+devuelve la posición desde el 1 de enero (1 a 365 o 366), o 0 si la fecha es
+inválida.
 
-
-:::{hint} Lógica y Consideraciones
-    error e informar el resultado mediante parámetros de salida.
-    especificando precondiciones y postcondiciones.
-
--   **[*plus ultra*]:** Modularizar la función reutilizando es_bisiesto y dias_del_mes.
--   **[*plus ultra*]:** Escribir pruebas unitarias exhaustivas para fechas límites (ej. 29 de febrero en años bisiestos y no bisiestos).
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
----
-(ejercicio_5_22)=
+Por ejemplo, el 1 de marzo de 2024 es el día 61, y el 29 de febrero de 1900
+no es una fecha válida. Reutilizá las funciones entre sí.

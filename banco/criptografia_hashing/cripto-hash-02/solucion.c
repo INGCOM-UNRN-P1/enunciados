@@ -1,22 +1,13 @@
-/*
- * Cripto #02
- * Catedra Programacion I - UNRN
- */
-#include <stdint.h>
-#include <stdio.h>
+#include "cripto-hash-02.h"
 
-
-int ejecutar_cripto_hash_02(int val)
+uint32_t crc32_ieee(const unsigned char *datos, size_t longitud)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    uint32_t valor = 0;
-    if (scanf("%u", &valor) == 1) {
-        uint32_t h = (valor ^ 0x5A5A5A5A) + (uint32_t)2;
-        printf("HASH_%02d: 0x%08X\n", 2, h);
+    uint32_t crc = UINT32_C(0xffffffff);
+    for (size_t i = 0; i < longitud; i++)
+    {
+        crc ^= datos[i];
+        for (int bit = 0; bit < 8; bit++)
+            crc = (crc >> 1) ^ ((crc & 1u) ? UINT32_C(0xedb88320) : 0u);
     }
-    return 0;
+    return crc ^ UINT32_C(0xffffffff);
 }

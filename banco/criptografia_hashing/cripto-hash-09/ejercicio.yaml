@@ -4,51 +4,37 @@ tema: criptografia_hashing
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
-- Usá operaciones bitwise y sumas modulares.
+- Utilizá desplazamientos de 13, 17 y 5 bits y operaciones XOR.
+- Un estado inicial cero queda atrapado en cero.
 tags:
-- criptografia
-- hash
-- checksum
-- adler32
-- seguridad
 - dep:operaciones_bits
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+- xorshift32
+- pseudoaleatorios
+verificado: false
 funciones:
-- nombre: ejecutar_cripto_hash_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Generador de Números Pseudoaleatorios
-    Xorshift32
+- nombre: xorshift32
+  retorno: uint32_t
+  parametros: uint32_t estado
+  descripcion: Calcula el siguiente estado del generador Xorshift32.
 tests_funciones:
-- nombre: test_ejecutar_cripto_hash_09_positivo
-  funcion: ejecutar_cripto_hash_09
-  codigo: 'int res = ejecutar_cripto_hash_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_cripto_hash_09_cero
-  funcion: ejecutar_cripto_hash_09
-  codigo: 'int res = ejecutar_cripto_hash_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_cripto_hash_09_negativo
-  funcion: ejecutar_cripto_hash_09
-  codigo: 'int res = ejecutar_cripto_hash_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_cripto_hash_09_valor_limite
-  funcion: ejecutar_cripto_hash_09
-  codigo: 'int res = ejecutar_cripto_hash_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_cripto_hash_09_valor_unitario
-  funcion: ejecutar_cripto_hash_09
-  codigo: 'int res = ejecutar_cripto_hash_09(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_xorshift32_semilla_uno
+  funcion: xorshift32
+  codigo: assert(xorshift32(1u) == 0x00042021u);
+- nombre: test_xorshift32_secuencia
+  funcion: xorshift32
+  codigo: assert(xorshift32(xorshift32(1u)) == 0x04080601u);
+- nombre: test_xorshift32_todos_bits
+  funcion: xorshift32
+  codigo: assert(xorshift32(0xffffffffu) == 0x0003e01fu);
+- nombre: test_xorshift32_semilla_conocida
+  funcion: xorshift32
+  codigo: assert(xorshift32(2463534242u) == 0x2b1f4d63u);
+- nombre: test_xorshift32_estado_cero
+  funcion: xorshift32
+  codigo: assert(xorshift32(0u) == 0u);
 publicar: true
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C

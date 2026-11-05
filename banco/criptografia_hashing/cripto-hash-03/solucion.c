@@ -1,22 +1,13 @@
-/*
- * Cripto #03
- * Catedra Programacion I - UNRN
- */
-#include <stdint.h>
-#include <stdio.h>
+#include "cripto-hash-03.h"
 
-
-int ejecutar_cripto_hash_03(int val)
+uint32_t fnv1a_32(const char *texto)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    uint32_t valor = 0;
-    if (scanf("%u", &valor) == 1) {
-        uint32_t h = (valor ^ 0x5A5A5A5A) + (uint32_t)3;
-        printf("HASH_%02d: 0x%08X\n", 3, h);
+    uint32_t hash = UINT32_C(2166136261);
+    const unsigned char *p = (const unsigned char *)texto;
+    while (*p != 0)
+    {
+        hash ^= *p++;
+        hash *= UINT32_C(16777619);
     }
-    return 0;
+    return hash;
 }

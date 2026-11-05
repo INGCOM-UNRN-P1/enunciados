@@ -4,50 +4,40 @@ tema: criptografia_hashing
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
-- Usá operaciones bitwise y sumas modulares.
+- Procesá cada byte como unsigned char.
+- Aplicá XOR antes de multiplicar y conservá los 32 bits inferiores.
 tags:
 - criptografia
 - hash
 - checksum
-- adler32
+- fnv1a
 - seguridad
 - dep:operaciones_bits
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_cripto_hash_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Función Hash FNV-1a para Cadenas de Texto
+- nombre: fnv1a_32
+  retorno: uint32_t
+  parametros: const char *texto
+  descripcion: Calcula FNV-1a de 32 bits sobre una cadena.
 tests_funciones:
-- nombre: test_ejecutar_cripto_hash_03_positivo
-  funcion: ejecutar_cripto_hash_03
-  codigo: 'int res = ejecutar_cripto_hash_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_cripto_hash_03_cero
-  funcion: ejecutar_cripto_hash_03
-  codigo: 'int res = ejecutar_cripto_hash_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_cripto_hash_03_negativo
-  funcion: ejecutar_cripto_hash_03
-  codigo: 'int res = ejecutar_cripto_hash_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_cripto_hash_03_valor_limite
-  funcion: ejecutar_cripto_hash_03
-  codigo: 'int res = ejecutar_cripto_hash_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_cripto_hash_03_valor_unitario
-  funcion: ejecutar_cripto_hash_03
-  codigo: 'int res = ejecutar_cripto_hash_03(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_fnv1a_vacio
+  funcion: fnv1a_32
+  codigo: assert(fnv1a_32("") == 0x811c9dc5u);
+- nombre: test_fnv1a_una_letra
+  funcion: fnv1a_32
+  codigo: assert(fnv1a_32("a") == 0xe40c292cu);
+- nombre: test_fnv1a_foobar
+  funcion: fnv1a_32
+  codigo: assert(fnv1a_32("foobar") == 0xbf9cf968u);
+- nombre: test_fnv1a_bytes_altos
+  funcion: fnv1a_32
+  codigo: assert(fnv1a_32("\x80\xff") == 0xd1390020u);
+- nombre: test_fnv1a_nul
+  funcion: fnv1a_32
+  codigo: const char s[] = {'a', 0, 'b', 0}; assert(fnv1a_32(s) == 0xe40c292cu);
 publicar: true
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C

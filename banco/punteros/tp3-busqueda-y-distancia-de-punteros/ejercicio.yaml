@@ -63,3 +63,13 @@ tests_funciones:
     int dist = distancia_punteros(NULL, &arr[1]);
 
     assert(dist == -1);'
+
+- nombre: test_buscar_primero_duplicados
+  funcion: buscar_primero
+  codigo: 'int v[] = {7, 4, 7}; assert(buscar_primero(v, 3, 7) == &v[0]);'
+- nombre: test_buscar_primero_vacio_y_nulo
+  funcion: buscar_primero
+  codigo: 'int v[] = {7}; assert(buscar_primero(v, 0, 7) == NULL); assert(buscar_primero(NULL, 5, 7) == NULL);'
+- nombre: test_distancia_punteros_negativa
+  funcion: distancia_punteros
+  codigo: 'int v[] = {1, 2}; assert(distancia_punteros(&v[1], &v[0]) == -1); assert(distancia_punteros(v, NULL) == -1);'

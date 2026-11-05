@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_EJ_5_15_CALCULO_DE_POTENCIA_H
-#define EJERCICIO_EJ_5_15_CALCULO_DE_POTENCIA_H
+#ifndef EJ_5_15_CALCULO_DE_POTENCIA_H
+#define EJ_5_15_CALCULO_DE_POTENCIA_H
 
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+double potencia_iterativa(double base, int exp);
+double potencia_rapida(double base, int exp);
 
-/* Lógica de Cálculo de Potencia */
-int resolver_ej_15(int n);
-
-#endif /* EJERCICIO_EJ_5_15_CALCULO_DE_POTENCIA_H */
+#endif

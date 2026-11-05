@@ -1,46 +1,18 @@
-Calcular valor de digest o cifrado simétrico según el algoritmo criptográfico #3.
-
-### 📋 Contrato de las Funciones
+Implementá FNV-1a de 32 bits para una cadena terminada en NUL.
 
 ```c
-/*
- * Procesa el flujo principal de Función Hash FNV-1a para Cadenas de Texto
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_cripto_hash_03(int val);
-
+#include <stdint.h>
+uint32_t fnv1a_32(const char *texto);
 ```
 
-### 🧪 Ejemplos de Ejecución
+`texto` debe apuntar a una cadena válida; puede estar vacía. Interpretá cada
+byte como un valor sin signo. Inicializá el resultado con 2166136261 y, para
+cada byte anterior al NUL, aplicá XOR con ese byte y multiplicá por 16777619.
+Conservá los 32 bits menos significativos tras cada multiplicación.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Para la cadena vacía el resultado es `0x811c9dc5` y para `"foobar"` es
+`0xbf9cf968`.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
-- Usá operaciones bitwise y sumas modulares.
+:::{hint} Ayuda
+Usá `uint32_t`: sus operaciones aritméticas se reducen módulo 2³².
 :::

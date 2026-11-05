@@ -1,46 +1,22 @@
-Calcular valor de digest o cifrado simétrico según el algoritmo criptográfico #2.
-
-### 📋 Contrato de las Funciones
+Calculá el checksum CRC-32/ISO-HDLC de una secuencia de bytes. Implementá:
 
 ```c
-/*
- * Procesa el flujo principal de Cálculo de Suma de Verificación CRC-32
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_cripto_hash_02(int val);
-
+#include <stddef.h>
+#include <stdint.h>
+uint32_t crc32_ieee(const unsigned char *datos, size_t longitud);
 ```
 
-### 🧪 Ejemplos de Ejecución
+`datos` apunta a `longitud` bytes; puede ser `NULL` solamente cuando la
+longitud es cero. La secuencia puede contener bytes nulos. Inicializá el
+registro a `0xffffffff`, procesá los bits de cada byte desde el menos
+significativo usando el polinomio reflejado `0xedb88320` y aplicá XOR final
+con `0xffffffff`.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Para la secuencia vacía el resultado es `0x00000000`. Para los nueve bytes
+ASCII `123456789` es `0xcbf43926`.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Operá con enteros sin signo (uint32_t) para evitar overflow indefinido.
-- Usá operaciones bitwise y sumas modulares.
+:::{hint} Ayuda
+Por cada byte, aplicá XOR con el registro. Luego repetí ocho veces: desplazá
+un bit a la derecha y, si el bit menos significativo anterior era 1, aplicá
+XOR con el polinomio.
 :::

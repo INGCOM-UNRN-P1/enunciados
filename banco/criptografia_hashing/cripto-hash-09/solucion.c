@@ -1,22 +1,9 @@
-/*
- * Cripto #09
- * Catedra Programacion I - UNRN
- */
-#include <stdint.h>
-#include <stdio.h>
+#include "cripto-hash-09.h"
 
-
-int ejecutar_cripto_hash_09(int val)
+uint32_t xorshift32(uint32_t estado)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    uint32_t valor = 0;
-    if (scanf("%u", &valor) == 1) {
-        uint32_t h = (valor ^ 0x5A5A5A5A) + (uint32_t)9;
-        printf("HASH_%02d: 0x%08X\n", 9, h);
-    }
-    return 0;
+    estado ^= estado << 13;
+    estado ^= estado >> 17;
+    estado ^= estado << 5;
+    return estado;
 }

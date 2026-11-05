@@ -1,54 +1,19 @@
-Implementá funciones para trabajar con fechas:
-- `bool es_fecha_valida(int dia, int mes, int anio)`
-- `int dias_del_mes(int mes, int anio)`
-- `bool es_bisiesto(int anio)`
-- `int dia_del_anio(int dia, int mes, int anio)`
-
-**Orientación:**
-- Reutilizá funciones entre sí
-- Validá rangos apropiados
-- `dia_del_anio` suma días desde inicio del año
-
-
-
----
-(ejercicio_5_22)=
-
-### 📋 Contrato de las Funciones
+Implementá las siguientes funciones para fechas del calendario gregoriano:
 
 ```c
-/*
- * Lógica de Validador de Fechas
- * Precondiciones: Parámetros dentro del dominio válido de la operación.
- * Postcondiciones: Retorna el valor procesado.
- */
-int resolver_ej_21(int n);
-
+#include <stdbool.h>
+bool es_bisiesto(int anio);
+int dias_del_mes(int mes, int anio);
+bool es_fecha_valida(int dia, int mes, int anio);
+int dia_del_anio(int dia, int mes, int anio);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Los años válidos son positivos y los meses van de 1 a 12. Un año es bisiesto
+si es divisible por 400, o si es divisible por 4 y no por 100. `dias_del_mes`
+devuelve 0 ante mes o año inválido; `es_bisiesto` devuelve falso ante año
+inválido. `es_fecha_valida` comprueba todos los componentes. `dia_del_anio`
+devuelve la posición desde el 1 de enero (1 a 365 o 366), o 0 si la fecha es
+inválida.
 
-::::{tab-set}
-:::{tab-item} Caso general
-```text
-val = 10
-Retorno esperado calculado
-```
-:::
-:::{tab-item} Caso límite
-```text
-val = 0
-Retorno 0 o manejo de borde
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+Por ejemplo, el 1 de marzo de 2024 es el día 61, y el 29 de febrero de 1900
+no es una fecha válida. Reutilizá las funciones entre sí.

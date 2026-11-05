@@ -1,27 +1,22 @@
-# Cálculo de Potencia
+# Cálculo de potencia
 
-## Ejercicio 5.15 - Cálculo de Potencia ⭐⭐⭐⭐☆
+Implementá dos funciones que calculen una potencia de base real y exponente
+entero sin usar `pow`:
 
-Implementá dos versiones de cálculo de potencia:
-- `double potencia_iterativa(double base, int exp)`: calculada mediante multiplicaciones sucesivas.
-- `double potencia_rapida(double base, int exp)`: calculada mediante exponenciación binaria (reduciendo a la mitad el exponente en cada paso).
-- Manejá exponentes negativos retornando `1.0 / potencia(base, -exp)`.
+```c
+double potencia_iterativa(double base, int exp);
+double potencia_rapida(double base, int exp);
+```
 
-**Orientación:**
-- Simple: multiplica base n veces
-- Rápida: si exp es par, `pow(base, exp) = pow(base*base, exp/2)`
-- Exponente negativo: `pow(base, -n) = 1 / pow(base, n)`
+La primera usa multiplicaciones sucesivas. La segunda usa exponenciación
+binaria, reduciendo el exponente a la mitad en cada paso. Para exponentes
+negativos, devolvé el recíproco de la potencia correspondiente.
 
+Definí `0^0` como 1 y devolvé `NAN` (de `<math.h>`) para cero elevado a un
+exponente negativo. El exponente puede tomar cualquier valor de `int`; evitá
+negar `INT_MIN`. La versión iterativa puede requerir muchas iteraciones para
+exponentes grandes. Los resultados de punto flotante están sujetos a redondeo
+y a los límites de `double`.
 
-:::{hint} Lógica y Consideraciones
-    valores fuera de rango o tipos inválidos.
-    un lazo hasta que el usuario elija finalizar.
-
--   **[*plus ultra*]:** Verificar que la versión iterativa y la rápida retornen el mismo resultado dentro de una tolerancia con assert.
--   **[*plus ultra*]:** Manejar el caso especial base=0 y exp=0.
-
-:::
-<!-- {hint} Lógica y Consideraciones -->
-
----
-(ejercicio_5_16)=
+Por ejemplo, ambas funciones devuelven 1024 para `2^10`, 0.125 para `2^-3`
+y -8 para `(-2)^3`.

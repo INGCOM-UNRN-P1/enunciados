@@ -1,53 +1,20 @@
-Implementá dos versiones de cálculo de potencia:
-- `double potencia_iterativa(double base, int exp)`: calculada mediante multiplicaciones sucesivas.
-- `double potencia_rapida(double base, int exp)`: calculada mediante exponenciación binaria (reduciendo a la mitad el exponente en cada paso).
-- Manejá exponentes negativos retornando `1.0 / potencia(base, -exp)`.
-
-**Orientación:**
-- Simple: multiplica base n veces
-- Rápida: si exp es par, `pow(base, exp) = pow(base*base, exp/2)`
-- Exponente negativo: `pow(base, -n) = 1 / pow(base, n)`
-
-
-
----
-(ejercicio_5_16)=
-
-### 📋 Contrato de las Funciones
+Implementá dos funciones que calculen una potencia de base real y exponente
+entero sin usar `pow`:
 
 ```c
-/*
- * Lógica de Cálculo de Potencia
- * Precondiciones: Parámetros dentro del dominio válido de la operación.
- * Postcondiciones: Retorna el valor procesado.
- */
-int resolver_ej_15(int n);
-
+double potencia_iterativa(double base, int exp);
+double potencia_rapida(double base, int exp);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La primera usa multiplicaciones sucesivas. La segunda usa exponenciación
+binaria, reduciendo el exponente a la mitad en cada paso. Para exponentes
+negativos, devolvé el recíproco de la potencia correspondiente.
 
-::::{tab-set}
-:::{tab-item} Caso general
-```text
-val = 10
-Retorno esperado calculado
-```
-:::
-:::{tab-item} Caso límite
-```text
-val = 0
-Retorno 0 o manejo de borde
-```
-:::
-::::
+Definí `0^0` como 1 y devolvé `NAN` (de `<math.h>`) para cero elevado a un
+exponente negativo. El exponente puede tomar cualquier valor de `int`; evitá
+negar `INT_MIN`. La versión iterativa puede requerir muchas iteraciones para
+exponentes grandes. Los resultados de punto flotante están sujetos a redondeo
+y a los límites de `double`.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+Por ejemplo, ambas funciones devuelven 1024 para `2^10`, 0.125 para `2^-3`
+y -8 para `(-2)^3`.

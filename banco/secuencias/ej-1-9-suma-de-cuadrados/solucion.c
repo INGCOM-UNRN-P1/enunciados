@@ -1,19 +1,19 @@
-/*
- * Ejercicio: Suma de Cuadrados
- * Cátedra Programación I - UNRN
- */
-
+#include <limits.h>
 #include <stdio.h>
-
-
-int proc__9_suma_de_cuadrados(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Suma de Cuadrados */
+    int n, m;
+    long long suma = 0;
+    if (scanf("%d%d", &n, &m) != 2 || n > m)
+        return 1;
+    for (long long i = n; i <= m; i++)
+    {
+        long long cuadrado = i * i;
+        if (suma > LLONG_MAX - cuadrado)
+            return 1;
+        suma += cuadrado;
+    }
+    printf("%lld\n", suma);
     return 0;
 }
