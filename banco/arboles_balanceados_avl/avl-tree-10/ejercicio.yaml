@@ -4,13 +4,12 @@ tema: arboles_balanceados_avl
 bloom: 2
 minutos_estimados: 15
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- El recorrido inorder de un BST visita las claves en orden ascendente.
 tags:
 - avl
 - arboles_balanceados
-- rotaciones
-- factor_balance
+- recorrido_inorder
+- orden
 - estructuras_datos
 - dep:arboles_binarios
 - c11
@@ -18,36 +17,15 @@ tags:
 verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_10
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Recorrido Inorder de Árbol AVL y Verificación
-    de Orden
+  retorno: size_t
+  parametros: const avl_node_t *raiz, int *salida, size_t capacidad
+  descripcion: Escribe el recorrido inorder en orden ascendente. Devuelve cantidad escrita; si capacidad
+    es insuficiente escribe solo los primeros elementos. Para NULL salida o capacidad cero no escribe.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_10_positivo
+- nombre: test_avl_tree_10_comportamiento
   funcion: ejecutar_avl_tree_10
-  codigo: 'int res = ejecutar_avl_tree_10(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_10_cero
-  funcion: ejecutar_avl_tree_10
-  codigo: 'int res = ejecutar_avl_tree_10(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_10_negativo
-  funcion: ejecutar_avl_tree_10
-  codigo: 'int res = ejecutar_avl_tree_10(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_10_valor_limite
-  funcion: ejecutar_avl_tree_10
-  codigo: 'int res = ejecutar_avl_tree_10(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_10_valor_unitario
-  funcion: ejecutar_avl_tree_10
-  codigo: 'int res = ejecutar_avl_tree_10(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t a={.key=1},c={.key=3},r={.key=2,.left=&a,.right=&c}; int out[3]={0}; assert(ejecutar_avl_tree_10(&r,out,2)==2&&out[0]==1&&out[1]==2);
+    assert(ejecutar_avl_tree_10(NULL,out,3)==0&&ejecutar_avl_tree_10(&r,NULL,3)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

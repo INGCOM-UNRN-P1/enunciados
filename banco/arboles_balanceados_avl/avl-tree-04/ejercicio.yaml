@@ -4,13 +4,12 @@ tema: arboles_balanceados_avl
 bloom: 1
 minutos_estimados: 10
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- El patrón LR se corrige rotando primero a la izquierda el hijo izquierdo y luego a la derecha la raíz.
 tags:
 - avl
 - arboles_balanceados
 - rotaciones
-- factor_balance
+- rotacion_doble_lr
 - estructuras_datos
 - dep:arboles_binarios
 - c11
@@ -18,36 +17,15 @@ tags:
 verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_04
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Rotación Doble Izquierda-Derecha LR en
-    Árbol AVL
+  retorno: avl_node_t *
+  parametros: avl_node_t *raiz
+  descripcion: 'Rebalancea una raíz con caso izquierda-derecha (LR) y devuelve la nueva raíz. Precondición:
+    los nodos del patrón LR existen.'
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_04_positivo
+- nombre: test_avl_tree_04_comportamiento
   funcion: ejecutar_avl_tree_04
-  codigo: 'int res = ejecutar_avl_tree_04(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_04_cero
-  funcion: ejecutar_avl_tree_04
-  codigo: 'int res = ejecutar_avl_tree_04(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_04_negativo
-  funcion: ejecutar_avl_tree_04
-  codigo: 'int res = ejecutar_avl_tree_04(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_04_valor_limite
-  funcion: ejecutar_avl_tree_04
-  codigo: 'int res = ejecutar_avl_tree_04(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_04_valor_unitario
-  funcion: ejecutar_avl_tree_04
-  codigo: 'int res = ejecutar_avl_tree_04(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t a={.key=2,.height=1}, d={.key=8,.height=1}, c={.key=7,.height=2,.right=&d}, b={.key=4,.height=3,.left=&a,.right=&c},
+    r={.key=10,.height=4,.left=&b}; avl_node_t*n=ejecutar_avl_tree_04(&r); assert(n==&c&&c.left==&b&&c.right==&r&&r.left==&d&&b.height==2&&r.height==2&&c.height==3);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,7 @@
 #ifndef EJERCICIO_AVL_TREE_26_H
 #define EJERCICIO_AVL_TREE_26_H
-
+#include "../avl_tree_common.h"
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Recorrido por Niveles BFS de Árbol AVL */
-int ejecutar_avl_tree_26(int val);
-
-#endif /* EJERCICIO_AVL_TREE_26_H */
+#include <stdio.h>
+size_t avl_level_order(const avl_node_t *root, int *values, size_t capacity);
+#endif

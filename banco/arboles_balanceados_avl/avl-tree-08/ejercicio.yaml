@@ -4,13 +4,12 @@ tema: arboles_balanceados_avl
 bloom: 2
 minutos_estimados: 15
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Tras eliminar, actualice alturas y rebalancee desde el nodo afectado hasta la raíz.
 tags:
 - avl
 - arboles_balanceados
-- rotaciones
-- factor_balance
+- eliminacion
+- rebalanceo
 - estructuras_datos
 - dep:arboles_binarios
 - c11
@@ -18,35 +17,16 @@ tags:
 verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Eliminación de Nodos en Árbol AVL y Rebalanceo
+  retorno: avl_node_t *
+  parametros: avl_node_t *raiz, int clave
+  descripcion: Elimina la clave indicada, rebalancea los ancestros y devuelve la raíz actualizada. Si
+    no existe, el árbol no cambia.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_08_positivo
+- nombre: test_avl_tree_08_comportamiento
   funcion: ejecutar_avl_tree_08
-  codigo: 'int res = ejecutar_avl_tree_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_08_cero
-  funcion: ejecutar_avl_tree_08
-  codigo: 'int res = ejecutar_avl_tree_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_08_negativo
-  funcion: ejecutar_avl_tree_08
-  codigo: 'int res = ejecutar_avl_tree_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_08_valor_limite
-  funcion: ejecutar_avl_tree_08
-  codigo: 'int res = ejecutar_avl_tree_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_08_valor_unitario
-  funcion: ejecutar_avl_tree_08
-  codigo: 'int res = ejecutar_avl_tree_08(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t*r=NULL; r=avl_insert(r,2); r=avl_insert(r,1); r=avl_insert(r,3); avl_node_t*old=r;
+    r=ejecutar_avl_tree_08(r,9); assert(r==old&&avl_contains(r,2)); r=ejecutar_avl_tree_08(r,2); assert(!avl_contains(r,2)&&avl_contains(r,1)&&avl_contains(r,3));
+    int h; assert(avl_valid(r,-2147483649L,2147483648L,&h)); avl_destroy(r);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

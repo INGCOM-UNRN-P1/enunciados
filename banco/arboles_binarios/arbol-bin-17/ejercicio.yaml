@@ -1,56 +1,32 @@
 id: arbol-bin-17
-titulo: Impresión de Todos los Caminos de Raíz a Hoja
+titulo: Impresión de caminos raíz a hoja
 tema: arboles_binarios
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Mantén el prefijo del camino durante el descenso; al llegar a una hoja, escribe una línea.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- caminos_raiz_hoja
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_17
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Impresión de Todos los Caminos de Raíz
-    a Hoja
+- nombre: imprimir_caminos
+  retorno: void
+  parametros: const nodo_arbol_17_t *raiz, FILE *salida
+  descripcion: Imprime un camino por línea, valores separados por espacios, recorriendo primero el hijo
+    izquierdo. Árbol vacío no imprime nada.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_17_positivo
-  funcion: ejecutar_arbol_bin_17
-  codigo: 'int res = ejecutar_arbol_bin_17(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_17_cero
-  funcion: ejecutar_arbol_bin_17
-  codigo: 'int res = ejecutar_arbol_bin_17(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_17_negativo
-  funcion: ejecutar_arbol_bin_17
-  codigo: 'int res = ejecutar_arbol_bin_17(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_17_valor_limite
-  funcion: ejecutar_arbol_bin_17
-  codigo: 'int res = ejecutar_arbol_bin_17(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_17_valor_unitario
-  funcion: ejecutar_arbol_bin_17
-  codigo: 'int res = ejecutar_arbol_bin_17(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_imprimir_caminos_objetivo
+  funcion: imprimir_caminos
+  codigo: nodo_arbol_17_t a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL}; a.izq=&b;a.der=&c; FILE *f=tmpfile();
+    assert(f); imprimir_caminos(&a,f); rewind(f); char buf[32]={0}; assert(fgets(buf,sizeof buf,f)); assert(buf[0]=='1'
+    && buf[1]==' ' && buf[2]=='2' && buf[3]=='\n'); fclose(f);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

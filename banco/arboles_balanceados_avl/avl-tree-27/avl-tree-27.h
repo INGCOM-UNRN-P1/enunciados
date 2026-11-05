@@ -1,11 +1,7 @@
 #ifndef EJERCICIO_AVL_TREE_27_H
 #define EJERCICIO_AVL_TREE_27_H
-
+#include "../avl_tree_common.h"
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Impresión Visual de Estructura de Árbol AVL con Indentación */
-int ejecutar_avl_tree_27(int val);
-
-#endif /* EJERCICIO_AVL_TREE_27_H */
+#include <stdio.h>
+void avl_print_indented(const avl_node_t *root, FILE *out);
+#endif

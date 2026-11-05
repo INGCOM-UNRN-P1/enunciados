@@ -1,21 +1,15 @@
-/*
- * AVL #27
- * Catedra Programacion I - UNRN
- */
+#include "avl-tree-27.h"
 #include <stdio.h>
-
-
-int ejecutar_avl_tree_27(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
+static void pr(const avl_node_t *n, FILE *f, size_t d) {
+  if (!n)
+    return;
+  pr(n->right, f, d + 1);
+  for (size_t i = 0; i < d; i++)
+    fputs("  ", f);
+  fprintf(f, "%d\n", n->key);
+  pr(n->left, f, d + 1);
 }
-
-int main(void) {
-    int clave = 0, altura = 0;
-    if (scanf("%d %d", &clave, &altura) == 2) {
-        int factor = (clave % 3) + altura + 27;
-        printf("AVL_%02d_FACTOR: %d\n", 27, factor);
-    }
-    return 0;
+void avl_print_indented(const avl_node_t *r, FILE *f) {
+  if (f)
+    pr(r, f, 0);
 }

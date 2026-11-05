@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_ARBOL_BIN_12_H
-#define EJERCICIO_ARBOL_BIN_12_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_12_H
+#define ARBOL_BIN_12_H
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Inversión y Creación de Árbol Espejo Mirror Tree */
-int ejecutar_arbol_bin_12(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_12_H */
+#include <stdio.h>
+typedef struct nodo_arbol_12 { int valor; struct nodo_arbol_12 *izq, *der; } nodo_arbol_12_t;
+void invertir_arbol(nodo_arbol_12_t *raiz);
+#endif

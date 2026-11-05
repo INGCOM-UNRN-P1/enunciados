@@ -1,21 +1,13 @@
-/*
- * AVL #11
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_avl_tree_11(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int clave = 0, altura = 0;
-    if (scanf("%d %d", &clave, &altura) == 2) {
-        int factor = (clave % 3) + altura + 11;
-        printf("AVL_%02d_FACTOR: %d\n", 11, factor);
-    }
+#include "avl-tree-11.h"
+int ejecutar_avl_tree_11(const avl_node_t *r, int *mn, int *mx) {
+  if (!r || !mn || !mx)
     return 0;
+  const avl_node_t *a = r, *b = r;
+  while (a->left)
+    a = a->left;
+  while (b->right)
+    b = b->right;
+  *mn = a->key;
+  *mx = b->key;
+  return 1;
 }

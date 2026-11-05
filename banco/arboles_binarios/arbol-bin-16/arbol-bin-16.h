@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_ARBOL_BIN_16_H
-#define EJERCICIO_ARBOL_BIN_16_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_16_H
+#define ARBOL_BIN_16_H
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Cálculo de la Suma Máxima de Camino de Raíz a Hoja */
-int ejecutar_arbol_bin_16(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_16_H */
+#include <stdio.h>
+typedef struct nodo_arbol_16 { int valor; struct nodo_arbol_16 *izq, *der; } nodo_arbol_16_t;
+bool suma_maxima_raiz_hoja(const nodo_arbol_16_t *raiz, int64_t *suma);
+#endif

@@ -1,48 +1,15 @@
-Calcular propiedades estructurales y relaciones padre-hijo para el árbol binario #16.
+Suma máxima raíz a hoja: Máxima suma incluyendo ambos extremos y solo caminos que terminan en hoja; admite valores negativos.
 
-### 📋 Contrato de las Funciones
+### Tipo y contrato
 
 ```c
-/*
- * Procesa el flujo principal de Cálculo de la Suma Máxima de Camino de Raíz a Hoja
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_arbol_bin_16(int val);
+typedef struct nodo_arbol_16 {
+    int valor;
+    struct nodo_arbol_16 *izq;
+    struct nodo_arbol_16 *der;
+} nodo_arbol_16_t;
 
+bool suma_maxima_raiz_hoja(const nodo_arbol_16_t *raiz, int64_t *suma);
 ```
 
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
-:::
+Máxima suma incluyendo ambos extremos y solo caminos que terminan en hoja; admite valores negativos.

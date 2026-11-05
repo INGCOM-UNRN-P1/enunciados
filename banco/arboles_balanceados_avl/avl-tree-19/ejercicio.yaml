@@ -4,50 +4,32 @@ tema: arboles_balanceados_avl
 bloom: 3
 minutos_estimados: 25
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- El rango es 1-based en recorrido inorder.
+- El tamaño de un subárbol vacío es 0; el tamaño de un nodo incluye ambos hijos.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- tamano_subarbol
+- seleccion_por_rango
+- ordenamiento
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_19
+- nombre: avl_subtree_size
+  retorno: size_t
+  parametros: const avl_node_t *root
+  descripcion: Operación avl_subtree_size según el contrato de la consigna.
+- nombre: avl_select_rank
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Árbol AVL con Conteo de Tamaño de Subárbol
-    para Selección por Rango
+  parametros: const avl_node_t *root, size_t rank, int *key
+  descripcion: Operación avl_select_rank según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_19_positivo
-  funcion: ejecutar_avl_tree_19
-  codigo: 'int res = ejecutar_avl_tree_19(5);
+- nombre: test_operacion_principal
+  funcion: avl_subtree_size
+  codigo: 'avl_node_t*r=NULL; int a[]={4,2,6,1,3}; for(int i=0;i<5;i++)r=avl_insert(r,a[i]); int k=0;
+    assert(avl_subtree_size(r)==5); assert(avl_select_rank(r,3,&k)&&k==3); assert(!avl_select_rank(r,0,&k));
+    avl_destroy(r);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_19_cero
-  funcion: ejecutar_avl_tree_19
-  codigo: 'int res = ejecutar_avl_tree_19(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_19_negativo
-  funcion: ejecutar_avl_tree_19
-  codigo: 'int res = ejecutar_avl_tree_19(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_19_valor_limite
-  funcion: ejecutar_avl_tree_19
-  codigo: 'int res = ejecutar_avl_tree_19(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_19_valor_unitario
-  funcion: ejecutar_avl_tree_19
-  codigo: 'int res = ejecutar_avl_tree_19(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

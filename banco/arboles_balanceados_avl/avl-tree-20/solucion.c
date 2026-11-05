@@ -1,21 +1,15 @@
-/*
- * AVL #20
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_avl_tree_20(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
+#include "avl-tree-20.h"
+static size_t sz(const avl_node_t *n) {
+  return n ? 1 + sz(n->left) + sz(n->right) : 0;
 }
-
-int main(void) {
-    int clave = 0, altura = 0;
-    if (scanf("%d %d", &clave, &altura) == 2) {
-        int factor = (clave % 3) + altura + 20;
-        printf("AVL_%02d_FACTOR: %d\n", 20, factor);
-    }
+int avl_kth_smallest(const avl_node_t *n, size_t k, int *out) {
+  if (!n || !out || !k || k > sz(n))
     return 0;
+  size_t l = sz(n->left);
+  if (k == l + 1) {
+    *out = n->key;
+    return 1;
+  }
+  return k <= l ? avl_kth_smallest(n->left, k, out)
+                : avl_kth_smallest(n->right, k - l - 1, out);
 }

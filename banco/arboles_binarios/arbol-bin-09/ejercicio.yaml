@@ -1,56 +1,30 @@
 id: arbol-bin-09
-titulo: Verificación de Árbol Binario Balanceado en Altura
+titulo: Árbol balanceado en altura
 tema: arboles_binarios
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Calcula alturas al volver de la recursión y detén el cálculo si alguna diferencia supera uno.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- arbol_balanceado
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Árbol Binario Balanceado
-    en Altura
+- nombre: esta_balanceado
+  retorno: bool
+  parametros: const nodo_arbol_09_t *raiz
+  descripcion: Balanceado si en cada nodo las alturas de subárboles difieren como máximo en uno.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_09_positivo
-  funcion: ejecutar_arbol_bin_09
-  codigo: 'int res = ejecutar_arbol_bin_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_09_cero
-  funcion: ejecutar_arbol_bin_09
-  codigo: 'int res = ejecutar_arbol_bin_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_09_negativo
-  funcion: ejecutar_arbol_bin_09
-  codigo: 'int res = ejecutar_arbol_bin_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_09_valor_limite
-  funcion: ejecutar_arbol_bin_09
-  codigo: 'int res = ejecutar_arbol_bin_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_09_valor_unitario
-  funcion: ejecutar_arbol_bin_09
-  codigo: 'int res = ejecutar_arbol_bin_09(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_esta_balanceado_objetivo
+  funcion: esta_balanceado
+  codigo: nodo_arbol_09_t a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL},d={4,NULL,NULL}; a.izq=&b;b.izq=&c;c.izq=&d;
+    assert(!esta_balanceado(&a)); assert(esta_balanceado(NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

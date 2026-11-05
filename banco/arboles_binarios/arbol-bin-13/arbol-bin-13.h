@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_ARBOL_BIN_13_H
-#define EJERCICIO_ARBOL_BIN_13_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_13_H
+#define ARBOL_BIN_13_H
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Verificación de Árboles Simétricos y Espejados */
-int ejecutar_arbol_bin_13(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_13_H */
+#include <stdio.h>
+typedef struct nodo_arbol_13 { int valor; struct nodo_arbol_13 *izq, *der; } nodo_arbol_13_t;
+bool es_simetrico(const nodo_arbol_13_t *raiz);
+#endif

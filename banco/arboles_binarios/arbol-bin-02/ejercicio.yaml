@@ -4,71 +4,37 @@ tema: arboles_binarios
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- La altura se mide en cantidad de nodos; el árbol vacío tiene altura 0.
+- Un nodo hoja tiene ambos hijos NULL.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
+- altura
+- hojas
+- recursividad
 - c11
-- inicial
 verificado: true
 funciones:
+- nombre: altura_arbol
+  retorno: int
+  parametros: const nodo_arbol_t *n
+  descripcion: Operación altura_arbol según el contrato de la consigna.
 - nombre: contar_hojas
   retorno: int
   parametros: const nodo_arbol_t *n
-  descripcion: Operación contar_hojas
+  descripcion: Operación contar_hojas según el contrato de la consigna.
 - nombre: liberar_arbol
   retorno: void
   parametros: nodo_arbol_t *n
-  descripcion: Operación liberar_arbol
+  descripcion: Operación liberar_arbol según el contrato de la consigna.
 tests_funciones:
-- nombre: test_contar_hojas_positivo
-  funcion: contar_hojas
-  codigo: 'int res = contar_hojas(5);
+- nombre: test_comportamiento_principal
+  funcion: altura_arbol
+  codigo: 'nodo_arbol_t r={1,NULL,NULL}, l={2,NULL,NULL}, d={3,NULL,NULL}; r.izq=&l;
+    r.der=&d; assert(altura_arbol(&r)==2); assert(contar_hojas(&r)==2); assert(altura_arbol(NULL)==0);
+    assert(contar_hojas(NULL)==0);
 
-    assert(res >= 0 || res == 10);'
-- nombre: test_contar_hojas_cero
-  funcion: contar_hojas
-  codigo: 'int res = contar_hojas(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_contar_hojas_negativo
-  funcion: contar_hojas
-  codigo: 'int res = contar_hojas(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_contar_hojas_limite
-  funcion: contar_hojas
-  codigo: 'int res = contar_hojas(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_liberar_arbol_positivo
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
-- nombre: test_liberar_arbol_cero
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
-- nombre: test_liberar_arbol_negativo
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
-- nombre: test_liberar_arbol_valor_limite
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

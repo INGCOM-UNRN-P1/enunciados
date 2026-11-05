@@ -1,56 +1,31 @@
 id: arbol-bin-16
-titulo: Cálculo de la Suma Máxima de Camino de Raíz a Hoja
+titulo: Suma máxima raíz a hoja
 tema: arboles_binarios
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Solo considera caminos que terminan en una hoja; si hay un solo hijo, ese hijo determina la continuación.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- suma_camino
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_16
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de la Suma Máxima de Camino de
-    Raíz a Hoja
+- nombre: suma_maxima_raiz_hoja
+  retorno: bool
+  parametros: const nodo_arbol_16_t *raiz, int64_t *suma
+  descripcion: Máxima suma incluyendo ambos extremos y solo caminos que terminan en hoja; admite valores
+    negativos.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_16_positivo
-  funcion: ejecutar_arbol_bin_16
-  codigo: 'int res = ejecutar_arbol_bin_16(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_16_cero
-  funcion: ejecutar_arbol_bin_16
-  codigo: 'int res = ejecutar_arbol_bin_16(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_16_negativo
-  funcion: ejecutar_arbol_bin_16
-  codigo: 'int res = ejecutar_arbol_bin_16(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_16_valor_limite
-  funcion: ejecutar_arbol_bin_16
-  codigo: 'int res = ejecutar_arbol_bin_16(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_16_valor_unitario
-  funcion: ejecutar_arbol_bin_16
-  codigo: 'int res = ejecutar_arbol_bin_16(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_suma_maxima_raiz_hoja_objetivo
+  funcion: suma_maxima_raiz_hoja
+  codigo: nodo_arbol_16_t a={-10,NULL,NULL},b={-20,NULL,NULL},c={5,NULL,NULL}; a.izq=&b;a.der=&c; int64_t
+    s; assert(suma_maxima_raiz_hoja(&a,&s)&&s==-5); assert(!suma_maxima_raiz_hoja(NULL,&s));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

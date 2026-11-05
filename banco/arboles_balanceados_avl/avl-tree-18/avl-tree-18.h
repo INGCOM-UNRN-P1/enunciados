@@ -1,11 +1,7 @@
 #ifndef EJERCICIO_AVL_TREE_18_H
 #define EJERCICIO_AVL_TREE_18_H
-
+#include "../avl_tree_common.h"
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de División de Árbol AVL por una Clave Pivote */
-int ejecutar_avl_tree_18(int val);
-
-#endif /* EJERCICIO_AVL_TREE_18_H */
+#include <stdio.h>
+void avl_split(const avl_node_t *root, int pivot, avl_node_t **less, avl_node_t **greater_equal);
+#endif

@@ -1,20 +1,2 @@
-/*
- * Arbol Binario #07
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_07(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_07_NODOS: %d\n", nodos + 7);
-    }
-    return 0;
-}
+#include "arbol-bin-07.h"
+bool es_estricto(const nodo_arbol_07_t *n) { if(!n)return true; if ((n->izq==NULL)!=(n->der==NULL)) return false; return es_estricto(n->izq)&&es_estricto(n->der); }

@@ -1,55 +1,31 @@
 id: arbol-bin-08
-titulo: Verificación de Árbol Binario Perfecto
+titulo: Árbol perfecto
 tema: arboles_binarios
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Compara la profundidad de las hojas y exige que cada nodo interno tenga dos hijos.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- arbol_perfecto
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Árbol Binario Perfecto
+- nombre: es_perfecto
+  retorno: bool
+  parametros: const nodo_arbol_08_t *raiz
+  descripcion: 'Árbol perfecto: todo nodo interno tiene dos hijos y todas las hojas están a igual profundidad.
+    Árbol vacío se considera perfecto.'
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_08_positivo
-  funcion: ejecutar_arbol_bin_08
-  codigo: 'int res = ejecutar_arbol_bin_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_08_cero
-  funcion: ejecutar_arbol_bin_08
-  codigo: 'int res = ejecutar_arbol_bin_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_08_negativo
-  funcion: ejecutar_arbol_bin_08
-  codigo: 'int res = ejecutar_arbol_bin_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_08_valor_limite
-  funcion: ejecutar_arbol_bin_08
-  codigo: 'int res = ejecutar_arbol_bin_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_08_valor_unitario
-  funcion: ejecutar_arbol_bin_08
-  codigo: 'int res = ejecutar_arbol_bin_08(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_es_perfecto_objetivo
+  funcion: es_perfecto
+  codigo: nodo_arbol_08_t a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL},d={4,NULL,NULL}; a.izq=&b;a.der=&c;b.izq=&d;
+    assert(!es_perfecto(&a)); assert(es_perfecto(NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

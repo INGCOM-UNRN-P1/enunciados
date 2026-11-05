@@ -4,50 +4,34 @@ tema: arboles_balanceados_avl
 bloom: 5
 minutos_estimados: 45
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- El comparador retorna negativo, cero o positivo como qsort.
+- Los objetos clave/valor pertenecen al llamador; los liberadores son opcionales.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- generico
+- comparador
+- mapa
 - c11
-- avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_30
+- nombre: avl_generic_put
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de TAD Completo de Árbol AVL Genérico con
-    Tipo de Clave Parametrizado
+  parametros: avl_generic_node_t **root,void *key,void *value,avl_compare_fn compare
+  descripcion: Operación avl_generic_put según el contrato de la consigna.
+- nombre: avl_generic_get
+  retorno: void *
+  parametros: const avl_generic_node_t *root,const void *key,avl_compare_fn compare
+  descripcion: Operación avl_generic_get según el contrato de la consigna.
+- nombre: avl_generic_destroy
+  retorno: void
+  parametros: avl_generic_node_t **root,avl_free_fn free_key,avl_free_fn free_value
+  descripcion: Operación avl_generic_destroy según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_30_positivo
-  funcion: ejecutar_avl_tree_30
-  codigo: 'int res = ejecutar_avl_tree_30(5);
+- nombre: test_comportamiento_principal
+  funcion: avl_generic_put
+  codigo: 'int k1=1,k2=2,v1=10,v2=20;avl_generic_node_t*r=NULL;assert(avl_generic_put(&r,&k1,&v1,avl_compare_int_keys));assert(avl_generic_put(&r,&k2,&v2,avl_compare_int_keys));assert(*(int*)avl_generic_get(r,&k2,avl_compare_int_keys)==20);assert(avl_generic_get(r,&v1,avl_compare_int_keys)==NULL);avl_generic_destroy(&r,NULL,NULL);assert(!r);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_30_cero
-  funcion: ejecutar_avl_tree_30
-  codigo: 'int res = ejecutar_avl_tree_30(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_30_negativo
-  funcion: ejecutar_avl_tree_30
-  codigo: 'int res = ejecutar_avl_tree_30(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_30_valor_limite
-  funcion: ejecutar_avl_tree_30
-  codigo: 'int res = ejecutar_avl_tree_30(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_30_valor_unitario
-  funcion: ejecutar_avl_tree_30
-  codigo: 'int res = ejecutar_avl_tree_30(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

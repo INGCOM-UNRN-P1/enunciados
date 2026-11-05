@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_ARBOL_BIN_05_H
-#define EJERCICIO_ARBOL_BIN_05_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_05_H
+#define ARBOL_BIN_05_H
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Suma de Todos los Valores de los Nodos en Árbol Binario */
-int ejecutar_arbol_bin_05(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_05_H */
+#include <stdio.h>
+typedef struct nodo_arbol_05 { int valor; struct nodo_arbol_05 *izq, *der; } nodo_arbol_05_t;
+int64_t sumar_nodos(const nodo_arbol_05_t *raiz);
+#endif

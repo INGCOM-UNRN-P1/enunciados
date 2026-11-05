@@ -4,49 +4,29 @@ tema: arboles_balanceados_avl
 bloom: 3
 minutos_estimados: 25
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- 'Separa según la comparación estricta con el pivote: menores a izquierda y mayores o iguales a derecha.'
+- Construye ambos resultados con inserciones AVL para conservar el balance.
 tags:
 - avl
-- arboles_balanceados
+- split
+- pivote
 - rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- arboles_balanceados
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_18
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de División de Árbol AVL por una Clave Pivote
+- nombre: avl_split
+  retorno: void
+  parametros: const avl_node_t *root, int pivot, avl_node_t **less, avl_node_t **greater_equal
+  descripcion: Operación avl_split según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_18_positivo
-  funcion: ejecutar_avl_tree_18
-  codigo: 'int res = ejecutar_avl_tree_18(5);
+- nombre: test_operacion_principal
+  funcion: avl_split
+  codigo: 'avl_node_t *r=NULL,*a=NULL,*b=NULL; int x[]={2,1,3,5}; for(int i=0;i<4;i++)r=avl_insert(r,x[i]);
+    avl_split(r,3,&a,&b); int h=0; assert(avl_valid(a,-2147483649L,2147483648L,&h)); assert(avl_contains(a,1)&&avl_contains(a,2)&&!avl_contains(a,3));
+    assert(avl_contains(b,3)&&avl_contains(b,5)); avl_destroy(r);avl_destroy(a);avl_destroy(b);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_18_cero
-  funcion: ejecutar_avl_tree_18
-  codigo: 'int res = ejecutar_avl_tree_18(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_18_negativo
-  funcion: ejecutar_avl_tree_18
-  codigo: 'int res = ejecutar_avl_tree_18(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_18_valor_limite
-  funcion: ejecutar_avl_tree_18
-  codigo: 'int res = ejecutar_avl_tree_18(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_18_valor_unitario
-  funcion: ejecutar_avl_tree_18
-  codigo: 'int res = ejecutar_avl_tree_18(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

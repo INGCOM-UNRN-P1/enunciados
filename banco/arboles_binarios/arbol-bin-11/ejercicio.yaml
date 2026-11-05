@@ -1,56 +1,31 @@
 id: arbol-bin-11
-titulo: Ancestro Común Más Bajo LCA en Árbol Binario
+titulo: Ancestro común más bajo
 tema: arboles_binarios
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Busca ambos valores antes de calcular su ancestro común más bajo; los valores del árbol son únicos.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- lca
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_11
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Ancestro Común Más Bajo LCA en Árbol
-    Binario
+- nombre: ancestro_comun
+  retorno: nodo_arbol_11_t *
+  parametros: const nodo_arbol_11_t *raiz, int valor_a, int valor_b
+  descripcion: 'LCA por valores únicos: devuelve NULL si alguno no existe; si ambos son el mismo valor,
+    devuelve su nodo.'
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_11_positivo
-  funcion: ejecutar_arbol_bin_11
-  codigo: 'int res = ejecutar_arbol_bin_11(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_11_cero
-  funcion: ejecutar_arbol_bin_11
-  codigo: 'int res = ejecutar_arbol_bin_11(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_11_negativo
-  funcion: ejecutar_arbol_bin_11
-  codigo: 'int res = ejecutar_arbol_bin_11(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_11_valor_limite
-  funcion: ejecutar_arbol_bin_11
-  codigo: 'int res = ejecutar_arbol_bin_11(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_11_valor_unitario
-  funcion: ejecutar_arbol_bin_11
-  codigo: 'int res = ejecutar_arbol_bin_11(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_ancestro_comun_objetivo
+  funcion: ancestro_comun
+  codigo: nodo_arbol_11_t a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL}; a.izq=&b;a.der=&c; assert(ancestro_comun(&a,2,3)==&a);
+    assert(ancestro_comun(&a,2,9)==NULL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

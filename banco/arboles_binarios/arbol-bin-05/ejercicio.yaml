@@ -1,56 +1,29 @@
 id: arbol-bin-05
-titulo: Suma de Todos los Valores de los Nodos en Árbol Binario
+titulo: Suma de valores
 tema: arboles_binarios
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Suma el valor del nodo con las sumas de ambos subárboles; el árbol vacío aporta cero.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- suma_valores
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_05
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Suma de Todos los Valores de los Nodos
-    en Árbol Binario
+- nombre: sumar_nodos
+  retorno: int64_t
+  parametros: const nodo_arbol_05_t *raiz
+  descripcion: Sumar valores de todos los nodos; el árbol vacío suma cero.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_05_positivo
-  funcion: ejecutar_arbol_bin_05
-  codigo: 'int res = ejecutar_arbol_bin_05(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_05_cero
-  funcion: ejecutar_arbol_bin_05
-  codigo: 'int res = ejecutar_arbol_bin_05(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_05_negativo
-  funcion: ejecutar_arbol_bin_05
-  codigo: 'int res = ejecutar_arbol_bin_05(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_05_valor_limite
-  funcion: ejecutar_arbol_bin_05
-  codigo: 'int res = ejecutar_arbol_bin_05(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_05_valor_unitario
-  funcion: ejecutar_arbol_bin_05
-  codigo: 'int res = ejecutar_arbol_bin_05(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_sumar_nodos_objetivo
+  funcion: sumar_nodos
+  codigo: nodo_arbol_05_t a={-2,NULL,NULL}, b={5,NULL,NULL}; a.der=&b; assert(sumar_nodos(&a)==3); assert(sumar_nodos(NULL)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

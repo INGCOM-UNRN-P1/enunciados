@@ -1,56 +1,5 @@
-Construir un árbol binario y mostrar los elementos según los recorridos en profundidad (Inorder, Preorder, Postorder).
+# Recorridos en profundidad de un árbol binario
 
-### 📋 Contrato de las Funciones
+Incluye el tipo compartido `../arbol_binario_common.h`. Implemente `inorder`, `preorder` y `postorder`; cada una recibe una raíz y un `FILE *` de salida, imprime valores separados por espacios y en el orden indicado por el nombre. Si la raíz o el stream son `NULL`, no imprime nada. `liberar_arbol` libera recursivamente los nodos en postorden y acepta `NULL`.
 
-```c
-/*
- * Operación inorder
- * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
- * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
- */
-void inorder(const nodo_arbol_t *n);
-
-/*
- * Operación liberar_arbol
- * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
- * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
- */
-void liberar_arbol(nodo_arbol_t *n);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Inserción secuencial
-```text
-Operaciones: INSERT(10), INSERT(20), INSERT(5)
-Estado: Estructura balanceada, raíz = 10
-```
-:::
-:::{tab-item} Búsqueda en árbol
-```text
-Operación: CONTAINS(20)
-Salida: true / 1
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
-3. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
-:::
+Para una raíz 10 con hijo izquierdo 5 y derecho 20, los resultados son `5 10 20 `, `10 5 20 ` y `5 20 10 ` respectivamente. El llamador conserva ownership del árbol hasta invocar `liberar_arbol`.

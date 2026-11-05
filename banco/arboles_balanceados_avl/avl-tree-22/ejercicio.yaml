@@ -4,50 +4,26 @@ tema: arboles_balanceados_avl
 bloom: 4
 minutos_estimados: 35
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- La secuencia debe estar estrictamente creciente.
+- Elige la mediana para dividir cada tramo en dos subárboles.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- construccion
+- secuencia_ordenada
+- divide_y_venceras
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_22
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Reconstrucción de Árbol AVL desde Secuencia
-    Ordenada en O(N)
+- nombre: avl_from_sorted
+  retorno: avl_node_t *
+  parametros: const int *values, size_t count
+  descripcion: Operación avl_from_sorted según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_22_positivo
-  funcion: ejecutar_avl_tree_22
-  codigo: 'int res = ejecutar_avl_tree_22(5);
+- nombre: test_operacion_principal
+  funcion: avl_from_sorted
+  codigo: 'int a[]={1,2,3,4,5,6};avl_node_t*r=avl_from_sorted(a,6);int h=0;assert(r&&avl_valid(r,-2147483649L,2147483648L,&h)&&h==3);assert(avl_contains(r,4));avl_destroy(r);assert(!avl_from_sorted(NULL,2));
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_22_cero
-  funcion: ejecutar_avl_tree_22
-  codigo: 'int res = ejecutar_avl_tree_22(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_22_negativo
-  funcion: ejecutar_avl_tree_22
-  codigo: 'int res = ejecutar_avl_tree_22(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_22_valor_limite
-  funcion: ejecutar_avl_tree_22
-  codigo: 'int res = ejecutar_avl_tree_22(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_22_valor_unitario
-  funcion: ejecutar_avl_tree_22
-  codigo: 'int res = ejecutar_avl_tree_22(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

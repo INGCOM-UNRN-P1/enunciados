@@ -4,13 +4,12 @@ tema: arboles_balanceados_avl
 bloom: 1
 minutos_estimados: 10
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Recalcule las alturas de los nodos afectados después de la rotación.
 tags:
 - avl
 - arboles_balanceados
 - rotaciones
-- factor_balance
+- rotacion_derecha
 - estructuras_datos
 - dep:arboles_binarios
 - c11
@@ -18,36 +17,16 @@ tags:
 verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Rotación Simple a la Derecha en Árbol
-    AVL
+  retorno: avl_node_t *
+  parametros: avl_node_t *raiz
+  descripcion: 'Aplica una rotación simple derecha en la raíz y devuelve la nueva raíz. Precondición:
+    la raíz y su hijo izquierdo existen.'
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_03_positivo
+- nombre: test_avl_tree_03_comportamiento
   funcion: ejecutar_avl_tree_03
-  codigo: 'int res = ejecutar_avl_tree_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_03_cero
-  funcion: ejecutar_avl_tree_03
-  codigo: 'int res = ejecutar_avl_tree_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_03_negativo
-  funcion: ejecutar_avl_tree_03
-  codigo: 'int res = ejecutar_avl_tree_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_03_valor_limite
-  funcion: ejecutar_avl_tree_03
-  codigo: 'int res = ejecutar_avl_tree_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_03_valor_unitario
-  funcion: ejecutar_avl_tree_03
-  codigo: 'int res = ejecutar_avl_tree_03(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t a={.key=1,.height=1}, b={.key=2,.height=2,.left=&a}, d={.key=4,.height=1}, r={.key=3,.height=3,.left=&b,.right=&d};
+    avl_node_t*n=ejecutar_avl_tree_03(&r); assert(n==&b&&b.right==&r&&r.right==&d&&r.height==2&&b.height==3);
+    assert(ejecutar_avl_tree_03(NULL)==NULL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

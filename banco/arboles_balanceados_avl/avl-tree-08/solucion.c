@@ -1,21 +1,4 @@
-/*
- * AVL #08
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_avl_tree_08(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int clave = 0, altura = 0;
-    if (scanf("%d %d", &clave, &altura) == 2) {
-        int factor = (clave % 3) + altura + 8;
-        printf("AVL_%02d_FACTOR: %d\n", 8, factor);
-    }
-    return 0;
+#include "avl-tree-08.h"
+avl_node_t *ejecutar_avl_tree_08(avl_node_t *r, int k) {
+  return avl_delete(r, k);
 }

@@ -4,50 +4,26 @@ tema: arboles_balanceados_avl
 bloom: 4
 minutos_estimados: 35
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Ambos árboles reciben la misma secuencia en el mismo orden.
+- Compara las alturas finales; no uses mediciones de tiempo.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- bst
+- comparacion_de_alturas
+- experimento
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_25
+- nombre: avl_compare_heights
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Comparación Empírica de Altura de AVL
-    frente a BST Aleatorio
+  parametros: const int *keys, size_t count, int *avl_height_out, int *bst_height_out
+  descripcion: Operación avl_compare_heights según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_25_positivo
-  funcion: ejecutar_avl_tree_25
-  codigo: 'int res = ejecutar_avl_tree_25(5);
+- nombre: test_operacion_principal
+  funcion: avl_compare_heights
+  codigo: 'int a[]={1,2,3,4,5};int ah=0,bh=0;assert(avl_compare_heights(a,5,&ah,&bh));assert(ah<=bh&&ah==3);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_25_cero
-  funcion: ejecutar_avl_tree_25
-  codigo: 'int res = ejecutar_avl_tree_25(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_25_negativo
-  funcion: ejecutar_avl_tree_25
-  codigo: 'int res = ejecutar_avl_tree_25(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_25_valor_limite
-  funcion: ejecutar_avl_tree_25
-  codigo: 'int res = ejecutar_avl_tree_25(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_25_valor_unitario
-  funcion: ejecutar_avl_tree_25
-  codigo: 'int res = ejecutar_avl_tree_25(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

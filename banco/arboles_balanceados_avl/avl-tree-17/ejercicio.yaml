@@ -4,13 +4,12 @@ tema: arboles_balanceados_avl
 bloom: 3
 minutos_estimados: 25
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Se supone que los conjuntos de claves de entrada no se intersectan.
 tags:
 - avl
 - arboles_balanceados
-- rotaciones
-- factor_balance
+- fusion_avl
+- arboles_balanceados
 - estructuras_datos
 - dep:arboles_binarios
 - c11
@@ -18,36 +17,15 @@ tags:
 verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_17
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Fusión de Dos Árboles AVL en Uno Solo
-    Balanceado
+  retorno: avl_node_t *
+  parametros: const avl_node_t *arbol_a, const avl_node_t *arbol_b
+  descripcion: Fusiona dos AVL con conjuntos de claves disjuntos en una nueva estructura independiente.
+    Los árboles de entrada no se modifican; devuelve NULL si ambos son vacíos o ante falta de memoria.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_17_positivo
+- nombre: test_avl_tree_17_comportamiento
   funcion: ejecutar_avl_tree_17
-  codigo: 'int res = ejecutar_avl_tree_17(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_17_cero
-  funcion: ejecutar_avl_tree_17
-  codigo: 'int res = ejecutar_avl_tree_17(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_17_negativo
-  funcion: ejecutar_avl_tree_17
-  codigo: 'int res = ejecutar_avl_tree_17(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_17_valor_limite
-  funcion: ejecutar_avl_tree_17
-  codigo: 'int res = ejecutar_avl_tree_17(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_17_valor_unitario
-  funcion: ejecutar_avl_tree_17
-  codigo: 'int res = ejecutar_avl_tree_17(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t*a=NULL,*b=NULL; a=avl_insert(a,1);a=avl_insert(a,3);b=avl_insert(b,2);b=avl_insert(b,4);avl_node_t*r=ejecutar_avl_tree_17(a,b);int
+    h;assert(r&&avl_valid(r,0,5,&h)&&h==3&&avl_contains(r,1)&&avl_contains(r,4));assert(avl_contains(a,3)&&avl_contains(b,2));avl_destroy(r);avl_destroy(a);avl_destroy(b);assert(ejecutar_avl_tree_17(NULL,NULL)==NULL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

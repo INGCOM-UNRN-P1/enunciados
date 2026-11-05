@@ -4,50 +4,26 @@ tema: arboles_balanceados_avl
 bloom: 5
 minutos_estimados: 45
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Verifica límites estrictos de clave además de la altura guardada.
+- El árbol vacío satisface la invariante.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- validacion
+- invariante_bst
+- balance
 - c11
-- avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_28
+- nombre: avl_is_valid
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Invariante de Búsqueda
-    Binaria y Balance
+  parametros: const avl_node_t *root
+  descripcion: Operación avl_is_valid según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_28_positivo
-  funcion: ejecutar_avl_tree_28
-  codigo: 'int res = ejecutar_avl_tree_28(5);
+- nombre: test_operacion_principal
+  funcion: avl_is_valid
+  codigo: 'avl_node_t*r=NULL;r=avl_insert(r,2);r=avl_insert(r,1);r=avl_insert(r,3);assert(avl_is_valid(r));r->left->key=4;assert(!avl_is_valid(r));r->left->key=1;avl_destroy(r);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_28_cero
-  funcion: ejecutar_avl_tree_28
-  codigo: 'int res = ejecutar_avl_tree_28(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_28_negativo
-  funcion: ejecutar_avl_tree_28
-  codigo: 'int res = ejecutar_avl_tree_28(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_28_valor_limite
-  funcion: ejecutar_avl_tree_28
-  codigo: 'int res = ejecutar_avl_tree_28(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_28_valor_unitario
-  funcion: ejecutar_avl_tree_28
-  codigo: 'int res = ejecutar_avl_tree_28(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,7 @@
 #ifndef EJERCICIO_AVL_TREE_20_H
 #define EJERCICIO_AVL_TREE_20_H
-
+#include "../avl_tree_common.h"
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Búsqueda del K-ésimo Menor Elemento en AVL Aumentado */
-int ejecutar_avl_tree_20(int val);
-
-#endif /* EJERCICIO_AVL_TREE_20_H */
+#include <stdio.h>
+int avl_kth_smallest(const avl_node_t *root, size_t k, int *key);
+#endif

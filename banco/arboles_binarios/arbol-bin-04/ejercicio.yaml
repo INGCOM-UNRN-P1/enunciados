@@ -1,55 +1,29 @@
 id: arbol-bin-04
-titulo: Conteo Total de Nodos en Árbol Binario
+titulo: Conteo de nodos
 tema: arboles_binarios
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Cada nodo se cuenta una vez; el caso base es el árbol vacío.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- conteo_nodos
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_04
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conteo Total de Nodos en Árbol Binario
+- nombre: contar_nodos
+  retorno: size_t
+  parametros: const nodo_arbol_04_t *raiz
+  descripcion: Contar todos los nodos; el árbol vacío tiene cero nodos.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_04_positivo
-  funcion: ejecutar_arbol_bin_04
-  codigo: 'int res = ejecutar_arbol_bin_04(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_04_cero
-  funcion: ejecutar_arbol_bin_04
-  codigo: 'int res = ejecutar_arbol_bin_04(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_04_negativo
-  funcion: ejecutar_arbol_bin_04
-  codigo: 'int res = ejecutar_arbol_bin_04(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_04_valor_limite
-  funcion: ejecutar_arbol_bin_04
-  codigo: 'int res = ejecutar_arbol_bin_04(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_04_valor_unitario
-  funcion: ejecutar_arbol_bin_04
-  codigo: 'int res = ejecutar_arbol_bin_04(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_contar_nodos_objetivo
+  funcion: contar_nodos
+  codigo: nodo_arbol_04_t a={1,NULL,NULL}, b={2,NULL,NULL}; a.izq=&b; assert(contar_nodos(&a)==2); assert(contar_nodos(NULL)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,56 +1,30 @@
 id: arbol-bin-12
-titulo: Inversión y Creación de Árbol Espejo Mirror Tree
+titulo: Árbol espejo
 tema: arboles_binarios
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Intercambia los hijos de cada nodo y aplica la operación a ambos subárboles.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- arbol_espejo
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_12
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Inversión y Creación de Árbol Espejo
-    Mirror Tree
+- nombre: invertir_arbol
+  retorno: void
+  parametros: nodo_arbol_12_t *raiz
+  descripcion: Invertir in situ intercambiando recursivamente los hijos izquierdo y derecho.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_12_positivo
-  funcion: ejecutar_arbol_bin_12
-  codigo: 'int res = ejecutar_arbol_bin_12(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_12_cero
-  funcion: ejecutar_arbol_bin_12
-  codigo: 'int res = ejecutar_arbol_bin_12(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_12_negativo
-  funcion: ejecutar_arbol_bin_12
-  codigo: 'int res = ejecutar_arbol_bin_12(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_12_valor_limite
-  funcion: ejecutar_arbol_bin_12
-  codigo: 'int res = ejecutar_arbol_bin_12(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_12_valor_unitario
-  funcion: ejecutar_arbol_bin_12
-  codigo: 'int res = ejecutar_arbol_bin_12(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_invertir_arbol_objetivo
+  funcion: invertir_arbol
+  codigo: nodo_arbol_12_t a={1,NULL,NULL},b={2,NULL,NULL},c={3,NULL,NULL}; a.izq=&b;a.der=&c; invertir_arbol(&a);
+    assert(a.izq==&c&&a.der==&b);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

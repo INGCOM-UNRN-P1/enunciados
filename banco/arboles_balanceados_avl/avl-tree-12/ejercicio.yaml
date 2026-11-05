@@ -4,13 +4,13 @@ tema: arboles_balanceados_avl
 bloom: 2
 minutos_estimados: 15
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Si existe subárbol correspondiente, el extremo de ese subárbol determina el sucesor o predecesor.
 tags:
 - avl
 - arboles_balanceados
-- rotaciones
-- factor_balance
+- sucesor
+- predecesor
+- inorder
 - estructuras_datos
 - dep:arboles_binarios
 - c11
@@ -19,35 +19,14 @@ verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_12
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Sucesor y Predecesor Inorder en Árbol
-    AVL
+  parametros: const avl_node_t *raiz, int clave, const avl_node_t **predecesor, const avl_node_t **sucesor
+  descripcion: Busca una clave y devuelve por separado su predecesor y sucesor inorder. Cada salida puede
+    ser NULL en un extremo. Devuelve 1 si existe; si no, devuelve 0 y ambas salidas quedan NULL.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_12_positivo
+- nombre: test_avl_tree_12_comportamiento
   funcion: ejecutar_avl_tree_12
-  codigo: 'int res = ejecutar_avl_tree_12(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_12_cero
-  funcion: ejecutar_avl_tree_12
-  codigo: 'int res = ejecutar_avl_tree_12(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_12_negativo
-  funcion: ejecutar_avl_tree_12
-  codigo: 'int res = ejecutar_avl_tree_12(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_12_valor_limite
-  funcion: ejecutar_avl_tree_12
-  codigo: 'int res = ejecutar_avl_tree_12(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_12_valor_unitario
-  funcion: ejecutar_avl_tree_12
-  codigo: 'int res = ejecutar_avl_tree_12(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t a={.key=1},c={.key=3},r={.key=2,.left=&a,.right=&c}; const avl_node_t*p,*s; assert(ejecutar_avl_tree_12(&r,2,&p,&s)&&p==&a&&s==&c);
+    assert(ejecutar_avl_tree_12(&r,1,&p,&s)&&p==NULL&&s==&r); assert(!ejecutar_avl_tree_12(&r,9,&p,&s)&&p==NULL&&s==NULL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

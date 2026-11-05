@@ -4,49 +4,39 @@ tema: arboles_balanceados_avl
 bloom: 4
 minutos_estimados: 35
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- La representación almacena clave e índice heap en arreglos dinámicos paralelos.
+- Libera ambos arreglos y reinicia el descriptor al destruirlo.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- arreglo_dinamico
+- indexacion
+- serializacion
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_23
+- nombre: avl_heap_child_index
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Árbol AVL Indexado como Arreglo Dinámico
+  parametros: size_t parent, int right_child, size_t *child
+  descripcion: Operación avl_heap_child_index según el contrato de la consigna.
+- nombre: avl_index_build
+  retorno: int
+  parametros: const avl_node_t *root, avl_index_t *index
+  descripcion: Operación avl_index_build según el contrato de la consigna.
+- nombre: avl_index_destroy
+  retorno: void
+  parametros: avl_index_t *index
+  descripcion: Operación avl_index_destroy según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_23_positivo
-  funcion: ejecutar_avl_tree_23
-  codigo: 'int res = ejecutar_avl_tree_23(5);
+- nombre: test_operacion_principal
+  funcion: avl_index_build
+  codigo: 'avl_node_t*r=NULL;r=avl_insert(r,2);r=avl_insert(r,1);r=avl_insert(r,3);avl_index_t x;assert(avl_index_build(r,&x)&&x.count==3);assert(x.values[0]==2&&x.indices[2]==2);avl_index_destroy(&x);assert(!x.values&&!x.indices&&!x.count);avl_destroy(r);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_23_cero
-  funcion: ejecutar_avl_tree_23
-  codigo: 'int res = ejecutar_avl_tree_23(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_23_negativo
-  funcion: ejecutar_avl_tree_23
-  codigo: 'int res = ejecutar_avl_tree_23(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_23_valor_limite
-  funcion: ejecutar_avl_tree_23
-  codigo: 'int res = ejecutar_avl_tree_23(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_23_valor_unitario
-  funcion: ejecutar_avl_tree_23
-  codigo: 'int res = ejecutar_avl_tree_23(1);
-
-    assert(res >= 0 || res == 2);'
+    '
+- nombre: test_limites_de_indice_heap_sin_desbordamiento
+  funcion: avl_heap_child_index
+  codigo: size_t max=(size_t)-1, child=0; assert(avl_heap_child_index((max-1)/2,0,&child)&&child==max);
+    assert(avl_heap_child_index((max-2)/2,1,&child)&&child==max-1); assert(!avl_heap_child_index(max/2+1,0,&child));
+    assert(!avl_heap_child_index(max/2,1,&child)); assert(!avl_heap_child_index(0,2,&child)); assert(!avl_heap_child_index(0,0,NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

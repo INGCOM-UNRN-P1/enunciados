@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_ARBOL_BIN_15_H
-#define EJERCICIO_ARBOL_BIN_15_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_15_H
+#define ARBOL_BIN_15_H
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Verificación de Subárbol dentro de un Árbol Mayor */
-int ejecutar_arbol_bin_15(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_15_H */
+#include <stdio.h>
+typedef struct nodo_arbol_15 { int valor; struct nodo_arbol_15 *izq, *der; } nodo_arbol_15_t;
+bool es_subarbol(const nodo_arbol_15_t *arbol, const nodo_arbol_15_t *candidato);
+#endif

@@ -1,56 +1,30 @@
 id: arbol-bin-13
-titulo: Verificación de Árboles Simétricos y Espejados
+titulo: Árbol simétrico
 tema: arboles_binarios
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Compara cada par de subárboles opuestos con estructura y valores reflejados.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- simetria
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_13
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Árboles Simétricos y
-    Espejados
+- nombre: es_simetrico
+  retorno: bool
+  parametros: const nodo_arbol_13_t *raiz
+  descripcion: Simétrico si el árbol coincide consigo mismo al reflejar estructura y valores.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_13_positivo
-  funcion: ejecutar_arbol_bin_13
-  codigo: 'int res = ejecutar_arbol_bin_13(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_13_cero
-  funcion: ejecutar_arbol_bin_13
-  codigo: 'int res = ejecutar_arbol_bin_13(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_13_negativo
-  funcion: ejecutar_arbol_bin_13
-  codigo: 'int res = ejecutar_arbol_bin_13(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_13_valor_limite
-  funcion: ejecutar_arbol_bin_13
-  codigo: 'int res = ejecutar_arbol_bin_13(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_13_valor_unitario
-  funcion: ejecutar_arbol_bin_13
-  codigo: 'int res = ejecutar_arbol_bin_13(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_es_simetrico_objetivo
+  funcion: es_simetrico
+  codigo: nodo_arbol_13_t a={1,NULL,NULL},b={2,NULL,NULL},c={2,NULL,NULL}; a.izq=&b;a.der=&c; assert(es_simetrico(&a));
+    c.valor=3; assert(!es_simetrico(&a));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

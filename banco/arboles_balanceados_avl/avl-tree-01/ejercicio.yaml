@@ -4,12 +4,11 @@ tema: arboles_balanceados_avl
 bloom: 1
 minutos_estimados: 10
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Para cada nodo, el factor de balance es altura del subárbol izquierdo menos altura del derecho.
 tags:
 - avl
 - arboles_balanceados
-- rotaciones
+- calculo_altura
 - factor_balance
 - estructuras_datos
 - dep:arboles_binarios
@@ -19,35 +18,14 @@ verificado: true
 funciones:
 - nombre: ejecutar_avl_tree_01
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Altura y Factor de Balance
-    en Nodos de Árbol
+  parametros: const avl_node_t *raiz, int *altura, int *factor_balance
+  descripcion: 'Calcula altura y factor de balance de la raíz (factor = altura izquierda menos derecha).
+    Devuelve 1 si las salidas se escribieron, 0 si falta un puntero. Árbol vacío: altura y factor 0.'
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_01_positivo
+- nombre: test_avl_tree_01_comportamiento
   funcion: ejecutar_avl_tree_01
-  codigo: 'int res = ejecutar_avl_tree_01(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_01_cero
-  funcion: ejecutar_avl_tree_01
-  codigo: 'int res = ejecutar_avl_tree_01(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_01_negativo
-  funcion: ejecutar_avl_tree_01
-  codigo: 'int res = ejecutar_avl_tree_01(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_01_valor_limite
-  funcion: ejecutar_avl_tree_01
-  codigo: 'int res = ejecutar_avl_tree_01(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_01_valor_unitario
-  funcion: ejecutar_avl_tree_01
-  codigo: 'int res = ejecutar_avl_tree_01(1);
-
-    assert(res >= 0 || res == 2);'
+  codigo: avl_node_t a={.key=1,.height=1}, b={.key=2,.height=1,.left=&a}; int h,fb; assert(ejecutar_avl_tree_01(&b,&h,&fb)&&h==2&&fb==1);
+    assert(ejecutar_avl_tree_01(NULL,&h,&fb)&&h==0&&fb==0); assert(!ejecutar_avl_tree_01(&b,NULL,&fb));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_ARBOL_BIN_19_H
-#define EJERCICIO_ARBOL_BIN_19_H
-
+#ifndef ARBOL_BIN_19_H
+#define ARBOL_BIN_19_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Reconstrucción de Árbol Binario desde Recorridos Inorder y Postorder */
-int ejecutar_arbol_bin_19(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_19_H */
+typedef struct nodo_arbol_19 { int valor; struct nodo_arbol_19 *izq, *der; } nodo_arbol_19_t;
+/* Las secuencias contienen valores únicos y describen el mismo árbol. Para n==0 devuelve NULL. */
+nodo_arbol_19_t *reconstruir_in_post(const int *inorder, const int *postorder, size_t n);
+void liberar_arbol_19(nodo_arbol_19_t *raiz);
+#endif

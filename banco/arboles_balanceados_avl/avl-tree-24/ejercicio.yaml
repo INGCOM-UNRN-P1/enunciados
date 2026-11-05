@@ -4,50 +4,26 @@ tema: arboles_balanceados_avl
 bloom: 4
 minutos_estimados: 35
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- Libera subárboles antes que el nodo actual.
+- Tras destruir, la raíz recibida debe quedar NULL.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- destruccion
+- memoria_dinamica
+- recursividad
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_24
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Destrucción y Liberación Recursiva Completa
-    de Memoria de Árbol AVL
+- nombre: avl_tree_destroy
+  retorno: void
+  parametros: avl_node_t **root
+  descripcion: Operación avl_tree_destroy según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_24_positivo
-  funcion: ejecutar_avl_tree_24
-  codigo: 'int res = ejecutar_avl_tree_24(5);
+- nombre: test_operacion_principal
+  funcion: avl_tree_destroy
+  codigo: 'avl_node_t*r=NULL;r=avl_insert(r,2);r=avl_insert(r,1);r=avl_insert(r,3);avl_tree_destroy(&r);assert(!r);avl_tree_destroy(&r);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_24_cero
-  funcion: ejecutar_avl_tree_24
-  codigo: 'int res = ejecutar_avl_tree_24(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_24_negativo
-  funcion: ejecutar_avl_tree_24
-  codigo: 'int res = ejecutar_avl_tree_24(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_24_valor_limite
-  funcion: ejecutar_avl_tree_24
-  codigo: 'int res = ejecutar_avl_tree_24(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_24_valor_unitario
-  funcion: ejecutar_avl_tree_24
-  codigo: 'int res = ejecutar_avl_tree_24(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

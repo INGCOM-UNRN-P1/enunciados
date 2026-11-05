@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_ARBOL_BIN_09_H
-#define EJERCICIO_ARBOL_BIN_09_H
-
-#include <stddef.h>
+#ifndef ARBOL_BIN_09_H
+#define ARBOL_BIN_09_H
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Verificación de Árbol Binario Balanceado en Altura */
-int ejecutar_arbol_bin_09(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_09_H */
+#include <stdio.h>
+typedef struct nodo_arbol_09 { int valor; struct nodo_arbol_09 *izq, *der; } nodo_arbol_09_t;
+bool esta_balanceado(const nodo_arbol_09_t *raiz);
+#endif

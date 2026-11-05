@@ -4,50 +4,27 @@ tema: arboles_balanceados_avl
 bloom: 3
 minutos_estimados: 25
 pistas:
-- El factor de balance debe ser -1, 0 o +1 en todos los nodos.
-- Rotación simple si el desbalance es en la misma dirección; doble si es en zig-zag.
+- El primer elemento tiene k=1.
+- Rechaza k=0 y k mayor que el tamaño del árbol.
 tags:
 - avl
-- arboles_balanceados
-- rotaciones
-- factor_balance
-- estructuras_datos
-- dep:arboles_binarios
+- k_esimo
+- busqueda_por_rango
+- ordenamiento
 - c11
-- intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_avl_tree_20
+- nombre: avl_kth_smallest
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda del K-ésimo Menor Elemento en
-    AVL Aumentado
+  parametros: const avl_node_t *root, size_t k, int *key
+  descripcion: Operación avl_kth_smallest según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_avl_tree_20_positivo
-  funcion: ejecutar_avl_tree_20
-  codigo: 'int res = ejecutar_avl_tree_20(5);
+- nombre: test_operacion_principal
+  funcion: avl_kth_smallest
+  codigo: 'avl_node_t*r=NULL; int a[]={8,4,12,2,6}; for(int i=0;i<5;i++)r=avl_insert(r,a[i]); int k=0;
+    assert(avl_kth_smallest(r,4,&k)&&k==8); assert(!avl_kth_smallest(r,6,&k)); avl_destroy(r);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_avl_tree_20_cero
-  funcion: ejecutar_avl_tree_20
-  codigo: 'int res = ejecutar_avl_tree_20(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_avl_tree_20_negativo
-  funcion: ejecutar_avl_tree_20
-  codigo: 'int res = ejecutar_avl_tree_20(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_avl_tree_20_valor_limite
-  funcion: ejecutar_avl_tree_20
-  codigo: 'int res = ejecutar_avl_tree_20(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_avl_tree_20_valor_unitario
-  funcion: ejecutar_avl_tree_20
-  codigo: 'int res = ejecutar_avl_tree_20(1);
-
-    assert(res >= 0 || res == 2);'
+    '
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

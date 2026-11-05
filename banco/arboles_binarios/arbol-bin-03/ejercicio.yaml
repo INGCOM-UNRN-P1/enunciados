@@ -4,53 +4,36 @@ tema: arboles_binarios
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Encola primero la raíz y luego los hijos izquierdo y derecho de cada nodo.
+- La capacidad debe alcanzar para todos los nodos; ante capacidad insuficiente devuelve
+  cero sin modificar la salida.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
-- dep:recursividad
 - dep:punteros
 - c11
 - inicial
+- dep:arboles_binarios
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Recorrido por Niveles BFS de Árbol Binario
-    con Cola
+- nombre: recorrido_niveles
+  retorno: size_t
+  parametros: const nodo_arbol_t *raiz, int *salida, size_t capacidad
+  descripcion: Operación recorrido_niveles según el contrato de la consigna.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_03_positivo
-  funcion: ejecutar_arbol_bin_03
-  codigo: 'int res = ejecutar_arbol_bin_03(5);
+- nombre: test_comportamiento_principal
+  funcion: recorrido_niveles
+  codigo: 'nodo_arbol_t r={1,NULL,NULL}, l={2,NULL,NULL}, d={3,NULL,NULL}; int out[3]={0};
+    r.izq=&l; r.der=&d; assert(recorrido_niveles(&r,out,3)==3); assert(out[0]==1 &&
+    out[1]==2 && out[2]==3); assert(recorrido_niveles(NULL,out,3)==0);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_03_cero
-  funcion: ejecutar_arbol_bin_03
-  codigo: 'int res = ejecutar_arbol_bin_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_03_negativo
-  funcion: ejecutar_arbol_bin_03
-  codigo: 'int res = ejecutar_arbol_bin_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_03_valor_limite
-  funcion: ejecutar_arbol_bin_03
-  codigo: 'int res = ejecutar_arbol_bin_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_03_valor_unitario
-  funcion: ejecutar_arbol_bin_03
-  codigo: 'int res = ejecutar_arbol_bin_03(1);
-
-    assert(res >= 0 || res == 2);'
+    '
+- nombre: test_capacidad_cero_y_insuficiente
+  funcion: recorrido_niveles
+  codigo: nodo_arbol_t r={1,NULL,NULL}, l={2,NULL,NULL}; int out[1]={77}; r.izq=&l;
+    assert(recorrido_niveles(&r,out,0)==0 && out[0]==77); assert(recorrido_niveles(&r,out,1)==0
+    && out[0]==77);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

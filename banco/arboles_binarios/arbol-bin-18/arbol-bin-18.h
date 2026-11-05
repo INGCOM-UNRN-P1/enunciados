@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_ARBOL_BIN_18_H
-#define EJERCICIO_ARBOL_BIN_18_H
-
+#ifndef ARBOL_BIN_18_H
+#define ARBOL_BIN_18_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Reconstrucción de Árbol Binario desde Recorridos Inorder y Preorder */
-int ejecutar_arbol_bin_18(int val);
-
-#endif /* EJERCICIO_ARBOL_BIN_18_H */
+typedef struct nodo_arbol_18 { int valor; struct nodo_arbol_18 *izq, *der; } nodo_arbol_18_t;
+/* Las secuencias contienen valores únicos y describen el mismo árbol. Para n==0 devuelve NULL. */
+nodo_arbol_18_t *reconstruir_in_pre(const int *inorder, const int *preorder, size_t n);
+void liberar_arbol_18(nodo_arbol_18_t *raiz);
+#endif

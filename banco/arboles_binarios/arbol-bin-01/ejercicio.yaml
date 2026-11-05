@@ -4,71 +4,50 @@ tema: arboles_binarios
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Inorder visita izquierda, raíz y derecha.
+- Preorder visita raíz, izquierda y derecha; postorder visita izquierda, derecha y
+  raíz.
+- Escribe los valores en el FILE* recibido para facilitar la comprobación.
 tags:
 - arboles
 - arbol_binario
 - inorder
 - preorder
 - postorder
-- estructuras_datos
-- dep:tad
-- dep:recursividad
-- dep:punteros
+- recursividad
 - c11
-- inicial
 verificado: true
 funciones:
 - nombre: inorder
   retorno: void
-  parametros: const nodo_arbol_t *n
-  descripcion: Operación inorder
+  parametros: const nodo_arbol_t *n, FILE *out
+  descripcion: Operación inorder según el contrato de la consigna.
+- nombre: preorder
+  retorno: void
+  parametros: const nodo_arbol_t *n, FILE *out
+  descripcion: Operación preorder según el contrato de la consigna.
+- nombre: postorder
+  retorno: void
+  parametros: const nodo_arbol_t *n, FILE *out
+  descripcion: Operación postorder según el contrato de la consigna.
 - nombre: liberar_arbol
   retorno: void
   parametros: nodo_arbol_t *n
-  descripcion: Operación liberar_arbol
+  descripcion: Operación liberar_arbol según el contrato de la consigna.
 tests_funciones:
-- nombre: test_inorder_positivo
+- nombre: test_recorridos_imprimen_orden_correcto
   funcion: inorder
-  codigo: 'int res = inorder(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_inorder_cero
-  funcion: inorder
-  codigo: 'int res = inorder(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_inorder_negativo
-  funcion: inorder
-  codigo: 'int res = inorder(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_inorder_limite
-  funcion: inorder
-  codigo: 'int res = inorder(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_liberar_arbol_positivo
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
-- nombre: test_liberar_arbol_cero
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
-- nombre: test_liberar_arbol_negativo
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
-- nombre: test_liberar_arbol_valor_limite
-  funcion: liberar_arbol
-  codigo: 'liberar_arbol(NULL);
-
-    assert(1);'
+  codigo: nodo_arbol_t r={10,NULL,NULL}, l={5,NULL,NULL}, d={20,NULL,NULL}; r.izq=&l;
+    r.der=&d; FILE *f=tmpfile(); assert(f); char b[32]={0}; inorder(&r,f); rewind(f);
+    assert(fgets(b,sizeof b,f)); assert(b[0]=='5' && b[2]=='1' && b[5]=='2'); fclose(f);
+    f=tmpfile(); assert(f); preorder(&r,f); rewind(f); for(int i=0;i<32;i++) b[i]=0;
+    assert(fgets(b,sizeof b,f)); assert(b[0]=='1' && b[3]=='5' && b[5]=='2'); fclose(f);
+- nombre: test_postorder_y_arbol_vacio
+  funcion: postorder
+  codigo: nodo_arbol_t r={10,NULL,NULL}, l={5,NULL,NULL}, d={20,NULL,NULL}; r.izq=&l;
+    r.der=&d; FILE *f=tmpfile(); assert(f); char b[32]={0}; postorder(&r,f); rewind(f);
+    assert(fgets(b,sizeof b,f)); assert(b[0]=='5' && b[2]=='2' && b[5]=='1'); inorder(NULL,f);
+    preorder(NULL,f); postorder(NULL,f); fclose(f); liberar_arbol(NULL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

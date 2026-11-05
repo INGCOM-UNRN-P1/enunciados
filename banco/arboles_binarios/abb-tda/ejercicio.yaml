@@ -20,3 +20,53 @@ funciones:
     retorno: void
     parametros: nodo_abb_t **raiz
     descripcion: Libera todos los nodos del árbol en postorden y asigna NULL a *raiz.
+tests_funciones:
+  - nombre: test_insertar_y_buscar_claves_en_ambas_ramas
+    funcion: abb_insertar
+    codigo: 'nodo_abb_t *raiz = NULL;
+
+      assert(abb_insertar(&raiz, 50));
+
+      assert(abb_insertar(&raiz, 30));
+
+      assert(abb_insertar(&raiz, 70));
+
+      assert(abb_insertar(&raiz, 25));
+
+      assert(abb_insertar(&raiz, 40));
+
+      assert(abb_buscar(raiz, 25));
+
+      assert(abb_buscar(raiz, 70));
+
+      assert(!abb_buscar(raiz, 99));
+
+      abb_destruir(&raiz);
+
+      assert(raiz == NULL);'
+  - nombre: test_insertar_rechaza_duplicado_sin_modificar_arbol
+    funcion: abb_insertar
+    codigo: 'nodo_abb_t *raiz = NULL;
+
+      assert(abb_insertar(&raiz, 10));
+
+      assert(abb_insertar(&raiz, 5));
+
+      nodo_abb_t *izquierdo = raiz->izq;
+
+      assert(!abb_insertar(&raiz, 5));
+
+      assert(raiz->izq == izquierdo);
+
+      assert(abb_buscar(raiz, 5));
+
+      abb_destruir(&raiz);'
+  - nombre: test_buscar_y_destruir_arbol_vacio
+    funcion: abb_destruir
+    codigo: 'nodo_abb_t *raiz = NULL;
+
+      assert(!abb_buscar(raiz, 0));
+
+      abb_destruir(&raiz);
+
+      assert(raiz == NULL);'

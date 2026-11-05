@@ -1,20 +1,3 @@
-/*
- * Arbol Binario #13
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_13(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_13_NODOS: %d\n", nodos + 13);
-    }
-    return 0;
-}
+#include "arbol-bin-13.h"
+static bool espejo(const nodo_arbol_13_t*a,const nodo_arbol_13_t*b){if(!a||!b)return a==b;return a->valor==b->valor&&espejo(a->izq,b->der)&&espejo(a->der,b->izq);}
+bool es_simetrico(const nodo_arbol_13_t*n){return !n||espejo(n->izq,n->der);}

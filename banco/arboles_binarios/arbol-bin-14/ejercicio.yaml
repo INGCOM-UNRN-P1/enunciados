@@ -1,56 +1,31 @@
 id: arbol-bin-14
-titulo: Verificación de Árboles Estructuralmente Idénticos
+titulo: Árboles idénticos
 tema: arboles_binarios
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Un nodo hoja es aquel cuyos punteros izquierdo y derecho son NULL.
-- Usá recursión para recorrer subárboles izquierdo y derecho.
+- Compara recursivamente los valores y la presencia de hijos en las mismas posiciones.
 tags:
 - arboles
 - arbol_binario
-- inorder
-- preorder
-- postorder
 - estructuras_datos
-- dep:tad
 - dep:recursividad
 - dep:punteros
 - c11
+- arboles_identicos
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_arbol_bin_14
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Árboles Estructuralmente
-    Idénticos
+- nombre: son_identicos
+  retorno: bool
+  parametros: const nodo_arbol_14_t *a, const nodo_arbol_14_t *b
+  descripcion: Idénticos si coinciden estructura y valores en las posiciones correspondientes; dos árboles
+    vacíos son idénticos.
 tests_funciones:
-- nombre: test_ejecutar_arbol_bin_14_positivo
-  funcion: ejecutar_arbol_bin_14
-  codigo: 'int res = ejecutar_arbol_bin_14(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_arbol_bin_14_cero
-  funcion: ejecutar_arbol_bin_14
-  codigo: 'int res = ejecutar_arbol_bin_14(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_arbol_bin_14_negativo
-  funcion: ejecutar_arbol_bin_14
-  codigo: 'int res = ejecutar_arbol_bin_14(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_arbol_bin_14_valor_limite
-  funcion: ejecutar_arbol_bin_14
-  codigo: 'int res = ejecutar_arbol_bin_14(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_arbol_bin_14_valor_unitario
-  funcion: ejecutar_arbol_bin_14
-  codigo: 'int res = ejecutar_arbol_bin_14(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_son_identicos_objetivo
+  funcion: son_identicos
+  codigo: nodo_arbol_14_t a={1,NULL,NULL},b={1,NULL,NULL},c={2,NULL,NULL}; assert(son_identicos(&a,&b));
+    assert(!son_identicos(&a,&c));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

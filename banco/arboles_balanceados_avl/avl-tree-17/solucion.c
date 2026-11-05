@@ -1,21 +1,24 @@
-/*
- * AVL #17
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_avl_tree_17(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
+#include "avl-tree-17.h"
+static avl_node_t *merge17(avl_node_t *out, const avl_node_t *n, int *ok) {
+  if (!n || !*ok)
+    return out;
+  out = merge17(out, n->left, ok);
+  if (!*ok)
+    return out;
+  if (!out || !avl_contains(out, n->key)) {
+    out = avl_insert(out, n->key);
+    if (!out)
+      *ok = 0;
+  }
+  return merge17(out, n->right, ok);
 }
-
-int main(void) {
-    int clave = 0, altura = 0;
-    if (scanf("%d %d", &clave, &altura) == 2) {
-        int factor = (clave % 3) + altura + 17;
-        printf("AVL_%02d_FACTOR: %d\n", 17, factor);
-    }
-    return 0;
+avl_node_t *ejecutar_avl_tree_17(const avl_node_t *a, const avl_node_t *b) {
+  int ok = 1;
+  avl_node_t *r = merge17(NULL, a, &ok);
+  r = merge17(r, b, &ok);
+  if (!ok) {
+    avl_destroy(r);
+    return NULL;
+  }
+  return r;
 }

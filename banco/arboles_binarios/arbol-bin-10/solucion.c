@@ -1,20 +1,3 @@
-/*
- * Arbol Binario #10
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_10(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_10_NODOS: %d\n", nodos + 10);
-    }
-    return 0;
-}
+#include "arbol-bin-10.h"
+static size_t diam(const nodo_arbol_10_t *n,size_t *mejor){ if(!n)return 0; size_t a=diam(n->izq,mejor),b=diam(n->der,mejor); if(a+b>*mejor)*mejor=a+b; return 1+(a>b?a:b); }
+size_t diametro(const nodo_arbol_10_t *n){ size_t m=0; diam(n,&m); return m; }

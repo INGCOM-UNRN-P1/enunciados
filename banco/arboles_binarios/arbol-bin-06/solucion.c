@@ -1,20 +1,8 @@
-/*
- * Arbol Binario #06
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_arbol_bin_06(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodos = 0;
-    if (scanf("%d", &nodos) == 1) {
-        printf("ARBOL_BIN_06_NODOS: %d\n", nodos + 6);
-    }
-    return 0;
+#include "arbol-bin-06.h"
+bool obtener_min_max(const nodo_arbol_06_t *n, int *minimo, int *maximo) {
+ if (!n || !minimo || !maximo) return false;
+ int lo=n->valor, hi=n->valor, a,b;
+ if (n->izq) { if (!obtener_min_max(n->izq,&a,&b)) return false; if(a<lo)lo=a; if(b>hi)hi=b; }
+ if (n->der) { if (!obtener_min_max(n->der,&a,&b)) return false; if(a<lo)lo=a; if(b>hi)hi=b; }
+ *minimo=lo; *maximo=hi; return true;
 }
