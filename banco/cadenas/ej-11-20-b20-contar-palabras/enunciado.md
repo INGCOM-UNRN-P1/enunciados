@@ -45,54 +45,33 @@ FIN FUNCION
 
 :::
 
-### 📋 Contrato de las Funciones
+### Contrato de la función
 
 ```c
-/*
- * Procesa el flujo principal de Contar palabras
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc__b20_contar_palabras(int val);
-
+size_t contar_palabras(const char *cadena);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La función devuelve la cantidad de secuencias no vacías separadas por uno o más
+caracteres de espacio en blanco (espacio, tabulación o salto de línea). Una cadena vacía o formada solo por espacios contiene
+cero palabras. Si `cadena` es `NULL`, devuelve cero.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+### Ejemplos
 
-### ⚠️ Precondiciones y Casos Borde
+| Cadena | Resultado |
+|---|---:|
+| `"Hola mundo desde C"` | 4 |
+| `"  Hola   mundo  "` | 2 |
+| `""` | 0 |
+| `"   "` | 0 |
 
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Terminación nula:** Asegurar que todas las cadenas de texto conserven el terminador nulo `\0` dentro de los límites del buffer.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+### Criterios de aceptación
 
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- Compila bajo C11 con `-Wall -Wextra -Werror`.
+- Cuenta cada transición desde un espacio (o el inicio de la cadena) a un carácter no espacio.
+- Maneja cadena vacía, espacios iniciales/finales/repetidos y puntero `NULL`.
+- El programa principal lee una línea de entrada e imprime el conteo seguido de salto de línea.
 
 :::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-- **Máquina de Estados:** Una forma robusta de hacerlo es con una máquina de estados simple con dos estados: `DENTRO_DE_PALABRA` y `FUERA_DE_PALABRA`.
-- **Proceso:**
-- Inicializar `contador_palabras = 0` y `estado = FUERA_DE_PALABRA`.
-- Recorrer la cadena. Si se está `FUERA_DE_PALABRA` y se encuentra un carácter que no es un espacio, se ha encontrado el inicio de una nueva palabra. Incrementar `contador_palabras` y cambiar a `estado = DENTRO_DE_PALABRA`.
-- Si se está `DENTRO_DE_PALABRA` y se encuentra un espacio, cambiar a `estado = FUERA_DE_PALABRA`.
+- Una máquina de estados con `DENTRO_DE_PALABRA` y `FUERA_DE_PALABRA` permite contar cada inicio una sola vez.
+- Los espacios en blanco delimitan palabras; se pueden reconocer con `isspace()` de `<ctype.h>`.
 :::

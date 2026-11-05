@@ -1,19 +1,13 @@
-/*
- * Ejercicio: Máximo de Tres Números
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int proc_ximo_de_tres_numeros(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Máximo de Tres Números */
+    int a, b, c;
+    if (scanf("%d %d %d", &a, &b, &c) != 3)
+        return 1;
+    int mayor = a;
+    if (b > mayor) mayor = b;
+    if (c > mayor) mayor = c;
+    printf("%d\n", mayor);
     return 0;
 }

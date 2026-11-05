@@ -32,47 +32,6 @@ FIN
 
 :::
 
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Índice de Masa Corporal (IMC)
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_de_masa_corporal_imc(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
 :::{hint} Consideraciones Didácticas
 - **Entrada:** Solicitar el peso en kilogramos (kg) y la altura en metros (m).
 - **Proceso:**
@@ -85,3 +44,7 @@ Salida / Retorno: 0
 - Validar que peso y altura sean estrictamente positivos.
 - Modularizar la clasificación en una función independiente que retorne la categoría de IMC.
 :::
+
+### Formato de entrada y salida
+
+Leé el peso en kilogramos y la altura en metros. Ambos deben ser positivos. Calculá `IMC = peso / (altura * altura)` e imprimí el valor con dos decimales y la categoría. Usá estos intervalos: menor que 18.5, “Bajo peso”; desde 18.5 y menor que 25, “Normal”; desde 25 y menor que 30, “Sobrepeso”; desde 30, “Obesidad”.

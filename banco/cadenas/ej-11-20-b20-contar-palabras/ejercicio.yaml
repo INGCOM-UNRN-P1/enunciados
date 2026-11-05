@@ -28,36 +28,35 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc__b20_contar_palabras
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Contar palabras
+- nombre: contar_palabras
+  retorno: size_t
+  parametros: const char *cadena
+  descripcion: Cuenta las palabras separadas por uno o más espacios; NULL equivale a cadena vacía.
 tests_funciones:
-- nombre: test_proc__b20_contar_palabras_positivo
-  funcion: proc__b20_contar_palabras
-  codigo: 'int res = proc__b20_contar_palabras(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__b20_contar_palabras_cero
-  funcion: proc__b20_contar_palabras
-  codigo: 'int res = proc__b20_contar_palabras(0);
-
-    assert(res == 0);'
-- nombre: test_proc__b20_contar_palabras_negativo
-  funcion: proc__b20_contar_palabras
-  codigo: 'int res = proc__b20_contar_palabras(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__b20_contar_palabras_valor_limite
-  funcion: proc__b20_contar_palabras
-  codigo: 'int res = proc__b20_contar_palabras(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__b20_contar_palabras_valor_unitario
-  funcion: proc__b20_contar_palabras
-  codigo: 'int res = proc__b20_contar_palabras(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_contar_palabras_frase
+  funcion: contar_palabras
+  codigo: |-
+    assert(contar_palabras("Hola mundo desde C") == 4);
+- nombre: test_contar_palabras_espacios_repetidos
+  funcion: contar_palabras
+  codigo: |-
+    assert(contar_palabras("  Hola   mundo  ") == 2);
+- nombre: test_contar_palabras_cadena_vacia
+  funcion: contar_palabras
+  codigo: |-
+    assert(contar_palabras("") == 0);
+- nombre: test_contar_palabras_solo_espacios
+  funcion: contar_palabras
+  codigo: |-
+    assert(contar_palabras("   ") == 0);
+- nombre: test_contar_palabras_whitespace
+  funcion: contar_palabras
+  codigo: |-
+    assert(contar_palabras("uno\tdos\ntres") == 3);
+- nombre: test_contar_palabras_null
+  funcion: contar_palabras
+  codigo: |-
+    assert(contar_palabras(NULL) == 0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto

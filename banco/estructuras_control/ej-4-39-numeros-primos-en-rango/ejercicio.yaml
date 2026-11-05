@@ -18,36 +18,23 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_eros_primos_en_rango
+- nombre: contar_primos_en_rango
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Números Primos en Rango
+  parametros: int inicio, int fin
+  descripcion: Cuenta los primos del intervalo inclusivo; devuelve -1 para límites inválidos.
 tests_funciones:
-- nombre: test_proc_eros_primos_en_rango_positivo
-  funcion: proc_eros_primos_en_rango
-  codigo: 'int res = proc_eros_primos_en_rango(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_eros_primos_en_rango_cero
-  funcion: proc_eros_primos_en_rango
-  codigo: 'int res = proc_eros_primos_en_rango(0);
-
-    assert(res == 0);'
-- nombre: test_proc_eros_primos_en_rango_negativo
-  funcion: proc_eros_primos_en_rango
-  codigo: 'int res = proc_eros_primos_en_rango(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_eros_primos_en_rango_valor_limite
-  funcion: proc_eros_primos_en_rango
-  codigo: 'int res = proc_eros_primos_en_rango(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_eros_primos_en_rango_valor_unitario
-  funcion: proc_eros_primos_en_rango
-  codigo: 'int res = proc_eros_primos_en_rango(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_intervalo_unitario_primo
+  funcion: contar_primos_en_rango
+  codigo: assert(contar_primos_en_rango(2, 2) == 1);
+- nombre: test_primos_incluye_extremos
+  funcion: contar_primos_en_rango
+  codigo: assert(contar_primos_en_rango(2, 10) == 4);
+- nombre: test_intervalo_sin_primos
+  funcion: contar_primos_en_rango
+  codigo: assert(contar_primos_en_rango(14, 16) == 0);
+- nombre: test_limites_invalidos
+  funcion: contar_primos_en_rango
+  codigo: assert(contar_primos_en_rango(0, 10) == -1); assert(contar_primos_en_rango(10, 2) == -1);
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: teoria_numeros

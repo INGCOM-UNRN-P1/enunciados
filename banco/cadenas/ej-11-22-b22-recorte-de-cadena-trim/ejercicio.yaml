@@ -28,36 +28,45 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_corte_de_cadena_trim
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Recorte de cadena (Trim)
+- nombre: trim
+  retorno: char *
+  parametros: char *cadena
+  descripcion: Elimina in-place whitespace inicial y final; conserva el contenido intermedio y devuelve cadena, o NULL si recibe NULL.
 tests_funciones:
-- nombre: test_proc_corte_de_cadena_trim_positivo
-  funcion: proc_corte_de_cadena_trim
-  codigo: 'int res = proc_corte_de_cadena_trim(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_corte_de_cadena_trim_cero
-  funcion: proc_corte_de_cadena_trim
-  codigo: 'int res = proc_corte_de_cadena_trim(0);
-
-    assert(res == 0);'
-- nombre: test_proc_corte_de_cadena_trim_negativo
-  funcion: proc_corte_de_cadena_trim
-  codigo: 'int res = proc_corte_de_cadena_trim(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_corte_de_cadena_trim_valor_limite
-  funcion: proc_corte_de_cadena_trim
-  codigo: 'int res = proc_corte_de_cadena_trim(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_corte_de_cadena_trim_valor_unitario
-  funcion: proc_corte_de_cadena_trim
-  codigo: 'int res = proc_corte_de_cadena_trim(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_trim_espacios_en_extremos
+  funcion: trim
+  codigo: |-
+    char texto[] = "  Hola mundo  ";
+    assert(trim(texto) == texto);
+    assert(strcmp(texto, "Hola mundo") == 0);
+- nombre: test_trim_tab_y_nueva_linea
+  funcion: trim
+  codigo: |-
+    char texto[] = "\t\ntexto\r\n";
+    assert(trim(texto) == texto);
+    assert(strcmp(texto, "texto") == 0);
+- nombre: test_trim_contenido_interno
+  funcion: trim
+  codigo: |-
+    char texto[] = "  dos  palabras  ";
+    trim(texto);
+    assert(strcmp(texto, "dos  palabras") == 0);
+- nombre: test_trim_cadena_vacia
+  funcion: trim
+  codigo: |-
+    char texto[] = "";
+    assert(trim(texto) == texto);
+    assert(strcmp(texto, "") == 0);
+- nombre: test_trim_solo_whitespace
+  funcion: trim
+  codigo: |-
+    char texto[] = " \t\n";
+    assert(trim(texto) == texto);
+    assert(strcmp(texto, "") == 0);
+- nombre: test_trim_null
+  funcion: trim
+  codigo: |-
+    assert(trim(NULL) == NULL);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto

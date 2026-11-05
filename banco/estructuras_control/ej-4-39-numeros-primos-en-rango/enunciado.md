@@ -1,9 +1,21 @@
-Mostrá todos los números primos entre A y B.
+Leé dos enteros positivos `A` y `B`, con `A <= B`, y mostrá todos los números primos del intervalo inclusivo entre ambos límites. Si el intervalo no contiene primos, mostrá solo el encabezado.
 
 **Orientación:**
-- Lazo externo: números de A a B
+- Lazo externo: números de A a B, incluidos ambos extremos
 - Lazo interno: verificar si es primo (función del ejercicio 9)
-- Imprimí solo los primos
+- Imprimí solo los primos, en orden creciente y separados por espacios
+
+### Ejemplo
+
+Entrada:
+```text
+10 20
+```
+
+Salida:
+```text
+Primos entre 10 y 20: 11 13 17 19
+```
 
 
 
@@ -15,30 +27,16 @@ Mostrá todos los números primos entre A y B.
 
 ```c
 /*
- * Procesa el flujo principal de Números Primos en Rango
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+ * Cuenta los primos del intervalo inclusivo [inicio, fin].
+ * Devuelve -1 si algún límite no es positivo o inicio > fin.
  */
-int proc_eros_primos_en_rango(int val);
+int contar_primos_en_rango(int inicio, int fin);
 
 ```
 
 ### 🧪 Ejemplos de Ejecución
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+La función `contar_primos_en_rango` permite comprobar la cantidad de primos encontrados; el programa imprime los primos en la salida estándar.
 
 ### ⚠️ Precondiciones y Casos Borde
 

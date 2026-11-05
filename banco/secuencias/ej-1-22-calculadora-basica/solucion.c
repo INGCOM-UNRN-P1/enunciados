@@ -1,19 +1,27 @@
-/*
- * Ejercicio: Calculadora Básica
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int proc_2_calculadora_basica(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Calculadora Básica */
+    double primero, segundo, resultado;
+    char operador;
+    if (scanf("%lf %c %lf", &primero, &operador, &segundo) != 3)
+        return 1;
+
+    switch (operador) {
+    case '+': resultado = primero + segundo; break;
+    case '-': resultado = primero - segundo; break;
+    case '*': resultado = primero * segundo; break;
+    case '/':
+        if (segundo == 0.0) {
+            puts("Error: División por cero.");
+            return 0;
+        }
+        resultado = primero / segundo;
+        break;
+    default:
+        puts("Error: Operador no válido.");
+        return 0;
+    }
+    printf("%.2f\n", resultado);
     return 0;
 }

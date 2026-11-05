@@ -1,19 +1,60 @@
-/*
- * Ejercicio: Números Primos en Rango
- * Cátedra Programación I - UNRN
- */
+#include "ej-4-39-numeros-primos-en-rango.h"
 
 #include <stdio.h>
 
-
-int proc_eros_primos_en_rango(int val)
+static bool es_primo(int numero)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    if (numero < 2) {
+        return false;
+    }
+
+    for (int divisor = 2; divisor <= numero / divisor; divisor++) {
+        if (numero % divisor == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int contar_primos_en_rango(int inicio, int fin)
+{
+    if (inicio <= 0 || fin <= 0 || inicio > fin) {
+        return -1;
+    }
+
+    int cantidad = 0;
+    for (int numero = inicio;; numero++) {
+        if (es_primo(numero)) {
+            cantidad++;
+        }
+        if (numero == fin) {
+            break;
+        }
+    }
+    return cantidad;
 }
 
 int main(void)
 {
-    /* TODO: Implementación de Números Primos en Rango */
+    int inicio;
+    int fin;
+    if (scanf("%d %d", &inicio, &fin) != 2) {
+        return 1;
+    }
+    if (inicio <= 0 || fin <= 0 || inicio > fin) {
+        fputs("Rango invalido\n", stderr);
+        return 1;
+    }
+
+    printf("Primos entre %d y %d:", inicio, fin);
+    for (int numero = inicio;; numero++) {
+        if (es_primo(numero)) {
+            printf(" %d", numero);
+        }
+        if (numero == fin) {
+            break;
+        }
+    }
+    putchar('\n');
     return 0;
 }

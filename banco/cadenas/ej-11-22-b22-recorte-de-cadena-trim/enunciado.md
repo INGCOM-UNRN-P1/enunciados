@@ -52,53 +52,35 @@ FIN PROCEDIMIENTO
 
 :::
 
-### 📋 Contrato de las Funciones
+### Contrato de la función
 
 ```c
-/*
- * Procesa el flujo principal de Recorte de cadena (Trim)
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_corte_de_cadena_trim(int val);
-
+char *trim(char *cadena);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La función modifica el arreglo recibido y devuelve el mismo puntero. Elimina del
+principio y del final los caracteres que `isspace()` de `<ctype.h>` reconoce como
+whitespace (incluye espacio, tabulación y saltos de línea). Conserva intactos los
+caracteres internos. Si recibe `NULL`, devuelve `NULL` sin modificar memoria.
+La cadena debe ser un arreglo modificable terminado en `\0`.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+### Ejemplos
 
-### ⚠️ Precondiciones y Casos Borde
+| Cadena antes | Cadena después |
+|---|---|
+| `"  Hola mundo  "` | `"Hola mundo"` |
+| `"\t\ntexto\r\n"` | `"texto"` |
+| `"  dos  palabras  "` | `"dos  palabras"` |
+| `" \t\n"` | `""` |
 
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Terminación nula:** Asegurar que todas las cadenas de texto conserven el terminador nulo `\0` dentro de los límites del buffer.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+### Criterios de aceptación
 
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
+- Compila bajo C11 con `-Wall -Wextra -Werror`.
+- Recorta whitespace de ambos extremos y conserva el contenido interno.
+- Maneja cadena vacía, cadena compuesta solo por whitespace y puntero `NULL`.
+- El programa principal lee una línea e imprime su versión recortada seguida de salto de línea.
 
 :::{hint} Consideraciones Didácticas
-- Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.
-- Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.
-- **Proceso (dos etapas):**
-- **Eliminar espacios del final:** Recorrer la cadena desde el final hacia el principio. Mientras se encuentren espacios, reemplazarlos por el carácter nulo `\0`.
-- **Eliminar espacios del principio:** Encontrar el puntero al primer carácter que no sea un espacio. Luego, mover todo el bloque de la cadena (incluyendo el terminador nulo) a la posición inicial usando `memmove`.
-- **Funciones de Biblioteca:** `isspace()` de `ctype.h` es útil para detectar cualquier tipo de carácter de espaciado.
+- Primero ubicar los límites del segmento que se conserva; luego moverlo junto con el terminador usando `memmove`.
+- Al pasar un `char` a `isspace()`, convertirlo a `unsigned char` para evitar comportamiento indefinido con bytes no ASCII.
 :::

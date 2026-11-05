@@ -23,47 +23,6 @@ FIN
 
 :::
 
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Patrón de Asteriscos (Triángulo)
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_asteriscos_triangulo(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
 :::{hint} Consideraciones Didácticas
 - **Entrada:** Leer un entero `n` para la altura del triángulo.
 - **Proceso:** Se necesitan dos lazos aninados.
@@ -71,3 +30,7 @@ Salida / Retorno: 0
 - Parametrizar el carácter de dibujo permitiendo al usuario elegir el símbolo.
 - Validar que la altura sea un entero positivo mayor o igual a 1.
 :::
+
+### Formato de entrada y salida
+
+Leé un entero positivo `n`. La fila `i` contiene `i` asteriscos, sin espacios, seguida de un salto de línea. Una entrada no positiva o mal formada debe terminar con error.
