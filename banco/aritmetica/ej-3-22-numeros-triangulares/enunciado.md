@@ -1,77 +1,37 @@
 #### Descripción
-Un número triangular es la suma de los `n` primeros números naturales. Por
-ejemplo, el 4º número triangular es 1+2+3+4=10. El objetivo es escribir una
-función que determine si un número entero dado es un número triangular.
 
+Implementá una función que determine si un entero no negativo es triangular,
+es decir, si es igual a `1 + 2 + ... + k` para algún `k >= 0`. También
+implementá una función que genere los primeros `cantidad` términos, comenzando
+por `T_1 = 1` (la lista vacía corresponde a cantidad cero). Para reconocer el
+cero, considerá `T_0 = 0` triangular.
 
-:::{tip} Ayuda (pseudocódigo)
-:class: dropdown
-```{code-block} pseudocode
-:linenos:
-FUNCION es_triangular(num)
-VARIABLES:
-    suma, i (enteros)
-INICIO
-    SI num < 0 RETORNAR FALSO
-
-    suma = 0
-    i = 1
-    MIENTRAS suma < num HACER
-        suma = suma + i
-        i = i + 1
-    FIN MIENTRAS
-
-    RETORNAR (suma == num)
-FIN FUNCION
-
-```
-
-:::
-
-### 📋 Contrato de las Funciones
+### Contrato
 
 ```c
-/*
- * Procesa el flujo principal de Números Triangulares
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
+/* Devuelve true si n es triangular; los negativos no lo son. */
+bool es_triangular(int64_t n);
+
+/* Escribe los primeros cantidad términos en salida.
+ * Devuelve true si la capacidad alcanza y todos los términos caben en int64_t.
+ * Para cantidad cero puede pasarse salida == NULL y capacidad == 0.
  */
-int proc_numeros_triangulares(int val);
-
+bool generar_triangulares(size_t cantidad, int64_t *salida, size_t capacidad);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La generación falla sin escribir si `cantidad > capacidad`, si `salida` es
+`NULL` con cantidad positiva o si el término solicitado excede `INT64_MAX`.
+Usá comprobaciones antes de multiplicar o sumar para evitar desbordamientos.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+### Ejemplos
 
-### ⚠️ Precondiciones y Casos Borde
+- `es_triangular(10)` devuelve `true`; `es_triangular(8)` devuelve `false`.
+- `generar_triangulares(5, salida, 5)` escribe `1, 3, 6, 10, 15`.
+- `es_triangular(0)` devuelve `true`; los valores negativos devuelven `false`.
 
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
+### Criterios de aceptación
 
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- **Entrada:** Un entero positivo `num`.
-- **Proceso:** Hay dos enfoques principales:
-- **Iterativo:** Generar números triangulares sumando 1, 2, 3, ... en un acumulador. En cada paso, comparar el acumulador con `num`. Si son iguales, es triangular. Si el acumulador supera a `num`, no lo es.
-- **Matemático:** Un número `x` es triangular si y solo si $8x+1$ es un cuadrado perfecto. Se puede calcular $8x+1$, obtener su raíz cuadrada, y verificar si es un entero. error e informar el resultado mediante parámetros de salida. especificando precondiciones y postcondiciones.
-- Verificar si un número dado es triangular resolviendo la ecuación cuadrática asociada.
-- Generar y mostrar los primeros N números triangulares.
-:::
+- La detección puede usar la suma iterativa o la propiedad de que `8*n + 1` es
+  un cuadrado perfecto, con operaciones protegidas contra desbordamiento.
+- La generación produce los primeros `N` números triangulares en orden.
+- Compila en C11 con `-Wall -Wextra -Werror`.

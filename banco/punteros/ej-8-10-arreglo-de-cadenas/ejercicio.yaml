@@ -4,10 +4,8 @@ tema: punteros
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.'
 tags:
 - cadenas
 - arreglo
@@ -20,36 +18,34 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_0_arreglo_de_cadenas
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Arreglo de Cadenas
+- nombre: ordenar_cadenas
+  retorno: void
+  parametros: char **cadenas, int n
+  descripcion: Ordena lexicográficamente las cadenas modificando el orden de sus punteros.
 tests_funciones:
-- nombre: test_proc_0_arreglo_de_cadenas_positivo
-  funcion: proc_0_arreglo_de_cadenas
-  codigo: 'int res = proc_0_arreglo_de_cadenas(5);
+- nombre: test_ordenar_cadenas_desordenado
+  funcion: ordenar_cadenas
+  codigo: 'char *palabras[] = {"hola", "adios", "casa", "barco"};
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_0_arreglo_de_cadenas_cero
-  funcion: proc_0_arreglo_de_cadenas
-  codigo: 'int res = proc_0_arreglo_de_cadenas(0);
+    ordenar_cadenas(palabras, 4);
 
-    assert(res == 0);'
-- nombre: test_proc_0_arreglo_de_cadenas_negativo
-  funcion: proc_0_arreglo_de_cadenas
-  codigo: 'int res = proc_0_arreglo_de_cadenas(-5);
+    assert(strcmp(palabras[0], "adios") == 0 && strcmp(palabras[1], "barco") == 0 && strcmp(palabras[2],
+    "casa") == 0 && strcmp(palabras[3], "hola") == 0);'
+- nombre: test_ordenar_cadenas_ya_ordenado
+  funcion: ordenar_cadenas
+  codigo: 'char *palabras[] = {"a", "b", "c"};
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_0_arreglo_de_cadenas_valor_limite
-  funcion: proc_0_arreglo_de_cadenas
-  codigo: 'int res = proc_0_arreglo_de_cadenas(100);
+    ordenar_cadenas(palabras, 3);
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_0_arreglo_de_cadenas_valor_unitario
-  funcion: proc_0_arreglo_de_cadenas
-  codigo: 'int res = proc_0_arreglo_de_cadenas(1);
+    assert(strcmp(palabras[0], "a") == 0 && strcmp(palabras[1], "b") == 0 && strcmp(palabras[2], "c")
+    == 0);'
+- nombre: test_ordenar_cadenas_un_elemento
+  funcion: ordenar_cadenas
+  codigo: 'char *palabras[] = {"unica"};
 
-    assert(res >= 0 || res == 2);'
+    ordenar_cadenas(palabras, 1);
+
+    assert(strcmp(palabras[0], "unica") == 0);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto

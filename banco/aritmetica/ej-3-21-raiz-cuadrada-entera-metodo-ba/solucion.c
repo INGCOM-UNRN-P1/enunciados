@@ -1,19 +1,32 @@
-/*
- * Ejercicio: Raíz Cuadrada Entera (Método Babilónico)
- * Cátedra Programación I - UNRN
- */
+#include "ej-3-21-raiz-cuadrada-entera-metodo-ba.h"
 
-#include <stdio.h>
+#include <stddef.h>
 
-
-int proc_ada_entera_metodo_ba(int val)
+int raiz_cuadrada_entera(int n, unsigned *iteraciones)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
+    if (iteraciones != NULL) {
+        *iteraciones = 0U;
+    }
+    if (n < 0) {
+        return -1;
+    }
+    if (n < 2) {
+        return n;
+    }
 
-int main(void)
-{
-    /* TODO: Implementación de Raíz Cuadrada Entera (Método Babilónico) */
-    return 0;
+    long long actual = n;
+    unsigned pasos = 0U;
+    for (;;) {
+        long long siguiente = (actual + (long long)n / actual) / 2;
+        ++pasos;
+        if (siguiente >= actual) {
+            break;
+        }
+        actual = siguiente;
+    }
+
+    if (iteraciones != NULL) {
+        *iteraciones = pasos;
+    }
+    return (int)actual;
 }

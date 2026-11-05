@@ -1,70 +1,29 @@
-Verificar si un arreglo está ordenado de forma ascendente.
+## ¿Está ordenado?
 
+Implementá una función que indique si un arreglo de enteros está ordenado de
+forma ascendente. Recorré los elementos consecutivos y compará cada elemento
+con el siguiente. Si encontrás una pareja en la que el primero sea mayor que el
+segundo, el arreglo no está ordenado. Si no encontrás ninguna, sí lo está.
 
-:::{tip} Ayuda (pseudocódigo)
-:class: dropdown
-```{code-block} pseudocode
-:linenos:
-FUNCION esta_ordenado(arreglo, tamano)
-INICIO
-    PARA i DESDE 0 HASTA tamano-2 HACER
-        SI arreglo[i] > arreglo[i+1] ENTONCES
-            RETORNAR FALSO
-        FIN SI
-    FIN PARA
-    RETORNAR VERDADERO
-FIN FUNCION
+El orden es no decreciente: los valores iguales se permiten. Un arreglo vacío o
+con un solo elemento se considera ordenado.
 
-```
+### Casos de comprobación
 
-:::
+| Arreglo | Resultado |
+| --- | --- |
+| `{1, 2, 2, 5}` | Ordenado |
+| `{1, 3, 2, 4}` | No ordenado |
+| `{}` | Ordenado |
+| `{7}` | Ordenado |
 
-### 📋 Contrato de las Funciones
+### Interfaz
 
 ```c
-/*
- * Procesa el flujo principal de ¿Está ordenado?
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc__10_13_esta_ordenado(int val);
-
+#include <stdbool.h>
+#include <stddef.h>
+bool esta_ordenado(const int *arreglo, size_t n);
 ```
 
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- **Entrada:** Un arreglo y su tamaño.
-- **Proceso:** Recorrer el arreglo desde el primer elemento hasta el penúltimo. En cada posición `i`, comparar el elemento `arreglo[i]` con el siguiente, `arreglo[i+1]`.
-- **Condición de Salida:** Si en algún momento se encuentra que `arreglo[i] > arreglo[i+1]`, el arreglo no está ordenado y la función puede devolver `falso` inmediatamente.
-- **Salida:** Si el lazo termina sin encontrar ninguna inversión de orden, significa que el arreglo está ordenado y la función devuelve `verdadero`.
-- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
-- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
-:::
+`arreglo` apunta a `n` elementos; puede ser `NULL` cuando `n` es cero.
+Si `n` es positivo y el puntero es nulo, devolvé `false`.

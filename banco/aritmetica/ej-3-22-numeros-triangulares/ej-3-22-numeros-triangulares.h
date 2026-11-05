@@ -1,11 +1,11 @@
 #ifndef EJERCICIO_EJ_3_22_NUMEROS_TRIANGULARES_H
 #define EJERCICIO_EJ_3_22_NUMEROS_TRIANGULARES_H
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Números Triangulares */
-int proc_numeros_triangulares(int val);
+bool es_triangular(int64_t n);
+bool generar_triangulares(size_t cantidad, int64_t *salida, size_t capacidad);
 
-#endif /* EJERCICIO_EJ_3_22_NUMEROS_TRIANGULARES_H */
+#endif

@@ -25,38 +25,28 @@ tags:
 - dep:lazos
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__10_13_esta_ordenado
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de ¿Está ordenado?
+- nombre: esta_ordenado
+  retorno: bool
+  parametros: const int *arreglo, size_t n
+  descripcion: Indica si los elementos están ordenados de forma no decreciente.
 tests_funciones:
-- nombre: test_proc__10_13_esta_ordenado_positivo
-  funcion: proc__10_13_esta_ordenado
-  codigo: 'int res = proc__10_13_esta_ordenado(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__10_13_esta_ordenado_cero
-  funcion: proc__10_13_esta_ordenado
-  codigo: 'int res = proc__10_13_esta_ordenado(0);
-
-    assert(res == 0);'
-- nombre: test_proc__10_13_esta_ordenado_negativo
-  funcion: proc__10_13_esta_ordenado
-  codigo: 'int res = proc__10_13_esta_ordenado(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__10_13_esta_ordenado_valor_limite
-  funcion: proc__10_13_esta_ordenado
-  codigo: 'int res = proc__10_13_esta_ordenado(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__10_13_esta_ordenado_valor_unitario
-  funcion: proc__10_13_esta_ordenado
-  codigo: 'int res = proc__10_13_esta_ordenado(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_orden_repetidos
+  funcion: esta_ordenado
+  codigo: int a[] = {1, 2, 2, 5}; assert(esta_ordenado(a, 4));
+- nombre: test_orden_inversion
+  funcion: esta_ordenado
+  codigo: int a[] = {1, 3, 2, 4}; assert(!esta_ordenado(a, 4));
+- nombre: test_orden_vacio
+  funcion: esta_ordenado
+  codigo: assert(esta_ordenado(NULL, 0));
+- nombre: test_orden_uno
+  funcion: esta_ordenado
+  codigo: int a[] = {7}; assert(esta_ordenado(a, 1));
+- nombre: test_orden_nulo_invalido
+  funcion: esta_ordenado
+  codigo: assert(!esta_ordenado(NULL, 1));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: esta

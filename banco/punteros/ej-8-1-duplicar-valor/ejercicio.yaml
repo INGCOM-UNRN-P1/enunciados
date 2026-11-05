@@ -4,10 +4,10 @@ tema: punteros
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos
+  inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija
+  finalizar.'
 tags:
 - duplicar
 - memoria
@@ -20,36 +20,32 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_ej_8_1_duplicar_valor
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Duplicar valor
+- nombre: duplicar
+  retorno: void
+  parametros: int *numero
+  descripcion: Duplica el entero apuntado por numero.
 tests_funciones:
-- nombre: test_ejecutar_ej_8_1_duplicar_valor_positivo
-  funcion: ejecutar_ej_8_1_duplicar_valor
-  codigo: 'int res = ejecutar_ej_8_1_duplicar_valor(5);
+- nombre: test_duplicar_positivo
+  funcion: duplicar
+  codigo: 'int valor = 5;
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_ej_8_1_duplicar_valor_cero
-  funcion: ejecutar_ej_8_1_duplicar_valor
-  codigo: 'int res = ejecutar_ej_8_1_duplicar_valor(0);
+    duplicar(&valor);
 
-    assert(res == 0);'
-- nombre: test_ejecutar_ej_8_1_duplicar_valor_negativo
-  funcion: ejecutar_ej_8_1_duplicar_valor
-  codigo: 'int res = ejecutar_ej_8_1_duplicar_valor(-5);
+    assert(valor == 10);'
+- nombre: test_duplicar_cero
+  funcion: duplicar
+  codigo: 'int valor = 0;
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_ej_8_1_duplicar_valor_valor_limite
-  funcion: ejecutar_ej_8_1_duplicar_valor
-  codigo: 'int res = ejecutar_ej_8_1_duplicar_valor(100);
+    duplicar(&valor);
 
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_ej_8_1_duplicar_valor_valor_unitario
-  funcion: ejecutar_ej_8_1_duplicar_valor
-  codigo: 'int res = ejecutar_ej_8_1_duplicar_valor(1);
+    assert(valor == 0);'
+- nombre: test_duplicar_negativo
+  funcion: duplicar
+  codigo: 'int valor = -4;
 
-    assert(res >= 0 || res == 2);'
+    duplicar(&valor);
+
+    assert(valor == -8);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: duplicar

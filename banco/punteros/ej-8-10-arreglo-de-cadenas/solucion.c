@@ -1,19 +1,16 @@
-/*
- * Ejercicio: Arreglo de Cadenas
- * Cátedra Programación I - UNRN
- */
+#include "ej-8-10-arreglo-de-cadenas.h"
 
-#include <stdio.h>
+#include <string.h>
 
-
-int proc_0_arreglo_de_cadenas(int val)
+void ordenar_cadenas(char **cadenas, int n)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Arreglo de Cadenas */
-    return 0;
+    for (int limite = n; limite > 1; limite--) {
+        for (int i = 1; i < limite; i++) {
+            if (strcmp(cadenas[i - 1], cadenas[i]) > 0) {
+                char *temporal = cadenas[i - 1];
+                cadenas[i - 1] = cadenas[i];
+                cadenas[i] = temporal;
+            }
+        }
+    }
 }

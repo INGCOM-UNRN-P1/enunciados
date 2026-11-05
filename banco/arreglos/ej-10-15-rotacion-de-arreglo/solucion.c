@@ -1,19 +1,20 @@
-/*
- * Ejercicio: Rotación de arreglo
- * Cátedra Programación I - UNRN
- */
+#include "ej-10-15-rotacion-de-arreglo.h"
 
-#include <stdio.h>
-
-
-int proc__rotacion_de_arreglo(int val)
+static void invertir(int *arreglo, size_t n)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    for (size_t i = 0; i < n / 2; i++) {
+        int temporal = arreglo[i];
+        arreglo[i] = arreglo[n - 1 - i];
+        arreglo[n - 1 - i] = temporal;
+    }
 }
 
-int main(void)
+void rotar_derecha(int *arreglo, size_t n, size_t k)
 {
-    /* TODO: Implementación de Rotación de arreglo */
-    return 0;
+    if (n == 0 || arreglo == NULL)
+        return;
+    k %= n;
+    invertir(arreglo, n);
+    invertir(arreglo, k);
+    invertir(arreglo + k, n - k);
 }

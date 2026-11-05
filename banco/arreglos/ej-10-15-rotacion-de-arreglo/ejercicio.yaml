@@ -30,38 +30,31 @@ tags:
 - dep:lazos
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__rotacion_de_arreglo
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Rotación de arreglo
+- nombre: rotar_derecha
+  retorno: void
+  parametros: int *arreglo, size_t n, size_t k
+  descripcion: Rota el arreglo k posiciones hacia la derecha.
 tests_funciones:
-- nombre: test_proc__rotacion_de_arreglo_positivo
-  funcion: proc__rotacion_de_arreglo
-  codigo: 'int res = proc__rotacion_de_arreglo(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__rotacion_de_arreglo_cero
-  funcion: proc__rotacion_de_arreglo
-  codigo: 'int res = proc__rotacion_de_arreglo(0);
-
-    assert(res == 0);'
-- nombre: test_proc__rotacion_de_arreglo_negativo
-  funcion: proc__rotacion_de_arreglo
-  codigo: 'int res = proc__rotacion_de_arreglo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__rotacion_de_arreglo_valor_limite
-  funcion: proc__rotacion_de_arreglo
-  codigo: 'int res = proc__rotacion_de_arreglo(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__rotacion_de_arreglo_valor_unitario
-  funcion: proc__rotacion_de_arreglo
-  codigo: 'int res = proc__rotacion_de_arreglo(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_rotacion_dos
+  funcion: rotar_derecha
+  codigo: int a[] = {1,2,3,4,5}; rotar_derecha(a,5,2); assert(a[0]==4 && a[1]==5 &&
+    a[2]==1 && a[3]==2 && a[4]==3);
+- nombre: test_rotacion_mayor
+  funcion: rotar_derecha
+  codigo: int a[] = {1,2,3,4,5}; rotar_derecha(a,5,7); assert(a[0]==4 && a[1]==5 &&
+    a[2]==1 && a[3]==2 && a[4]==3);
+- nombre: test_rotacion_sin_cambio
+  funcion: rotar_derecha
+  codigo: int a[] = {1,2,3}; rotar_derecha(a,3,0); assert(a[0]==1 && a[1]==2 && a[2]==3);
+    rotar_derecha(a,3,3); assert(a[0]==1 && a[1]==2 && a[2]==3);
+- nombre: test_rotacion_vacio
+  funcion: rotar_derecha
+  codigo: rotar_derecha(NULL,0,3);
+- nombre: test_rotacion_unitario
+  funcion: rotar_derecha
+  codigo: int a[] = {8}; rotar_derecha(a,1,42); assert(a[0]==8);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: arreglo

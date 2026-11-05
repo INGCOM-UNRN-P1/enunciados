@@ -4,10 +4,8 @@ tema: punteros
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
+- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos de segmentación.'
+- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar de indexación directa.'
 tags:
 - memoria
 - punteros
@@ -20,36 +18,26 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc__seguro_con_punteros
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Largo seguro con punteros
+- nombre: largo_seguro
+  retorno: size_t
+  parametros: const char *str, size_t capacidad
+  descripcion: Cuenta los caracteres hasta NUL, limitado por capacidad.
 tests_funciones:
-- nombre: test_proc__seguro_con_punteros_positivo
-  funcion: proc__seguro_con_punteros
-  codigo: 'int res = proc__seguro_con_punteros(5);
+- nombre: test_largo_seguro_terminador_antes_del_limite
+  funcion: largo_seguro
+  codigo: 'const char texto[] = "hola";
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__seguro_con_punteros_cero
-  funcion: proc__seguro_con_punteros
-  codigo: 'int res = proc__seguro_con_punteros(0);
+    assert(largo_seguro(texto, sizeof texto) == 4);'
+- nombre: test_largo_seguro_sin_terminador_en_limite
+  funcion: largo_seguro
+  codigo: 'const char texto[] = {''a'', ''b'', ''c'', ''\0''};
 
-    assert(res == 0);'
-- nombre: test_proc__seguro_con_punteros_negativo
-  funcion: proc__seguro_con_punteros
-  codigo: 'int res = proc__seguro_con_punteros(-5);
+    assert(largo_seguro(texto, 2) == 2);'
+- nombre: test_largo_seguro_capacidad_cero
+  funcion: largo_seguro
+  codigo: 'const char texto[] = "hola";
 
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__seguro_con_punteros_valor_limite
-  funcion: proc__seguro_con_punteros
-  codigo: 'int res = proc__seguro_con_punteros(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__seguro_con_punteros_valor_unitario
-  funcion: proc__seguro_con_punteros
-  codigo: 'int res = proc__seguro_con_punteros(1);
-
-    assert(res >= 0 || res == 2);'
+    assert(largo_seguro(texto, 0) == 0);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: memoria
