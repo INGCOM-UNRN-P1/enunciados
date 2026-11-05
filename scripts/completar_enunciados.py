@@ -209,6 +209,7 @@ def procesar_ejercicio(ej_dir: Path, forzar: bool = False) -> Tuple[bool, str]:
     return True, "Completado y estandarizado"
 
 if __name__ == "__main__":
+    raise SystemExit("Script suspendido: genera contenido o verificaciones sin validar; revisá el banco antes de usarlo.")
     import sys
     target = sys.argv[1] if len(sys.argv) > 1 else "banco"
     target_path = Path(target)

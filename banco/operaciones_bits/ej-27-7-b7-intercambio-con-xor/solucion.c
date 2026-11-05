@@ -1,19 +1,11 @@
-/*
- * Ejercicio: b.7 - Intercambio con XOR
- * Cátedra Programación I - UNRN
- */
+#include "ej-27-7-b7-intercambio-con-xor.h"
 
-#include <stdio.h>
-
-
-int proc__intercambio_con_xor(int val)
+void swap(int *a, int *b)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de b.7 - Intercambio con XOR */
-    return 0;
+    if (a != b)
+    {
+        *a ^= *b;
+        *b ^= *a;
+        *a ^= *b;
+    }
 }

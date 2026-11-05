@@ -70,7 +70,6 @@ unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: operaciones_bits
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - aritmetica

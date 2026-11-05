@@ -96,7 +96,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: callbacks
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - memoria_dinamica
 publicar: true

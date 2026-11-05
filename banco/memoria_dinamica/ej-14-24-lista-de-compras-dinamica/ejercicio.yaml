@@ -54,7 +54,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: listas_enlazadas
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros

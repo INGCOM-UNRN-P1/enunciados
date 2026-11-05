@@ -51,7 +51,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: checksum
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - archivos
 - estructuras

@@ -1,26 +1,16 @@
-/*
- * Automata de Paridad
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "fsm-estados-01.h"
 
 typedef enum { ESTADO_PAR, ESTADO_IMPAR } estado_paridad_e;
 
-
-int ejecutar_fsm_estados_01(int val)
+int paridad_de_unos(const char *bits)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    char bit = 0;
     estado_paridad_e estado = ESTADO_PAR;
-    while (scanf(" %c", &bit) == 1 && (bit == '0' || bit == '1')) {
-        if (bit == '1') {
-            estado = (estado == ESTADO_PAR) ? ESTADO_IMPAR : ESTADO_PAR;
-        }
+    for (; *bits != '\0'; bits++)
+    {
+        if (*bits == '1')
+            estado = estado == ESTADO_PAR ? ESTADO_IMPAR : ESTADO_PAR;
+        else if (*bits != '0')
+            return -1;
     }
-    printf("%s\n", (estado == ESTADO_PAR) ? "PAR" : "IMPAR");
-    return 0;
+    return estado == ESTADO_PAR;
 }

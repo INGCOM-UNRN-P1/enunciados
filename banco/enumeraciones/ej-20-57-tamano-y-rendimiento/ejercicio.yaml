@@ -138,7 +138,6 @@ unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - condicionales

@@ -139,7 +139,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: archivos_estructurados
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - cadenas
 - punteros

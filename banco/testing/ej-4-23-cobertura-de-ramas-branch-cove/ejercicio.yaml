@@ -51,7 +51,6 @@ unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: aserciones_defensivas
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - librerias
 - funciones

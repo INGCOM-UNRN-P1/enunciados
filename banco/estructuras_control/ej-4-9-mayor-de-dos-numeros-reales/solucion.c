@@ -1,19 +1,12 @@
-/*
- * Ejercicio: Mayor de dos números reales
- * Cátedra Programación I - UNRN
- */
-
+#include <math.h>
 #include <stdio.h>
-
-
-int proc_e_dos_numeros_reales(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Mayor de dos números reales */
+    double primero, segundo;
+    if (scanf("%lf %lf", &primero, &segundo) != 2 ||
+        !isfinite(primero) || !isfinite(segundo))
+        return 1;
+    printf("%.15g\n", primero > segundo ? primero : segundo);
     return 0;
 }

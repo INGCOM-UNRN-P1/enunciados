@@ -1,80 +1,13 @@
-Pedir al usuario un número `n` y dibujar el contorno de un cuadrado de `n x n`
-utilizando asteriscos. El interior del cuadrado debe estar vacío.
+Escribí un programa que lea un entero no negativo `n` e imprima el contorno
+de un cuadrado de `n × n` caracteres. Usá asteriscos para el borde y espacios
+para el interior. Cada fila termina con un salto de línea. Para `n = 0` no se
+imprime ninguna fila.
 
+Para `n = 4`, la salida es:
 
-:::{tip} Ayuda (pseudocódigo)
-:class: dropdown
-```{code-block} pseudocode
-:linenos:
-
-ALGORITMO cuadrado_hueco
-ENTRADA: n (entero)
-
-INICIO
-    PARA fila DESDE 1 HASTA n HACER
-        PARA columna DESDE 1 HASTA n HACER
-            SI fila == 1 O fila == n O columna == 1 O columna == n ENTONCES
-                ESCRIBIR "*" SIN SALTO DE LÍNEA
-            SINO
-                ESCRIBIR " " SIN SALTO DE LÍNEA
-            FIN SI
-        FIN PARA
-        ESCRIBIR SALTO DE LÍNEA
-    FIN PARA
-FIN
-
-```
-
-:::
-
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Dibujar un Cuadrado Hueco
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_ar_un_cuadrado_hueco(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
 ```text
-Entrada: 5
-Salida / Retorno: 10
+****
+*  *
+*  *
+****
 ```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- **Entrada:** Leer un entero `n`.
-- **Proceso:** Usar lazos aninados. El lazo exterior para las filas y el
-- **Condición:** Dentro del lazo interior, se debe decidir si imprimir un
-- Es la primera o la última fila (`fila == 1` o `fila == n`).
-- Es la primera o la última columna (`columna == 1` o `columna == n`).
-- En cualquier otro caso, se imprime un espacio.
-- Validar que el lado del cuadrado sea mayor o igual a 2.
-- Permitir elegir un carácter diferente para el borde y para el relleno.
-:::

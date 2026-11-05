@@ -140,7 +140,6 @@ unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: arboles_binarios
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - estructuras
 - punteros

@@ -54,7 +54,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: matrices_2d
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros

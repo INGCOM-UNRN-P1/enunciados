@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-int proc_dicion_de_aprobacion(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {

@@ -55,7 +55,6 @@ publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - tad
 - recursividad

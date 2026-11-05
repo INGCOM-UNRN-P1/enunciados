@@ -54,7 +54,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: pilas_y_colas
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - estructuras

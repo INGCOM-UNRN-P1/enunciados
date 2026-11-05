@@ -51,7 +51,6 @@ publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - estructuras
 - aritmetica

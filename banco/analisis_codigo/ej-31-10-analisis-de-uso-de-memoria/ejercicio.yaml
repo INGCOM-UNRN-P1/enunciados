@@ -52,7 +52,6 @@ unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: code_review
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - testing

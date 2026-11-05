@@ -56,7 +56,6 @@ unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: procesamiento_texto
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - caracteres

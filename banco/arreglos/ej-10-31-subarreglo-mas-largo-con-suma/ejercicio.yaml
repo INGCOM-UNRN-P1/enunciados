@@ -61,7 +61,6 @@ unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: vectores
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - lazos

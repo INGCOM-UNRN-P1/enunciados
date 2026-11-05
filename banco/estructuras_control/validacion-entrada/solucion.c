@@ -10,12 +10,6 @@ INGCOM-UNRN-P1
 #include <stdbool.h>
 
 
-int ejecutar_validacion_entrada(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
 int main(void)
 {
     int numero_ingresado = 0;
@@ -34,6 +28,10 @@ int main(void)
             {
                 printf("Valor fuera de rango. Reintente.\n");
             }
+        }
+        else
+        {
+            return 1;
         }
     }
 

@@ -52,7 +52,6 @@ publicar: true
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - archivos
 - cadenas

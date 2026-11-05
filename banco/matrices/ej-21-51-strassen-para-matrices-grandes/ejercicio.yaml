@@ -133,7 +133,6 @@ unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: grandes
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados

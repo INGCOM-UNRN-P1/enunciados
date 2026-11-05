@@ -3,14 +3,7 @@ titulo: Alternar el n-ésimo bit (Toggle)
 tema: operaciones_bits
 bloom: 4
 minutos_estimados: 35
-pistas:
-- 'Proceso: Crear la máscara (`1 << n`) y aplicar un XOR a nivel de bits. El XOR con
-  1 invierte un bit, mientras que el XOR con 0 lo deja igual.'
-- '`numero = numero ^ (1 << n);`'
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+pistas: []
 tags:
 - toggle
 - alternar
@@ -23,41 +16,27 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_r_el_n_esimo_bit_tog
+- nombre: toggle_bit
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Alternar el n-ésimo bit (Toggle)
+  parametros: int numero, int n
+  descripcion: Invierte el bit en la posición n sin alterar los demás.
 tests_funciones:
-- nombre: test_proc_r_el_n_esimo_bit_tog_positivo
-  funcion: proc_r_el_n_esimo_bit_tog
-  codigo: 'int res = proc_r_el_n_esimo_bit_tog(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_r_el_n_esimo_bit_tog_cero
-  funcion: proc_r_el_n_esimo_bit_tog
-  codigo: 'int res = proc_r_el_n_esimo_bit_tog(0);
-
-    assert(res == 0);'
-- nombre: test_proc_r_el_n_esimo_bit_tog_negativo
-  funcion: proc_r_el_n_esimo_bit_tog
-  codigo: 'int res = proc_r_el_n_esimo_bit_tog(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_r_el_n_esimo_bit_tog_valor_limite
-  funcion: proc_r_el_n_esimo_bit_tog
-  codigo: 'int res = proc_r_el_n_esimo_bit_tog(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_r_el_n_esimo_bit_tog_valor_unitario
-  funcion: proc_r_el_n_esimo_bit_tog
-  codigo: 'int res = proc_r_el_n_esimo_bit_tog(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_toggle_bit_1
+  funcion: toggle_bit
+  codigo: assert(toggle_bit(5, 0) == 4);
+- nombre: test_toggle_bit_2
+  funcion: toggle_bit
+  codigo: assert(toggle_bit(5, 1) == 7);
+- nombre: test_toggle_bit_3
+  funcion: toggle_bit
+  codigo: assert(toggle_bit(0, 2) == 4);
+- nombre: test_toggle_bit_4
+  funcion: toggle_bit
+  codigo: assert(toggle_bit(toggle_bit(42, 2), 2) == 42);
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: operaciones_bits
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - aritmetica

@@ -1,19 +1,16 @@
-/*
- * Ejercicio: b.8 - Uso de máscaras de bits para permisos
- * Cátedra Programación I - UNRN
- */
+#include "ej-27-8-b8-uso-de-mascaras-de-bits-par.h"
 
-#include <stdio.h>
-
-
-int proc_mascaras_de_bits_par(int val)
+unsigned char conceder(unsigned char permisos, unsigned char mascara)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    return permisos | mascara;
 }
 
-int main(void)
+unsigned char revocar(unsigned char permisos, unsigned char mascara)
 {
-    /* TODO: Implementación de b.8 - Uso de máscaras de bits para permisos */
-    return 0;
+    return permisos & (unsigned char)~mascara;
+}
+
+int tiene_permisos(unsigned char permisos, unsigned char mascara)
+{
+    return (permisos & mascara) == mascara;
 }

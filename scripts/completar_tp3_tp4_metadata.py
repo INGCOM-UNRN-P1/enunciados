@@ -528,4 +528,5 @@ def main():
     print(f"\nTotal ejercicios TP actualizados: {actualizados}")
 
 if __name__ == "__main__":
+    raise SystemExit("Script suspendido: genera contenido o verificaciones sin validar; revisá el banco antes de usarlo.")
     main()

@@ -15,37 +15,6 @@ tags:
 - c11
 - inicial
 verificado: true
-funciones:
-- nombre: proc__acceso_con_do_while
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Clave de acceso con do-while
-tests_funciones:
-- nombre: test_proc__acceso_con_do_while_positivo
-  funcion: proc__acceso_con_do_while
-  codigo: 'int res = proc__acceso_con_do_while(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__acceso_con_do_while_cero
-  funcion: proc__acceso_con_do_while
-  codigo: 'int res = proc__acceso_con_do_while(0);
-
-    assert(res == 0);'
-- nombre: test_proc__acceso_con_do_while_negativo
-  funcion: proc__acceso_con_do_while
-  codigo: 'int res = proc__acceso_con_do_while(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__acceso_con_do_while_valor_limite
-  funcion: proc__acceso_con_do_while
-  codigo: 'int res = proc__acceso_con_do_while(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__acceso_con_do_while_valor_unitario
-  funcion: proc__acceso_con_do_while
-  codigo: 'int res = proc__acceso_con_do_while(1);
-
-    assert(res >= 0 || res == 2);'
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: control

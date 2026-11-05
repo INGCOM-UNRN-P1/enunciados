@@ -53,7 +53,6 @@ unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: potencia
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - funciones
 - punteros

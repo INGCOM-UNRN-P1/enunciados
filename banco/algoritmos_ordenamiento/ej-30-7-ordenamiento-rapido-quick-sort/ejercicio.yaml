@@ -55,7 +55,6 @@ unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: quicksort
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados

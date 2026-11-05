@@ -54,7 +54,6 @@ unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: simplificacion
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - algoritmos_ordenamiento
 - lazos_anidados

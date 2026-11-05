@@ -1,32 +1,17 @@
-/*
- * Media Movil 1D
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-#include <stdlib.h>
+#include "dsp-senal-01.h"
 
-
-int ejecutar_dsp_senal_01(int val)
+int media_movil(const int *muestras, int n, int ventana, double *salida)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
+    if (muestras == 0 || salida == 0 || n <= 0 || ventana <= 0 || ventana > n)
+        return -1;
 
-int main(void) {
-    int n = 0, w = 0;
-    if (scanf("%d %d", &n, &w) != 2 || n <= 0 || w <= 0 || w > n) return 0;
-    int *muestras = (int *)malloc(sizeof(int) * n);
-    if (muestras == NULL) return 1;
-    for (int i = 0; i < n; i++) {
-        if (scanf("%d", &muestras[i]) != 1) { free(muestras); return 1; }
-    }
-    for (int i = 0; i <= n - w; i++) {
-        int suma = 0;
-        for (int j = 0; j < w; j++) {
+    int cantidad = n - ventana + 1;
+    for (int i = 0; i < cantidad; i++)
+    {
+        double suma = 0;
+        for (int j = 0; j < ventana; j++)
             suma += muestras[i + j];
-        }
-        printf("%.2f%c", (double)suma / w, (i == n - w) ? '\n' : ' ');
+        salida[i] = suma / ventana;
     }
-    free(muestras);
-    return 0;
+    return cantidad;
 }

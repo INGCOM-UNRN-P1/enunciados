@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_EJ_27_8_B8_USO_DE_MASCARAS_DE_BITS_PAR_H
-#define EJERCICIO_EJ_27_8_B8_USO_DE_MASCARAS_DE_BITS_PAR_H
+#ifndef EJ_PERMISOS_BITS_H
+#define EJ_PERMISOS_BITS_H
 
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+#define LECTURA   (1u << 0)
+#define ESCRITURA (1u << 1)
+#define EJECUCION (1u << 2)
+unsigned char conceder(unsigned char permisos, unsigned char mascara);
+unsigned char revocar(unsigned char permisos, unsigned char mascara);
+int tiene_permisos(unsigned char permisos, unsigned char mascara);
 
-/* Procesa el flujo principal de Uso de máscaras de bits para permisos */
-int proc_mascaras_de_bits_par(int val);
-
-#endif /* EJERCICIO_EJ_27_8_B8_USO_DE_MASCARAS_DE_BITS_PAR_H */
+#endif

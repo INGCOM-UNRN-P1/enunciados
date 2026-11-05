@@ -17,37 +17,27 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_fsm_estados_01
+- nombre: paridad_de_unos
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Autómata Finito de Paridad de Ceros y
-    Unos
+  parametros: const char *bits
+  descripcion: Devuelve 1 si la cantidad de unos es par, 0 si es impar y -1 ante un
+    carácter inválido.
 tests_funciones:
-- nombre: test_ejecutar_fsm_estados_01_positivo
-  funcion: ejecutar_fsm_estados_01
-  codigo: 'int res = ejecutar_fsm_estados_01(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_fsm_estados_01_cero
-  funcion: ejecutar_fsm_estados_01
-  codigo: 'int res = ejecutar_fsm_estados_01(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_fsm_estados_01_negativo
-  funcion: ejecutar_fsm_estados_01
-  codigo: 'int res = ejecutar_fsm_estados_01(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_fsm_estados_01_valor_limite
-  funcion: ejecutar_fsm_estados_01
-  codigo: 'int res = ejecutar_fsm_estados_01(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_fsm_estados_01_valor_unitario
-  funcion: ejecutar_fsm_estados_01
-  codigo: 'int res = ejecutar_fsm_estados_01(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_paridad_vacia
+  funcion: paridad_de_unos
+  codigo: assert(paridad_de_unos("") == 1);
+- nombre: test_paridad_ceros
+  funcion: paridad_de_unos
+  codigo: assert(paridad_de_unos("000") == 1);
+- nombre: test_paridad_impar
+  funcion: paridad_de_unos
+  codigo: assert(paridad_de_unos("1011") == 0);
+- nombre: test_paridad_par
+  funcion: paridad_de_unos
+  codigo: assert(paridad_de_unos("1010") == 1);
+- nombre: test_paridad_invalida
+  funcion: paridad_de_unos
+  codigo: assert(paridad_de_unos("10x1") == -1);
 publicar: true
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C

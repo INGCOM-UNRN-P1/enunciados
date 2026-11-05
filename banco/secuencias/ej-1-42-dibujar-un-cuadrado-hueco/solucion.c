@@ -1,19 +1,15 @@
-/*
- * Ejercicio: Dibujar un Cuadrado Hueco
- * Cátedra Programación I - UNRN
- */
-
 #include <stdio.h>
-
-
-int proc_ar_un_cuadrado_hueco(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
 
 int main(void)
 {
-    /* TODO: Implementación de Dibujar un Cuadrado Hueco */
+    int n;
+    if (scanf("%d", &n) != 1 || n < 0)
+        return 1;
+    for (int fila = 0; fila < n; fila++)
+    {
+        for (int columna = 0; columna < n; columna++)
+            putchar(fila == 0 || fila == n - 1 || columna == 0 || columna == n - 1 ? '*' : ' ');
+        putchar('\n');
+    }
     return 0;
 }

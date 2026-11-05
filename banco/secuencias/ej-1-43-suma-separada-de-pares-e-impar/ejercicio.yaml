@@ -4,14 +4,8 @@ tema: secuencias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '**Variables:** Se necesitan dos acumuladores: `suma_pares` y `suma_impares`,'
-- '**Entrada:** Leer los enteros `n` y `m`.'
-- '**Proceso:**'
-- '**Salida:** Mostrar los valores finales de ambas sumas.'
-- '[Plus Ultra] Permitir definir los límites del rango de manera dinámica mediante
-  entrada por consola.'
-- '[Plus Ultra] Calcular también la cantidad de pares e impares encontrados en el
-  intervalo.'
+- Recorré el intervalo de forma inclusiva.
+- Usá el resto de la división por 2 para distinguir pares de impares.
 tags:
 - pares
 - fundamentos
@@ -23,36 +17,31 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_ada_de_pares_e_impar
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Suma Separada de Pares e Impares
+- nombre: sumar_pares_impares
+  retorno: void
+  parametros: int n, int m, long long *pares, long long *impares
+  descripcion: Suma por separado los valores pares e impares de un intervalo inclusivo.
 tests_funciones:
-- nombre: test_proc_ada_de_pares_e_impar_positivo
-  funcion: proc_ada_de_pares_e_impar
-  codigo: 'int res = proc_ada_de_pares_e_impar(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_ada_de_pares_e_impar_cero
-  funcion: proc_ada_de_pares_e_impar
-  codigo: 'int res = proc_ada_de_pares_e_impar(0);
-
-    assert(res == 0);'
-- nombre: test_proc_ada_de_pares_e_impar_negativo
-  funcion: proc_ada_de_pares_e_impar
-  codigo: 'int res = proc_ada_de_pares_e_impar(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_ada_de_pares_e_impar_valor_limite
-  funcion: proc_ada_de_pares_e_impar
-  codigo: 'int res = proc_ada_de_pares_e_impar(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_ada_de_pares_e_impar_valor_unitario
-  funcion: proc_ada_de_pares_e_impar
-  codigo: 'int res = proc_ada_de_pares_e_impar(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_positivos
+  funcion: sumar_pares_impares
+  codigo: long long p, i; sumar_pares_impares(1, 5, &p, &i); assert(p == 6 && i ==
+    9);
+- nombre: test_negativos
+  funcion: sumar_pares_impares
+  codigo: long long p, i; sumar_pares_impares(-5, -1, &p, &i); assert(p == -6 && i
+    == -9);
+- nombre: test_cruza_cero
+  funcion: sumar_pares_impares
+  codigo: long long p, i; sumar_pares_impares(-2, 3, &p, &i); assert(p == 0 && i ==
+    3);
+- nombre: test_vacio
+  funcion: sumar_pares_impares
+  codigo: long long p = 7, i = 7; sumar_pares_impares(2, 1, &p, &i); assert(p == 0
+    && i == 0);
+- nombre: test_limite
+  funcion: sumar_pares_impares
+  codigo: long long p, i; sumar_pares_impares(2147483646, 2147483647, &p, &i); assert(p
+    == 2147483646LL && i == 2147483647LL);
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: pares

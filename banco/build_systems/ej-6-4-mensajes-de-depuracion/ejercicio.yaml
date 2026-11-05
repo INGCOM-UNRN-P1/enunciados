@@ -160,7 +160,6 @@ unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: pilas_y_colas
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - librerias
 publicar: true

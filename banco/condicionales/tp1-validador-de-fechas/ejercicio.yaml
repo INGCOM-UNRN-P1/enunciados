@@ -37,7 +37,6 @@ rol_familia: uso
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - aritmetica
 subtema: de_fechas

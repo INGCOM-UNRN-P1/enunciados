@@ -1,78 +1,23 @@
-Implementar una función que calcule el monto final y el interés simple ganado a
-partir de un capital inicial, una tasa de interés anual y un período de tiempo
-en años.
+Calculá el interés simple ganado y el monto final a partir de un capital
+inicial, una tasa de interés anual expresada en porcentaje y un período en años.
+El interés se calcula sobre el capital inicial:
 
-
-:::{tip} Ayuda (pseudocódigo)
-:class: dropdown
-```{code-block} pseudocode
-:linenos:
-
-ALGORITMO interes_simple
-ENTRADA: capital, tasa_anual, anios (reales)
-VARIABLES:
-    interes_ganado, monto_final (reales)
-
-INICIO
-    LEER capital, tasa_anual, anios
-    // Asegurarse que la tasa esté en formato decimal
-    tasa_decimal = tasa_anual / 100
-    interes_ganado = capital * tasa_decimal * anios
-    monto_final = capital + interes_ganado
-
-    ESCRIBIR "Interés ganado: ", interes_ganado
-    ESCRIBIR "Monto final: ", monto_final
-FIN
-
-```
-
-:::
-
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Cálculo de Interés Simple
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_lo_de_interes_simple(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
 ```text
-Entrada: 5
-Salida / Retorno: 10
+interés = capital × (tasa anual / 100) × años
+monto final = capital + interés
 ```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
 
-### ⚠️ Precondiciones y Casos Borde
+Implementá `int interes_simple(double capital, double tasa_anual, double anios,
+double *interes, double *monto)`. Los valores de entrada deben ser finitos y no
+negativos; las salidas deben apuntar a variables distintas. Retorná 0 y escribí
+ambos resultados si el cálculo es finito. Para entradas inválidas, punteros
+nulos, salidas iguales o resultados no finitos, retorná -1 sin modificar las
+salidas. Escribí además un programa que lea los tres valores y muestre ambos
+resultados con dos decimales.
 
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
+Por ejemplo, con capital 1000, tasa anual 5 y 2 años, el interés es 100 y el
+monto final es 1100.
 
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- **Entrada:** Solicitar tres valores: capital (`P`), tasa de interés anual
-- **Proceso:**
-- **Salida:** Mostrar tanto el interés ganado como el monto total acumulado.
-- Validar que capital, tasa y tiempo sean valores numéricos positivos.
-- Mostrar el desglose anual del interés acumulado en cada período.
+:::{hint} Ayuda
+Dividí la tasa porcentual por 100 para convertirla a decimal.
 :::

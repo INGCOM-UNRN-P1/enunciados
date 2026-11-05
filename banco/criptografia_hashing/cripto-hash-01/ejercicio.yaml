@@ -18,36 +18,24 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_cripto_hash_01
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Checksum Adler-32
+- nombre: adler32
+  retorno: uint32_t
+  parametros: const char *texto
+  descripcion: Calcula Adler-32 sobre los bytes de una cadena terminada en NUL.
 tests_funciones:
-- nombre: test_ejecutar_cripto_hash_01_positivo
-  funcion: ejecutar_cripto_hash_01
-  codigo: 'int res = ejecutar_cripto_hash_01(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_cripto_hash_01_cero
-  funcion: ejecutar_cripto_hash_01
-  codigo: 'int res = ejecutar_cripto_hash_01(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_cripto_hash_01_negativo
-  funcion: ejecutar_cripto_hash_01
-  codigo: 'int res = ejecutar_cripto_hash_01(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_cripto_hash_01_valor_limite
-  funcion: ejecutar_cripto_hash_01
-  codigo: 'int res = ejecutar_cripto_hash_01(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_cripto_hash_01_valor_unitario
-  funcion: ejecutar_cripto_hash_01
-  codigo: 'int res = ejecutar_cripto_hash_01(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_adler32_vacio
+  funcion: adler32
+  codigo: assert(adler32("") == 0x00000001u);
+- nombre: test_adler32_palabra
+  funcion: adler32
+  codigo: assert(adler32("Wikipedia") == 0x11e60398u);
+- nombre: test_adler32_bytes_altos
+  funcion: adler32
+  codigo: assert(adler32("\x80\xff") == 0x02010180u);
+- nombre: test_adler32_modulo
+  funcion: adler32
+  codigo: char texto[1001]; for (int i = 0; i < 1000; i++) texto[i] = 'a'; texto[1000]
+    = '\0'; assert(adler32(texto) == 0xf9d87af8u);
 publicar: true
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C

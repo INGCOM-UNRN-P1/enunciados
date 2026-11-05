@@ -1,11 +1,6 @@
-#ifndef EJERCICIO_EJ_27_7_B7_INTERCAMBIO_CON_XOR_H
-#define EJERCICIO_EJ_27_7_B7_INTERCAMBIO_CON_XOR_H
+#ifndef EJ_INTERCAMBIO_XOR_H
+#define EJ_INTERCAMBIO_XOR_H
 
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+void swap(int *a, int *b);
 
-/* Procesa el flujo principal de Intercambio con XOR */
-int proc__intercambio_con_xor(int val);
-
-#endif /* EJERCICIO_EJ_27_7_B7_INTERCAMBIO_CON_XOR_H */
+#endif

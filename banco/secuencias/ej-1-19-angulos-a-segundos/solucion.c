@@ -1,19 +1,17 @@
-/*
- * Ejercicio: Ángulos a Segundos
- * Cátedra Programación I - UNRN
- */
+#include "ej-1-19-angulos-a-segundos.h"
 
 #include <stdio.h>
 
-
-int proc_9_angulos_a_segundos(int val)
+long long angulo_a_segundos(int grados, int minutos, int segundos)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    return (long long)grados * 3600 + (long long)minutos * 60 + segundos;
 }
 
 int main(void)
 {
-    /* TODO: Implementación de Ángulos a Segundos */
+    int grados, minutos, segundos;
+    if (scanf("%d %d %d", &grados, &minutos, &segundos) != 3)
+        return 1;
+    printf("%lld\n", angulo_a_segundos(grados, minutos, segundos));
     return 0;
 }

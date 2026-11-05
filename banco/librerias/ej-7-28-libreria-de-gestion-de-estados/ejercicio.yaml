@@ -4,9 +4,7 @@ tema: librerias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Validá que `indice < n` antes de acceder a las posiciones del arreglo.
-- '[Plus Ultra] Escribir pruebas unitarias con `assert()` en `tests/` para verificar
-  el correcto cambio de estado.'
+- Validá que indice < n antes de acceder a las posiciones del arreglo.
 tags:
 - booleanas
 - fundamentos
@@ -19,42 +17,50 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_e_gestion_de_estados
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Librería de Gestión de Estados y Banderas
-    Booleanas
+- nombre: flag_activar
+  retorno: void
+  parametros: bool banderas[], size_t n, size_t indice
+  descripcion: Activa una bandera.
+- nombre: flag_desactivar
+  retorno: void
+  parametros: bool banderas[], size_t n, size_t indice
+  descripcion: Desactiva una bandera.
+- nombre: flag_consultar
+  retorno: bool
+  parametros: const bool banderas[], size_t n, size_t indice
+  descripcion: Consulta una bandera.
+- nombre: flag_reiniciar_todas
+  retorno: void
+  parametros: bool banderas[], size_t n, bool valor_defecto
+  descripcion: Reinicia las banderas.
+- nombre: flag_contar_activas
+  retorno: size_t
+  parametros: const bool banderas[], size_t n
+  descripcion: Cuenta las banderas activas.
 tests_funciones:
-- nombre: test_proc_e_gestion_de_estados_positivo
-  funcion: proc_e_gestion_de_estados
-  codigo: 'int res = proc_e_gestion_de_estados(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_e_gestion_de_estados_cero
-  funcion: proc_e_gestion_de_estados
-  codigo: 'int res = proc_e_gestion_de_estados(0);
-
-    assert(res == 0);'
-- nombre: test_proc_e_gestion_de_estados_negativo
-  funcion: proc_e_gestion_de_estados
-  codigo: 'int res = proc_e_gestion_de_estados(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_e_gestion_de_estados_valor_limite
-  funcion: proc_e_gestion_de_estados
-  codigo: 'int res = proc_e_gestion_de_estados(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_e_gestion_de_estados_valor_unitario
-  funcion: proc_e_gestion_de_estados
-  codigo: 'int res = proc_e_gestion_de_estados(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_flag_activar
+  funcion: flag_activar
+  codigo: bool a[] = {false,false}; flag_activar(a,2,1); flag_activar(a,2,2); assert(!a[0]
+    && a[1]);
+- nombre: test_flag_desactivar
+  funcion: flag_desactivar
+  codigo: bool a[] = {true,true}; flag_desactivar(a,2,0); flag_desactivar(a,2,2);
+    assert(!a[0] && a[1]);
+- nombre: test_flag_consultar
+  funcion: flag_consultar
+  codigo: bool a[] = {true,false}; assert(flag_consultar(a,2,0)); assert(!flag_consultar(a,2,1));
+    assert(!flag_consultar(a,2,2)); assert(!flag_consultar(NULL,0,0));
+- nombre: test_flag_reiniciar_todas
+  funcion: flag_reiniciar_todas
+  codigo: bool a[] = {false,true}; flag_reiniciar_todas(a,2,true); assert(a[0] &&
+    a[1]); flag_reiniciar_todas(a,2,false); assert(!a[0] && !a[1]); flag_reiniciar_todas(NULL,0,true);
+- nombre: test_flag_contar_activas
+  funcion: flag_contar_activas
+  codigo: bool a[] = {true,false,true}; assert(flag_contar_activas(a,3)==2); assert(flag_contar_activas(NULL,0)==0);
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: booleanas
 dificultad: intermedia
-tipo: practica_guiada
 prerrequisitos:
 - funciones
 - estructuras

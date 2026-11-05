@@ -385,6 +385,7 @@ BATCHES: Dict[int, List[str]] = {
 }
 
 if __name__ == "__main__":
+    raise SystemExit("Script suspendido: genera contenido o verificaciones sin validar; revisá el banco antes de usarlo.")
     import sys
     args = sys.argv[1:]
     if not args:

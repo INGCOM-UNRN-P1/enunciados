@@ -66,7 +66,6 @@ unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: silla
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - arreglos
 - lazos_anidados

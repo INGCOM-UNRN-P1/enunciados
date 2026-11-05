@@ -251,7 +251,6 @@ modulo: Tipos Abstractos y Algorítmica
 subtema: listas_enlazadas
 dificultad: intermedia
 minutos_estimados: 60
-tipo: ejercicio_individual
 prerrequisitos:
 - tad
 publicar: true

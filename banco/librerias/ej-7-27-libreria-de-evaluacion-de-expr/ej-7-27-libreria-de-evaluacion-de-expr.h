@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_EJ_7_27_LIBRERIA_DE_EVALUACION_DE_EXPR_H
-#define EJERCICIO_EJ_7_27_LIBRERIA_DE_EVALUACION_DE_EXPR_H
-
-#include <stddef.h>
+#ifndef EJ_EVAL_LOGICA_H
+#define EJ_EVAL_LOGICA_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Librería de Evaluación de Expresiones lógicas */
-int proc_e_evaluacion_de_expr(int val);
-
-#endif /* EJERCICIO_EJ_7_27_LIBRERIA_DE_EVALUACION_DE_EXPR_H */
+bool eval_and_3(bool a, bool b, bool c);
+bool eval_or_3(bool a, bool b, bool c);
+bool eval_xor(bool a, bool b);
+bool eval_implicacion(bool p, bool q);
+bool eval_equivalencia(bool p, bool q);
+#endif

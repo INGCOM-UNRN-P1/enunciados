@@ -1,31 +1,28 @@
-/*
- * Checksum Adler-32
- * Catedra Programacion I - UNRN
- */
+#include "cripto-hash-01.h"
+
 #include <stdint.h>
+#include <inttypes.h>
 #include <stdio.h>
-#include <string.h>
 
-#define MOD_ADLER 65521
+#define MOD_ADLER 65521u
 
-
-int ejecutar_cripto_hash_01(int val)
+uint32_t adler32(const char *texto)
 {
-    if (val <= 0) return 0;
-    return val * 2;
+    uint32_t a = 1, b = 0;
+    const unsigned char *p = (const unsigned char *)texto;
+    while (*p != 0)
+    {
+        a = (a + *p++) % MOD_ADLER;
+        b = (b + a) % MOD_ADLER;
+    }
+    return (b << 16) | a;
 }
 
-int main(void) {
-    char buf[256] = {0};
-    if (scanf("%255s", buf) == 1) {
-        uint32_t a = 1, b = 0;
-        size_t len = strlen(buf);
-        for (size_t i = 0; i < len; i++) {
-            a = (a + (uint8_t)buf[i]) % MOD_ADLER;
-            b = (b + a) % MOD_ADLER;
-        }
-        uint32_t adler = (b << 16) | a;
-        printf("ADLER32: 0x%08X\n", adler);
-    }
+int main(void)
+{
+    char texto[256];
+    if (scanf("%255s", texto) != 1)
+        return 1;
+    printf("ADLER32: 0x%08" PRIX32 "\n", adler32(texto));
     return 0;
 }

@@ -299,7 +299,6 @@ modulo: Tipos Abstractos y Algorítmica
 subtema: tda
 dificultad: intermedia
 minutos_estimados: 45
-tipo: ejercicio_individual
 prerrequisitos:
 - tad
 publicar: true

@@ -102,7 +102,6 @@ unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: control
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - condicionales
 - lazos

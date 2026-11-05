@@ -48,7 +48,6 @@ rol_familia: libreria
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - funciones

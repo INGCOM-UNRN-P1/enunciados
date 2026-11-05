@@ -9,17 +9,11 @@ catedra_p1
 #include <stdio.h>
 
 
-int proc_ersor_calificaciones(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
 int main(void)
 {
     float nota = 0.0f;
 
-    if (scanf("%f", &nota) == 1)
+    if (scanf("%f", &nota) == 1 && nota >= 0.0f && nota <= 10.0f)
     {
         char letra = 'F';
         int porcentaje = (int)(nota * 10.0f + 0.5f);

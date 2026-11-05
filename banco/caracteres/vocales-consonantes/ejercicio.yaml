@@ -15,37 +15,6 @@ tags:
 - c11
 - inicial
 verificado: true
-funciones:
-- nombre: ejecutar_vocales_consonantes
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Vocales y Consonantes
-tests_funciones:
-- nombre: test_ejecutar_vocales_consonantes_positivo
-  funcion: ejecutar_vocales_consonantes
-  codigo: 'int res = ejecutar_vocales_consonantes(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_vocales_consonantes_cero
-  funcion: ejecutar_vocales_consonantes
-  codigo: 'int res = ejecutar_vocales_consonantes(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_vocales_consonantes_negativo
-  funcion: ejecutar_vocales_consonantes
-  codigo: 'int res = ejecutar_vocales_consonantes(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_vocales_consonantes_valor_limite
-  funcion: ejecutar_vocales_consonantes
-  codigo: 'int res = ejecutar_vocales_consonantes(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_vocales_consonantes_valor_unitario
-  funcion: ejecutar_vocales_consonantes
-  codigo: 'int res = ejecutar_vocales_consonantes(1);
-
-    assert(res >= 0 || res == 2);'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: ctype

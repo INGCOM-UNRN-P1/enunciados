@@ -52,7 +52,6 @@ publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - arboles_binarios
 subtema: arboles_balanceados_avl

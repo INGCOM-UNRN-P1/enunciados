@@ -1,46 +1,20 @@
-Aplicar un filtro de suavizado de media móvil de ventana W sobre una secuencia discreta de muestras numéricas.
-
-### 📋 Contrato de las Funciones
+Aplicá un filtro de media móvil a una secuencia de muestras enteras. Para cada
+ventana completa de `ventana` muestras consecutivas, calculá su promedio. No
+generes valores para ventanas parciales en los bordes.
 
 ```c
-/*
- * Procesa el flujo principal de Filtro de Media Móvil Moving Average Filter 1D
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_dsp_senal_01(int val);
-
+int media_movil(const int *muestras, int n, int ventana, double *salida);
 ```
 
-### 🧪 Ejemplos de Ejecución
+`muestras` contiene `n` enteros y `salida` tiene espacio para al menos
+`n - ventana + 1` valores; los arreglos no se superponen. Devolvé la cantidad
+de promedios escritos. Si alguno de los punteros es nulo, `n` o `ventana` no
+es positivo, o `ventana > n`, devolvé -1 sin modificar la salida.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Por ejemplo, para `{1, 2, 6, -1}` y ventana 2, la salida es
+`{1.5, 4.0, 2.5}` y el retorno es 3.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Trabajá con ventanas de convolución discretas.
-- Cuidá los efectos de borde al inicio y fin de la señal.
+:::{hint} Ayuda
+Sumá las muestras de cada ventana y dividí por su tamaño usando aritmética
+de punto flotante.
 :::

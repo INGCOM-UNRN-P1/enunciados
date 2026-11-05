@@ -9,10 +9,6 @@ pistas:
 - 'Añadir Permiso: `permisos = permisos | ESCRITURA;`'
 - 'Quitar Permiso: `permisos = permisos & ~EJECUCION;`'
 - 'Verificar Permiso: `if (permisos & LECTURA) { ... }`'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
 tags:
 - permisos
 - bitwise
@@ -24,41 +20,38 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_mascaras_de_bits_par
+- nombre: conceder
+  retorno: unsigned char
+  parametros: unsigned char permisos, unsigned char mascara
+  descripcion: Agrega los permisos indicados.
+- nombre: revocar
+  retorno: unsigned char
+  parametros: unsigned char permisos, unsigned char mascara
+  descripcion: Quita los permisos indicados.
+- nombre: tiene_permisos
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Uso de máscaras de bits para permisos
+  parametros: unsigned char permisos, unsigned char mascara
+  descripcion: Indica si están todos los permisos indicados.
 tests_funciones:
-- nombre: test_proc_mascaras_de_bits_par_positivo
-  funcion: proc_mascaras_de_bits_par
-  codigo: 'int res = proc_mascaras_de_bits_par(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_mascaras_de_bits_par_cero
-  funcion: proc_mascaras_de_bits_par
-  codigo: 'int res = proc_mascaras_de_bits_par(0);
-
-    assert(res == 0);'
-- nombre: test_proc_mascaras_de_bits_par_negativo
-  funcion: proc_mascaras_de_bits_par
-  codigo: 'int res = proc_mascaras_de_bits_par(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_mascaras_de_bits_par_valor_limite
-  funcion: proc_mascaras_de_bits_par
-  codigo: 'int res = proc_mascaras_de_bits_par(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_mascaras_de_bits_par_valor_unitario
-  funcion: proc_mascaras_de_bits_par
-  codigo: 'int res = proc_mascaras_de_bits_par(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_conceder
+  funcion: conceder
+  codigo: assert(conceder(1, 2) == 3); assert(conceder(7, 2) == 7);
+- nombre: test_revocar
+  funcion: revocar
+  codigo: assert(revocar(7, 4) == 3); assert(revocar(1, 2) == 1);
+- nombre: test_consultar
+  funcion: tiene_permisos
+  codigo: assert(tiene_permisos(7, 3) == 1); assert(tiene_permisos(1, 3) == 0);
+- nombre: test_mascara_vacia
+  funcion: tiene_permisos
+  codigo: assert(tiene_permisos(0, 0) == 1);
+- nombre: test_preserva_bits
+  funcion: revocar
+  codigo: assert(revocar(0x80, 1) == 0x80); assert(conceder(0x80, 4) == 0x84);
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: operaciones_bits
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - aritmetica

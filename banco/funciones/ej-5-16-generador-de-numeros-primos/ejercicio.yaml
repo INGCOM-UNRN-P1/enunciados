@@ -40,7 +40,6 @@ unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: teoria_numeros
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - lazos
 - secuencias

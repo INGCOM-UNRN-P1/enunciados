@@ -50,7 +50,6 @@ tests_funciones:
     assert(res >= 0 || res == 2);'
 publicar: true
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - punteros
 - cadenas

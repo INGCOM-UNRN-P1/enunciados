@@ -4,11 +4,8 @@ tema: secuencias
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '**Entrada:** Solicitar tres valores: capital (`P`), tasa de interés anual'
-- '**Proceso:**'
-- '**Salida:** Mostrar tanto el interés ganado como el monto total acumulado.'
-- '[Plus Ultra] Validar que capital, tasa y tiempo sean valores numéricos positivos.'
-- '[Plus Ultra] Mostrar el desglose anual del interés acumulado en cada período.'
+- Convertí la tasa porcentual a decimal dividiéndola por 100.
+- El interés simple se calcula sobre el capital inicial.
 tags:
 - fundamentos
 - calculo
@@ -20,36 +17,39 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_lo_de_interes_simple
+- nombre: interes_simple
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Interés Simple
+  parametros: double capital, double tasa_anual, double anios, double *interes, double
+    *monto
+  descripcion: Calcula el interés simple y el monto final.
 tests_funciones:
-- nombre: test_proc_lo_de_interes_simple_positivo
-  funcion: proc_lo_de_interes_simple
-  codigo: 'int res = proc_lo_de_interes_simple(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_lo_de_interes_simple_cero
-  funcion: proc_lo_de_interes_simple
-  codigo: 'int res = proc_lo_de_interes_simple(0);
-
-    assert(res == 0);'
-- nombre: test_proc_lo_de_interes_simple_negativo
-  funcion: proc_lo_de_interes_simple
-  codigo: 'int res = proc_lo_de_interes_simple(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_lo_de_interes_simple_valor_limite
-  funcion: proc_lo_de_interes_simple
-  codigo: 'int res = proc_lo_de_interes_simple(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_lo_de_interes_simple_valor_unitario
-  funcion: proc_lo_de_interes_simple
-  codigo: 'int res = proc_lo_de_interes_simple(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_interes_normal
+  funcion: interes_simple
+  codigo: double interes = 0, monto = 0; assert(interes_simple(1000, 5, 2, &interes,
+    &monto) == 0); assert(interes == 100 && monto == 1100);
+- nombre: test_interes_cero
+  funcion: interes_simple
+  codigo: double interes = 7, monto = 0; assert(interes_simple(1000, 0, 2, &interes,
+    &monto) == 0); assert(interes == 0 && monto == 1000);
+- nombre: test_interes_fraccion
+  funcion: interes_simple
+  codigo: double interes = 0, monto = 0; assert(interes_simple(200, 10, 0.5, &interes,
+    &monto) == 0); assert(interes == 10 && monto == 210);
+- nombre: test_interes_invalido
+  funcion: interes_simple
+  codigo: double interes = 7, monto = 8; assert(interes_simple(-1, 5, 2, &interes,
+    &monto) == -1); assert(interes == 7 && monto == 8); assert(interes_simple(1, -1,
+    2, &interes, &monto) == -1); assert(interes_simple(1, 1, -1, &interes, &monto)
+    == -1); assert(interes_simple(1, 1, 1, 0, &monto) == -1); assert(interes_simple(1,
+    1, 1, &interes, 0) == -1);
+- nombre: test_interes_salida_compartida
+  funcion: interes_simple
+  codigo: double salida = 7; assert(interes_simple(10, 5, 2, &salida, &salida) ==
+    -1); assert(salida == 7);
+- nombre: test_interes_desborde
+  funcion: interes_simple
+  codigo: double interes = 7, monto = 8; assert(interes_simple(1e308, 100, 10, &interes,
+    &monto) == -1); assert(interes == 7 && monto == 8);
 unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: fundamentos

@@ -10,12 +10,6 @@ catedra_p1
 #include <stdio.h>
 
 
-int ejecutar_vocales_consonantes(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
 int main(void)
 {
     char c = '\0';

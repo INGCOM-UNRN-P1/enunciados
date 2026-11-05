@@ -51,7 +51,6 @@ publicar: true
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - funciones

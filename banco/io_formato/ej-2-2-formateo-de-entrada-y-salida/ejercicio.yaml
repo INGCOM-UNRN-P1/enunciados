@@ -117,7 +117,6 @@ unidad: 1
 modulo: Fundamentos y Estructuras de Control
 subtema: formateo
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - aritmetica
 publicar: true

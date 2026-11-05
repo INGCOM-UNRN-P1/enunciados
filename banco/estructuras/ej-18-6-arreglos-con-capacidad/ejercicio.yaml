@@ -54,7 +54,6 @@ unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: registros
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - tipos_datos
 - funciones

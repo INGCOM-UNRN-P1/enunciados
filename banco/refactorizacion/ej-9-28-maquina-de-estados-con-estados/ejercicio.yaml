@@ -45,7 +45,6 @@ unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: maquina
 dificultad: intermedia
-tipo: ejercicio_individual
 prerrequisitos:
 - testing
 - diseno_api

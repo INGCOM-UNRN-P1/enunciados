@@ -162,7 +162,6 @@ unidad: 3
 modulo: Memoria Dinámica y Persistencia
 subtema: arena
 dificultad: avanzada
-tipo: ejercicio_individual
 prerrequisitos:
 - memoria
 - punteros
