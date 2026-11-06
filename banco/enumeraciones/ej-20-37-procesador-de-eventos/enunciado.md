@@ -1,53 +1,20 @@
-Implementar un procesador que maneje diferentes tipos de eventos.
+# Procesador de eventos
 
-
-
-``` c
-void procesar_evento(const evento_t *evento);
-```
-
-## Estados de Procesos (Sistema Operativo)
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-37-procesador-de-eventos.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Procesador de eventos
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_rocesador_de_eventos(int val);
+enum tipo_evento { EVENTO_CLICK, EVENTO_DOBLE_CLICK, EVENTO_PRESIONAR_TECLA, EVENTO_SOLTAR_TECLA, EVENTO_MOVER_MOUSE, EVENTO_SCROLL };
+enum boton_mouse { BOTON_IZQUIERDO=1, BOTON_DERECHO=2, BOTON_MEDIO=4 };
+typedef struct { enum tipo_evento tipo; int x, y; unsigned int botones; unsigned int tecla; } evento_t;
 
+typedef void (*manejador_evento_t)(const evento_t *evento, void *contexto);
+typedef struct { manejador_evento_t manejador; void *contexto; unsigned int procesados; unsigned int ignorados; } procesador_eventos_t;
+void inicializar_procesador_eventos(procesador_eventos_t *procesador, manejador_evento_t manejador, void *contexto);
+bool procesar_evento(procesador_eventos_t *procesador, const evento_t *evento);
 ```
 
-### 🧪 Ejemplos de Ejecución
+El encabezado define también `enum tipo_evento`, `enum boton_mouse` y `evento_t` de forma autocontenida. Inicializar pone contadores en cero y conserva manejador/contexto. Procesar un evento válido invoca una vez el callback si existe, aumenta `procesados` y devuelve true. Un procesador NULL devuelve false; evento inválido o procesador sin callback aumenta `ignorados` (cuando se puede) y devuelve false.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.
-- Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

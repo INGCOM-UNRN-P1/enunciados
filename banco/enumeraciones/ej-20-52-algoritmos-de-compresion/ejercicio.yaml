@@ -4,10 +4,9 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad
+  máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - compresion
 - tipos
@@ -20,36 +19,15 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_ritmos_de_compresion
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Algoritmos de compresión
+- nombre: algoritmo_compresion_valido
+  retorno: bool
+  parametros: enum algoritmo_compresion algoritmo
+  descripcion: Contrato funcional del modelo de enums/FSM
 tests_funciones:
-- nombre: test_proc_ritmos_de_compresion_positivo
-  funcion: proc_ritmos_de_compresion
-  codigo: 'int res = proc_ritmos_de_compresion(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_ritmos_de_compresion_cero
-  funcion: proc_ritmos_de_compresion
-  codigo: 'int res = proc_ritmos_de_compresion(0);
-
-    assert(res == 0);'
-- nombre: test_proc_ritmos_de_compresion_negativo
-  funcion: proc_ritmos_de_compresion
-  codigo: 'int res = proc_ritmos_de_compresion(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_ritmos_de_compresion_valor_limite
-  funcion: proc_ritmos_de_compresion
-  codigo: 'int res = proc_ritmos_de_compresion(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_ritmos_de_compresion_valor_unitario
-  funcion: proc_ritmos_de_compresion
-  codigo: 'int res = proc_ritmos_de_compresion(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_enum_compresion_y_niveles
+  funcion: algoritmo_compresion_valido
+  codigo: assert(algoritmo_compresion_valido(COMP_LZ4)); assert(!algoritmo_compresion_valido((enum algoritmo_compresion)88));
+    assert(nivel_compresion_valido(NIVEL_MAXIMO)); assert(!nivel_compresion_valido((enum nivel_compresion)4));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

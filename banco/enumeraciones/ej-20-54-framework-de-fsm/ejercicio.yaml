@@ -4,10 +4,9 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad
+  máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - tipos
 - enum
@@ -19,36 +18,16 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc__54_framework_de_fsm
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Framework de FSM
+- nombre: fsm_procesar
+  retorno: bool
+  parametros: maquina_estados_t *m, evento_fsm_e e
+  descripcion: Contrato funcional del modelo de enums/FSM
 tests_funciones:
-- nombre: test_proc__54_framework_de_fsm_positivo
-  funcion: proc__54_framework_de_fsm
-  codigo: 'int res = proc__54_framework_de_fsm(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__54_framework_de_fsm_cero
-  funcion: proc__54_framework_de_fsm
-  codigo: 'int res = proc__54_framework_de_fsm(0);
-
-    assert(res == 0);'
-- nombre: test_proc__54_framework_de_fsm_negativo
-  funcion: proc__54_framework_de_fsm
-  codigo: 'int res = proc__54_framework_de_fsm(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__54_framework_de_fsm_valor_limite
-  funcion: proc__54_framework_de_fsm
-  codigo: 'int res = proc__54_framework_de_fsm(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__54_framework_de_fsm_valor_unitario
-  funcion: proc__54_framework_de_fsm
-  codigo: 'int res = proc__54_framework_de_fsm(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_fsm_agrega_y_procesa
+  funcion: fsm_procesar
+  codigo: maquina_estados_t m; assert(fsm_inicializar(&m,FSM_ESTADO_0,NULL)); transicion_t t={FSM_ESTADO_0,FSM_ESTADO_1,FSM_EVENTO_0,NULL};
+    assert(fsm_agregar_transicion(&m,t)); assert(fsm_procesar(&m,FSM_EVENTO_0)); assert(m.estado_actual==FSM_ESTADO_1);
+    assert(!fsm_procesar(&m,FSM_EVENTO_1));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

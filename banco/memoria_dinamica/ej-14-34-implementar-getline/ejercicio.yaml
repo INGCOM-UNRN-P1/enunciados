@@ -2,59 +2,46 @@ id: ej-14-34-implementar-getline
 titulo: Implementar getline
 tema: memoria_dinamica
 bloom: 3
-minutos_estimados: 25
+minutos_estimados: 30
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
+- Guardá el resultado de `realloc` en un puntero temporal.
+- Diferenciá EOF antes de leer bytes de EOF luego de una línea parcial.
 tags:
-- heap
-- implementar
-- getline
 - memoria
-- malloc
-- dep:memoria
-- dep:punteros
-- c11
-- intermedia
-verificado: true
+- getline
+- realloc
+- stdio
+verificado: false
 funciones:
-- nombre: proc__implementar_getline
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Implementar getline
+- nombre: mi_getline
+  retorno: ssize_t
+  parametros: char **lineptr, size_t *n, FILE *stream
+  descripcion: Lee una línea en un buffer reutilizable y devuelve su longitud, incluyendo el salto de
+    línea.
 tests_funciones:
-- nombre: test_proc__implementar_getline_positivo
-  funcion: proc__implementar_getline
-  codigo: 'int res = proc__implementar_getline(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__implementar_getline_cero
-  funcion: proc__implementar_getline
-  codigo: 'int res = proc__implementar_getline(0);
-
-    assert(res == 0);'
-- nombre: test_proc__implementar_getline_negativo
-  funcion: proc__implementar_getline
-  codigo: 'int res = proc__implementar_getline(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__implementar_getline_valor_limite
-  funcion: proc__implementar_getline
-  codigo: 'int res = proc__implementar_getline(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__implementar_getline_valor_unitario
-  funcion: proc__implementar_getline
-  codigo: 'int res = proc__implementar_getline(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_linea_corta_reutiliza_buffer
+  funcion: mi_getline
+  codigo: char buffer[16]="viejo"; char *linea=buffer; size_t capacidad=sizeof buffer; FILE *f=tmpfile();
+    assert(f); fputs("hola\n",f); rewind(f); assert(mi_getline(&linea,&capacidad,f)==5); assert(linea==buffer);
+    assert(strcmp(linea,"hola\n")==0); fclose(f);
+- nombre: test_linea_larga_crece_buffer
+  funcion: mi_getline
+  codigo: FILE *f=tmpfile(); assert(f); for(int i=0;i<600;i++)fputc('x',f); fputc('\n',f); rewind(f);
+    char *linea=NULL; size_t capacidad=0; assert(mi_getline(&linea,&capacidad,f)==601); assert(capacidad>=602);
+    assert(linea[600]=='\n'&&linea[601]=='\0'); free(linea); fclose(f);
+- nombre: test_eof_sin_bytes
+  funcion: mi_getline
+  codigo: FILE *f=tmpfile(); assert(f); char *linea=NULL; size_t capacidad=0; assert(mi_getline(&linea,&capacidad,f)==-1);
+    assert(linea!=NULL&&linea[0]=='\0'); free(linea); fclose(f);
+- nombre: test_linea_final_sin_salto_y_eof
+  funcion: mi_getline
+  codigo: FILE *f=tmpfile(); assert(f); fputs("final",f); rewind(f); char *linea=NULL; size_t capacidad=0;
+    assert(mi_getline(&linea,&capacidad,f)==5); assert(strcmp(linea,"final")==0); assert(mi_getline(&linea,&capacidad,f)==-1);
+    free(linea); fclose(f);
 unidad: 3
 modulo: Memoria Dinámica y Persistencia
-subtema: gestion_heap
-dificultad: intermedia
-tipo: practica_guiada
+subtema: buffers_dinamicos
+dificultad: inicial
 prerrequisitos:
 - memoria
 - punteros

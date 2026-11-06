@@ -1,21 +1,8 @@
-/*
- * Numerico #03
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "num-linalg-03.h"
+#include <float.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 
-
-int ejecutar_num_linalg_03(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 3.0;
-        printf("NUM_%02d: %.2f\n", 3, res);
-    }
-    return 0;
-}
+double secante(double x0,double x1,double tol,size_t max){if(!isfinite(x0)||!isfinite(x1)||tol<=0||!isfinite(tol)||!max)return NAN;double y0=x0*x0-2,y1=x1*x1-2;for(size_t i=0;i<max;i++){double d=y1-y0;if(fabs(d)<=DBL_EPSILON*fmax(1.0,fabs(y1)))return NAN;double x2=x1-y1*(x1-x0)/d;if(!isfinite(x2))return NAN;if(fabs(x2-x1)<=tol)return x2;x0=x1;y0=y1;x1=x2;y1=x1*x1-2;}return NAN;}

@@ -1,5 +1,5 @@
 id: num-linalg-05
-titulo: Eliminación Gaussiana con Pivoteo Parcial
+titulo: Eliminación gaussiana con pivoteo parcial
 tema: algebra_lineal_numerica
 bloom: 1
 minutos_estimados: 10
@@ -15,38 +15,19 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_num_linalg_05
+- nombre: gauss_pivoteo_parcial
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Eliminación Gaussiana con Pivoteo Parcial
+  parametros: const double *A, const double *b, size_t n, double *x
+  descripcion: 1 si resuelve; 0 ante argumentos inválidos, matriz singular o falta de memoria.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_05_positivo
-  funcion: ejecutar_num_linalg_05
-  codigo: 'int res = ejecutar_num_linalg_05(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_05_cero
-  funcion: ejecutar_num_linalg_05
-  codigo: 'int res = ejecutar_num_linalg_05(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_05_negativo
-  funcion: ejecutar_num_linalg_05
-  codigo: 'int res = ejecutar_num_linalg_05(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_05_valor_limite
-  funcion: ejecutar_num_linalg_05
-  codigo: 'int res = ejecutar_num_linalg_05(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_05_valor_unitario
-  funcion: ejecutar_num_linalg_05
-  codigo: 'int res = ejecutar_num_linalg_05(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_gauss_pivoteo_parcial_funcional
+  funcion: gauss_pivoteo_parcial
+  codigo: double A[]={0,1,1,1},b[]={2,3},x[2];assert(gauss_pivoteo_parcial(A,b,2,x));assert(fabs(x[0]-1)<1e-9&&fabs(x[1]-2)<1e-9);
+- nombre: pivote_pequeno_no_nulo
+  funcion: gauss_pivoteo_parcial
+  codigo: double A[]={1e-30},b[]={2e-30},x[1]; assert(gauss_pivoteo_parcial(A,b,1,x)); assert(fabs(x[0]-2.0)<1e-12);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

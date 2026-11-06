@@ -1,56 +1,15 @@
-Encontrá la submatriz 2×2 con mayor suma dentro de una matriz más grande.
+# Submatriz 2×2 de mayor suma
 
-**Orientación:**
-- Recorré todas las posiciones posibles para submatriz 2×2
-- Para cada posición, sumá los 4 elementos
-- Guardá máximo y posición
+Buscar entre todas las submatrices contiguas 2×2 de una matriz filas×columnas la de suma máxima. Entregar suma y coordenadas (fila,columna) de su esquina superior izquierda. Empates: conservar la primera en recorrido por filas.
 
-
-
----
-
-### 📋 Contrato de las Funciones
+### Interfaz
 
 ```c
-/*
- * Procesa el flujo principal de Submatriz Mayor Suma
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_submatriz_mayor_suma(int val);
-
+int submatriz_2x2_mayor(const double *A, size_t filas, size_t columnas, double *suma, size_t *fila, size_t *columna);
 ```
 
-### 🧪 Ejemplos de Ejecución
+### Contrato
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+1 si existe; 0 con dimensiones menores que 2 o argumentos inválidos.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Optimizar el acceso a memoria respetando el orden por filas (*row-major order*) para mejorar el uso de caché.
-- Validar que los índices ingresados se encuentren estrictamente dentro de los límites del contenedor.
-:::
+Las matrices se representan en buffers contiguos row-major. Los tamaños se expresan en elementos, no en bytes.

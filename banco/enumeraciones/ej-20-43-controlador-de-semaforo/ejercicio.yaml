@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
-  oculta en el archivo `.c`.'
-- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
-  la estructura de forma segura.'
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.'
 tags:
 - tipos
 - memoria
@@ -20,36 +18,26 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_trolador_de_semaforo
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Controlador de semáforo
+- nombre: actualizar_semaforo
+  retorno: void
+  parametros: semaforo_t *semaforo
+  descripcion: API funcional de Controlador de semáforo
+- nombre: siguiente_estado
+  retorno: enum estado_semaforo
+  parametros: enum estado_semaforo actual
+  descripcion: API funcional de Controlador de semáforo
+- nombre: puede_pasar
+  retorno: bool
+  parametros: const semaforo_t *semaforo, enum direccion_trafico direccion
+  descripcion: API funcional de Controlador de semáforo
 tests_funciones:
-- nombre: test_proc_trolador_de_semaforo_positivo
-  funcion: proc_trolador_de_semaforo
-  codigo: 'int res = proc_trolador_de_semaforo(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_trolador_de_semaforo_cero
-  funcion: proc_trolador_de_semaforo
-  codigo: 'int res = proc_trolador_de_semaforo(0);
-
-    assert(res == 0);'
-- nombre: test_proc_trolador_de_semaforo_negativo
-  funcion: proc_trolador_de_semaforo
-  codigo: 'int res = proc_trolador_de_semaforo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_trolador_de_semaforo_valor_limite
-  funcion: proc_trolador_de_semaforo
-  codigo: 'int res = proc_trolador_de_semaforo(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_trolador_de_semaforo_valor_unitario
-  funcion: proc_trolador_de_semaforo
-  codigo: 'int res = proc_trolador_de_semaforo(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_43_ciclo
+  funcion: enum estado_semaforo
+  codigo: assert(siguiente_estado(SEMAFORO_ROJO)==SEMAFORO_VERDE); assert(siguiente_estado(SEMAFORO_VERDE)==SEMAFORO_AMARILLO); assert(siguiente_estado(SEMAFORO_AMARILLO)==SEMAFORO_ROJO);
+- nombre: test_43_paso
+  funcion: bool
+  codigo: semaforo_t s={SEMAFORO_VERDE,DIR_ESTE_OESTE,0}; assert(puede_pasar(&s,DIR_ESTE_OESTE)); assert(!puede_pasar(&s,DIR_NORTE_SUR));
+    s.direccion_activa=DIR_TODAS; assert(!puede_pasar(&s,DIR_NORTE_SUR));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_EJ_21_75_SUBMATRIZ_MAYOR_SUMA_H
-#define EJERCICIO_EJ_21_75_SUBMATRIZ_MAYOR_SUMA_H
+#ifndef EJ_21_75_SUBMATRIZ_MAYOR_SUMA_H
+#define EJ_21_75_SUBMATRIZ_MAYOR_SUMA_H
 
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Submatriz Mayor Suma */
-int proc_submatriz_mayor_suma(int val);
+int submatriz_2x2_mayor(const double *A, size_t filas, size_t columnas, double *suma, size_t *fila, size_t *columna);
 
-#endif /* EJERCICIO_EJ_21_75_SUBMATRIZ_MAYOR_SUMA_H */
+#endif /* EJ_21_75_SUBMATRIZ_MAYOR_SUMA_H */

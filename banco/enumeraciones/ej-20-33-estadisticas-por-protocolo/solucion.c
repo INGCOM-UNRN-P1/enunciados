@@ -1,29 +1,8 @@
-/*
- * Solucion modelo para ej-20-33-estadisticas-por-protocolo
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
-
-int proc_sticas_por_protocolo(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    int n = 0;
-    if (scanf("%d", &n) == 1)
-    {
-        printf("OK %d\n", n);
-    }
-    else
-    {
-        printf("OK\n");
-    }
-    return 0;
+#include "ej-20-33-estadisticas-por-protocolo.h"
+estadisticas_protocolo_t contar_por_protocolo(const paquete_red_t *p, size_t n) {
+    estadisticas_protocolo_t r={0,0,0,0}; if (!p) return r;
+    for(size_t i=0;i<n;i++) switch(p[i].protocolo) {
+    case PROTOCOLO_TCP: r.tcp++; break; case PROTOCOLO_UDP: r.udp++; break;
+    case PROTOCOLO_ICMP: r.icmp++; break; default: r.otro++; break; }
+    return r;
 }

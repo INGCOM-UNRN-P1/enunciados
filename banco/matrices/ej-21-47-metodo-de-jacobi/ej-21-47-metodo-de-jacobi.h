@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Método de Jacobi */
-int proc__47_metodo_de_jacobi(int val);
+double *metodo_jacobi(double **A, double *b, int n, double tolerancia,
+                      int max_iter);
 
 #endif /* EJERCICIO_EJ_21_47_METODO_DE_JACOBI_H */

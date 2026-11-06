@@ -1,56 +1,20 @@
-Implementar funciones para analizar propiedades de formatos.
+# Análisis de formatos
 
+Implementá la siguiente interfaz declarada en `ej-20-49-analisis-de-formatos.h`:
 
+```c
+enum formato_imagen { FORMATO_JPEG, FORMATO_PNG, FORMATO_GIF, FORMATO_BMP, FORMATO_WEBP, FORMATO_TIFF, FORMATO_SVG };
+enum modo_color { COLOR_ESCALA_GRISES, COLOR_RGB, COLOR_RGBA, COLOR_CMYK, COLOR_INDEXADO };
+typedef struct { enum formato_imagen formato; enum modo_color modo; int ancho, alto, profundidad_bits; bool tiene_transparencia, es_animado; } metadata_imagen_t;
 
-``` c
 bool soporta_transparencia(enum formato_imagen formato);
 bool soporta_animacion(enum formato_imagen formato);
 bool es_formato_comprimido(enum formato_imagen formato);
 const char *extension_formato(enum formato_imagen formato);
 ```
 
-## Sistema de Notificaciones
+El encabezado define el enum autocontenido. Transparencia: PNG, GIF, WEBP, TIFF y SVG. Animación: GIF y WEBP. Compresión: JPEG, PNG, GIF y WEBP. Extensiones (sin punto): `jpg`, `png`, `gif`, `bmp`, `webp`, `tiff`, `svg`. Formato inválido: las tres propiedades devuelven false y la extensión `desconocido`.
 
-### 📋 Contrato de las Funciones
+## Compilación y pruebas
 
-```c
-/*
- * Procesa el flujo principal de Análisis de formatos
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_analisis_de_formatos(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

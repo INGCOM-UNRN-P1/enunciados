@@ -1,5 +1,5 @@
 id: num-linalg-03
-titulo: Método de la Secante para Ecuaciones no Lineales
+titulo: Método de la secante
 tema: algebra_lineal_numerica
 bloom: 1
 minutos_estimados: 10
@@ -15,39 +15,17 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_num_linalg_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Método de la Secante para Ecuaciones
-    no Lineales
+- nombre: secante
+  retorno: double
+  parametros: double x0, double x1, double tolerancia, size_t max_iter
+  descripcion: Devuelve la raíz aproximada; NAN ante datos inválidos, denominador degenerado o falta de
+    convergencia.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_03_positivo
-  funcion: ejecutar_num_linalg_03
-  codigo: 'int res = ejecutar_num_linalg_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_03_cero
-  funcion: ejecutar_num_linalg_03
-  codigo: 'int res = ejecutar_num_linalg_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_03_negativo
-  funcion: ejecutar_num_linalg_03
-  codigo: 'int res = ejecutar_num_linalg_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_03_valor_limite
-  funcion: ejecutar_num_linalg_03
-  codigo: 'int res = ejecutar_num_linalg_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_03_valor_unitario
-  funcion: ejecutar_num_linalg_03
-  codigo: 'int res = ejecutar_num_linalg_03(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_secante_funcional
+  funcion: secante
+  codigo: assert(fabs(secante(1,2,1e-10,100)-sqrt(2))<1e-8);assert(isnan(secante(1,1,1e-8,20)));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

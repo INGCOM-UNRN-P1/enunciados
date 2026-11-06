@@ -1,11 +1,13 @@
-#ifndef EJERCICIO_EJ_20_38_MODELO_DE_ESTADOS_H
-#define EJERCICIO_EJ_20_38_MODELO_DE_ESTADOS_H
-
+#ifndef EJERCICIO_EJ_20_38_H
+#define EJERCICIO_EJ_20_38_H
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Modelo de estados */
-int proc_38_modelo_de_estados(int val);
+enum estado_proceso { PROCESO_NUEVO, PROCESO_LISTO, PROCESO_EJECUTANDO, PROCESO_BLOQUEADO, PROCESO_TERMINADO };
+enum razon_bloqueo { BLOQ_IO, BLOQ_MUTEX, BLOQ_SEMAFORO, BLOQ_MENSAJE };
+typedef struct { int pid; enum estado_proceso estado; enum razon_bloqueo razon; int prioridad; } proceso_t;
+bool proceso_valido(const proceso_t *proceso);
+const char *estado_proceso_a_string(enum estado_proceso estado);
 
-#endif /* EJERCICIO_EJ_20_38_MODELO_DE_ESTADOS_H */
+#endif

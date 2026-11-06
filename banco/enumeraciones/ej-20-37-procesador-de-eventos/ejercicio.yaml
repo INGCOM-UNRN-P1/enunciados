@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
-  oculta en el archivo `.c`.'
-- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
-  la estructura de forma segura.'
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.'
 tags:
 - tipos
 - memoria
@@ -20,36 +18,19 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_rocesador_de_eventos
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Procesador de eventos
+- nombre: inicializar_procesador_eventos
+  retorno: void
+  parametros: procesador_eventos_t *procesador, manejador_evento_t manejador, void *contexto
+  descripcion: API funcional de Procesador de eventos
+- nombre: procesar_evento
+  retorno: bool
+  parametros: procesador_eventos_t *procesador, const evento_t *evento
+  descripcion: API funcional de Procesador de eventos
 tests_funciones:
-- nombre: test_proc_rocesador_de_eventos_positivo
-  funcion: proc_rocesador_de_eventos
-  codigo: 'int res = proc_rocesador_de_eventos(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_rocesador_de_eventos_cero
-  funcion: proc_rocesador_de_eventos
-  codigo: 'int res = proc_rocesador_de_eventos(0);
-
-    assert(res == 0);'
-- nombre: test_proc_rocesador_de_eventos_negativo
-  funcion: proc_rocesador_de_eventos
-  codigo: 'int res = proc_rocesador_de_eventos(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_rocesador_de_eventos_valor_limite
-  funcion: proc_rocesador_de_eventos
-  codigo: 'int res = proc_rocesador_de_eventos(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_rocesador_de_eventos_valor_unitario
-  funcion: proc_rocesador_de_eventos
-  codigo: 'int res = proc_rocesador_de_eventos(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_37_callback_contadores
+  funcion: procesar_evento
+  codigo: void cb(const evento_t *e, void *c){(void)e;(*(int*)c)++;} int n=0; procesador_eventos_t p; evento_t e={EVENTO_CLICK,0,0,0,0};
+    inicializar_procesador_eventos(&p,cb,&n); assert(procesar_evento(&p,&e)&&n==1&&p.procesados==1); e.tipo=(enum tipo_evento)99; assert(!procesar_evento(&p,&e)&&p.ignorados==1);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

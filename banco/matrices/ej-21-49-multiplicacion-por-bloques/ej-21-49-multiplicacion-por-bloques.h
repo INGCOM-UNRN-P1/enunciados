@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Multiplicación por bloques */
-int proc_licacion_por_bloques(int val);
+double **multiplicar_bloques(double **A, double **B, int n, int tam_bloque);
 
 #endif /* EJERCICIO_EJ_21_49_MULTIPLICACION_POR_BLOQUES_H */

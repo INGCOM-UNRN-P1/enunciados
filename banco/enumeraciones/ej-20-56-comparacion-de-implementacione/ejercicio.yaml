@@ -4,10 +4,10 @@ tema: enumeraciones
 bloom: 4
 minutos_estimados: 35
 pistas:
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
+- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos
+  inválidos.'
+- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija
+  finalizar.'
 tags:
 - implementaciones
 - tipos
@@ -20,36 +20,15 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_n_de_implementacione
+- nombre: dia_a_indice
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Comparación de implementaciones
+  parametros: enum dia dia
+  descripcion: Contrato funcional del modelo de enums/FSM
 tests_funciones:
-- nombre: test_proc_n_de_implementacione_positivo
-  funcion: proc_n_de_implementacione
-  codigo: 'int res = proc_n_de_implementacione(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_n_de_implementacione_cero
-  funcion: proc_n_de_implementacione
-  codigo: 'int res = proc_n_de_implementacione(0);
-
-    assert(res == 0);'
-- nombre: test_proc_n_de_implementacione_negativo
-  funcion: proc_n_de_implementacione
-  codigo: 'int res = proc_n_de_implementacione(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_n_de_implementacione_valor_limite
-  funcion: proc_n_de_implementacione
-  codigo: 'int res = proc_n_de_implementacione(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_n_de_implementacione_valor_unitario
-  funcion: proc_n_de_implementacione
-  codigo: 'int res = proc_n_de_implementacione(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_representaciones_de_dia
+  funcion: dia_a_indice
+  codigo: assert(dia_a_indice(LUNES)==0); assert(dia_a_indice(DOMINGO)==6); assert(dia_a_indice((enum
+    dia)9)==-1); assert(mascara_dia(MIERCOLES)==4u); assert(tamanio_enum_dia()>=sizeof(int));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

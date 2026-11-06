@@ -1,18 +1,10 @@
 id: ej-21-76-matriz-dispersa-sparse
-titulo: Matriz Dispersa (Sparse)
+titulo: Matriz dispersa con mapa de ocupación
 tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
-- '**Row-major es más eficiente en C:** Las matrices se almacenan por filas'
-- '**Acceso secuencial:** `matriz[i][j++]` es más rápido que `matriz[i++][j]`'
-- '**Localidad espacial:** Elementos consecutivos están cerca en memoria ``` c //
-  MÁS RÁPIDO (row-major) for (i...) for (j...) matriz[i][j] // MÁS LENTO (column-major)
-  for (j...) for (i...) matriz[i][j] ``` <!-- c -->'
+- Guardá solo los elementos distintos de cero junto con sus coordenadas.
 tags:
 - matrices
 - dispersa
@@ -23,38 +15,21 @@ tags:
 - dep:lazos_anidados
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_triz_dispersa_sparse
+- nombre: sparse_set
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Matriz Dispersa (Sparse)
+  parametros: 'double *valores, unsigned char *ocupado, size_t filas, size_t columnas, size_t fila, size_t
+    columna, double valor);
+
+    double sparse_get(const double *valores, const unsigned char *ocupado, size_t filas, size_t columnas,
+    size_t fila, size_t columna, int *valido'
+  descripcion: sparse_set devuelve 1/0; sparse_get devuelve el valor o cero y escribe en valido si la
+    consulta fue válida.
 tests_funciones:
-- nombre: test_proc_triz_dispersa_sparse_positivo
-  funcion: proc_triz_dispersa_sparse
-  codigo: 'int res = proc_triz_dispersa_sparse(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_triz_dispersa_sparse_cero
-  funcion: proc_triz_dispersa_sparse
-  codigo: 'int res = proc_triz_dispersa_sparse(0);
-
-    assert(res == 0);'
-- nombre: test_proc_triz_dispersa_sparse_negativo
-  funcion: proc_triz_dispersa_sparse
-  codigo: 'int res = proc_triz_dispersa_sparse(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_triz_dispersa_sparse_valor_limite
-  funcion: proc_triz_dispersa_sparse
-  codigo: 'int res = proc_triz_dispersa_sparse(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_triz_dispersa_sparse_valor_unitario
-  funcion: proc_triz_dispersa_sparse
-  codigo: 'int res = proc_triz_dispersa_sparse(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_sparse_set_funcional
+  funcion: sparse_set
+  codigo: double v[6]={0};unsigned char o[6]={0};int ok=0;assert(sparse_set(v,o,2,3,1,2,7));assert(sparse_get(v,o,2,3,1,2,&ok)==7&&ok);assert(sparse_set(v,o,2,3,1,2,0));assert(sparse_get(v,o,2,3,1,2,&ok)==0&&ok);assert(!sparse_set(v,o,2,3,2,0,1));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: matrices_2d

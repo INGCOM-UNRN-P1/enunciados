@@ -4,94 +4,8 @@ tema: enumeraciones
 bloom: 5
 minutos_estimados: 45
 pistas:
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Verificar la correcta apertura del archivo y controlar errores de
-  E/S con `ferror` y `feof`.'
-- '[Plus Ultra] Soportar rutas complejas y asegurar el cierre del archivo en todos
-  los caminos de ejecución.'
-- '[Plus Ultra] Verificar el retorno de asignación de memoria y garantizar la liberación
-  total de recursos en caso de error.'
-- '[Plus Ultra] Verificar la ausencia de fugas de memoria (*memory leaks*) mediante
-  Valgrind o AddressSanitizer.'
-- '[Plus Ultra] Validar que los campos de puerto y tamaño se encuentren dentro de
-  los rangos válidos del protocolo.'
-- '[Plus Ultra] Modularizar la función de formateo para imprimir el paquete como una
-  cadena estructurada.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Validar que las direcciones IP ingresadas tengan un formato numérico
-  coherente.'
-- '[Plus Ultra] Implementar una función para listar todos los dispositivos que se
-  encuentren en un estado específico.'
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
-- '[Plus Ultra] Validar punteros `NULL` recibidos como parámetro para evitar fallos
-  de segmentación.'
-- '[Plus Ultra] Implementar una versión utilizando aritmética de punteros en lugar
-  de indexación directa.'
-- Sufijo `_t` para el tipo
-- Prefijo común para los valores **Estructuras:** ``` c typedef struct { // campos
-  } nombre_t; ``` <!-- c -->
-- Sufijo `_t` indica que es un tipo definido por el usuario
+- Consultá `sizeof` en la misma plataforma y configuración de compilación que se desea describir.
+- Separá el tamaño de representación de las mediciones de tiempo de ejecución.
 tags:
 - tamano
 - tipos
@@ -104,36 +18,18 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: proc_tamano_y_rendimiento
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Tamaño y rendimiento
+- nombre: tamanio_enum_estado
+  retorno: size_t
+  parametros: void
+  descripcion: Devuelve sizeof(enum estado) en la plataforma actual
+- nombre: tamanio_tipo_entero
+  retorno: size_t
+  parametros: void
+  descripcion: Devuelve sizeof(int) en la plataforma actual
 tests_funciones:
-- nombre: test_proc_tamano_y_rendimiento_positivo
-  funcion: proc_tamano_y_rendimiento
-  codigo: 'int res = proc_tamano_y_rendimiento(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_tamano_y_rendimiento_cero
-  funcion: proc_tamano_y_rendimiento
-  codigo: 'int res = proc_tamano_y_rendimiento(0);
-
-    assert(res == 0);'
-- nombre: test_proc_tamano_y_rendimiento_negativo
-  funcion: proc_tamano_y_rendimiento
-  codigo: 'int res = proc_tamano_y_rendimiento(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_tamano_y_rendimiento_valor_limite
-  funcion: proc_tamano_y_rendimiento
-  codigo: 'int res = proc_tamano_y_rendimiento(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_tamano_y_rendimiento_valor_unitario
-  funcion: proc_tamano_y_rendimiento
-  codigo: 'int res = proc_tamano_y_rendimiento(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_tamanios
+  funcion: tamanio_enum_estado
+  codigo: assert(tamanio_enum_estado()>0); assert(tamanio_tipo_entero()>0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

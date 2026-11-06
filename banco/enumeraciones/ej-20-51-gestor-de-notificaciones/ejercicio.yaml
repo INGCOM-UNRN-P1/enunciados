@@ -4,10 +4,9 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar el resultado
+  mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones y postcondiciones.'
 tags:
 - tipos
 - notificaciones
@@ -20,36 +19,15 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_or_de_notificaciones
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Gestor de notificaciones
+- nombre: debe_notificar
+  retorno: bool
+  parametros: enum nivel_notificacion nivel, enum nivel_notificacion minimo
+  descripcion: Contrato funcional del modelo de enums/FSM
 tests_funciones:
-- nombre: test_proc_or_de_notificaciones_positivo
-  funcion: proc_or_de_notificaciones
-  codigo: 'int res = proc_or_de_notificaciones(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_or_de_notificaciones_cero
-  funcion: proc_or_de_notificaciones
-  codigo: 'int res = proc_or_de_notificaciones(0);
-
-    assert(res == 0);'
-- nombre: test_proc_or_de_notificaciones_negativo
-  funcion: proc_or_de_notificaciones
-  codigo: 'int res = proc_or_de_notificaciones(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_or_de_notificaciones_valor_limite
-  funcion: proc_or_de_notificaciones
-  codigo: 'int res = proc_or_de_notificaciones(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_or_de_notificaciones_valor_unitario
-  funcion: proc_or_de_notificaciones
-  codigo: 'int res = proc_or_de_notificaciones(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_umbral_y_canales
+  funcion: debe_notificar
+  codigo: assert(debe_notificar(NOTIF_ERROR,NOTIF_ADVERTENCIA)); assert(!debe_notificar(NOTIF_INFO,NOTIF_ERROR));
+    assert((canales_para_nivel(NOTIF_CRITICO)&CANAL_PUSH)!=0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

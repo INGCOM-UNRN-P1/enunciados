@@ -1,73 +1,17 @@
-Modelar el ciclo de vida de un proceso en un sistema operativo.
+# Modelo de estados
 
-
-
-```{code-block} c
-:linenos:
-enum estado_proceso
-{
-    PROCESO_NUEVO,
-    PROCESO_LISTO,
-    PROCESO_EJECUTANDO,
-    PROCESO_BLOQUEADO,
-    PROCESO_TERMINADO
-};
-enum razon_bloqueo
-{
-    BLOQ_IO,
-    BLOQ_MUTEX,
-    BLOQ_SEMAFORO,
-    BLOQ_MENSAJE
-};
-typedef struct
-{
-    int pid;
-    enum estado_proceso estado;
-    enum razon_bloqueo razon; // Solo válido si estado == BLOQUEADO
-    int prioridad;
-} proceso_t;
-```
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-38-modelo-de-estados.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Modelo de estados
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_38_modelo_de_estados(int val);
-
+enum estado_proceso { PROCESO_NUEVO, PROCESO_LISTO, PROCESO_EJECUTANDO, PROCESO_BLOQUEADO, PROCESO_TERMINADO };
+enum razon_bloqueo { BLOQ_IO, BLOQ_MUTEX, BLOQ_SEMAFORO, BLOQ_MENSAJE };
+typedef struct { int pid; enum estado_proceso estado; enum razon_bloqueo razon; int prioridad; } proceso_t;
+bool proceso_valido(const proceso_t *proceso);
+const char *estado_proceso_a_string(enum estado_proceso estado);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Un proceso válido tiene `pid > 0`, prioridad no negativa, estado declarado y, si está bloqueado, razón declarada. Para estados no bloqueados la razón se ignora. El conversor devuelve `nuevo`, `listo`, `ejecutando`, `bloqueado`, `terminado` o `desconocido` para estado inválido.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

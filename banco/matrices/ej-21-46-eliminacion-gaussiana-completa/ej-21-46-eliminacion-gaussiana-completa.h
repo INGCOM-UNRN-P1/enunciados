@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Eliminación gaussiana completa */
-int proc_n_gaussiana_completa(int val);
+double *resolver_sistema(double **A, double *b, int n);
 
 #endif /* EJERCICIO_EJ_21_46_ELIMINACION_GAUSSIANA_COMPLETA_H */

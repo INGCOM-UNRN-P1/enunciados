@@ -1,11 +1,13 @@
-#ifndef EJERCICIO_EJ_20_36_TIPOS_DE_EVENTOS_DE_UI_H
-#define EJERCICIO_EJ_20_36_TIPOS_DE_EVENTOS_DE_UI_H
-
+#ifndef EJERCICIO_EJ_20_36_H
+#define EJERCICIO_EJ_20_36_H
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Tipos de eventos de UI */
-int proc_pos_de_eventos_de_ui(int val);
+enum tipo_evento { EVENTO_CLICK, EVENTO_DOBLE_CLICK, EVENTO_PRESIONAR_TECLA, EVENTO_SOLTAR_TECLA, EVENTO_MOVER_MOUSE, EVENTO_SCROLL };
+enum boton_mouse { BOTON_IZQUIERDO=1, BOTON_DERECHO=2, BOTON_MEDIO=4 };
+typedef struct { enum tipo_evento tipo; int x, y; unsigned int botones; unsigned int tecla; } evento_t;
+bool evento_valido(const evento_t *evento);
+bool boton_presionado(const evento_t *evento, enum boton_mouse boton);
 
-#endif /* EJERCICIO_EJ_20_36_TIPOS_DE_EVENTOS_DE_UI_H */
+#endif

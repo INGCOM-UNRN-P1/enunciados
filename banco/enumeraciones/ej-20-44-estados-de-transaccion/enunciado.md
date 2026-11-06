@@ -1,73 +1,17 @@
-Modelar el ciclo de vida de una transacción.
+# Estados de transacción
 
-
-
-```{code-block} c
-:linenos:
-enum estado_transaccion
-{
-    TX_INICIADA,
-    TX_ACTIVA,
-    TX_PREPARADA,
-    TX_COMPROMETIDA,
-    TX_ABORTADA
-};
-enum tipo_aislamiento
-{
-    AISLAMIENTO_READ_UNCOMMITTED,
-    AISLAMIENTO_READ_COMMITTED,
-    AISLAMIENTO_REPEATABLE_READ,
-    AISLAMIENTO_SERIALIZABLE
-};
-typedef struct
-{
-    unsigned long id;
-    enum estado_transaccion estado;
-    enum tipo_aislamiento aislamiento;
-    int num_operaciones;
-} transaccion_t;
-```
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-44-estados-de-transaccion.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Estados de transacción
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_tados_de_transaccion(int val);
-
+enum estado_transaccion { TX_INICIADA, TX_ACTIVA, TX_PREPARADA, TX_COMPROMETIDA, TX_ABORTADA };
+enum tipo_aislamiento { AISLAMIENTO_READ_UNCOMMITTED, AISLAMIENTO_READ_COMMITTED, AISLAMIENTO_REPEATABLE_READ, AISLAMIENTO_SERIALIZABLE };
+typedef struct { unsigned long id; enum estado_transaccion estado; enum tipo_aislamiento aislamiento; int num_operaciones; } transaccion_t;
+bool transaccion_valida(const transaccion_t *tx);
+bool transicion_transaccion_valida(enum estado_transaccion actual, enum estado_transaccion siguiente);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La transacción es válida si no es NULL, id distinto de cero, estado y aislamiento declarados, y operaciones no negativas. Transiciones admitidas: INICIADA→ACTIVA/ABORTADA; ACTIVA→PREPARADA/ABORTADA; PREPARADA→COMPROMETIDA/ABORTADA. Ninguna transición sale de un estado terminal. Estados inválidos no permiten transición.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

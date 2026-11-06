@@ -1,29 +1,3 @@
-/*
- * Solucion modelo para ej-20-52-algoritmos-de-compresion
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
-
-int proc_ritmos_de_compresion(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    int n = 0;
-    if (scanf("%d", &n) == 1)
-    {
-        printf("OK %d\n", n);
-    }
-    else
-    {
-        printf("OK\n");
-    }
-    return 0;
-}
+#include "ej-20-52-algoritmos-de-compresion.h"
+bool algoritmo_compresion_valido(enum algoritmo_compresion a){return (unsigned)a<COMP_ALGORITMO_MAX;}
+bool nivel_compresion_valido(enum nivel_compresion n){return n==NIVEL_MINIMO||n==NIVEL_RAPIDO||n==NIVEL_NORMAL||n==NIVEL_MAXIMO;}

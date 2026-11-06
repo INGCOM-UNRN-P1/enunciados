@@ -1,53 +1,13 @@
-Implementar eliminación gaussiana con pivoteo completo para resolver $Ax = b$.
+# Eliminación gaussiana con pivoteo completo
 
+resuelve Ax=b con eliminación gaussiana y pivoteo completo, incluyendo intercambio de columnas. A y b no se modifican.
 
+## Firma requerida
 
-``` c
+```c
 double *resolver_sistema(double **A, double *b, int n);
 ```
 
-### 📋 Contrato de las Funciones
+## Memoria, errores y terminación
 
-```c
-/*
- * Procesa el flujo principal de Eliminación gaussiana completa
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_n_gaussiana_completa(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Validar estrictamente los datos de entrada para manejar valores fuera de rango o tipos inválidos.
-- Permitir el procesamiento interactivo continuo mediante un lazo hasta que el usuario elija finalizar.
-:::
+Devuelve un vector de n doubles reservado con malloc; la persona que llama debe liberarlo con free. Devuelve NULL si n<=0, hay punteros inválidos, falta memoria o la matriz es singular.

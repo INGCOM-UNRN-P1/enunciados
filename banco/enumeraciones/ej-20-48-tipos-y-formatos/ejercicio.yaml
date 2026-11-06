@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - tipos
 - formatos
@@ -19,36 +17,19 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc__48_tipos_y_formatos
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Tipos y formatos
+- nombre: metadata_imagen_valida
+  retorno: bool
+  parametros: const metadata_imagen_t *metadata
+  descripcion: API funcional de Tipos y formatos
 tests_funciones:
-- nombre: test_proc__48_tipos_y_formatos_positivo
-  funcion: proc__48_tipos_y_formatos
-  codigo: 'int res = proc__48_tipos_y_formatos(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__48_tipos_y_formatos_cero
-  funcion: proc__48_tipos_y_formatos
-  codigo: 'int res = proc__48_tipos_y_formatos(0);
-
-    assert(res == 0);'
-- nombre: test_proc__48_tipos_y_formatos_negativo
-  funcion: proc__48_tipos_y_formatos
-  codigo: 'int res = proc__48_tipos_y_formatos(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__48_tipos_y_formatos_valor_limite
-  funcion: proc__48_tipos_y_formatos
-  codigo: 'int res = proc__48_tipos_y_formatos(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__48_tipos_y_formatos_valor_unitario
-  funcion: proc__48_tipos_y_formatos
-  codigo: 'int res = proc__48_tipos_y_formatos(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_48_metadata
+  funcion: metadata_imagen_valida
+  codigo: '{ metadata_imagen_t m={FORMATO_PNG,COLOR_RGBA,640,480,8,true,false}; assert(metadata_imagen_valida(&m)); m.formato=FORMATO_JPEG;
+    assert(!metadata_imagen_valida(&m)); }'
+- nombre: test_48_svg
+  funcion: metadata_imagen_valida
+  codigo: '{ metadata_imagen_t m={FORMATO_SVG,COLOR_RGB,100,100,0,false,false}; assert(metadata_imagen_valida(&m)); m.es_animado=true;
+    assert(!metadata_imagen_valida(&m)); }'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

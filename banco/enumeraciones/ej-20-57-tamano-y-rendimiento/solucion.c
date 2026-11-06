@@ -1,20 +1,4 @@
-typedef enum
-{
-    HTTP_OK = 200,
-    HTTP_CREATED = 201,
-    HTTP_BAD_REQUEST = 400,
-    HTTP_NOT_FOUND = 404,
-    HTTP_SERVER_ERROR = 500
-} http_status_e;
-
-
-int proc_tamano_y_rendimiento(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+#include "ej-20-57-tamano-y-rendimiento.h"
+enum estado { ESTADO_A, ESTADO_B, ESTADO_C };
+size_t tamanio_enum_estado(void){return sizeof(enum estado);}
+size_t tamanio_tipo_entero(void){return sizeof(int);}

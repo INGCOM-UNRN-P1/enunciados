@@ -4,10 +4,9 @@ tema: algoritmos_ordenamiento
 bloom: 4
 minutos_estimados: 35
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad
+  máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - insertion
 - busqueda
@@ -21,37 +20,14 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_to_por_insercion_ins
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Ordenamiento por Inserción (Insertion
-    Sort)
+- nombre: ordenar_insercion
+  retorno: void
+  parametros: int *datos, size_t n
+  descripcion: Contrato funcional específico del ejercicio
 tests_funciones:
-- nombre: test_proc_to_por_insercion_ins_positivo
-  funcion: proc_to_por_insercion_ins
-  codigo: 'int res = proc_to_por_insercion_ins(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_to_por_insercion_ins_cero
-  funcion: proc_to_por_insercion_ins
-  codigo: 'int res = proc_to_por_insercion_ins(0);
-
-    assert(res == 0);'
-- nombre: test_proc_to_por_insercion_ins_negativo
-  funcion: proc_to_por_insercion_ins
-  codigo: 'int res = proc_to_por_insercion_ins(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_to_por_insercion_ins_valor_limite
-  funcion: proc_to_por_insercion_ins
-  codigo: 'int res = proc_to_por_insercion_ins(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_to_por_insercion_ins_valor_unitario
-  funcion: proc_to_por_insercion_ins
-  codigo: 'int res = proc_to_por_insercion_ins(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_insercion_orden_inverso
+  funcion: ordenar_insercion
+  codigo: int a[]={5,4,3,2,1}; ordenar_insercion(a,5); for(size_t i=0;i<5;i++)assert(a[i]==(int)i+1);
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 subtema: ordenamiento_insercion

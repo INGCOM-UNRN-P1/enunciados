@@ -4,10 +4,7 @@ tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
-  order*) para mejorar el uso de caché.'
-- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
-  de los límites del contenedor.'
+- Intercambiá cada par de posiciones simétricas una sola vez.
 tags:
 - matrices
 - transpuesta
@@ -18,38 +15,17 @@ tags:
 - dep:lazos_anidados
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_nspuesta_por_bloques
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Transpuesta por bloques
+- nombre: transponer_bloques
+  retorno: void
+  parametros: double **matriz, int n, int tam_bloque
+  descripcion: La matriz y sus filas son propiedad de quien llama y no se asigna ni libera memoria. Si
+    matriz es NULL, n<=0 o tam_bloque<=0, la función no realiza cambios.
 tests_funciones:
-- nombre: test_proc_nspuesta_por_bloques_positivo
-  funcion: proc_nspuesta_por_bloques
-  codigo: 'int res = proc_nspuesta_por_bloques(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_nspuesta_por_bloques_cero
-  funcion: proc_nspuesta_por_bloques
-  codigo: 'int res = proc_nspuesta_por_bloques(0);
-
-    assert(res == 0);'
-- nombre: test_proc_nspuesta_por_bloques_negativo
-  funcion: proc_nspuesta_por_bloques
-  codigo: 'int res = proc_nspuesta_por_bloques(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_nspuesta_por_bloques_valor_limite
-  funcion: proc_nspuesta_por_bloques
-  codigo: 'int res = proc_nspuesta_por_bloques(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_nspuesta_por_bloques_valor_unitario
-  funcion: proc_nspuesta_por_bloques
-  codigo: 'int res = proc_nspuesta_por_bloques(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: transpuesta_in_situ_teselas
+  funcion: transponer_bloques
+  codigo: double r0[]={1,2,3},r1[]={4,5,6},r2[]={7,8,9};double*A[]={r0,r1,r2};transponer_bloques(A,3,2);assert(A[0][0]==1&&A[0][1]==4&&A[0][2]==7&&A[1][0]==2&&A[1][2]==8&&A[2][0]==3&&A[2][1]==6);transponer_bloques(A,3,0);assert(A[0][1]==4);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: transpuesta

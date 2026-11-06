@@ -1,13 +1,10 @@
 id: ej-21-48-metodo-de-gauss-seidel
-titulo: Método de Gauss-Seidel
+titulo: Método de Gauss–Seidel
 tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Optimizar el acceso a memoria respetando el orden por filas (*row-major
-  order*) para mejorar el uso de caché.'
-- '[Plus Ultra] Validar que los índices ingresados se encuentren estrictamente dentro
-  de los límites del contenedor.'
+- Reutilizá los valores actualizados durante cada iteración.
 tags:
 - matrices
 - metodo
@@ -18,38 +15,23 @@ tags:
 - dep:lazos_anidados
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_todo_de_gauss_seidel
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Método de Gauss-Seidel
+- nombre: metodo_gauss_seidel
+  retorno: double *
+  parametros: double **A, double *b, int n, double tolerancia,                             int max_iter
+  descripcion: Devuelve vector n reservado con malloc, a liberar por quien llama. NULL ante argumentos
+    inválidos, diagonal nula, falta de memoria o falta de convergencia. Converge cuando la norma infinito
+    del cambio en una iteración <= tolerancia; diagonal estrictamente dominante es suficiente, pero no
+    necesaria.
 tests_funciones:
-- nombre: test_proc_todo_de_gauss_seidel_positivo
-  funcion: proc_todo_de_gauss_seidel
-  codigo: 'int res = proc_todo_de_gauss_seidel(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_todo_de_gauss_seidel_cero
-  funcion: proc_todo_de_gauss_seidel
-  codigo: 'int res = proc_todo_de_gauss_seidel(0);
-
-    assert(res == 0);'
-- nombre: test_proc_todo_de_gauss_seidel_negativo
-  funcion: proc_todo_de_gauss_seidel
-  codigo: 'int res = proc_todo_de_gauss_seidel(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_todo_de_gauss_seidel_valor_limite
-  funcion: proc_todo_de_gauss_seidel
-  codigo: 'int res = proc_todo_de_gauss_seidel(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_todo_de_gauss_seidel_valor_unitario
-  funcion: proc_todo_de_gauss_seidel
-  codigo: 'int res = proc_todo_de_gauss_seidel(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: converge_con_actualizaciones
+  funcion: metodo_gauss_seidel
+  codigo: double r0[]={4,1},r1[]={1,3};double*A[]={r0,r1};double b[]={1,2};double*x=metodo_gauss_seidel(A,b,2,1e-9,100);assert(x&&fabs(4*x[0]+x[1]-1)<1e-7&&fabs(x[0]+3*x[1]-2)<1e-7);free(x);
+- nombre: diagonal_pequena_no_nula
+  funcion: metodo_gauss_seidel
+  codigo: double r[]={1e-30}, *A[]={r}, b[]={2e-30}; double *x=metodo_gauss_seidel(A,b,1,1e-12,4); assert(x
+    && fabs(x[0]-2.0)<1e-12); free(x);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: metodo

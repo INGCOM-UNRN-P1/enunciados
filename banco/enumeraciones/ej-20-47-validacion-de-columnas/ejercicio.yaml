@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 1
 minutos_estimados: 10
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - tipos
 - memoria
@@ -20,36 +18,31 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_lidacion_de_columnas
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Validación de columnas
+- nombre: es_tipo_numerico
+  retorno: bool
+  parametros: enum tipo_sql tipo
+  descripcion: API funcional de Validación de columnas
+- nombre: es_tipo_texto
+  retorno: bool
+  parametros: enum tipo_sql tipo
+  descripcion: API funcional de Validación de columnas
+- nombre: constraints_validos
+  retorno: bool
+  parametros: unsigned int constraints
+  descripcion: API funcional de Validación de columnas
+- nombre: tamanio_tipo
+  retorno: size_t
+  parametros: enum tipo_sql tipo
+  descripcion: API funcional de Validación de columnas
 tests_funciones:
-- nombre: test_proc_lidacion_de_columnas_positivo
-  funcion: proc_lidacion_de_columnas
-  codigo: 'int res = proc_lidacion_de_columnas(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_lidacion_de_columnas_cero
-  funcion: proc_lidacion_de_columnas
-  codigo: 'int res = proc_lidacion_de_columnas(0);
-
-    assert(res == 0);'
-- nombre: test_proc_lidacion_de_columnas_negativo
-  funcion: proc_lidacion_de_columnas
-  codigo: 'int res = proc_lidacion_de_columnas(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_lidacion_de_columnas_valor_limite
-  funcion: proc_lidacion_de_columnas
-  codigo: 'int res = proc_lidacion_de_columnas(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_lidacion_de_columnas_valor_unitario
-  funcion: proc_lidacion_de_columnas
-  codigo: 'int res = proc_lidacion_de_columnas(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_47_clasificacion
+  funcion: bool
+  codigo: assert(es_tipo_numerico(SQL_BIGINT)&&es_tipo_numerico(SQL_DOUBLE)); assert(!es_tipo_numerico(SQL_TEXT)); assert(es_tipo_texto(SQL_VARCHAR)&&es_tipo_texto(SQL_TEXT));
+    assert(!es_tipo_texto((enum tipo_sql)99));
+- nombre: test_47_constraints_sizes
+  funcion: bool
+  codigo: assert(constraints_validos(CONSTRAINT_NOT_NULL|CONSTRAINT_UNIQUE)); assert(!constraints_validos(1u<<12)); assert(!constraints_validos(CONSTRAINT_PRIMARY_KEY|CONSTRAINT_FOREIGN_KEY));
+    assert(tamanio_tipo(SQL_INT)==sizeof(int)&&tamanio_tipo((enum tipo_sql)99)==0);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

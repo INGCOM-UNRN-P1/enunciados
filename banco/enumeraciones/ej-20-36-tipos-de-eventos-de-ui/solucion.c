@@ -1,34 +1,3 @@
-enum tipo_evento
-{
-    EVENTO_CLICK,
-    EVENTO_DOBLE_CLICK,
-    EVENTO_PRESIONAR_TECLA,
-    EVENTO_SOLTAR_TECLA,
-    EVENTO_MOVER_MOUSE,
-    EVENTO_SCROLL
-};
-enum boton_mouse
-{
-    BOTON_IZQUIERDO = 1,
-    BOTON_DERECHO = 2,
-    BOTON_MEDIO = 4
-};
-typedef struct
-{
-    enum tipo_evento tipo;
-    int x, y;             // Coordenadas
-    unsigned int botones; // Flags de botones presionados
-    unsigned int tecla;
-} evento_t;
-
-
-int proc_pos_de_eventos_de_ui(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+#include "ej-20-36-tipos-de-eventos-de-ui.h"
+bool evento_valido(const evento_t *e) { if(!e||e->tipo<EVENTO_CLICK||e->tipo>EVENTO_SCROLL||(e->botones&~7u)) return false; if(e->tipo==EVENTO_PRESIONAR_TECLA||e->tipo==EVENTO_SOLTAR_TECLA) return e->tecla!=0; return true; }
+bool boton_presionado(const evento_t *e, enum boton_mouse b) { return evento_valido(e)&&(b==BOTON_IZQUIERDO||b==BOTON_DERECHO||b==BOTON_MEDIO)&&(e->botones&(unsigned)b)!=0; }

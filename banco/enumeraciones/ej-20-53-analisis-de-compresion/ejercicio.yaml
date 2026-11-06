@@ -4,10 +4,9 @@ tema: enumeraciones
 bloom: 4
 minutos_estimados: 35
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad
+  máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - compresion
 - tipos
@@ -20,36 +19,16 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_alisis_de_compresion
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Análisis de compresión
+- nombre: calcular_ratio
+  retorno: double
+  parametros: const resultado_compresion_t *resultado
+  descripcion: Contrato funcional del modelo de enums/FSM
 tests_funciones:
-- nombre: test_proc_alisis_de_compresion_positivo
-  funcion: proc_alisis_de_compresion
-  codigo: 'int res = proc_alisis_de_compresion(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_alisis_de_compresion_cero
-  funcion: proc_alisis_de_compresion
-  codigo: 'int res = proc_alisis_de_compresion(0);
-
-    assert(res == 0);'
-- nombre: test_proc_alisis_de_compresion_negativo
-  funcion: proc_alisis_de_compresion
-  codigo: 'int res = proc_alisis_de_compresion(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_alisis_de_compresion_valor_limite
-  funcion: proc_alisis_de_compresion
-  codigo: 'int res = proc_alisis_de_compresion(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_alisis_de_compresion_valor_unitario
-  funcion: proc_alisis_de_compresion
-  codigo: 'int res = proc_alisis_de_compresion(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_metricas_compresion
+  funcion: calcular_ratio
+  codigo: resultado_compresion_t r={COMP_GZIP,NIVEL_NORMAL,200,50,0}; assert(calcular_ratio(&r)==0.25);
+    assert(porcentaje_ahorro(&r)==75.0); r.tamanio_original=0; assert(calcular_ratio(&r)==0.0); assert(!es_algoritmo_rapido(COMP_GZIP));
+    assert(nombre_algoritmo(COMP_GZIP)[0]=='g');
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

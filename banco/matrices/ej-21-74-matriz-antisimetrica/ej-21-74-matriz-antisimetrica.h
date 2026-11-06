@@ -1,11 +1,1 @@
-#ifndef EJERCICIO_EJ_21_74_MATRIZ_ANTISIMETRICA_H
-#define EJERCICIO_EJ_21_74_MATRIZ_ANTISIMETRICA_H
-
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Matriz Antisimétrica */
-int proc_matriz_antisimetrica(int val);
-
-#endif /* EJERCICIO_EJ_21_74_MATRIZ_ANTISIMETRICA_H */
+/* Duplicado: consultar la entrada canónica indicada en el enunciado. */

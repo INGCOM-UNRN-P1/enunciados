@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_EJ_30_4_ORDENAMIENTO_POR_SELECCION_SEL_H
-#define EJERCICIO_EJ_30_4_ORDENAMIENTO_POR_SELECCION_SEL_H
-
+#ifndef EJ30_4_H
+#define EJ30_4_H
 #include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Ordenamiento por Selección (Selection Sort) */
-int proc_to_por_seleccion_sel(int val);
+void ordenar_seleccion(int *datos, size_t n);
 
-#endif /* EJERCICIO_EJ_30_4_ORDENAMIENTO_POR_SELECCION_SEL_H */
+#endif

@@ -1,19 +1,5 @@
-/*
- * Ejercicio: Gestor de notificaciones
- * Cátedra Programación I - UNRN
- */
-
-#include <stdio.h>
-
-
-int proc_or_de_notificaciones(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Gestor de notificaciones */
-    return 0;
-}
+#include "ej-20-51-gestor-de-notificaciones.h"
+static bool nivel_notificacion_valido(enum nivel_notificacion n){return (unsigned)n<NOTIF_NIVEL_MAX;}
+bool debe_notificar(enum nivel_notificacion n,enum nivel_notificacion m){return nivel_notificacion_valido(n)&&nivel_notificacion_valido(m)&&n>=m;}
+unsigned int canales_para_nivel(enum nivel_notificacion n){if(!nivel_notificacion_valido(n))return CANAL_NINGUNO;switch(n){case NOTIF_DEBUG:return CANAL_CONSOLE|CANAL_SYSLOG;case NOTIF_INFO:return CANAL_CONSOLE|CANAL_SYSLOG;case NOTIF_ADVERTENCIA:return CANAL_CONSOLE|CANAL_EMAIL|CANAL_SYSLOG;case NOTIF_ERROR:return CANAL_CONSOLE|CANAL_EMAIL|CANAL_SMS|CANAL_SYSLOG;case NOTIF_CRITICO:return CANAL_CONSOLE|CANAL_EMAIL|CANAL_SMS|CANAL_PUSH|CANAL_SYSLOG;default:return CANAL_NINGUNO;}}
+void enviar_notificacion(const notificacion_t*x,enum nivel_notificacion m,void(*emitir)(unsigned int,const char*)){if(!x||!emitir||!debe_notificar(x->nivel,m))return;unsigned int canales=x->canales&canales_para_nivel(x->nivel);for(unsigned b=1;b;b<<=1)if(canales&b)emitir(b,x->mensaje);}

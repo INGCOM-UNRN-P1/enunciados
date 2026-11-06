@@ -1,11 +1,6 @@
-#ifndef EJERCICIO_EJ_20_57_TAMANO_Y_RENDIMIENTO_H
-#define EJERCICIO_EJ_20_57_TAMANO_Y_RENDIMIENTO_H
-
+#ifndef EJ2057_H
+#define EJ2057_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Tamaño y rendimiento */
-int proc_tamano_y_rendimiento(int val);
-
-#endif /* EJERCICIO_EJ_20_57_TAMANO_Y_RENDIMIENTO_H */
+size_t tamanio_enum_estado(void);
+size_t tamanio_tipo_entero(void);
+#endif

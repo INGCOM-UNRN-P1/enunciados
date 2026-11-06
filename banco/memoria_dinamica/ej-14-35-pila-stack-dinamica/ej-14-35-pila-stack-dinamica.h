@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_EJ_14_35_PILA_STACK_DINAMICA_H
-#define EJERCICIO_EJ_14_35_PILA_STACK_DINAMICA_H
-
-#include <stddef.h>
+#ifndef EJ1435_H
+#define EJ1435_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Pila (Stack) Dinámica */
-int proc__pila_stack_dinamica(int val);
-
-#endif /* EJERCICIO_EJ_14_35_PILA_STACK_DINAMICA_H */
+#include <stddef.h>
+typedef struct { int *datos; size_t tamanio; size_t capacidad; } pila_t;
+bool pila_inicializar(pila_t *p);
+bool pila_push(pila_t *p, int valor);
+bool pila_pop(pila_t *p, int *valor);
+bool pila_peek(const pila_t *p, int *valor);
+void pila_destruir(pila_t *p);
+#endif

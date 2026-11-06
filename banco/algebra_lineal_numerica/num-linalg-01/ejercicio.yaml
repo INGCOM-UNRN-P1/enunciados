@@ -1,5 +1,5 @@
 id: num-linalg-01
-titulo: Aproximación de Raíz por Método de Newton-Raphson
+titulo: Aproximación de raíz cuadrada por Newton–Raphson
 tema: algebra_lineal_numerica
 bloom: 1
 minutos_estimados: 10
@@ -15,38 +15,16 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_num_linalg_01
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Aproximación de Raíz por Método de Newton-Raphson
+- nombre: raiz_newton
+  retorno: double
+  parametros: double s, double tolerancia, size_t max_iter
+  descripcion: Devuelve la aproximación; NAN si los datos son inválidos o no converge.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_01_positivo
-  funcion: ejecutar_num_linalg_01
-  codigo: 'int res = ejecutar_num_linalg_01(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_01_cero
-  funcion: ejecutar_num_linalg_01
-  codigo: 'int res = ejecutar_num_linalg_01(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_01_negativo
-  funcion: ejecutar_num_linalg_01
-  codigo: 'int res = ejecutar_num_linalg_01(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_01_valor_limite
-  funcion: ejecutar_num_linalg_01
-  codigo: 'int res = ejecutar_num_linalg_01(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_01_valor_unitario
-  funcion: ejecutar_num_linalg_01
-  codigo: 'int res = ejecutar_num_linalg_01(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_raiz_newton_funcional
+  funcion: raiz_newton
+  codigo: assert(fabs(raiz_newton(2,1e-12,100)-sqrt(2))<1e-10);assert(raiz_newton(0,1e-8,10)==0);assert(isnan(raiz_newton(-1,1e-8,10)));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

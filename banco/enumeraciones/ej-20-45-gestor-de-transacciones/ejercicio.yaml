@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar
-  el resultado mediante parámetros de salida.'
-- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones
-  y postcondiciones.'
+- '[Plus Ultra] Diseñar la función para devolver un código de estado de error e informar el resultado mediante parámetros de salida.'
+- '[Plus Ultra] Documentar la función con etiquetas Doxygen especificando precondiciones y postcondiciones.'
 tags:
 - transacciones
 - tipos
@@ -20,36 +18,30 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_tor_de_transacciones
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Gestor de transacciones
+- nombre: iniciar_transaccion
+  retorno: transaccion_t
+  parametros: enum tipo_aislamiento aislamiento
+  descripcion: API funcional de Gestor de transacciones
+- nombre: commit_transaccion
+  retorno: bool
+  parametros: transaccion_t *tx
+  descripcion: API funcional de Gestor de transacciones
+- nombre: rollback_transaccion
+  retorno: bool
+  parametros: transaccion_t *tx
+  descripcion: API funcional de Gestor de transacciones
+- nombre: puede_hacer_commit
+  retorno: bool
+  parametros: const transaccion_t *tx
+  descripcion: API funcional de Gestor de transacciones
 tests_funciones:
-- nombre: test_proc_tor_de_transacciones_positivo
-  funcion: proc_tor_de_transacciones
-  codigo: 'int res = proc_tor_de_transacciones(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_tor_de_transacciones_cero
-  funcion: proc_tor_de_transacciones
-  codigo: 'int res = proc_tor_de_transacciones(0);
-
-    assert(res == 0);'
-- nombre: test_proc_tor_de_transacciones_negativo
-  funcion: proc_tor_de_transacciones
-  codigo: 'int res = proc_tor_de_transacciones(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_tor_de_transacciones_valor_limite
-  funcion: proc_tor_de_transacciones
-  codigo: 'int res = proc_tor_de_transacciones(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_tor_de_transacciones_valor_unitario
-  funcion: proc_tor_de_transacciones
-  codigo: 'int res = proc_tor_de_transacciones(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_45_commit_rollback
+  funcion: bool
+  codigo: '{ transaccion_t t=iniciar_transaccion(AISLAMIENTO_READ_COMMITTED); assert(t.id&&t.estado==TX_ACTIVA&&puede_hacer_commit(&t));
+    assert(commit_transaccion(&t)&&t.estado==TX_COMPROMETIDA); assert(!rollback_transaccion(&t)); }'
+- nombre: test_45_invalido
+  funcion: bool
+  codigo: '{ transaccion_t t=iniciar_transaccion((enum tipo_aislamiento)99); assert(t.id==0&&!puede_hacer_commit(&t)); }'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

@@ -1,19 +1,2 @@
-/*
- * Ejercicio: Ordenamiento de Burbuja (Bubble Sort)
- * Cátedra Programación I - UNRN
- */
-
-#include <stdio.h>
-
-
-int proc_to_de_burbuja_bubble(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    /* TODO: Implementación de Ordenamiento de Burbuja (Bubble Sort) */
-    return 0;
-}
+#include "ej-30-3-ordenamiento-de-burbuja-bubble.h"
+void ordenar_burbuja(int *a,size_t n){if(!a)return; for(size_t i=0;i<n;i++){bool cambio=false;for(size_t j=1;j<n-i;j++)if(a[j-1]>a[j]){int t=a[j];a[j]=a[j-1];a[j-1]=t;cambio=true;}if(!cambio)break;}}

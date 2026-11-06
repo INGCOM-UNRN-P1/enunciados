@@ -1,24 +1,5 @@
-enum permiso_unix
-{
-    OWNER_READ = 0400, // 0100000000 en octal
-    OWNER_WRITE = 0200,
-    OWNER_EXECUTE = 0100,
-    GROUP_READ = 0040,
-    GROUP_WRITE = 0020,
-    GROUP_EXECUTE = 0010,
-    OTHER_READ = 0004,
-    OTHER_WRITE = 0002,
-    OTHER_EXECUTE = 0001
-};
-
-
-int proc_isos_de_archivo_unix(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+#include <stdio.h>
+#include "ej-20-34-permisos-de-archivo-unix.h"
+bool tiene_permiso_unix(unsigned int p, enum permiso_unix x) { unsigned int b=(unsigned int)x; return b && !(b & ~0777u) && (p&b)==b; }
+unsigned int agregar_permiso_unix(unsigned int p, enum permiso_unix x) { unsigned int b=(unsigned int)x; return (b && !(b&~0777u)) ? ((p|b)&0777u) : (p&0777u); }
+void mostrar_permisos_unix(unsigned int p) { const unsigned int b[]={0400,0200,0100,0040,0020,0010,0004,0002,0001}; const char c[]="rwxrwxrwx"; p&=0777u; for(int i=0;i<9;i++) putchar((p&b[i])?c[i]:'-'); putchar('\n'); }

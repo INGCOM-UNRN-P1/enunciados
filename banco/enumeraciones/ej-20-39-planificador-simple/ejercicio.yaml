@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
-  oculta en el archivo `.c`.'
-- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
-  la estructura de forma segura.'
+- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna oculta en el archivo `.c`.'
+- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar la estructura de forma segura.'
 tags:
 - planificador
 - tipos
@@ -20,36 +18,23 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc__planificador_simple
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Planificador simple
+- nombre: transicion_estado
+  retorno: bool
+  parametros: proceso_t *proceso, enum estado_proceso nuevo_estado
+  descripcion: API funcional de Planificador simple
+- nombre: puede_ejecutar
+  retorno: bool
+  parametros: const proceso_t *proceso
+  descripcion: API funcional de Planificador simple
 tests_funciones:
-- nombre: test_proc__planificador_simple_positivo
-  funcion: proc__planificador_simple
-  codigo: 'int res = proc__planificador_simple(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__planificador_simple_cero
-  funcion: proc__planificador_simple
-  codigo: 'int res = proc__planificador_simple(0);
-
-    assert(res == 0);'
-- nombre: test_proc__planificador_simple_negativo
-  funcion: proc__planificador_simple
-  codigo: 'int res = proc__planificador_simple(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__planificador_simple_valor_limite
-  funcion: proc__planificador_simple
-  codigo: 'int res = proc__planificador_simple(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__planificador_simple_valor_unitario
-  funcion: proc__planificador_simple
-  codigo: 'int res = proc__planificador_simple(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_39_transiciones
+  funcion: bool
+  codigo: '{ proceso_t p={1,PROCESO_NUEVO,BLOQ_IO,2}; assert(!puede_ejecutar(&p)); assert(transicion_estado(&p,PROCESO_LISTO)&&puede_ejecutar(&p));
+    assert(!transicion_estado(&p,PROCESO_TERMINADO)&&p.estado==PROCESO_LISTO); }'
+- nombre: test_39_ciclo
+  funcion: bool
+  codigo: '{ proceso_t p={1,PROCESO_LISTO,BLOQ_IO,0}; assert(transicion_estado(&p,PROCESO_EJECUTANDO)); assert(transicion_estado(&p,PROCESO_BLOQUEADO));
+    assert(transicion_estado(&p,PROCESO_LISTO)); }'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

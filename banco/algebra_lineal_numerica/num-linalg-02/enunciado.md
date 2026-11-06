@@ -1,48 +1,15 @@
-# Álgebra Lineal Numérica #02
+# Búsqueda de raíz por bisección
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #2.
+Implementar bisección para la función fija f(x)=x²−2 en [a,b]. El intervalo debe contener un cambio de signo; usar tolerancia positiva y tope max_iter.
 
-### 📋 Contrato de las Funciones
+### Interfaz
 
 ```c
-/*
- * Procesa el flujo principal de Método de Bisección para Búsqueda de Raíces
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_02(int val);
-
+double biseccion(double a, double b, double tolerancia, size_t max_iter);
 ```
 
-### 🧪 Ejemplos de Ejecución
+### Contrato
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Devuelve la raíz aproximada; NAN si el intervalo no encierra raíz, los datos son inválidos o no converge.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+Las matrices se representan en buffers contiguos row-major. Los tamaños se expresan en elementos, no en bytes.

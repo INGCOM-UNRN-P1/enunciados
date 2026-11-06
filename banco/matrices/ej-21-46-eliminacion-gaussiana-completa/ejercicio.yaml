@@ -1,13 +1,10 @@
 id: ej-21-46-eliminacion-gaussiana-completa
-titulo: Eliminación gaussiana completa
+titulo: Eliminación gaussiana con pivoteo completo
 tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
+- Buscá el mayor pivote en el subbloque restante y registrá las permutaciones de columnas.
 tags:
 - matrices
 - completa
@@ -18,38 +15,22 @@ tags:
 - dep:lazos_anidados
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc_n_gaussiana_completa
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Eliminación gaussiana completa
+- nombre: resolver_sistema
+  retorno: double *
+  parametros: double **A, double *b, int n
+  descripcion: Devuelve un vector de n doubles reservado con malloc; la persona que llama debe liberarlo
+    con free. Devuelve NULL si n<=0, hay punteros inválidos, falta memoria o la matriz es singular.
 tests_funciones:
-- nombre: test_proc_n_gaussiana_completa_positivo
-  funcion: proc_n_gaussiana_completa
-  codigo: 'int res = proc_n_gaussiana_completa(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_n_gaussiana_completa_cero
-  funcion: proc_n_gaussiana_completa
-  codigo: 'int res = proc_n_gaussiana_completa(0);
-
-    assert(res == 0);'
-- nombre: test_proc_n_gaussiana_completa_negativo
-  funcion: proc_n_gaussiana_completa
-  codigo: 'int res = proc_n_gaussiana_completa(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_n_gaussiana_completa_valor_limite
-  funcion: proc_n_gaussiana_completa
-  codigo: 'int res = proc_n_gaussiana_completa(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_n_gaussiana_completa_valor_unitario
-  funcion: proc_n_gaussiana_completa
-  codigo: 'int res = proc_n_gaussiana_completa(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: pivoteo_total_y_singular
+  funcion: resolver_sistema
+  codigo: double r0[]={0,2},r1[]={1,1};double *A[]={r0,r1};double b[]={5,3};double*x=resolver_sistema(A,b,2);assert(x&&fabs(x[0]-0.5)<1e-9&&fabs(x[1]-2.5)<1e-9);free(x);double
+    s0[]={1,2},s1[]={2,4};double*S[]={s0,s1};assert(resolver_sistema(S,b,2)==NULL);
+- nombre: diagonal_pequena_no_nula
+  funcion: resolver_sistema
+  codigo: double r[]={1e-30}, *A[]={r}, b[]={2e-30}; double *x=resolver_sistema(A,b,1); assert(x && fabs(x[0]-2.0)<1e-12);
+    free(x);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: completa

@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - modelo
 - tipos
@@ -20,36 +18,15 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_38_modelo_de_estados
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Modelo de estados
+- nombre: proceso_valido
+  retorno: bool
+  parametros: const proceso_t *proceso
+  descripcion: API funcional de Modelo de estados
 tests_funciones:
-- nombre: test_proc_38_modelo_de_estados_positivo
-  funcion: proc_38_modelo_de_estados
-  codigo: 'int res = proc_38_modelo_de_estados(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_38_modelo_de_estados_cero
-  funcion: proc_38_modelo_de_estados
-  codigo: 'int res = proc_38_modelo_de_estados(0);
-
-    assert(res == 0);'
-- nombre: test_proc_38_modelo_de_estados_negativo
-  funcion: proc_38_modelo_de_estados
-  codigo: 'int res = proc_38_modelo_de_estados(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_38_modelo_de_estados_valor_limite
-  funcion: proc_38_modelo_de_estados
-  codigo: 'int res = proc_38_modelo_de_estados(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_38_modelo_de_estados_valor_unitario
-  funcion: proc_38_modelo_de_estados
-  codigo: 'int res = proc_38_modelo_de_estados(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_38_validacion
+  funcion: bool
+  codigo: proceso_t p={1,PROCESO_BLOQUEADO,BLOQ_IO,3}; assert(proceso_valido(&p)); assert(strcmp(estado_proceso_a_string(PROCESO_LISTO),"listo")==0);
+    p.pid=0; assert(!proceso_valido(&p));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

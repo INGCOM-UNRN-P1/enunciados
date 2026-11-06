@@ -1,56 +1,13 @@
-Implementar funciones para analizar rendimiento de compresión.
+# 53 Analisis De Compresion
 
-
-
-``` c
-double calcular_ratio(const resultado_compresion_t *resultado);
-double porcentaje_ahorro(const resultado_compresion_t *resultado);
-bool es_algoritmo_rapido(enum algoritmo_compresion alg);
-const char *nombre_algoritmo(enum algoritmo_compresion alg);
-```
-
-## Máquina de Estados Finita Genérica
-
-### 📋 Contrato de las Funciones
+Calculá ratio comprimido/original y porcentaje de ahorro. Para tamaño original cero devolvé 0. Considerá LZ4 y Zstandard algoritmos rápidos; valores desconocidos tienen nombre `desconocido`.
 
 ```c
-/*
- * Procesa el flujo principal de Análisis de compresión
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_alisis_de_compresion(int val);
-
+enum algoritmo_compresion { COMP_NINGUNO, COMP_DEFLATE, COMP_GZIP, COMP_BZIP2, COMP_LZMA, COMP_ZSTD, COMP_LZ4, COMP_ALGORITMO_MAX };
+enum nivel_compresion { NIVEL_MINIMO=1, NIVEL_RAPIDO=3, NIVEL_NORMAL=5, NIVEL_MAXIMO=9 };
+typedef struct { enum algoritmo_compresion algoritmo; enum nivel_compresion nivel; size_t tamanio_original; size_t tamanio_comprimido; double ratio; } resultado_compresion_t;
+double calcular_ratio(const resultado_compresion_t *resultado);
+double porcentaje_ahorro(const resultado_compresion_t *resultado);
+bool es_algoritmo_rapido(enum algoritmo_compresion algoritmo);
+const char *nombre_algoritmo(enum algoritmo_compresion algoritmo);
 ```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::

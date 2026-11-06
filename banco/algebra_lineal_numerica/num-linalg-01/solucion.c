@@ -1,28 +1,8 @@
-/*
- * Metodo de Newton-Raphson
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "num-linalg-01.h"
+#include <float.h>
 #include <math.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 
-
-int ejecutar_num_linalg_01(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double s = 0.0;
-    if (scanf("%lf", &s) == 1 && s >= 0.0) {
-        double x = s / 2.0;
-        if (s == 0.0) x = 0.0;
-        else {
-            for (int it = 0; it < 20; it++) {
-                x = 0.5 * (x + s / x);
-            }
-        }
-        printf("SQRT: %.4f\n", x);
-    }
-    return 0;
-}
+double raiz_newton(double s,double tol,size_t max){if(!isfinite(s)||s<0||!isfinite(tol)||tol<=0||!max)return NAN;if(s==0)return 0;double x=s>=1?s:1;for(size_t i=0;i<max;i++){double y=0.5*(x+s/x);if(fabs(y-x)<=tol*fmax(1.0,y))return y;x=y;}return NAN;}

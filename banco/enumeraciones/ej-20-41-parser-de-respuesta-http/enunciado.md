@@ -1,57 +1,20 @@
-Implementar funciones para trabajar con HTTP.
+# Parser de respuesta HTTP
 
-
-
-``` c
-const char *metodo_a_string(enum metodo_http metodo);
-const char *codigo_a_mensaje(enum codigo_http codigo);
-bool es_codigo_exito(enum codigo_http codigo);          // 2xx
-bool es_codigo_error_cliente(enum codigo_http codigo);  // 4xx
-bool es_codigo_error_servidor(enum codigo_http codigo); // 5xx
-```
-
-## Semáforo (Sistema de Control)
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-41-parser-de-respuesta-http.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Parser de respuesta HTTP
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_er_de_respuesta_http(int val);
+enum metodo_http { HTTP_GET, HTTP_POST, HTTP_PUT, HTTP_DELETE, HTTP_PATCH, HTTP_HEAD, HTTP_OPTIONS };
+enum codigo_http { HTTP_200_OK=200, HTTP_201_CREATED=201, HTTP_204_NO_CONTENT=204, HTTP_301_MOVED=301, HTTP_302_FOUND=302, HTTP_400_BAD_REQUEST=400, HTTP_401_UNAUTHORIZED=401, HTTP_403_FORBIDDEN=403, HTTP_404_NOT_FOUND=404, HTTP_500_INTERNAL_ERROR=500, HTTP_503_UNAVAILABLE=503 };
 
+const char *metodo_a_string(enum metodo_http metodo);
+const char *codigo_a_mensaje(enum codigo_http codigo);
+bool es_codigo_exito(enum codigo_http codigo);
+bool es_codigo_error_cliente(enum codigo_http codigo);
+bool es_codigo_error_servidor(enum codigo_http codigo);
 ```
 
-### 🧪 Ejemplos de Ejecución
+El encabezado define ambos enums de manera autocontenida. Las dos conversiones siguen la tabla de ej-20-40 y devuelven `desconocido` ante valor no listado. Las tres clasificaciones reconocen rangos HTTP completos 200–299, 400–499 y 500–599, aun cuando el código no tenga constante nombrada; fuera del rango devuelven false.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

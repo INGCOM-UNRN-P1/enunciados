@@ -1,70 +1,16 @@
-Modelar diferentes tipos de archivo en un sistema de archivos.
+# Tipos de archivo
 
-
-
-```{code-block} c
-:linenos:
-enum tipo_archivo
-{
-    TIPO_REGULAR,
-    TIPO_DIRECTORIO,
-    TIPO_ENLACE_SIMBOLICO,
-    TIPO_ENLACE_DURO,
-    TIPO_DISPOSITIVO,
-    TIPO_PIPE,
-    TIPO_SOCKET
-};
-typedef struct
-{
-    char nombre[256];
-    enum tipo_archivo tipo;
-    size_t tamanio;
-    unsigned int permisos;
-} archivo_info_t;
-```
-
-## Sistema de Eventos
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-35-tipos-de-archivo.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Tipos de archivo
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc__35_tipos_de_archivo(int val);
-
+enum tipo_archivo { TIPO_REGULAR, TIPO_DIRECTORIO, TIPO_ENLACE_SIMBOLICO, TIPO_ENLACE_DURO, TIPO_DISPOSITIVO, TIPO_PIPE, TIPO_SOCKET };
+typedef struct { char nombre[256]; enum tipo_archivo tipo; size_t tamanio; unsigned int permisos; } archivo_info_t;
+const char *tipo_archivo_a_string(enum tipo_archivo tipo);
+bool archivo_info_valida(const archivo_info_t *archivo);
 ```
 
-### 🧪 Ejemplos de Ejecución
+`tipo_archivo_a_string` devuelve el nombre corto del tipo (`regular`, `directorio`, `enlace_simbolico`, `enlace_duro`, `dispositivo`, `pipe`, `socket`) o `desconocido` para valores inválidos. `archivo_info_valida` exige puntero no nulo, nombre no vacío terminado en NUL dentro del arreglo, tipo enumerado válido y permisos limitados a `0777`.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

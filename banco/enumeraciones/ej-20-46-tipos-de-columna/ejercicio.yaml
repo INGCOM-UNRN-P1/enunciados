@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - tipos
 - columna
@@ -19,36 +17,23 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc__46_tipos_de_columna
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Tipos de columna
+- nombre: tamanio_tipo
+  retorno: size_t
+  parametros: enum tipo_sql tipo
+  descripcion: API funcional de Tipos de columna
+- nombre: columna_valida
+  retorno: bool
+  parametros: const columna_t *columna
+  descripcion: API funcional de Tipos de columna
 tests_funciones:
-- nombre: test_proc__46_tipos_de_columna_positivo
-  funcion: proc__46_tipos_de_columna
-  codigo: 'int res = proc__46_tipos_de_columna(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__46_tipos_de_columna_cero
-  funcion: proc__46_tipos_de_columna
-  codigo: 'int res = proc__46_tipos_de_columna(0);
-
-    assert(res == 0);'
-- nombre: test_proc__46_tipos_de_columna_negativo
-  funcion: proc__46_tipos_de_columna
-  codigo: 'int res = proc__46_tipos_de_columna(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__46_tipos_de_columna_valor_limite
-  funcion: proc__46_tipos_de_columna
-  codigo: 'int res = proc__46_tipos_de_columna(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__46_tipos_de_columna_valor_unitario
-  funcion: proc__46_tipos_de_columna
-  codigo: 'int res = proc__46_tipos_de_columna(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_46_columna
+  funcion: bool
+  codigo: '{ columna_t c={"edad",SQL_INT,CONSTRAINT_NOT_NULL,0}; assert(columna_valida(&c)); c.longitud=5; assert(!columna_valida(&c));
+    c.tipo=SQL_VARCHAR; assert(columna_valida(&c)); }'
+- nombre: test_46_constraints
+  funcion: bool
+  codigo: '{ columna_t c={"id",SQL_INT,CONSTRAINT_AUTO_INCREMENT,0}; assert(columna_valida(&c)); c.constraints|=CONSTRAINT_FOREIGN_KEY|CONSTRAINT_PRIMARY_KEY;
+    assert(!columna_valida(&c)); }'
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

@@ -1,54 +1,62 @@
 id: ej-20-55-motor-de-fsm
-titulo: Motor de FSM
+titulo: Motor genérico de FSM
 tema: enumeraciones
-bloom: 2
-minutos_estimados: 15
+bloom: 3
+minutos_estimados: 30
 pistas:
-- '[Plus Ultra] Implementar encapsulamiento completo manteniendo la definición interna
-  oculta en el archivo `.c`.'
-- '[Plus Ultra] Añadir una función de duplicación profunda (*deep copy*) para copiar
-  la estructura de forma segura.'
+- Registrá cada transición como estado de origen, evento, estado destino y callback opcional.
+- Rechazá desbordar la tabla y estados o eventos fuera de rango.
 tags:
 - motor
-- tipos
+- fsm
 - enum
-- memoria
-- dep:tipos_datos
-- dep:condicionales
+- transiciones
+- callbacks
 - c11
-- inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_ej_20_55_motor_de_fsm
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Motor de FSM
+- nombre: fsm_inicializar
+  retorno: void
+  parametros: maquina_estados_t *fsm, estado_fsm_e inicial
+  descripcion: Inicializa la máquina y vacía su tabla de transiciones.
+- nombre: fsm_agregar_transicion
+  retorno: bool
+  parametros: maquina_estados_t *fsm, transicion_t trans
+  descripcion: Registra una transición válida si hay capacidad y no existe el par origen/evento.
+- nombre: fsm_procesar_evento
+  retorno: bool
+  parametros: maquina_estados_t *fsm, evento_fsm_e evento
+  descripcion: Ejecuta el callback de la transición coincidente y actualiza el estado.
+- nombre: fsm_estado_actual
+  retorno: estado_fsm_e
+  parametros: const maquina_estados_t *fsm
+  descripcion: Consulta el estado actual o FSM_ESTADO_MAX para una máquina inválida.
 tests_funciones:
-- nombre: test_ejecutar_ej_20_55_motor_de_fsm_positivo
-  funcion: ejecutar_ej_20_55_motor_de_fsm
-  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_ej_20_55_motor_de_fsm_cero
-  funcion: ejecutar_ej_20_55_motor_de_fsm
-  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_ej_20_55_motor_de_fsm_negativo
-  funcion: ejecutar_ej_20_55_motor_de_fsm
-  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_ej_20_55_motor_de_fsm_valor_limite
-  funcion: ejecutar_ej_20_55_motor_de_fsm
-  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_ej_20_55_motor_de_fsm_valor_unitario
-  funcion: ejecutar_ej_20_55_motor_de_fsm
-  codigo: 'int res = ejecutar_ej_20_55_motor_de_fsm(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_inicializacion_y_estado_invalido
+  funcion: fsm_inicializar
+  codigo: maquina_estados_t fsm; fsm_inicializar(&fsm,FSM_ESTADO_1); assert(fsm_estado_actual(&fsm)==FSM_ESTADO_1);
+    assert(fsm.num_transiciones==0); fsm_inicializar(&fsm,FSM_ESTADO_MAX); assert(fsm_estado_actual(&fsm)==FSM_ESTADO_MAX);
+    assert(fsm_estado_actual(NULL)==FSM_ESTADO_MAX);
+- nombre: test_registro_limites_y_duplicado
+  funcion: fsm_agregar_transicion
+  codigo: maquina_estados_t fsm; fsm_inicializar(&fsm,FSM_ESTADO_0); transicion_t t={FSM_ESTADO_0,FSM_ESTADO_1,FSM_EVENTO_0,NULL};
+    assert(fsm_agregar_transicion(&fsm,t)); assert(!fsm_agregar_transicion(&fsm,t)); transicion_t mala={FSM_ESTADO_MAX,FSM_ESTADO_1,FSM_EVENTO_1,NULL};
+    assert(!fsm_agregar_transicion(&fsm,mala)); assert(!fsm_agregar_transicion(NULL,t));
+- nombre: test_ejecucion_y_callback
+  funcion: fsm_procesar_evento
+  codigo: maquina_estados_t fsm; int llamadas=0; fsm_inicializar(&fsm,FSM_ESTADO_0); fsm.contexto=&llamadas;
+    transicion_t t={FSM_ESTADO_0,FSM_ESTADO_2,FSM_EVENTO_1,fsm_incrementar_contexto}; assert(fsm_agregar_transicion(&fsm,t));
+    assert(fsm_procesar_evento(&fsm,FSM_EVENTO_1)); assert(fsm_estado_actual(&fsm)==FSM_ESTADO_2); assert(llamadas==1);
+- nombre: test_evento_sin_transicion_no_cambia_estado
+  funcion: fsm_procesar_evento
+  codigo: maquina_estados_t fsm; fsm_inicializar(&fsm,FSM_ESTADO_0); assert(!fsm_procesar_evento(&fsm,FSM_EVENTO_1));
+    assert(fsm_estado_actual(&fsm)==FSM_ESTADO_0); assert(!fsm_procesar_evento(NULL,FSM_EVENTO_0)); assert(!fsm_procesar_evento(&fsm,FSM_EVENTO_MAX));
+- nombre: test_limite_de_tabla
+  funcion: fsm_agregar_transicion
+  codigo: maquina_estados_t fsm; fsm_inicializar(&fsm,FSM_ESTADO_0); for(int estado=0;estado<MAX_ESTADOS;estado++){
+    for(int evento=0;evento<FSM_EVENTO_MAX;evento++){ transicion_t t={(estado_fsm_e)estado,FSM_ESTADO_0,(evento_fsm_e)evento,NULL};
+    assert(fsm_agregar_transicion(&fsm,t)); } } assert(fsm.num_transiciones==MAX_TRANSICIONES); transicion_t
+    extra={FSM_ESTADO_0,FSM_ESTADO_0,FSM_EVENTO_0,NULL}; assert(!fsm_agregar_transicion(&fsm,extra));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: mapeo_estados

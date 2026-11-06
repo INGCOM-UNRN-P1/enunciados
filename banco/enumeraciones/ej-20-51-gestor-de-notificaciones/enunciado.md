@@ -1,56 +1,11 @@
-Implementar funciones para filtrar y enviar notificaciones.
+# 51 Gestor De Notificaciones
 
+Implementá el filtrado y despacho de notificaciones. Un evento se despacha si alcanza el umbral; los canales habilitados dependen del nivel y el callback se invoca una vez por canal seleccionado.
 
-
-``` c
-void enviar_notificacion(const notificacion_t *notif);
-bool debe_notificar(enum nivel_notificacion nivel,
-                    enum nivel_notificacion nivel_minimo);
-unsigned int canales_para_nivel(enum nivel_notificacion nivel);
-```
-
-## Compresión de Datos
-
-### 📋 Contrato de las Funciones
+La estructura `notificacion_t` contiene nivel, máscara de canales, mensaje de hasta 255 caracteres más terminador y timestamp.
 
 ```c
-/*
- * Procesa el flujo principal de Gestor de notificaciones
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_or_de_notificaciones(int val);
-
+bool debe_notificar(enum nivel_notificacion nivel, enum nivel_notificacion minimo);
+unsigned int canales_para_nivel(enum nivel_notificacion nivel);
+void enviar_notificacion(const notificacion_t *notif, enum nivel_notificacion minimo, void (*emitir)(unsigned int canal, const char *mensaje));
 ```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Diseñar la función para devolver un código de estado de error e informar el resultado mediante parámetros de salida.
-- Documentar la función con etiquetas Doxygen especificando precondiciones y postcondiciones.
-:::

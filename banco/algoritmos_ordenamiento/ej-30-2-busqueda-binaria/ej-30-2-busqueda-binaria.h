@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_EJ_30_2_BUSQUEDA_BINARIA_H
-#define EJERCICIO_EJ_30_2_BUSQUEDA_BINARIA_H
-
+#ifndef EJ30_2_H
+#define EJ30_2_H
 #include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Búsqueda Binaria */
-int proc_0_2_busqueda_binaria(int val);
+int busqueda_binaria(const int *datos, size_t n, int objetivo);
 
-#endif /* EJERCICIO_EJ_30_2_BUSQUEDA_BINARIA_H */
+#endif

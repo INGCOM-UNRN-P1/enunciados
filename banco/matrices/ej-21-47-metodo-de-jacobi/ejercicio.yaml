@@ -4,10 +4,7 @@ tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
+- Calculá cada iteración a partir del vector anterior.
 tags:
 - matrices
 - metodo
@@ -18,38 +15,23 @@ tags:
 - dep:lazos_anidados
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: proc__47_metodo_de_jacobi
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Método de Jacobi
+- nombre: metodo_jacobi
+  retorno: double *
+  parametros: double **A, double *b, int n, double tolerancia,                       int max_iter
+  descripcion: Devuelve vector n reservado con malloc, a liberar por quien llama. NULL si los argumentos
+    son inválidos, hay diagonal nula, falta memoria o no converge en max_iter. Converge cuando la norma
+    infinito de x nuevo menos x anterior es <= tolerancia. Para convergencia se requiere matriz convergente;
+    diagonal estrictamente dominante es condición suficiente.
 tests_funciones:
-- nombre: test_proc__47_metodo_de_jacobi_positivo
-  funcion: proc__47_metodo_de_jacobi
-  codigo: 'int res = proc__47_metodo_de_jacobi(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc__47_metodo_de_jacobi_cero
-  funcion: proc__47_metodo_de_jacobi
-  codigo: 'int res = proc__47_metodo_de_jacobi(0);
-
-    assert(res == 0);'
-- nombre: test_proc__47_metodo_de_jacobi_negativo
-  funcion: proc__47_metodo_de_jacobi
-  codigo: 'int res = proc__47_metodo_de_jacobi(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc__47_metodo_de_jacobi_valor_limite
-  funcion: proc__47_metodo_de_jacobi
-  codigo: 'int res = proc__47_metodo_de_jacobi(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc__47_metodo_de_jacobi_valor_unitario
-  funcion: proc__47_metodo_de_jacobi
-  codigo: 'int res = proc__47_metodo_de_jacobi(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: converge_diagonal_dominante
+  funcion: metodo_jacobi
+  codigo: double r0[]={4,1},r1[]={1,3};double*A[]={r0,r1};double b[]={1,2};double*x=metodo_jacobi(A,b,2,1e-9,100);assert(x&&fabs(4*x[0]+x[1]-1)<1e-7&&fabs(x[0]+3*x[1]-2)<1e-7);free(x);assert(metodo_jacobi(A,b,2,1e-12,1)==NULL);
+- nombre: diagonal_pequena_no_nula
+  funcion: metodo_jacobi
+  codigo: double r[]={1e-30}, *A[]={r}, b[]={2e-30}; double *x=metodo_jacobi(A,b,1,1e-12,4); assert(x
+    && fabs(x[0]-2.0)<1e-12); free(x);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: metodo

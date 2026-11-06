@@ -1,56 +1,20 @@
-Implementar funciones para gestionar transacciones.
+# Gestor de transacciones
 
+Implementá la siguiente interfaz declarada en `ej-20-45-gestor-de-transacciones.h`:
 
+```c
+enum estado_transaccion { TX_INICIADA, TX_ACTIVA, TX_PREPARADA, TX_COMPROMETIDA, TX_ABORTADA };
+enum tipo_aislamiento { AISLAMIENTO_READ_UNCOMMITTED, AISLAMIENTO_READ_COMMITTED, AISLAMIENTO_REPEATABLE_READ, AISLAMIENTO_SERIALIZABLE };
+typedef struct { unsigned long id; enum estado_transaccion estado; enum tipo_aislamiento aislamiento; int num_operaciones; } transaccion_t;
 
-``` c
 transaccion_t iniciar_transaccion(enum tipo_aislamiento aislamiento);
 bool commit_transaccion(transaccion_t *tx);
 bool rollback_transaccion(transaccion_t *tx);
 bool puede_hacer_commit(const transaccion_t *tx);
 ```
 
-## Tipos de Datos SQL
+El encabezado define de forma autocontenida los tipos del ejercicio anterior. Iniciar acepta un aislamiento válido y devuelve transacción con id no cero, estado ACTIVA y cero operaciones; aislamiento inválido produce id cero e INICIADA. Se puede hacer commit sólo en ACTIVA o PREPARADA. Commit cambia a COMPROMETIDA si se puede; rollback cambia cualquier transacción válida no terminal a ABORTADA. Operaciones no permitidas dejan el objeto intacto.
 
-### 📋 Contrato de las Funciones
+## Compilación y pruebas
 
-```c
-/*
- * Procesa el flujo principal de Gestor de transacciones
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_tor_de_transacciones(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Diseñar la función para devolver un código de estado de error e informar el resultado mediante parámetros de salida.
-- Documentar la función con etiquetas Doxygen especificando precondiciones y postcondiciones.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

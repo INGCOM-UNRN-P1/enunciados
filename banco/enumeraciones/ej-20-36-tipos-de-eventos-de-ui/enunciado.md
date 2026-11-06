@@ -1,73 +1,17 @@
-Modelar eventos de interfaz de usuario.
+# Tipos de eventos de UI
 
-
-
-```{code-block} c
-:linenos:
-enum tipo_evento
-{
-    EVENTO_CLICK,
-    EVENTO_DOBLE_CLICK,
-    EVENTO_PRESIONAR_TECLA,
-    EVENTO_SOLTAR_TECLA,
-    EVENTO_MOVER_MOUSE,
-    EVENTO_SCROLL
-};
-enum boton_mouse
-{
-    BOTON_IZQUIERDO = 1,
-    BOTON_DERECHO = 2,
-    BOTON_MEDIO = 4
-};
-typedef struct
-{
-    enum tipo_evento tipo;
-    int x, y;             // Coordenadas
-    unsigned int botones; // Flags de botones presionados
-    unsigned int tecla;
-} evento_t;
-```
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-36-tipos-de-eventos-de-ui.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Tipos de eventos de UI
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_pos_de_eventos_de_ui(int val);
-
+enum tipo_evento { EVENTO_CLICK, EVENTO_DOBLE_CLICK, EVENTO_PRESIONAR_TECLA, EVENTO_SOLTAR_TECLA, EVENTO_MOVER_MOUSE, EVENTO_SCROLL };
+enum boton_mouse { BOTON_IZQUIERDO=1, BOTON_DERECHO=2, BOTON_MEDIO=4 };
+typedef struct { enum tipo_evento tipo; int x, y; unsigned int botones; unsigned int tecla; } evento_t;
+bool evento_valido(const evento_t *evento);
+bool boton_presionado(const evento_t *evento, enum boton_mouse boton);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Un evento es válido si no es NULL, su tipo está declarado y no activa bits de botones distintos de los tres definidos. Los eventos de teclado requieren `tecla` distinta de cero; los otros tipos no restringen tecla ni coordenadas. `boton_presionado` devuelve falso ante evento o botón inválido.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

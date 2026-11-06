@@ -1,36 +1,3 @@
-enum metodo_http
-{
-    HTTP_GET,
-    HTTP_POST,
-    HTTP_PUT,
-    HTTP_DELETE,
-    HTTP_PATCH,
-    HTTP_HEAD,
-    HTTP_OPTIONS
-};
-enum codigo_http
-{
-    HTTP_200_OK = 200,
-    HTTP_201_CREATED = 201,
-    HTTP_204_NO_CONTENT = 204,
-    HTTP_301_MOVED = 301,
-    HTTP_302_FOUND = 302,
-    HTTP_400_BAD_REQUEST = 400,
-    HTTP_401_UNAUTHORIZED = 401,
-    HTTP_403_FORBIDDEN = 403,
-    HTTP_404_NOT_FOUND = 404,
-    HTTP_500_INTERNAL_ERROR = 500,
-    HTTP_503_UNAVAILABLE = 503
-};
-
-
-int proc_todos_y_codigos_http(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+#include "ej-20-40-metodos-y-codigos-http.h"
+const char *metodo_a_string(enum metodo_http m) { static const char *v[]={"GET","POST","PUT","DELETE","PATCH","HEAD","OPTIONS"};return m>=HTTP_GET&&m<=HTTP_OPTIONS?v[m]:"desconocido"; }
+const char *codigo_a_mensaje(enum codigo_http c) { switch(c){case HTTP_200_OK:return "OK";case HTTP_201_CREATED:return "Created";case HTTP_204_NO_CONTENT:return "No Content";case HTTP_301_MOVED:return "Moved Permanently";case HTTP_302_FOUND:return "Found";case HTTP_400_BAD_REQUEST:return "Bad Request";case HTTP_401_UNAUTHORIZED:return "Unauthorized";case HTTP_403_FORBIDDEN:return "Forbidden";case HTTP_404_NOT_FOUND:return "Not Found";case HTTP_500_INTERNAL_ERROR:return "Internal Server Error";case HTTP_503_UNAVAILABLE:return "Service Unavailable";default:return "desconocido";} }

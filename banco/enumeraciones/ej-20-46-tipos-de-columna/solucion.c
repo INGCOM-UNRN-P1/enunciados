@@ -1,41 +1,4 @@
-enum tipo_sql
-{
-    SQL_INT,
-    SQL_BIGINT,
-    SQL_FLOAT,
-    SQL_DOUBLE,
-    SQL_VARCHAR,
-    SQL_TEXT,
-    SQL_DATE,
-    SQL_DATETIME,
-    SQL_BOOLEAN,
-    SQL_BLOB
-};
-enum constraint_sql
-{
-    CONSTRAINT_NINGUNO = 0,
-    CONSTRAINT_NOT_NULL = 1 << 0,
-    CONSTRAINT_UNIQUE = 1 << 1,
-    CONSTRAINT_PRIMARY_KEY = 1 << 2,
-    CONSTRAINT_FOREIGN_KEY = 1 << 3,
-    CONSTRAINT_AUTO_INCREMENT = 1 << 4
-};
-typedef struct
-{
-    char nombre[64];
-    enum tipo_sql tipo;
-    unsigned int constraints;
-    int longitud; // Para VARCHAR
-} columna_t;
-
-
-int proc__46_tipos_de_columna(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void)
-{
-    return 0;
-}
+#include <string.h>
+#include "ej-20-46-tipos-de-columna.h"
+size_t tamanio_tipo(enum tipo_sql t){switch(t){case SQL_INT:return sizeof(int);case SQL_BIGINT:return sizeof(long long);case SQL_FLOAT:return sizeof(float);case SQL_DOUBLE:return sizeof(double);case SQL_VARCHAR:case SQL_TEXT:return sizeof(char*);case SQL_DATE:case SQL_DATETIME:return sizeof(int);case SQL_BOOLEAN:return sizeof(bool);case SQL_BLOB:return sizeof(void*);default:return 0;}}
+bool columna_valida(const columna_t *c){unsigned known=(1u<<5)-1u;if(!c||!memchr(c->nombre,'\0',sizeof c->nombre)||!c->nombre[0]||!tamanio_tipo(c->tipo)||(c->constraints&~known)||((c->constraints&CONSTRAINT_PRIMARY_KEY)&&(c->constraints&CONSTRAINT_FOREIGN_KEY)))return false;if((c->tipo==SQL_VARCHAR)?c->longitud<=0:c->longitud!=0)return false;if((c->constraints&CONSTRAINT_AUTO_INCREMENT)&&c->tipo!=SQL_INT&&c->tipo!=SQL_BIGINT)return false;return true;}

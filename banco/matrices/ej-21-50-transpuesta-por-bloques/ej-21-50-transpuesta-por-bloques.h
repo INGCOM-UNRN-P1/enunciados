@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Procesa el flujo principal de Transpuesta por bloques */
-int proc_nspuesta_por_bloques(int val);
+void transponer_bloques(double **matriz, int n, int tam_bloque);
 
 #endif /* EJERCICIO_EJ_21_50_TRANSPUESTA_POR_BLOQUES_H */

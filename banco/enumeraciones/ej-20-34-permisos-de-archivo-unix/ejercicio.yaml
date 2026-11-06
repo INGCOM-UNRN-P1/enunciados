@@ -4,10 +4,8 @@ tema: enumeraciones
 bloom: 2
 minutos_estimados: 15
 pistas:
-- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer
-  validando la capacidad máxima.'
-- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de
-  manera robusta.'
+- '[Plus Ultra] Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.'
+- '[Plus Ultra] Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.'
 tags:
 - archivo
 - tipos
@@ -20,36 +18,25 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: proc_isos_de_archivo_unix
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Permisos de archivo (UNIX)
+- nombre: tiene_permiso_unix
+  retorno: bool
+  parametros: unsigned int permisos, enum permiso_unix permiso
+  descripcion: API funcional de Permisos de archivo (UNIX)
+- nombre: agregar_permiso_unix
+  retorno: unsigned int
+  parametros: unsigned int permisos, enum permiso_unix nuevo
+  descripcion: API funcional de Permisos de archivo (UNIX)
+- nombre: mostrar_permisos_unix
+  retorno: void
+  parametros: unsigned int permisos
+  descripcion: API funcional de Permisos de archivo (UNIX)
 tests_funciones:
-- nombre: test_proc_isos_de_archivo_unix_positivo
-  funcion: proc_isos_de_archivo_unix
-  codigo: 'int res = proc_isos_de_archivo_unix(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_isos_de_archivo_unix_cero
-  funcion: proc_isos_de_archivo_unix
-  codigo: 'int res = proc_isos_de_archivo_unix(0);
-
-    assert(res == 0);'
-- nombre: test_proc_isos_de_archivo_unix_negativo
-  funcion: proc_isos_de_archivo_unix
-  codigo: 'int res = proc_isos_de_archivo_unix(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_isos_de_archivo_unix_valor_limite
-  funcion: proc_isos_de_archivo_unix
-  codigo: 'int res = proc_isos_de_archivo_unix(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_isos_de_archivo_unix_valor_unitario
-  funcion: proc_isos_de_archivo_unix
-  codigo: 'int res = proc_isos_de_archivo_unix(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_34_flags
+  funcion: tiene_permiso_unix
+  codigo: assert(!tiene_permiso_unix(0644,OTHER_WRITE)); assert(tiene_permiso_unix(0644,OWNER_READ)); assert(agregar_permiso_unix(0644,OWNER_EXECUTE)==0744);
+- nombre: test_34_mostrar
+  funcion: mostrar_permisos_unix
+  codigo: mostrar_permisos_unix(0644);
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: archivo

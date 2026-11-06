@@ -1,63 +1,16 @@
-Implementar una función que cuente paquetes por protocolo en un arreglo de
-paquetes.
+# Estadísticas por protocolo
 
-
-
-```{code-block} c
-:linenos:
-typedef struct
-{
-    unsigned int tcp;
-    unsigned int udp;
-    unsigned int icmp;
-    unsigned int otro;
-} estadisticas_protocolo_t;
-estadisticas_protocolo_t contar_por_protocolo(const paquete_red_t *paquetes,
-                                              size_t cantidad);
-```
-
-## Enums en Sistemas de Archivos
-
-### 📋 Contrato de las Funciones
+Implementá la siguiente interfaz declarada en `ej-20-33-estadisticas-por-protocolo.h`:
 
 ```c
-/*
- * Procesa el flujo principal de Estadísticas por protocolo
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int proc_sticas_por_protocolo(int val);
-
+typedef enum { PROTOCOLO_TCP, PROTOCOLO_UDP, PROTOCOLO_ICMP, PROTOCOLO_OTRO } protocolo_t;
+typedef struct { protocolo_t protocolo; } paquete_red_t;
+typedef struct { unsigned int tcp, udp, icmp, otro; } estadisticas_protocolo_t;
+estadisticas_protocolo_t contar_por_protocolo(const paquete_red_t *paquetes, size_t cantidad);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Contá cada elemento según `protocolo`; cualquier valor de protocolo desconocido cuenta como `otro`. Si `paquetes` es NULL o `cantidad` es cero, devolvé todas las cuentas en cero.
 
-::::{tab-set}
-:::{tab-item} Valor positivo
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Valor cero o negativo
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Compilación y pruebas
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Garantizar la terminación con `\0` y prevenir desbordamientos de búfer validando la capacidad máxima.
-- Soportar la lectura de cadenas con espacios y múltiples líneas de manera robusta.
-:::
+Usá C11 con `-Wall -Wextra -Werror`. Los tests del YAML son parte del contrato.

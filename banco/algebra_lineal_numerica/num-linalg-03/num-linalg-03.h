@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_NUM_LINALG_03_H
-#define EJERCICIO_NUM_LINALG_03_H
+#ifndef NUM_LINALG_03_H
+#define NUM_LINALG_03_H
 
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
 
-/* Procesa el flujo principal de Método de la Secante para Ecuaciones no Lineales */
-int ejecutar_num_linalg_03(int val);
+double secante(double x0, double x1, double tolerancia, size_t max_iter);
 
-#endif /* EJERCICIO_NUM_LINALG_03_H */
+#endif /* NUM_LINALG_03_H */
