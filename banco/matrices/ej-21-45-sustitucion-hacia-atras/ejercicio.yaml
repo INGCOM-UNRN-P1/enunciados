@@ -4,10 +4,7 @@ tema: matrices
 bloom: 3
 minutos_estimados: 25
 pistas:
-- '[Plus Ultra] Validar estrictamente los datos de entrada para manejar valores fuera
-  de rango o tipos inválidos.'
-- '[Plus Ultra] Permitir el procesamiento interactivo continuo mediante un lazo hasta
-  que el usuario elija finalizar.'
+- Calcule primero la última incógnita y use las ya calculadas para resolver cada fila anterior.
 tags:
 - matrices
 - hacia
@@ -20,36 +17,16 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: proc_titucion_hacia_atras
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Sustitución hacia atrás
+- nombre: sustitucion_atras
+  retorno: double *
+  parametros: double **U, double *b, int n
+  descripcion: Resuelve un sistema triangular superior y devuelve un vector reservado.
 tests_funciones:
-- nombre: test_proc_titucion_hacia_atras_positivo
-  funcion: proc_titucion_hacia_atras
-  codigo: 'int res = proc_titucion_hacia_atras(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_titucion_hacia_atras_cero
-  funcion: proc_titucion_hacia_atras
-  codigo: 'int res = proc_titucion_hacia_atras(0);
-
-    assert(res == 0);'
-- nombre: test_proc_titucion_hacia_atras_negativo
-  funcion: proc_titucion_hacia_atras
-  codigo: 'int res = proc_titucion_hacia_atras(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_titucion_hacia_atras_valor_limite
-  funcion: proc_titucion_hacia_atras
-  codigo: 'int res = proc_titucion_hacia_atras(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_titucion_hacia_atras_valor_unitario
-  funcion: proc_titucion_hacia_atras
-  codigo: 'int res = proc_titucion_hacia_atras(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: sistema_triangular_y_casos_invalidos
+  funcion: sustitucion_atras
+  codigo: double a[]={2,1,-1}, c[]={0,3,2}, d[]={0,0,4}, b[]={1,12,12}; double *U[]={a,c,d}; double *x=sustitucion_atras(U,b,3);
+    assert(x && x[0]==1 && x[1]==2 && x[2]==3); free(x); d[2]=0; assert(!sustitucion_atras(U,b,3)); assert(!sustitucion_atras(NULL,b,3));
+    assert(!sustitucion_atras(U,b,0));
 unidad: 2
 modulo: Tipos Compuestos y Direccionamiento
 subtema: hacia
