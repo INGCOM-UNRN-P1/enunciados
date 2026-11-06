@@ -15,39 +15,16 @@ tags:
 - dep:matrices
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_13
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Componentes Fuertemente Conexas por Algoritmo
-    de Tarjan
+- nombre: componentes_tarjan
+  retorno: size_t
+  parametros: size_t n, const int matriz[20][20], int etiquetas[20]
+  descripcion: partición de componentes fuertes
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_13_positivo
-  funcion: ejecutar_grafo_red_13
-  codigo: 'int res = ejecutar_grafo_red_13(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_13_cero
-  funcion: ejecutar_grafo_red_13
-  codigo: 'int res = ejecutar_grafo_red_13(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_13_negativo
-  funcion: ejecutar_grafo_red_13
-  codigo: 'int res = ejecutar_grafo_red_13(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_13_valor_limite
-  funcion: ejecutar_grafo_red_13
-  codigo: 'int res = ejecutar_grafo_red_13(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_13_valor_unitario
-  funcion: ejecutar_grafo_red_13
-  codigo: 'int res = ejecutar_grafo_red_13(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_13_casos_representativos
+  funcion: componentes_tarjan
+  codigo: int m[20][20]={{0}},lab[20]={0};m[0][1]=1;m[1][0]=1;m[1][2]=1;m[2][3]=1;m[3][2]=1;assert(componentes_tarjan(4,m,lab)==2);assert(lab[0]==lab[1]);assert(lab[2]==lab[3]);assert(lab[0]!=lab[2]);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

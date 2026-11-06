@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_11_H
-#define EJERCICIO_GEOM_COMP_11_H
-
+#ifndef GEOM_COMP_11_H
+#define GEOM_COMP_11_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Envolvente Convexa por Algoritmo de Jarvis Gift Wrapping */
-int ejecutar_geom_comp_11(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_11_H */
+typedef struct { double x, y; } punto2d_t;
+/* Devuelve cantidad de vértices antihorarios o 0 si la entrada/capacidad no sirve. */
+size_t envolvente_convexa_jarvis(const punto2d_t *puntos, size_t n,
+                                 punto2d_t *salida, size_t capacidad);
+#endif

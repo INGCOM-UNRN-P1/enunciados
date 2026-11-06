@@ -1,46 +1,13 @@
-Calcular producto vectorial, punto o intersección según el esquema geométrico #16.
+# Intersección entre Segmento de Recta y Círculo
 
-### 📋 Contrato de las Funciones
+Implementá la intersección entre un segmento cerrado y el disco cerrado definido por centro y radio. Retorná true si cualquier punto del segmento pertenece al disco: incluye interior y circunferencia. Un segmento completamente dentro también intersecta el disco aunque no cruce su circunferencia.
+
+Contrato C11:
 
 ```c
-/*
- * Procesa el flujo principal de Intersección entre Segmento de Recta y Círculo
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_geom_comp_16(int val);
-
+typedef struct { double x, y; } punto2d_t;
+typedef struct { punto2d_t centro; double radio; } circulo2d_t;
+bool segmento_circulo_intersecta(punto2d_t a, punto2d_t b, circulo2d_t c);
 ```
 
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
-:::
+Radio negativo es inválido y devuelve false. El segmento puede degenerar en un punto. Calculá el punto del segmento más cercano al centro limitando la proyección al intervalo cerrado [0,1] y compará la distancia con el radio.

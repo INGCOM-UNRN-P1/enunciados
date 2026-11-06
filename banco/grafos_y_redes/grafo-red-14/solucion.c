@@ -1,20 +1,7 @@
-/*
- * Grafos #14
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <limits.h>
+#include <string.h>
 
-
-int ejecutar_grafo_red_14(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 14, nodo, grado + 14);
-    }
-    return 0;
-}
+#define MAXV 20
+size_t orden_topologico(size_t n,const int a[20][20],size_t out[20]){if(!a||!out||n>MAXV)return 0;size_t deg[20],q[20],h=0,t=0,k=0;for(size_t j=0;j<n;j++){deg[j]=0;for(size_t i=0;i<n;i++)deg[j]+=a[i][j]!=0;if(!deg[j])q[t++]=j;}while(h<t){size_t u=q[h++];out[k++]=u;for(size_t j=0;j<n;j++)if(a[u][j]&&--deg[j]==0)q[t++]=j;}return k==n?k:0;}

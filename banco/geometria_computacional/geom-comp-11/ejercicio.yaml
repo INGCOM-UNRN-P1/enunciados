@@ -15,39 +15,29 @@ tags:
 - dep:aritmetica
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_11
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Envolvente Convexa por Algoritmo de Jarvis
-    Gift Wrapping
+- nombre: envolvente_convexa_jarvis
+  retorno: size_t
+  parametros: const punto2d_t *puntos, size_t n, punto2d_t *salida, size_t capacidad
+  descripcion: Envolvente convexa antihoraria mediante Jarvis gift wrapping; no repite inicio.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_11_positivo
-  funcion: ejecutar_geom_comp_11
-  codigo: 'int res = ejecutar_geom_comp_11(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_11_cero
-  funcion: ejecutar_geom_comp_11
-  codigo: 'int res = ejecutar_geom_comp_11(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_11_negativo
-  funcion: ejecutar_geom_comp_11
-  codigo: 'int res = ejecutar_geom_comp_11(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_11_valor_limite
-  funcion: ejecutar_geom_comp_11
-  codigo: 'int res = ejecutar_geom_comp_11(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_11_valor_unitario
-  funcion: ejecutar_geom_comp_11
-  codigo: 'int res = ejecutar_geom_comp_11(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: cuadrado_con_interior
+  funcion: envolvente_convexa_jarvis
+  codigo: punto2d_t p[]={{0,0},{2,0},{2,2},{0,2},{1,1}}, h[5]; size_t n=envolvente_convexa_jarvis(p,5,h,5);
+    assert(n==4);
+- nombre: colineales_conserva_extremos
+  funcion: envolvente_convexa_jarvis
+  codigo: punto2d_t p[]={{0,0},{1,0},{3,0},{0,2},{0,1}}, h[5]; size_t n=envolvente_convexa_jarvis(p,5,h,5);
+    assert(n==3);
+- nombre: capacidad_insuficiente_no_escribe_resultado
+  funcion: envolvente_convexa_jarvis
+  codigo: punto2d_t p[]={{0,0},{2,0},{2,2},{0,2}}, h[3]={{9,9},{9,9},{9,9}}; assert(envolvente_convexa_jarvis(p,4,h,3)==0);
+    assert(h[0].x==9);
+- nombre: triangulo_antihorario
+  funcion: envolvente_convexa_jarvis
+  codigo: punto2d_t p[]={{0,0},{2,0},{1,1}}, h[3]; size_t n=envolvente_convexa_jarvis(p,3,h,3); assert(n==3);
+    assert(h[0].x==0&&h[0].y==0); assert(h[1].x==2&&h[1].y==0); assert(h[2].x==1&&h[2].y==1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

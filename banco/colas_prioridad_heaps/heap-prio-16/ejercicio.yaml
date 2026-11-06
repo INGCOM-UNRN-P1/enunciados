@@ -1,5 +1,5 @@
 id: heap-prio-16
-titulo: 'Montículo de Fibonacci: Inserción y Unión en Tiempo Constante'
+titulo: 'Montículo de Fibonacci: inserción y unión'
 tema: colas_prioridad_heaps
 bloom: 3
 minutos_estimados: 25
@@ -18,37 +18,33 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_16
-  retorno: int
-  parametros: int val
-  descripcion: 'Procesa el flujo principal de Montículo de Fibonacci: Inserción y
-    Unión en Tiempo Constante'
+- nombre: fib_init
+  retorno: void
+  parametros: fib_heap_t *h
+  descripcion: 'Montículo de Fibonacci: inserción y unión'
+- nombre: fib_insert
+  retorno: bool
+  parametros: fib_heap_t *h,int valor
+  descripcion: 'Montículo de Fibonacci: inserción y unión'
+- nombre: fib_union
+  retorno: bool
+  parametros: fib_heap_t *destino,fib_heap_t *origen
+  descripcion: 'Montículo de Fibonacci: inserción y unión'
+- nombre: fib_extract_min
+  retorno: bool
+  parametros: fib_heap_t *h,int *salida
+  descripcion: 'Montículo de Fibonacci: inserción y unión'
+- nombre: fib_destroy
+  retorno: void
+  parametros: fib_heap_t *h
+  descripcion: 'Montículo de Fibonacci: inserción y unión'
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_16_positivo
-  funcion: ejecutar_heap_prio_16
-  codigo: 'int res = ejecutar_heap_prio_16(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_16_cero
-  funcion: ejecutar_heap_prio_16
-  codigo: 'int res = ejecutar_heap_prio_16(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_16_negativo
-  funcion: ejecutar_heap_prio_16
-  codigo: 'int res = ejecutar_heap_prio_16(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_16_valor_limite
-  funcion: ejecutar_heap_prio_16
-  codigo: 'int res = ejecutar_heap_prio_16(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_16_valor_unitario
-  funcion: ejecutar_heap_prio_16
-  codigo: 'int res = ejecutar_heap_prio_16(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_16_resultado_funcional
+  funcion: fib_init
+  codigo: fib_heap_t a,b; fib_init(&a); fib_init(&b); for(int i=39;i>=20;i--) assert(fib_insert(&a,i));
+    for(int i=19;i>=0;i--) assert(fib_insert(&b,i)); assert(fib_union(&a,&b)); assert(b.min==NULL
+    && b.n==0); int x; for(int i=0;i<40;i++) assert(fib_extract_min(&a,&x)&&x==i);
+    assert(!fib_extract_min(&a,&x)); fib_destroy(&a); fib_destroy(&b);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

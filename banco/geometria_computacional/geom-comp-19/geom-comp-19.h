@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_19_H
-#define EJERCICIO_GEOM_COMP_19_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_19_H
+#define GEOM_COMP_19_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
 
-/* Procesa el flujo principal de Escalamiento y Traslación de Polígonos 2D */
-int ejecutar_geom_comp_19(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_19_H */
+bool escalar_trasladar(punto2d_t*,size_t,double,double,punto2d_t);
+#endif

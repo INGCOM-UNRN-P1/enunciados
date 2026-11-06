@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_15_H
-#define EJERCICIO_GEOM_COMP_15_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_15_H
+#define GEOM_COMP_15_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Detección de Colisión entre Círculos en 2D */
-int ejecutar_geom_comp_15(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_15_H */
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
+typedef struct {punto2d_t centro;double radio;} circulo2d_t;
+bool circulos_intersectan(circulo2d_t,circulo2d_t);
+#endif

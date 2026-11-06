@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- La diagonal desde el primer vértice triangula el polígono convexo.
+- Se necesitan n-2 triángulos.
 tags:
 - geometria
 - vectores
@@ -15,38 +15,22 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_21
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Triangulación Simple de Polígonos Convexos
+- nombre: triangular_fan_convexo
+  retorno: size_t
+  parametros: const punto2d_t*,size_t,triangulo2d_t*,size_t
+  descripcion: Descompone un polígono convexo en n-2 triángulos en fan desde el primer vértice.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_21_positivo
-  funcion: ejecutar_geom_comp_21
-  codigo: 'int res = ejecutar_geom_comp_21(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_21_cero
-  funcion: ejecutar_geom_comp_21
-  codigo: 'int res = ejecutar_geom_comp_21(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_21_negativo
-  funcion: ejecutar_geom_comp_21
-  codigo: 'int res = ejecutar_geom_comp_21(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_21_valor_limite
-  funcion: ejecutar_geom_comp_21
-  codigo: 'int res = ejecutar_geom_comp_21(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_21_valor_unitario
-  funcion: ejecutar_geom_comp_21
-  codigo: 'int res = ejecutar_geom_comp_21(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: cuadrado
+  funcion: triangular_fan_convexo
+  codigo: punto2d_t p[]={{0,0},{2,0},{2,2},{0,2}}; triangulo2d_t t[2]; assert(triangular_fan_convexo(p,4,t,2)==2&&t[0].b.x==2&&t[1].c.y==2);
+- nombre: triangulo
+  funcion: triangular_fan_convexo
+  codigo: punto2d_t p[]={{0,0},{1,0},{0,1}}; triangulo2d_t t; assert(triangular_fan_convexo(p,3,&t,1)==1);
+- nombre: capacidad
+  funcion: triangular_fan_convexo
+  codigo: punto2d_t p[]={{0,0},{1,0},{1,1},{0,1}}; triangulo2d_t t; assert(triangular_fan_convexo(p,4,&t,1)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

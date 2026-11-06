@@ -1,21 +1,8 @@
-/*
- * Heap #03
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_heap_prio_03(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int prioridad = 0, valor = 0;
-    if (scanf("%d %d", &prioridad, &valor) == 2) {
-        int score = prioridad * 100 + valor + 3;
-        printf("HEAP_%02d_SCORE: %d\n", 3, score);
-    }
-    return 0;
-}
+#include <stddef.h>
+#include <stdbool.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <string.h>
+#include "heap-prio-03.h"
+static void down(int*a,size_t n,size_t i){for(;;){size_t m=i,l=i*2+1,r=l+1;if(l<n&&a[l]>a[m])m=l;if(r<n&&a[r]>a[m])m=r;if(m==i)return;int t=a[i];a[i]=a[m];a[m]=t;i=m;}}
+void heapsort(int*a,size_t n){if(!a)return;for(size_t i=n/2;i>0;i--)down(a,n,i-1);for(size_t e=n;e>1;e--){int t=a[0];a[0]=a[e-1];a[e-1]=t;down(a,e-1,0);}}

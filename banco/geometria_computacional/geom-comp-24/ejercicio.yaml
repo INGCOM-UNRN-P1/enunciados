@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- Usá el producto punto para hallar el parámetro.
+- No limites t al segmento.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,22 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_24
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Proyección Ortogonal de un Punto sobre
-    una Recta
+- nombre: proyectar_punto_recta
+  retorno: bool
+  parametros: punto2d_t,punto2d_t,punto2d_t,punto2d_t*
+  descripcion: Proyección ortogonal sobre recta infinita AB; falso si A=B.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_24_positivo
-  funcion: ejecutar_geom_comp_24
-  codigo: 'int res = ejecutar_geom_comp_24(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_24_cero
-  funcion: ejecutar_geom_comp_24
-  codigo: 'int res = ejecutar_geom_comp_24(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_24_negativo
-  funcion: ejecutar_geom_comp_24
-  codigo: 'int res = ejecutar_geom_comp_24(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_24_valor_limite
-  funcion: ejecutar_geom_comp_24
-  codigo: 'int res = ejecutar_geom_comp_24(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_24_valor_unitario
-  funcion: ejecutar_geom_comp_24
-  codigo: 'int res = ejecutar_geom_comp_24(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: horizontal
+  funcion: proyectar_punto_recta
+  codigo: punto2d_t r; assert(proyectar_punto_recta((punto2d_t){2,3},(punto2d_t){0,0},(punto2d_t){4,0},&r)&&r.x==2&&r.y==0);
+- nombre: afuera
+  funcion: proyectar_punto_recta
+  codigo: punto2d_t r; assert(proyectar_punto_recta((punto2d_t){3,1},(punto2d_t){0,0},(punto2d_t){1,0},&r)&&r.x==3&&r.y==0);
+- nombre: degenerada
+  funcion: proyectar_punto_recta
+  codigo: punto2d_t r; assert(!proyectar_punto_recta((punto2d_t){1,2},(punto2d_t){0,0},(punto2d_t){0,0},&r));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,5 +1,5 @@
 id: heap-prio-04
-titulo: Operación de Heapify Lineal sobre Arreglo Desordenado
+titulo: Heapify lineal de arreglo desordenado
 tema: colas_prioridad_heaps
 bloom: 1
 minutos_estimados: 10
@@ -18,37 +18,19 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_04
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Operación de Heapify Lineal sobre Arreglo
-    Desordenado
+- nombre: heapify_min
+  retorno: void
+  parametros: int *a, size_t n
+  descripcion: Heapify lineal de arreglo desordenado
+- nombre: es_min_heap
+  retorno: bool
+  parametros: const int *a, size_t n
+  descripcion: Heapify lineal de arreglo desordenado
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_04_positivo
-  funcion: ejecutar_heap_prio_04
-  codigo: 'int res = ejecutar_heap_prio_04(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_04_cero
-  funcion: ejecutar_heap_prio_04
-  codigo: 'int res = ejecutar_heap_prio_04(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_04_negativo
-  funcion: ejecutar_heap_prio_04
-  codigo: 'int res = ejecutar_heap_prio_04(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_04_valor_limite
-  funcion: ejecutar_heap_prio_04
-  codigo: 'int res = ejecutar_heap_prio_04(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_04_valor_unitario
-  funcion: ejecutar_heap_prio_04
-  codigo: 'int res = ejecutar_heap_prio_04(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_04_resultado_funcional
+  funcion: heapify_min
+  codigo: int a[]={9,4,7,1,-2,6}; heapify_min(a,6); assert(es_min_heap(a,6)); assert(a[0]==-2);
+    heapify_min(a,0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

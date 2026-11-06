@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_HEAP_PRIO_11_H
-#define EJERCICIO_HEAP_PRIO_11_H
-
-#include <stddef.h>
+#ifndef HEAP_PRIO_11_H
+#define HEAP_PRIO_11_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#define HEAP_CAPACITY 256
 
-/* Procesa el flujo principal de K-ésimo Elemento Mayor usando Max-Heap de Tamaño K */
-int ejecutar_heap_prio_11(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_11_H */
+bool kth_largest(const int *a,size_t n,size_t k,int *resultado);
+#endif

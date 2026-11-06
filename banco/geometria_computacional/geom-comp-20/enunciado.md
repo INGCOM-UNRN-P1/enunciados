@@ -1,46 +1,18 @@
-Calcular producto vectorial, punto o intersección según el esquema geométrico #20.
+# Reflexión de Puntos respecto a un Eje Arbitrario
 
-### 📋 Contrato de las Funciones
+Proyecta sobre la recta infinita definida por dos puntos y refleja a través de esa proyección.
+
+Contrato C11:
 
 ```c
-/*
- * Procesa el flujo principal de Reflexión de Puntos respecto a un Eje Arbitrario
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_geom_comp_20(int val);
+#ifndef GEOM_COMP_20_H
+#define GEOM_COMP_20_H
+#include <stdbool.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
 
+bool reflejar_punto_recta(punto2d_t,punto2d_t,punto2d_t,punto2d_t*);
+#endif
 ```
 
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
-:::
+Convenciones y casos inválidos: las funciones que escriben parámetros de salida retornan false o cero si no pueden producir un resultado válido. Los casos esenciales están declarados en tests_funciones del YAML.

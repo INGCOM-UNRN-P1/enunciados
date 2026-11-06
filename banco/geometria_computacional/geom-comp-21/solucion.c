@@ -1,21 +1,3 @@
-/*
- * Geometria #21
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_21(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 21;
-        printf("GEOM_%02d: %d\n", 21, prod);
-    }
-    return 0;
-}
+#include "geom-comp-21.h"
+#include <math.h>
+size_t triangular_fan_convexo(const punto2d_t*p,size_t n,triangulo2d_t*out,size_t cap){if(!p||!out||n<3||cap<n-2)return 0;for(size_t i=0;i<n-2;i++)out[i]=(triangulo2d_t){p[0],p[i+1],p[i+2]};return n-2;}

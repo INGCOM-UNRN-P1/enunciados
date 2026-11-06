@@ -1,20 +1,8 @@
-/*
- * Grafos #07
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <limits.h>
+#include <string.h>
 
-
-int ejecutar_grafo_red_07(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 7, nodo, grado + 7);
-    }
-    return 0;
-}
+#define MAXV 20
+static bool valido(size_t n, size_t x) { return n <= MAXV && x < n; }
+size_t bfs_recorrido(size_t n,const int a[20][20],size_t s,size_t out[20]){if(!a||!out||!valido(n,s))return 0;bool v[20]={0};size_t q[20],h=0,t=0,k=0;q[t++]=s;v[s]=true;while(h<t){size_t u=q[h++];out[k++]=u;for(size_t j=0;j<n;j++)if(a[u][j]&&!v[j]){v[j]=true;q[t++]=j;}}return k;}

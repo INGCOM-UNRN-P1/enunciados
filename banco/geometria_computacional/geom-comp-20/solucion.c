@@ -1,21 +1,3 @@
-/*
- * Geometria #20
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_20(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 20;
-        printf("GEOM_%02d: %d\n", 20, prod);
-    }
-    return 0;
-}
+#include "geom-comp-20.h"
+#include <math.h>
+bool reflejar_punto_recta(punto2d_t p,punto2d_t a,punto2d_t b,punto2d_t*out){double x=b.x-a.x,y=b.y-a.y,d=x*x+y*y;if(!out||d==0)return false;double t=((p.x-a.x)*x+(p.y-a.y)*y)/d,qx=a.x+t*x,qy=a.y+t*y;*out=(punto2d_t){2*qx-p.x,2*qy-p.y};return true;}

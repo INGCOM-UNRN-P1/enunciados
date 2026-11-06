@@ -1,21 +1,3 @@
-/*
- * Geometria #19
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_19(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 19;
-        printf("GEOM_%02d: %d\n", 19, prod);
-    }
-    return 0;
-}
+#include "geom-comp-19.h"
+#include <math.h>
+bool escalar_trasladar(punto2d_t*p,size_t n,double sx,double sy,punto2d_t t){if(!p&&n)return false;for(size_t i=0;i<n;i++){p[i].x=p[i].x*sx+t.x;p[i].y=p[i].y*sy+t.y;}return true;}

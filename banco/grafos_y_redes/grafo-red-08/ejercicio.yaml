@@ -15,39 +15,17 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Detección de Ciclos en Grafos No Dirigidos
-    con DFS
+- nombre: tiene_ciclo_no_dirigido
+  retorno: bool
+  parametros: size_t n, const int matriz[20][20]
+  descripcion: ciclos no dirigidos
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_08_positivo
-  funcion: ejecutar_grafo_red_08
-  codigo: 'int res = ejecutar_grafo_red_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_08_cero
-  funcion: ejecutar_grafo_red_08
-  codigo: 'int res = ejecutar_grafo_red_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_08_negativo
-  funcion: ejecutar_grafo_red_08
-  codigo: 'int res = ejecutar_grafo_red_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_08_valor_limite
-  funcion: ejecutar_grafo_red_08
-  codigo: 'int res = ejecutar_grafo_red_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_08_valor_unitario
-  funcion: ejecutar_grafo_red_08
-  codigo: 'int res = ejecutar_grafo_red_08(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_08_casos_representativos
+  funcion: tiene_ciclo_no_dirigido
+  codigo: "int ciclo[20][20]={0},arbol[20][20]={0};ciclo[0][1]=ciclo[1][0]=1;ciclo[1][2]=ciclo[2][1]=1;ciclo[2][0]=ciclo[0][2]=1;arbol[0][1]=arbol[1][0]=1;arbol[1][2]=arbol[2][1]=1;assert(tiene_ciclo_no_dirigido(3,\
+    \ ciclo));\n    assert(!tiene_ciclo_no_dirigido(3, arbol));"
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

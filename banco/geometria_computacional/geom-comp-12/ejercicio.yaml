@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- Recorré pares i<j.
+- Compará distancias al cuadrado para evitar raíces.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,22 @@ tags:
 - dep:aritmetica
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_12
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Par de Puntos Más Cercanos en el Plano
-    2D
+- nombre: par_mas_cercano
+  retorno: bool
+  parametros: const punto2d_t *puntos, size_t n, size_t *indice_a, size_t *indice_b
+  descripcion: Guarda índices del par de menor distancia cuadrada; falso si n<2 o punteros inválidos.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_12_positivo
-  funcion: ejecutar_geom_comp_12
-  codigo: 'int res = ejecutar_geom_comp_12(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_12_cero
-  funcion: ejecutar_geom_comp_12
-  codigo: 'int res = ejecutar_geom_comp_12(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_12_negativo
-  funcion: ejecutar_geom_comp_12
-  codigo: 'int res = ejecutar_geom_comp_12(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_12_valor_limite
-  funcion: ejecutar_geom_comp_12
-  codigo: 'int res = ejecutar_geom_comp_12(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_12_valor_unitario
-  funcion: ejecutar_geom_comp_12
-  codigo: 'int res = ejecutar_geom_comp_12(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: elige_minimo
+  funcion: par_mas_cercano
+  codigo: punto2d_t p[]={{0,0},{4,0},{1,0}}; size_t a,b; assert(par_mas_cercano(p,3,&a,&b)&&a==0&&b==2);
+- nombre: duplicados
+  funcion: par_mas_cercano
+  codigo: punto2d_t p[]={{2,3},{2,3}}; size_t a,b; assert(par_mas_cercano(p,2,&a,&b)&&a==0&&b==1);
+- nombre: menos_de_dos
+  funcion: par_mas_cercano
+  codigo: punto2d_t p={0,0}; size_t a,b; assert(!par_mas_cercano(&p,1,&a,&b));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,6 @@
 #ifndef EJERCICIO_GRAFO_RED_07_H
 #define EJERCICIO_GRAFO_RED_07_H
-
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Recorrido en Anchura BFS con Cola en Grafos */
-int ejecutar_grafo_red_07(int val);
-
-#endif /* EJERCICIO_GRAFO_RED_07_H */
+#include <stddef.h>
+size_t bfs_recorrido(size_t n, const int matriz[20][20], size_t inicio, size_t salida[20]);
+#endif

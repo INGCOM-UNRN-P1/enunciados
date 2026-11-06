@@ -1,5 +1,5 @@
 id: heap-prio-06
-titulo: Actualización de Prioridad Increase-Key en Max-Heap
+titulo: Increase-key en max-heap
 tema: colas_prioridad_heaps
 bloom: 1
 minutos_estimados: 10
@@ -18,37 +18,16 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_06
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Actualización de Prioridad Increase-Key
-    en Max-Heap
+- nombre: max_heap_increase_key
+  retorno: bool
+  parametros: int *heap, size_t n, size_t indice, int nuevo_valor
+  descripcion: Increase-key en max-heap
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_06_positivo
-  funcion: ejecutar_heap_prio_06
-  codigo: 'int res = ejecutar_heap_prio_06(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_06_cero
-  funcion: ejecutar_heap_prio_06
-  codigo: 'int res = ejecutar_heap_prio_06(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_06_negativo
-  funcion: ejecutar_heap_prio_06
-  codigo: 'int res = ejecutar_heap_prio_06(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_06_valor_limite
-  funcion: ejecutar_heap_prio_06
-  codigo: 'int res = ejecutar_heap_prio_06(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_06_valor_unitario
-  funcion: ejecutar_heap_prio_06
-  codigo: 'int res = ejecutar_heap_prio_06(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_06_resultado_funcional
+  funcion: max_heap_increase_key
+  codigo: int h[]={10,8,9,2,5}; assert(es_max_heap(h,5)); assert(max_heap_increase_key(h,5,3,20));
+    assert(h[0]==20 && es_max_heap(h,5)); assert(!max_heap_increase_key(h,5,1,1));
+    assert(!max_heap_increase_key(h,5,8,99)); assert(!max_heap_increase_key(NULL,5,0,0));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

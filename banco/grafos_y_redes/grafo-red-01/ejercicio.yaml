@@ -15,39 +15,25 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_01
+- nombre: cargar_grafo_no_dirigido
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Representación de Grafo por Matriz de
-    Adyacencia
+  parametros: size_t n, size_t m, const size_t (*aristas)[2], int matriz[50][50]
+  descripcion: carga de aristas en matriz de adyacencia
+- nombre: grafo_adyacente
+  retorno: bool
+  parametros: size_t n, const int matriz[50][50], size_t origen, size_t destino
+  descripcion: consulta de adyacencia
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_01_positivo
-  funcion: ejecutar_grafo_red_01
-  codigo: 'int res = ejecutar_grafo_red_01(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_01_cero
-  funcion: ejecutar_grafo_red_01
-  codigo: 'int res = ejecutar_grafo_red_01(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_01_negativo
-  funcion: ejecutar_grafo_red_01
-  codigo: 'int res = ejecutar_grafo_red_01(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_01_valor_limite
-  funcion: ejecutar_grafo_red_01
-  codigo: 'int res = ejecutar_grafo_red_01(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_01_valor_unitario
-  funcion: ejecutar_grafo_red_01
-  codigo: 'int res = ejecutar_grafo_red_01(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_01_casos_representativos
+  funcion: grafo_adyacente
+  codigo: size_t e[2500][2]={{0}}; int m[50][50]={{0}}; e[0][0]=0;e[0][1]=1;e[1][0]=1;e[1][1]=2; assert(cargar_grafo_no_dirigido(3,2,e,m)==0);
+    assert(grafo_adyacente(3,m,0,1)); assert(!grafo_adyacente(3,m,0,2)); size_t e50[2500][2]={{0}};e50[0][0]=48;e50[0][1]=49;assert(cargar_grafo_no_dirigido(50,1,e50,m)==0);assert(grafo_adyacente(50,m,48,49));
+- nombre: permite_mas_de_2500_aristas_y_vacio
+  funcion: cargar_grafo_no_dirigido
+  codigo: size_t (*aristas)[2]=calloc(2501,sizeof(*aristas)); int m[50][50]; assert(aristas); for(size_t i=0;i<2501;i++){aristas[i][0]=0;aristas[i][1]=1;}
+    assert(cargar_grafo_no_dirigido(2,2501,(const size_t (*)[2])aristas,m)==0 && m[0][1]); free(aristas); assert(cargar_grafo_no_dirigido(0,0,NULL,m)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

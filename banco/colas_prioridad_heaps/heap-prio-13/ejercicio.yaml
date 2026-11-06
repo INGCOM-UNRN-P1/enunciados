@@ -1,5 +1,5 @@
 id: heap-prio-13
-titulo: Montículo D-ario con Factor de Ramificación Arbitrario
+titulo: Montículo d-ario
 tema: colas_prioridad_heaps
 bloom: 3
 minutos_estimados: 25
@@ -18,37 +18,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_13
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Montículo D-ario con Factor de Ramificación
-    Arbitrario
+- nombre: dheap_init
+  retorno: bool
+  parametros: dheap_t *h,size_t d
+  descripcion: Montículo d-ario
+- nombre: dheap_push
+  retorno: bool
+  parametros: dheap_t *h,int valor
+  descripcion: Montículo d-ario
+- nombre: dheap_pop
+  retorno: bool
+  parametros: dheap_t *h,int *salida
+  descripcion: Montículo d-ario
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_13_positivo
-  funcion: ejecutar_heap_prio_13
-  codigo: 'int res = ejecutar_heap_prio_13(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_13_cero
-  funcion: ejecutar_heap_prio_13
-  codigo: 'int res = ejecutar_heap_prio_13(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_13_negativo
-  funcion: ejecutar_heap_prio_13
-  codigo: 'int res = ejecutar_heap_prio_13(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_13_valor_limite
-  funcion: ejecutar_heap_prio_13
-  codigo: 'int res = ejecutar_heap_prio_13(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_13_valor_unitario
-  funcion: ejecutar_heap_prio_13
-  codigo: 'int res = ejecutar_heap_prio_13(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_13_resultado_funcional
+  funcion: dheap_init
+  codigo: dheap_t h; assert(dheap_init(&h,3)); dheap_push(&h,8); dheap_push(&h,2);
+    dheap_push(&h,5); int x; assert(dheap_pop(&h,&x)&&x==2); assert(dheap_pop(&h,&x)&&x==5);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

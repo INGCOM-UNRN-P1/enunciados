@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- Proyectá y limitá t entre 0 y 1.
+- Considerá el segmento degenerado.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,25 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_16
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Intersección entre Segmento de Recta
-    y Círculo
+- nombre: segmento_circulo_intersecta
+  retorno: bool
+  parametros: punto2d_t,punto2d_t,circulo2d_t
+  descripcion: Indica si el segmento intersecta el disco cerrado (interior o circunferencia); radio negativo inválido.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_16_positivo
-  funcion: ejecutar_geom_comp_16
-  codigo: 'int res = ejecutar_geom_comp_16(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_16_cero
-  funcion: ejecutar_geom_comp_16
-  codigo: 'int res = ejecutar_geom_comp_16(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_16_negativo
-  funcion: ejecutar_geom_comp_16
-  codigo: 'int res = ejecutar_geom_comp_16(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_16_valor_limite
-  funcion: ejecutar_geom_comp_16
-  codigo: 'int res = ejecutar_geom_comp_16(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_16_valor_unitario
-  funcion: ejecutar_geom_comp_16
-  codigo: 'int res = ejecutar_geom_comp_16(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: cruza
+  funcion: segmento_circulo_intersecta
+  codigo: circulo2d_t c={{0,0},1}; assert(segmento_circulo_intersecta((punto2d_t){-2,0},(punto2d_t){2,0},c));
+- nombre: fuera
+  funcion: segmento_circulo_intersecta
+  codigo: circulo2d_t c={{0,0},1}; assert(!segmento_circulo_intersecta((punto2d_t){2,2},(punto2d_t){3,2},c));
+- nombre: punto
+  funcion: segmento_circulo_intersecta
+  codigo: circulo2d_t c={{0,0},1}; assert(segmento_circulo_intersecta((punto2d_t){0,0},(punto2d_t){0,0},c));
+- nombre: segmento_dentro_del_disco
+  funcion: segmento_circulo_intersecta
+  codigo: circulo2d_t c={{0,0},2}; assert(segmento_circulo_intersecta((punto2d_t){-0.5,0},(punto2d_t){0.5,0},c));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

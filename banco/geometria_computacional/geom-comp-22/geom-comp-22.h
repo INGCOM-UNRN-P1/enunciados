@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_22_H
-#define EJERCICIO_GEOM_COMP_22_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_22_H
+#define GEOM_COMP_22_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
 
-/* Procesa el flujo principal de Cálculo del Perímetro de Polígonos Irregulares */
-int ejecutar_geom_comp_22(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_22_H */
+double perimetro_poligono(const punto2d_t*,size_t);
+#endif

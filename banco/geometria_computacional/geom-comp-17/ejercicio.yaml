@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- El centroide usa pesos iguales.
+- El centro de masa divide coordenadas ponderadas por masa total.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,29 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_17
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Centroide y Centro de Masa de un Conjunto
-    de Puntos
+- nombre: centroide_puntos
+  retorno: bool
+  parametros: const punto2d_t *puntos, size_t n, punto2d_t *salida
+  descripcion: Calcula promedio aritmético de coordenadas; falso para entrada vacía.
+- nombre: centro_masa
+  retorno: bool
+  parametros: const particula2d_t *particulas, size_t n, punto2d_t *salida
+  descripcion: Calcula centro ponderado por masas no negativas; falso si la masa total es cero.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_17_positivo
-  funcion: ejecutar_geom_comp_17
-  codigo: 'int res = ejecutar_geom_comp_17(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_17_cero
-  funcion: ejecutar_geom_comp_17
-  codigo: 'int res = ejecutar_geom_comp_17(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_17_negativo
-  funcion: ejecutar_geom_comp_17
-  codigo: 'int res = ejecutar_geom_comp_17(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_17_valor_limite
-  funcion: ejecutar_geom_comp_17
-  codigo: 'int res = ejecutar_geom_comp_17(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_17_valor_unitario
-  funcion: ejecutar_geom_comp_17
-  codigo: 'int res = ejecutar_geom_comp_17(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: centroide_simple
+  funcion: centroide_puntos
+  codigo: punto2d_t p[]={{0,0},{2,4}}; punto2d_t c; assert(centroide_puntos(p,2,&c)&&c.x==1&&c.y==2);
+- nombre: centroide_vacio
+  funcion: centroide_puntos
+  codigo: punto2d_t c; assert(!centroide_puntos(NULL,0,&c));
+- nombre: masa_ponderada
+  funcion: centro_masa
+  codigo: particula2d_t p[]={{{0,0},3},{{4,0},1}}; punto2d_t c; assert(centro_masa(p,2,&c)&&c.x==1&&c.y==0);
+- nombre: masa_total_cero
+  funcion: centro_masa
+  codigo: particula2d_t p[]={{{0,0},0}}; punto2d_t c; assert(!centro_masa(p,1,&c));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

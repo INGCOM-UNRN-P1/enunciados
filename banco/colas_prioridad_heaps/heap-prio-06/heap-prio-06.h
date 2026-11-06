@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_HEAP_PRIO_06_H
-#define EJERCICIO_HEAP_PRIO_06_H
-
-#include <stddef.h>
+#ifndef HEAP_PRIO_06_H
+#define HEAP_PRIO_06_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#define HEAP_CAPACITY 256
 
-/* Procesa el flujo principal de Actualización de Prioridad Increase-Key en Max-Heap */
-int ejecutar_heap_prio_06(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_06_H */
+bool max_heap_increase_key(int *heap, size_t n, size_t indice, int nuevo_valor);
+bool es_max_heap(const int *a, size_t n);
+#endif

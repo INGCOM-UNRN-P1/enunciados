@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- Inicializá extremos con el primer punto.
+- Actualizá mínimos y máximos por coordenada.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,22 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_13
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Bounding Box Alineada a los
-    Ejes AABB
+- nombre: calcular_aabb
+  retorno: bool
+  parametros: const punto2d_t*,size_t,caja2d_t*
+  descripcion: Calcula extremos AABB inclusivos; falso para entrada vacía.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_13_positivo
-  funcion: ejecutar_geom_comp_13
-  codigo: 'int res = ejecutar_geom_comp_13(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_13_cero
-  funcion: ejecutar_geom_comp_13
-  codigo: 'int res = ejecutar_geom_comp_13(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_13_negativo
-  funcion: ejecutar_geom_comp_13
-  codigo: 'int res = ejecutar_geom_comp_13(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_13_valor_limite
-  funcion: ejecutar_geom_comp_13
-  codigo: 'int res = ejecutar_geom_comp_13(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_13_valor_unitario
-  funcion: ejecutar_geom_comp_13
-  codigo: 'int res = ejecutar_geom_comp_13(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: extremos
+  funcion: calcular_aabb
+  codigo: punto2d_t p[]={{2,-1},{-3,4},{1,2}}; caja2d_t c; assert(calcular_aabb(p,3,&c)&&c.min_x==-3&&c.max_x==2&&c.min_y==-1&&c.max_y==4);
+- nombre: un_punto
+  funcion: calcular_aabb
+  codigo: punto2d_t p={7,8}; caja2d_t c; assert(calcular_aabb(&p,1,&c)&&c.min_x==c.max_x);
+- nombre: vacio
+  funcion: calcular_aabb
+  codigo: caja2d_t c; assert(!calcular_aabb(NULL,0,&c));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

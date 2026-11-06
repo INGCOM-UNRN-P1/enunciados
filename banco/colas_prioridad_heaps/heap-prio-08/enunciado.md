@@ -1,56 +1,20 @@
-Implementar la estructura de datos y algoritmos de **Montículo Binario (Binary Heap)** para: **Eliminación de Elemento Arbitrario en Montículo Binario**.
-La solución debe preservar rigurosamente el invariante de montículo tras inserciones, extracciones o reordenamientos in-place, garantizando operaciones eficientes en tiempo logarítmico $O(\log N)$ o lineal $O(N)$.
+# Eliminar elemento arbitrario del heap
 
-- `int ejecutar_heap_prio_08(int val)`: Procesa el flujo principal de Eliminación de Elemento Arbitrario en Montículo Binario
+heap_remove_at elimina el elemento en índice válido, conserva los demás y restaura un min-heap.
 
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 15 minutos (Nivel Bloom 2).
+## Interfaz
 
-### 📋 Contrato de las Funciones
+La interfaz pública está declarada en `heap-prio-08.h`. Los arreglos usan capacidad `HEAP_CAPACITY` cuando corresponde. Las funciones que consultan o extraen retornan `false` ante índices, punteros o heaps vacíos inválidos; no modifican la salida en ese caso.
+
+## Ejemplo
 
 ```c
-/*
- * Procesa el flujo principal de Eliminación de Elemento Arbitrario en Montículo Binario
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_heap_prio_08(int val);
-
+int h[]={1,3,2,7,6,5}; size_t n=6; assert(heap_remove_at(h,&n,1)); assert(n==5 && es_min_heap(h,n)); assert(!heap_remove_at(h,&n,8));
 ```
 
-### 🧪 Ejemplos de Ejecución
+## Requisitos
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
-- El padre de un nodo i está en (i - 1) / 2.
-:::
+- Mantener el invariante del heap después de cada operación.
+- Aceptar valores negativos y repetidos.
+- Manejar entrada vacía y errores sin acceso fuera de límites.
+- Compilar con C11 y `-Wall -Wextra -Werror -pedantic`.

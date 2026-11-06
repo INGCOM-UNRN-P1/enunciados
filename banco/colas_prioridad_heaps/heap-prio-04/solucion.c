@@ -1,21 +1,9 @@
-/*
- * Heap #04
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_heap_prio_04(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int prioridad = 0, valor = 0;
-    if (scanf("%d %d", &prioridad, &valor) == 2) {
-        int score = prioridad * 100 + valor + 4;
-        printf("HEAP_%02d_SCORE: %d\n", 4, score);
-    }
-    return 0;
-}
+#include <stddef.h>
+#include <stdbool.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <string.h>
+#include "heap-prio-04.h"
+static void down_min(int*a,size_t n,size_t i){for(;;){size_t m=i,l=i*2+1,r=l+1;if(l<n&&a[l]<a[m])m=l;if(r<n&&a[r]<a[m])m=r;if(m==i)return;int t=a[i];a[i]=a[m];a[m]=t;i=m;}}
+void heapify_min(int*a,size_t n){if(!a)return;for(size_t i=n/2;i>0;i--)down_min(a,n,i-1);}
+bool es_min_heap(const int*a,size_t n){if(!a&&n)return false;for(size_t i=1;i<n;i++)if(a[(i-1)/2]>a[i])return false;return true;}

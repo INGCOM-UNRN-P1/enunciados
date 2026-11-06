@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_HEAP_PRIO_02_H
-#define EJERCICIO_HEAP_PRIO_02_H
-
-#include <stddef.h>
+#ifndef HEAP_PRIO_02_H
+#define HEAP_PRIO_02_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Montículo Binario Max-Heap: Inserción y Extracción del Máximo */
-int ejecutar_heap_prio_02(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_02_H */
+#include <stddef.h>
+#define HEAP_CAPACITY 256
+typedef struct { int datos[HEAP_CAPACITY]; size_t tamano; } max_heap_t;
+void max_heap_init(max_heap_t *h);
+bool max_heap_push(max_heap_t *h, int valor); bool max_heap_pop(max_heap_t *h, int *salida);
+#endif

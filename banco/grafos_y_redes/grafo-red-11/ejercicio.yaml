@@ -15,39 +15,16 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_11
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conteo de Componentes Conexas en Grafos
-    No Dirigidos
+- nombre: contar_componentes
+  retorno: size_t
+  parametros: size_t n, const int matriz[20][20]
+  descripcion: componentes conexas
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_11_positivo
-  funcion: ejecutar_grafo_red_11
-  codigo: 'int res = ejecutar_grafo_red_11(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_11_cero
-  funcion: ejecutar_grafo_red_11
-  codigo: 'int res = ejecutar_grafo_red_11(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_11_negativo
-  funcion: ejecutar_grafo_red_11
-  codigo: 'int res = ejecutar_grafo_red_11(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_11_valor_limite
-  funcion: ejecutar_grafo_red_11
-  codigo: 'int res = ejecutar_grafo_red_11(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_11_valor_unitario
-  funcion: ejecutar_grafo_red_11
-  codigo: 'int res = ejecutar_grafo_red_11(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_11_casos_representativos
+  funcion: contar_componentes
+  codigo: int matriz[20][20]={{0}};matriz[0][1]=matriz[1][0]=1;matriz[2][3]=matriz[3][2]=1;assert(contar_componentes(5,matriz)==3);assert(contar_componentes(0,matriz)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

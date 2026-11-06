@@ -1,5 +1,5 @@
 id: heap-prio-09
-titulo: Fusión de Dos Montículos Binarios
+titulo: Fusión de dos min-heaps binarios
 tema: colas_prioridad_heaps
 bloom: 2
 minutos_estimados: 15
@@ -18,36 +18,15 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Fusión de Dos Montículos Binarios
+- nombre: heap_merge
+  retorno: bool
+  parametros: const int *a,size_t n,const int *b,size_t m,int *destino
+  descripcion: Fusión de dos min-heaps binarios
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_09_positivo
-  funcion: ejecutar_heap_prio_09
-  codigo: 'int res = ejecutar_heap_prio_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_09_cero
-  funcion: ejecutar_heap_prio_09
-  codigo: 'int res = ejecutar_heap_prio_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_09_negativo
-  funcion: ejecutar_heap_prio_09
-  codigo: 'int res = ejecutar_heap_prio_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_09_valor_limite
-  funcion: ejecutar_heap_prio_09
-  codigo: 'int res = ejecutar_heap_prio_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_09_valor_unitario
-  funcion: ejecutar_heap_prio_09
-  codigo: 'int res = ejecutar_heap_prio_09(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_09_resultado_funcional
+  funcion: heap_merge
+  codigo: int a[]={1,4,7},b[]={2,3}; int d[5]; assert(heap_merge(a,3,b,2,d)); assert(es_min_heap(d,5));
+    assert(d[0]==1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

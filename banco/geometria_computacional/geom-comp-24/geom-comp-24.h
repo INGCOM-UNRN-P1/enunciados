@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_24_H
-#define EJERCICIO_GEOM_COMP_24_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_24_H
+#define GEOM_COMP_24_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
 
-/* Procesa el flujo principal de Proyección Ortogonal de un Punto sobre una Recta */
-int ejecutar_geom_comp_24(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_24_H */
+bool proyectar_punto_recta(punto2d_t,punto2d_t,punto2d_t,punto2d_t*);
+#endif

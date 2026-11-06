@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_12_H
-#define EJERCICIO_GEOM_COMP_12_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_12_H
+#define GEOM_COMP_12_H
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Par de Puntos Más Cercanos en el Plano 2D */
-int ejecutar_geom_comp_12(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_12_H */
+#include <stddef.h>
+typedef struct { double x, y; } punto2d_t;
+/* Guarda índices del par de menor distancia; false con menos de dos puntos. */
+bool par_mas_cercano(const punto2d_t *puntos, size_t n, size_t *indice_a, size_t *indice_b);
+#endif

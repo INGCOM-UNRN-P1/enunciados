@@ -1,11 +1,6 @@
 #ifndef EJERCICIO_GRAFO_RED_03_H
 #define EJERCICIO_GRAFO_RED_03_H
-
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Conversión entre Matriz y Lista de Adyacencia */
-int ejecutar_grafo_red_03(int val);
-
-#endif /* EJERCICIO_GRAFO_RED_03_H */
+int matriz_a_listas(size_t n, const int matriz[20][20], int listas[20][20]);
+int listas_a_matriz(size_t n, const int listas[20][20], int matriz[20][20]);
+#endif

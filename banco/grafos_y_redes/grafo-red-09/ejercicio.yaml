@@ -15,39 +15,17 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Detección de Ciclos en Grafos Dirigidos
-    con Marcado de Tres Colores
+- nombre: tiene_ciclo_dirigido
+  retorno: bool
+  parametros: size_t n, const int matriz[20][20]
+  descripcion: ciclos dirigidos
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_09_positivo
-  funcion: ejecutar_grafo_red_09
-  codigo: 'int res = ejecutar_grafo_red_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_09_cero
-  funcion: ejecutar_grafo_red_09
-  codigo: 'int res = ejecutar_grafo_red_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_09_negativo
-  funcion: ejecutar_grafo_red_09
-  codigo: 'int res = ejecutar_grafo_red_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_09_valor_limite
-  funcion: ejecutar_grafo_red_09
-  codigo: 'int res = ejecutar_grafo_red_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_09_valor_unitario
-  funcion: ejecutar_grafo_red_09
-  codigo: 'int res = ejecutar_grafo_red_09(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_09_casos_representativos
+  funcion: tiene_ciclo_dirigido
+  codigo: "int ciclo[20][20]={0},aciclico[20][20]={0};ciclo[0][1]=1;ciclo[1][2]=1;ciclo[2][0]=1;aciclico[0][1]=1;aciclico[1][2]=1;assert(tiene_ciclo_dirigido(3,\
+    \ ciclo));\n    assert(!tiene_ciclo_dirigido(3, aciclico));"
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

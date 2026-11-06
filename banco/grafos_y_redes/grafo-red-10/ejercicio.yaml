@@ -15,38 +15,23 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_10
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Grafo Bipartito y Dos-Coloración
+- nombre: dos_colorear
+  retorno: bool
+  parametros: size_t n, const int matriz[20][20], int colores[20]
+  descripcion: verifica bipartición y devuelve una dos-coloración
+- nombre: es_bipartito
+  retorno: bool
+  parametros: size_t n, const int matriz[20][20]
+  descripcion: wrapper booleano de dos_colorear
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_10_positivo
-  funcion: ejecutar_grafo_red_10
-  codigo: 'int res = ejecutar_grafo_red_10(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_10_cero
-  funcion: ejecutar_grafo_red_10
-  codigo: 'int res = ejecutar_grafo_red_10(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_10_negativo
-  funcion: ejecutar_grafo_red_10
-  codigo: 'int res = ejecutar_grafo_red_10(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_10_valor_limite
-  funcion: ejecutar_grafo_red_10
-  codigo: 'int res = ejecutar_grafo_red_10(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_10_valor_unitario
-  funcion: ejecutar_grafo_red_10
-  codigo: 'int res = ejecutar_grafo_red_10(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_10_colores_validos_desconectado_y_ciclo_impar
+  funcion: dos_colorear
+  codigo: int a[20][20]={{0}},c[20];for(int i=0;i<20;i++)c[i]=7;a[0][1]=a[1][0]=1;a[1][2]=a[2][1]=1;a[3][4]=a[4][3]=1;assert(dos_colorear(6,a,c));for(int
+    i=0;i<6;i++)assert(c[i]==0||c[i]==1);for(int i=0;i<6;i++)for(int j=0;j<6;j++)if(a[i][j])assert(c[i]!=c[j]);assert(c[5]==0);int
+    impar[20][20]={{0}},salida[20];for(int i=0;i<20;i++)salida[i]=9;impar[0][1]=impar[1][0]=1;impar[1][2]=impar[2][1]=1;impar[2][0]=impar[0][2]=1;assert(!dos_colorear(3,impar,salida));for(int
+    i=0;i<20;i++)assert(salida[i]==9);assert(es_bipartito(6,a));assert(!es_bipartito(3,impar));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

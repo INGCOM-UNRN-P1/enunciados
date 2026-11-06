@@ -1,5 +1,5 @@
 id: heap-prio-10
-titulo: K-ésimo Elemento Menor usando Min-Heap de Tamaño K
+titulo: K-ésimo menor con heap de tamaño k
 tema: colas_prioridad_heaps
 bloom: 2
 minutos_estimados: 15
@@ -18,37 +18,17 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_10
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de K-ésimo Elemento Menor usando Min-Heap
-    de Tamaño K
+- nombre: kth_smallest
+  retorno: bool
+  parametros: const int *a,size_t n,size_t k,int *resultado
+  descripcion: K-ésimo menor con heap de tamaño k
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_10_positivo
-  funcion: ejecutar_heap_prio_10
-  codigo: 'int res = ejecutar_heap_prio_10(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_10_cero
-  funcion: ejecutar_heap_prio_10
-  codigo: 'int res = ejecutar_heap_prio_10(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_10_negativo
-  funcion: ejecutar_heap_prio_10
-  codigo: 'int res = ejecutar_heap_prio_10(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_10_valor_limite
-  funcion: ejecutar_heap_prio_10
-  codigo: 'int res = ejecutar_heap_prio_10(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_10_valor_unitario
-  funcion: ejecutar_heap_prio_10
-  codigo: 'int res = ejecutar_heap_prio_10(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_10_resultado_funcional
+  funcion: kth_smallest
+  codigo: int a[]={100,90,80,70,60,60,101,50}; int x=123; assert(kth_smallest(a,8,4,&x)&&x==70);
+    assert(kth_smallest(a,8,3,&x)&&x==60); assert(kth_smallest(a,8,1,&x)&&x==50);
+    assert(kth_smallest(a,8,8,&x)&&x==101); x=123; assert(!kth_smallest(a,8,0,&x)&&x==123);
+    assert(!kth_smallest(a,8,9,&x)&&x==123); assert(!kth_smallest(NULL,8,1,&x)); assert(!kth_smallest(a,8,1,NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

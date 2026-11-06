@@ -1,5 +1,5 @@
 id: heap-prio-11
-titulo: K-ésimo Elemento Mayor usando Max-Heap de Tamaño K
+titulo: K-ésimo mayor con heap de tamaño k
 tema: colas_prioridad_heaps
 bloom: 2
 minutos_estimados: 15
@@ -18,37 +18,17 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_11
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de K-ésimo Elemento Mayor usando Max-Heap
-    de Tamaño K
+- nombre: kth_largest
+  retorno: bool
+  parametros: const int *a,size_t n,size_t k,int *resultado
+  descripcion: K-ésimo mayor con heap de tamaño k
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_11_positivo
-  funcion: ejecutar_heap_prio_11
-  codigo: 'int res = ejecutar_heap_prio_11(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_11_cero
-  funcion: ejecutar_heap_prio_11
-  codigo: 'int res = ejecutar_heap_prio_11(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_11_negativo
-  funcion: ejecutar_heap_prio_11
-  codigo: 'int res = ejecutar_heap_prio_11(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_11_valor_limite
-  funcion: ejecutar_heap_prio_11
-  codigo: 'int res = ejecutar_heap_prio_11(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_11_valor_unitario
-  funcion: ejecutar_heap_prio_11
-  codigo: 'int res = ejecutar_heap_prio_11(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_11_resultado_funcional
+  funcion: kth_largest
+  codigo: int a[]={1,2,3,4,100,100,0,90}; int x=123; assert(kth_largest(a,8,4,&x)&&x==4);
+    assert(kth_largest(a,8,3,&x)&&x==90); assert(kth_largest(a,8,1,&x)&&x==100); assert(kth_largest(a,8,8,&x)&&x==0);
+    x=123; assert(!kth_largest(a,8,0,&x)&&x==123); assert(!kth_largest(a,8,9,&x)&&x==123);
+    assert(!kth_largest(NULL,8,1,&x)); assert(!kth_largest(a,8,1,NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

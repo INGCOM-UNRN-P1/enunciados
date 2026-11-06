@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_HEAP_PRIO_09_H
-#define EJERCICIO_HEAP_PRIO_09_H
-
-#include <stddef.h>
+#ifndef HEAP_PRIO_09_H
+#define HEAP_PRIO_09_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#define HEAP_CAPACITY 256
 
-/* Procesa el flujo principal de Fusión de Dos Montículos Binarios */
-int ejecutar_heap_prio_09(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_09_H */
+bool heap_merge(const int *a,size_t n,const int *b,size_t m,int *destino);
+bool es_min_heap(const int *a, size_t n);
+#endif

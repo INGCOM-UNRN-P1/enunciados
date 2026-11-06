@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_HEAP_PRIO_08_H
-#define EJERCICIO_HEAP_PRIO_08_H
-
-#include <stddef.h>
+#ifndef HEAP_PRIO_08_H
+#define HEAP_PRIO_08_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#define HEAP_CAPACITY 256
 
-/* Procesa el flujo principal de Eliminación de Elemento Arbitrario en Montículo Binario */
-int ejecutar_heap_prio_08(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_08_H */
+bool heap_remove_at(int *heap, size_t *n, size_t indice);
+bool es_min_heap(const int *a, size_t n);
+#endif

@@ -1,11 +1,5 @@
 #ifndef EJERCICIO_GRAFO_RED_05_H
 #define EJERCICIO_GRAFO_RED_05_H
-
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Recorrido en Profundidad DFS Recursivo en Grafos */
-int ejecutar_grafo_red_05(int val);
-
-#endif /* EJERCICIO_GRAFO_RED_05_H */
+size_t dfs_recursivo(size_t n, const int matriz[20][20], size_t inicio, size_t orden[20]);
+#endif

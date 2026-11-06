@@ -1,46 +1,23 @@
-Calcular producto vectorial, punto o intersección según el esquema geométrico #27.
+# Búsqueda de Bounding Box Mínima Orientada OBB
 
-### 📋 Contrato de las Funciones
+Implementá un algoritmo que devuelva la caja orientada de área mínima que contiene un conjunto de puntos 2D. Construí el casco convexo, evaluá las orientaciones de sus aristas y devolvé la caja completa, no solo su área.
+
+Contrato C11:
 
 ```c
-/*
- * Procesa el flujo principal de Búsqueda de Bounding Box Mínima Orientada OBB
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_geom_comp_27(int val);
+typedef struct { double x, y; } punto2d_t;
+typedef struct {
+    punto2d_t centro;
+    punto2d_t eje_x; /* unitario */
+    punto2d_t eje_y; /* unitario y perpendicular a eje_x */
+    double semiancho;
+    double semialto;
+    double area;
+} obb2d_t;
 
+bool caja_obb_minima(const punto2d_t *puntos, size_t n, obb2d_t *salida);
 ```
 
-### 🧪 Ejemplos de Ejecución
+La entrada requiere al menos un punto finito. Para una nube de un solo punto distinto, devolvé una caja puntual centrada allí, con ejes canónicos (1,0) y (0,1), extensiones y área cero. Para puntos colineales, devolvé una caja degenerada con semialto cero y eje_x paralelo al segmento extremo; el área es cero. Las copias no alteran el resultado. Ante punteros nulos, n=0, coordenadas no finitas, overflow de tamaños o fallo de reserva, retorná false sin modificar salida.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
-:::
+Los tests comprueban orientación, ortonormalidad, inclusión y área de una caja que contiene un rectángulo rotado, además de las políticas degeneradas y tamaños que desbordan la reserva.

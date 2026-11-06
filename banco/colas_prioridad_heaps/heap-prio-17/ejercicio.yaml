@@ -1,5 +1,5 @@
 id: heap-prio-17
-titulo: Montículo Oblicuo Skew Heap Autoajustable
+titulo: Montículo oblicuo skew autoajustable
 tema: colas_prioridad_heaps
 bloom: 3
 minutos_estimados: 25
@@ -18,36 +18,33 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_17
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Montículo Oblicuo Skew Heap Autoajustable
+- nombre: skew_init
+  retorno: void
+  parametros: skew_heap_t *h
+  descripcion: Montículo oblicuo skew autoajustable
+- nombre: skew_insert
+  retorno: bool
+  parametros: skew_heap_t *h,int valor
+  descripcion: Montículo oblicuo skew autoajustable
+- nombre: skew_merge
+  retorno: bool
+  parametros: skew_heap_t *destino,skew_heap_t *origen
+  descripcion: Montículo oblicuo skew autoajustable
+- nombre: skew_extract_min
+  retorno: bool
+  parametros: skew_heap_t *h,int *salida
+  descripcion: Montículo oblicuo skew autoajustable
+- nombre: skew_destroy
+  retorno: void
+  parametros: skew_heap_t *h
+  descripcion: Montículo oblicuo skew autoajustable
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_17_positivo
-  funcion: ejecutar_heap_prio_17
-  codigo: 'int res = ejecutar_heap_prio_17(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_17_cero
-  funcion: ejecutar_heap_prio_17
-  codigo: 'int res = ejecutar_heap_prio_17(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_17_negativo
-  funcion: ejecutar_heap_prio_17
-  codigo: 'int res = ejecutar_heap_prio_17(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_17_valor_limite
-  funcion: ejecutar_heap_prio_17
-  codigo: 'int res = ejecutar_heap_prio_17(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_17_valor_unitario
-  funcion: ejecutar_heap_prio_17
-  codigo: 'int res = ejecutar_heap_prio_17(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_17_resultado_funcional
+  funcion: skew_init
+  codigo: skew_heap_t a,b; skew_init(&a); skew_init(&b); for(int i=39;i>=20;i--) assert(skew_insert(&a,i));
+    for(int i=19;i>=0;i--) assert(skew_insert(&b,i)); assert(skew_merge(&a,&b)); assert(b.root==NULL);
+    int x; for(int i=0;i<40;i++) assert(skew_extract_min(&a,&x)&&x==i); assert(!skew_extract_min(&a,&x));
+    skew_destroy(&a); skew_destroy(&b);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

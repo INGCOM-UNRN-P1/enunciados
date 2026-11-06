@@ -15,38 +15,24 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_03
+- nombre: matriz_a_listas
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conversión entre Matriz y Lista de Adyacencia
+  parametros: size_t n, const int matriz[20][20], int listas[20][20]
+  descripcion: conversión de matriz a listas
+- nombre: listas_a_matriz
+  retorno: int
+  parametros: size_t n, const int listas[20][20], int matriz[20][20]
+  descripcion: conversión de listas a matriz
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_03_positivo
-  funcion: ejecutar_grafo_red_03
-  codigo: 'int res = ejecutar_grafo_red_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_03_cero
-  funcion: ejecutar_grafo_red_03
-  codigo: 'int res = ejecutar_grafo_red_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_03_negativo
-  funcion: ejecutar_grafo_red_03
-  codigo: 'int res = ejecutar_grafo_red_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_03_valor_limite
-  funcion: ejecutar_grafo_red_03
-  codigo: 'int res = ejecutar_grafo_red_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_03_valor_unitario
-  funcion: ejecutar_grafo_red_03
-  codigo: 'int res = ejecutar_grafo_red_03(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_03_conversion_ida_vuelta_e_invalidaciones
+  funcion: matriz_a_listas
+  codigo: int m[20][20]={{0}},l[20][20]={{0}},r[20][20]={{0}};m[0][1]=m[1][0]=1;m[1][2]=m[2][1]=1;assert(matriz_a_listas(3,m,l)==0);assert(l[0][0]==1&&l[0][1]==-1);assert(l[1][0]==0&&l[1][1]==2&&l[1][2]==-1);assert(listas_a_matriz(3,l,r)==0);for(int
+    i=0;i<3;i++)for(int j=0;j<3;j++)assert(m[i][j]==r[i][j]);int mala[20][20]={{0}};mala[0][0]=1;assert(listas_a_matriz(3,mala,r)==-1);assert(matriz_a_listas(21,m,l)==-1);
+- nombre: rechaza_matriz_no_simetrica_y_lazos
+  funcion: matriz_a_listas
+  codigo: int m[20][20]={{0}}, l[20][20]; m[0][1]=1; assert(matriz_a_listas(2,m,l)==-1); m[1][0]=1; m[0][0]=1; assert(matriz_a_listas(2,m,l)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

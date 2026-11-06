@@ -15,39 +15,16 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_04
+- nombre: grado_dirigido
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Grado de Entrada y Salida
-    en Nodos Dirigidos
+  parametros: size_t n, const int matriz[20][20], size_t vertice, bool entrada
+  descripcion: grados dirigido
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_04_positivo
-  funcion: ejecutar_grafo_red_04
-  codigo: 'int res = ejecutar_grafo_red_04(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_04_cero
-  funcion: ejecutar_grafo_red_04
-  codigo: 'int res = ejecutar_grafo_red_04(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_04_negativo
-  funcion: ejecutar_grafo_red_04
-  codigo: 'int res = ejecutar_grafo_red_04(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_04_valor_limite
-  funcion: ejecutar_grafo_red_04
-  codigo: 'int res = ejecutar_grafo_red_04(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_04_valor_unitario
-  funcion: ejecutar_grafo_red_04
-  codigo: 'int res = ejecutar_grafo_red_04(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_04_casos_representativos
+  funcion: grado_dirigido
+  codigo: int matriz[20][20]={{0}};matriz[0][1]=1;matriz[2][1]=1;matriz[1][0]=1;assert(grado_dirigido(3,matriz,1,false)==1);assert(grado_dirigido(3,matriz,1,true)==2);assert(grado_dirigido(3,matriz,2,true)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

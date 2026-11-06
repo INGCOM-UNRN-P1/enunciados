@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- Calculá la proyección sobre la recta.
+- La reflexión duplica el vector hacia la proyección.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,22 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_20
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Reflexión de Puntos respecto a un Eje
-    Arbitrario
+- nombre: reflejar_punto_recta
+  retorno: bool
+  parametros: punto2d_t,punto2d_t,punto2d_t,punto2d_t*
+  descripcion: Refleja respecto de la recta AB; falla si A=B.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_20_positivo
-  funcion: ejecutar_geom_comp_20
-  codigo: 'int res = ejecutar_geom_comp_20(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_20_cero
-  funcion: ejecutar_geom_comp_20
-  codigo: 'int res = ejecutar_geom_comp_20(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_20_negativo
-  funcion: ejecutar_geom_comp_20
-  codigo: 'int res = ejecutar_geom_comp_20(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_20_valor_limite
-  funcion: ejecutar_geom_comp_20
-  codigo: 'int res = ejecutar_geom_comp_20(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_20_valor_unitario
-  funcion: ejecutar_geom_comp_20
-  codigo: 'int res = ejecutar_geom_comp_20(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: eje_x
+  funcion: reflejar_punto_recta
+  codigo: punto2d_t r; assert(reflejar_punto_recta((punto2d_t){2,3},(punto2d_t){0,0},(punto2d_t){1,0},&r)&&r.x==2&&r.y==-3);
+- nombre: diagonal
+  funcion: reflejar_punto_recta
+  codigo: punto2d_t r; assert(reflejar_punto_recta((punto2d_t){1,0},(punto2d_t){0,0},(punto2d_t){1,1},&r)&&fabs(r.x)<1e-9&&fabs(r.y-1)<1e-9);
+- nombre: degenerada
+  funcion: reflejar_punto_recta
+  codigo: punto2d_t r; assert(!reflejar_punto_recta((punto2d_t){1,2},(punto2d_t){0,0},(punto2d_t){0,0},&r));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

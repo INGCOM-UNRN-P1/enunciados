@@ -15,39 +15,16 @@ tags:
 - dep:matrices
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_16
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Algoritmo de Dijkstra para Caminos Mínimos
-    con Pesos Positivos
+- nombre: dijkstra
+  retorno: bool
+  parametros: size_t n, const int pesos[20][20], size_t origen, int distancias[20]
+  descripcion: Dijkstra
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_16_positivo
-  funcion: ejecutar_grafo_red_16
-  codigo: 'int res = ejecutar_grafo_red_16(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_16_cero
-  funcion: ejecutar_grafo_red_16
-  codigo: 'int res = ejecutar_grafo_red_16(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_16_negativo
-  funcion: ejecutar_grafo_red_16
-  codigo: 'int res = ejecutar_grafo_red_16(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_16_valor_limite
-  funcion: ejecutar_grafo_red_16
-  codigo: 'int res = ejecutar_grafo_red_16(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_16_valor_unitario
-  funcion: ejecutar_grafo_red_16
-  codigo: 'int res = ejecutar_grafo_red_16(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_16_casos_representativos
+  funcion: dijkstra
+  codigo: int m[20][20]={{0}},negativo[20][20]={{0}},d[20]={0};m[0][1]=4;m[0][2]=10;m[1][2]=2;m[1][3]=5;m[2][3]=3;negativo[0][1]=-1;assert(dijkstra(4,m,0,d));assert(d[0]==0&&d[1]==4&&d[2]==6&&d[3]==9);assert(!dijkstra(4,negativo,0,d));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

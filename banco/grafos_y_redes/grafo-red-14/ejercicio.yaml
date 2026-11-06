@@ -15,39 +15,17 @@ tags:
 - dep:matrices
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_14
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Ordenamiento Topológico de Grafos Dirigidos
-    Acíclicos DAG
+- nombre: orden_topologico
+  retorno: size_t
+  parametros: size_t n, const int matriz[20][20], size_t orden[20]
+  descripcion: orden topológico
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_14_positivo
-  funcion: ejecutar_grafo_red_14
-  codigo: 'int res = ejecutar_grafo_red_14(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_14_cero
-  funcion: ejecutar_grafo_red_14
-  codigo: 'int res = ejecutar_grafo_red_14(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_14_negativo
-  funcion: ejecutar_grafo_red_14
-  codigo: 'int res = ejecutar_grafo_red_14(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_14_valor_limite
-  funcion: ejecutar_grafo_red_14
-  codigo: 'int res = ejecutar_grafo_red_14(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_14_valor_unitario
-  funcion: ejecutar_grafo_red_14
-  codigo: 'int res = ejecutar_grafo_red_14(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_14_casos_representativos
+  funcion: orden_topologico
+  codigo: int m[20][20]={{0}},ciclo[20][20]={{0}};size_t o[20]={0};m[0][1]=1;m[0][2]=1;m[1][3]=1;m[2][3]=1;ciclo[0][1]=1;ciclo[1][0]=1;size_t
+    k=orden_topologico(4,m,o);assert(k==4);int p0=-1,p1=-1;for(int z=0;z<4;z++){if(o[z]==0)p0=z;if(o[z]==1)p1=z;}assert(p0<p1);assert(orden_topologico(2,ciclo,o)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

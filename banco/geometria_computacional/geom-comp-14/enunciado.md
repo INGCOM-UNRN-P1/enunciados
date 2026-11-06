@@ -1,46 +1,18 @@
-Calcular producto vectorial, punto o intersección según el esquema geométrico #14.
+# Detección de Colisión entre Dos Cajas AABB
 
-### 📋 Contrato de las Funciones
+Las cajas se expresan con mínimos y máximos normalizados. Compartir borde o vértice cuenta como intersección.
+
+Contrato C11:
 
 ```c
-/*
- * Procesa el flujo principal de Detección de Colisión entre Dos Cajas AABB
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_geom_comp_14(int val);
-
+#ifndef GEOM_COMP_14_H
+#define GEOM_COMP_14_H
+#include <stdbool.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
+typedef struct {double min_x,min_y,max_x,max_y;} caja2d_t;
+bool aabb_intersectan(caja2d_t,caja2d_t);
+#endif
 ```
 
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
-:::
+Convenciones y casos inválidos: las funciones que escriben parámetros de salida retornan false o cero si no pueden producir un resultado válido. Los casos esenciales están declarados en tests_funciones del YAML.

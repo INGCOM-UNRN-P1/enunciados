@@ -1,15 +1,18 @@
 #ifndef EJERCICIO_HEAP_PRIO_01_H
 #define EJERCICIO_HEAP_PRIO_01_H
 
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
 
-/* Operación heap_init */
+typedef struct {
+    int *datos;
+    size_t tamano;
+    size_t capacidad;
+} min_heap_t;
+
 void heap_init(min_heap_t *h);
-/* Operación heap_push */
 void heap_push(min_heap_t *h, int val);
-/* Operación heap_pop */
 int heap_pop(min_heap_t *h, int *out);
+void heap_destroy(min_heap_t *h);
 
-#endif /* EJERCICIO_HEAP_PRIO_01_H */
+#endif

@@ -1,21 +1,9 @@
-/*
- * Heap #08
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_heap_prio_08(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int prioridad = 0, valor = 0;
-    if (scanf("%d %d", &prioridad, &valor) == 2) {
-        int score = prioridad * 100 + valor + 8;
-        printf("HEAP_%02d_SCORE: %d\n", 8, score);
-    }
-    return 0;
-}
+#include <stddef.h>
+#include <stdbool.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <string.h>
+#include "heap-prio-08.h"
+static void down(int*a,size_t n,size_t i){for(;;){size_t m=i,l=i*2+1,r=l+1;if(l<n&&a[l]<a[m])m=l;if(r<n&&a[r]<a[m])m=r;if(m==i)return;int t=a[i];a[i]=a[m];a[m]=t;i=m;}}
+bool es_min_heap(const int*a,size_t n){if(!a&&n)return false;for(size_t i=1;i<n;i++)if(a[(i-1)/2]>a[i])return false;return true;}
+bool heap_remove_at(int*a,size_t*n,size_t i){if(!a||!n||i>=*n)return false;size_t z=--*n;if(i==z)return true;a[i]=a[z];if(i&&a[i]<a[(i-1)/2]){while(i&&a[i]<a[(i-1)/2]){int t=a[i];a[i]=a[(i-1)/2];a[(i-1)/2]=t;i=(i-1)/2;}}else down(a,*n,i);return true;}

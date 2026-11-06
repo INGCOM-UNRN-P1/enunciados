@@ -1,20 +1,8 @@
-/*
- * Grafos #09
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <limits.h>
+#include <string.h>
 
-
-int ejecutar_grafo_red_09(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 9, nodo, grado + 9);
-    }
-    return 0;
-}
+#define MAXV 20
+static bool cyc9(size_t n,const int a[20][20],size_t u,int c[20]){c[u]=1;for(size_t j=0;j<n;j++)if(a[u][j]){if(c[j]==1)return true;if(c[j]==0&&cyc9(n,a,j,c))return true;}c[u]=2;return false;}
+bool tiene_ciclo_dirigido(size_t n,const int a[20][20]){if(!a||n>MAXV)return false;int c[20]={0};for(size_t i=0;i<n;i++)if(!c[i]&&cyc9(n,a,i,c))return true;return false;}

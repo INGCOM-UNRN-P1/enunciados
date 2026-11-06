@@ -1,21 +1,4 @@
-/*
- * Geometria #25
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_25(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 25;
-        printf("GEOM_%02d: %d\n", 25, prod);
-    }
-    return 0;
-}
+#include "geom-comp-25.h"
+#include <math.h>
+static double dirigido(const punto2d_t*a,size_t n,const punto2d_t*b,size_t m){double h=0;for(size_t i=0;i<n;i++){double d=INFINITY;for(size_t j=0;j<m;j++){double q=hypot(a[i].x-b[j].x,a[i].y-b[j].y);if(q<d)d=q;}if(d>h)h=d;}return h;}
+double hausdorff_discreta(const punto2d_t*a,size_t n,const punto2d_t*b,size_t m){if(!a||!b||!n||!m)return INFINITY;double x=dirigido(a,n,b,m),y=dirigido(b,m,a,n);return x>y?x:y;}

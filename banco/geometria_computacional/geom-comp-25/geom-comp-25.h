@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_25_H
-#define EJERCICIO_GEOM_COMP_25_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_25_H
+#define GEOM_COMP_25_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
 
-/* Procesa el flujo principal de Distancia de Hausdorff entre Dos Conjuntos de Puntos */
-int ejecutar_geom_comp_25(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_25_H */
+double hausdorff_discreta(const punto2d_t*,size_t,const punto2d_t*,size_t);
+#endif

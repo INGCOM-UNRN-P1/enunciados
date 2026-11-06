@@ -1,21 +1,3 @@
-/*
- * Geometria #18
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_18(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 18;
-        printf("GEOM_%02d: %d\n", 18, prod);
-    }
-    return 0;
-}
+#include "geom-comp-18.h"
+#include <math.h>
+punto2d_t rotar_punto(punto2d_t p,punto2d_t o,double a){double x=p.x-o.x,y=p.y-o.y,c=cos(a),s=sin(a);return(punto2d_t){o.x+x*c-y*s,o.y+x*s+y*c};}

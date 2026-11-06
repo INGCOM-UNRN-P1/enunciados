@@ -1,5 +1,5 @@
 id: heap-prio-12
-titulo: Mediana en Flujo de Datos Continuo con Dos Heaps
+titulo: Mediana de flujo con dos heaps
 tema: colas_prioridad_heaps
 bloom: 2
 minutos_estimados: 15
@@ -18,37 +18,24 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_12
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Mediana en Flujo de Datos Continuo con
-    Dos Heaps
+- nombre: median_init
+  retorno: void
+  parametros: median_stream_t *s
+  descripcion: Mediana de flujo con dos heaps
+- nombre: median_add
+  retorno: bool
+  parametros: median_stream_t *s,int valor
+  descripcion: Mediana de flujo con dos heaps
+- nombre: median_get
+  retorno: bool
+  parametros: const median_stream_t *s,double *mediana
+  descripcion: Mediana de flujo con dos heaps
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_12_positivo
-  funcion: ejecutar_heap_prio_12
-  codigo: 'int res = ejecutar_heap_prio_12(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_12_cero
-  funcion: ejecutar_heap_prio_12
-  codigo: 'int res = ejecutar_heap_prio_12(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_12_negativo
-  funcion: ejecutar_heap_prio_12
-  codigo: 'int res = ejecutar_heap_prio_12(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_12_valor_limite
-  funcion: ejecutar_heap_prio_12
-  codigo: 'int res = ejecutar_heap_prio_12(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_12_valor_unitario
-  funcion: ejecutar_heap_prio_12
-  codigo: 'int res = ejecutar_heap_prio_12(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_12_resultado_funcional
+  funcion: median_init
+  codigo: median_stream_t s; median_init(&s); double m; assert(!median_get(&s,&m));
+    median_add(&s,1); median_add(&s,9); assert(median_get(&s,&m)&&m==5.0); median_add(&s,3);
+    assert(median_get(&s,&m)&&m==3.0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

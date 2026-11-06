@@ -1,5 +1,5 @@
 id: heap-prio-07
-titulo: Cola de Prioridad con Estructuras Compuestas Tarea-Prioridad
+titulo: Cola de prioridad de tareas
 tema: colas_prioridad_heaps
 bloom: 2
 minutos_estimados: 15
@@ -18,37 +18,24 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_07
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cola de Prioridad con Estructuras Compuestas
-    Tarea-Prioridad
+- nombre: cola_init
+  retorno: void
+  parametros: cola_t *c
+  descripcion: Cola de prioridad de tareas
+- nombre: cola_push
+  retorno: bool
+  parametros: cola_t *c, tarea_t tarea
+  descripcion: Cola de prioridad de tareas
+- nombre: cola_pop
+  retorno: bool
+  parametros: cola_t *c, tarea_t *salida
+  descripcion: Cola de prioridad de tareas
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_07_positivo
-  funcion: ejecutar_heap_prio_07
-  codigo: 'int res = ejecutar_heap_prio_07(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_07_cero
-  funcion: ejecutar_heap_prio_07
-  codigo: 'int res = ejecutar_heap_prio_07(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_07_negativo
-  funcion: ejecutar_heap_prio_07
-  codigo: 'int res = ejecutar_heap_prio_07(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_07_valor_limite
-  funcion: ejecutar_heap_prio_07
-  codigo: 'int res = ejecutar_heap_prio_07(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_07_valor_unitario
-  funcion: ejecutar_heap_prio_07
-  codigo: 'int res = ejecutar_heap_prio_07(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_07_resultado_funcional
+  funcion: cola_init
+  codigo: cola_t c; cola_init(&c); cola_push(&c,(tarea_t){2,10}); cola_push(&c,(tarea_t){5,20});
+    cola_push(&c,(tarea_t){5,21}); tarea_t t; assert(cola_pop(&c,&t)&&t.id==20); assert(cola_pop(&c,&t)&&t.id==21);
+    assert(cola_pop(&c,&t)&&t.id==10);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

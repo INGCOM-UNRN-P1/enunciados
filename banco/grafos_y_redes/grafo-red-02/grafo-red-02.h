@@ -1,11 +1,6 @@
 #ifndef EJERCICIO_GRAFO_RED_02_H
 #define EJERCICIO_GRAFO_RED_02_H
-
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Representación de Grafo por Listas de Adyacencia */
-int ejecutar_grafo_red_02(int val);
-
-#endif /* EJERCICIO_GRAFO_RED_02_H */
+int construir_listas_adyacencia(size_t n, size_t m, const size_t aristas[40][2], int listas[20][20]);
+int grado_vertice(size_t n, const int listas[20][20], size_t vertice);
+#endif

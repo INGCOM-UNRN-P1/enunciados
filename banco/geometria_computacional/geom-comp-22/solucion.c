@@ -1,21 +1,3 @@
-/*
- * Geometria #22
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_22(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 22;
-        printf("GEOM_%02d: %d\n", 22, prod);
-    }
-    return 0;
-}
+#include "geom-comp-22.h"
+#include <math.h>
+double perimetro_poligono(const punto2d_t*p,size_t n){if(!p||n<2)return 0;double s=0;for(size_t i=0;i<n;i++){size_t j=(i+1)%n;s+=hypot(p[i].x-p[j].x,p[i].y-p[j].y);}return s;}

@@ -1,11 +1,9 @@
-#ifndef EJERCICIO_HEAP_PRIO_04_H
-#define EJERCICIO_HEAP_PRIO_04_H
-
-#include <stddef.h>
+#ifndef HEAP_PRIO_04_H
+#define HEAP_PRIO_04_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#define HEAP_CAPACITY 256
 
-/* Procesa el flujo principal de Operación de Heapify Lineal sobre Arreglo Desordenado */
-int ejecutar_heap_prio_04(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_04_H */
+void heapify_min(int *a, size_t n); bool es_min_heap(const int *a, size_t n);
+bool es_min_heap(const int *a, size_t n);
+#endif

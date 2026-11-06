@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- El óptimo alinea un lado con una arista del casco.
+- Proyectá vértices sobre ejes perpendiculares.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,31 @@ tags:
 - dep:aritmetica
 - c11
 - avanzada
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_27
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda de Bounding Box Mínima Orientada
-    OBB
+- nombre: caja_obb_minima
+  retorno: bool
+  parametros: const punto2d_t *puntos, size_t n, obb2d_t *salida
+  descripcion: Calcula centro, ejes unitarios ortogonales, semiextensiones y área de la OBB mínima.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_27_positivo
-  funcion: ejecutar_geom_comp_27
-  codigo: 'int res = ejecutar_geom_comp_27(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_27_cero
-  funcion: ejecutar_geom_comp_27
-  codigo: 'int res = ejecutar_geom_comp_27(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_27_negativo
-  funcion: ejecutar_geom_comp_27
-  codigo: 'int res = ejecutar_geom_comp_27(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_27_valor_limite
-  funcion: ejecutar_geom_comp_27
-  codigo: 'int res = ejecutar_geom_comp_27(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_27_valor_unitario
-  funcion: ejecutar_geom_comp_27
-  codigo: 'int res = ejecutar_geom_comp_27(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: rotado_orientacion_inclusion_area
+  funcion: caja_obb_minima
+  codigo: double s=sqrt(0.5); punto2d_t u={s,s},v={-s,s},c={3,-2}; punto2d_t p[5]; p[0]=(punto2d_t){c.x-2*u.x-v.x,c.y-2*u.y-v.y};
+    p[1]=(punto2d_t){c.x+2*u.x-v.x,c.y+2*u.y-v.y}; p[2]=(punto2d_t){c.x+2*u.x+v.x,c.y+2*u.y+v.y}; p[3]=(punto2d_t){c.x-2*u.x+v.x,c.y-2*u.y+v.y};
+    p[4]=c; obb2d_t b; assert(caja_obb_minima(p,5,&b)); assert(fabs(b.centro.x-c.x)<1e-9&&fabs(b.centro.y-c.y)<1e-9); assert(fabs(b.area-8)<1e-9);
+    assert(fabs(hypot(b.eje_x.x,b.eje_x.y)-1)<1e-9&&fabs(hypot(b.eje_y.x,b.eje_y.y)-1)<1e-9); assert(fabs(b.eje_x.x*b.eje_y.x+b.eje_x.y*b.eje_y.y)<1e-9);
+    double au=fabs(b.eje_x.x*u.x+b.eje_x.y*u.y); assert(au>1-1e-9||au<1e-9); if(au>0.5) assert(fabs(b.semiancho-2)<1e-9&&fabs(b.semialto-1)<1e-9);
+    else assert(fabs(b.semiancho-1)<1e-9&&fabs(b.semialto-2)<1e-9); for(size_t i=0;i<5;i++){double dx=p[i].x-b.centro.x,dy=p[i].y-b.centro.y;
+    assert(fabs(dx*b.eje_x.x+dy*b.eje_x.y)<=b.semiancho+1e-9); assert(fabs(dx*b.eje_y.x+dy*b.eje_y.y)<=b.semialto+1e-9);}
+- nombre: degenerados_punto_segmento
+  funcion: caja_obb_minima
+  codigo: punto2d_t iguales[]={{4,5},{4,5},{4,5}}; obb2d_t b; assert(caja_obb_minima(iguales,3,&b)); assert(b.centro.x==4&&b.centro.y==5&&b.semiancho==0&&b.semialto==0&&b.area==0);
+    assert(b.eje_x.x==1&&b.eje_x.y==0&&b.eje_y.x==0&&b.eje_y.y==1); punto2d_t linea[]={{0,0},{2,2},{1,1}}; assert(caja_obb_minima(linea,3,&b));
+    assert(fabs(b.semiancho-sqrt(2))<1e-9&&b.semialto==0&&b.area==0);
+- nombre: invalidos_y_overflow
+  funcion: caja_obb_minima
+  codigo: punto2d_t p={0,0}; obb2d_t b; assert(!caja_obb_minima(NULL,1,&b)); assert(!caja_obb_minima(&p,0,&b)); assert(!caja_obb_minima(&p,SIZE_MAX,&b));
+    assert(!caja_obb_minima(&p,1,NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,61 +1,62 @@
-/*
- * Min-Heap Basico
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
+#include "heap-prio-01.h"
 
-#define MAX_HEAP 128
-
-typedef struct {
-    int datos[MAX_HEAP];
-    int tamano;
-} min_heap_t;
-
-void heap_init(min_heap_t *h) { h->tamano = 0; }
-
-void heap_push(min_heap_t *h, int val) {
-    if (h->tamano >= MAX_HEAP) return;
-    int idx = h->tamano++;
-    h->datos[idx] = val;
-    while (idx > 0 && h->datos[idx] < h->datos[(idx - 1) / 2]) {
-        int temp = h->datos[idx];
-        h->datos[idx] = h->datos[(idx - 1) / 2];
-        h->datos[(idx - 1) / 2] = temp;
-        idx = (idx - 1) / 2;
-    }
+void heap_init(min_heap_t *h) {
+    if (!h) return;
+    h->datos = NULL;
+    h->tamano = 0;
+    h->capacidad = 0;
 }
-
-int heap_pop(min_heap_t *h, int *out) {
-    if (h->tamano <= 0) return 0;
-    *out = h->datos[0];
-    h->datos[0] = h->datos[--h->tamano];
-    int idx = 0;
-    while (idx * 2 + 1 < h->tamano) {
-        int menor = idx * 2 + 1;
-        if (menor + 1 < h->tamano && h->datos[menor + 1] < h->datos[menor]) {
-            menor++;
+static int heap_reservar(min_heap_t *h, size_t requerida) {
+    if (requerida <= h->capacidad) return 1;
+    size_t nueva = h->capacidad ? h->capacidad : 8;
+    while (nueva < requerida) {
+        if (nueva > SIZE_MAX / 2) {
+            nueva = requerida;
+            break;
         }
-        if (h->datos[idx] <= h->datos[menor]) break;
-        int temp = h->datos[idx];
-        h->datos[idx] = h->datos[menor];
-        h->datos[menor] = temp;
-        idx = menor;
+        nueva *= 2;
     }
+    if (nueva > SIZE_MAX / sizeof *h->datos) return 0;
+    int *datos = realloc(h->datos, nueva * sizeof *datos);
+    if (!datos) return 0;
+    h->datos = datos;
+    h->capacidad = nueva;
     return 1;
 }
-
-int main(void) {
-    min_heap_t h;
-    heap_init(&h);
-    int val = 0;
-    while (scanf("%d", &val) == 1 && val != 0) {
-        heap_push(&h, val);
+void heap_push(min_heap_t *h, int val) {
+    if (!h || h->tamano == SIZE_MAX || !heap_reservar(h, h->tamano + 1)) return;
+    size_t i = h->tamano++;
+    while (i > 0) {
+        size_t padre = (i - 1) / 2;
+        if (h->datos[padre] <= val) break;
+        h->datos[i] = h->datos[padre];
+        i = padre;
     }
-    int out = 0;
-    while (heap_pop(&h, &out)) {
-        printf("%d ", out);
+    h->datos[i] = val;
+}
+int heap_pop(min_heap_t *h, int *out) {
+    if (!h || !out || h->tamano == 0) return 0;
+    *out = h->datos[0];
+    int ultimo = h->datos[--h->tamano];
+    if (h->tamano == 0) return 1;
+    size_t i = 0;
+    while (i <= (h->tamano - 1) / 2) {
+        size_t hijo = i * 2 + 1;
+        if (hijo >= h->tamano) break;
+        if (hijo + 1 < h->tamano && h->datos[hijo + 1] < h->datos[hijo]) hijo++;
+        if (h->datos[hijo] >= ultimo) break;
+        h->datos[i] = h->datos[hijo];
+        i = hijo;
     }
-    printf("\n");
-    return 0;
+    h->datos[i] = ultimo;
+    return 1;
+}
+void heap_destroy(min_heap_t *h) {
+    if (!h) return;
+    free(h->datos);
+    h->datos = NULL;
+    h->tamano = 0;
+    h->capacidad = 0;
 }

@@ -1,21 +1,3 @@
-/*
- * Geometria #14
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_14(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 14;
-        printf("GEOM_%02d: %d\n", 14, prod);
-    }
-    return 0;
-}
+#include "geom-comp-14.h"
+#include <math.h>
+bool aabb_intersectan(caja2d_t a,caja2d_t b){if(a.min_x>a.max_x||a.min_y>a.max_y||b.min_x>b.max_x||b.min_y>b.max_y)return false;return a.min_x<=b.max_x&&b.min_x<=a.max_x&&a.min_y<=b.max_y&&b.min_y<=a.max_y;}

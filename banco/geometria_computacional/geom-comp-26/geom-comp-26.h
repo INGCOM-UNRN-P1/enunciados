@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_GEOM_COMP_26_H
-#define EJERCICIO_GEOM_COMP_26_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_26_H
+#define GEOM_COMP_26_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+typedef struct {double x,y;} punto2d_t;
 
-/* Procesa el flujo principal de Segmentación Voronoi y Asignación de Puntos al Sitio Más Cercano */
-int ejecutar_geom_comp_26(int val);
-
-#endif /* EJERCICIO_GEOM_COMP_26_H */
+bool asignar_sitios(const punto2d_t*,size_t,const punto2d_t*,size_t,size_t*);
+#endif

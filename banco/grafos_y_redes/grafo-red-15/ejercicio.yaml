@@ -15,39 +15,17 @@ tags:
 - dep:matrices
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_15
+- nombre: distancia_bfs
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Camino Mínimo en Grafos No Ponderados
-    con BFS
+  parametros: size_t n, const int matriz[20][20], size_t origen, size_t destino
+  descripcion: distancia BFS
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_15_positivo
-  funcion: ejecutar_grafo_red_15
-  codigo: 'int res = ejecutar_grafo_red_15(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_15_cero
-  funcion: ejecutar_grafo_red_15
-  codigo: 'int res = ejecutar_grafo_red_15(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_15_negativo
-  funcion: ejecutar_grafo_red_15
-  codigo: 'int res = ejecutar_grafo_red_15(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_15_valor_limite
-  funcion: ejecutar_grafo_red_15
-  codigo: 'int res = ejecutar_grafo_red_15(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_15_valor_unitario
-  funcion: ejecutar_grafo_red_15
-  codigo: 'int res = ejecutar_grafo_red_15(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_15_casos_representativos
+  funcion: distancia_bfs
+  codigo: "int m[20][20]={0};m[0][1]=m[1][0]=1;m[1][2]=m[2][1]=1;assert(distancia_bfs(4, m, 0, 2) == 2);\n\
+    \    assert(distancia_bfs(4, m, 0, 3) == -1);\n    assert(distancia_bfs(4, m, 1, 1) == 0);"
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

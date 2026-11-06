@@ -15,39 +15,18 @@ tags:
 - dep:matrices
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_grafo_red_07
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Recorrido en Anchura BFS con Cola en
-    Grafos
+- nombre: bfs_recorrido
+  retorno: size_t
+  parametros: size_t n, const int matriz[20][20], size_t inicio, size_t salida[20]
+  descripcion: BFS recorrido
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_07_positivo
-  funcion: ejecutar_grafo_red_07
-  codigo: 'int res = ejecutar_grafo_red_07(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_07_cero
-  funcion: ejecutar_grafo_red_07
-  codigo: 'int res = ejecutar_grafo_red_07(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_07_negativo
-  funcion: ejecutar_grafo_red_07
-  codigo: 'int res = ejecutar_grafo_red_07(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_07_valor_limite
-  funcion: ejecutar_grafo_red_07
-  codigo: 'int res = ejecutar_grafo_red_07(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_07_valor_unitario
-  funcion: ejecutar_grafo_red_07
-  codigo: 'int res = ejecutar_grafo_red_07(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_07_casos_representativos
+  funcion: bfs_recorrido
+  codigo: "int matriz[20][20]={0};size_t o[20]={0};matriz[0][1]=matriz[1][0]=1;matriz[1][2]=matriz[2][1]=1;size_t\
+    \ k = bfs_recorrido(4, matriz, 0, o);\n    assert(k == 3);\n    assert(o[0] == 0 && o[1] == 1 && o[2]\
+    \ == 2);"
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

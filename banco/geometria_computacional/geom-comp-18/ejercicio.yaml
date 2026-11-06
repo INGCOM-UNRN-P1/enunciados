@@ -4,8 +4,8 @@ tema: geometria_computacional
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
+- Trasladá el pivote al origen.
+- Aplicá seno y coseno y deshacé la traslación.
 tags:
 - geometria
 - vectores
@@ -15,39 +15,22 @@ tags:
 - dep:aritmetica
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_geom_comp_18
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Rotación 2D de Puntos Alrededor del Origen
-    y Pivote
+- nombre: rotar_punto
+  retorno: punto2d_t
+  parametros: punto2d_t,punto2d_t,double
+  descripcion: Rota alrededor del pivote en sentido antihorario; ángulo en radianes.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_18_positivo
-  funcion: ejecutar_geom_comp_18
-  codigo: 'int res = ejecutar_geom_comp_18(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_18_cero
-  funcion: ejecutar_geom_comp_18
-  codigo: 'int res = ejecutar_geom_comp_18(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_18_negativo
-  funcion: ejecutar_geom_comp_18
-  codigo: 'int res = ejecutar_geom_comp_18(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_18_valor_limite
-  funcion: ejecutar_geom_comp_18
-  codigo: 'int res = ejecutar_geom_comp_18(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_18_valor_unitario
-  funcion: ejecutar_geom_comp_18
-  codigo: 'int res = ejecutar_geom_comp_18(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: origen
+  funcion: rotar_punto
+  codigo: punto2d_t r=rotar_punto((punto2d_t){1,0},(punto2d_t){0,0},acos(-1)/2); assert(fabs(r.x)<1e-9&&fabs(r.y-1)<1e-9);
+- nombre: pivote
+  funcion: rotar_punto
+  codigo: punto2d_t r=rotar_punto((punto2d_t){2,1},(punto2d_t){1,1},acos(-1)/2); assert(fabs(r.x-1)<1e-9&&fabs(r.y-2)<1e-9);
+- nombre: cero
+  funcion: rotar_punto
+  codigo: punto2d_t p={-2,3},r=rotar_punto(p,(punto2d_t){4,5},0); assert(r.x==-2&&r.y==3);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

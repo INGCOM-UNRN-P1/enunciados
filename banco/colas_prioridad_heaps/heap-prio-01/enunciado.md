@@ -1,63 +1,20 @@
-Implementar un montículo binario (Min-Heap) sobre un arreglo dinámico con operaciones de inserción y extracción del elemento mínimo.
+# Min-Heap binario: inserción y extracción
 
-### 📋 Contrato de las Funciones
+Min-heap sobre un arreglo dinámico que crece bajo demanda. Conserva los prototipos originales: `heap_init(min_heap_t *)`, `heap_push(min_heap_t *, int)` (void) y `heap_pop(min_heap_t *, int *)` (retorna 1 si extrajo y 0 si está vacío o hay puntero inválido). `heap_destroy` libera el arreglo y reinicia el objeto. La reserva crece geométricamente; si falla, `heap_push` deja el heap sin cambios.
+
+## Interfaz
+
+La interfaz pública está declarada en `heap-prio-01.h`. Las funciones que consultan o extraen retornan `false` ante índices, punteros o heaps vacíos inválidos; no modifican la salida en ese caso.
+
+## Ejemplo
 
 ```c
-/*
- * Operación heap_init
- * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
- * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
- */
-void heap_init(min_heap_t *h);
-
-/*
- * Operación heap_push
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-void heap_push(min_heap_t *h, int val);
-
-/*
- * Operación heap_pop
- * Precondiciones: Los punteros recibidos deben ser válidos y no nulos.
- * Postcondiciones: Modifica el estado de la estructura o buffer de manera segura.
- */
-int heap_pop(min_heap_t *h, int *out);
-
+min_heap_t h; heap_init(&h); heap_push(&h, 7); heap_push(&h, -2); heap_push(&h, 4); int x; assert(heap_pop(&h,&x) && x==-2); assert(heap_pop(&h,&x) && x==4); assert(heap_pop(&h,&x) && x==7); assert(!heap_pop(&h,&x)); for (int i=200;i>=0;i--) heap_push(&h,i); assert(h.tamano==201 && h.capacidad>=201); for(int i=0;i<=200;i++) assert(heap_pop(&h,&x) && x==i); heap_destroy(&h);
 ```
 
-### 🧪 Ejemplos de Ejecución
+## Requisitos
 
-::::{tab-set}
-:::{tab-item} Encolar y Desencolar
-```text
-Operaciones: PUSH(42), PUSH(84), POP()
-Salida: 42
-```
-:::
-:::{tab-item} Consulta estado vacío
-```text
-Operación: IS_EMPTY()
-Salida: true
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Punteros nulos:** Validar que los punteros recibidos no sean `NULL` para prevenir fallos de segmentación (*SIGSEGV*).
-3. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-4. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Un nodo en el índice i tiene hijos en 2*i + 1 y 2*i + 2.
-- El padre de un nodo i está en (i - 1) / 2.
-:::
+- Mantener el invariante del heap después de cada operación.
+- Aceptar valores negativos y repetidos.
+- Manejar entrada vacía y errores sin acceso fuera de límites.
+- Compilar con C11 y `-Wall -Wextra -Werror -pedantic`.

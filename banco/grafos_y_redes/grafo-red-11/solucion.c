@@ -1,20 +1,7 @@
-/*
- * Grafos #11
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <limits.h>
+#include <string.h>
 
-
-int ejecutar_grafo_red_11(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 11, nodo, grado + 11);
-    }
-    return 0;
-}
+#define MAXV 20
+size_t contar_componentes(size_t n,const int a[20][20]){if(!a||n>MAXV)return 0;bool v[20]={0};size_t c=0,q[20];for(size_t s=0;s<n;s++)if(!v[s]){c++;size_t h=0,t=0;q[t++]=s;v[s]=true;while(h<t){size_t u=q[h++];for(size_t j=0;j<n;j++)if(a[u][j]&&!v[j]){v[j]=true;q[t++]=j;}}}return c;}

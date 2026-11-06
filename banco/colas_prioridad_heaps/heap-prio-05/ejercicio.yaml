@@ -1,5 +1,5 @@
 id: heap-prio-05
-titulo: Actualización de Prioridad Decrease-Key en Min-Heap
+titulo: Decrease-key en min-heap
 tema: colas_prioridad_heaps
 bloom: 1
 minutos_estimados: 10
@@ -18,37 +18,16 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_05
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Actualización de Prioridad Decrease-Key
-    en Min-Heap
+- nombre: min_heap_decrease_key
+  retorno: bool
+  parametros: int *heap, size_t n, size_t indice, int nuevo_valor
+  descripcion: Decrease-key en min-heap
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_05_positivo
-  funcion: ejecutar_heap_prio_05
-  codigo: 'int res = ejecutar_heap_prio_05(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_05_cero
-  funcion: ejecutar_heap_prio_05
-  codigo: 'int res = ejecutar_heap_prio_05(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_05_negativo
-  funcion: ejecutar_heap_prio_05
-  codigo: 'int res = ejecutar_heap_prio_05(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_05_valor_limite
-  funcion: ejecutar_heap_prio_05
-  codigo: 'int res = ejecutar_heap_prio_05(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_05_valor_unitario
-  funcion: ejecutar_heap_prio_05
-  codigo: 'int res = ejecutar_heap_prio_05(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_05_resultado_funcional
+  funcion: min_heap_decrease_key
+  codigo: int h[]={2,5,8,9,7}; assert(es_min_heap(h,5)); assert(min_heap_decrease_key(h,5,3,1));
+    assert(h[0]==1 && es_min_heap(h,5)); assert(!min_heap_decrease_key(h,5,1,10));
+    assert(!min_heap_decrease_key(h,5,9,0)); assert(!min_heap_decrease_key(NULL,5,0,0));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
