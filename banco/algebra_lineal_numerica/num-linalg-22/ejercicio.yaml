@@ -4,55 +4,28 @@ tema: algebra_lineal_numerica
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
+- edo
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_22
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Resolución de EDOs por Método de Runge-Kutta
-    de Cuarto Orden RK4
+- nombre: rk4_edo
+  retorno: double
+  parametros: double (*f)(double, double), double x0, double y0, double x1, int pasos
+  descripcion: Integra y'=f(x,y) mediante Runge-Kutta clásico de orden 4; pasos positivos. NAN ante entradas o cálculos
+    no finitos.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_22_positivo
-  funcion: ejecutar_num_linalg_22
-  codigo: 'int res = ejecutar_num_linalg_22(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_22_cero
-  funcion: ejecutar_num_linalg_22
-  codigo: 'int res = ejecutar_num_linalg_22(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_22_negativo
-  funcion: ejecutar_num_linalg_22
-  codigo: 'int res = ejecutar_num_linalg_22(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_22_valor_limite
-  funcion: ejecutar_num_linalg_22
-  codigo: 'int res = ejecutar_num_linalg_22(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_22_valor_unitario
-  funcion: ejecutar_num_linalg_22
-  codigo: 'int res = ejecutar_num_linalg_22(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: edo_callback_hypot
+  funcion: rk4_edo
+  codigo: assert(fabs(rk4_edo(hypot,0,1,1,1)-2.818220555818728)<1e-12); assert(isnan(rk4_edo(hypot,0,1,1,0)));
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: intermedia
-prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+prerrequisitos: []
 subtema: '22'

@@ -1,11 +1,13 @@
-#ifndef EJERCICIO_GEOM_COMP_10_H
-#define EJERCICIO_GEOM_COMP_10_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_10_H
+#define GEOM_COMP_10_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 
-/* Procesa el flujo principal de Envolvente Convexa por Algoritmo de Convex Hull Graham Scan */
-int ejecutar_geom_comp_10(int val);
+typedef struct { double x, y; } punto2d_t;
+/* Retorna cantidad de vértices antihorarios, sin repetir el primero; 0 si capacidad menor que la envolvente o entrada degenerada. */
+size_t envolvente_convexa_graham(const punto2d_t *puntos, size_t n, punto2d_t *salida, size_t capacidad);
 
-#endif /* EJERCICIO_GEOM_COMP_10_H */
+#endif

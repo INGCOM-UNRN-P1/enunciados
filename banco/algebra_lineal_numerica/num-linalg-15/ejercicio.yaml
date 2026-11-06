@@ -4,56 +4,28 @@ tema: algebra_lineal_numerica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_15
+- nombre: minimos_cuadrados_lineales
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Ajuste de Curvas por Mínimos Cuadrados
-    Lineales
+  parametros: const double *x, const double *y, int n, double *pendiente, double *ordenada
+  descripcion: Ajusta y=a*x+b por mínimos cuadrados. Devuelve 1 al éxito; 0 ante datos inválidos o abscisas sin variación.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_15_positivo
-  funcion: ejecutar_num_linalg_15
-  codigo: 'int res = ejecutar_num_linalg_15(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_15_cero
-  funcion: ejecutar_num_linalg_15
-  codigo: 'int res = ejecutar_num_linalg_15(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_15_negativo
-  funcion: ejecutar_num_linalg_15
-  codigo: 'int res = ejecutar_num_linalg_15(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_15_valor_limite
-  funcion: ejecutar_num_linalg_15
-  codigo: 'int res = ejecutar_num_linalg_15(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_15_valor_unitario
-  funcion: ejecutar_num_linalg_15
-  codigo: 'int res = ejecutar_num_linalg_15(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_minimos_cuadrados_lineales
+  funcion: minimos_cuadrados_lineales
+  codigo: >-
+    double x[]={0,1,2},y[]={1,3,5},a=0,b=0; assert(minimos_cuadrados_lineales(x,y,3,&a,&b)); assert(fabs(a-2)<1e-12&&fabs(b-1)<1e-12); double c[]={2,2}; assert(!minimos_cuadrados_lineales(c,y,2,&a,&b));
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: intermedia
 tipo: practica_guiada
-prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+prerrequisitos: []
 subtema: '15'

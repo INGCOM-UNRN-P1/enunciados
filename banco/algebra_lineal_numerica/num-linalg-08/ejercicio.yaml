@@ -4,8 +4,8 @@ tema: algebra_lineal_numerica
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Usa pivoteo parcial para reducir los errores de redondeo.
+- Detecta singularidad con pivote exactamente cero, sin epsilon absoluto.
 tags:
 - algebra_lineal
 - metodos_numericos
@@ -17,37 +17,15 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Determinante por Triangulación
-    de Matrices
+- nombre: determinante_triangularizacion
+  retorno: double
+  parametros: double **A, int n
+  descripcion: Calcula el determinante por eliminación con pivoteo parcial; NAN indica entrada inválida o error de recursos.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_08_positivo
-  funcion: ejecutar_num_linalg_08
-  codigo: 'int res = ejecutar_num_linalg_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_08_cero
-  funcion: ejecutar_num_linalg_08
-  codigo: 'int res = ejecutar_num_linalg_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_08_negativo
-  funcion: ejecutar_num_linalg_08
-  codigo: 'int res = ejecutar_num_linalg_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_08_valor_limite
-  funcion: ejecutar_num_linalg_08
-  codigo: 'int res = ejecutar_num_linalg_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_08_valor_unitario
-  funcion: ejecutar_num_linalg_08
-  codigo: 'int res = ejecutar_num_linalg_08(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_determinante_triangularizacion
+  funcion: determinante_triangularizacion
+  codigo: >-
+    double r0[]={0,2},r1[]={3,4}; double *a[]={r0,r1}; assert(fabs(determinante_triangularizacion(a,2)+6)<1e-12); double s0[]={1,2},s1[]={2,4}; double *s[]={s0,s1}; assert(determinante_triangularizacion(s,2)==0.0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

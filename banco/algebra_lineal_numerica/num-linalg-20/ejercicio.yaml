@@ -4,55 +4,29 @@ tema: algebra_lineal_numerica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
+- edo
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_20
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Resolución de EDOs por Método de Euler
+- nombre: euler_edo
+  retorno: double
+  parametros: double (*f)(double, double), double x0, double y0, double x1, int pasos
+  descripcion: Integra y'=f(x,y) desde x0,y0 hasta x1 con pasos positivos; admite x1<x0. NAN si entrada/cálculo
+    no finito.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_20_positivo
-  funcion: ejecutar_num_linalg_20
-  codigo: 'int res = ejecutar_num_linalg_20(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_20_cero
-  funcion: ejecutar_num_linalg_20
-  codigo: 'int res = ejecutar_num_linalg_20(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_20_negativo
-  funcion: ejecutar_num_linalg_20
-  codigo: 'int res = ejecutar_num_linalg_20(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_20_valor_limite
-  funcion: ejecutar_num_linalg_20
-  codigo: 'int res = ejecutar_num_linalg_20(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_20_valor_unitario
-  funcion: ejecutar_num_linalg_20
-  codigo: 'int res = ejecutar_num_linalg_20(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: edo_callback_hypot
+  funcion: euler_edo
+  codigo: assert(fabs(euler_edo(hypot,0,1,1,1)-2.0)<1e-12); assert(isnan(euler_edo(hypot,0,1,1,0)));
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: intermedia
 tipo: practica_guiada
-prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+prerrequisitos: []
 subtema: '20'

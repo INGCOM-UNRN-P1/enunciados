@@ -4,55 +4,33 @@ tema: algebra_lineal_numerica
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Revisá cada pivote modificado antes de dividir.
+- El algoritmo usa O(n) memoria auxiliar y no modifica los vectores de entrada.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
+- sistemas_tridiagonales
 - c11
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_25
+- nombre: resolver_thomas
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Resolución de Sistemas Tridiagonales
-    por Algoritmo de Thomas
+  parametros: const double *subdiagonal, const double *diagonal, const double *superdiagonal, const double *b, size_t
+    n, double *x
+  descripcion: Resuelve un sistema tridiagonal con eliminación y sustitución de Thomas.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_25_positivo
-  funcion: ejecutar_num_linalg_25
-  codigo: 'int res = ejecutar_num_linalg_25(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_25_cero
-  funcion: ejecutar_num_linalg_25
-  codigo: 'int res = ejecutar_num_linalg_25(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_25_negativo
-  funcion: ejecutar_num_linalg_25
-  codigo: 'int res = ejecutar_num_linalg_25(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_25_valor_limite
-  funcion: ejecutar_num_linalg_25
-  codigo: 'int res = ejecutar_num_linalg_25(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_25_valor_unitario
-  funcion: ejecutar_num_linalg_25
-  codigo: 'int res = ejecutar_num_linalg_25(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: caso_tridiagonal_3x3
+  funcion: resolver_thomas
+  codigo: double a[]={0,-1,-1},b[]={2,2,2},c[]={-1,-1,0},d[]={1,0,1},x[3];assert(resolver_thomas(a,b,c,d,3,x));assert(fabs(x[0]-1)<1e-12&&fabs(x[1]-1)<1e-12&&fabs(x[2]-1)<1e-12);
+- nombre: caso_pivote_nulo
+  funcion: resolver_thomas
+  codigo: double a[]={0,1},b[]={1,1},c[]={1,0},d[]={1,2},x[]={7,8};assert(!resolver_thomas(a,b,c,d,2,x));assert(x[0]==7&&x[1]==8);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: intermedia
 prerrequisitos:
 - matrices
-- algoritmos_ordenamiento
+- arreglos
 subtema: '25'

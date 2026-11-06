@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_GEOM_COMP_02_H
-#define EJERCICIO_GEOM_COMP_02_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_02_H
+#define GEOM_COMP_02_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
 
-/* Procesa el flujo principal de producto_t Escalar y Ángulo entre Dos Vectores */
-int ejecutar_geom_comp_02(int val);
+typedef struct { double x, y; } vector2d_t;
+double producto_escalar(vector2d_t a, vector2d_t b);
+bool angulo_entre_vectores(vector2d_t a, vector2d_t b, double *radianes);
 
-#endif /* EJERCICIO_GEOM_COMP_02_H */
+#endif

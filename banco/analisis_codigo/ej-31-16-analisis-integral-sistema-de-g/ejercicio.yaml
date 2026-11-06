@@ -4,11 +4,9 @@ tema: analisis_codigo
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Rastreá cada asignación dinámica (malloc/calloc) y asegurate de que exista un free
-  correspondiente.
+- Rastreá cada asignación dinámica (malloc/calloc) y asegurate de que exista un free correspondiente.
 - Comprobá que no se utilicen punteros después de haber sido liberados (dangling pointers).
-- Verificá la inicialización de todas las estructuras y sus campos antes de su primer
-  uso.
+- Verificá la inicialización de todas las estructuras y sus campos antes de su primer uso.
 tags:
 - integral
 - analisis
@@ -21,6 +19,18 @@ tags:
 - avanzada
 verificado: true
 funciones:
+- nombre: lista_filtrar
+  retorno: lista_t *
+  parametros: const lista_t *lista, bool (*pred)(int, void *), void *extra
+  descripcion: 'Función incluida en el código a analizar: lista_filtrar'
+- nombre: lista_aplicar
+  retorno: void
+  parametros: lista_t *lista, void (*func)(int *, void *), void *extra
+  descripcion: 'Función incluida en el código a analizar: lista_aplicar'
+- nombre: lista_crear
+  retorno: lista_t *
+  parametros: void
+  descripcion: 'Función incluida en el código a analizar: lista_crear'
 - nombre: lista_insertar_final
   retorno: bool
   parametros: lista_t *lista, int dato
@@ -41,27 +51,7 @@ funciones:
   retorno: bool
   parametros: int dato, void *extra
   descripcion: Operación es_mayor_que
-tests_funciones:
-- nombre: test_lista_insertar_final_positivo
-  funcion: lista_insertar_final
-  codigo: 'int res = lista_insertar_final(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_lista_insertar_final_cero
-  funcion: lista_insertar_final
-  codigo: 'int res = lista_insertar_final(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_lista_insertar_final_negativo
-  funcion: lista_insertar_final
-  codigo: 'int res = lista_insertar_final(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_lista_insertar_final_limite
-  funcion: lista_insertar_final
-  codigo: 'int res = lista_insertar_final(100);
-
-    assert(res >= 0 || res == 200);'
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: integral

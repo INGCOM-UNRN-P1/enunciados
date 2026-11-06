@@ -4,55 +4,33 @@ tema: algebra_lineal_numerica
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Permutá primero los elementos por inversión de bits.
+- Usá mariposas de longitudes crecientes y exponente con signo negativo.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
+- fft
+- numeros_complejos
 - c11
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_26
+- nombre: fft_radix2
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Transformada Rápida de Fourier FFT de
-    Radix-2
+  parametros: double *real, double *imag, size_t n
+  descripcion: Calcula in situ la FFT compleja directa con radix 2.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_26_positivo
-  funcion: ejecutar_num_linalg_26
-  codigo: 'int res = ejecutar_num_linalg_26(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_26_cero
-  funcion: ejecutar_num_linalg_26
-  codigo: 'int res = ejecutar_num_linalg_26(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_26_negativo
-  funcion: ejecutar_num_linalg_26
-  codigo: 'int res = ejecutar_num_linalg_26(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_26_valor_limite
-  funcion: ejecutar_num_linalg_26
-  codigo: 'int res = ejecutar_num_linalg_26(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_26_valor_unitario
-  funcion: ejecutar_num_linalg_26
-  codigo: 'int res = ejecutar_num_linalg_26(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: constante
+  funcion: fft_radix2
+  codigo: double r[]={1,1,1,1},i[]={0,0,0,0};assert(fft_radix2(r,i,4));assert(r[0]==4&&r[1]==0&&r[2]==0&&r[3]==0);
+- nombre: tamano_invalido
+  funcion: fft_radix2
+  codigo: double r[]={1,2,3},i[]={0,0,0};assert(!fft_radix2(r,i,3));assert(r[0]==1&&r[1]==2&&r[2]==3);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: intermedia
 prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+- arreglos
+- numeros_complejos
 subtema: '26'

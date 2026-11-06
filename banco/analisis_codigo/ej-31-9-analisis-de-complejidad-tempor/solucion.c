@@ -37,8 +37,3 @@ bool buscar_par_suma_optimizado(int arr[], int tam, int objetivo)
     }
     return false;
 }
-
-int main(void)
-{
-    return 0;
-}

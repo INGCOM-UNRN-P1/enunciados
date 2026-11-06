@@ -4,56 +4,28 @@ tema: algebra_lineal_numerica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_19
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Diferenciación Numérica por Diferencias
-    Finitas Centrales
+- nombre: derivada_central
+  retorno: double
+  parametros: double (*f)(double), double x, double h
+  descripcion: Aproxima f'(x) por (f(x+h)-f(x-h))/(2h). Requiere h distinto de cero y evaluaciones finitas.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_19_positivo
-  funcion: ejecutar_num_linalg_19
-  codigo: 'int res = ejecutar_num_linalg_19(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_19_cero
-  funcion: ejecutar_num_linalg_19
-  codigo: 'int res = ejecutar_num_linalg_19(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_19_negativo
-  funcion: ejecutar_num_linalg_19
-  codigo: 'int res = ejecutar_num_linalg_19(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_19_valor_limite
-  funcion: ejecutar_num_linalg_19
-  codigo: 'int res = ejecutar_num_linalg_19(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_19_valor_unitario
-  funcion: ejecutar_num_linalg_19
-  codigo: 'int res = ejecutar_num_linalg_19(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_derivada_central
+  funcion: derivada_central
+  codigo: >-
+    assert(fabs(derivada_central(sin,0.7853981633974483,0.0001)-0.7071067811865476)<1e-8); assert(isnan(derivada_central(cos,1,0)));
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: intermedia
 tipo: practica_guiada
-prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+prerrequisitos: []
 subtema: '19'

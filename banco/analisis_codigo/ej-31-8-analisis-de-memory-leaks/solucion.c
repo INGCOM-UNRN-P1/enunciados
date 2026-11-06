@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 #include <string.h>
 char *procesar_texto(const char *entrada)
@@ -30,13 +29,6 @@ char *procesar_texto(const char *entrada)
     }
     return resultado;
 }
-
-int proc_isis_de_memory_leaks(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
 int main()
 {
     char *texto1 = procesar_texto("Hola");

@@ -14,38 +14,9 @@ tags:
 - dep:testing
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: proc_e_memoria_con_estruc
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Análisis de Memoria con Estructuras
-tests_funciones:
-- nombre: test_proc_e_memoria_con_estruc_positivo
-  funcion: proc_e_memoria_con_estruc
-  codigo: 'int res = proc_e_memoria_con_estruc(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_e_memoria_con_estruc_cero
-  funcion: proc_e_memoria_con_estruc
-  codigo: 'int res = proc_e_memoria_con_estruc(0);
-
-    assert(res == 0);'
-- nombre: test_proc_e_memoria_con_estruc_negativo
-  funcion: proc_e_memoria_con_estruc
-  codigo: 'int res = proc_e_memoria_con_estruc(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_e_memoria_con_estruc_valor_limite
-  funcion: proc_e_memoria_con_estruc
-  codigo: 'int res = proc_e_memoria_con_estruc(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_e_memoria_con_estruc_valor_unitario
-  funcion: proc_e_memoria_con_estruc
-  codigo: 'int res = proc_e_memoria_con_estruc(1);
-
-    assert(res >= 0 || res == 2);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: estructuras

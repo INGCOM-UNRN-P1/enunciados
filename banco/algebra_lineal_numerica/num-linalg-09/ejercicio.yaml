@@ -15,40 +15,10 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: ejecutar_num_linalg_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Método Iterativo de Jacobi para Sistemas
-    Lineales
-tests_funciones:
-- nombre: test_ejecutar_num_linalg_09_positivo
-  funcion: ejecutar_num_linalg_09
-  codigo: 'int res = ejecutar_num_linalg_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_09_cero
-  funcion: ejecutar_num_linalg_09
-  codigo: 'int res = ejecutar_num_linalg_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_09_negativo
-  funcion: ejecutar_num_linalg_09
-  codigo: 'int res = ejecutar_num_linalg_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_09_valor_limite
-  funcion: ejecutar_num_linalg_09
-  codigo: 'int res = ejecutar_num_linalg_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_09_valor_unitario
-  funcion: ejecutar_num_linalg_09
-  codigo: 'int res = ejecutar_num_linalg_09(1);
-
-    assert(res >= 0 || res == 2);'
-publicar: true
+verificado: false
+funciones: []
+tests_funciones: []
+publicar: false
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: inicial
@@ -57,3 +27,5 @@ prerrequisitos:
 - matrices
 - algoritmos_ordenamiento
 subtema: 09
+
+duplicado_de: matrices/ej-21-47-metodo-de-jacobi

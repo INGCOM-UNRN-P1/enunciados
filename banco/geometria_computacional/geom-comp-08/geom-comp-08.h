@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_GEOM_COMP_08_H
-#define EJERCICIO_GEOM_COMP_08_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_08_H
+#define GEOM_COMP_08_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
 
-/* Procesa el flujo principal de Verificación de Punto Dentro de Polígono Método Ray Casting */
-int ejecutar_geom_comp_08(int val);
+typedef struct { double x, y; } punto2d_t;
+/* El borde cuenta como interior. */
+bool punto_en_poligono(punto2d_t p, const punto2d_t *vertices, size_t n);
 
-#endif /* EJERCICIO_GEOM_COMP_08_H */
+#endif

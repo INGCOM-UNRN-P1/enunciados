@@ -17,37 +17,23 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Punto Dentro de Polígono
-    Método Ray Casting
+- nombre: punto_en_poligono
+  retorno: bool
+  parametros: punto2d_t p, const punto2d_t *vertices, size_t n
+  descripcion: 'Ray casting: punto dentro de polígono'
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_08_positivo
-  funcion: ejecutar_geom_comp_08
-  codigo: 'int res = ejecutar_geom_comp_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_08_cero
-  funcion: ejecutar_geom_comp_08
-  codigo: 'int res = ejecutar_geom_comp_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_08_negativo
-  funcion: ejecutar_geom_comp_08
-  codigo: 'int res = ejecutar_geom_comp_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_08_valor_limite
-  funcion: ejecutar_geom_comp_08
-  codigo: 'int res = ejecutar_geom_comp_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_08_valor_unitario
-  funcion: ejecutar_geom_comp_08
-  codigo: 'int res = ejecutar_geom_comp_08(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: punto_interior
+  funcion: punto_en_poligono
+  codigo: punto2d_t p[]={{0,0},{4,0},{4,4},{0,4}}; assert(punto_en_poligono((punto2d_t){2,2},p,4));
+- nombre: punto_exterior
+  funcion: punto_en_poligono
+  codigo: punto2d_t p[]={{0,0},{4,0},{4,4},{0,4}}; assert(!punto_en_poligono((punto2d_t){5,2},p,4));
+- nombre: borde_incluido
+  funcion: punto_en_poligono
+  codigo: punto2d_t p[]={{0,0},{4,0},{4,4},{0,4}}; assert(punto_en_poligono((punto2d_t){4,2},p,4));
+- nombre: poligono_insuficiente
+  funcion: punto_en_poligono
+  codigo: punto2d_t p[]={{0,0},{1,1}}; assert(!punto_en_poligono((punto2d_t){0,0},p,2));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

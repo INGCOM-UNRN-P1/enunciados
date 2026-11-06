@@ -116,6 +116,7 @@ lista_t *lista_filtrar(const lista_t *lista, bool (*pred)(int, void *),
 // Callbacks de ejemplo
 void duplicar_dato(int *dato, void *extra)
 {
+    (void)extra;
     *dato *= 2;
 }
 bool es_mayor_que(int dato, void *extra)

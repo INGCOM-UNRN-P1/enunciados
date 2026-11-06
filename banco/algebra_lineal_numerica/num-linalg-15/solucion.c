@@ -1,21 +1,5 @@
-/*
- * Numerico #15
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_num_linalg_15(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 15.0;
-        printf("NUM_%02d: %.2f\n", 15, res);
-    }
-    return 0;
-}
+#include "num-linalg-15.h"
+#include <math.h>
+#include <stdlib.h>
+#include <stdint.h>
+int minimos_cuadrados_lineales(const double*x,const double*y,int n,double*a,double*b){if(!x||!y||!a||!b||n<2)return 0;double sx=0,sy=0,sxx=0,sxy=0;for(int i=0;i<n;i++){if(!isfinite(x[i])||!isfinite(y[i]))return 0;sx+=x[i];sy+=y[i];sxx+=x[i]*x[i];sxy+=x[i]*y[i];}double d=n*sxx-sx*sx;if(d==0||!isfinite(d))return 0;double aa=(n*sxy-sx*sy)/d,bb=(sy-aa*sx)/n;if(!isfinite(aa)||!isfinite(bb))return 0;*a=aa;*b=bb;return 1;}

@@ -1,48 +1,14 @@
-# Álgebra Lineal Numérica #11
+# Cálculo de Autovalor Dominante por Método de las Potencias
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #11.
+Autovalor dominante por potencias; devuelve NAN con argumentos inválidos, vector inicial nulo, no convergencia o desbordamiento. Supone que el autovalor dominante en módulo es simple y que el vector inicial tiene componente en su autoespacio; el método no comprueba esas hipótesis.
 
-### 📋 Contrato de las Funciones
+## Firma
 
 ```c
-/*
- * Procesa el flujo principal de Cálculo de Autovalor Dominante por Método de las Potencias
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_11(int val);
-
+double potencias_autovalor(double **A, double *vector_inicial, int n, double tolerancia, int max_iter);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Para A=diag(5,2), inicio (1,1), el autovalor aproximado converge a 5.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+A se representa mediante n filas de n valores double. La rutina no toma propiedad de las filas. La convergencia al autovalor dominante requiere un autovalor dominante simple y una componente inicial en su autoespacio; esta condición matemática no puede verificarse de forma general a partir de la iteración.

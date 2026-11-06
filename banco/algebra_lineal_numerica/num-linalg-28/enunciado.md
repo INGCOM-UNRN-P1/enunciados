@@ -1,48 +1,17 @@
-# Álgebra Lineal Numérica #28
+# Cálculo de un par de raíces por Bairstow
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #28.
+A partir de los coeficientes en orden descendente de un polinomio real de grado al menos dos, encuentra mediante iteración de Bairstow un factor cuadrático `x² + u x + v` y devuelve sus dos raíces. `u_inicial` y `v_inicial` son las estimaciones iniciales del factor. Se aplican recurrencias de división sintética y Newton al residuo del cociente; se detiene cuando ambos residuos son menores que `tolerancia`.
 
-### 📋 Contrato de las Funciones
-
+## Interfaz
 ```c
-/*
- * Procesa el flujo principal de Cálculo de Raíces Polinómicas por Método de Bairstow
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_28(int val);
-
+int bairstow_par_raices(const double *coeficientes, size_t grado,
+                         double u_inicial, double v_inicial, double tolerancia,
+                         size_t max_iter, double *r1_real, double *r1_imag,
+                         double *r2_real, double *r2_imag);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Devuelve 1 y escribe el par de raíces (componentes reales e imaginarias) si converge; devuelve 0 ante argumentos inválidos, Jacobiano singular, falta de convergencia o resultados no finitos. El polinomio debe tener coeficiente líder no nulo y los cuatro punteros de salida deben ser distintos.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Caso de referencia
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+Para `p(x)=x⁴-5x²+4`, con `u₀=0`, `v₀=-1`, el método encuentra el factor `x²-1`, y devuelve las raíces `-1` y `1` (el orden puede variar).

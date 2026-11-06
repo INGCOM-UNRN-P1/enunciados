@@ -17,37 +17,24 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de producto_t Vectorial 2D y Determinación
-    de Orientación
+- nombre: producto_vectorial_2d
+  retorno: double
+  parametros: punto2d_t a, punto2d_t b
+  descripcion: Producto vectorial 2D y orientación
+- nombre: orientacion
+  retorno: orientacion_t
+  parametros: punto2d_t a, punto2d_t b, punto2d_t c
+  descripcion: Producto vectorial 2D y orientación
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_03_positivo
-  funcion: ejecutar_geom_comp_03
-  codigo: 'int res = ejecutar_geom_comp_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_03_cero
-  funcion: ejecutar_geom_comp_03
-  codigo: 'int res = ejecutar_geom_comp_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_03_negativo
-  funcion: ejecutar_geom_comp_03
-  codigo: 'int res = ejecutar_geom_comp_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_03_valor_limite
-  funcion: ejecutar_geom_comp_03
-  codigo: 'int res = ejecutar_geom_comp_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_03_valor_unitario
-  funcion: ejecutar_geom_comp_03
-  codigo: 'int res = ejecutar_geom_comp_03(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: producto_vectorial
+  funcion: producto_vectorial_2d
+  codigo: assert(producto_vectorial_2d((punto2d_t){1,0},(punto2d_t){0,1})==1.0);
+- nombre: orientacion_positiva
+  funcion: orientacion
+  codigo: assert(orientacion((punto2d_t){0,0},(punto2d_t){2,0},(punto2d_t){1,1})==GIRO_ANTIHORARIO);
+- nombre: orientacion_colineal
+  funcion: orientacion
+  codigo: assert(orientacion((punto2d_t){0,0},(punto2d_t){2,0},(punto2d_t){3,0})==COLINEAL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

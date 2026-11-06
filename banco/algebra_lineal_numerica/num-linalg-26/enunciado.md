@@ -1,48 +1,14 @@
-# Álgebra Lineal Numérica #26
+# Transformada rápida de Fourier (FFT) radix-2
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #26.
+Implementa la transformada discreta compleja directa (signo negativo en el exponente) in situ. `real[i]` e `imag[i]` contienen la entrada y reciben la salida. `n` debe ser una potencia de dos positiva. El orden de salida es natural, no bit-reversed.
 
-### 📋 Contrato de las Funciones
-
+## Interfaz
 ```c
-/*
- * Procesa el flujo principal de Transformada Rápida de Fourier FFT de Radix-2
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_26(int val);
-
+int fft_radix2(double *real, double *imag, size_t n);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Devuelve 1 si transforma y 0 ante punteros nulos, tamaño que no sea potencia de dos, entradas no finitas o fallo de memoria. Los buffers `real` e `imag` deben ser disjuntos. Ante error, conserva los arreglos de entrada. La transformación no normaliza la salida.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Casos de referencia
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+La FFT de `[1,1,1,1]` real produce `[4,0,0,0]` y componente imaginaria cero. Para `[1,0,0,0]`, ambas salidas son `[1,0,0,0]`. `n=3` debe rechazarse sin modificar los datos.

@@ -1,21 +1,5 @@
-/*
- * Numerico #22
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_num_linalg_22(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 22.0;
-        printf("NUM_%02d: %.2f\n", 22, res);
-    }
-    return 0;
-}
+#include "num-linalg-22.h"
+#include <math.h>
+#include <stdlib.h>
+#include <stdint.h>
+double rk4_edo(double(*f)(double,double),double x,double y,double end,int n){if(!f||!isfinite(x)||!isfinite(y)||!isfinite(end)||n<=0)return NAN;double h=(end-x)/n;for(int i=0;i<n;i++){double k1=f(x,y),k2=f(x+h/2,y+h*k1/2),k3=f(x+h/2,y+h*k2/2),k4=f(x+h,y+h*k3);if(!isfinite(k1)||!isfinite(k2)||!isfinite(k3)||!isfinite(k4))return NAN;y+=h*(k1+2*k2+2*k3+k4)/6;x+=h;if(!isfinite(y)||!isfinite(x))return NAN;}return y;}

@@ -16,31 +16,36 @@ tags:
 - intermedia
 verificado: true
 funciones:
+- nombre: crear_arreglo_dinamico
+  retorno: int *
+  parametros: void
+  descripcion: Devuelve cinco enteros en heap o NULL si falla.
+- nombre: crear_arreglo_estatico
+  retorno: int *
+  parametros: void
+  descripcion: Devuelve un arreglo estático de cinco enteros.
+- nombre: obtener_saludo
+  retorno: char *
+  parametros: void
+  descripcion: Devuelve una copia dinámica que libera quien la recibe.
 - nombre: procesar_y_liberar
   retorno: void
   parametros: int **ptr
   descripcion: Operación procesar_y_liberar
 tests_funciones:
-- nombre: test_procesar_y_liberar_positivo
+- nombre: saludo_es_copia_valida
+  funcion: obtener_saludo
+  codigo: char *s=obtener_saludo(); assert(s != NULL); assert(strcmp(s,"Hola, mundo!")==0); free(s);
+- nombre: arreglo_estatico_persistente
+  funcion: crear_arreglo_estatico
+  codigo: int *a=crear_arreglo_estatico(); assert(a != NULL); assert(a[0]==1 && a[4]==5);
+- nombre: arreglo_dinamico_contenido
+  funcion: crear_arreglo_dinamico
+  codigo: int *a=crear_arreglo_dinamico(); assert(a != NULL); assert(a[0]==1 && a[4]==5); free(a);
+- nombre: liberar_anula_puntero
   funcion: procesar_y_liberar
-  codigo: 'int res = procesar_y_liberar(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_procesar_y_liberar_cero
-  funcion: procesar_y_liberar
-  codigo: 'int res = procesar_y_liberar(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_procesar_y_liberar_negativo
-  funcion: procesar_y_liberar
-  codigo: 'int res = procesar_y_liberar(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_procesar_y_liberar_limite
-  funcion: procesar_y_liberar
-  codigo: 'int res = procesar_y_liberar(100);
-
-    assert(res >= 0 || res == 200);'
+  codigo: int *a=crear_arreglo_dinamico(); assert(a != NULL); procesar_y_liberar(&a); assert(a==NULL); procesar_y_liberar(&a);
+    procesar_y_liberar(NULL);
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: colgantes

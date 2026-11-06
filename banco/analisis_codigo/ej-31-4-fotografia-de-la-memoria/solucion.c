@@ -14,13 +14,6 @@ char *crear_copia(const char *original)
     }
     return copia;
 }
-
-int proc_grafia_de_la_memoria(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
 int main()
 {
     char *saludo_original = "Hola";

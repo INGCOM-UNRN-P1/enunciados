@@ -10,13 +10,6 @@ int *duplicar_array(int *original, int tam)
     // PUNTO B
     return nuevo;
 }
-
-int proc__ejecucion_con_array(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
 int main()
 {
     int numeros[3] = {5, 10, 15};

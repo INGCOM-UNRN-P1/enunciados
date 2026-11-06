@@ -1,5 +1,5 @@
 id: geom-comp-02
-titulo: producto_t Escalar y Ángulo entre Dos Vectores
+titulo: Producto escalar y ángulo entre dos vectores
 tema: geometria_computacional
 bloom: 1
 minutos_estimados: 10
@@ -17,37 +17,27 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_02
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de producto_t Escalar y Ángulo entre Dos
-    Vectores
+- nombre: producto_escalar
+  retorno: double
+  parametros: vector2d_t a, vector2d_t b
+  descripcion: Producto escalar y ángulo entre vectores
+- nombre: angulo_entre_vectores
+  retorno: bool
+  parametros: vector2d_t a, vector2d_t b, double *radianes
+  descripcion: Producto escalar y ángulo entre vectores
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_02_positivo
-  funcion: ejecutar_geom_comp_02
-  codigo: 'int res = ejecutar_geom_comp_02(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_02_cero
-  funcion: ejecutar_geom_comp_02
-  codigo: 'int res = ejecutar_geom_comp_02(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_02_negativo
-  funcion: ejecutar_geom_comp_02
-  codigo: 'int res = ejecutar_geom_comp_02(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_02_valor_limite
-  funcion: ejecutar_geom_comp_02
-  codigo: 'int res = ejecutar_geom_comp_02(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_02_valor_unitario
-  funcion: ejecutar_geom_comp_02
-  codigo: 'int res = ejecutar_geom_comp_02(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: producto_ortogonal
+  funcion: producto_escalar
+  codigo: vector2d_t x={1,0}, y={0,1}; assert(producto_escalar(x,y)==0.0);
+- nombre: angulo_recto
+  funcion: angulo_entre_vectores
+  codigo: vector2d_t x={1,0}, y={0,1}; double r; assert(angulo_entre_vectores(x,y,&r)); assert(fabs(r-acos(-1.0)/2)<1e-9);
+- nombre: angulo_opuesto
+  funcion: angulo_entre_vectores
+  codigo: vector2d_t x={1,0}, y={-1,0}; double r; assert(angulo_entre_vectores(x,y,&r)); assert(fabs(r-acos(-1.0))<1e-9);
+- nombre: vector_nulo
+  funcion: angulo_entre_vectores
+  codigo: vector2d_t x={0,0}, y={1,0}; double r; assert(!angulo_entre_vectores(x,y,&r));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

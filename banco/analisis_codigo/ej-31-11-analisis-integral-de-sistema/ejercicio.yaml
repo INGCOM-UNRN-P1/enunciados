@@ -6,8 +6,7 @@ minutos_estimados: 35
 pistas:
 - Revisá detenidamente el flujo de control y las transiciones de estado del sistema.
 - Verificá la validez de los punteros y el ciclo de vida de los recursos compartidos.
-- Identificá posibles condiciones de carrera o inconsistencias en la liberación de
-  memoria.
+- Identificá posibles condiciones de carrera o inconsistencias en la liberación de memoria.
 tags:
 - integral
 - analisis
@@ -20,36 +19,24 @@ tags:
 - intermedia
 verificado: true
 funciones:
+- nombre: buscar_mejor_estudiante
+  retorno: estudiante_t *
+  parametros: sistema_estudiantes_t *sistema
+  descripcion: 'Función incluida en el código a analizar: buscar_mejor_estudiante'
+- nombre: inicializar_sistema
+  retorno: sistema_estudiantes_t *
+  parametros: int capacidad_inicial
+  descripcion: 'Función incluida en el código a analizar: inicializar_sistema'
 - nombre: agregar_estudiante
   retorno: bool
-  parametros: "sistema_estudiantes_t *sistema, const char *nombre,\n             \
-    \           int edad, float promedio"
+  parametros: "sistema_estudiantes_t *sistema, const char *nombre,\n                        int edad,\
+    \ float promedio"
   descripcion: Operación agregar_estudiante
 - nombre: liberar_sistema
   retorno: void
   parametros: sistema_estudiantes_t *sistema
   descripcion: Operación liberar_sistema
-tests_funciones:
-- nombre: test_agregar_estudiante_positivo
-  funcion: agregar_estudiante
-  codigo: 'int res = agregar_estudiante(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_agregar_estudiante_cero
-  funcion: agregar_estudiante
-  codigo: 'int res = agregar_estudiante(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_agregar_estudiante_negativo
-  funcion: agregar_estudiante
-  codigo: 'int res = agregar_estudiante(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_agregar_estudiante_limite
-  funcion: agregar_estudiante
-  codigo: 'int res = agregar_estudiante(100);
-
-    assert(res >= 0 || res == 200);'
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: integral

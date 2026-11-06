@@ -1,21 +1,7 @@
-/*
- * Geometria #03
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "geom-comp-03.h"
 
-
-int ejecutar_geom_comp_03(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 3;
-        printf("GEOM_%02d: %d\n", 3, prod);
-    }
-    return 0;
+double producto_vectorial_2d(punto2d_t a,punto2d_t b) { return a.x*b.y-a.y*b.x; }
+orientacion_t orientacion(punto2d_t a,punto2d_t b,punto2d_t c) {
+ double z=(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);
+ return z>0?GIRO_ANTIHORARIO:(z<0?GIRO_HORARIO:COLINEAL);
 }

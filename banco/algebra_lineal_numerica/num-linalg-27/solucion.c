@@ -1,21 +1,9 @@
-/*
- * Numerico #27
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_num_linalg_27(int val)
+#include "num-linalg-27.h"
+#include <math.h>
+double evaluar_horner(const double *a, size_t n, double x)
 {
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 27.0;
-        printf("NUM_%02d: %.2f\n", 27, res);
-    }
-    return 0;
+    if (!a || n==0 || !isfinite(x)) return NAN;
+    double y=0.0;
+    for (size_t i=0;i<n;i++) { if (!isfinite(a[i])) return NAN; y=y*x+a[i]; if (!isfinite(y)) return NAN; }
+    return y;
 }

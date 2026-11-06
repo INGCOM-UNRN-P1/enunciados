@@ -17,36 +17,23 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Polígono Convexo vs Cóncavo
+- nombre: poligono_es_convexo
+  retorno: bool
+  parametros: const punto2d_t *vertices, size_t n
+  descripcion: Verificar polígono convexo o cóncavo
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_09_positivo
-  funcion: ejecutar_geom_comp_09
-  codigo: 'int res = ejecutar_geom_comp_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_09_cero
-  funcion: ejecutar_geom_comp_09
-  codigo: 'int res = ejecutar_geom_comp_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_09_negativo
-  funcion: ejecutar_geom_comp_09
-  codigo: 'int res = ejecutar_geom_comp_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_09_valor_limite
-  funcion: ejecutar_geom_comp_09
-  codigo: 'int res = ejecutar_geom_comp_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_09_valor_unitario
-  funcion: ejecutar_geom_comp_09
-  codigo: 'int res = ejecutar_geom_comp_09(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: convexo
+  funcion: poligono_es_convexo
+  codigo: punto2d_t p[]={{0,0},{4,0},{4,3},{0,3}}; assert(poligono_es_convexo(p,4));
+- nombre: convexo_sentido_inverso
+  funcion: poligono_es_convexo
+  codigo: punto2d_t p[]={{0,3},{4,3},{4,0},{0,0}}; assert(poligono_es_convexo(p,4));
+- nombre: concavo
+  funcion: poligono_es_convexo
+  codigo: punto2d_t p[]={{0,0},{4,0},{2,1},{4,4},{0,4}}; assert(!poligono_es_convexo(p,5));
+- nombre: degenerado
+  funcion: poligono_es_convexo
+  codigo: punto2d_t p[]={{0,0},{1,0},{2,0}}; assert(!poligono_es_convexo(p,3));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

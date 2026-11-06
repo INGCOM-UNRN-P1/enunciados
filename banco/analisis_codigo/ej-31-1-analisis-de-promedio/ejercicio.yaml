@@ -13,38 +13,9 @@ tags:
 - dep:testing
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: proc_analisis_de_promedio
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Análisis de promedio
-tests_funciones:
-- nombre: test_proc_analisis_de_promedio_positivo
-  funcion: proc_analisis_de_promedio
-  codigo: 'int res = proc_analisis_de_promedio(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_analisis_de_promedio_cero
-  funcion: proc_analisis_de_promedio
-  codigo: 'int res = proc_analisis_de_promedio(0);
-
-    assert(res == 0);'
-- nombre: test_proc_analisis_de_promedio_negativo
-  funcion: proc_analisis_de_promedio
-  codigo: 'int res = proc_analisis_de_promedio(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_analisis_de_promedio_valor_limite
-  funcion: proc_analisis_de_promedio
-  codigo: 'int res = proc_analisis_de_promedio(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_analisis_de_promedio_valor_unitario
-  funcion: proc_analisis_de_promedio
-  codigo: 'int res = proc_analisis_de_promedio(1);
-
-    assert(res >= 0 || res == 2);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: estadistica_basica

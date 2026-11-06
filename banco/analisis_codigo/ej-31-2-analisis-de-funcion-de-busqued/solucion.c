@@ -1,6 +1,6 @@
-#include <stddef.h>
 #include <limits.h>
 #include <stdbool.h>
+#include <stddef.h>
 int encontrar_maximo(const int arr[], size_t tam, bool *encontrado)
 {
     int maximo = INT_MIN;       // Variable A
@@ -16,9 +16,4 @@ int encontrar_maximo(const int arr[], size_t tam, bool *encontrado)
     }
     *encontrado = hay_elementos;
     return maximo;
-}
-
-int main(void)
-{
-    return 0;
 }

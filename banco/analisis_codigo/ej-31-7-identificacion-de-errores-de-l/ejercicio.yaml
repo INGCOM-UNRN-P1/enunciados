@@ -4,10 +4,8 @@ tema: analisis_codigo
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Analizá las condiciones de borde y los casos extremos (arreglos vacíos, elementos
-  únicos).
-- Inspeccioná la lógica booleana de los condicionales para detectar cláusulas contradictorias
-  o redundantes.
+- Analizá las condiciones de borde y los casos extremos (arreglos vacíos, elementos únicos).
+- Inspeccioná la lógica booleana de los condicionales para detectar cláusulas contradictorias o redundantes.
 - Seguí la traza de ejecución manual con un conjunto pequeño de datos de prueba.
 tags:
 - errores
@@ -19,33 +17,9 @@ tags:
 - dep:testing
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: segundo_maximo
-  retorno: int
-  parametros: int arr[], int tam
-  descripcion: Operación segundo_maximo
-tests_funciones:
-- nombre: test_segundo_maximo_positivo
-  funcion: segundo_maximo
-  codigo: 'int res = segundo_maximo(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_segundo_maximo_cero
-  funcion: segundo_maximo
-  codigo: 'int res = segundo_maximo(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_segundo_maximo_negativo
-  funcion: segundo_maximo
-  codigo: 'int res = segundo_maximo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_segundo_maximo_limite
-  funcion: segundo_maximo
-  codigo: 'int res = segundo_maximo(100);
-
-    assert(res >= 0 || res == 200);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: registro_eventos

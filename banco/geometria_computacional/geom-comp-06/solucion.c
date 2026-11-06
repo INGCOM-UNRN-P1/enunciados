@@ -1,21 +1,9 @@
-/*
- * Geometria #06
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "geom-comp-06.h"
+#include <math.h>
 
-
-int ejecutar_geom_comp_06(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 6;
-        printf("GEOM_%02d: %d\n", 6, prod);
-    }
-    return 0;
+double distancia_punto_segmento(punto2d_t p,punto2d_t a,punto2d_t b){
+ double dx=b.x-a.x,dy=b.y-a.y,den=dx*dx+dy*dy;
+ if(den==0.0) return hypot(p.x-a.x,p.y-a.y);
+ double t=((p.x-a.x)*dx+(p.y-a.y)*dy)/den; if(t<0)t=0;if(t>1)t=1;
+ return hypot(p.x-(a.x+t*dx),p.y-(a.y+t*dy));
 }

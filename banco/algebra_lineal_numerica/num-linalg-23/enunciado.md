@@ -1,48 +1,14 @@
-# Álgebra Lineal Numérica #23
+# Generación de Números con Distribución Normal Box-Muller
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #23.
+Transforma dos uniformes independientes [0,1) en dos normales estándar. Devuelve 1 al éxito; 0 si punteros/dominio inválidos. u1=0 no está permitido.
 
-### 📋 Contrato de las Funciones
+## Firma
 
 ```c
-/*
- * Procesa el flujo principal de Generación de Números con Distribución Normal Box-Muller
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_23(int val);
-
+int box_muller(double u1, double u2, double *z0, double *z1);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Con u1=e^-0.5 y u2=0, z0=1 y z1=0.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+El llamador proporciona valores uniformes independientes y libera sus propios punteros de salida, que deben ser distintos. No se usa estado aleatorio oculto.

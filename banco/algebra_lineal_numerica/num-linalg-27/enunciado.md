@@ -1,48 +1,14 @@
-# Álgebra Lineal Numérica #27
+# Evaluación de polinomios por la regla de Horner
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #27.
+Evalúa un polinomio de grado `n-1` usando Horner. Los coeficientes se reciben en orden descendente: para `a[0]x²+a[1]x+a[2]`, `coeficientes={a[0],a[1],a[2]}`.
 
-### 📋 Contrato de las Funciones
-
+## Interfaz
 ```c
-/*
- * Procesa el flujo principal de Evaluación Rápida de Polinomios por Regla de Horner
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_27(int val);
-
+double evaluar_horner(const double *coeficientes, size_t n, double x);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Devuelve el valor; devuelve `NAN` si el puntero es nulo, `n==0`, la entrada contiene valores no finitos o el resultado desborda a infinito.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Casos de referencia
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+`{2,-3,4}` en `x=2` vale `6`; un polinomio constante `{7}` vale `7` para cualquier `x`.

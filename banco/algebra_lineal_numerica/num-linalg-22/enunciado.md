@@ -1,48 +1,16 @@
-# Álgebra Lineal Numérica #22
+# Resolución de EDOs por Método de Runge-Kutta de Cuarto Orden RK4
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #22.
+Integra y'=f(x,y) mediante Runge-Kutta clásico de orden 4; pasos positivos. NAN ante entradas o cálculos no finitos.
 
-### 📋 Contrato de las Funciones
+## Firma
 
 ```c
-/*
- * Procesa el flujo principal de Resolución de EDOs por Método de Runge-Kutta de Cuarto Orden RK4
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_22(int val);
-
+double rk4_edo(double (*f)(double, double), double x0, double y0, double x1, int pasos);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Para y'=y, y(0)=1, hasta x=1 con 10 pasos aproxima e.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
 
-### ⚠️ Precondiciones y Casos Borde
+El callback representa el lado derecho de la EDO y debe devolver derivadas finitas en cada estado evaluado. Los pasos pueden avanzar o retroceder según x1 y x0.
 
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+Nota sobre validación: las pruebas con derivadas de EDO se ejecutan en `pruebas.c`, donde se define un callback de dos argumentos. El harness YAML de Deckard solo inserta aserciones y no permite declarar ese callback local; por eso este registro no declara `tests_funciones`.

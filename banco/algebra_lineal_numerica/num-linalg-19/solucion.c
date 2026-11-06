@@ -1,21 +1,5 @@
-/*
- * Numerico #19
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_num_linalg_19(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 19.0;
-        printf("NUM_%02d: %.2f\n", 19, res);
-    }
-    return 0;
-}
+#include "num-linalg-19.h"
+#include <math.h>
+#include <stdlib.h>
+#include <stdint.h>
+double derivada_central(double(*f)(double),double x,double h){if(!f||!isfinite(x)||!isfinite(h)||h==0)return NAN;double a=f(x+h),b=f(x-h);if(!isfinite(a)||!isfinite(b))return NAN;double d=(a-b)/(2*h);return isfinite(d)?d:NAN;}

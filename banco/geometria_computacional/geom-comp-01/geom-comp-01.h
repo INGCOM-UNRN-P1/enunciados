@@ -1,11 +1,11 @@
-#ifndef EJERCICIO_GEOM_COMP_01_H
-#define EJERCICIO_GEOM_COMP_01_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_01_H
+#define GEOM_COMP_01_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
 
-/* Procesa el flujo principal de Distancia Euclidiana y Norma de Vectores 2D */
-int ejecutar_geom_comp_01(int val);
+typedef struct { double x, y; } punto2d_t;
+double norma_vectorial(punto2d_t v);
+double distancia_euclidiana(punto2d_t a, punto2d_t b);
 
-#endif /* EJERCICIO_GEOM_COMP_01_H */
+#endif

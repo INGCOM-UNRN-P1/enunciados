@@ -14,33 +14,9 @@ tags:
 - dep:testing
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: encontrar_maximo
-  retorno: int
-  parametros: const int arr[], size_t tam, bool *encontrado
-  descripcion: Operación encontrar_maximo
-tests_funciones:
-- nombre: test_encontrar_maximo_positivo
-  funcion: encontrar_maximo
-  codigo: 'int res = encontrar_maximo(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_encontrar_maximo_cero
-  funcion: encontrar_maximo
-  codigo: 'int res = encontrar_maximo(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_encontrar_maximo_negativo
-  funcion: encontrar_maximo
-  codigo: 'int res = encontrar_maximo(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_encontrar_maximo_limite
-  funcion: encontrar_maximo
-  codigo: 'int res = encontrar_maximo(100);
-
-    assert(res >= 0 || res == 200);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: busqueda

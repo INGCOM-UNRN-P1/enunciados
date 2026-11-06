@@ -1,48 +1,14 @@
-# Álgebra Lineal Numérica #12
+# Descomposición QR por Proceso de Gram-Schmidt
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #12.
+QR reducido por Gram-Schmidt clásico. A es m×n, Q salida m×n, R salida n×n. Devuelve 1; 0 para dimensiones inválidas, datos no finitos, columnas dependientes exactas o falta de memoria.
 
-### 📋 Contrato de las Funciones
+## Firma
 
 ```c
-/*
- * Procesa el flujo principal de Descomposición QR por Proceso de Gram-Schmidt
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_12(int val);
-
+int gram_schmidt_qr(double **A, int m, int n, double **Q, double **R);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Para columnas (1,0) y (1,1), Q tiene columnas ortonormales y A=QR.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+A tiene m filas de n valores. Q se escribe en m filas de n valores y R en n filas de n valores. La función no reserva ni toma propiedad de las matrices del llamador.

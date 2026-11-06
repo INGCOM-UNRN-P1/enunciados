@@ -48,8 +48,3 @@ long factorial_memoizado(int n)
     cache[n] = n * factorial_memoizado(n - 1);
     return cache[n];
 }
-
-int main(void)
-{
-    return 0;
-}

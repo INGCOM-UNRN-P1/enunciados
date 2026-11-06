@@ -1,5 +1,5 @@
 id: num-linalg-24
-titulo: Multiplicación de Matrices Optimizada por Bloques Cache-Aware
+titulo: Duplicado de multiplicación de matrices por bloques
 tema: algebra_lineal_numerica
 bloom: 4
 minutos_estimados: 35
@@ -15,40 +15,10 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - intermedia
-verificado: true
-funciones:
-- nombre: ejecutar_num_linalg_24
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Multiplicación de Matrices Optimizada
-    por Bloques Cache-Aware
-tests_funciones:
-- nombre: test_ejecutar_num_linalg_24_positivo
-  funcion: ejecutar_num_linalg_24
-  codigo: 'int res = ejecutar_num_linalg_24(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_24_cero
-  funcion: ejecutar_num_linalg_24
-  codigo: 'int res = ejecutar_num_linalg_24(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_24_negativo
-  funcion: ejecutar_num_linalg_24
-  codigo: 'int res = ejecutar_num_linalg_24(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_24_valor_limite
-  funcion: ejecutar_num_linalg_24
-  codigo: 'int res = ejecutar_num_linalg_24(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_24_valor_unitario
-  funcion: ejecutar_num_linalg_24
-  codigo: 'int res = ejecutar_num_linalg_24(1);
-
-    assert(res >= 0 || res == 2);'
-publicar: true
+verificado: false
+funciones: []
+tests_funciones: []
+publicar: false
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: intermedia
@@ -56,3 +26,4 @@ prerrequisitos:
 - matrices
 - algoritmos_ordenamiento
 subtema: '24'
+duplicado_de: matrices/ej-21-49-multiplicacion-por-bloques

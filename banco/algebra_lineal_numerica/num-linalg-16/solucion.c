@@ -1,21 +1,5 @@
-/*
- * Numerico #16
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_num_linalg_16(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 16.0;
-        printf("NUM_%02d: %.2f\n", 16, res);
-    }
-    return 0;
-}
+#include "num-linalg-16.h"
+#include <math.h>
+#include <stdlib.h>
+#include <stdint.h>
+double integrar_trapecio(double(*f)(double),double a,double b,int n){if(!f||!isfinite(a)||!isfinite(b)||n<=0)return NAN;double h=(b-a)/n,s=(f(a)+f(b))/2;if(!isfinite(s))return NAN;for(int i=1;i<n;i++){double v=f(a+i*h);if(!isfinite(v))return NAN;s+=v;}s*=h;return isfinite(s)?s:NAN;}

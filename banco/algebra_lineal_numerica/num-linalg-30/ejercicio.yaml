@@ -1,11 +1,9 @@
 id: num-linalg-30
-titulo: Biblioteca Numérica de Álgebra Lineal y Resolución Matricial
+titulo: Biblioteca Numérica de Álgebra Lineal (pendiente)
 tema: algebra_lineal_numerica
 bloom: 5
 minutos_estimados: 45
-pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+pistas: []
 tags:
 - algebra_lineal
 - metodos_numericos
@@ -15,40 +13,10 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - avanzada
-verificado: true
-funciones:
-- nombre: ejecutar_num_linalg_30
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Biblioteca Numérica de Álgebra Lineal
-    y Resolución Matricial
-tests_funciones:
-- nombre: test_ejecutar_num_linalg_30_positivo
-  funcion: ejecutar_num_linalg_30
-  codigo: 'int res = ejecutar_num_linalg_30(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_30_cero
-  funcion: ejecutar_num_linalg_30
-  codigo: 'int res = ejecutar_num_linalg_30(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_30_negativo
-  funcion: ejecutar_num_linalg_30
-  codigo: 'int res = ejecutar_num_linalg_30(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_30_valor_limite
-  funcion: ejecutar_num_linalg_30
-  codigo: 'int res = ejecutar_num_linalg_30(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_30_valor_unitario
-  funcion: ejecutar_num_linalg_30
-  codigo: 'int res = ejecutar_num_linalg_30(1);
-
-    assert(res >= 0 || res == 2);'
-publicar: true
+verificado: false
+funciones: []
+tests_funciones: []
+publicar: false
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: avanzada

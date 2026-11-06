@@ -1,21 +1,9 @@
-/*
- * Geometria #07
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "geom-comp-07.h"
+#include <math.h>
 
-
-int ejecutar_geom_comp_07(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 7;
-        printf("GEOM_%02d: %d\n", 7, prod);
-    }
-    return 0;
+double area_poligono(const punto2d_t *v,size_t n){
+ if (!v || n < 3) return 0.0;
+ double s = 0;
+ for(size_t i=0;i<n;i++){size_t j=(i+1)%n;s+=v[i].x*v[j].y-v[j].x*v[i].y;}
+ return fabs(s)/2.0;
 }

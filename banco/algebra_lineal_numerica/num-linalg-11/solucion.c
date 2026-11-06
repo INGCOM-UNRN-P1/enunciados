@@ -1,21 +1,5 @@
-/*
- * Numerico #11
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_num_linalg_11(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    double a = 0.0, b = 0.0;
-    if (scanf("%lf %lf", &a, &b) == 2) {
-        double res = (a * b) + 11.0;
-        printf("NUM_%02d: %.2f\n", 11, res);
-    }
-    return 0;
-}
+#include "num-linalg-11.h"
+#include <math.h>
+#include <stdlib.h>
+#include <stdint.h>
+double potencias_autovalor(double **A,double *v,int n,double tol,int max_iter){if(!A||!v||n<=0||!isfinite(tol)||tol<=0||max_iter<=0)return NAN;double *x=malloc((size_t)n*sizeof *x),*y=malloc((size_t)n*sizeof *y);if(!x||!y){free(x);free(y);return NAN;}double norm=0;for(int i=0;i<n;i++){if(!A[i]||!isfinite(v[i])){free(x);free(y);return NAN;}x[i]=v[i];if(fabs(x[i])>norm)norm=fabs(x[i]);}if(norm==0){free(x);free(y);return NAN;}for(int i=0;i<n;i++)x[i]/=norm;double lambda=NAN;for(int k=0;k<max_iter;k++){norm=0;for(int i=0;i<n;i++){y[i]=0;for(int j=0;j<n;j++){if(!isfinite(A[i][j])){free(x);free(y);return NAN;}y[i]+=A[i][j]*x[j];}if(!isfinite(y[i])){free(x);free(y);return NAN;}if(fabs(y[i])>norm)norm=fabs(y[i]);}if(norm==0){free(x);free(y);return 0;}double dot=0,xx=0;for(int i=0;i<n;i++){dot+=x[i]*y[i];xx+=x[i]*x[i];}lambda=dot/xx;if(!isfinite(lambda)){free(x);free(y);return NAN;}double residual=0;for(int i=0;i<n;i++)if(fabs(y[i]-lambda*x[i])>residual)residual=fabs(y[i]-lambda*x[i]);if(residual<=tol*fmax(1.0,fabs(lambda))){free(x);free(y);return lambda;}for(int i=0;i<n;i++)y[i]/=norm;double *t=x;x=y;y=t;}free(x);free(y);return NAN;}

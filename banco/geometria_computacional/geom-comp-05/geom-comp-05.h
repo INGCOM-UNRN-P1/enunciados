@@ -1,11 +1,10 @@
-#ifndef EJERCICIO_GEOM_COMP_05_H
-#define EJERCICIO_GEOM_COMP_05_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_05_H
+#define GEOM_COMP_05_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
 
-/* Procesa el flujo principal de Intersección de Dos Segmentos de Recta en 2D */
-int ejecutar_geom_comp_05(int val);
+typedef struct { double x, y; } punto2d_t;
+bool segmentos_intersectan(punto2d_t a, punto2d_t b, punto2d_t c, punto2d_t d);
 
-#endif /* EJERCICIO_GEOM_COMP_05_H */
+#endif

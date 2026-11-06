@@ -1,48 +1,17 @@
-# Álgebra Lineal Numérica #25
+# Resolución de sistemas tridiagonales por el algoritmo de Thomas
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #25.
+Resuelve `Ax=b`, donde `A` es tridiagonal de orden `n`. Los tres vectores diagonales y `b` tienen `n` elementos: `subdiagonal[0]` y `superdiagonal[n-1]` no se usan. Thomas aplica eliminación hacia adelante y sustitución hacia atrás sin pivoteo.
 
-### 📋 Contrato de las Funciones
+## Interfaz
 
 ```c
-/*
- * Procesa el flujo principal de Resolución de Sistemas Tridiagonales por Algoritmo de Thomas
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_25(int val);
-
+int resolver_thomas(const double *subdiagonal, const double *diagonal,
+                    const double *superdiagonal, const double *b, size_t n,
+                    double *x);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Devuelve 1 y escribe la solución en `x`; devuelve 0 ante punteros nulos, `n==0`, datos no finitos, pivote exactamente nulo o falta de memoria. Las entradas no se modifican; `x` debe ser un buffer distinto, sin solapamiento con las entradas, y solo se modifica tras resolver el sistema.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+## Ejemplos
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+Para `A=[[2,-1,0],[-1,2,-1],[0,-1,2]]` y `b=[1,0,1]`, devuelve `[1,1,1]`. Para `n=1`, diagonal `[4]` y `b=[8]`, devuelve `[2]`. Una diagonal con pivote cero debe rechazarse.

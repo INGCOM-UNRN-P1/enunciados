@@ -15,40 +15,10 @@ tags:
 - dep:algoritmos_ordenamiento
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: ejecutar_num_linalg_10
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Método Iterativo de Gauss-Seidel para
-    Sistemas Lineales
-tests_funciones:
-- nombre: test_ejecutar_num_linalg_10_positivo
-  funcion: ejecutar_num_linalg_10
-  codigo: 'int res = ejecutar_num_linalg_10(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_10_cero
-  funcion: ejecutar_num_linalg_10
-  codigo: 'int res = ejecutar_num_linalg_10(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_10_negativo
-  funcion: ejecutar_num_linalg_10
-  codigo: 'int res = ejecutar_num_linalg_10(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_10_valor_limite
-  funcion: ejecutar_num_linalg_10
-  codigo: 'int res = ejecutar_num_linalg_10(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_10_valor_unitario
-  funcion: ejecutar_num_linalg_10
-  codigo: 'int res = ejecutar_num_linalg_10(1);
-
-    assert(res >= 0 || res == 2);'
-publicar: true
+verificado: false
+funciones: []
+tests_funciones: []
+publicar: false
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: inicial
@@ -57,3 +27,5 @@ prerrequisitos:
 - matrices
 - algoritmos_ordenamiento
 subtema: '10'
+
+duplicado_de: matrices/ej-21-48-metodo-de-gauss-seidel

@@ -20,27 +20,7 @@ funciones:
   retorno: void
   parametros: int *p1, int *p2, int valor
   descripcion: Operación procesar_datos
-tests_funciones:
-- nombre: test_procesar_datos_positivo
-  funcion: procesar_datos
-  codigo: 'int res = procesar_datos(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_procesar_datos_cero
-  funcion: procesar_datos
-  codigo: 'int res = procesar_datos(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_procesar_datos_negativo
-  funcion: procesar_datos
-  codigo: 'int res = procesar_datos(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_procesar_datos_limite
-  funcion: procesar_datos
-  codigo: 'int res = procesar_datos(100);
-
-    assert(res >= 0 || res == 200);'
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: analisis

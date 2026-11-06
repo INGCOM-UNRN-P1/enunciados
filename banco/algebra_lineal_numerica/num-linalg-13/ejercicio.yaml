@@ -4,56 +4,28 @@ tema: algebra_lineal_numerica
 bloom: 3
 minutos_estimados: 25
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_13
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Interpolación Polinómica por Fórmula
-    de Lagrange
+- nombre: interpolar_lagrange
+  retorno: double
+  parametros: const double *x, const double *y, int n, double punto
+  descripcion: Evalúa el polinomio interpolante en punto. NAN para datos inválidos o abscisas repetidas.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_13_positivo
-  funcion: ejecutar_num_linalg_13
-  codigo: 'int res = ejecutar_num_linalg_13(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_13_cero
-  funcion: ejecutar_num_linalg_13
-  codigo: 'int res = ejecutar_num_linalg_13(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_13_negativo
-  funcion: ejecutar_num_linalg_13
-  codigo: 'int res = ejecutar_num_linalg_13(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_13_valor_limite
-  funcion: ejecutar_num_linalg_13
-  codigo: 'int res = ejecutar_num_linalg_13(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_13_valor_unitario
-  funcion: ejecutar_num_linalg_13
-  codigo: 'int res = ejecutar_num_linalg_13(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_interpolar_lagrange
+  funcion: interpolar_lagrange
+  codigo: >-
+    double x[]={0,1,2},y[]={1,3,5}; assert(fabs(interpolar_lagrange(x,y,3,1.5)-4)<1e-12); double xx[]={1,1},yy[]={2,3}; assert(isnan(interpolar_lagrange(xx,yy,2,0)));
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: intermedia
 tipo: practica_guiada
-prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+prerrequisitos: []
 subtema: '13'

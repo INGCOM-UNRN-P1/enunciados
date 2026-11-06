@@ -17,37 +17,25 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_10
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Envolvente Convexa por Algoritmo de Convex
-    Hull Graham Scan
+- nombre: envolvente_convexa_graham
+  retorno: size_t
+  parametros: const punto2d_t *puntos, size_t n, punto2d_t *salida, size_t capacidad
+  descripcion: Envolvente convexa con Graham scan
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_10_positivo
-  funcion: ejecutar_geom_comp_10
-  codigo: 'int res = ejecutar_geom_comp_10(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_10_cero
-  funcion: ejecutar_geom_comp_10
-  codigo: 'int res = ejecutar_geom_comp_10(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_10_negativo
-  funcion: ejecutar_geom_comp_10
-  codigo: 'int res = ejecutar_geom_comp_10(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_10_valor_limite
-  funcion: ejecutar_geom_comp_10
-  codigo: 'int res = ejecutar_geom_comp_10(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_10_valor_unitario
-  funcion: ejecutar_geom_comp_10
-  codigo: 'int res = ejecutar_geom_comp_10(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: envolvente_cuadrado_con_interior
+  funcion: envolvente_convexa_graham
+  codigo: punto2d_t p[]={{0,0},{2,0},{2,2},{0,2},{1,1},{1,0}}, h[6]; size_t n=envolvente_convexa_graham(p,6,h,6);
+    assert(n==4);
+- nombre: envolvente_contiene_esquinas
+  funcion: envolvente_convexa_graham
+  codigo: punto2d_t p[]={{0,0},{2,0},{2,2},{0,2},{1,1}}, h[5]; size_t n=envolvente_convexa_graham(p,5,h,5); assert(n==4);
+    for(size_t i=0;i<n;i++) assert((h[i].x==0||h[i].x==2)&&(h[i].y==0||h[i].y==2));
+- nombre: capacidad_insuficiente
+  funcion: envolvente_convexa_graham
+  codigo: punto2d_t p[]={{0,0},{2,0},{2,2},{0,2},{1,1}}, h[3]; assert(envolvente_convexa_graham(p,5,h,3)==0);
+- nombre: desbordamiento_tamano
+  funcion: envolvente_convexa_graham
+  codigo: punto2d_t p={0,0}, salida; assert(envolvente_convexa_graham(&p,SIZE_MAX,&salida,SIZE_MAX)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

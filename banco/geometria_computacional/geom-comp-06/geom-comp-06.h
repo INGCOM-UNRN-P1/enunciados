@@ -1,11 +1,10 @@
-#ifndef EJERCICIO_GEOM_COMP_06_H
-#define EJERCICIO_GEOM_COMP_06_H
-
-#include <stddef.h>
+#ifndef GEOM_COMP_06_H
+#define GEOM_COMP_06_H
 #include <stdbool.h>
-#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
 
-/* Procesa el flujo principal de Distancia de un Punto a un Segmento de Recta */
-int ejecutar_geom_comp_06(int val);
+typedef struct { double x, y; } punto2d_t;
+double distancia_punto_segmento(punto2d_t p, punto2d_t a, punto2d_t b);
 
-#endif /* EJERCICIO_GEOM_COMP_06_H */
+#endif

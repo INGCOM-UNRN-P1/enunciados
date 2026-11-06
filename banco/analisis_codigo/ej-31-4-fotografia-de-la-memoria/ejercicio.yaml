@@ -14,38 +14,9 @@ tags:
 - dep:testing
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: proc_grafia_de_la_memoria
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Fotografía de la Memoria
-tests_funciones:
-- nombre: test_proc_grafia_de_la_memoria_positivo
-  funcion: proc_grafia_de_la_memoria
-  codigo: 'int res = proc_grafia_de_la_memoria(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_proc_grafia_de_la_memoria_cero
-  funcion: proc_grafia_de_la_memoria
-  codigo: 'int res = proc_grafia_de_la_memoria(0);
-
-    assert(res == 0);'
-- nombre: test_proc_grafia_de_la_memoria_negativo
-  funcion: proc_grafia_de_la_memoria
-  codigo: 'int res = proc_grafia_de_la_memoria(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_proc_grafia_de_la_memoria_valor_limite
-  funcion: proc_grafia_de_la_memoria
-  codigo: 'int res = proc_grafia_de_la_memoria(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_proc_grafia_de_la_memoria_valor_unitario
-  funcion: proc_grafia_de_la_memoria
-  codigo: 'int res = proc_grafia_de_la_memoria(1);
-
-    assert(res >= 0 || res == 2);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: analisis

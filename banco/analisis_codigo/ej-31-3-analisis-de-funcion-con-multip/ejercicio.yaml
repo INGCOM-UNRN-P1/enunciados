@@ -14,33 +14,9 @@ tags:
 - dep:testing
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: procesar_ventas
-  retorno: reporte_ventas_t
-  parametros: const double ventas[], int dias
-  descripcion: Operación procesar_ventas
-tests_funciones:
-- nombre: test_procesar_ventas_positivo
-  funcion: procesar_ventas
-  codigo: 'int res = procesar_ventas(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_procesar_ventas_cero
-  funcion: procesar_ventas
-  codigo: 'int res = procesar_ventas(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_procesar_ventas_negativo
-  funcion: procesar_ventas
-  codigo: 'int res = procesar_ventas(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_procesar_ventas_limite
-  funcion: procesar_ventas
-  codigo: 'int res = procesar_ventas(100);
-
-    assert(res >= 0 || res == 200);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: roles

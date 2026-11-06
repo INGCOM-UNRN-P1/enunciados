@@ -4,55 +4,32 @@ tema: algebra_lineal_numerica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Mantén dos puntos interiores y reutiliza una evaluación por iteración.
+- El ancho del intervalo decrece por el inverso de la razón áurea.
 tags:
-- algebra_lineal
+- optimizacion
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
+- seccion_aurea
 - c11
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_29
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Optimización Unidimensional por Búsqueda
-    de la Sección Áurea
+- nombre: minimizar_seccion_aurea
+  retorno: double
+  parametros: funcion_objetivo_t f, double a, double b, double tolerancia, size_t max_iter
+  descripcion: Busca el mínimo de una función unimodal en un intervalo mediante sección áurea.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_29_positivo
-  funcion: ejecutar_num_linalg_29
-  codigo: 'int res = ejecutar_num_linalg_29(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_29_cero
-  funcion: ejecutar_num_linalg_29
-  codigo: 'int res = ejecutar_num_linalg_29(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_29_negativo
-  funcion: ejecutar_num_linalg_29
-  codigo: 'int res = ejecutar_num_linalg_29(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_29_valor_limite
-  funcion: ejecutar_num_linalg_29
-  codigo: 'int res = ejecutar_num_linalg_29(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_29_valor_unitario
-  funcion: ejecutar_num_linalg_29
-  codigo: 'int res = ejecutar_num_linalg_29(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: minimo_de_seno_en_intervalo
+  funcion: minimizar_seccion_aurea
+  codigo: double m=minimizar_seccion_aurea(sin,4,5,1e-8,200);assert(isfinite(m)&&fabs(sin(m)+1)<1e-8);
+- nombre: intervalo_degenerado
+  funcion: minimizar_seccion_aurea
+  codigo: assert(isnan(minimizar_seccion_aurea(sin,1,1,1e-4,50)));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: avanzada
 prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+- funciones
+- metodos_numericos
 subtema: '29'

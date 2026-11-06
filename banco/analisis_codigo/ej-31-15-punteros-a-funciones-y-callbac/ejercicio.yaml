@@ -42,30 +42,9 @@ funciones:
   descripcion: Operación aplicar
 - nombre: procesar
   retorno: void
-  parametros: "int *arr, size_t n, predicado_t filtro,\n              operacion_t\
-    \ transformacion"
+  parametros: "int *arr, size_t n, predicado_t filtro,\n              operacion_t transformacion"
   descripcion: Operación procesar
-tests_funciones:
-- nombre: test_es_par_positivo
-  funcion: es_par
-  codigo: 'int res = es_par(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_es_par_cero
-  funcion: es_par
-  codigo: 'int res = es_par(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_es_par_negativo
-  funcion: es_par
-  codigo: 'int res = es_par(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_es_par_limite
-  funcion: es_par
-  codigo: 'int res = es_par(100);
-
-    assert(res >= 0 || res == 200);'
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: analisis

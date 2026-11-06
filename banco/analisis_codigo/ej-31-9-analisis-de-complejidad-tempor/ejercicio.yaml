@@ -14,37 +14,9 @@ tags:
 - dep:testing
 - c11
 - avanzada
-verificado: true
-funciones:
-- nombre: buscar_par_suma
-  retorno: bool
-  parametros: int arr[], int tam, int objetivo
-  descripcion: Operación buscar_par_suma
-- nombre: buscar_par_suma_optimizado
-  retorno: bool
-  parametros: int arr[], int tam, int objetivo
-  descripcion: Operación buscar_par_suma_optimizado
-tests_funciones:
-- nombre: test_buscar_par_suma_positivo
-  funcion: buscar_par_suma
-  codigo: 'int res = buscar_par_suma(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_buscar_par_suma_cero
-  funcion: buscar_par_suma
-  codigo: 'int res = buscar_par_suma(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_buscar_par_suma_negativo
-  funcion: buscar_par_suma
-  codigo: 'int res = buscar_par_suma(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_buscar_par_suma_limite
-  funcion: buscar_par_suma
-  codigo: 'int res = buscar_par_suma(100);
-
-    assert(res >= 0 || res == 200);'
+verificado: false
+funciones: []
+tests_funciones: []
 unidad: 5
 modulo: Ingeniería de Software y Calidad en C
 subtema: analisis

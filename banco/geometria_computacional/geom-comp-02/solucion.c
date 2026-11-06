@@ -1,21 +1,13 @@
-/*
- * Geometria #02
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "geom-comp-02.h"
+#include <math.h>
 
-
-int ejecutar_geom_comp_02(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 2;
-        printf("GEOM_%02d: %d\n", 2, prod);
-    }
-    return 0;
+double producto_escalar(vector2d_t a, vector2d_t b) { return a.x*b.x+a.y*b.y; }
+bool angulo_entre_vectores(vector2d_t a, vector2d_t b, double *r) {
+    if (!r) return false;
+    double na=hypot(a.x,a.y), nb=hypot(b.x,b.y);
+    if (na==0.0 || nb==0.0) return false;
+    double c=producto_escalar(a,b)/(na*nb);
+    if (c > 1.0) c = 1.0;
+    if (c < -1.0) c = -1.0;
+    *r=acos(c); return true;
 }

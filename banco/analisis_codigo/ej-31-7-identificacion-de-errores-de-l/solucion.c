@@ -18,8 +18,3 @@ int segundo_maximo(int arr[], int tam)
     }
     return segundo;
 }
-
-int main(void)
-{
-    return 0;
-}

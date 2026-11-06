@@ -1,46 +1,13 @@
-Calcular la distancia euclidiana entre dos puntos (x1, y1) y (x2, y2) en el plano cartesiano.
+# Distancia Euclidiana y norma 2D
 
-### 📋 Contrato de las Funciones
+Implementá las operaciones geométricas para puntos cartesianos bidimensionales. Las coordenadas y resultados son `double`.
 
 ```c
-/*
- * Procesa el flujo principal de Distancia Euclidiana y Norma de Vectores 2D
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_geom_comp_01(int val);
-
+typedef struct { double x, y; } punto2d_t;
+double norma_vectorial(punto2d_t v);
+double distancia_euclidiana(punto2d_t a, punto2d_t b);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Convenciones: se aplican directamente las definiciones euclidianas indicadas por el nombre de las operaciones.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
-:::
+Casos de prueba requeridos: entradas ordinarias, borde/degeneración pertinente y una figura o configuración que discrimine el algoritmo frente a una fórmula genérica.

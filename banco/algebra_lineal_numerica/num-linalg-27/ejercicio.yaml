@@ -4,55 +4,33 @@ tema: algebra_lineal_numerica
 bloom: 5
 minutos_estimados: 45
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Los coeficientes están ordenados desde el término de mayor grado.
+- Actualizá un solo acumulador mediante multiplicaciones y sumas.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
+- polinomios
+- horner
 - c11
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_27
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Evaluación Rápida de Polinomios por Regla
-    de Horner
+- nombre: evaluar_horner
+  retorno: double
+  parametros: const double *coeficientes, size_t n, double x
+  descripcion: Evalúa un polinomio mediante el esquema de Horner.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_27_positivo
-  funcion: ejecutar_num_linalg_27
-  codigo: 'int res = ejecutar_num_linalg_27(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_27_cero
-  funcion: ejecutar_num_linalg_27
-  codigo: 'int res = ejecutar_num_linalg_27(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_27_negativo
-  funcion: ejecutar_num_linalg_27
-  codigo: 'int res = ejecutar_num_linalg_27(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_27_valor_limite
-  funcion: ejecutar_num_linalg_27
-  codigo: 'int res = ejecutar_num_linalg_27(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_27_valor_unitario
-  funcion: ejecutar_num_linalg_27
-  codigo: 'int res = ejecutar_num_linalg_27(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: cuadratico
+  funcion: evaluar_horner
+  codigo: double p[]={2,-3,4};assert(evaluar_horner(p,3,2)==6);
+- nombre: grado_cero_e_invalido
+  funcion: evaluar_horner
+  codigo: double c[]={7};assert(evaluar_horner(c,1,-9)==7);assert(isnan(evaluar_horner(NULL,1,2)));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: avanzada
 prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+- arreglos
+- funciones
 subtema: '27'

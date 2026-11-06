@@ -4,55 +4,28 @@ tema: algebra_lineal_numerica
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
+- estadistica
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_23
+- nombre: box_muller
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Generación de Números con Distribución
-    Normal Box-Muller
+  parametros: double u1, double u2, double *z0, double *z1
+  descripcion: Transforma dos uniformes independientes [0,1) en dos normales estándar. Devuelve 1 al éxito; 0 si punteros/dominio inválidos. u1=0 no está permitido.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_23_positivo
-  funcion: ejecutar_num_linalg_23
-  codigo: 'int res = ejecutar_num_linalg_23(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_23_cero
-  funcion: ejecutar_num_linalg_23
-  codigo: 'int res = ejecutar_num_linalg_23(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_23_negativo
-  funcion: ejecutar_num_linalg_23
-  codigo: 'int res = ejecutar_num_linalg_23(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_23_valor_limite
-  funcion: ejecutar_num_linalg_23
-  codigo: 'int res = ejecutar_num_linalg_23(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_23_valor_unitario
-  funcion: ejecutar_num_linalg_23
-  codigo: 'int res = ejecutar_num_linalg_23(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_box_muller
+  funcion: box_muller
+  codigo: >-
+    double z0=0,z1=0; assert(box_muller(exp(-.5),0,&z0,&z1)); assert(fabs(z0-1)<1e-12&&fabs(z1)<1e-12); assert(!box_muller(0,0,&z0,&z1)); assert(!box_muller(.5,.5,&z0,&z0));
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: intermedia
-prerrequisitos:
-- matrices
-- algoritmos_ordenamiento
+prerrequisitos: []
 subtema: '23'

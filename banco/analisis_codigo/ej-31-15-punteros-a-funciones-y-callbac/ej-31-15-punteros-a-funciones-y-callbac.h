@@ -5,6 +5,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+typedef bool (*predicado_t)(int);
+typedef int (*operacion_t)(int);
+
 /* Operación es_par */
 bool es_par(int n);
 /* Operación es_positivo */

@@ -1,11 +1,6 @@
 #ifndef EJERCICIO_NUM_LINALG_07_H
 #define EJERCICIO_NUM_LINALG_07_H
 
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
+int invertir_gauss_jordan(double **A, int n);
 
-/* Procesa el flujo principal de Inversión de Matrices por Método de Gauss-Jordan */
-int ejecutar_num_linalg_07(int val);
-
-#endif /* EJERCICIO_NUM_LINALG_07_H */
+#endif

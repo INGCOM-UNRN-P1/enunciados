@@ -1,5 +1,4 @@
 #include <stdbool.h>
-
 #include <stdio.h>
 typedef struct
 {
@@ -37,9 +36,4 @@ reporte_ventas_t procesar_ventas(const double ventas[], int dias)
     }
     printf("Venta máxima registrada: %.2f\n", venta_maxima);
     return resultado;
-}
-
-int main(void)
-{
-    return 0;
 }

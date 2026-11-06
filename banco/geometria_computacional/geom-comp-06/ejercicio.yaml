@@ -17,37 +17,20 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_06
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Distancia de un Punto a un Segmento de
-    Recta
+- nombre: distancia_punto_segmento
+  retorno: double
+  parametros: punto2d_t p, punto2d_t a, punto2d_t b
+  descripcion: Distancia de punto a segmento
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_06_positivo
-  funcion: ejecutar_geom_comp_06
-  codigo: 'int res = ejecutar_geom_comp_06(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_06_cero
-  funcion: ejecutar_geom_comp_06
-  codigo: 'int res = ejecutar_geom_comp_06(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_06_negativo
-  funcion: ejecutar_geom_comp_06
-  codigo: 'int res = ejecutar_geom_comp_06(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_06_valor_limite
-  funcion: ejecutar_geom_comp_06
-  codigo: 'int res = ejecutar_geom_comp_06(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_06_valor_unitario
-  funcion: ejecutar_geom_comp_06
-  codigo: 'int res = ejecutar_geom_comp_06(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: proyeccion_interior
+  funcion: distancia_punto_segmento
+  codigo: assert(fabs(distancia_punto_segmento((punto2d_t){2,3},(punto2d_t){0,0},(punto2d_t){4,0})-3)<1e-9);
+- nombre: proyeccion_recortada
+  funcion: distancia_punto_segmento
+  codigo: assert(fabs(distancia_punto_segmento((punto2d_t){-1,0},(punto2d_t){0,0},(punto2d_t){4,0})-1)<1e-9);
+- nombre: segmento_degenerado
+  funcion: distancia_punto_segmento
+  codigo: assert(fabs(distancia_punto_segmento((punto2d_t){3,4},(punto2d_t){0,0},(punto2d_t){0,0})-5)<1e-9);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

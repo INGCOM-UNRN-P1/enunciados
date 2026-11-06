@@ -17,37 +17,21 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_01
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Distancia Euclidiana y Norma de Vectores
-    2D
+- nombre: norma_vectorial
+  retorno: double
+  parametros: punto2d_t v
+  descripcion: Distancia Euclidiana y norma 2D
+- nombre: distancia_euclidiana
+  retorno: double
+  parametros: punto2d_t a, punto2d_t b
+  descripcion: Distancia Euclidiana y norma 2D
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_01_positivo
-  funcion: ejecutar_geom_comp_01
-  codigo: 'int res = ejecutar_geom_comp_01(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_01_cero
-  funcion: ejecutar_geom_comp_01
-  codigo: 'int res = ejecutar_geom_comp_01(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_01_negativo
-  funcion: ejecutar_geom_comp_01
-  codigo: 'int res = ejecutar_geom_comp_01(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_01_valor_limite
-  funcion: ejecutar_geom_comp_01
-  codigo: 'int res = ejecutar_geom_comp_01(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_01_valor_unitario
-  funcion: ejecutar_geom_comp_01
-  codigo: 'int res = ejecutar_geom_comp_01(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: norma_3_4
+  funcion: norma_vectorial
+  codigo: punto2d_t v={3,4}; assert(fabs(norma_vectorial(v)-5.0)<1e-9);
+- nombre: distancia_3_4_5
+  funcion: distancia_euclidiana
+  codigo: punto2d_t a={1,2}, b={4,6}; assert(fabs(distancia_euclidiana(a,b)-5.0)<1e-9);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

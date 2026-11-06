@@ -1,48 +1,17 @@
-# Álgebra Lineal Numérica #08
+# Determinante por triangulación
 
-Resolver aproximación polinómica o transformación matricial del módulo numérico #8.
+Calcula det(A) mediante eliminación gaussiana con pivoteo parcial. Devuelve NAN para argumentos inválidos, entradas no finitas o falta de memoria; una matriz singular produce 0.0. Un pivote es nulo solo si es exactamente 0.0; no se aplica umbral absoluto.
 
-### 📋 Contrato de las Funciones
+La matriz se representa mediante `n` filas, cada una con `n` valores `double`. La función no toma propiedad de la memoria recibida.
+
+## Firma
 
 ```c
-/*
- * Procesa el flujo principal de Cálculo de Determinante por Triangulación de Matrices
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_num_linalg_08(int val);
-
+double determinante_triangularizacion(double **A, int n);
 ```
 
-### 🧪 Ejemplos de Ejecución
+## Ejemplos y casos de prueba
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
+Para la inversa, `[[4,7],[2,6]]` produce `[[0.6,-0.7],[-0.2,0.4]]`; una matriz singular debe rechazarse y no modificarse. Para el determinante, `[[0,2],[3,4]]` da `-6` (requiere intercambio de filas) y `[[1,2],[2,4]]` da `0`.
 
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
-:::
+Se requieren C11 y compilación limpia con `-Wall -Wextra -Werror`.

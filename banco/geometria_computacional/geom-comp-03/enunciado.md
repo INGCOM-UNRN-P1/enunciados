@@ -1,46 +1,14 @@
-Calcular producto vectorial, punto o intersección según el esquema geométrico #3.
+# Producto vectorial 2D y orientación
 
-### 📋 Contrato de las Funciones
+Implementá las operaciones geométricas para puntos cartesianos bidimensionales. Las coordenadas y resultados son `double`.
 
 ```c
-/*
- * Procesa el flujo principal de producto_t Vectorial 2D y Determinación de Orientación
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_geom_comp_03(int val);
-
+typedef struct { double x, y; } punto2d_t;
+typedef enum { COLINEAL=0, GIRO_ANTIHORARIO=1, GIRO_HORARIO=-1 } orientacion_t;
+double producto_vectorial_2d(punto2d_t a, punto2d_t b);
+orientacion_t orientacion(punto2d_t a, punto2d_t b, punto2d_t c);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Convenciones: la orientación positiva indica giro antihorario; los casos degenerados se especifican en el contrato.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá fórmulas algebraicas de vectores.
-- Cuidá el redondeo en cálculos de punto flotante.
-:::
+Casos de prueba requeridos: entradas ordinarias, borde/degeneración pertinente y una figura o configuración que discrimine el algoritmo frente a una fórmula genérica.

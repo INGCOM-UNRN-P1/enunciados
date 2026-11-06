@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_NUM_LINALG_28_H
-#define EJERCICIO_NUM_LINALG_28_H
-
+#ifndef NUM_LINALG_28_H
+#define NUM_LINALG_28_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Cálculo de Raíces Polinómicas por Método de Bairstow */
-int ejecutar_num_linalg_28(int val);
-
-#endif /* EJERCICIO_NUM_LINALG_28_H */
+int bairstow_par_raices(const double *coeficientes, size_t grado,
+                         double u_inicial, double v_inicial, double tolerancia,
+                         size_t max_iter, double *r1_real, double *r1_imag,
+                         double *r2_real, double *r2_imag);
+#endif

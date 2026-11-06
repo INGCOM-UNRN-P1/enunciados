@@ -4,52 +4,28 @@ tema: algebra_lineal_numerica
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Verificá divisiones por cero en el denominador de convergencia.
-- Controlá el criterio de parada del método iterativo.
+- Respeta las dimensiones y el dominio indicado por la regla numérica.
+- Comprueba finitud de entradas y resultados intermedios.
 tags:
 - algebra_lineal
 - metodos_numericos
-- newton_raphson
-- matrices
-- dep:matrices
-- dep:algoritmos_ordenamiento
 - c11
+- matrices
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_num_linalg_12
+- nombre: gram_schmidt_qr
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Descomposición QR por Proceso de Gram-Schmidt
+  parametros: double **A, int m, int n, double **Q, double **R
+  descripcion: QR reducido por Gram-Schmidt clásico. A es m×n, Q salida m×n, R salida n×n. Devuelve 1; 0 para dimensiones inválidas, datos no finitos, columnas dependientes exactas o falta de memoria.
 tests_funciones:
-- nombre: test_ejecutar_num_linalg_12_positivo
-  funcion: ejecutar_num_linalg_12
-  codigo: 'int res = ejecutar_num_linalg_12(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_num_linalg_12_cero
-  funcion: ejecutar_num_linalg_12
-  codigo: 'int res = ejecutar_num_linalg_12(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_num_linalg_12_negativo
-  funcion: ejecutar_num_linalg_12
-  codigo: 'int res = ejecutar_num_linalg_12(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_num_linalg_12_valor_limite
-  funcion: ejecutar_num_linalg_12
-  codigo: 'int res = ejecutar_num_linalg_12(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_num_linalg_12_valor_unitario
-  funcion: ejecutar_num_linalg_12
-  codigo: 'int res = ejecutar_num_linalg_12(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_gram_schmidt_qr
+  funcion: gram_schmidt_qr
+  codigo: >-
+    double a0[]={1,1},a1[]={0,1}; double *a[]={a0,a1}; double q0[2],q1[2],r0[2],r1[2]; double *q[]={q0,q1},*r[]={r0,r1}; assert(gram_schmidt_qr(a,2,2,q,r)); assert(fabs(q0[0]*q0[0]+q1[0]*q1[0]-1)<1e-12); assert(fabs(q0[1]*q0[1]+q1[1]*q1[1]-1)<1e-12); assert(fabs(q0[0]*q0[1]+q1[0]*q1[1])<1e-12);
 publicar: true
 unidad: 4
-modulo: Tipos Abstractos y Algorítmica
+modulo: Métodos Numéricos
 dificultad: inicial
 tipo: practica_guiada
 prerrequisitos:
