@@ -1,5 +1,5 @@
 id: geom-comp-30
-titulo: Motor de Consultas Espaciales 2D y Búsqueda por Rango
+titulo: Consultas espaciales 2D por rango
 tema: geometria_computacional
 bloom: 5
 minutos_estimados: 45
@@ -17,37 +17,38 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_30
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Motor de Consultas Espaciales 2D y Búsqueda
-    por Rango
+- nombre: kd_build
+  retorno: bool
+  parametros: kd_tree_t *t,const kd_point_t *p,size_t n
+  descripcion: Implementá un índice KD-tree estático balanceado para puntos 2D y consulta de caja axis-aligned
+    inclusiva. API de construcción desde arreglo, consulta que escribe índices originales hasta capacidad
+    dada y reporta total encontrado, destrucción. Validá finitud, capacidad y overflow; resultados en
+    orden ascendente de índice.
+- nombre: kd_query
+  retorno: bool
+  parametros: const kd_tree_t *t,double xmin,double ymin,double xmax,double ymax,size_t *indices,size_t
+    cap,size_t *total
+  descripcion: Implementá un índice KD-tree estático balanceado para puntos 2D y consulta de caja axis-aligned
+    inclusiva. API de construcción desde arreglo, consulta que escribe índices originales hasta capacidad
+    dada y reporta total encontrado, destrucción. Validá finitud, capacidad y overflow; resultados en
+    orden ascendente de índice.
+- nombre: kd_destroy
+  retorno: void
+  parametros: kd_tree_t *t
+  descripcion: Implementá un índice KD-tree estático balanceado para puntos 2D y consulta de caja axis-aligned
+    inclusiva. API de construcción desde arreglo, consulta que escribe índices originales hasta capacidad
+    dada y reporta total encontrado, destrucción. Validá finitud, capacidad y overflow; resultados en
+    orden ascendente de índice.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_30_positivo
-  funcion: ejecutar_geom_comp_30
-  codigo: 'int res = ejecutar_geom_comp_30(5);
+- nombre: test_kd_query
+  funcion: kd_build
+  codigo: 'kd_point_t p[]={{0,0},{1,1},{2,2},{1,0}};kd_tree_t t;size_t ix[4],n;assert(kd_build(&t,p,4));assert(kd_query(&t,0,0,1,1,ix,4,&n)&&n==3);assert(ix[0]==0&&ix[1]==1&&ix[2]==3);kd_destroy(&t);
 
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_30_cero
-  funcion: ejecutar_geom_comp_30
-  codigo: 'int res = ejecutar_geom_comp_30(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_30_negativo
-  funcion: ejecutar_geom_comp_30
-  codigo: 'int res = ejecutar_geom_comp_30(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_30_valor_limite
-  funcion: ejecutar_geom_comp_30
-  codigo: 'int res = ejecutar_geom_comp_30(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_30_valor_unitario
-  funcion: ejecutar_geom_comp_30
-  codigo: 'int res = ejecutar_geom_comp_30(1);
-
-    assert(res >= 0 || res == 2);'
+    kd_point_t copy[]={{0,0},{2,2}};kd_tree_t independent;assert(kd_build(&independent,copy,2));copy[1].x=99;size_t
+    one[2],count;assert(kd_query(&independent,0,0,2,2,one,2,&count)&&count==2);kd_destroy(&independent);'
+- nombre: test_kd_capacity
+  funcion: kd_build
+  codigo: kd_point_t p[]={{0,0},{1,1}};kd_tree_t t;size_t ix[1],n;assert(kd_build(&t,p,2));assert(kd_query(&t,0,0,2,2,ix,1,&n)&&n==2);kd_destroy(&t);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

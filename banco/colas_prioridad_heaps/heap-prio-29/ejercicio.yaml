@@ -1,5 +1,5 @@
 id: heap-prio-29
-titulo: Serialización de Heap en Arreglo Compacto y Reconstrucción
+titulo: Serialización y reconstrucción de min-heap
 tema: colas_prioridad_heaps
 bloom: 5
 minutos_estimados: 45
@@ -18,37 +18,29 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_29
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Serialización de Heap en Arreglo Compacto
-    y Reconstrucción
+- nombre: min_heap_serialize
+  retorno: bool
+  parametros: const int32_t*a,size_t n,char*out,size_t cap,size_t*needed
+  descripcion: 'Implementá serialización binaria portable lógica de un min-heap de int32_t: formato textual
+    decimal separado por espacios y reconstrucción desde texto en buffer terminado en NUL. Serializar
+    debe rechazar capacidad insuficiente, reconstruir valida todos los tokens y la propiedad min-heap.
+    Formato vacío es cadena vacía.'
+- nombre: min_heap_parse
+  retorno: bool
+  parametros: const char*text,int32_t*out,size_t cap,size_t*n
+  descripcion: 'Implementá serialización binaria portable lógica de un min-heap de int32_t: formato textual
+    decimal separado por espacios y reconstrucción desde texto en buffer terminado en NUL. Serializar
+    debe rechazar capacidad insuficiente, reconstruir valida todos los tokens y la propiedad min-heap.
+    Formato vacío es cadena vacía.'
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_29_positivo
-  funcion: ejecutar_heap_prio_29
-  codigo: 'int res = ejecutar_heap_prio_29(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_29_cero
-  funcion: ejecutar_heap_prio_29
-  codigo: 'int res = ejecutar_heap_prio_29(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_29_negativo
-  funcion: ejecutar_heap_prio_29
-  codigo: 'int res = ejecutar_heap_prio_29(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_29_valor_limite
-  funcion: ejecutar_heap_prio_29
-  codigo: 'int res = ejecutar_heap_prio_29(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_29_valor_unitario
-  funcion: ejecutar_heap_prio_29
-  codigo: 'int res = ejecutar_heap_prio_29(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_serialize_roundtrip
+  funcion: min_heap_serialize
+  codigo: int32_t a[]={-2,0,3,9};char b[64];size_t need,n;int32_t x[4];assert(min_heap_serialize(a,4,b,sizeof(b),&need));assert(min_heap_parse(b,x,4,&n)&&n==4);for(size_t
+    i=0;i<4;i++)assert(a[i]==x[i]);
+- nombre: test_serialize_invalidos
+  funcion: min_heap_serialize
+  codigo: int32_t x[3];size_t n;assert(!min_heap_parse("1 0 2",x,3,&n));char b[1];size_t need;int32_t
+    a[]={1,2};assert(!min_heap_serialize(a,2,b,1,&need));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

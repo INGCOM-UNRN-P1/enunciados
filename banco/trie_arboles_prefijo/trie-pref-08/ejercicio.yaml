@@ -1,7 +1,7 @@
 id: trie-pref-08
 titulo: Trie Comprimido Radix Tree o Patricia Trie
 tema: trie_arboles_prefijo
-bloom: 2
+bloom: 3
 minutos_estimados: 15
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,41 @@ tags:
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Trie Comprimido Radix Tree o Patricia
-    Trie
+- nombre: radix_crear
+  retorno: radix_nodo_t *
+  parametros: void
+  descripcion: Reserva la raíz del trie comprimido.
+- nombre: radix_insertar
+  retorno: bool
+  parametros: radix_nodo_t *raiz, const char *palabra
+  descripcion: Inserta y divide etiquetas por prefijo común; ante fallo de memoria el árbol conserva su estado previo.
+- nombre: radix_buscar
+  retorno: bool
+  parametros: const radix_nodo_t *raiz, const char *palabra
+  descripcion: Busca una palabra exacta.
+- nombre: radix_destruir
+  retorno: void
+  parametros: radix_nodo_t *raiz
+  descripcion: Libera etiquetas, aristas, nodos descendientes y raíz.
+- nombre: radix_test_fallar_reserva
+  retorno: void
+  parametros: long indice
+  descripcion: Punto de inyección de fallos de reserva para pruebas; -1 desactiva.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_08_positivo
-  funcion: ejecutar_trie_pref_08
-  codigo: 'int res = ejecutar_trie_pref_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_08_cero
-  funcion: ejecutar_trie_pref_08
-  codigo: 'int res = ejecutar_trie_pref_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_08_negativo
-  funcion: ejecutar_trie_pref_08
-  codigo: 'int res = ejecutar_trie_pref_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_08_valor_limite
-  funcion: ejecutar_trie_pref_08
-  codigo: 'int res = ejecutar_trie_pref_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_08_valor_unitario
-  funcion: ejecutar_trie_pref_08
-  codigo: 'int res = ejecutar_trie_pref_08(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: radix_split_prefijos_y_destruccion
+  funcion: radix_insertar
+  codigo: radix_nodo_t *r=radix_crear(); assert(r); assert(radix_insertar(r,"cater")&&radix_insertar(r,"cat")&&radix_insertar(r,"cattle")&&radix_insertar(r,"cab"));
+    assert(radix_buscar(r,"cater")&&radix_buscar(r,"cat")&&radix_buscar(r,"cattle")&&radix_buscar(r,"cab")); assert(!radix_buscar(r,"ca")&&!radix_buscar(r,"catt"));
+    radix_destruir(r);
+- nombre: fallo_inyectado_en_cada_reserva
+  funcion: radix_insertar
+  codigo: for(long i=0;i<6;i++){radix_nodo_t *r=radix_crear(); assert(r&&radix_insertar(r,"prefix")); radix_test_fallar_reserva(i);
+    assert(!radix_insertar(r,"prelude")); radix_test_fallar_reserva(-1); assert(radix_buscar(r,"prefix")&&!radix_buscar(r,"prelude"));
+    radix_destruir(r);} for(long i=0;i<3;i++){radix_nodo_t *r=radix_crear(); assert(r); radix_test_fallar_reserva(i);
+    assert(!radix_insertar(r,"z")); radix_test_fallar_reserva(-1); assert(!radix_buscar(r,"z")); radix_destruir(r);}
+    radix_test_fallar_reserva(0); assert(radix_crear()==NULL); radix_test_fallar_reserva(-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

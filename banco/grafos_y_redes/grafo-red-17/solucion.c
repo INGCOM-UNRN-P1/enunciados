@@ -1,20 +1,37 @@
-/*
- * Grafos #17
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "grafo-red-17.h"
+/* Bellman-Ford: distancia desde el origen y detección de ciclos negativos. */
+#include <limits.h>
+#include <stddef.h>
 
-
-int ejecutar_grafo_red_17(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 17, nodo, grado + 17);
+int bellman_ford_ciclo_negativo(size_t n, const arista_t *aristas, size_t m,
+                                size_t origen, long long *dist) {
+  if (n == 0 || n > 1000000 || origen >= n || dist == NULL ||
+      (m != 0 && aristas == NULL))
+    return -1;
+  const long long inf = LLONG_MAX / 4;
+  for (size_t i = 0; i < n; ++i)
+    dist[i] = inf;
+  dist[origen] = 0;
+  for (size_t k = 1; k < n; ++k) {
+    int cambio = 0;
+    for (size_t j = 0; j < m; ++j) {
+      arista_t e = aristas[j];
+      if (e.desde >= n || e.hasta >= n)
+        return -1;
+      if (dist[e.desde] != inf && dist[e.desde] + e.peso < dist[e.hasta]) {
+        dist[e.hasta] = dist[e.desde] + e.peso;
+        cambio = 1;
+      }
     }
-    return 0;
+    if (!cambio)
+      break;
+  }
+  for (size_t j = 0; j < m; ++j) {
+    arista_t e = aristas[j];
+    if (e.desde >= n || e.hasta >= n)
+      return -1;
+    if (dist[e.desde] != inf && dist[e.desde] + e.peso < dist[e.hasta])
+      return 1;
+  }
+  return 0;
 }

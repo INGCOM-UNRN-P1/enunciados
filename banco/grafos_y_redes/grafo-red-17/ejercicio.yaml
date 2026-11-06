@@ -17,37 +17,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_17
+- nombre: bellman_ford_ciclo_negativo
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Algoritmo de Bellman-Ford para Detección
-    de Ciclos Negativos
+  parametros: size_t n,const arista_t *e,size_t m,size_t origen,long long *d
+  descripcion: Algoritmo de Bellman-Ford para Detección de Ciclos Negativos
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_17_positivo
-  funcion: ejecutar_grafo_red_17
-  codigo: 'int res = ejecutar_grafo_red_17(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_17_cero
-  funcion: ejecutar_grafo_red_17
-  codigo: 'int res = ejecutar_grafo_red_17(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_17_negativo
-  funcion: ejecutar_grafo_red_17
-  codigo: 'int res = ejecutar_grafo_red_17(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_17_valor_limite
-  funcion: ejecutar_grafo_red_17
-  codigo: 'int res = ejecutar_grafo_red_17(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_17_valor_unitario
-  funcion: ejecutar_grafo_red_17
-  codigo: 'int res = ejecutar_grafo_red_17(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_bellman_ford_ciclo_negativo_ciclo_negativo
+  funcion: bellman_ford_ciclo_negativo
+  codigo: arista_t e[]={{0,1,1},{1,2,-3},{2,1,1}};long long d[3];assert(bellman_ford_ciclo_negativo(3,e,3,0,d)==1);
+- nombre: test_bellman_ford_ciclo_negativo_sin_ciclo
+  funcion: bellman_ford_ciclo_negativo
+  codigo: arista_t e[]={{0,1,4},{1,2,-2}};long long d[3];assert(bellman_ford_ciclo_negativo(3,e,2,0,d)==0&&d[2]==2);
+- nombre: test_bellman_ford_ciclo_negativo_inalcanzable
+  funcion: bellman_ford_ciclo_negativo
+  codigo: arista_t e[]={{1,2,-2},{2,1,1}};long long d[3];assert(bellman_ford_ciclo_negativo(3,e,2,0,d)==0);
+- nombre: test_bellman_ford_ciclo_negativo_indice_invalido
+  funcion: bellman_ford_ciclo_negativo
+  codigo: long long d[1];assert(bellman_ford_ciclo_negativo(1,NULL,0,1,d)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

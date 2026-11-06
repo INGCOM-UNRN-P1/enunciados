@@ -17,37 +17,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_21
+- nombre: puentes_articulaciones
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Detección de Puentes y Puntos de Articulación
-    en Grafos
+  parametros: size_t n,const unsigned char *a,unsigned char *art,unsigned char *br
+  descripcion: Detección de Puentes y Puntos de Articulación en Grafos
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_21_positivo
-  funcion: ejecutar_grafo_red_21
-  codigo: 'int res = ejecutar_grafo_red_21(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_21_cero
-  funcion: ejecutar_grafo_red_21
-  codigo: 'int res = ejecutar_grafo_red_21(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_21_negativo
-  funcion: ejecutar_grafo_red_21
-  codigo: 'int res = ejecutar_grafo_red_21(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_21_valor_limite
-  funcion: ejecutar_grafo_red_21
-  codigo: 'int res = ejecutar_grafo_red_21(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_21_valor_unitario
-  funcion: ejecutar_grafo_red_21
-  codigo: 'int res = ejecutar_grafo_red_21(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_puentes_articulaciones_cadena
+  funcion: puentes_articulaciones
+  codigo: unsigned char a[]={0,1,0,1,0,1,0,1,0},art[3],br[9];assert(puentes_articulaciones(3,a,art,br)==2&&art[1]&&br[1]&&br[5]);
+- nombre: test_puentes_articulaciones_ciclo
+  funcion: puentes_articulaciones
+  codigo: unsigned char a[]={0,1,1,1,0,1,1,1,0},art[3],br[9];assert(puentes_articulaciones(3,a,art,br)==0&&!art[0]&&!art[1]&&!art[2]);
+- nombre: test_puentes_articulaciones_aislados
+  funcion: puentes_articulaciones
+  codigo: unsigned char a[]={0,0,0,0},art[2],br[4];assert(puentes_articulaciones(2,a,art,br)==0);
+- nombre: test_puentes_articulaciones_nulo
+  funcion: puentes_articulaciones
+  codigo: assert(puentes_articulaciones(0,NULL,NULL,NULL)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

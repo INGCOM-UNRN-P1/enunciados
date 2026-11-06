@@ -16,39 +16,33 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_16
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de Memoria Utilizada y Ocupación
-    de Nodos en Trie
+- nombre: trie_crear
+  retorno: nodo_trie_t *
+  parametros: void
+  descripcion: Crea una raíz dinámica vacía.
+- nombre: trie_insertar
+  retorno: bool
+  parametros: nodo_trie_t *raiz, const char *palabra
+  descripcion: Inserta una palabra.
+- nombre: trie_medir
+  retorno: void
+  parametros: const nodo_trie_t *raiz, trie_memoria_t *salida
+  descripcion: Mide nodos, bytes solicitados y ocupación de enlaces.
+- nombre: trie_destruir
+  retorno: void
+  parametros: nodo_trie_t *raiz
+  descripcion: Libera trie y raíz dinámica.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_16_positivo
-  funcion: ejecutar_trie_pref_16
-  codigo: 'int res = ejecutar_trie_pref_16(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_16_cero
-  funcion: ejecutar_trie_pref_16
-  codigo: 'int res = ejecutar_trie_pref_16(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_16_negativo
-  funcion: ejecutar_trie_pref_16
-  codigo: 'int res = ejecutar_trie_pref_16(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_16_valor_limite
-  funcion: ejecutar_trie_pref_16
-  codigo: 'int res = ejecutar_trie_pref_16(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_16_valor_unitario
-  funcion: ejecutar_trie_pref_16
-  codigo: 'int res = ejecutar_trie_pref_16(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_16_1_caso_funcional
+  funcion: trie_medir
+  codigo: nodo_trie_t *r=trie_crear(); trie_memoria_t m; trie_medir(r,&m); assert(m.nodos==1&&m.bytes>=sizeof(*r)&&m.aristas==0&&m.ocupacion==0.0);
+    assert(trie_insertar(r,"a")); trie_medir(r,&m); assert(m.nodos==2&&m.bytes>sizeof(*r)&&m.aristas==1&&m.ocupacion>0.0);
+    trie_destruir(r);
+- nombre: test_16_2_caso_funcional
+  funcion: trie_medir
+  codigo: trie_memoria_t m; trie_medir(NULL,&m); assert(m.nodos==0&&m.bytes==0&&m.ocupacion==0.0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

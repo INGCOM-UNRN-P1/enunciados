@@ -1,7 +1,7 @@
 id: trie-pref-13
 titulo: Corrector Ortográfico con Distancia de Levenshtein sobre Trie
 tema: trie_arboles_prefijo
-bloom: 3
+bloom: 4
 minutos_estimados: 25
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,37 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_13
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Corrector Ortográfico con Distancia de
-    Levenshtein sobre Trie
+- nombre: trie_crear
+  retorno: nodo_trie_t *
+  parametros: void
+  descripcion: Crea una raíz dinámica.
+- nombre: trie_insertar
+  retorno: bool
+  parametros: nodo_trie_t *raiz, const char *palabra
+  descripcion: Inserta una palabra.
+- nombre: trie_sugerir
+  retorno: size_t
+  parametros: const nodo_trie_t *raiz, const char *consulta, size_t distancia_maxima, char resultados[][256], size_t
+    capacidad
+  descripcion: Enumera palabras dentro de la distancia de Levenshtein en orden de bytes.
+- nombre: trie_destruir
+  retorno: void
+  parametros: nodo_trie_t *raiz
+  descripcion: Libera trie y raíz dinámica.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_13_positivo
-  funcion: ejecutar_trie_pref_13
-  codigo: 'int res = ejecutar_trie_pref_13(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_13_cero
-  funcion: ejecutar_trie_pref_13
-  codigo: 'int res = ejecutar_trie_pref_13(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_13_negativo
-  funcion: ejecutar_trie_pref_13
-  codigo: 'int res = ejecutar_trie_pref_13(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_13_valor_limite
-  funcion: ejecutar_trie_pref_13
-  codigo: 'int res = ejecutar_trie_pref_13(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_13_valor_unitario
-  funcion: ejecutar_trie_pref_13
-  codigo: 'int res = ejecutar_trie_pref_13(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: distancia_referencia_en_ramas_hermanas
+  funcion: trie_sugerir
+  codigo: nodo_trie_t *r=trie_crear(); const char *words[]={"cat","bat","cut","coat","cats","dog","at"}; for(size_t
+    i=0;i<7;i++) assert(trie_insertar(r,words[i])); char out[8][256]; size_t n=trie_sugerir(r,"cat",1,out,8); const
+    char *expected[]={"at","bat","cat","cats","coat","cut"}; assert(n==6); for(size_t i=0;i<n;i++){assert(strcmp(out[i],expected[i])==0);
+    size_t a=strlen(out[i]),b=3,dp[6][4]; for(size_t x=0;x<=a;x++)dp[x][0]=x; for(size_t y=0;y<=b;y++)dp[0][y]=y;
+    for(size_t x=1;x<=a;x++)for(size_t y=1;y<=b;y++){size_t del=dp[x-1][y]+1,ins=dp[x][y-1]+1,sub=dp[x-1][y-1]+(out[i][x-1]!="cat"[y-1]);
+    size_t z=del<ins?del:ins; dp[x][y]=z<sub?z:sub;} assert(dp[a][b]<=1);} trie_destruir(r);
+- nombre: consulta_vacia_y_capacidad_cero
+  funcion: trie_sugerir
+  codigo: nodo_trie_t *r=trie_crear(); assert(trie_sugerir(r,"",0,NULL,0)==0); trie_destruir(r);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

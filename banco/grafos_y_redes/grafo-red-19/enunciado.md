@@ -1,54 +1,5 @@
-Desarrollar el algoritmo de análisis de grafos y redes para: **Árbol de Expansión Mínima MST por Algoritmo de Prim**.
-El programa debe modelar las conexiones y adyacencias entre nodos (mediante matrices o listas de adyacencia), validar la conectividad de la topología y computar las métricas de red requeridas garantizando un recorrido eficiente y control adecuado de límites.
+# Árbol de Expansión Mínima MST por Algoritmo de Prim
 
-- `int ejecutar_grafo_red_19(int val)`: Procesa el flujo principal de Árbol de Expansión Mínima MST por Algoritmo de Prim
+Prim recibe una matriz simétrica de pesos `n*n`, donde `-1` indica que falta una arista y los demás pesos son no negativos. Devuelve el peso del MST o `-1` si el grafo está desconectado, la capacidad es insuficiente o hay argumentos inválidos. Escribe `n-1` pares de vértices en el arreglo de salida, cuya capacidad se mide en `size_t` y debe ser al menos `2*(n-1)`. Para un solo vértice, devuelve cero.
 
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 25 minutos (Nivel Bloom 3).
-
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Árbol de Expansión Mínima MST por Algoritmo de Prim
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_grafo_red_19(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Modelá las conexiones como matriz o lista de adyacencia.
-- Controlá los límites de índices de vértices.
-:::
+Consultá `grafo-red-19.h` para la firma completa. Los tests de `ejercicio.yaml` verifican los resultados, las condiciones de error y los casos límite. Compilación requerida: C11 con `-Wall -Wextra -Werror`.

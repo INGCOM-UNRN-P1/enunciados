@@ -1,54 +1,7 @@
-Desarrollar el algoritmo de análisis de grafos y redes para: **Algoritmo de Floyd-Warshall para Todos los Pares de Caminos Mínimos**.
-El programa debe modelar las conexiones y adyacencias entre nodos (mediante matrices o listas de adyacencia), validar la conectividad de la topología y computar las métricas de red requeridas garantizando un recorrido eficiente y control adecuado de límites.
+# Floyd-Warshall: caminos mínimos entre todos los pares
 
-- `int ejecutar_grafo_red_18(int val)`: Procesa el flujo principal de Algoritmo de Floyd-Warshall para Todos los Pares de Caminos Mínimos
+Implementá Floyd-Warshall sobre una matriz cuadrada `n*n` de `long long`, almacenada por filas. El centinela `LLONG_MAX/4` representa que no existe camino; los valores finitos deben ser menores que ese centinela. El algoritmo actualiza la matriz in-place y no modifica entradas inalcanzables.
 
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 25 minutos (Nivel Bloom 3).
+`floyd_warshall` devuelve `0` si completa, `1` si detecta un ciclo negativo, `-1` si `n` está fuera de `1..512` el puntero es nulo o alguna entrada supera el centinela, y `-2` si una suma de dos distancias finitas excede el rango de `long long`, o si un camino descubierto no puede representarse por alcanzar o superar el centinela. Antes de sumar, comprobá el límite superior o inferior; en caso de overflow retorná `-2` sin ejecutar esa suma. Un ciclo negativo se informa tan pronto como aparece una diagonal negativa. La matriz puede quedar parcialmente actualizada cuando retorna `-2` o `1`.
 
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Algoritmo de Floyd-Warshall para Todos los Pares de Caminos Mínimos
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_grafo_red_18(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Modelá las conexiones como matriz o lista de adyacencia.
-- Controlá los límites de índices de vértices.
-:::
+Los casos YAML cubren caminos indirectos, nodos inalcanzables, el centinela, ciclo negativo y overflow numérico. API en `grafo-red-18.h`.

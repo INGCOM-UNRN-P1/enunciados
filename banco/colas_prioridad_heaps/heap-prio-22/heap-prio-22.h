@@ -1,11 +1,8 @@
 #ifndef EJERCICIO_HEAP_PRIO_22_H
 #define EJERCICIO_HEAP_PRIO_22_H
-
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Algoritmo de Prim: Cola de Prioridad para Aristas de Corte */
-int ejecutar_heap_prio_22(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_22_H */
+typedef struct {size_t from,to;uint64_t weight;} prim_edge_t;
+bool prim_minimum_spanning_tree(size_t vertices,const prim_edge_t *edges,size_t edge_count,size_t root,size_t *parent,uint64_t *total_weight);
+#endif

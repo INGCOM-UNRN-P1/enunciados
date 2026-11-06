@@ -1,7 +1,7 @@
 id: trie-pref-20
 titulo: Carga Rápida de Trie desde Archivo de Diccionario
 tema: trie_arboles_prefijo
-bloom: 3
+bloom: 4
 minutos_estimados: 25
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,30 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_20
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Carga Rápida de Trie desde Archivo de
-    Diccionario
+- nombre: trie_cargar_diccionario
+  retorno: nodo_trie_t *
+  parametros: FILE *archivo
+  descripcion: Carga líneas de hasta 255 bytes desde el stream.
+- nombre: trie_buscar
+  retorno: bool
+  parametros: const nodo_trie_t *raiz, const char *palabra
+  descripcion: Busca palabra completa.
+- nombre: trie_destruir
+  retorno: void
+  parametros: nodo_trie_t *raiz
+  descripcion: Libera la raíz y el diccionario cargado.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_20_positivo
-  funcion: ejecutar_trie_pref_20
-  codigo: 'int res = ejecutar_trie_pref_20(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_20_cero
-  funcion: ejecutar_trie_pref_20
-  codigo: 'int res = ejecutar_trie_pref_20(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_20_negativo
-  funcion: ejecutar_trie_pref_20
-  codigo: 'int res = ejecutar_trie_pref_20(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_20_valor_limite
-  funcion: ejecutar_trie_pref_20
-  codigo: 'int res = ejecutar_trie_pref_20(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_20_valor_unitario
-  funcion: ejecutar_trie_pref_20
-  codigo: 'int res = ejecutar_trie_pref_20(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: carga_archivo_lf_crlf_y_vacias
+  funcion: trie_cargar_diccionario
+  codigo: FILE *f=tmpfile(); assert(f); fputs("casa\ncasco\r\n\n",f); rewind(f); nodo_trie_t *r=trie_cargar_diccionario(f);
+    assert(r&&trie_buscar(r,"casa")&&trie_buscar(r,"casco")&&!trie_buscar(r,"cas")); trie_destruir(r); fclose(f);
+- nombre: limite_exactamente_255_y_rechazo_256_con_y_sin_lf
+  funcion: trie_cargar_diccionario
+  codigo: for(size_t len=255;len<=256;len++){for(int newline=0;newline<=1;newline++){FILE *f=tmpfile();assert(f);for(size_t
+    i=0;i<len;i++)assert(fputc('x',f)=='x');if(newline)assert(fputc('\n',f)=='\n');rewind(f);nodo_trie_t *r=trie_cargar_diccionario(f);assert((len==255)==(r!=NULL));trie_destruir(r);fclose(f);}}
+    assert(!trie_cargar_diccionario(NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

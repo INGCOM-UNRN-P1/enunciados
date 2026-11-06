@@ -1,7 +1,7 @@
 id: trie-pref-12
 titulo: Búsqueda de Máximo XOR de Dos Números usando Bitwise Trie
 tema: trie_arboles_prefijo
-bloom: 2
+bloom: 3
 minutos_estimados: 15
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,19 @@ tags:
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_12
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda de Máximo XOR de Dos Números
-    usando Bitwise Trie
+- nombre: max_xor_pares
+  retorno: bool
+  parametros: const uint32_t *valores, size_t cantidad, uint32_t *resultado
+  descripcion: Calcula el máximo XOR de dos elementos con un trie binario de 32 niveles.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_12_positivo
-  funcion: ejecutar_trie_pref_12
-  codigo: 'int res = ejecutar_trie_pref_12(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_12_cero
-  funcion: ejecutar_trie_pref_12
-  codigo: 'int res = ejecutar_trie_pref_12(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_12_negativo
-  funcion: ejecutar_trie_pref_12
-  codigo: 'int res = ejecutar_trie_pref_12(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_12_valor_limite
-  funcion: ejecutar_trie_pref_12
-  codigo: 'int res = ejecutar_trie_pref_12(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_12_valor_unitario
-  funcion: ejecutar_trie_pref_12
-  codigo: 'int res = ejecutar_trie_pref_12(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_12_1_caso_funcional
+  funcion: max_xor_pares
+  codigo: uint32_t v[]={3,10,5,25,2,8},m=0; assert(max_xor_pares(v,6,&m)&&m==28);
+- nombre: test_12_2_caso_funcional
+  funcion: max_xor_pares
+  codigo: uint32_t v=1,m=0; assert(!max_xor_pares(&v,0,&m)&&!max_xor_pares(&v,1,&m)&&!max_xor_pares(NULL,2,&m));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

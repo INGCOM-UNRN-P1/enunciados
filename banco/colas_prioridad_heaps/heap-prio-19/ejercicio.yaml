@@ -1,5 +1,5 @@
 id: heap-prio-19
-titulo: Planificador de Tareas del Sistema Operativo con Min-Heap
+titulo: Planificador de tareas con min-heap
 tema: colas_prioridad_heaps
 bloom: 3
 minutos_estimados: 25
@@ -18,37 +18,41 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_19
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Planificador de Tareas del Sistema Operativo
-    con Min-Heap
+- nombre: scheduler_init
+  retorno: void
+  parametros: scheduler_t*q
+  descripcion: Implementá una cola de tareas en arreglo dinámico, ordenada por prioridad ascendente y
+    FIFO entre prioridades iguales. Cada tarea tiene prioridad entera y secuencia de inserción. Proveer
+    inicialización, inserción, extracción y destrucción; extracción informa false cuando está vacía. La
+    capacidad crece geométricamente y se detecta overflow de tamaños.
+- nombre: scheduler_push
+  retorno: bool
+  parametros: scheduler_t*q,int priority
+  descripcion: Implementá una cola de tareas en arreglo dinámico, ordenada por prioridad ascendente y
+    FIFO entre prioridades iguales. Cada tarea tiene prioridad entera y secuencia de inserción. Proveer
+    inicialización, inserción, extracción y destrucción; extracción informa false cuando está vacía. La
+    capacidad crece geométricamente y se detecta overflow de tamaños.
+- nombre: scheduler_pop
+  retorno: bool
+  parametros: scheduler_t*q,task_t*out
+  descripcion: Implementá una cola de tareas en arreglo dinámico, ordenada por prioridad ascendente y
+    FIFO entre prioridades iguales. Cada tarea tiene prioridad entera y secuencia de inserción. Proveer
+    inicialización, inserción, extracción y destrucción; extracción informa false cuando está vacía. La
+    capacidad crece geométricamente y se detecta overflow de tamaños.
+- nombre: scheduler_destroy
+  retorno: void
+  parametros: scheduler_t*q
+  descripcion: Implementá una cola de tareas en arreglo dinámico, ordenada por prioridad ascendente y
+    FIFO entre prioridades iguales. Cada tarea tiene prioridad entera y secuencia de inserción. Proveer
+    inicialización, inserción, extracción y destrucción; extracción informa false cuando está vacía. La
+    capacidad crece geométricamente y se detecta overflow de tamaños.
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_19_positivo
-  funcion: ejecutar_heap_prio_19
-  codigo: 'int res = ejecutar_heap_prio_19(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_19_cero
-  funcion: ejecutar_heap_prio_19
-  codigo: 'int res = ejecutar_heap_prio_19(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_19_negativo
-  funcion: ejecutar_heap_prio_19
-  codigo: 'int res = ejecutar_heap_prio_19(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_19_valor_limite
-  funcion: ejecutar_heap_prio_19
-  codigo: 'int res = ejecutar_heap_prio_19(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_19_valor_unitario
-  funcion: ejecutar_heap_prio_19
-  codigo: 'int res = ejecutar_heap_prio_19(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_scheduler_prioridad_fifo
+  funcion: scheduler_init
+  codigo: scheduler_t q;task_t t;scheduler_init(&q);assert(scheduler_push(&q,3));assert(scheduler_push(&q,1));assert(scheduler_push(&q,1));assert(scheduler_pop(&q,&t)&&t.priority==1&&t.seq==1);assert(scheduler_pop(&q,&t)&&t.priority==1&&t.seq==2);assert(scheduler_pop(&q,&t)&&t.priority==3);scheduler_destroy(&q);
+- nombre: test_scheduler_vacio
+  funcion: scheduler_init
+  codigo: scheduler_t q;task_t t;scheduler_init(&q);assert(!scheduler_pop(&q,&t));scheduler_destroy(&q);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,5 +1,5 @@
 id: heap-prio-30
-titulo: TAD Cola de Prioridad Genérica con Punteros a Función de Comparación
+titulo: Cola de prioridad genérica con comparador
 tema: colas_prioridad_heaps
 bloom: 5
 minutos_estimados: 45
@@ -18,37 +18,53 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_30
+- nombre: generic_int_compare
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de TAD Cola de Prioridad Genérica con Punteros
-    a Función de Comparación
+  parametros: const void*a,const void*b
+  descripcion: Comparador auxiliar de enteros para ejercitar la interfaz genérica.
+- nombre: generic_heap_init
+  retorno: bool
+  parametros: generic_heap_t*h,size_t width,heap_compare_fn cmp
+  descripcion: Implementá un min-heap genérico de elementos de tamaño fijo, comparador estilo qsort (negativo
+    si a precede b), almacenamiento propiedad de la cola, push, peek, pop y destroy. Copia bytes de elementos;
+    callback y tamaño son obligatorios. Devuelve false en error, capacidad insuficiente no aplica pues
+    crece dinámicamente.
+- nombre: generic_heap_push
+  retorno: bool
+  parametros: generic_heap_t*h,const void*item
+  descripcion: Implementá un min-heap genérico de elementos de tamaño fijo, comparador estilo qsort (negativo
+    si a precede b), almacenamiento propiedad de la cola, push, peek, pop y destroy. Copia bytes de elementos;
+    callback y tamaño son obligatorios. Devuelve false en error, capacidad insuficiente no aplica pues
+    crece dinámicamente.
+- nombre: generic_heap_peek
+  retorno: bool
+  parametros: const generic_heap_t*h,void*out
+  descripcion: Implementá un min-heap genérico de elementos de tamaño fijo, comparador estilo qsort (negativo
+    si a precede b), almacenamiento propiedad de la cola, push, peek, pop y destroy. Copia bytes de elementos;
+    callback y tamaño son obligatorios. Devuelve false en error, capacidad insuficiente no aplica pues
+    crece dinámicamente.
+- nombre: generic_heap_pop
+  retorno: bool
+  parametros: generic_heap_t*h,void*out
+  descripcion: Implementá un min-heap genérico de elementos de tamaño fijo, comparador estilo qsort (negativo
+    si a precede b), almacenamiento propiedad de la cola, push, peek, pop y destroy. Copia bytes de elementos;
+    callback y tamaño son obligatorios. Devuelve false en error, capacidad insuficiente no aplica pues
+    crece dinámicamente.
+- nombre: generic_heap_destroy
+  retorno: void
+  parametros: generic_heap_t*h
+  descripcion: Implementá un min-heap genérico de elementos de tamaño fijo, comparador estilo qsort (negativo
+    si a precede b), almacenamiento propiedad de la cola, push, peek, pop y destroy. Copia bytes de elementos;
+    callback y tamaño son obligatorios. Devuelve false en error, capacidad insuficiente no aplica pues
+    crece dinámicamente.
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_30_positivo
-  funcion: ejecutar_heap_prio_30
-  codigo: 'int res = ejecutar_heap_prio_30(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_30_cero
-  funcion: ejecutar_heap_prio_30
-  codigo: 'int res = ejecutar_heap_prio_30(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_30_negativo
-  funcion: ejecutar_heap_prio_30
-  codigo: 'int res = ejecutar_heap_prio_30(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_30_valor_limite
-  funcion: ejecutar_heap_prio_30
-  codigo: 'int res = ejecutar_heap_prio_30(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_30_valor_unitario
-  funcion: ejecutar_heap_prio_30
-  codigo: 'int res = ejecutar_heap_prio_30(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_generic_comparador
+  funcion: generic_heap_init
+  codigo: generic_heap_t h;int x;assert(generic_heap_init(&h,sizeof(int),generic_int_compare));int a[]={5,-2,3};for(size_t
+    i=0;i<3;i++)assert(generic_heap_push(&h,&a[i]));assert(generic_heap_pop(&h,&x)&&x==-2);assert(generic_heap_pop(&h,&x)&&x==3);generic_heap_destroy(&h);
+- nombre: test_generic_config_invalida
+  funcion: generic_heap_init
+  codigo: generic_heap_t h;assert(!generic_heap_init(&h,0,NULL));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

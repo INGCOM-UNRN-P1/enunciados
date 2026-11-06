@@ -1,11 +1,8 @@
 #ifndef EJERCICIO_TRIE_PREF_13_H
 #define EJERCICIO_TRIE_PREF_13_H
-
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Corrector Ortográfico con Distancia de Levenshtein sobre Trie */
-int ejecutar_trie_pref_13(int val);
-
+#include "trie-pref-common.h"
+nodo_trie_t *trie_crear(void);
+bool trie_insertar(nodo_trie_t *,const char *);
+size_t trie_sugerir(const nodo_trie_t *,const char *,size_t,char [][256],size_t);
+void trie_destruir(nodo_trie_t *);
 #endif /* EJERCICIO_TRIE_PREF_13_H */

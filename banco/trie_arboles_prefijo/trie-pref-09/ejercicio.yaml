@@ -1,7 +1,7 @@
 id: trie-pref-09
 titulo: Trie Ternario de Búsqueda TST Ternary Search Tree
 tema: trie_arboles_prefijo
-bloom: 2
+bloom: 3
 minutos_estimados: 15
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,28 @@ tags:
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_09
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Trie Ternario de Búsqueda TST Ternary
-    Search Tree
+- nombre: tst_insertar
+  retorno: bool
+  parametros: tst_nodo_t **raiz, const char *palabra
+  descripcion: Inserta una palabra en el árbol ternario.
+- nombre: tst_buscar
+  retorno: bool
+  parametros: const tst_nodo_t *raiz, const char *palabra
+  descripcion: Busca una palabra completa.
+- nombre: tst_destruir
+  retorno: void
+  parametros: tst_nodo_t *raiz
+  descripcion: Libera los enlaces menor, igual y mayor.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_09_positivo
-  funcion: ejecutar_trie_pref_09
-  codigo: 'int res = ejecutar_trie_pref_09(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_09_cero
-  funcion: ejecutar_trie_pref_09
-  codigo: 'int res = ejecutar_trie_pref_09(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_09_negativo
-  funcion: ejecutar_trie_pref_09
-  codigo: 'int res = ejecutar_trie_pref_09(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_09_valor_limite
-  funcion: ejecutar_trie_pref_09
-  codigo: 'int res = ejecutar_trie_pref_09(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_09_valor_unitario
-  funcion: ejecutar_trie_pref_09
-  codigo: 'int res = ejecutar_trie_pref_09(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_09_1_caso_funcional
+  funcion: tst_insertar
+  codigo: tst_nodo_t *r=NULL; assert(tst_insertar(&r,"sol")&&tst_insertar(&r,"son")); assert(tst_buscar(r,"sol")&&tst_buscar(r,"son")&&!tst_buscar(r,"so"));
+    tst_destruir(r);
+- nombre: test_09_2_caso_funcional
+  funcion: tst_insertar
+  codigo: assert(!tst_insertar(NULL,"x")&&!tst_buscar(NULL,"x")); tst_destruir(NULL);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

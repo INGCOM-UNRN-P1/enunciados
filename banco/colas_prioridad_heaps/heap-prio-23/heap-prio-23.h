@@ -1,11 +1,8 @@
 #ifndef EJERCICIO_HEAP_PRIO_23_H
 #define EJERCICIO_HEAP_PRIO_23_H
-
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Monitoreo de Eventos en Tiempo Real con Expansión Dinámica de Heap */
-int ejecutar_heap_prio_23(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_23_H */
+typedef struct {uint64_t time;int id;} event_t; typedef struct {event_t *a;size_t n,cap;} event_heap_t;
+void event_heap_init(event_heap_t*q);bool event_heap_push(event_heap_t*q,event_t v);bool event_heap_pop(event_heap_t*q,event_t*out);void event_heap_destroy(event_heap_t*q);
+#endif

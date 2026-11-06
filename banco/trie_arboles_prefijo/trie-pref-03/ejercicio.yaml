@@ -1,5 +1,5 @@
 id: trie-pref-03
-titulo: Búsqueda Exacta de Palabras en Árbol Trie
+titulo: Duplicado de inserción y búsqueda exacta en Trie (ver trie-pref-02)
 tema: trie_arboles_prefijo
 bloom: 1
 minutos_estimados: 10
@@ -16,40 +16,10 @@ tags:
 - dep:cadenas
 - c11
 - inicial
-verificado: true
-funciones:
-- nombre: ejecutar_trie_pref_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda Exacta de Palabras en Árbol
-    Trie
-tests_funciones:
-- nombre: test_ejecutar_trie_pref_03_positivo
-  funcion: ejecutar_trie_pref_03
-  codigo: 'int res = ejecutar_trie_pref_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_03_cero
-  funcion: ejecutar_trie_pref_03
-  codigo: 'int res = ejecutar_trie_pref_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_03_negativo
-  funcion: ejecutar_trie_pref_03
-  codigo: 'int res = ejecutar_trie_pref_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_03_valor_limite
-  funcion: ejecutar_trie_pref_03
-  codigo: 'int res = ejecutar_trie_pref_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_03_valor_unitario
-  funcion: ejecutar_trie_pref_03
-  codigo: 'int res = ejecutar_trie_pref_03(1);
-
-    assert(res >= 0 || res == 2);'
-publicar: true
+verificado: false
+funciones: []
+tests_funciones: []
+publicar: false
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: inicial
@@ -58,3 +28,4 @@ prerrequisitos:
 - arboles_binarios
 - cadenas
 subtema: trie_arboles_prefijo
+duplicado_de: trie-pref-02

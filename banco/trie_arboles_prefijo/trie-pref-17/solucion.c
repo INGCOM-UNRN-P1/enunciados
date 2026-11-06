@@ -1,22 +1,5 @@
-/*
- * Trie #17
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-#include <string.h>
-
-
-int ejecutar_trie_pref_17(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    char pref[32] = {0};
-    if (scanf("%31s", pref) == 1) {
-        size_t len = strlen(pref);
-        printf("TRIE_%02d_LEN: %zu\n", 17, len + 17);
-    }
-    return 0;
-}
+#include "trie-pref-17.h"
+void trie_dinamico_iniciar(trie_nodo_t *t){if(t)memset(t,0,sizeof *t);}
+bool trie_dinamico_insertar(trie_nodo_t *t,const char *s){return s&&tp_insertar(t,s);}
+bool trie_dinamico_buscar(const trie_nodo_t *t,const char *s){return s&&tp_buscar(t,s);}
+void trie_dinamico_destruir(trie_nodo_t *t){if(t){for(size_t i=0;i<t->cantidad;i++)tp_destruir(t->hijos[i].nodo);free(t->hijos);memset(t,0,sizeof *t);}}

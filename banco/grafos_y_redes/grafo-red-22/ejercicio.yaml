@@ -17,37 +17,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_22
+- nombre: grafo_euleriano
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conectividad de Red y Verificación de
-    Grafo Euleriano
+  parametros: size_t n,const unsigned char *a
+  descripcion: Conectividad de Red y Verificación de Grafo Euleriano
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_22_positivo
-  funcion: ejecutar_grafo_red_22
-  codigo: 'int res = ejecutar_grafo_red_22(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_22_cero
-  funcion: ejecutar_grafo_red_22
-  codigo: 'int res = ejecutar_grafo_red_22(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_22_negativo
-  funcion: ejecutar_grafo_red_22
-  codigo: 'int res = ejecutar_grafo_red_22(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_22_valor_limite
-  funcion: ejecutar_grafo_red_22
-  codigo: 'int res = ejecutar_grafo_red_22(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_22_valor_unitario
-  funcion: ejecutar_grafo_red_22
-  codigo: 'int res = ejecutar_grafo_red_22(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_grafo_euleriano_ciclo_euleriano
+  funcion: grafo_euleriano
+  codigo: unsigned char a[]={0,1,1,1,0,1,1,1,0};assert(grafo_euleriano(3,a)==1);
+- nombre: test_grafo_euleriano_impar
+  funcion: grafo_euleriano
+  codigo: unsigned char a[]={0,1,0,1,0,1,0,1,0};assert(grafo_euleriano(3,a)==0);
+- nombre: test_grafo_euleriano_aislado_ignorado
+  funcion: grafo_euleriano
+  codigo: unsigned char a[]={0,1,1,0,1,0,1,0,1,1,0,0,0,0,0,0}; assert(grafo_euleriano(4,a)==1);
+- nombre: test_grafo_euleriano_invalido
+  funcion: grafo_euleriano
+  codigo: assert(grafo_euleriano(0,NULL)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

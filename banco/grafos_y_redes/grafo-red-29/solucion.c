@@ -1,20 +1,16 @@
-/*
- * Grafos #29
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_grafo_red_29(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 29, nodo, grado + 29);
-    }
-    return 0;
+#include "grafo-red-29.h"
+#include <stddef.h>
+/* Warshall: matriz booleana n*n actualizada in-place; incorpora alcanzabilidad
+ * reflexiva. */
+int clausura_transitiva(size_t n, unsigned char *r) {
+  if (!n || n > 512 || !r)
+    return -1;
+  for (size_t i = 0; i < n; i++)
+    r[i * n + i] = 1;
+  for (size_t k = 0; k < n; k++)
+    for (size_t i = 0; i < n; i++)
+      if (r[i * n + k])
+        for (size_t j = 0; j < n; j++)
+          r[i * n + j] = (unsigned char)(r[i * n + j] || r[k * n + j]);
+  return 0;
 }

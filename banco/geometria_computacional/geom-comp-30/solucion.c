@@ -1,21 +1,14 @@
-/*
- * Geometria #30
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_30(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 30;
-        printf("GEOM_%02d: %d\n", 30, prod);
-    }
-    return 0;
-}
+#include "geom-comp-30.h"
+#include <stdlib.h>
+#include <math.h>
+#include <stdint.h>
+struct kd_node{size_t idx;double x,y,xmin,ymin,xmax,ymax;struct kd_node*l,*r;};
+static int cmp_idx(const size_t a,const size_t b,const kd_point_t*p,unsigned axis){double x=axis?p[a].y:p[a].x,y=axis?p[b].y:p[b].x;return x<y?-1:x>y?1:(a<b?-1:a>b);}
+static void merge_sort(size_t*a,size_t*t,size_t lo,size_t hi,const kd_point_t*p,unsigned axis){if(hi-lo<2)return;size_t mid=lo+(hi-lo)/2;merge_sort(a,t,lo,mid,p,axis);merge_sort(a,t,mid,hi,p,axis);size_t i=lo,j=mid,k=lo;while(i<mid&&j<hi)t[k++]=cmp_idx(a[i],a[j],p,axis)<=0?a[i++]:a[j++];while(i<mid)t[k++]=a[i++];while(j<hi)t[k++]=a[j++];for(k=lo;k<hi;k++)a[k]=t[k];}
+static void free_nodes(kd_node_t*n){if(n){free_nodes(n->l);free_nodes(n->r);free(n);}}
+static kd_node_t*build_rec(size_t*a,size_t*t,size_t lo,size_t hi,const kd_point_t*p,unsigned depth,bool*ok){if(lo==hi||!*ok)return NULL;unsigned axis=depth%2;merge_sort(a,t,lo,hi,p,axis);size_t mid=lo+(hi-lo)/2,i=a[mid];kd_node_t*n=malloc(sizeof(*n));if(!n){*ok=false;return NULL;}*n=(kd_node_t){i,p[i].x,p[i].y,p[i].x,p[i].y,p[i].x,p[i].y,NULL,NULL};n->l=build_rec(a,t,lo,mid,p,depth+1,ok);n->r=build_rec(a,t,mid+1,hi,p,depth+1,ok);kd_node_t*c[2]={n->l,n->r};for(size_t j=0;j<2;j++)if(c[j]){if(c[j]->xmin<n->xmin)n->xmin=c[j]->xmin;if(c[j]->xmax>n->xmax)n->xmax=c[j]->xmax;if(c[j]->ymin<n->ymin)n->ymin=c[j]->ymin;if(c[j]->ymax>n->ymax)n->ymax=c[j]->ymax;}return n;}
+bool kd_build(kd_tree_t*t,const kd_point_t*p,size_t n){if(!t||(n&&!p)||n>SIZE_MAX/sizeof(size_t)||n>SIZE_MAX/sizeof(kd_point_t))return false;t->root=NULL;t->n=0;t->points=NULL;if(!n)return true;kd_point_t*copy=malloc(n*sizeof(*copy));size_t*a=malloc(n*sizeof(*a)),*tmp=malloc(n*sizeof(*tmp));if(!copy||!a||!tmp){free(copy);free(a);free(tmp);return false;}for(size_t i=0;i<n;i++){if(!isfinite(p[i].x)||!isfinite(p[i].y)){free(copy);free(a);free(tmp);return false;}copy[i]=p[i];a[i]=i;}bool ok=true;kd_node_t*r=build_rec(a,tmp,0,n,copy,0,&ok);free(a);free(tmp);if(!ok){free_nodes(r);free(copy);return false;}t->root=r;t->n=n;t->points=copy;return true;}
+static void collect(const kd_node_t*k,double x0,double y0,double x1,double y1,size_t*out,size_t*n){if(!k||k->xmax<x0||k->xmin>x1||k->ymax<y0||k->ymin>y1)return;if(k->x>=x0&&k->x<=x1&&k->y>=y0&&k->y<=y1)out[(*n)++]=k->idx;collect(k->l,x0,y0,x1,y1,out,n);collect(k->r,x0,y0,x1,y1,out,n);}
+static void sort_indices(size_t*a,size_t n){for(size_t i=1;i<n;i++){size_t v=a[i],j=i;while(j&&a[j-1]>v){a[j]=a[j-1];j--;}a[j]=v;}}
+bool kd_query(const kd_tree_t*t,double x0,double y0,double x1,double y1,size_t*out,size_t cap,size_t*total){if(!t||!total||(cap&&!out)||!isfinite(x0)||!isfinite(y0)||!isfinite(x1)||!isfinite(y1)||x0>x1||y0>y1)return false;*total=0;if(!t->n)return true;if(t->n>SIZE_MAX/sizeof(size_t))return false;size_t*a=malloc(t->n*sizeof(*a));if(!a)return false;size_t n=0;collect(t->root,x0,y0,x1,y1,a,&n);sort_indices(a,n);size_t copied=n<cap?n:cap;for(size_t i=0;i<copied;i++)out[i]=a[i];*total=n;free(a);return true;}
+void kd_destroy(kd_tree_t*t){if(t){free_nodes(t->root);free(t->points);t->root=NULL;t->points=NULL;t->n=0;}}

@@ -1,11 +1,13 @@
 #ifndef EJERCICIO_TRIE_PREF_17_H
 #define EJERCICIO_TRIE_PREF_17_H
-
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Trie con Arreglos Dinámicos de Hijos para Alfabetos Grandes */
-int ejecutar_trie_pref_17(int val);
-
+#include <stdlib.h>
+#include <string.h>
+#include "trie-pref-common.h"
+void trie_dinamico_iniciar(trie_nodo_t *);
+bool trie_dinamico_insertar(trie_nodo_t *,const char *);
+bool trie_dinamico_buscar(const trie_nodo_t *,const char *);
+void trie_dinamico_destruir(trie_nodo_t *);
 #endif /* EJERCICIO_TRIE_PREF_17_H */

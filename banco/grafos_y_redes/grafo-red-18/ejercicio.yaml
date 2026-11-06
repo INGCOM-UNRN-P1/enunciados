@@ -17,37 +17,29 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_18
+- nombre: floyd_warshall
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Algoritmo de Floyd-Warshall para Todos
-    los Pares de Caminos Mínimos
+  parametros: size_t n,long long *distancias
+  descripcion: Algoritmo de Floyd-Warshall para Todos los Pares de Caminos Mínimos
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_18_positivo
-  funcion: ejecutar_grafo_red_18
-  codigo: 'int res = ejecutar_grafo_red_18(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_18_cero
-  funcion: ejecutar_grafo_red_18
-  codigo: 'int res = ejecutar_grafo_red_18(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_18_negativo
-  funcion: ejecutar_grafo_red_18
-  codigo: 'int res = ejecutar_grafo_red_18(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_18_valor_limite
-  funcion: ejecutar_grafo_red_18
-  codigo: 'int res = ejecutar_grafo_red_18(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_18_valor_unitario
-  funcion: ejecutar_grafo_red_18
-  codigo: 'int res = ejecutar_grafo_red_18(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_floyd_warshall_caminos
+  funcion: floyd_warshall
+  codigo: long long inf=LLONG_MAX/4;long long d[]={0,3,inf,inf,0,-2,4,inf,0};assert(floyd_warshall(3,d)==0&&d[2]==1&&d[6]==4);
+- nombre: test_floyd_warshall_inalcanzable
+  funcion: floyd_warshall
+  codigo: long long inf=LLONG_MAX/4;long long d[]={0,inf,inf,inf,0,2,inf,inf,0};assert(floyd_warshall(3,d)==0&&d[2]==inf);
+- nombre: test_floyd_warshall_limite
+  funcion: floyd_warshall
+  codigo: long long inf=LLONG_MAX/4;long long d[]={0,inf,inf,0};assert(floyd_warshall(2,d)==0&&d[1]==inf);
+- nombre: test_floyd_warshall_invalido
+  funcion: floyd_warshall
+  codigo: assert(floyd_warshall(0,NULL)==-1);
+- nombre: ciclo_negativo
+  funcion: floyd_warshall
+  codigo: long long d[]={0,-2,1,0};assert(floyd_warshall(2,d)==1);
+- nombre: overflow_sin_ub
+  funcion: floyd_warshall
+  codigo: long long inf=LLONG_MAX/4; long long d[]={0,inf-1,inf,inf,0,2,inf,inf,0}; assert(floyd_warshall(3,d)==-2); long long invalido[]={0,LLONG_MAX,inf,0}; assert(floyd_warshall(2,invalido)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

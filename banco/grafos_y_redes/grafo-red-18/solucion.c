@@ -1,20 +1,40 @@
-/*
- * Grafos #18
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_grafo_red_18(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nodo = 0, grado = 0;
-    if (scanf("%d %d", &nodo, &grado) == 2) {
-        printf("GRAFO_%02d: NODO=%d GRADO=%d\n", 18, nodo, grado + 18);
-    }
-    return 0;
+#include "grafo-red-18.h"
+#include <limits.h>
+#include <stddef.h>
+/* Floyd-Warshall sobre matriz n*n: ausencia de arco = inf; -1 si argumentos
+ * inválidos. */
+int floyd_warshall(size_t n, long long *d) {
+  if (n == 0 || n > 512 || d == NULL)
+    return -1;
+  const long long inf = LLONG_MAX / 4;
+  for (size_t i = 0; i < n * n; ++i)
+    if (d[i] > inf) return -1;
+  for (size_t i = 0; i < n; i++)
+    for (size_t j = 0; j < n; j++)
+      if (i == j && d[i * n + j] > 0)
+        d[i * n + j] = 0;
+  for (size_t i = 0; i < n; ++i)
+    if (d[i * n + i] < 0)
+      return 1;
+  for (size_t k = 0; k < n; k++) {
+    for (size_t i = 0; i < n; i++)
+      for (size_t j = 0; j < n; j++)
+        if (d[i * n + k] != inf && d[k * n + j] != inf) {
+          long long a = d[i * n + k], b = d[k * n + j];
+          if ((b > 0 && a > LLONG_MAX - b) || (b < 0 && a < LLONG_MIN - b))
+            return -2;
+          long long candidato = a + b;
+          if (candidato >= inf && d[i * n + j] == inf)
+            return -2;
+          if (candidato < d[i * n + j]) {
+            d[i * n + j] = candidato;
+            if (i == j && candidato < 0)
+              return 1;
+          }
+        }
+    for (size_t i = 0; i < n; ++i)
+      if (d[i * n + i] < 0)
+        return 1;
+  }
+  return 0;
 }

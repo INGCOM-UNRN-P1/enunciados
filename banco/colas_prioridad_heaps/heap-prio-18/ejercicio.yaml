@@ -1,5 +1,5 @@
 id: heap-prio-18
-titulo: Montículo Izquierdista Leftist Heap con Propiedad de Distancia Nula
+titulo: Montículo leftist de mínimos con distancia nula
 tema: colas_prioridad_heaps
 bloom: 3
 minutos_estimados: 25
@@ -18,37 +18,56 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_18
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Montículo Izquierdista Leftist Heap con
-    Propiedad de Distancia Nula
+- nombre: leftist_heap_init
+  retorno: void
+  parametros: leftist_heap_t *h
+  descripcion: 'Implementá un leftist heap min con rango nulo (NPL). La API permite inicializar, insertar,
+    consultar y extraer el mínimo, fusionar dos heaps y liberar nodos. La fusión consume el segundo heap
+    y lo deja vacío. Operaciones: init, insert, peek, pop, meld, destroy. NULL y heap vacío se manejan
+    sin desreferencias; insert devuelve false si no puede reservar memoria.'
+- nombre: leftist_heap_insert
+  retorno: bool
+  parametros: leftist_heap_t *h,int key
+  descripcion: 'Implementá un leftist heap min con rango nulo (NPL). La API permite inicializar, insertar,
+    consultar y extraer el mínimo, fusionar dos heaps y liberar nodos. La fusión consume el segundo heap
+    y lo deja vacío. Operaciones: init, insert, peek, pop, meld, destroy. NULL y heap vacío se manejan
+    sin desreferencias; insert devuelve false si no puede reservar memoria.'
+- nombre: leftist_heap_peek
+  retorno: bool
+  parametros: const leftist_heap_t *h,int *out
+  descripcion: 'Implementá un leftist heap min con rango nulo (NPL). La API permite inicializar, insertar,
+    consultar y extraer el mínimo, fusionar dos heaps y liberar nodos. La fusión consume el segundo heap
+    y lo deja vacío. Operaciones: init, insert, peek, pop, meld, destroy. NULL y heap vacío se manejan
+    sin desreferencias; insert devuelve false si no puede reservar memoria.'
+- nombre: leftist_heap_pop
+  retorno: bool
+  parametros: leftist_heap_t *h,int *out
+  descripcion: 'Implementá un leftist heap min con rango nulo (NPL). La API permite inicializar, insertar,
+    consultar y extraer el mínimo, fusionar dos heaps y liberar nodos. La fusión consume el segundo heap
+    y lo deja vacío. Operaciones: init, insert, peek, pop, meld, destroy. NULL y heap vacío se manejan
+    sin desreferencias; insert devuelve false si no puede reservar memoria.'
+- nombre: leftist_heap_meld
+  retorno: bool
+  parametros: leftist_heap_t *a,leftist_heap_t *b
+  descripcion: 'Implementá un leftist heap min con rango nulo (NPL). La API permite inicializar, insertar,
+    consultar y extraer el mínimo, fusionar dos heaps y liberar nodos. La fusión consume el segundo heap
+    y lo deja vacío. Operaciones: init, insert, peek, pop, meld, destroy. NULL y heap vacío se manejan
+    sin desreferencias; insert devuelve false si no puede reservar memoria.'
+- nombre: leftist_heap_destroy
+  retorno: void
+  parametros: leftist_heap_t *h
+  descripcion: 'Implementá un leftist heap min con rango nulo (NPL). La API permite inicializar, insertar,
+    consultar y extraer el mínimo, fusionar dos heaps y liberar nodos. La fusión consume el segundo heap
+    y lo deja vacío. Operaciones: init, insert, peek, pop, meld, destroy. NULL y heap vacío se manejan
+    sin desreferencias; insert devuelve false si no puede reservar memoria.'
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_18_positivo
-  funcion: ejecutar_heap_prio_18
-  codigo: 'int res = ejecutar_heap_prio_18(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_18_cero
-  funcion: ejecutar_heap_prio_18
-  codigo: 'int res = ejecutar_heap_prio_18(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_18_negativo
-  funcion: ejecutar_heap_prio_18
-  codigo: 'int res = ejecutar_heap_prio_18(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_18_valor_limite
-  funcion: ejecutar_heap_prio_18
-  codigo: 'int res = ejecutar_heap_prio_18(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_18_valor_unitario
-  funcion: ejecutar_heap_prio_18
-  codigo: 'int res = ejecutar_heap_prio_18(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_leftist_vacio
+  funcion: leftist_heap_init
+  codigo: leftist_heap_t h; int x=77; leftist_heap_init(&h); assert(!leftist_heap_pop(&h,&x)); assert(x==77);
+    leftist_heap_destroy(&h);
+- nombre: test_leftist_orden_y_meld
+  funcion: leftist_heap_init
+  codigo: leftist_heap_t a,b; int x; leftist_heap_init(&a);leftist_heap_init(&b);assert(leftist_heap_insert(&a,8));assert(leftist_heap_insert(&a,-2));assert(leftist_heap_insert(&b,3));assert(leftist_heap_meld(&a,&b));assert(b.root==NULL);assert(leftist_heap_pop(&a,&x)&&x==-2);assert(leftist_heap_pop(&a,&x)&&x==3);assert(leftist_heap_pop(&a,&x)&&x==8);leftist_heap_destroy(&a);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

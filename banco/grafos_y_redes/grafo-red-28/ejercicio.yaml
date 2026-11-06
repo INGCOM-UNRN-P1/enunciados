@@ -17,36 +17,23 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_28
+- nombre: diametro_radio
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Diámetro y Radio de una Red Compleja
+  parametros: size_t n,const unsigned char *a,int *ecc,int *radio
+  descripcion: Diámetro y Radio de una Red Compleja
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_28_positivo
-  funcion: ejecutar_grafo_red_28
-  codigo: 'int res = ejecutar_grafo_red_28(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_28_cero
-  funcion: ejecutar_grafo_red_28
-  codigo: 'int res = ejecutar_grafo_red_28(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_28_negativo
-  funcion: ejecutar_grafo_red_28
-  codigo: 'int res = ejecutar_grafo_red_28(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_28_valor_limite
-  funcion: ejecutar_grafo_red_28
-  codigo: 'int res = ejecutar_grafo_red_28(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_28_valor_unitario
-  funcion: ejecutar_grafo_red_28
-  codigo: 'int res = ejecutar_grafo_red_28(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_diametro_radio_camino
+  funcion: diametro_radio
+  codigo: unsigned char a[]={0,1,0,1,0,1,0,1,0};int e[3],r;assert(diametro_radio(3,a,e,&r)==2&&r==1&&e[0]==2);
+- nombre: test_diametro_radio_completo
+  funcion: diametro_radio
+  codigo: unsigned char a[]={0,1,1,1,0,1,1,1,0};int e[3],r;assert(diametro_radio(3,a,e,&r)==1&&r==1);
+- nombre: test_diametro_radio_desconectado
+  funcion: diametro_radio
+  codigo: unsigned char a[]={0,0,0,0};int e[2],r;assert(diametro_radio(2,a,e,&r)==-1);
+- nombre: test_diametro_radio_invalido
+  funcion: diametro_radio
+  codigo: assert(diametro_radio(0,NULL,NULL,NULL)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

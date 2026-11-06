@@ -1,11 +1,9 @@
 #ifndef EJERCICIO_TRIE_PREF_15_H
 #define EJERCICIO_TRIE_PREF_15_H
-
-#include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Conteo de Hojas y Nodos Totales en Árbol Trie */
-int ejecutar_trie_pref_15(int val);
-
+#include "trie-pref-common.h"
+typedef struct {size_t nodos,hojas,palabras,aristas;} trie_estadisticas_t;
+nodo_trie_t *trie_crear(void);
+bool trie_insertar(nodo_trie_t *,const char *);
+void trie_estadisticas(const nodo_trie_t *,trie_estadisticas_t *);
+void trie_destruir(nodo_trie_t *);
 #endif /* EJERCICIO_TRIE_PREF_15_H */

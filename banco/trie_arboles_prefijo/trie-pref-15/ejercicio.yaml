@@ -16,39 +16,33 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_15
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conteo de Hojas y Nodos Totales en Árbol
-    Trie
+- nombre: trie_crear
+  retorno: nodo_trie_t *
+  parametros: void
+  descripcion: Crea una raíz dinámica vacía.
+- nombre: trie_insertar
+  retorno: bool
+  parametros: nodo_trie_t *raiz, const char *palabra
+  descripcion: Inserta una palabra.
+- nombre: trie_estadisticas
+  retorno: void
+  parametros: const nodo_trie_t *raiz, trie_estadisticas_t *salida
+  descripcion: Cuenta nodos, hojas, palabras y aristas.
+- nombre: trie_destruir
+  retorno: void
+  parametros: nodo_trie_t *raiz
+  descripcion: Libera trie y raíz dinámica.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_15_positivo
-  funcion: ejecutar_trie_pref_15
-  codigo: 'int res = ejecutar_trie_pref_15(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_15_cero
-  funcion: ejecutar_trie_pref_15
-  codigo: 'int res = ejecutar_trie_pref_15(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_15_negativo
-  funcion: ejecutar_trie_pref_15
-  codigo: 'int res = ejecutar_trie_pref_15(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_15_valor_limite
-  funcion: ejecutar_trie_pref_15
-  codigo: 'int res = ejecutar_trie_pref_15(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_15_valor_unitario
-  funcion: ejecutar_trie_pref_15
-  codigo: 'int res = ejecutar_trie_pref_15(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_15_1_caso_funcional
+  funcion: trie_estadisticas
+  codigo: nodo_trie_t *r=trie_crear(); trie_estadisticas_t s; trie_estadisticas(r,&s); assert(s.nodos==1&&s.hojas==1&&s.palabras==0);
+    assert(trie_insertar(r,"ab")&&trie_insertar(r,"ac")); trie_estadisticas(r,&s); assert(s.nodos==4&&s.hojas==2&&s.palabras==2&&s.aristas==3);
+    trie_destruir(r);
+- nombre: test_15_2_caso_funcional
+  funcion: trie_estadisticas
+  codigo: trie_estadisticas_t s; trie_estadisticas(NULL,&s); assert(s.nodos==0&&s.hojas==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

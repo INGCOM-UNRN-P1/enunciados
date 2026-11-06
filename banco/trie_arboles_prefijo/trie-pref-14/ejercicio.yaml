@@ -16,39 +16,19 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_14
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Ordenamiento de Cadenas de Texto Lexicográfico
-    con Trie
+- nombre: trie_ordenar
+  retorno: bool
+  parametros: char *cadenas[], size_t cantidad
+  descripcion: Ordena en sitio conservando los punteros originales y duplicados.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_14_positivo
-  funcion: ejecutar_trie_pref_14
-  codigo: 'int res = ejecutar_trie_pref_14(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_14_cero
-  funcion: ejecutar_trie_pref_14
-  codigo: 'int res = ejecutar_trie_pref_14(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_14_negativo
-  funcion: ejecutar_trie_pref_14
-  codigo: 'int res = ejecutar_trie_pref_14(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_14_valor_limite
-  funcion: ejecutar_trie_pref_14
-  codigo: 'int res = ejecutar_trie_pref_14(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_14_valor_unitario
-  funcion: ejecutar_trie_pref_14
-  codigo: 'int res = ejecutar_trie_pref_14(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_14_1_caso_funcional
+  funcion: trie_ordenar
+  codigo: char *v[]={"pera","","manzana","pera"}; assert(trie_ordenar(v,4)); assert(strcmp(v[0],"")==0&&strcmp(v[1],"manzana")==0&&strcmp(v[2],"pera")==0&&strcmp(v[3],"pera")==0);
+- nombre: test_14_2_caso_funcional
+  funcion: trie_ordenar
+  codigo: assert(!trie_ordenar(NULL,1)&&trie_ordenar(NULL,0));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

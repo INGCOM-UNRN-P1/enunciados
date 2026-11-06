@@ -16,39 +16,32 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_17
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Trie con Arreglos Dinámicos de Hijos
-    para Alfabetos Grandes
+- nombre: trie_dinamico_iniciar
+  retorno: void
+  parametros: trie_nodo_t *trie
+  descripcion: Inicializa un objeto de raíz proporcionado por el llamador.
+- nombre: trie_dinamico_insertar
+  retorno: bool
+  parametros: trie_nodo_t *trie, const char *palabra
+  descripcion: Inserta bytes en un vector dinámico de hijos ordenado.
+- nombre: trie_dinamico_buscar
+  retorno: bool
+  parametros: const trie_nodo_t *trie, const char *palabra
+  descripcion: Busca una palabra exacta.
+- nombre: trie_dinamico_destruir
+  retorno: void
+  parametros: trie_nodo_t *trie
+  descripcion: Libera hijos y buffers; el objeto raíz queda reiniciado.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_17_positivo
-  funcion: ejecutar_trie_pref_17
-  codigo: 'int res = ejecutar_trie_pref_17(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_17_cero
-  funcion: ejecutar_trie_pref_17
-  codigo: 'int res = ejecutar_trie_pref_17(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_17_negativo
-  funcion: ejecutar_trie_pref_17
-  codigo: 'int res = ejecutar_trie_pref_17(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_17_valor_limite
-  funcion: ejecutar_trie_pref_17
-  codigo: 'int res = ejecutar_trie_pref_17(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_17_valor_unitario
-  funcion: ejecutar_trie_pref_17
-  codigo: 'int res = ejecutar_trie_pref_17(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_17_1_caso_funcional
+  funcion: trie_dinamico_insertar
+  codigo: trie_nodo_t t={0}; assert(trie_dinamico_insertar(&t,"zorro")&&trie_dinamico_insertar(&t,"casa")&&trie_dinamico_insertar(&t,"Ω"));
+    assert(trie_dinamico_buscar(&t,"zorro")&&!trie_dinamico_buscar(&t,"zor")); trie_dinamico_destruir(&t); assert(t.cantidad==0&&t.hijos==NULL);
+- nombre: test_17_2_caso_funcional
+  funcion: trie_dinamico_insertar
+  codigo: trie_nodo_t t={0}; assert(!trie_dinamico_insertar(&t,NULL)&&!trie_dinamico_buscar(&t,"")); trie_dinamico_destruir(&t);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

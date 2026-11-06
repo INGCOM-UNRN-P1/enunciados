@@ -1,5 +1,5 @@
 id: heap-prio-24
-titulo: Heap de Doble Extremo Min-Max Heap para Extracción de Ambos Extremos
+titulo: Min-max heap de doble extremo
 tema: colas_prioridad_heaps
 bloom: 4
 minutos_estimados: 35
@@ -18,37 +18,71 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_24
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Heap de Doble Extremo Min-Max Heap para
-    Extracción de Ambos Extremos
+- nombre: minmax_init
+  retorno: void
+  parametros: minmax_heap_t*h
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_insert
+  retorno: bool
+  parametros: minmax_heap_t*h,int v
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_min
+  retorno: bool
+  parametros: const minmax_heap_t*h,int*out
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_max
+  retorno: bool
+  parametros: const minmax_heap_t*h,int*out
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_pop_min
+  retorno: bool
+  parametros: minmax_heap_t*h,int*out
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_pop_max
+  retorno: bool
+  parametros: minmax_heap_t*h,int*out
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_valid
+  retorno: bool
+  parametros: const minmax_heap_t*h
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
+- nombre: minmax_destroy
+  retorno: void
+  parametros: minmax_heap_t*h
+  descripcion: 'Implementa min-max heap auténtico: consulta de extremos O(1), inserción y extracciones
+    O(log n). La validadora comprueba relación de cada nodo con hijos y nietos; acepta duplicados y maneja
+    heap vacío.'
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_24_positivo
-  funcion: ejecutar_heap_prio_24
-  codigo: 'int res = ejecutar_heap_prio_24(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_24_cero
-  funcion: ejecutar_heap_prio_24
-  codigo: 'int res = ejecutar_heap_prio_24(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_24_negativo
-  funcion: ejecutar_heap_prio_24
-  codigo: 'int res = ejecutar_heap_prio_24(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_24_valor_limite
-  funcion: ejecutar_heap_prio_24
-  codigo: 'int res = ejecutar_heap_prio_24(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_24_valor_unitario
-  funcion: ejecutar_heap_prio_24
-  codigo: 'int res = ejecutar_heap_prio_24(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_24_invariantes
+  funcion: minmax_valid
+  codigo: minmax_heap_t h;int x;minmax_init(&h);int v[]={10,3,7,1,8,14,2,9,6,12,4,11,5,13,0};for(size_t
+    i=0;i<15;i++){assert(minmax_insert(&h,v[i]));assert(minmax_valid(&h));}for(int k=0;k<7;k++){assert(minmax_pop_min(&h,&x)&&x==k);assert(minmax_valid(&h));assert(minmax_pop_max(&h,&x)&&x==14-k);assert(minmax_valid(&h));}assert(minmax_pop_min(&h,&x)&&x==7);minmax_destroy(&h);
+- nombre: test_24_duplicados
+  funcion: minmax_valid
+  codigo: minmax_heap_t h;int x;minmax_init(&h);for(int i=0;i<20;i++)assert(minmax_insert(&h,5));assert(minmax_valid(&h));assert(minmax_min(&h,&x)&&x==5);assert(minmax_max(&h,&x)&&x==5);for(int
+    i=0;i<20;i++){assert(minmax_pop_max(&h,&x)&&x==5);assert(minmax_valid(&h));}assert(!minmax_pop_min(&h,&x));minmax_destroy(&h);
+- nombre: test_24_stress_determinista_referencia
+  funcion: minmax_valid
+  codigo: minmax_heap_t h;int ref[256],n=0,x;unsigned state=0xC0FFEEu;minmax_init(&h);for(int step=0;step<2000;step++){state=state*1664525u+1013904223u;unsigned
+    op=(state>>16)%4u;if(n==0||op==0){state=state*1664525u+1013904223u;int v=(int)(state%2001u)-1000;assert(n<256&&minmax_insert(&h,v));ref[n++]=v;}else{for(int
+    a=0;a<n;a++)for(int b=a+1;b<n;b++)if(ref[a]>ref[b]){int t=ref[a];ref[a]=ref[b];ref[b]=t;}if(op==1){assert(minmax_pop_min(&h,&x)&&x==ref[0]);for(int
+    j=1;j<n;j++)ref[j-1]=ref[j];n--;}else if(op==2){assert(minmax_pop_max(&h,&x)&&x==ref[n-1]);n--;}else{assert(minmax_min(&h,&x)&&x==ref[0]);assert(minmax_max(&h,&x)&&x==ref[n-1]);}}assert(minmax_valid(&h));for(int
+    a=0;a<n;a++)for(int b=a+1;b<n;b++)if(ref[a]>ref[b]){int z=ref[a];ref[a]=ref[b];ref[b]=z;}assert(h.n==(size_t)n);if(n){assert(minmax_min(&h,&x)&&x==ref[0]);assert(minmax_max(&h,&x)&&x==ref[n-1]);}}while(n){assert(minmax_pop_min(&h,&x)&&x==ref[0]);for(int
+    j=1;j<n;j++)ref[j-1]=ref[j];n--;assert(minmax_valid(&h));}minmax_destroy(&h);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

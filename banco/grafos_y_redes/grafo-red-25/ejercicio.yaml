@@ -17,37 +17,26 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_25
+- nombre: ford_fulkerson
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Flujo Máximo en Redes por Algoritmo de
-    Ford-Fulkerson
+  parametros: size_t n,int *r,size_t s,size_t t
+  descripcion: Flujo Máximo en Redes por Algoritmo de Ford-Fulkerson
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_25_positivo
-  funcion: ejecutar_grafo_red_25
-  codigo: 'int res = ejecutar_grafo_red_25(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_25_cero
-  funcion: ejecutar_grafo_red_25
-  codigo: 'int res = ejecutar_grafo_red_25(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_25_negativo
-  funcion: ejecutar_grafo_red_25
-  codigo: 'int res = ejecutar_grafo_red_25(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_25_valor_limite
-  funcion: ejecutar_grafo_red_25
-  codigo: 'int res = ejecutar_grafo_red_25(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_25_valor_unitario
-  funcion: ejecutar_grafo_red_25
-  codigo: 'int res = ejecutar_grafo_red_25(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_ford_fulkerson_flujo
+  funcion: ford_fulkerson
+  codigo: int r[]={0,3,2,0,0,0,1,2,0,0,0,3,0,0,0,0};assert(ford_fulkerson(4,r,0,3)==5);
+- nombre: test_ford_fulkerson_sin_camino
+  funcion: ford_fulkerson
+  codigo: int r[]={0,0,0,0};assert(ford_fulkerson(2,r,0,1)==0);
+- nombre: test_ford_fulkerson_residual_limite
+  funcion: ford_fulkerson
+  codigo: int r[]={0,2147483647,0,0};assert(ford_fulkerson(2,r,0,1)==2147483647);
+- nombre: test_ford_fulkerson_invalido
+  funcion: ford_fulkerson
+  codigo: assert(ford_fulkerson(2,NULL,0,1)==-1);
+- nombre: rechaza_overflow_residual_inverso
+  funcion: ford_fulkerson
+  codigo: int r[]={0,1,2147483647,0};assert(ford_fulkerson(2,r,0,1)==-1&&r[1]==1&&r[2]==2147483647);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

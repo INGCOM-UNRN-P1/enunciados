@@ -1,21 +1,4 @@
-/*
- * Heap #21
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_heap_prio_21(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int prioridad = 0, valor = 0;
-    if (scanf("%d %d", &prioridad, &valor) == 2) {
-        int score = prioridad * 100 + valor + 21;
-        printf("HEAP_%02d_SCORE: %d\n", 21, score);
-    }
-    return 0;
-}
+#include "heap-prio-21.h"
+#include <stdlib.h>
+static void swapv(size_t*h,size_t*p,size_t a,size_t b){size_t t=h[a];h[a]=h[b];h[b]=t;p[h[a]]=a;p[h[b]]=b;}
+bool dijkstra_shortest_paths(size_t n,const graph_edge_t*e,size_t m,size_t s,uint64_t*d,size_t*pred){if(!n||s>=n||!d||!pred||(m&&!e)||n>SIZE_MAX/sizeof(size_t)||n>SIZE_MAX/sizeof(uint64_t))return false;for(size_t i=0;i<m;i++)if(e[i].from>=n||e[i].to>=n)return false;size_t*h=malloc(n*sizeof(*h)),*p=malloc(n*sizeof(*p));if(!h||!p){free(h);free(p);return false;}for(size_t i=0;i<n;i++){d[i]=UINT64_MAX;pred[i]=SIZE_MAX;h[i]=p[i]=i;}d[s]=0;for(size_t i=n/2;i>0;i--){size_t x=i-1;for(;;){size_t z=x,l=2*x+1,r=l+1;if(l<n&&d[h[l]]<d[h[z]])z=l;if(r<n&&d[h[r]]<d[h[z]])z=r;if(z==x)break;swapv(h,p,x,z);x=z;}}size_t len=n;while(len){size_t u=h[0];p[u]=SIZE_MAX;len--;if(len){h[0]=h[len];p[h[0]]=0;size_t x=0;for(;;){size_t z=x,l=2*x+1,r=l+1;if(l<len&&d[h[l]]<d[h[z]])z=l;if(r<len&&d[h[r]]<d[h[z]])z=r;if(z==x)break;swapv(h,p,x,z);x=z;}}if(d[u]==UINT64_MAX)continue;for(size_t j=0;j<m;j++)if(e[j].from==u&&p[e[j].to]!=SIZE_MAX&&UINT64_MAX-d[u]>=e[j].weight){uint64_t nd=d[u]+e[j].weight;if(nd<d[e[j].to]){size_t v=e[j].to;d[v]=nd;pred[v]=u;size_t x=p[v];while(x){size_t z=(x-1)/2;if(d[h[z]]<=d[h[x]])break;swapv(h,p,x,z);x=z;}}}}free(h);free(p);return true;}

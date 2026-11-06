@@ -1,5 +1,5 @@
 id: heap-prio-25
-titulo: Verificación de Invariante de Montículo sobre Arreglo Arbitrario
+titulo: Validación de heap sobre arreglo
 tema: colas_prioridad_heaps
 bloom: 4
 minutos_estimados: 35
@@ -18,37 +18,18 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_25
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Invariante de Montículo
-    sobre Arreglo Arbitrario
+- nombre: is_min_heap
+  retorno: bool
+  parametros: const int*a,size_t n
+  descripcion: Validación de heap sobre arreglo
+- nombre: is_max_heap
+  retorno: bool
+  parametros: const int*a,size_t n
+  descripcion: Validación de heap sobre arreglo
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_25_positivo
-  funcion: ejecutar_heap_prio_25
-  codigo: 'int res = ejecutar_heap_prio_25(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_25_cero
-  funcion: ejecutar_heap_prio_25
-  codigo: 'int res = ejecutar_heap_prio_25(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_25_negativo
-  funcion: ejecutar_heap_prio_25
-  codigo: 'int res = ejecutar_heap_prio_25(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_25_valor_limite
-  funcion: ejecutar_heap_prio_25
-  codigo: 'int res = ejecutar_heap_prio_25(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_25_valor_unitario
-  funcion: ejecutar_heap_prio_25
-  codigo: 'int res = ejecutar_heap_prio_25(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_25_significativos
+  funcion: is_min_heap
+  codigo: int a[]={-3,-3,0,8,9,4};int b[]={9,8,7,1,2,6};assert(is_min_heap(a,6)&&!is_max_heap(a,6));assert(is_max_heap(b,6)&&!is_min_heap(b,6));assert(is_min_heap(NULL,0)&&is_max_heap(NULL,0));assert(!is_min_heap(NULL,1));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

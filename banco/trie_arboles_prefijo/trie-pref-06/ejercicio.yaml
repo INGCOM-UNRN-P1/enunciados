@@ -16,39 +16,32 @@ tags:
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_06
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conteo de Palabras que Comparten un Prefijo
-    en Trie
+- nombre: trie_crear
+  retorno: nodo_trie_t *
+  parametros: void
+  descripcion: Crea una raíz dinámica.
+- nombre: trie_insertar
+  retorno: bool
+  parametros: nodo_trie_t *raiz, const char *palabra
+  descripcion: Inserta una palabra; las repeticiones no aumentan el conteo.
+- nombre: trie_contar_prefijo
+  retorno: size_t
+  parametros: const nodo_trie_t *raiz, const char *prefijo
+  descripcion: Cuenta palabras terminales bajo el prefijo vacío o indicado.
+- nombre: trie_destruir
+  retorno: void
+  parametros: nodo_trie_t *raiz
+  descripcion: Libera la trie, incluida la raíz dinámica.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_06_positivo
-  funcion: ejecutar_trie_pref_06
-  codigo: 'int res = ejecutar_trie_pref_06(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_06_cero
-  funcion: ejecutar_trie_pref_06
-  codigo: 'int res = ejecutar_trie_pref_06(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_06_negativo
-  funcion: ejecutar_trie_pref_06
-  codigo: 'int res = ejecutar_trie_pref_06(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_06_valor_limite
-  funcion: ejecutar_trie_pref_06
-  codigo: 'int res = ejecutar_trie_pref_06(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_06_valor_unitario
-  funcion: ejecutar_trie_pref_06
-  codigo: 'int res = ejecutar_trie_pref_06(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_06_1_caso_funcional
+  funcion: trie_contar_prefijo
+  codigo: nodo_trie_t *r=trie_crear(); assert(trie_insertar(r,"casa")&&trie_insertar(r,"casco")&&trie_insertar(r,"sol")&&trie_insertar(r,"casa"));
+    assert(trie_contar_prefijo(r,"cas")==2&&trie_contar_prefijo(r,"")==3&&trie_contar_prefijo(r,"zz")==0); trie_destruir(r);
+- nombre: test_06_2_caso_funcional
+  funcion: trie_contar_prefijo
+  codigo: nodo_trie_t *r=trie_crear(); assert(trie_contar_prefijo(r,"")==0&&trie_contar_prefijo(NULL,"x")==0); trie_destruir(r);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

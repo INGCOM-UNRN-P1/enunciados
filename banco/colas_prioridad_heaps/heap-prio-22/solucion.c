@@ -1,21 +1,6 @@
-/*
- * Heap #22
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_heap_prio_22(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int prioridad = 0, valor = 0;
-    if (scanf("%d %d", &prioridad, &valor) == 2) {
-        int score = prioridad * 100 + valor + 22;
-        printf("HEAP_%02d_SCORE: %d\n", 22, score);
-    }
-    return 0;
-}
+#include "heap-prio-22.h"
+#include <stdlib.h>
+typedef struct{size_t v;uint64_t w;} ent_t;
+static void up(ent_t*h,size_t*p,size_t i){while(i){size_t a=(i-1)/2;if(h[a].w<=h[i].w)break;ent_t t=h[a];h[a]=h[i];h[i]=t;p[h[a].v]=a;p[h[i].v]=i;i=a;}}
+static ent_t popq(ent_t*h,size_t*p,size_t*n){ent_t v=h[0],x=h[--*n];p[v.v]=SIZE_MAX;if(*n){size_t i=0;while(2*i+1<*n){size_t j=2*i+1;if(j+1<*n&&h[j+1].w<h[j].w)j++;if(h[j].w>=x.w)break;h[i]=h[j];p[h[i].v]=i;i=j;}h[i]=x;p[x.v]=i;}return v;}
+bool prim_minimum_spanning_tree(size_t n,const prim_edge_t*e,size_t m,size_t root,size_t*parent,uint64_t*total){if(!n||root>=n||!parent||!total||(m&&!e)||n>SIZE_MAX/sizeof(ent_t))return false;for(size_t i=0;i<m;i++)if(e[i].from>=n||e[i].to>=n)return false;ent_t*h=malloc(n*sizeof(*h));size_t*p=malloc(n*sizeof(*p));bool*used=calloc(n,sizeof(*used));bool*has=calloc(n,sizeof(*has));if(!h||!p||!used||!has){free(h);free(p);free(used);free(has);return false;}for(size_t i=0;i<n;i++){h[i]=(ent_t){i,UINT64_MAX};p[i]=i;parent[i]=SIZE_MAX;}h[root].w=0;has[root]=true;for(size_t i=n/2;i>0;i--){size_t i0=i-1;while(2*i0+1<n){size_t j=2*i0+1;if(j+1<n&&h[j+1].w<h[j].w)j++;if(h[i0].w<=h[j].w)break;ent_t t=h[i0];h[i0]=h[j];h[j]=t;p[h[i0].v]=i0;p[h[j].v]=j;i0=j;}}size_t len=n;uint64_t sum=0;while(len){ent_t x=popq(h,p,&len);if(!has[x.v]){free(h);free(p);free(used);free(has);return false;}used[x.v]=true;if(UINT64_MAX-sum<x.w){free(h);free(p);free(used);free(has);return false;}sum+=x.w;for(size_t j=0;j<m;j++){size_t v=SIZE_MAX;if(e[j].from==x.v)v=e[j].to;else if(e[j].to==x.v)v=e[j].from;if(v!=SIZE_MAX&&!used[v]&&(!has[v]||e[j].weight<h[p[v]].w)){h[p[v]].w=e[j].weight;has[v]=true;parent[v]=x.v;up(h,p,p[v]);}}}*total=sum;free(h);free(p);free(used);free(has);return true;}

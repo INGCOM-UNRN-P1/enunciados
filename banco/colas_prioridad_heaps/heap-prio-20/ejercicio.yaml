@@ -1,5 +1,5 @@
 id: heap-prio-20
-titulo: 'Algoritmo de Huffman: Cola de Prioridad para Nodos de Frecuencia'
+titulo: Cola de frecuencias para Huffman
 tema: colas_prioridad_heaps
 bloom: 3
 minutos_estimados: 25
@@ -18,37 +18,32 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_20
-  retorno: int
-  parametros: int val
-  descripcion: 'Procesa el flujo principal de Algoritmo de Huffman: Cola de Prioridad
-    para Nodos de Frecuencia'
+- nombre: huffman_build
+  retorno: bool
+  parametros: const uint64_t *frequencies,size_t n,huffman_node_t **root
+  descripcion: Construye árbol binario de Huffman determinista a partir de frecuencias y genera códigos por símbolo;
+    informa errores de overflow, memoria y símbolo inexistente.
+- nombre: huffman_code
+  retorno: bool
+  parametros: const huffman_node_t *root,size_t symbol,char *out,size_t cap,size_t *needed
+  descripcion: Construye árbol binario de Huffman determinista a partir de frecuencias y genera códigos por símbolo;
+    informa errores de overflow, memoria y símbolo inexistente.
+- nombre: huffman_destroy
+  retorno: void
+  parametros: huffman_node_t *root
+  descripcion: Construye árbol binario de Huffman determinista a partir de frecuencias y genera códigos por símbolo;
+    informa errores de overflow, memoria y símbolo inexistente.
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_20_positivo
-  funcion: ejecutar_heap_prio_20
-  codigo: 'int res = ejecutar_heap_prio_20(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_20_cero
-  funcion: ejecutar_heap_prio_20
-  codigo: 'int res = ejecutar_heap_prio_20(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_20_negativo
-  funcion: ejecutar_heap_prio_20
-  codigo: 'int res = ejecutar_heap_prio_20(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_20_valor_limite
-  funcion: ejecutar_heap_prio_20
-  codigo: 'int res = ejecutar_heap_prio_20(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_20_valor_unitario
-  funcion: ejecutar_heap_prio_20
-  codigo: 'int res = ejecutar_heap_prio_20(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_20_build_codes
+  funcion: huffman_build
+  codigo: huffman_node_t*r;uint64_t f[]={5,9,12,13,16,45};char a[32],b[32];size_t na,nb;assert(huffman_build(f,6,&r));assert(r&&r->frequency==100);assert(huffman_code(r,5,a,sizeof(a),&na)&&huffman_code(r,4,b,sizeof(b),&nb));assert(na>1&&nb>1);huffman_destroy(r);
+- nombre: test_20_edges
+  funcion: huffman_build
+  codigo: huffman_node_t*r;uint64_t f[]={7};char c[2];size_t n;assert(huffman_build(f,1,&r)&&r->frequency==7);assert(huffman_code(r,0,c,sizeof(c),&n)&&c[0]=='0');assert(!huffman_code(r,2,c,sizeof(c),&n));huffman_destroy(r);assert(huffman_build(NULL,0,&r)&&!r);
+- nombre: capacidad_y_salida_sin_cambios
+  funcion: huffman_code
+  codigo: huffman_node_t *r=NULL; uint64_t f[]={1,2,3}; char s[1]={42}; size_t n=0; assert(huffman_build(f,3,&r));
+    assert(!huffman_code(r,0,s,sizeof(s),&n) && s[0]==42 && n>1); assert(!huffman_code(r,42,s,sizeof(s),&n)); huffman_destroy(r);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

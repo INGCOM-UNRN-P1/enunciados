@@ -1,5 +1,5 @@
 id: geom-comp-28
-titulo: Intersección de Rectas en Formato Paramétrico
+titulo: Intersección de rectas paramétricas
 tema: geometria_computacional
 bloom: 5
 minutos_estimados: 45
@@ -17,36 +17,19 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_28
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Intersección de Rectas en Formato Paramétrico
+- nombre: intersect_parametric_lines
+  retorno: line_result_t
+  parametros: point2d_t p,point2d_t r,point2d_t q,point2d_t s,double eps,point2d_t *out
+  descripcion: Representá puntos y vectores 2D con double. Implementá intersección de p+t*r y q+u*s. Clasificá
+    como única, paralela distinta o coincidente usando tolerancia epsilon y entrega el punto sólo cuando
+    hay solución única. Rechazá punteros nulos, epsilon negativo/no finito y entradas no finitas.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_28_positivo
-  funcion: ejecutar_geom_comp_28
-  codigo: 'int res = ejecutar_geom_comp_28(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_28_cero
-  funcion: ejecutar_geom_comp_28
-  codigo: 'int res = ejecutar_geom_comp_28(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_28_negativo
-  funcion: ejecutar_geom_comp_28
-  codigo: 'int res = ejecutar_geom_comp_28(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_28_valor_limite
-  funcion: ejecutar_geom_comp_28
-  codigo: 'int res = ejecutar_geom_comp_28(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_28_valor_unitario
-  funcion: ejecutar_geom_comp_28
-  codigo: 'int res = ejecutar_geom_comp_28(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_line_tipos_de_interseccion
+  funcion: intersect_parametric_lines
+  codigo: point2d_t o;assert(intersect_parametric_lines((point2d_t){0,0},(point2d_t){1,0},(point2d_t){2,-1},(point2d_t){0,1},1e-9,&o)==LINE_UNIQUE);assert(fabs(o.x-2)<1e-9&&fabs(o.y)<1e-9);assert(intersect_parametric_lines((point2d_t){0,0},(point2d_t){1,0},(point2d_t){0,1},(point2d_t){1,0},1e-9,&o)==LINE_PARALLEL);assert(intersect_parametric_lines((point2d_t){0,0},(point2d_t){1,0},(point2d_t){2,0},(point2d_t){3,0},1e-9,&o)==LINE_COINCIDENT);
+- nombre: test_line_invalidos
+  funcion: intersect_parametric_lines
+  codigo: point2d_t o;assert(intersect_parametric_lines((point2d_t){0,0},(point2d_t){1,0},(point2d_t){0,1},(point2d_t){0,1},-1,&o)==LINE_INVALID);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

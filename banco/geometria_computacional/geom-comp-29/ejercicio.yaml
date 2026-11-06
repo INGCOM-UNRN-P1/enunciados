@@ -1,5 +1,5 @@
 id: geom-comp-29
-titulo: Algoritmo de Recorte de Polígonos de Sutherland-Hodgman
+titulo: Recorte de polígono Sutherland–Hodgman
 tema: geometria_computacional
 bloom: 5
 minutos_estimados: 45
@@ -17,37 +17,21 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_geom_comp_29
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Algoritmo de Recorte de Polígonos de
-    Sutherland-Hodgman
+- nombre: clip_polygon_sutherland_hodgman
+  retorno: bool
+  parametros: const clip_point_t *in,size_t n,clip_rect_t r,clip_point_t *out,size_t cap,size_t *out_n
+  descripcion: Recortá un polígono simple representado por vértices double contra una ventana rectangular
+    axis-aligned inclusiva mediante Sutherland–Hodgman. API con buffer de salida y capacidad explícita;
+    retorna cantidad o cero si no hay vértices/error, diferenciando error con bool y out-count. Manejá
+    capacidad insuficiente sin escrituras parciales.
 tests_funciones:
-- nombre: test_ejecutar_geom_comp_29_positivo
-  funcion: ejecutar_geom_comp_29
-  codigo: 'int res = ejecutar_geom_comp_29(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_geom_comp_29_cero
-  funcion: ejecutar_geom_comp_29
-  codigo: 'int res = ejecutar_geom_comp_29(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_geom_comp_29_negativo
-  funcion: ejecutar_geom_comp_29
-  codigo: 'int res = ejecutar_geom_comp_29(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_geom_comp_29_valor_limite
-  funcion: ejecutar_geom_comp_29
-  codigo: 'int res = ejecutar_geom_comp_29(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_geom_comp_29_valor_unitario
-  funcion: ejecutar_geom_comp_29
-  codigo: 'int res = ejecutar_geom_comp_29(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_clip_recorte
+  funcion: clip_polygon_sutherland_hodgman
+  codigo: clip_point_t p[]={{-1,0},{2,0},{2,2},{-1,2}},o[16];size_t n;assert(clip_polygon_sutherland_hodgman(p,4,(clip_rect_t){0,0,1,1},o,16,&n)&&n==4);for(size_t
+    i=0;i<n;i++)assert(o[i].x>=0&&o[i].x<=1&&o[i].y>=0&&o[i].y<=1);
+- nombre: test_clip_capacidad_atomica
+  funcion: clip_polygon_sutherland_hodgman
+  codigo: clip_point_t p[]={{-1,0},{2,0},{2,2},{-1,2}},o[1]={{99,99}};size_t n=88;assert(!clip_polygon_sutherland_hodgman(p,4,(clip_rect_t){0,0,1,1},o,1,&n));assert(o[0].x==99&&n==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

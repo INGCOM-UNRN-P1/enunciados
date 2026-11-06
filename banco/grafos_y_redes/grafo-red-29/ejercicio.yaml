@@ -17,37 +17,23 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_29
+- nombre: clausura_transitiva
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Matriz de Accesibilidad y Clausura Transitiva
-    de Warshall
+  parametros: size_t n,unsigned char *r
+  descripcion: Matriz de Accesibilidad y Clausura Transitiva de Warshall
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_29_positivo
-  funcion: ejecutar_grafo_red_29
-  codigo: 'int res = ejecutar_grafo_red_29(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_29_cero
-  funcion: ejecutar_grafo_red_29
-  codigo: 'int res = ejecutar_grafo_red_29(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_29_negativo
-  funcion: ejecutar_grafo_red_29
-  codigo: 'int res = ejecutar_grafo_red_29(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_29_valor_limite
-  funcion: ejecutar_grafo_red_29
-  codigo: 'int res = ejecutar_grafo_red_29(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_29_valor_unitario
-  funcion: ejecutar_grafo_red_29
-  codigo: 'int res = ejecutar_grafo_red_29(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_clausura_transitiva_alcanzabilidad
+  funcion: clausura_transitiva
+  codigo: unsigned char r[]={0,1,0,0,0,1,0,0,0};assert(clausura_transitiva(3,r)==0&&r[2]&&r[0]&&r[4]);
+- nombre: test_clausura_transitiva_ciclo
+  funcion: clausura_transitiva
+  codigo: unsigned char r[]={0,1,0,1,0,0,0,0,0};assert(clausura_transitiva(3,r)==0&&r[0]&&r[1]&&r[3]);
+- nombre: test_clausura_transitiva_reflexiva
+  funcion: clausura_transitiva
+  codigo: unsigned char r[]={0};assert(clausura_transitiva(1,r)==0&&r[0]);
+- nombre: test_clausura_transitiva_invalido
+  funcion: clausura_transitiva
+  codigo: assert(clausura_transitiva(0,NULL)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

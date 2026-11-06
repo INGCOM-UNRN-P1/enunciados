@@ -16,38 +16,32 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_18
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Trie con Nodos Indexados por Tablas Hash
+- nombre: trie_hash_iniciar
+  retorno: void
+  parametros: trie_hash_t *trie
+  descripcion: Inicializa tabla hash de raíz.
+- nombre: trie_hash_insertar
+  retorno: bool
+  parametros: trie_hash_t *trie, const char *palabra
+  descripcion: Inserta bytes de palabra resolviendo colisiones por encadenamiento.
+- nombre: trie_hash_buscar
+  retorno: bool
+  parametros: const trie_hash_t *trie, const char *palabra
+  descripcion: Busca palabra exacta.
+- nombre: trie_hash_destruir
+  retorno: void
+  parametros: trie_hash_t *trie
+  descripcion: Libera cadenas de colisiones, hijos y raíz.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_18_positivo
-  funcion: ejecutar_trie_pref_18
-  codigo: 'int res = ejecutar_trie_pref_18(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_18_cero
-  funcion: ejecutar_trie_pref_18
-  codigo: 'int res = ejecutar_trie_pref_18(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_18_negativo
-  funcion: ejecutar_trie_pref_18
-  codigo: 'int res = ejecutar_trie_pref_18(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_18_valor_limite
-  funcion: ejecutar_trie_pref_18
-  codigo: 'int res = ejecutar_trie_pref_18(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_18_valor_unitario
-  funcion: ejecutar_trie_pref_18
-  codigo: 'int res = ejecutar_trie_pref_18(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_18_1_caso_funcional
+  funcion: trie_hash_insertar
+  codigo: trie_hash_t t={0}; trie_hash_iniciar(&t); assert(trie_hash_insertar(&t,"casa")&&trie_hash_insertar(&t,"cama")&&trie_hash_insertar(&t,"Ω"));
+    assert(trie_hash_buscar(&t,"casa")&&trie_hash_buscar(&t,"cama")&&!trie_hash_buscar(&t,"cas")); trie_hash_destruir(&t);
+- nombre: test_18_2_caso_funcional
+  funcion: trie_hash_insertar
+  codigo: trie_hash_t t={0}; assert(!trie_hash_insertar(&t,NULL)&&!trie_hash_buscar(&t,"")); trie_hash_destruir(&t);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

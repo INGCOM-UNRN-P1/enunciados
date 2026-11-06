@@ -1,7 +1,7 @@
 id: trie-pref-19
 titulo: Serialización de Diccionario Trie en Formato Binario Compacto
 tema: trie_arboles_prefijo
-bloom: 3
+bloom: 4
 minutos_estimados: 25
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,42 @@ tags:
 - dep:cadenas
 - c11
 - intermedia
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_19
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Serialización de Diccionario Trie en
-    Formato Binario Compacto
+- nombre: trie_crear
+  retorno: nodo_trie_t *
+  parametros: void
+  descripcion: Crea una raíz dinámica.
+- nombre: trie_insertar
+  retorno: bool
+  parametros: nodo_trie_t *raiz, const char *palabra
+  descripcion: Inserta una palabra antes de serializar.
+- nombre: trie_buscar
+  retorno: bool
+  parametros: const nodo_trie_t *raiz, const char *palabra
+  descripcion: Busca palabra exacta.
+- nombre: trie_serializar
+  retorno: bool
+  parametros: const nodo_trie_t *raiz, unsigned char **datos, size_t *longitud
+  descripcion: Reserva y serializa a formato TRP1 little-endian.
+- nombre: trie_deserializar
+  retorno: nodo_trie_t *
+  parametros: const unsigned char *datos, size_t longitud
+  descripcion: Reconstruye solo buffers válidos sin bytes sobrantes.
+- nombre: trie_destruir
+  retorno: void
+  parametros: nodo_trie_t *raiz
+  descripcion: Libera trie y raíz dinámica.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_19_positivo
-  funcion: ejecutar_trie_pref_19
-  codigo: 'int res = ejecutar_trie_pref_19(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_19_cero
-  funcion: ejecutar_trie_pref_19
-  codigo: 'int res = ejecutar_trie_pref_19(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_19_negativo
-  funcion: ejecutar_trie_pref_19
-  codigo: 'int res = ejecutar_trie_pref_19(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_19_valor_limite
-  funcion: ejecutar_trie_pref_19
-  codigo: 'int res = ejecutar_trie_pref_19(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_19_valor_unitario
-  funcion: ejecutar_trie_pref_19
-  codigo: 'int res = ejecutar_trie_pref_19(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_19_1_caso_funcional
+  funcion: trie_serializar
+  codigo: nodo_trie_t *r=trie_crear(); assert(trie_insertar(r,"sol")&&trie_insertar(r,"so")); unsigned char *b=NULL;
+    size_t n=0; assert(trie_serializar(r,&b,&n)); nodo_trie_t *q=trie_deserializar(b,n); assert(q&&trie_buscar(q,"sol")&&trie_buscar(q,"so"));
+    assert(!trie_deserializar(b,n-1)); free(b); trie_destruir(q); trie_destruir(r);
+- nombre: test_19_2_caso_funcional
+  funcion: trie_serializar
+  codigo: unsigned char bad[]={0,1,2}; assert(!trie_deserializar(bad,sizeof bad)); unsigned char *p=NULL; size_t
+    n=0; assert(!trie_serializar(NULL,&p,&n));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

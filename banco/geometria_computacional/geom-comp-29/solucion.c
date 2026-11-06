@@ -1,21 +1,7 @@
-/*
- * Geometria #29
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_geom_comp_29(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int x = 0, y = 0;
-    if (scanf("%d %d", &x, &y) == 2) {
-        int prod = x * y + 29;
-        printf("GEOM_%02d: %d\n", 29, prod);
-    }
-    return 0;
-}
+#include "geom-comp-29.h"
+#include <stdlib.h>
+#include <math.h>
+typedef enum{L,R,B,T} edge_t;
+static bool inside(clip_point_t p,clip_rect_t r,edge_t e){return e==L?p.x>=r.xmin:e==R?p.x<=r.xmax:e==B?p.y>=r.ymin:p.y<=r.ymax;}
+static clip_point_t cross(clip_point_t a,clip_point_t b,clip_rect_t r,edge_t e){double t;if(e==L||e==R){double x=e==L?r.xmin:r.xmax;t=(x-a.x)/(b.x-a.x);return(clip_point_t){x,a.y+t*(b.y-a.y)};}double y=e==B?r.ymin:r.ymax;t=(y-a.y)/(b.y-a.y);return(clip_point_t){a.x+t*(b.x-a.x),y};}
+bool clip_polygon_sutherland_hodgman(const clip_point_t*in,size_t n,clip_rect_t r,clip_point_t*out,size_t cap,size_t*outn){if(!outn||(!in&&n)||(!out&&cap)||!isfinite(r.xmin)||!isfinite(r.xmax)||!isfinite(r.ymin)||!isfinite(r.ymax)||r.xmin>r.xmax||r.ymin>r.ymax)return false;*outn=0;if(n>SIZE_MAX/16/sizeof(clip_point_t))return false;size_t c=n*16+16;clip_point_t*a=malloc(c*sizeof(*a)),*b=malloc(c*sizeof(*b));if(!a||!b){free(a);free(b);return false;}for(size_t i=0;i<n;i++){if(!isfinite(in[i].x)||!isfinite(in[i].y)){free(a);free(b);return false;}a[i]=in[i];}size_t m=n;for(edge_t e=L;e<=T&&m;e++){size_t k=0;clip_point_t prev=a[m-1];bool pi=inside(prev,r,e);for(size_t i=0;i<m;i++){clip_point_t cur=a[i];bool ci=inside(cur,r,e);if(ci){if(!pi)b[k++]=cross(prev,cur,r,e);b[k++]=cur;}else if(pi)b[k++]=cross(prev,cur,r,e);prev=cur;pi=ci;}clip_point_t*t=a;a=b;b=t;m=k;}if(m>cap){free(a);free(b);return false;}for(size_t i=0;i<m;i++)out[i]=a[i];*outn=m;free(a);free(b);return true;}

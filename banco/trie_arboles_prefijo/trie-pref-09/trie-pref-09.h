@@ -1,11 +1,8 @@
 #ifndef EJERCICIO_TRIE_PREF_09_H
 #define EJERCICIO_TRIE_PREF_09_H
-
-#include <stddef.h>
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Trie Ternario de Búsqueda TST Ternary Search Tree */
-int ejecutar_trie_pref_09(int val);
-
+typedef struct tst_nodo {unsigned char byte;bool terminal;struct tst_nodo *menor,*igual,*mayor;} tst_nodo_t;
+bool tst_insertar(tst_nodo_t **raiz,const char *palabra);
+bool tst_buscar(const tst_nodo_t *raiz,const char *palabra);
+void tst_destruir(tst_nodo_t *raiz);
 #endif /* EJERCICIO_TRIE_PREF_09_H */

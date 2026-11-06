@@ -1,5 +1,5 @@
 id: heap-prio-27
-titulo: Cola de Prioridad Resiliente con Bloqueos para Concurrencia
+titulo: Cola de prioridad concurrente y segura
 tema: colas_prioridad_heaps
 bloom: 5
 minutos_estimados: 45
@@ -18,37 +18,34 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_27
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cola de Prioridad Resiliente con Bloqueos
-    para Concurrencia
+- nombre: concurrent_pq_init
+  retorno: bool
+  parametros: concurrent_pq_t*q
+  descripcion: 'Implementá una cola de prioridad min de enteros protegida por mutex C11 threads (mtx_t).
+    API: init, push, try_pop, destroy. Cada operación concurrente es linealizable; try_pop retorna false
+    en vacío sin tocar la salida. Documentá que no se admite operación concurrente con destroy.'
+- nombre: concurrent_pq_push
+  retorno: bool
+  parametros: concurrent_pq_t*q,int v
+  descripcion: 'Implementá una cola de prioridad min de enteros protegida por mutex C11 threads (mtx_t).
+    API: init, push, try_pop, destroy. Cada operación concurrente es linealizable; try_pop retorna false
+    en vacío sin tocar la salida. Documentá que no se admite operación concurrente con destroy.'
+- nombre: concurrent_pq_try_pop
+  retorno: bool
+  parametros: concurrent_pq_t*q,int*out
+  descripcion: 'Implementá una cola de prioridad min de enteros protegida por mutex C11 threads (mtx_t).
+    API: init, push, try_pop, destroy. Cada operación concurrente es linealizable; try_pop retorna false
+    en vacío sin tocar la salida. Documentá que no se admite operación concurrente con destroy.'
+- nombre: concurrent_pq_destroy
+  retorno: void
+  parametros: concurrent_pq_t*q
+  descripcion: 'Implementá una cola de prioridad min de enteros protegida por mutex C11 threads (mtx_t).
+    API: init, push, try_pop, destroy. Cada operación concurrente es linealizable; try_pop retorna false
+    en vacío sin tocar la salida. Documentá que no se admite operación concurrente con destroy.'
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_27_positivo
-  funcion: ejecutar_heap_prio_27
-  codigo: 'int res = ejecutar_heap_prio_27(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_27_cero
-  funcion: ejecutar_heap_prio_27
-  codigo: 'int res = ejecutar_heap_prio_27(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_27_negativo
-  funcion: ejecutar_heap_prio_27
-  codigo: 'int res = ejecutar_heap_prio_27(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_27_valor_limite
-  funcion: ejecutar_heap_prio_27
-  codigo: 'int res = ejecutar_heap_prio_27(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_27_valor_unitario
-  funcion: ejecutar_heap_prio_27
-  codigo: 'int res = ejecutar_heap_prio_27(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_concurrent_prioridad
+  funcion: concurrent_pq_init
+  codigo: concurrent_pq_t q;int x=88;assert(concurrent_pq_init(&q));assert(concurrent_pq_push(&q,4)&&concurrent_pq_push(&q,-1));assert(concurrent_pq_try_pop(&q,&x)&&x==-1);assert(concurrent_pq_try_pop(&q,&x)&&x==4);assert(!concurrent_pq_try_pop(&q,&x)&&x==4);concurrent_pq_destroy(&q);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

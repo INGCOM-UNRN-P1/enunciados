@@ -1,11 +1,7 @@
 #ifndef EJERCICIO_HEAP_PRIO_29_H
 #define EJERCICIO_HEAP_PRIO_29_H
-
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
-/* Procesa el flujo principal de Serialización de Heap en Arreglo Compacto y Reconstrucción */
-int ejecutar_heap_prio_29(int val);
-
-#endif /* EJERCICIO_HEAP_PRIO_29_H */
+bool min_heap_serialize(const int32_t*a,size_t n,char*out,size_t cap,size_t*needed);bool min_heap_parse(const char*text,int32_t*out,size_t cap,size_t*n);
+#endif

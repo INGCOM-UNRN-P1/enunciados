@@ -17,37 +17,27 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_23
+- nombre: hierholzer
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda de Circuito Euleriano por Algoritmo
-    de Hierholzer
+  parametros: size_t n,unsigned char *adyacencia,size_t *ruta,size_t capacidad,size_t *longitud
+  descripcion: Búsqueda de Circuito Euleriano por Algoritmo de Hierholzer
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_23_positivo
-  funcion: ejecutar_grafo_red_23
-  codigo: 'int res = ejecutar_grafo_red_23(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_23_cero
-  funcion: ejecutar_grafo_red_23
-  codigo: 'int res = ejecutar_grafo_red_23(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_23_negativo
-  funcion: ejecutar_grafo_red_23
-  codigo: 'int res = ejecutar_grafo_red_23(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_23_valor_limite
-  funcion: ejecutar_grafo_red_23
-  codigo: 'int res = ejecutar_grafo_red_23(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_23_valor_unitario
-  funcion: ejecutar_grafo_red_23
-  codigo: 'int res = ejecutar_grafo_red_23(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_hierholzer_triangulo
+  funcion: hierholzer
+  codigo: unsigned char a[]={0,1,1,1,0,1,1,1,0},orig[]={0,1,1,1,0,1,1,1,0};size_t r[4],l=0;assert(hierholzer(3,a,r,4,&l)==1&&l==4&&r[0]==r[3]);for(size_t
+    i=0;i<3;i++)assert(orig[r[i]*3+r[i+1]]);
+- nombre: test_hierholzer_vacio
+  funcion: hierholzer
+  codigo: unsigned char a[]={0,0,0,0};size_t r[1],l=0;assert(hierholzer(2,a,r,1,&l)==1&&l==1&&r[0]==0);
+- nombre: test_hierholzer_desconectado
+  funcion: hierholzer
+  codigo: unsigned char a[]={0,1,1,0,0,0,1,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,0,0,0,1,1,0};size_t r[7],l=0;assert(hierholzer(6,a,r,7,&l)==0);
+- nombre: test_hierholzer_vertice_unico
+  funcion: hierholzer
+  codigo: unsigned char a[]={0};size_t r[1],l=0;assert(hierholzer(1,a,r,1,&l)==1&&l==1);
+- nombre: capacidad_insuficiente
+  funcion: hierholzer
+  codigo: unsigned char a[]={0,1,1,1,0,1,1,1,0};size_t r[3],l=0;assert(hierholzer(3,a,r,3,&l)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,7 +1,7 @@
 id: trie-pref-11
 titulo: Trie de Bits para Búsqueda de Prefijos IP y Máscaras de Subred
 tema: trie_arboles_prefijo
-bloom: 2
+bloom: 3
 minutos_estimados: 15
 pistas:
 - Cada nodo tiene un arreglo de punteros indexados por caracteres.
@@ -16,39 +16,32 @@ tags:
 - dep:cadenas
 - c11
 - inicial
-verificado: true
+verificado: false
 funciones:
-- nombre: ejecutar_trie_pref_11
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Trie de Bits para Búsqueda de Prefijos
-    IP y Máscaras de Subred
+- nombre: ip_trie_iniciar
+  retorno: void
+  parametros: ip_trie_t *trie
+  descripcion: Inicializa el objeto de trie IPv4 vacío.
+- nombre: ip_trie_insertar
+  retorno: bool
+  parametros: ip_trie_t *trie, uint32_t direccion, unsigned prefijo, int valor
+  descripcion: Registra o reemplaza una ruta de prefijo 0 a 32.
+- nombre: ip_trie_buscar
+  retorno: bool
+  parametros: const ip_trie_t *trie, uint32_t direccion, int *valor
+  descripcion: Consulta la ruta coincidente más específica.
+- nombre: ip_trie_destruir
+  retorno: void
+  parametros: ip_trie_t *trie
+  descripcion: Libera todos los nodos y pone la raíz en NULL.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_11_positivo
-  funcion: ejecutar_trie_pref_11
-  codigo: 'int res = ejecutar_trie_pref_11(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_11_cero
-  funcion: ejecutar_trie_pref_11
-  codigo: 'int res = ejecutar_trie_pref_11(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_11_negativo
-  funcion: ejecutar_trie_pref_11
-  codigo: 'int res = ejecutar_trie_pref_11(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_11_valor_limite
-  funcion: ejecutar_trie_pref_11
-  codigo: 'int res = ejecutar_trie_pref_11(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_11_valor_unitario
-  funcion: ejecutar_trie_pref_11
-  codigo: 'int res = ejecutar_trie_pref_11(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_11_1_caso_funcional
+  funcion: ip_trie_insertar
+  codigo: ip_trie_t t={0}; int v=0; assert(ip_trie_insertar(&t,0,0,7)&&ip_trie_insertar(&t,0x0a000000u,8,9)); assert(ip_trie_buscar(&t,0x0a010203u,&v)&&v==9);
+    assert(ip_trie_buscar(&t,0x08080808u,&v)&&v==7); ip_trie_destruir(&t);
+- nombre: test_11_2_caso_funcional
+  funcion: ip_trie_insertar
+  codigo: ip_trie_t t={0}; assert(!ip_trie_insertar(&t,0,33,1)&&!ip_trie_buscar(&t,0,NULL)); ip_trie_destruir(&t);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

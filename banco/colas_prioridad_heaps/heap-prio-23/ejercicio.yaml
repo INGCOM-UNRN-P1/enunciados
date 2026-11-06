@@ -1,5 +1,5 @@
 id: heap-prio-23
-titulo: Monitoreo de Eventos en Tiempo Real con Expansión Dinámica de Heap
+titulo: Heap dinámico de eventos
 tema: colas_prioridad_heaps
 bloom: 4
 minutos_estimados: 35
@@ -18,37 +18,34 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_heap_prio_23
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Monitoreo de Eventos en Tiempo Real con
-    Expansión Dinámica de Heap
+- nombre: event_heap_init
+  retorno: void
+  parametros: event_heap_t*q
+  descripcion: Implementá un min-heap dinámico de eventos (instante uint64_t, id int), con inserción,
+    extracción y liberación. Ordená por instante y luego id para desempatar determinísticamente. La capacidad
+    aumenta geométricamente, con comprobación de desbordamiento y operaciones seguras para heap vacío.
+- nombre: event_heap_push
+  retorno: bool
+  parametros: event_heap_t*q,event_t v
+  descripcion: Implementá un min-heap dinámico de eventos (instante uint64_t, id int), con inserción,
+    extracción y liberación. Ordená por instante y luego id para desempatar determinísticamente. La capacidad
+    aumenta geométricamente, con comprobación de desbordamiento y operaciones seguras para heap vacío.
+- nombre: event_heap_pop
+  retorno: bool
+  parametros: event_heap_t*q,event_t*out
+  descripcion: Implementá un min-heap dinámico de eventos (instante uint64_t, id int), con inserción,
+    extracción y liberación. Ordená por instante y luego id para desempatar determinísticamente. La capacidad
+    aumenta geométricamente, con comprobación de desbordamiento y operaciones seguras para heap vacío.
+- nombre: event_heap_destroy
+  retorno: void
+  parametros: event_heap_t*q
+  descripcion: Implementá un min-heap dinámico de eventos (instante uint64_t, id int), con inserción,
+    extracción y liberación. Ordená por instante y luego id para desempatar determinísticamente. La capacidad
+    aumenta geométricamente, con comprobación de desbordamiento y operaciones seguras para heap vacío.
 tests_funciones:
-- nombre: test_ejecutar_heap_prio_23_positivo
-  funcion: ejecutar_heap_prio_23
-  codigo: 'int res = ejecutar_heap_prio_23(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_heap_prio_23_cero
-  funcion: ejecutar_heap_prio_23
-  codigo: 'int res = ejecutar_heap_prio_23(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_heap_prio_23_negativo
-  funcion: ejecutar_heap_prio_23
-  codigo: 'int res = ejecutar_heap_prio_23(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_heap_prio_23_valor_limite
-  funcion: ejecutar_heap_prio_23
-  codigo: 'int res = ejecutar_heap_prio_23(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_heap_prio_23_valor_unitario
-  funcion: ejecutar_heap_prio_23
-  codigo: 'int res = ejecutar_heap_prio_23(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_events_orden
+  funcion: event_heap_init
+  codigo: event_heap_t q;event_t x;event_heap_init(&q);assert(event_heap_push(&q,(event_t){5,2}));assert(event_heap_push(&q,(event_t){3,9}));assert(event_heap_push(&q,(event_t){3,1}));assert(event_heap_pop(&q,&x)&&x.time==3&&x.id==1);event_heap_destroy(&q);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

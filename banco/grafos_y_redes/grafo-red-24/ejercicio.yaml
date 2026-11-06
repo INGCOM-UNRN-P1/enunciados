@@ -17,37 +17,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_24
+- nombre: camino_hamiltoniano
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Camino Hamiltoniano por
-    Fuerza Bruta
+  parametros: size_t n,const unsigned char *a
+  descripcion: Verificación de Camino Hamiltoniano por Fuerza Bruta
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_24_positivo
-  funcion: ejecutar_grafo_red_24
-  codigo: 'int res = ejecutar_grafo_red_24(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_24_cero
-  funcion: ejecutar_grafo_red_24
-  codigo: 'int res = ejecutar_grafo_red_24(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_24_negativo
-  funcion: ejecutar_grafo_red_24
-  codigo: 'int res = ejecutar_grafo_red_24(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_24_valor_limite
-  funcion: ejecutar_grafo_red_24
-  codigo: 'int res = ejecutar_grafo_red_24(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_24_valor_unitario
-  funcion: ejecutar_grafo_red_24
-  codigo: 'int res = ejecutar_grafo_red_24(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_camino_hamiltoniano_camino
+  funcion: camino_hamiltoniano
+  codigo: unsigned char a[]={0,1,0,1,0,1,0,1,0};assert(camino_hamiltoniano(3,a)==1);
+- nombre: test_camino_hamiltoniano_sin_camino
+  funcion: camino_hamiltoniano
+  codigo: unsigned char a[]={0,0,0,0,0,1,0,1,0};assert(camino_hamiltoniano(3,a)==0);
+- nombre: test_camino_hamiltoniano_unico
+  funcion: camino_hamiltoniano
+  codigo: unsigned char a[]={0};assert(camino_hamiltoniano(1,a)==1);
+- nombre: test_camino_hamiltoniano_limite
+  funcion: camino_hamiltoniano
+  codigo: assert(camino_hamiltoniano(0,NULL)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

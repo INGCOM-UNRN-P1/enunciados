@@ -17,37 +17,23 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_grafo_red_19
+- nombre: prim_mst
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Árbol de Expansión Mínima MST por Algoritmo
-    de Prim
+  parametros: size_t n,const int *w,size_t *out,size_t cap
+  descripcion: Árbol de Expansión Mínima MST por Algoritmo de Prim
 tests_funciones:
-- nombre: test_ejecutar_grafo_red_19_positivo
-  funcion: ejecutar_grafo_red_19
-  codigo: 'int res = ejecutar_grafo_red_19(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_grafo_red_19_cero
-  funcion: ejecutar_grafo_red_19
-  codigo: 'int res = ejecutar_grafo_red_19(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_grafo_red_19_negativo
-  funcion: ejecutar_grafo_red_19
-  codigo: 'int res = ejecutar_grafo_red_19(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_grafo_red_19_valor_limite
-  funcion: ejecutar_grafo_red_19
-  codigo: 'int res = ejecutar_grafo_red_19(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_grafo_red_19_valor_unitario
-  funcion: ejecutar_grafo_red_19
-  codigo: 'int res = ejecutar_grafo_red_19(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_prim_mst_aristas_mst
+  funcion: prim_mst
+  codigo: int w[]={0,2,3,6,2,0,1,4,3,1,0,5,6,4,5,0};size_t e[6];assert(prim_mst(4,w,e,6)==7);assert(e[0]==0&&e[1]==1&&e[2]==1&&e[3]==2&&e[4]==1&&e[5]==3);
+- nombre: test_prim_mst_desconectado
+  funcion: prim_mst
+  codigo: int w[]={0,-1,-1,-1,0};size_t e[2];assert(prim_mst(2,w,e,2)==-1);
+- nombre: test_prim_mst_capacidad
+  funcion: prim_mst
+  codigo: int w[]={0,1,1,0};size_t e[1];assert(prim_mst(2,w,e,1)==-1);
+- nombre: test_prim_mst_unitario
+  funcion: prim_mst
+  codigo: int w[]={0};size_t e[1];assert(prim_mst(1,w,e,0)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

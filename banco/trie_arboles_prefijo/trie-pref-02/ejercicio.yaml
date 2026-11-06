@@ -1,5 +1,5 @@
 id: trie-pref-02
-titulo: Inserción de Cadenas Alfanuméricas en Árbol Trie
+titulo: Inserción y búsqueda exacta alfanumérica
 tema: trie_arboles_prefijo
 bloom: 1
 minutos_estimados: 10
@@ -18,37 +18,32 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_02
+- nombre: trie02_insertar
+  retorno: void
+  parametros: trie02_nodo_t *raiz, const char *palabra
+- nombre: trie02_contiene
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Inserción de Cadenas Alfanuméricas en
-    Árbol Trie
+  parametros: const trie02_nodo_t *raiz, const char *palabra
+- nombre: trie02_liberar
+  retorno: void
+  parametros: trie02_nodo_t *raiz
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_02_positivo
-  funcion: ejecutar_trie_pref_02
-  codigo: 'int res = ejecutar_trie_pref_02(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_02_cero
-  funcion: ejecutar_trie_pref_02
-  codigo: 'int res = ejecutar_trie_pref_02(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_02_negativo
-  funcion: ejecutar_trie_pref_02
-  codigo: 'int res = ejecutar_trie_pref_02(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_02_valor_limite
-  funcion: ejecutar_trie_pref_02
-  codigo: 'int res = ejecutar_trie_pref_02(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_02_valor_unitario
-  funcion: ejecutar_trie_pref_02
-  codigo: 'int res = ejecutar_trie_pref_02(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: inserta_palabra_y_no_confunde_prefijo
+  funcion: trie02_insertar
+  codigo: trie02_nodo_t r={0}; trie02_insertar(&r,"Casa9"); assert(trie02_contiene(&r,"Casa9")==1); assert(trie02_contiene(&r,"Casa")==0);
+    for(size_t i=0;i<TRIE02_ALFABETO;i++) trie02_liberar(r.hijos[i]);
+- nombre: prefijo_corto_no_es_palabra
+  funcion: trie02_contiene
+  codigo: trie02_nodo_t r={0}; trie02_insertar(&r,"arbol"); assert(trie02_contiene(&r,"arbol")==1); assert(trie02_contiene(&r,"arbo")==0);
+    assert(trie02_contiene(&r,"arboles")==0); for(size_t i=0;i<TRIE02_ALFABETO;i++) trie02_liberar(r.hijos[i]);
+- nombre: dos_palabras_comparten_rama
+  funcion: trie02_insertar
+  codigo: trie02_nodo_t r={0}; trie02_insertar(&r,"red1"); trie02_insertar(&r,"red2"); assert(trie02_contiene(&r,"red1")==1&&trie02_contiene(&r,"red2")==1&&trie02_contiene(&r,"red")==0);
+    for(size_t i=0;i<TRIE02_ALFABETO;i++) trie02_liberar(r.hijos[i]);
+- nombre: nulos_vacio_y_caracter_invalido
+  funcion: trie02_contiene
+  codigo: trie02_nodo_t r={0}; assert(trie02_contiene(NULL,"x")==0); assert(trie02_contiene(&r,"")==0); trie02_insertar(&r,"a-b");
+    assert(trie02_contiene(&r,"ab")==0); for(size_t i=0;i<TRIE02_ALFABETO;i++) trie02_liberar(r.hijos[i]);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
