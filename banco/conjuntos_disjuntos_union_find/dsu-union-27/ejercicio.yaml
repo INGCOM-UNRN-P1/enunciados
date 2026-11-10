@@ -18,37 +18,15 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_27
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Optimización de DSU con Aplanamiento
-    Total de Árbol
+- nombre: dsu_flatten_all
+  retorno: size_t
+  parametros: dsu_t *dsu
+  descripcion: dsu flatten all
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_27_positivo
-  funcion: ejecutar_dsu_union_27
-  codigo: 'int res = ejecutar_dsu_union_27(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_27_cero
-  funcion: ejecutar_dsu_union_27
-  codigo: 'int res = ejecutar_dsu_union_27(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_27_negativo
-  funcion: ejecutar_dsu_union_27
-  codigo: 'int res = ejecutar_dsu_union_27(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_27_valor_limite
-  funcion: ejecutar_dsu_union_27
-  codigo: 'int res = ejecutar_dsu_union_27(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_27_valor_unitario
-  funcion: ejecutar_dsu_union_27
-  codigo: 'int res = ejecutar_dsu_union_27(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu_27_principal
+  funcion: dsu_flatten_all
+  codigo: size_t p[]={0,0,1,2}; size_t rank[]={1,0,0,0}, sz[]={4,0,0,0}; dsu_t d={4,p,rank,sz,1}; assert(dsu_flatten_all(&d)==2);
+    assert(p[3]==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

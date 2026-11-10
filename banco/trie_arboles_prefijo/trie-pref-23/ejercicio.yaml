@@ -1,5 +1,5 @@
 id: trie-pref-23
-titulo: Trie de Sufijos para Búsqueda de Subcadenas
+titulo: Trie de sufijos para búsqueda de subcadenas
 tema: trie_arboles_prefijo
 bloom: 4
 minutos_estimados: 35
@@ -18,36 +18,22 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_23
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Trie de Sufijos para Búsqueda de Subcadenas
+- nombre: trie_sufijos_crear
+  retorno: bool
+  parametros: trie_sufijos_t *indice, const char *texto
+  descripcion: Construye un Trie con todos los sufijos del texto.
+- nombre: trie_sufijos_contiene
+  retorno: bool
+  parametros: const trie_sufijos_t *indice, const char *subcadena
+  descripcion: Comprueba si la subcadena aparece en el texto indexado.
+- nombre: trie_sufijos_destruir
+  retorno: void
+  parametros: trie_sufijos_t *indice
+  descripcion: Destruye y vacía el índice.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_23_positivo
-  funcion: ejecutar_trie_pref_23
-  codigo: 'int res = ejecutar_trie_pref_23(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_23_cero
-  funcion: ejecutar_trie_pref_23
-  codigo: 'int res = ejecutar_trie_pref_23(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_23_negativo
-  funcion: ejecutar_trie_pref_23
-  codigo: 'int res = ejecutar_trie_pref_23(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_23_valor_limite
-  funcion: ejecutar_trie_pref_23
-  codigo: 'int res = ejecutar_trie_pref_23(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_23_valor_unitario
-  funcion: ejecutar_trie_pref_23
-  codigo: 'int res = ejecutar_trie_pref_23(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: buscar_subcadenas_solapadas_y_vacias
+  funcion: trie_sufijos_contiene
+  codigo: trie_sufijos_t t;assert(trie_sufijos_crear(&t,"banana"));assert(trie_sufijos_contiene(&t,"ana"));assert(trie_sufijos_contiene(&t,"nana"));assert(!trie_sufijos_contiene(&t,"band"));assert(trie_sufijos_contiene(&t,""));trie_sufijos_destruir(&t);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,6 @@
 #ifndef EJERCICIO_TRIE_PREF_25_H
 #define EJERCICIO_TRIE_PREF_25_H
-
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Búsqueda de Subcadena Común Más Larga entre Dos Textos */
-int ejecutar_trie_pref_25(int val);
-
-#endif /* EJERCICIO_TRIE_PREF_25_H */
+/* Devuelve longitud; copia el resultado más largo en out si cap alcanza len+1. */
+size_t subcadena_comun_mas_larga(const char *a,const char *b,char *out,size_t cap);
+#endif

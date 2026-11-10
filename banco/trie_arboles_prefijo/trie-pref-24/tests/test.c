@@ -1,0 +1,3 @@
+#include "../trie-pref-24.h"
+#include <assert.h>
+int main(void){arbol_sufijos_t t;assert(arbol_sufijos_crear(&t,"banana"));assert(arbol_sufijos_contiene(&t,"ana"));assert(arbol_sufijos_contiene(&t,"nana"));assert(arbol_sufijos_contiene(&t,"ban"));assert(!arbol_sufijos_contiene(&t,"nab"));assert(arbol_sufijos_contiene(&t,""));arbol_sufijos_destruir(&t);assert(!t.raiz&&!t.texto);assert(arbol_sufijos_crear(&t,""));assert(!arbol_sufijos_contiene(&t,"a"));arbol_sufijos_destruir(&t);const char bytes[]={(char)0xE1,'a',(char)0xE1,'b',0};const char query[]={(char)0xE1,'a',0};assert(arbol_sufijos_crear(&t,bytes));assert(arbol_sufijos_contiene(&t,query));arbol_sufijos_destruir(&t);return 0;}

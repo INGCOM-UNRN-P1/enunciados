@@ -4,10 +4,8 @@ tema: skip_lists_probabilisticas
 bloom: 2
 minutos_estimados: 15
 pistas:
-- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
-  generada.
-- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
-  buscada.
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave buscada.
 tags:
 - skip_list
 - listas_saltos
@@ -20,37 +18,16 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_skip_list_08
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Cálculo de la Altura Máxima y Promedio
-    de Nodos en Skip List
+- nombre: skip_list_08_height_stats
+  retorno: skip_height_stats_t
+  parametros: const skip_list_t *list
+  descripcion: skip list 08 height stats
 tests_funciones:
-- nombre: test_ejecutar_skip_list_08_positivo
-  funcion: ejecutar_skip_list_08
-  codigo: 'int res = ejecutar_skip_list_08(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_skip_list_08_cero
-  funcion: ejecutar_skip_list_08
-  codigo: 'int res = ejecutar_skip_list_08(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_skip_list_08_negativo
-  funcion: ejecutar_skip_list_08
-  codigo: 'int res = ejecutar_skip_list_08(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_skip_list_08_valor_limite
-  funcion: ejecutar_skip_list_08
-  codigo: 'int res = ejecutar_skip_list_08(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_skip_list_08_valor_unitario
-  funcion: ejecutar_skip_list_08
-  codigo: 'int res = ejecutar_skip_list_08(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_skip_list_08_principal
+  funcion: skip_list_08_height_stats
+  codigo: skip_list_t l; skip_list_init(&l, 1u); assert(l.head != NULL); assert(skip_list_insert_height(&l,
+    10, 1)); assert(skip_list_insert_height(&l, 20, 3)); skip_height_stats_t r = skip_list_08_height_stats(&l);
+    assert(r.count == 2 && r.maximum == 3 && r.average == 2.0); skip_list_destroy(&l);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,5 @@
 #ifndef EJERCICIO_TRIE_PREF_21_H
 #define EJERCICIO_TRIE_PREF_21_H
-
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Detección de Palíndromos más Largos usando Trie */
-int ejecutar_trie_pref_21(int val);
-
-#endif /* EJERCICIO_TRIE_PREF_21_H */
+size_t trie_palindromo_mas_largo(const char *texto,char *salida,size_t capacidad);
+#endif

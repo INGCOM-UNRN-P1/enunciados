@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_DSU_UNION_29_H
-#define EJERCICIO_DSU_UNION_29_H
-
-#include <stddef.h>
+#ifndef DSU_UNION_29_H
+#define DSU_UNION_29_H
+#include "../dsu-union-01/dsu_union_common.h"
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Verificación de Invariantes de Conjuntos Disjuntos */
-int ejecutar_dsu_union_29(int val);
-
-#endif /* EJERCICIO_DSU_UNION_29_H */
+/* Checks parent/rank/size/component-count invariants of the canonical DSU. */
+bool dsu_validate_invariants(const dsu_t *dsu);
+#endif

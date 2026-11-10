@@ -1,5 +1,5 @@
 id: trie-pref-25
-titulo: Búsqueda de Subcadena Común Más Larga entre Dos Textos
+titulo: Búsqueda de subcadena común más larga
 tema: trie_arboles_prefijo
 bloom: 4
 minutos_estimados: 35
@@ -18,37 +18,15 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_25
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda de Subcadena Común Más Larga
-    entre Dos Textos
+- nombre: subcadena_comun_mas_larga
+  retorno: size_t
+  parametros: const char *a, const char *b, char *out, size_t cap
+  descripcion: Obtiene y copia la subcadena contigua común más larga.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_25_positivo
-  funcion: ejecutar_trie_pref_25
-  codigo: 'int res = ejecutar_trie_pref_25(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_25_cero
-  funcion: ejecutar_trie_pref_25
-  codigo: 'int res = ejecutar_trie_pref_25(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_25_negativo
-  funcion: ejecutar_trie_pref_25
-  codigo: 'int res = ejecutar_trie_pref_25(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_25_valor_limite
-  funcion: ejecutar_trie_pref_25
-  codigo: 'int res = ejecutar_trie_pref_25(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_25_valor_unitario
-  funcion: ejecutar_trie_pref_25
-  codigo: 'int res = ejecutar_trie_pref_25(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: subcadena_comun_y_sin_coincidencia
+  funcion: subcadena_comun_mas_larga
+  codigo: char o[16];assert(subcadena_comun_mas_larga("xabcd","yabc",o,sizeof o)==3);assert(!strcmp(o,"abc"));assert(subcadena_comun_mas_larga("abc","xyz",o,sizeof
+    o)==0&&!o[0]);assert(subcadena_comun_mas_larga("abc","abc",o,2)==0&&!o[0]);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

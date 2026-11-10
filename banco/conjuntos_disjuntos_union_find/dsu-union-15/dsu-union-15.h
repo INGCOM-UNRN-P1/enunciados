@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_15_H
-#define EJERCICIO_DSU_UNION_15_H
-
+#ifndef DSU_UNION_15_H
+#define DSU_UNION_15_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Simulación de Percolación en Grilla 2D con DSU */
-int ejecutar_dsu_union_15(int val);
-
-#endif /* EJERCICIO_DSU_UNION_15_H */
+int dsu15_primer_cruce(size_t filas, size_t columnas, const size_t aperturas[][2], size_t cantidad);
+#endif

@@ -1,5 +1,5 @@
 id: trie-pref-24
-titulo: Construcción de Árbol de Sufijos Simplificado
+titulo: Construcción simplificada de árbol de sufijos
 tema: trie_arboles_prefijo
 bloom: 4
 minutos_estimados: 35
@@ -18,36 +18,25 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_24
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Construcción de Árbol de Sufijos Simplificado
+- nombre: arbol_sufijos_crear
+  retorno: bool
+  parametros: arbol_sufijos_t *arbol, const char *texto
+  descripcion: Construye un árbol de sufijos con aristas etiquetadas por rangos del texto.
+- nombre: arbol_sufijos_contiene
+  retorno: bool
+  parametros: const arbol_sufijos_t *arbol, const char *subcadena
+  descripcion: Busca una subcadena, incluso si termina en medio de una etiqueta.
+- nombre: arbol_sufijos_destruir
+  retorno: void
+  parametros: arbol_sufijos_t *arbol
+  descripcion: Libera nodos, aristas y texto.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_24_positivo
-  funcion: ejecutar_trie_pref_24
-  codigo: 'int res = ejecutar_trie_pref_24(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_24_cero
-  funcion: ejecutar_trie_pref_24
-  codigo: 'int res = ejecutar_trie_pref_24(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_24_negativo
-  funcion: ejecutar_trie_pref_24
-  codigo: 'int res = ejecutar_trie_pref_24(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_24_valor_limite
-  funcion: ejecutar_trie_pref_24
-  codigo: 'int res = ejecutar_trie_pref_24(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_24_valor_unitario
-  funcion: ejecutar_trie_pref_24
-  codigo: 'int res = ejecutar_trie_pref_24(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: construccion_split_y_busqueda
+  funcion: arbol_sufijos_crear
+  codigo: arbol_sufijos_t t;assert(arbol_sufijos_crear(&t,"banana"));assert(arbol_sufijos_contiene(&t,"ana"));assert(arbol_sufijos_contiene(&t,"ban"));assert(!arbol_sufijos_contiene(&t,"nab"));arbol_sufijos_destruir(&t);
+- nombre: bytes_altos_en_etiquetas_y_consultas
+  funcion: arbol_sufijos_crear
+  codigo: const char s[]={(char)0xE1,'a',(char)0xE1,'b',0};const char q[]={(char)0xE1,'a',0};arbol_sufijos_t t;assert(arbol_sufijos_crear(&t,s));assert(arbol_sufijos_contiene(&t,q));arbol_sufijos_destruir(&t);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

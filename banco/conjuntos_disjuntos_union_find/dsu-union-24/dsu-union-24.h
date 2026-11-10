@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_24_H
-#define EJERCICIO_DSU_UNION_24_H
-
+#ifndef DSU_UNION_24_H
+#define DSU_UNION_24_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Agrupamiento Jerárquico Aglomerativo con DSU */
-int ejecutar_dsu_union_24(int val);
-
-#endif /* EJERCICIO_DSU_UNION_24_H */
+int dsu24_umbral(size_t n, const int aristas[][3], size_t cantidad, size_t grupos_objetivo, int *umbral);
+#endif

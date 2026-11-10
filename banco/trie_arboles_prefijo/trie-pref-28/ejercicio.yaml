@@ -1,5 +1,5 @@
 id: trie-pref-28
-titulo: Verificación de Integridad Estructural en Árbol Trie
+titulo: Verificación de integridad estructural en Trie
 tema: trie_arboles_prefijo
 bloom: 5
 minutos_estimados: 45
@@ -18,37 +18,18 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_28
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Integridad Estructural
-    en Árbol Trie
+- nombre: trie_es_integra
+  retorno: bool
+  parametros: const nodo_trie_t *raiz
+  descripcion: Valida capacidad, buffer, punteros e índices de hijos ordenados.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_28_positivo
-  funcion: ejecutar_trie_pref_28
-  codigo: 'int res = ejecutar_trie_pref_28(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_28_cero
-  funcion: ejecutar_trie_pref_28
-  codigo: 'int res = ejecutar_trie_pref_28(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_28_negativo
-  funcion: ejecutar_trie_pref_28
-  codigo: 'int res = ejecutar_trie_pref_28(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_28_valor_limite
-  funcion: ejecutar_trie_pref_28
-  codigo: 'int res = ejecutar_trie_pref_28(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_28_valor_unitario
-  funcion: ejecutar_trie_pref_28
-  codigo: 'int res = ejecutar_trie_pref_28(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: estructura_valida_e_invalidas
+  funcion: trie_es_integra
+  codigo: nodo_trie_t *r=tp_nuevo();assert(trie_es_integra(r));tp_insertar(r,"casa");tp_insertar(r,"dado");assert(trie_es_integra(r));r->hijos[1].byte='a';assert(!trie_es_integra(r));tp_destruir(r);nodo_trie_t
+    x={0,1,0,NULL};assert(!trie_es_integra(&x));
+- nombre: rechazo_de_alias_entre_ramas
+  funcion: trie_es_integra
+  codigo: nodo_trie_t *r=tp_nuevo();tp_insertar(r,"casa");tp_insertar(r,"dado");nodo_trie_t *orig=r->hijos[1].nodo->hijos[0].nodo;r->hijos[1].nodo->hijos[0].nodo=r->hijos[0].nodo->hijos[0].nodo;assert(!trie_es_integra(r));r->hijos[1].nodo->hijos[0].nodo=orig;tp_destruir(r);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

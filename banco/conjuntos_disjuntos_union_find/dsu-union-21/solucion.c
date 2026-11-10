@@ -1,20 +1,44 @@
-/*
- * DSU #21
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_dsu_union_21(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
+#include "dsu-union-21.h"
+#include <limits.h>
+#include <stdint.h>
+#include <stdlib.h>
+static int find_root(int*p,int x){if(p[x]!=x)p[x]=find_root(p,p[x]);
+return p[x];
+}
+static int join(int*p,int*s,int a,int b){a=find_root(p,a);
+b=find_root(p,b);
+if(a==b)return 0;
+if(s[a]<s[b]){int t=a;
+a=b;
+b=t;
+}p[b]=a;
+s[a]+=s[b];
+return 1;
 }
 
-int main(void) {
-    int elem = 0, lider = 0;
-    if (scanf("%d %d", &elem, &lider) == 2) {
-        printf("DSU_%02d_REPR: ELEM=%d LIDER=%d\n", 21, elem, lider + 21);
-    }
-    return 0;
+int dsu21_representantes(size_t n,const int e[][2],size_t m,int out[])
+{
+ if(n>INT_MAX||n>SIZE_MAX/sizeof(int)||(n&&!out)||(m&&!e))return -1;
+int *p=n?malloc(n*sizeof *p):NULL,*s=n?malloc(n*sizeof *s):NULL;
+if(n&&(!p||!s)){free(p);
+free(s);
+return -1;
+}for(size_t i=0;
+i<n;
+i++){p[i]=(int)i;
+s[i]=1;
+}for(size_t i=0;
+i<m;
+i++){int a=e[i][0],b=e[i][1];
+if(a<0||b<0||(size_t)a>=n||(size_t)b>=n){free(p);
+free(s);
+return -1;
+}join(p,s,a,b);
+}for(size_t i=0;
+i<n;
+i++)out[i]=find_root(p,(int)i);
+free(p);
+free(s);
+return (int)n;
+
 }

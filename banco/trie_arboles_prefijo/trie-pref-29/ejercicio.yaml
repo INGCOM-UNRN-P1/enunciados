@@ -1,5 +1,5 @@
 id: trie-pref-29
-titulo: Comparación de Rendimiento entre Trie, Hash Table y BST
+titulo: Comparación de Trie, tabla hash y BST
 tema: trie_arboles_prefijo
 bloom: 5
 minutos_estimados: 45
@@ -18,37 +18,14 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_29
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Comparación de Rendimiento entre Trie,
-    Hash Table y BST
+- nombre: trie_comparar_estructuras
+  retorno: bool
+  parametros: const char *const palabras[], size_t cantidad, trie_benchmark_t *resultado
+  descripcion: Mide comparaciones de Trie, hash y BST en el mismo conjunto de entrada.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_29_positivo
-  funcion: ejecutar_trie_pref_29
-  codigo: 'int res = ejecutar_trie_pref_29(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_29_cero
-  funcion: ejecutar_trie_pref_29
-  codigo: 'int res = ejecutar_trie_pref_29(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_29_negativo
-  funcion: ejecutar_trie_pref_29
-  codigo: 'int res = ejecutar_trie_pref_29(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_29_valor_limite
-  funcion: ejecutar_trie_pref_29
-  codigo: 'int res = ejecutar_trie_pref_29(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_29_valor_unitario
-  funcion: ejecutar_trie_pref_29
-  codigo: 'int res = ejecutar_trie_pref_29(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: metricas_deterministas_y_entradas_invalidas
+  funcion: trie_comparar_estructuras
+  codigo: const char *w[]={"casa","casco","casa","perro"};trie_benchmark_t s;assert(trie_comparar_estructuras(w,4,&s));assert(s.trie_bytes&&s.hash_comparaciones&&s.bst_comparaciones);assert(trie_comparar_estructuras(NULL,0,&s));assert(!s.trie_bytes&&!s.hash_comparaciones&&!s.bst_comparaciones);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

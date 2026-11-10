@@ -1,59 +1,7 @@
-/*
- * DSU con Compresion de Caminos
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-#define MAX_NODOS 100
-
-typedef struct {
-    int padre[MAX_NODOS];
-    int rango[MAX_NODOS];
-} dsu_t;
-
-void dsu_init(dsu_t *d, int n) {
-    for (int i = 0; i < n; i++) {
-        d->padre[i] = i;
-        d->rango[i] = 0;
-    }
-}
-
-int dsu_find(dsu_t *d, int u) {
-    if (d->padre[u] != u) {
-        d->padre[u] = dsu_find(d, d->padre[u]);
-    }
-    return d->padre[u];
-}
-
-void dsu_union(dsu_t *d, int u, int v) {
-    int ru = dsu_find(d, u);
-    int rv = dsu_find(d, v);
-    if (ru != rv) {
-        if (d->rango[ru] < d->rango[rv]) {
-            d->padre[ru] = rv;
-        } else if (d->rango[ru] > d->rango[rv]) {
-            d->padre[rv] = ru;
-        } else {
-            d->padre[rv] = ru;
-            d->rango[ru]++;
-        }
-    }
-}
-
-int main(void) {
-    dsu_t dsu;
-    int n = 0, operaciones = 0;
-    if (scanf("%d %d", &n, &operaciones) != 2 || n <= 0 || n > MAX_NODOS) return 0;
-    dsu_init(&dsu, n);
-    for (int i = 0; i < operaciones; i++) {
-        int u = 0, v = 0;
-        if (scanf("%d %d", &u, &v) == 2 && u < n && v < n) {
-            dsu_union(&dsu, u, v);
-        }
-    }
-    int q1 = 0, q2 = 0;
-    if (scanf("%d %d", &q1, &q2) == 2 && q1 < n && q2 < n) {
-        printf("CONECTADOS: %d\n", (dsu_find(&dsu, q1) == dsu_find(&dsu, q2)) ? 1 : 0);
-    }
-    return 0;
-}
+#include "dsu_union_common.h"
+#include <stdlib.h>
+#include <stdint.h>
+void dsu_init(dsu_t *d, int n) { if (!d) return; d->n=0; d->parent=NULL; d->rank=NULL; d->size=NULL; d->components=0; if (n<=0) return; size_t z=(size_t)n; if(z>SIZE_MAX/sizeof(size_t)) return; d->parent=malloc(z*sizeof(size_t)); d->rank=calloc(z,sizeof(size_t)); d->size=malloc(z*sizeof(size_t)); if(!d->parent||!d->rank||!d->size){free(d->parent);free(d->rank);free(d->size);d->parent=d->rank=d->size=NULL;return;} d->n=z;d->components=z;for(size_t i=0;i<z;i++){d->parent[i]=i;d->size[i]=1;} }
+int dsu_find(dsu_t *d,int u){if(!d||u<0||(size_t)u>=d->n)return -1;size_t x=(size_t)u;while(d->parent[x]!=x){d->parent[x]=d->parent[d->parent[x]];x=d->parent[x];}return (int)x;}
+void dsu_union(dsu_t *d,int u,int v){int a=dsu_find(d,u),b=dsu_find(d,v);if(a<0||b<0||a==b)return;size_t x=(size_t)a,y=(size_t)b;if(d->rank[x]<d->rank[y]){size_t t=x;x=y;y=t;}d->parent[y]=x;d->size[x]+=d->size[y];if(d->rank[x]==d->rank[y])d->rank[x]++;d->components--;}
+void dsu_destroy(dsu_t *d){if(!d)return;free(d->parent);free(d->rank);free(d->size);d->parent=d->rank=d->size=NULL;d->n=d->components=0;}

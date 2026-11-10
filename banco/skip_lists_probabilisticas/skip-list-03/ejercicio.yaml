@@ -4,10 +4,8 @@ tema: skip_lists_probabilisticas
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
-  generada.
-- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
-  buscada.
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave buscada.
 tags:
 - skip_list
 - listas_saltos
@@ -20,37 +18,16 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_skip_list_03
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Inserción Ordenada de Nodos en Múltiples
-    Niveles de Punteros
+- nombre: skip_list_03_insert_at_height
+  retorno: bool
+  parametros: skip_list_t *list, int value, size_t height
+  descripcion: skip list 03 insert at height
 tests_funciones:
-- nombre: test_ejecutar_skip_list_03_positivo
-  funcion: ejecutar_skip_list_03
-  codigo: 'int res = ejecutar_skip_list_03(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_skip_list_03_cero
-  funcion: ejecutar_skip_list_03
-  codigo: 'int res = ejecutar_skip_list_03(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_skip_list_03_negativo
-  funcion: ejecutar_skip_list_03
-  codigo: 'int res = ejecutar_skip_list_03(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_skip_list_03_valor_limite
-  funcion: ejecutar_skip_list_03
-  codigo: 'int res = ejecutar_skip_list_03(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_skip_list_03_valor_unitario
-  funcion: ejecutar_skip_list_03
-  codigo: 'int res = ejecutar_skip_list_03(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_skip_list_03_principal
+  funcion: skip_list_03_insert_at_height
+  codigo: skip_list_t l; skip_list_init(&l, 1u); assert(l.head != NULL); assert(skip_list_03_insert_at_height(&l,
+    8, 4)); assert(skip_list_03_insert_at_height(&l, 3, 1)); assert(!skip_list_03_insert_at_height(&l,
+    4, 0)); assert(skip_list_size(&l) == 2); skip_list_destroy(&l);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

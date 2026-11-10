@@ -1,11 +1,7 @@
-#ifndef EJERCICIO_DSU_UNION_27_H
-#define EJERCICIO_DSU_UNION_27_H
-
+#ifndef DSU_UNION_27_H
+#define DSU_UNION_27_H
+#include "../dsu-union-01/dsu_union_common.h"
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Optimización de DSU con Aplanamiento Total de Árbol */
-int ejecutar_dsu_union_27(int val);
-
-#endif /* EJERCICIO_DSU_UNION_27_H */
+/* Compresses every node, not only nodes queried by a caller. Returns changed links. */
+size_t dsu_flatten_all(dsu_t *dsu);
+#endif

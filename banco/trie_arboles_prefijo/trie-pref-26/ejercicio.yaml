@@ -1,5 +1,5 @@
 id: trie-pref-26
-titulo: Indexador de Búsqueda de Texto Completo basado en Trie
+titulo: Indexador de búsqueda de texto completo basado en Trie
 tema: trie_arboles_prefijo
 bloom: 4
 minutos_estimados: 35
@@ -18,37 +18,22 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_26
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Indexador de Búsqueda de Texto Completo
-    basado en Trie
+- nombre: trie_texto_indexar
+  retorno: bool
+  parametros: trie_texto_indice_t *indice, const char *texto
+  descripcion: Indexa las posiciones iniciales de los tokens.
+- nombre: trie_texto_buscar
+  retorno: size_t
+  parametros: const trie_texto_indice_t *indice, const char *palabra, size_t *posiciones, size_t capacidad
+  descripcion: Copia los offsets de ocurrencia hasta capacidad.
+- nombre: trie_texto_destruir
+  retorno: void
+  parametros: trie_texto_indice_t *indice
+  descripcion: Libera y vacía el índice.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_26_positivo
-  funcion: ejecutar_trie_pref_26
-  codigo: 'int res = ejecutar_trie_pref_26(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_26_cero
-  funcion: ejecutar_trie_pref_26
-  codigo: 'int res = ejecutar_trie_pref_26(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_26_negativo
-  funcion: ejecutar_trie_pref_26
-  codigo: 'int res = ejecutar_trie_pref_26(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_26_valor_limite
-  funcion: ejecutar_trie_pref_26
-  codigo: 'int res = ejecutar_trie_pref_26(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_26_valor_unitario
-  funcion: ejecutar_trie_pref_26
-  codigo: 'int res = ejecutar_trie_pref_26(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: busqueda_de_tokens_y_offsets
+  funcion: trie_texto_indexar
+  codigo: trie_texto_indice_t x;assert(trie_texto_indexar(&x,"sol luna sol\nsol"));size_t p[4];assert(trie_texto_buscar(&x,"sol",p,4)==3&&p[0]==0&&p[1]==9&&p[2]==13);assert(!trie_texto_buscar(&x,"lu",p,4));trie_texto_destruir(&x);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

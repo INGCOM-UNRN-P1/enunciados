@@ -1,5 +1,5 @@
 id: trie-pref-27
-titulo: Liberación Completa de Memoria de Trie sin Fugas
+titulo: 'Duplicado de trie-pref-04: destrucción completa de Trie'
 tema: trie_arboles_prefijo
 bloom: 5
 minutos_estimados: 45
@@ -16,40 +16,10 @@ tags:
 - dep:cadenas
 - c11
 - avanzada
-verificado: true
-funciones:
-- nombre: ejecutar_trie_pref_27
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Liberación Completa de Memoria de Trie
-    sin Fugas
-tests_funciones:
-- nombre: test_ejecutar_trie_pref_27_positivo
-  funcion: ejecutar_trie_pref_27
-  codigo: 'int res = ejecutar_trie_pref_27(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_27_cero
-  funcion: ejecutar_trie_pref_27
-  codigo: 'int res = ejecutar_trie_pref_27(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_27_negativo
-  funcion: ejecutar_trie_pref_27
-  codigo: 'int res = ejecutar_trie_pref_27(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_27_valor_limite
-  funcion: ejecutar_trie_pref_27
-  codigo: 'int res = ejecutar_trie_pref_27(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_27_valor_unitario
-  funcion: ejecutar_trie_pref_27
-  codigo: 'int res = ejecutar_trie_pref_27(1);
-
-    assert(res >= 0 || res == 2);'
-publicar: true
+verificado: false
+funciones: []
+tests_funciones: []
+publicar: false
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica
 dificultad: avanzada
@@ -57,3 +27,4 @@ prerrequisitos:
 - arboles_binarios
 - cadenas
 subtema: trie_arboles_prefijo
+duplicado_de: trie-pref-04

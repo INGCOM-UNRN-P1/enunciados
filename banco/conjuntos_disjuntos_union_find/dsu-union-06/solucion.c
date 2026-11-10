@@ -1,20 +1,2 @@
-/*
- * DSU #06
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_dsu_union_06(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int elem = 0, lider = 0;
-    if (scanf("%d %d", &elem, &lider) == 2) {
-        printf("DSU_%02d_REPR: ELEM=%d LIDER=%d\n", 6, elem, lider + 6);
-    }
-    return 0;
-}
+#include "dsu-union-06.h"
+int dsu06_union(dsu06_t *d,size_t a,size_t b){if(!d||!d->parent||!d->size||a>=d->n||b>=d->n)return -1;while(d->parent[a]!=a){d->parent[a]=d->parent[d->parent[a]];a=d->parent[a];}while(d->parent[b]!=b){d->parent[b]=d->parent[d->parent[b]];b=d->parent[b];}if(a==b)return 0;if(d->size[a]<d->size[b]){size_t t=a;a=b;b=t;}d->parent[b]=a;d->size[a]+=d->size[b];return 1;}

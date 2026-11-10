@@ -18,37 +18,27 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_26
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de DSU Paralelo y Concurrente con Operaciones
-    Atómicas
+- nombre: dsu_atomic_init
+  retorno: bool
+  parametros: dsu_atomic_t *dsu, size_t count
+  descripcion: dsu atomic init
+- nombre: dsu_atomic_find
+  retorno: bool
+  parametros: dsu_atomic_t *dsu, size_t element, size_t *representative
+  descripcion: dsu atomic find
+- nombre: dsu_atomic_union
+  retorno: bool
+  parametros: dsu_atomic_t *dsu, size_t a, size_t b
+  descripcion: dsu atomic union
+- nombre: dsu_atomic_destroy
+  retorno: void
+  parametros: dsu_atomic_t *dsu
+  descripcion: dsu atomic destroy
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_26_positivo
-  funcion: ejecutar_dsu_union_26
-  codigo: 'int res = ejecutar_dsu_union_26(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_26_cero
-  funcion: ejecutar_dsu_union_26
-  codigo: 'int res = ejecutar_dsu_union_26(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_26_negativo
-  funcion: ejecutar_dsu_union_26
-  codigo: 'int res = ejecutar_dsu_union_26(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_26_valor_limite
-  funcion: ejecutar_dsu_union_26
-  codigo: 'int res = ejecutar_dsu_union_26(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_26_valor_unitario
-  funcion: ejecutar_dsu_union_26
-  codigo: 'int res = ejecutar_dsu_union_26(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu_26_principal
+  funcion: dsu_atomic_init
+  codigo: dsu_atomic_t d=DSU_ATOMIC_INITIALIZER; size_t r=9; assert(dsu_atomic_init(&d,3)); assert(dsu_atomic_union(&d,0,2));
+    assert(dsu_atomic_find(&d,2,&r)&&r==0); dsu_atomic_destroy(&d);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

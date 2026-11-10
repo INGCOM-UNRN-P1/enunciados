@@ -18,37 +18,15 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_29
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Verificación de Invariantes de Conjuntos
-    Disjuntos
+- nombre: dsu_validate_invariants
+  retorno: bool
+  parametros: const dsu_t *dsu
+  descripcion: dsu validate invariants
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_29_positivo
-  funcion: ejecutar_dsu_union_29
-  codigo: 'int res = ejecutar_dsu_union_29(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_29_cero
-  funcion: ejecutar_dsu_union_29
-  codigo: 'int res = ejecutar_dsu_union_29(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_29_negativo
-  funcion: ejecutar_dsu_union_29
-  codigo: 'int res = ejecutar_dsu_union_29(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_29_valor_limite
-  funcion: ejecutar_dsu_union_29
-  codigo: 'int res = ejecutar_dsu_union_29(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_29_valor_unitario
-  funcion: ejecutar_dsu_union_29
-  codigo: 'int res = ejecutar_dsu_union_29(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu_29_principal
+  funcion: dsu_validate_invariants
+  codigo: size_t p[]={0,0,0}, rank[]={1,0,0}, sz[]={3,0,0}; dsu_t d={3,p,rank,sz,1}; assert(dsu_validate_invariants(&d));
+    p[2]=8; assert(!dsu_validate_invariants(&d));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,22 +1,4 @@
-/*
- * Trie #21
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "trie-pref-21.h"
 #include <string.h>
-
-
-int ejecutar_trie_pref_21(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    char pref[32] = {0};
-    if (scanf("%31s", pref) == 1) {
-        size_t len = strlen(pref);
-        printf("TRIE_%02d_LEN: %zu\n", 21, len + 21);
-    }
-    return 0;
-}
+typedef struct {int len,link,next[256];} nodo_pal_t;
+size_t trie_palindromo_mas_largo(const char *s,char *out,size_t cap){if(out&&cap)out[0]='\0';if(!s||!out)return 0;size_t n=strlen(s);if(n>255)return 0;nodo_pal_t nodos[257]={0};size_t usados=2; nodos[0].len=-1;nodos[0].link=0;nodos[1].len=0;nodos[1].link=0;int ultimo=1;size_t mejor=0,inicio=0;for(size_t pos=0;pos<n;pos++){unsigned char c=(unsigned char)s[pos];int actual=ultimo;while((long)pos-1-nodos[actual].len<0||s[pos-1-(size_t)nodos[actual].len]!=s[pos])actual=nodos[actual].link;if(nodos[actual].next[c])ultimo=nodos[actual].next[c];else{int nuevo=(int)usados++;nodos[nuevo].len=nodos[actual].len+2;nodos[actual].next[c]=nuevo;if(nodos[nuevo].len==1)nodos[nuevo].link=1;else{int suf=nodos[actual].link;while((long)pos-1-nodos[suf].len<0||s[pos-1-(size_t)nodos[suf].len]!=s[pos])suf=nodos[suf].link;nodos[nuevo].link=nodos[suf].next[c];}ultimo=nuevo;}size_t l=(size_t)nodos[ultimo].len;if(l>mejor){mejor=l;inicio=pos+1-l;}}if(mejor+1>cap)return 0;memcpy(out,s+inicio,mejor);out[mejor]='\0';return mejor;}

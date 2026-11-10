@@ -1,11 +1,5 @@
 #ifndef EJERCICIO_TRIE_PREF_30_H
 #define EJERCICIO_TRIE_PREF_30_H
-
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de TAD Diccionario y Predictor de Texto basado en Trie */
-int ejecutar_trie_pref_30(int val);
-
-#endif /* EJERCICIO_TRIE_PREF_30_H */
+size_t trie_predecir(const char *const palabras[],const size_t frecuencias[],size_t cantidad,const char *prefijo,size_t limite,char salida[][256],size_t capacidad);
+#endif

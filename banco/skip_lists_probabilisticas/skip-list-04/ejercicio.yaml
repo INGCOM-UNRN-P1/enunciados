@@ -4,10 +4,8 @@ tema: skip_lists_probabilisticas
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
-  generada.
-- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
-  buscada.
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave buscada.
 tags:
 - skip_list
 - listas_saltos
@@ -20,37 +18,16 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_skip_list_04
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda Eficiente de Claves en Skip
-    List en O(Log N)
+- nombre: skip_list_04_search
+  retorno: bool
+  parametros: const skip_list_t *list, int value
+  descripcion: skip list 04 search
 tests_funciones:
-- nombre: test_ejecutar_skip_list_04_positivo
-  funcion: ejecutar_skip_list_04
-  codigo: 'int res = ejecutar_skip_list_04(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_skip_list_04_cero
-  funcion: ejecutar_skip_list_04
-  codigo: 'int res = ejecutar_skip_list_04(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_skip_list_04_negativo
-  funcion: ejecutar_skip_list_04
-  codigo: 'int res = ejecutar_skip_list_04(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_skip_list_04_valor_limite
-  funcion: ejecutar_skip_list_04
-  codigo: 'int res = ejecutar_skip_list_04(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_skip_list_04_valor_unitario
-  funcion: ejecutar_skip_list_04
-  codigo: 'int res = ejecutar_skip_list_04(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_skip_list_04_principal
+  funcion: skip_list_04_search
+  codigo: skip_list_t l; skip_list_init(&l, 1u); assert(l.head != NULL); assert(skip_list_insert_height(&l,
+    10, 1)); assert(skip_list_insert_height(&l, 20, 3)); assert(skip_list_04_search(&l, 20)); assert(!skip_list_04_search(&l,
+    21)); skip_list_destroy(&l);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

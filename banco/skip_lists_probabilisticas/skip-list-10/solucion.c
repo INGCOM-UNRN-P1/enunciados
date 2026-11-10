@@ -1,21 +1,13 @@
-/*
- * Skip List #10
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_skip_list_10(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int nivel = 0, saltos = 0;
-    if (scanf("%d %d", &nivel, &saltos) == 2) {
-        int costo = (nivel * 10) + saltos + 10;
-        printf("SKIP_%02d_COSTO: %d\n", 10, costo);
-    }
-    return 0;
-}
+#include "skip-list-10.h"
+#include <stdlib.h>
+static uint32_t next_random(uint32_t *state) { uint32_t x = *state; if (x == 0u) x = 0x9e3779b9u; x ^= x << 13; x ^= x >> 17; x ^= x << 5; *state = x; return x; }
+size_t skip_list_02_random_level(uint32_t *state) { size_t h = 1u; if (state == NULL) return 1u; while (h < SKIP_LIST_MAX_LEVEL && (next_random(state) & 1u) == 0u) ++h; return h; }
+void skip_list_init(skip_list_t *list, uint32_t seed) { if (list == NULL) return; list->head = calloc(1, sizeof(*list->head)); list->tail = NULL; list->length = 0u; list->level = 1u; list->rng_state = seed ? seed : 0x9e3779b9u; if (list->head != NULL) list->head->height = SKIP_LIST_MAX_LEVEL; }
+void skip_list_destroy(skip_list_t *list) { if (list == NULL || list->head == NULL) return; skip_node_t *n = list->head->next[0]; while (n != NULL) { skip_node_t *next = n->next[0]; free(n); n = next; } free(list->head); list->head = NULL; list->tail = NULL; list->length = 0u; list->level = 1u; }
+static void locate(const skip_list_t *list, int value, skip_node_t **update) { skip_node_t *cur = list->head; for (size_t li = list->level; li-- > 0u;) { while (cur->next[li] != NULL && cur->next[li]->value < value) cur = cur->next[li]; if (update != NULL) update[li] = cur; } }
+bool skip_list_insert_height(skip_list_t *list, int value, size_t height) { if (list == NULL || list->head == NULL || height == 0u || height > SKIP_LIST_MAX_LEVEL) return false; skip_node_t *update[SKIP_LIST_MAX_LEVEL]; locate(list, value, update); if (update[0]->next[0] != NULL && update[0]->next[0]->value == value) return false; skip_node_t *node = calloc(1, sizeof(*node)); if (node == NULL) return false; if (height > list->level) { for (size_t i = list->level; i < height; ++i) update[i] = list->head; } node->value = value; node->height = height; for (size_t i = 0; i < height; ++i) { node->next[i] = update[i]->next[i]; update[i]->next[i] = node; } if (height > list->level) list->level = height; if (node->next[0] == NULL) list->tail = node; ++list->length; return true; }
+bool skip_list_insert(skip_list_t *list, int value) { if (list == NULL) return false; return skip_list_insert_height(list, value, skip_list_02_random_level(&list->rng_state)); }
+bool skip_list_contains(const skip_list_t *list, int value) { if (list == NULL || list->head == NULL) return false; skip_node_t *cur = list->head; for (size_t li = list->level; li-- > 0u;) while (cur->next[li] != NULL && cur->next[li]->value < value) cur = cur->next[li]; cur = cur->next[0]; return cur != NULL && cur->value == value; }
+bool skip_list_remove(skip_list_t *list, int value) { if (list == NULL || list->head == NULL) return false; skip_node_t *update[SKIP_LIST_MAX_LEVEL]; locate(list, value, update); skip_node_t *target = update[0]->next[0]; if (target == NULL || target->value != value) return false; for (size_t i = 0; i < list->level; ++i) if (update[i]->next[i] == target) update[i]->next[i] = target->next[i]; if (list->tail == target) list->tail = update[0] == list->head ? NULL : update[0]; free(target); --list->length; while (list->level > 1u && list->head->next[list->level - 1u] == NULL) --list->level; return true; }
+size_t skip_list_size(const skip_list_t *list) { return list == NULL ? 0u : list->length; }
+bool skip_list_10_extremes(const skip_list_t *l,int *min,int *max){if(!l||!l->head||l->length==0u||!min||!max)return false;*min=l->head->next[0]->value;*max=l->tail->value;return true;}

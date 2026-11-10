@@ -1,11 +1,8 @@
-#ifndef EJERCICIO_DSU_UNION_28_H
-#define EJERCICIO_DSU_UNION_28_H
-
-#include <stddef.h>
+#ifndef DSU_UNION_28_H
+#define DSU_UNION_28_H
+#include "../dsu-union-01/dsu_union_common.h"
 #include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Medición de Rendimiento de la Función Inversa de Ackermann */
-int ejecutar_dsu_union_28(int val);
-
-#endif /* EJERCICIO_DSU_UNION_28_H */
+#include <stddef.h>
+/* Counts parent links traversed by the queries without mutating the DSU. */
+size_t dsu_measure_find_steps(const dsu_t *dsu, const size_t *elements, size_t count, bool *valid);
+#endif

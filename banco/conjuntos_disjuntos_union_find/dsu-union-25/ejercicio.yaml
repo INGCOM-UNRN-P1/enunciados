@@ -18,37 +18,15 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_25
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Simulación de Fusión de Cuentas de Usuario
-    Duplicadas
+- nombre: dsu_merge_accounts
+  retorno: bool
+  parametros: const dsu_account_t *accounts, size_t count, size_t **groups
+  descripcion: dsu merge accounts
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_25_positivo
-  funcion: ejecutar_dsu_union_25
-  codigo: 'int res = ejecutar_dsu_union_25(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_25_cero
-  funcion: ejecutar_dsu_union_25
-  codigo: 'int res = ejecutar_dsu_union_25(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_25_negativo
-  funcion: ejecutar_dsu_union_25
-  codigo: 'int res = ejecutar_dsu_union_25(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_25_valor_limite
-  funcion: ejecutar_dsu_union_25
-  codigo: 'int res = ejecutar_dsu_union_25(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_25_valor_unitario
-  funcion: ejecutar_dsu_union_25
-  codigo: 'int res = ejecutar_dsu_union_25(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu_25_principal
+  funcion: dsu_merge_accounts
+  codigo: const char *emails[]={"a@x"}; dsu_account_t a[]={{"Ana",emails,1},{"A",emails,1}}; size_t *g=NULL;
+    assert(dsu_merge_accounts(a,2,&g)); assert(g[0]==g[1]); free(g);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_11_H
-#define EJERCICIO_DSU_UNION_11_H
-
+#ifndef DSU_UNION_11_H
+#define DSU_UNION_11_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Conectividad Dinámica en Redes con DSU */
-int ejecutar_dsu_union_11(int val);
-
-#endif /* EJERCICIO_DSU_UNION_11_H */
+int dsu11_procesar(size_t n, const int operaciones[][3], size_t cantidad, int resultados[]);
+#endif

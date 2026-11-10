@@ -18,37 +18,15 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_28
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Medición de Rendimiento de la Función
-    Inversa de Ackermann
+- nombre: dsu_measure_find_steps
+  retorno: size_t
+  parametros: const dsu_t *dsu, const size_t *elements, size_t count, bool *valid
+  descripcion: dsu measure find steps
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_28_positivo
-  funcion: ejecutar_dsu_union_28
-  codigo: 'int res = ejecutar_dsu_union_28(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_28_cero
-  funcion: ejecutar_dsu_union_28
-  codigo: 'int res = ejecutar_dsu_union_28(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_28_negativo
-  funcion: ejecutar_dsu_union_28
-  codigo: 'int res = ejecutar_dsu_union_28(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_28_valor_limite
-  funcion: ejecutar_dsu_union_28
-  codigo: 'int res = ejecutar_dsu_union_28(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_28_valor_unitario
-  funcion: ejecutar_dsu_union_28
-  codigo: 'int res = ejecutar_dsu_union_28(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu_28_principal
+  funcion: dsu_measure_find_steps
+  codigo: size_t p[]={0,0,1,2}; size_t rank[]={1,0,0,0}, sz[]={4,0,0,0}; dsu_t d={4,p,rank,sz,1}; size_t
+    q[]={3}; bool valid=false; assert(dsu_measure_find_steps(&d,q,1,&valid)==3 && valid);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

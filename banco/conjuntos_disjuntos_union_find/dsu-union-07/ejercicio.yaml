@@ -18,37 +18,14 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_07
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Conteo de Conjuntos Disjuntos Independientes
-    en DSU
+- nombre: dsu07_count
+  retorno: size_t
+  parametros: const dsu07_t *d
+  descripcion: Cuenta las raíces de los componentes.
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_07_positivo
-  funcion: ejecutar_dsu_union_07
-  codigo: 'int res = ejecutar_dsu_union_07(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_07_cero
-  funcion: ejecutar_dsu_union_07
-  codigo: 'int res = ejecutar_dsu_union_07(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_07_negativo
-  funcion: ejecutar_dsu_union_07
-  codigo: 'int res = ejecutar_dsu_union_07(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_07_valor_limite
-  funcion: ejecutar_dsu_union_07
-  codigo: 'int res = ejecutar_dsu_union_07(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_07_valor_unitario
-  funcion: ejecutar_dsu_union_07
-  codigo: 'int res = ejecutar_dsu_union_07(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: contrato_07_1
+  funcion: dsu07_count
+  codigo: size_t p[]={0,0,2,2,4};dsu07_t d={5,p};assert(dsu07_count(&d)==3);size_t bad[]={1,0};dsu07_t e={2,bad};assert(dsu07_count(&e)==0);assert(dsu07_count(NULL)==0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

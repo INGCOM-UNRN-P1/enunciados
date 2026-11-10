@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_23_H
-#define EJERCICIO_DSU_UNION_23_H
-
+#ifndef DSU_UNION_23_H
+#define DSU_UNION_23_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de Verificación de Equivalencia de Clases en Álgebra con DSU */
-int ejecutar_dsu_union_23(int val);
-
-#endif /* EJERCICIO_DSU_UNION_23_H */
+int dsu23_consultar(size_t n, const int relaciones[][2], size_t cantidad_relaciones, const int consultas[][2], size_t cantidad_consultas, int resultados[]);
+#endif

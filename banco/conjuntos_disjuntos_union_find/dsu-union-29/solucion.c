@@ -1,20 +1,3 @@
-/*
- * DSU #29
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_dsu_union_29(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int elem = 0, lider = 0;
-    if (scanf("%d %d", &elem, &lider) == 2) {
-        printf("DSU_%02d_REPR: ELEM=%d LIDER=%d\n", 29, elem, lider + 29);
-    }
-    return 0;
-}
+#include "dsu-union-29.h"
+#include <stdlib.h>
+bool dsu_validate_invariants(const dsu_t *d){if(!d)return false;if(d->n==0)return d->components==0&&d->parent==NULL&&d->rank==NULL&&d->size==NULL;if(!d->parent||!d->rank||!d->size||d->components==0||d->components>d->n)return false;size_t *counts=calloc(d->n,sizeof(*counts));if(!counts)return false;size_t roots=0;bool ok=true;for(size_t i=0;i<d->n&&ok;i++){if(d->parent[i]>=d->n){ok=false;break;}size_t x=i,steps=0;while(d->parent[x]!=x){size_t p=d->parent[x];if(d->rank[x]>=d->rank[p]||++steps>d->n){ok=false;break;}x=p;}if(ok){++counts[x];if(d->parent[i]==i)++roots;}}if(ok&&roots!=d->components)ok=false;for(size_t i=0;i<d->n&&ok;i++)if(d->parent[i]==i){if(d->size[i]!=counts[i])ok=false;}free(counts);return ok;}

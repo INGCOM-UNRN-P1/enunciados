@@ -4,10 +4,8 @@ tema: skip_lists_probabilisticas
 bloom: 1
 minutos_estimados: 10
 pistas:
-- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura
-  generada.
-- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave
-  buscada.
+- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura generada.
+- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave buscada.
 tags:
 - skip_list
 - listas_saltos
@@ -20,37 +18,14 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_skip_list_06
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Recorrido Secuencial en Nivel Cero de
-    la Skip List
+- nombre: skip_list_06_visit
+  retorno: size_t
+  parametros: const skip_list_t *list, bool (*visit)(int, void *), void *context
+  descripcion: skip list 06 visit
 tests_funciones:
-- nombre: test_ejecutar_skip_list_06_positivo
-  funcion: ejecutar_skip_list_06
-  codigo: 'int res = ejecutar_skip_list_06(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_skip_list_06_cero
-  funcion: ejecutar_skip_list_06
-  codigo: 'int res = ejecutar_skip_list_06(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_skip_list_06_negativo
-  funcion: ejecutar_skip_list_06
-  codigo: 'int res = ejecutar_skip_list_06(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_skip_list_06_valor_limite
-  funcion: ejecutar_skip_list_06
-  codigo: 'int res = ejecutar_skip_list_06(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_skip_list_06_valor_unitario
-  funcion: ejecutar_skip_list_06
-  codigo: 'int res = ejecutar_skip_list_06(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_skip_list_06_principal
+  funcion: skip_list_06_visit
+  codigo: assert(skip_list_06_visit(NULL, NULL, NULL) == 0);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

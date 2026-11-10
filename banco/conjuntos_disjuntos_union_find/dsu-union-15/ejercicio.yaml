@@ -18,37 +18,18 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_15
+- nombre: dsu15_primer_cruce
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Simulación de Percolación en Grilla 2D
-    con DSU
+  parametros: size_t filas, size_t columnas, const size_t aperturas[][2], size_t cantidad
+  descripcion: Simulación de Percolación en Grilla 2D con DSU
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_15_positivo
-  funcion: ejecutar_dsu_union_15
-  codigo: 'int res = ejecutar_dsu_union_15(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_15_cero
-  funcion: ejecutar_dsu_union_15
-  codigo: 'int res = ejecutar_dsu_union_15(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_15_negativo
-  funcion: ejecutar_dsu_union_15
-  codigo: 'int res = ejecutar_dsu_union_15(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_15_valor_limite
-  funcion: ejecutar_dsu_union_15
-  codigo: 'int res = ejecutar_dsu_union_15(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_15_valor_unitario
-  funcion: ejecutar_dsu_union_15
-  codigo: 'int res = ejecutar_dsu_union_15(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu15_primer_cruce_casos_principales
+  funcion: dsu15_primer_cruce
+  codigo: const size_t a[][2]={{0,0},{1,0}}; assert(dsu15_primer_cruce(2,2,a,2)==2);
+    assert(dsu15_primer_cruce(2,2,a,1)==0);
+- nombre: apertura_repetida_no_se_cuenta
+  funcion: dsu15_primer_cruce
+  codigo: const size_t a[][2]={{0,0},{0,0},{1,0}}; assert(dsu15_primer_cruce(2,2,a,3)==2); const size_t invalida[][2]={{0,0},{1,0}}; assert(dsu15_primer_cruce(1,1,invalida,2)==-1);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

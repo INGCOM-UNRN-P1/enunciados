@@ -1,22 +1,12 @@
-/*
- * Trie #24
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
+#include "trie-pref-24.h"
+#include <stdlib.h>
 #include <string.h>
-
-
-int ejecutar_trie_pref_24(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    char pref[32] = {0};
-    if (scanf("%31s", pref) == 1) {
-        size_t len = strlen(pref);
-        printf("TRIE_%02d_LEN: %zu\n", 24, len + 24);
-    }
-    return 0;
-}
+typedef struct sufijo_arista {size_t inicio,longitud;sufijo_nodo_t *destino;struct sufijo_arista *sig;} sufijo_arista_t;
+struct sufijo_nodo {bool terminal;sufijo_arista_t *aristas;};
+static sufijo_nodo_t *nodo_nuevo(void){return calloc(1,sizeof(sufijo_nodo_t));}
+static sufijo_arista_t *arista_nueva(size_t i,size_t n,sufijo_nodo_t *d){sufijo_arista_t *e=malloc(sizeof(*e));if(e)*e=(sufijo_arista_t){i,n,d,NULL};return e;}
+static void liberar_nodo(sufijo_nodo_t *n){if(!n)return;sufijo_arista_t *e=n->aristas;while(e){sufijo_arista_t *q=e->sig;liberar_nodo(e->destino);free(e);e=q;}free(n);}
+static bool insertar(arbol_sufijos_t *t,size_t inicio){sufijo_nodo_t *n=t->raiz;size_t p=inicio;while(p<t->longitud){sufijo_arista_t **slot=&n->aristas;while(*slot&&(unsigned char)t->texto[(*slot)->inicio]!=(unsigned char)t->texto[p])slot=&(*slot)->sig;sufijo_arista_t *e=*slot;if(!e){sufijo_nodo_t *fin=nodo_nuevo();if(!fin)return false;fin->terminal=true;e=arista_nueva(p,t->longitud-p,fin);if(!e){free(fin);return false;}*slot=e;return true;}size_t k=0;while(k<e->longitud&&p+k<t->longitud&&(unsigned char)t->texto[e->inicio+k]==(unsigned char)t->texto[p+k])k++;if(k==e->longitud){p+=k;n=e->destino;continue;}sufijo_nodo_t *medio=nodo_nuevo();if(!medio)return false;sufijo_arista_t *cola=arista_nueva(e->inicio+k,e->longitud-k,e->destino);if(!cola){free(medio);return false;}cola->sig=medio->aristas;medio->aristas=cola;e->longitud=k;e->destino=medio;p+=k;if(p==t->longitud){medio->terminal=true;return true;}sufijo_nodo_t *fin=nodo_nuevo();if(!fin){e->longitud+=cola->longitud;e->destino=cola->destino;medio->aristas=NULL;free(cola);free(medio);return false;}fin->terminal=true;sufijo_arista_t *resto=arista_nueva(p,t->longitud-p,fin);if(!resto){free(fin);e->longitud+=cola->longitud;e->destino=cola->destino;medio->aristas=NULL;free(cola);free(medio);return false;}resto->sig=medio->aristas;medio->aristas=resto;return true;}n->terminal=true;return true;}
+bool arbol_sufijos_crear(arbol_sufijos_t *t,const char *s){if(!t)return false;t->texto=NULL;t->longitud=0;t->raiz=NULL;if(!s)return false;size_t n=strlen(s);if(n>4096)return false;t->texto=malloc(n+1);t->raiz=nodo_nuevo();if(!t->texto||!t->raiz){free(t->texto);liberar_nodo(t->raiz);t->texto=NULL;t->raiz=NULL;return false;}memcpy(t->texto,s,n+1);t->longitud=n;for(size_t i=0;i<n;i++)if(!insertar(t,i)){arbol_sufijos_destruir(t);return false;}return true;}
+bool arbol_sufijos_contiene(const arbol_sufijos_t *t,const char *q){if(!t||!t->raiz||!q)return false;size_t p=0,n=strlen(q);if(!n)return true;const sufijo_nodo_t *node=t->raiz;while(p<n){const sufijo_arista_t *e=node->aristas;while(e&&(unsigned char)t->texto[e->inicio]!=(unsigned char)q[p])e=e->sig;if(!e)return false;size_t k=0;while(k<e->longitud&&p<n&&(unsigned char)t->texto[e->inicio+k]==(unsigned char)q[p]){k++;p++;}if(p==n)return true;if(k<e->longitud)return false;node=e->destino;}return true;}
+void arbol_sufijos_destruir(arbol_sufijos_t *t){if(t){liberar_nodo(t->raiz);free(t->texto);t->raiz=NULL;t->texto=NULL;t->longitud=0;}}

@@ -18,37 +18,16 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_18
+- nombre: dsu18_contar_grupos
   retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de DSU con Nodos Identificados por Nombres
-    de Cadena
+  parametros: const char *const nombres[], size_t cantidad, const char *const pares[][2],
+    size_t cantidad_pares
+  descripcion: DSU con Nodos Identificados por Nombres de Cadena
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_18_positivo
-  funcion: ejecutar_dsu_union_18
-  codigo: 'int res = ejecutar_dsu_union_18(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_18_cero
-  funcion: ejecutar_dsu_union_18
-  codigo: 'int res = ejecutar_dsu_union_18(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_18_negativo
-  funcion: ejecutar_dsu_union_18
-  codigo: 'int res = ejecutar_dsu_union_18(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_18_valor_limite
-  funcion: ejecutar_dsu_union_18
-  codigo: 'int res = ejecutar_dsu_union_18(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_18_valor_unitario
-  funcion: ejecutar_dsu_union_18
-  codigo: 'int res = ejecutar_dsu_union_18(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: test_dsu18_contar_grupos_casos_principales
+  funcion: dsu18_contar_grupos
+  codigo: const char *n[]={"Ana","Beto","Caro"}; const char *p[][2]={{"Ana","Caro"}};
+    assert(dsu18_contar_grupos(n,3,p,1)==2);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

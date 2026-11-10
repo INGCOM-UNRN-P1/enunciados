@@ -1,5 +1,5 @@
 id: trie-pref-22
-titulo: Búsqueda con Comodines Wildcard en Árbol Trie
+titulo: Búsqueda con comodín de un byte en Trie
 tema: trie_arboles_prefijo
 bloom: 4
 minutos_estimados: 35
@@ -18,37 +18,14 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_22
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Búsqueda con Comodines Wildcard en Árbol
-    Trie
+- nombre: trie_coincide_patron
+  retorno: bool
+  parametros: const nodo_trie_t *raiz, const char *patron
+  descripcion: Busca una palabra que coincida con el patrón; ? coincide con un byte.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_22_positivo
-  funcion: ejecutar_trie_pref_22
-  codigo: 'int res = ejecutar_trie_pref_22(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_22_cero
-  funcion: ejecutar_trie_pref_22
-  codigo: 'int res = ejecutar_trie_pref_22(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_22_negativo
-  funcion: ejecutar_trie_pref_22
-  codigo: 'int res = ejecutar_trie_pref_22(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_22_valor_limite
-  funcion: ejecutar_trie_pref_22
-  codigo: 'int res = ejecutar_trie_pref_22(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_22_valor_unitario
-  funcion: ejecutar_trie_pref_22
-  codigo: 'int res = ejecutar_trie_pref_22(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: comodin_un_byte_y_prefijos
+  funcion: trie_coincide_patron
+  codigo: nodo_trie_t *r=tp_nuevo();assert(r);tp_insertar(r,"casa");tp_insertar(r,"cas");assert(trie_coincide_patron(r,"ca?a"));assert(trie_coincide_patron(r,"c??"));assert(!trie_coincide_patron(r,"c??a?"));assert(!trie_coincide_patron(r,"ca?b"));tp_destruir(r);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,20 +1,9 @@
-/*
- * DSU #26
- * Catedra Programacion I - UNRN
- */
-#include <stdio.h>
-
-
-int ejecutar_dsu_union_26(int val)
-{
-    if (val <= 0) return 0;
-    return val * 2;
-}
-
-int main(void) {
-    int elem = 0, lider = 0;
-    if (scanf("%d %d", &elem, &lider) == 2) {
-        printf("DSU_%02d_REPR: ELEM=%d LIDER=%d\n", 26, elem, lider + 26);
-    }
-    return 0;
-}
+#include "dsu-union-26.h"
+#include <stdlib.h>
+#include <stdint.h>
+static void lock_dsu(dsu_atomic_t *d){while(atomic_exchange_explicit(&d->lock,true,memory_order_acquire)){} }
+static void unlock_dsu(dsu_atomic_t *d){atomic_store_explicit(&d->lock,false,memory_order_release);}
+bool dsu_atomic_init(dsu_atomic_t *d,size_t n){if(!d)return false;d->count=0;d->parent=NULL;d->rank=NULL;atomic_init(&d->lock,false);if(!n||n>SIZE_MAX/sizeof(*d->parent)||n>SIZE_MAX/sizeof(*d->rank))return false;d->parent=malloc(n*sizeof(*d->parent));d->rank=calloc(n,sizeof(*d->rank));if(!d->parent||!d->rank){free(d->parent);free(d->rank);d->parent=NULL;d->rank=NULL;return false;}d->count=n;for(size_t i=0;i<n;i++)atomic_init(&d->parent[i],i);return true;}
+void dsu_atomic_destroy(dsu_atomic_t *d){if(!d)return;free(d->parent);free(d->rank);d->parent=NULL;d->rank=NULL;d->count=0;atomic_store(&d->lock,false);}
+bool dsu_atomic_find(dsu_atomic_t *d,size_t x,size_t *out){if(!d||!out||!d->parent||x>=d->count)return false;lock_dsu(d);size_t r=x;while(atomic_load_explicit(&d->parent[r],memory_order_relaxed)!=r)r=atomic_load_explicit(&d->parent[r],memory_order_relaxed);while(x!=r){size_t next=atomic_load_explicit(&d->parent[x],memory_order_relaxed);atomic_store_explicit(&d->parent[x],r,memory_order_relaxed);x=next;}*out=r;unlock_dsu(d);return true;}
+bool dsu_atomic_union(dsu_atomic_t *d,size_t a,size_t b){if(!d||!d->parent||!d->rank||a>=d->count||b>=d->count)return false;lock_dsu(d);size_t x=a,y=b;while(atomic_load_explicit(&d->parent[x],memory_order_relaxed)!=x)x=atomic_load_explicit(&d->parent[x],memory_order_relaxed);while(atomic_load_explicit(&d->parent[y],memory_order_relaxed)!=y)y=atomic_load_explicit(&d->parent[y],memory_order_relaxed);if(x!=y){if(d->rank[x]<d->rank[y]){size_t t=x;x=y;y=t;}atomic_store_explicit(&d->parent[y],x,memory_order_relaxed);if(d->rank[x]==d->rank[y])++d->rank[x];}unlock_dsu(d);return true;}

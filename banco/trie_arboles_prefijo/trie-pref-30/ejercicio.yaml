@@ -1,5 +1,5 @@
 id: trie-pref-30
-titulo: TAD Diccionario y Predictor de Texto basado en Trie
+titulo: TAD diccionario y predictor de texto basado en Trie
 tema: trie_arboles_prefijo
 bloom: 5
 minutos_estimados: 45
@@ -18,37 +18,19 @@ tags:
 - avanzada
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_30
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de TAD Diccionario y Predictor de Texto
-    basado en Trie
+- nombre: trie_predecir
+  retorno: size_t
+  parametros: const char *const palabras[], const size_t frecuencias[], size_t cantidad, const char *prefijo, size_t
+    limite, char salida[][256], size_t capacidad
+  descripcion: Devuelve autocompletados por frecuencia y desempate lexicográfico.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_30_positivo
-  funcion: ejecutar_trie_pref_30
-  codigo: 'int res = ejecutar_trie_pref_30(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_30_cero
-  funcion: ejecutar_trie_pref_30
-  codigo: 'int res = ejecutar_trie_pref_30(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_30_negativo
-  funcion: ejecutar_trie_pref_30
-  codigo: 'int res = ejecutar_trie_pref_30(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_30_valor_limite
-  funcion: ejecutar_trie_pref_30
-  codigo: 'int res = ejecutar_trie_pref_30(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_30_valor_unitario
-  funcion: ejecutar_trie_pref_30
-  codigo: 'int res = ejecutar_trie_pref_30(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: ranking_y_prefijo_vacio
+  funcion: trie_predecir
+  codigo: const char *w[]={"casa","casco","cama","perro"};size_t f[]={3,8,3,100};char o[4][256];assert(trie_predecir(w,f,4,"ca",3,o,4)==3);assert(!strcmp(o[0],"casco")&&!strcmp(o[1],"cama")&&!strcmp(o[2],"casa"));assert(trie_predecir(w,f,4,"",2,o,4)==2&&!strcmp(o[0],"perro"));
+- nombre: busqueda_limitada_al_subarbol_y_duplicados
+  funcion: trie_predecir
+  codigo: const char *w[]={"ab","ac","zz"};size_t f[]={1,9,100};char o[3][256];assert(trie_predecir(w,f,3,"a",2,o,3)==2&&!strcmp(o[0],"ac")&&!strcmp(o[1],"ab"));const
+    char *dup[]={"a","a"};size_t d[]={1,2};assert(!trie_predecir(dup,d,2,"",2,o,3));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

@@ -1,54 +1,7 @@
-Diseñar e implementar las operaciones sobre **Listas por Saltos (Skip Lists)** para: **Eliminación de Elementos y Reorganización de Enlaces en Skip List**.
-La estructura debe enlazar nodos con arreglos de punteros de altura variable generados probabilísticamente con distribución geométrica, permitiendo búsquedas, inserciones y eliminaciones ordenadas en tiempo esperado $O(\log N)$ mediante avances multinivel.
+# Removal and link repair at every node level
 
-- `int ejecutar_skip_list_05(int val)`: Procesa el flujo principal de Eliminación de Elementos y Reorganización de Enlaces en Skip List
+Implementá la operación de skip list indicada por la API `skip_list_05_...`. La estructura almacena claves enteras únicas y mantiene orden creciente en el nivel cero. Cada nodo se enlaza en `height` niveles (entre 1 y `SKIP_LIST_MAX_LEVEL`). El nivel se genera geométricamente con probabilidad 1/2 de continuar; la semilla hace reproducibles las pruebas.
 
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 10 minutos (Nivel Bloom 1).
+Inicializá toda lista con `skip_list_init` antes de usarla y liberá sus nodos con `skip_list_destroy`. Las funciones reciben claves repetidas como inserción fallida y deben tolerar punteros nulos según el contrato de la cabecera. En inserción explícita, una altura inválida no debe modificar la lista. La búsqueda, eliminación y métricas deben respetar los límites inclusivos que indica su nombre.
 
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Eliminación de Elementos y Reorganización de Enlaces en Skip List
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_skip_list_05(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Cada nodo almacena un arreglo de punteros adelante de tamaño proporcional a su altura generada.
-- La búsqueda avanza en el nivel superior y desciende cuando el valor excede la clave buscada.
-:::
+El header documenta las firmas y resultados. Las operaciones del ejercicio deben preservar orden, enlaces, longitud, altura activa y extremos.

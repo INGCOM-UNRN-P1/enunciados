@@ -18,37 +18,21 @@ tags:
 - inicial
 verificado: true
 funciones:
-- nombre: ejecutar_dsu_union_02
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Inicialización de Conjuntos Disjuntos
-    de N Elementos
+- nombre: dsu02_init
+  retorno: bool
+  parametros: dsu02_t *d, size_t n
+  descripcion: Inicializa n conjuntos unitarios.
+- nombre: dsu02_destroy
+  retorno: void
+  parametros: dsu02_t *d
+  descripcion: Libera el arreglo de padres.
 tests_funciones:
-- nombre: test_ejecutar_dsu_union_02_positivo
-  funcion: ejecutar_dsu_union_02
-  codigo: 'int res = ejecutar_dsu_union_02(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_dsu_union_02_cero
-  funcion: ejecutar_dsu_union_02
-  codigo: 'int res = ejecutar_dsu_union_02(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_dsu_union_02_negativo
-  funcion: ejecutar_dsu_union_02
-  codigo: 'int res = ejecutar_dsu_union_02(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_dsu_union_02_valor_limite
-  funcion: ejecutar_dsu_union_02
-  codigo: 'int res = ejecutar_dsu_union_02(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_dsu_union_02_valor_unitario
-  funcion: ejecutar_dsu_union_02
-  codigo: 'int res = ejecutar_dsu_union_02(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: contrato_02_1
+  funcion: dsu02_init
+  codigo: dsu02_t d;assert(dsu02_init(&d,4));for(size_t i=0;i<4;i++)assert(d.parent[i]==i);dsu02_destroy(&d);assert(d.n==0&&!d.parent);
+- nombre: contrato_02_2
+  funcion: dsu02_init
+  codigo: dsu02_t d;assert(!dsu02_init(&d,0));assert(d.n==0&&!d.parent);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

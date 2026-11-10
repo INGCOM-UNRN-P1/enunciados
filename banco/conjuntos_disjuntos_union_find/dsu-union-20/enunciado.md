@@ -1,54 +1,11 @@
-Implementar y gestionar la estructura de datos **Disjoint Set Union (DSU / Union-Find)** para resolver la operación: **Cálculo de Cantidad de Aristas Críticas con DSU**.
-La estructura debe mantener una colección de conjuntos disjuntos identificados por representantes canónicos, optimizando las consultas y fusiones mediante compresión de caminos y unión por rango/tamaño para garantizar una complejidad temporal casi lineal $O(\alpha(N))$.
+# Cantidad de aristas críticas (puentes) con DSU
 
-- `int ejecutar_dsu_union_20(int val)`: Procesa el flujo principal de Cálculo de Cantidad de Aristas Críticas con DSU
-
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 25 minutos (Nivel Bloom 3).
-
-### 📋 Contrato de las Funciones
+Una arista es crítica si al quitarla aumenta la cantidad de componentes conexas. Contá los puentes de un grafo no dirigido, que puede tener componentes desconectadas, lazos y aristas paralelas. Los vértices se numeran `0..n-1`.
 
 ```c
-/*
- * Procesa el flujo principal de Cálculo de Cantidad de Aristas Críticas con DSU
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_dsu_union_20(int val);
-
+int dsu20_contar_puentes(size_t n, const int aristas[][2], size_t cantidad);
 ```
 
-### 🧪 Ejemplos de Ejecución
+Devolvé `-1` ante argumentos inválidos o falta de memoria. Para cada arista, la solución reconstruye la conectividad con Union-Find omitiéndola y compara el número de componentes. El costo es `O(E(V+E) α(V))`; por eso se admiten hasta 2000 vértices y 2000 aristas. La matriz vacía (`n=0,m=0`) tiene cero puentes.
 
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá compresión de caminos en find para aplanar el árbol.
-- Uní por rango o tamaño para mantener los árboles balanceados.
-:::
+Ejemplo: el camino `0-1-2` tiene dos puentes; un triángulo no tiene ninguno. Dos aristas paralelas entre los mismos vértices no son puentes.

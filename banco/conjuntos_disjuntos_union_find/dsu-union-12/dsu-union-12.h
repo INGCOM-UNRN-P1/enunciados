@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_12_H
-#define EJERCICIO_DSU_UNION_12_H
-
+#ifndef DSU_UNION_12_H
+#define DSU_UNION_12_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de DSU con Rollback para Deshacer Operaciones de Unión */
-int ejecutar_dsu_union_12(int val);
-
-#endif /* EJERCICIO_DSU_UNION_12_H */
+int dsu12_procesar(size_t n, const int operaciones[][3], size_t cantidad, int resultados[]);
+#endif

@@ -1,56 +1,5 @@
-Implementar la estructura de datos **Árbol de Prefijos (Trie)** para: **Búsqueda con Comodines Wildcard en Árbol Trie**.
-La estructura debe permitir almacenar y consultar eficientemente secuencias alfanuméricas o de bits, soportando operaciones de inserción, búsqueda exacta, concordancia de prefijos o indexación con gestión segura y libre de fugas de memoria dinámica.
+# Búsqueda con comodín de un byte en Trie
 
-- `int ejecutar_trie_pref_22(int val)`: Procesa el flujo principal de Búsqueda con Comodines Wildcard en Árbol Trie
+Implementá una consulta de patrón sobre un Trie disperso de bytes, cuya representación está en `../trie-pref-04/trie-pref-common.h`. Las palabras y el patrón admiten hasta 255 bytes. El carácter `?` del patrón coincide con exactamente un byte cualquiera; todos los demás bytes se interpretan literalmente. La consulta retorna `true` si existe una palabra terminal que coincide con el patrón completo. Los punteros nulos retornan `false`; el patrón vacío coincide solo si la raíz es terminal.
 
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 35 minutos (Nivel Bloom 4).
-
-### 📋 Contrato de las Funciones
-
-```c
-/*
- * Procesa el flujo principal de Búsqueda con Comodines Wildcard en Árbol Trie
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_trie_pref_22(int val);
-
-```
-
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Gestión de memoria:** Toda memoria solicitada dinámicamente debe ser validada y liberada de forma determinista sin generar fugas.
-3. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-- [ ] No se registran fugas de memoria (*memory leaks*) comprobables mediante AddressSanitizer o Valgrind.
-
-:::{hint} Consideraciones Didácticas
-- Cada nodo tiene un arreglo de punteros indexados por caracteres.
-- Marcá un flag booleano cuando un nodo represente el final de una palabra.
-:::
+La búsqueda debe recorrer solo las ramas del Trie y no modificarlo. `?` no representa una cadena vacía ni se permiten escapes.

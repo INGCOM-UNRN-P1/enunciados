@@ -1,11 +1,11 @@
 id: trie-pref-21
-titulo: Detección de Palíndromos más Largos usando Trie
+titulo: Detección del palíndromo más largo con árbol palindrómico
 tema: trie_arboles_prefijo
 bloom: 4
 minutos_estimados: 35
 pistas:
-- Cada nodo tiene un arreglo de punteros indexados por caracteres.
-- Marcá un flag booleano cuando un nodo represente el final de una palabra.
+- Cada nodo representa un palíndromo distinto; las transiciones agregan el mismo byte en ambos extremos.
+- Un enlace de sufijo apunta al palíndromo propio más largo que también es sufijo.
 tags:
 - trie
 - prefijos
@@ -18,37 +18,18 @@ tags:
 - intermedia
 verificado: true
 funciones:
-- nombre: ejecutar_trie_pref_21
-  retorno: int
-  parametros: int val
-  descripcion: Procesa el flujo principal de Detección de Palíndromos más Largos usando
-    Trie
+- nombre: trie_palindromo_mas_largo
+  retorno: size_t
+  parametros: const char *texto, char *salida, size_t capacidad
+  descripcion: Copia la subcadena palindrómica contigua más larga.
 tests_funciones:
-- nombre: test_ejecutar_trie_pref_21_positivo
-  funcion: ejecutar_trie_pref_21
-  codigo: 'int res = ejecutar_trie_pref_21(5);
-
-    assert(res == 10 || res >= 0);'
-- nombre: test_ejecutar_trie_pref_21_cero
-  funcion: ejecutar_trie_pref_21
-  codigo: 'int res = ejecutar_trie_pref_21(0);
-
-    assert(res == 0);'
-- nombre: test_ejecutar_trie_pref_21_negativo
-  funcion: ejecutar_trie_pref_21
-  codigo: 'int res = ejecutar_trie_pref_21(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_ejecutar_trie_pref_21_valor_limite
-  funcion: ejecutar_trie_pref_21
-  codigo: 'int res = ejecutar_trie_pref_21(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_ejecutar_trie_pref_21_valor_unitario
-  funcion: ejecutar_trie_pref_21
-  codigo: 'int res = ejecutar_trie_pref_21(1);
-
-    assert(res >= 0 || res == 2);'
+- nombre: palindromos_con_empate_y_limites
+  funcion: trie_palindromo_mas_largo
+  codigo: char o[32];assert(trie_palindromo_mas_largo("abacdfgdcaba",o,sizeof o)==3&&!strcmp(o,"aba"));assert(trie_palindromo_mas_largo("forgeeksskeegfor",o,sizeof
+    o)==10&&!strcmp(o,"geeksskeeg"));assert(trie_palindromo_mas_largo("aba",o,3)==0&&!o[0]);
+- nombre: capacidad_segun_longitud_resultante
+  funcion: trie_palindromo_mas_largo
+  codigo: char o[2];assert(trie_palindromo_mas_largo("abc",o,sizeof o)==1&&!strcmp(o,"a"));
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

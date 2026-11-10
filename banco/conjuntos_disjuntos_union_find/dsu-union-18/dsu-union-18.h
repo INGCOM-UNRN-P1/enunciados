@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_18_H
-#define EJERCICIO_DSU_UNION_18_H
-
+#ifndef DSU_UNION_18_H
+#define DSU_UNION_18_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de DSU con Nodos Identificados por Nombres de Cadena */
-int ejecutar_dsu_union_18(int val);
-
-#endif /* EJERCICIO_DSU_UNION_18_H */
+int dsu18_contar_grupos(const char *const nombres[], size_t cantidad, const char *const pares[][2], size_t cantidad_pares);
+#endif

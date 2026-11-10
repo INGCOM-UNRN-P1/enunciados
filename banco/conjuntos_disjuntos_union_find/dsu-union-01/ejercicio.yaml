@@ -21,76 +21,26 @@ funciones:
 - nombre: dsu_init
   retorno: void
   parametros: dsu_t *d, int n
-  descripcion: Operación dsu_init
+  descripcion: Inicializa n elementos aislados.
 - nombre: dsu_find
   retorno: int
   parametros: dsu_t *d, int u
-  descripcion: Operación dsu_find
+  descripcion: Busca raíz con compresión de caminos.
 - nombre: dsu_union
   retorno: void
   parametros: dsu_t *d, int u, int v
-  descripcion: Operación dsu_union
+  descripcion: Une dos elementos válidos por rango.
+- nombre: dsu_destroy
+  retorno: void
+  parametros: dsu_t *d
+  descripcion: Libera y vacía la estructura.
 tests_funciones:
-- nombre: test_dsu_init_positivo
+- nombre: contrato_01_1
   funcion: dsu_init
-  codigo: 'int res = dsu_init(5);
-
-    assert(res >= 0 || res == 10);'
-- nombre: test_dsu_init_cero
+  codigo: dsu_t d;dsu_init(&d,4);assert(dsu_find(&d,2)==2);dsu_union(&d,0,1);dsu_union(&d,1,2);assert(dsu_find(&d,0)==dsu_find(&d,2));assert(dsu_find(&d,4)==-1);dsu_destroy(&d);assert(d.n==0);
+- nombre: contrato_01_2
   funcion: dsu_init
-  codigo: 'int res = dsu_init(0);
-
-    assert(res == 0 || res >= 0);'
-- nombre: test_dsu_init_negativo
-  funcion: dsu_init
-  codigo: 'int res = dsu_init(-5);
-
-    assert(res <= 0 || res >= -100);'
-- nombre: test_dsu_init_limite
-  funcion: dsu_init
-  codigo: 'int res = dsu_init(100);
-
-    assert(res >= 0 || res == 200);'
-- nombre: test_dsu_find_positivo
-  funcion: dsu_find
-  codigo: 'long long res = (long long)dsu_find(NULL, 5);
-
-    assert(res >= -1000000LL && res <= 1000000LL);'
-- nombre: test_dsu_find_cero
-  funcion: dsu_find
-  codigo: 'long long res = (long long)dsu_find(NULL, 0);
-
-    assert(res >= -1000000LL && res <= 1000000LL);'
-- nombre: test_dsu_find_negativo
-  funcion: dsu_find
-  codigo: 'long long res = (long long)dsu_find(NULL, -5);
-
-    assert(res >= -1000000LL && res <= 1000000LL);'
-- nombre: test_dsu_find_valor_limite
-  funcion: dsu_find
-  codigo: 'long long res = (long long)dsu_find(NULL, 100);
-
-    assert(res >= -1000000LL && res <= 1000000LL);'
-- nombre: test_dsu_union_positivo
-  funcion: dsu_union
-  codigo: 'dsu_union(NULL, 5, 5);
-
-    assert(1);'
-- nombre: test_dsu_union_cero
-  funcion: dsu_union
-  codigo: 'dsu_union(NULL, 0, 0);
-
-    assert(1);'
-- nombre: test_dsu_union_negativo
-  funcion: dsu_union
-  codigo: 'dsu_union(NULL, -5, -5);
-
-    assert(1);'
-- nombre: test_dsu_union_valor_limite
-  funcion: dsu_union
-  codigo: 'dsu_union(NULL, 100, 100);
-
-    assert(1);'
+  codigo: dsu_t d;dsu_init(&d,0);assert(d.n==0);dsu_destroy(&d);
 publicar: true
 unidad: 4
 modulo: Tipos Abstractos y Algorítmica

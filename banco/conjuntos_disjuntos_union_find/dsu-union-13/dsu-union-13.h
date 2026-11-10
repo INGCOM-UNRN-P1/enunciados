@@ -1,11 +1,5 @@
-#ifndef EJERCICIO_DSU_UNION_13_H
-#define EJERCICIO_DSU_UNION_13_H
-
+#ifndef DSU_UNION_13_H
+#define DSU_UNION_13_H
 #include <stddef.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-/* Procesa el flujo principal de DSU con Ponderación de Distancia al Representante */
-int ejecutar_dsu_union_13(int val);
-
-#endif /* EJERCICIO_DSU_UNION_13_H */
+int dsu13_resolver(size_t n, const int restricciones[][3], size_t cantidad, int potenciales[]);
+#endif

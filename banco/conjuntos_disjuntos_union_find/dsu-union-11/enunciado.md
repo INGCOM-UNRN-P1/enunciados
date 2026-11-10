@@ -1,54 +1,9 @@
-Implementar y gestionar la estructura de datos **Disjoint Set Union (DSU / Union-Find)** para resolver la operación: **Conectividad Dinámica en Redes con DSU**.
-La estructura debe mantener una colección de conjuntos disjuntos identificados por representantes canónicos, optimizando las consultas y fusiones mediante compresión de caminos y unión por rango/tamaño para garantizar una complejidad temporal casi lineal $O(\alpha(N))$.
+# Conectividad dinámica en redes
 
-- `int ejecutar_dsu_union_11(int val)`: Procesa el flujo principal de Conectividad Dinámica en Redes con DSU
-
-- Validar adecuadamente los casos de borde y parámetros de entrada.
-- Garantizar la correcta liberación y administración de memoria dinámica si aplica.
-- Respetar los nombres y prototipos de funciones especificados en la cabecera correspondiente.
-- Tiempo estimado de resolución: 15 minutos (Nivel Bloom 2).
-
-### 📋 Contrato de las Funciones
+Procesá las operaciones en orden. Cada fila es `{tipo,u,v}`: `tipo=0` agrega una conexión permanente; `tipo=1` consulta si `u` y `v` están conectados. Guardá el resultado de cada fila en `resultados[i]` (las uniones producen cero). Los vértices son `0..n-1`. Devolvé `cantidad` o `-1` si los datos son inválidos o no se puede reservar memoria.
 
 ```c
-/*
- * Procesa el flujo principal de Conectividad Dinámica en Redes con DSU
- * Precondiciones: val representa el parámetro de entrada del flujo.
- * Postcondiciones: Retorna el resultado correspondiente o 0 si val <= 0.
- */
-int ejecutar_dsu_union_11(int val);
-
+int dsu11_procesar(size_t n, const int operaciones[][3], size_t cantidad, int resultados[]);
 ```
 
-### 🧪 Ejemplos de Ejecución
-
-::::{tab-set}
-:::{tab-item} Entrada con valor 5
-```text
-Entrada: 5
-Salida / Retorno: 10
-```
-:::
-:::{tab-item} Entrada con valor 0
-```text
-Entrada: 0
-Salida / Retorno: 0
-```
-:::
-::::
-
-### ⚠️ Precondiciones y Casos Borde
-
-1. **Valores fuera de rango:** Verificar siempre que los datos de entrada cumplan con los rangos admisibles antes de operar.
-2. **Casos vacíos o neutros:** Contemplar adecuadamente entradas con longitud cero o valores neutros según corresponda.
-### 🎯 Criterios de Aceptación
-
-- [ ] El código compila limpiamente bajo estándar C11 sin warnings con flags estrictos (`-Wall -Wextra -Werror`).
-- [ ] Se satisfacen todas las pruebas unitarias y casos de prueba provistos.
-- [ ] Las estructuras y enums siguen las reglas de estilo de la cátedra (`0x3004h` con sufijos `_t` y `_e`).
-- [ ] Las funciones validan exhaustivamente sus precondiciones y gestionan casos borde de forma robusta.
-
-:::{hint} Consideraciones Didácticas
-- Aplicá compresión de caminos en find para aplanar el árbol.
-- Uní por rango o tamaño para mantener los árboles balanceados.
-:::
+Ejemplo: unir `0-1`, consultar `0-2`, unir `1-2`, consultar `0-2` produce resultados `0,0,0,1`.
