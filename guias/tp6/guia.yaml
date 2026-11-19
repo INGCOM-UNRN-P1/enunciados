@@ -16,7 +16,8 @@ distribucion_bloom:
 identificador: tp6
 cursada: 2026
 ejercicios:
-- id: ejercicio1
+- id: tda-fraccion
+  id_practica: ejercicio1
   titulo: TDA Fracción (fraccion_t) — Invariantes y Normalización
   minutos: 40
   bloom: 3
@@ -33,7 +34,8 @@ ejercicios:
   - id: fraccion_destruir
     titulo: Gestión defensiva de memoria dinámica
     bloom: 2
-- id: ejercicio2
+- id: tda-duracion
+  id_practica: ejercicio2
   titulo: TDA Duración (tiempo_t) — Cambio de Implementación
   minutos: 45
   bloom: 4
@@ -50,7 +52,8 @@ ejercicios:
   - id: tiempo_caja_negra
     titulo: Verificación desacoplada mediante pruebas de caja negra
     bloom: 4
-- id: ejercicio3
+- id: tda-conjunto
+  id_practica: ejercicio3
   titulo: TDA Conjunto de Enteros (conjunto_t) — Invariante de Unicidad
   minutos: 45
   bloom: 4
@@ -64,7 +67,8 @@ ejercicios:
   - id: conjunto_algebra
     titulo: Operaciones algebraicas de unión, intersección y subconjuntos
     bloom: 4
-- id: ejercicio4
+- id: tda-secuencia
+  id_practica: ejercicio4
   titulo: TDA Secuencia (secuencia_t) — Arreglo Dinámico vs Lista Enlazada
   minutos: 60
   bloom: 4
