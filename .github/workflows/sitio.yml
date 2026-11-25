@@ -52,10 +52,21 @@ jobs:
         with:
           node-version: "24"
 
+      # PlantUML (Java, Graphviz y el .jar) para el plugin plantuml-myst; dibuja de antemano
+      # los diagramas de las páginas ya generadas, con caché entre builds.
+      - name: PlantUML
+        uses: INGCOM-UNRN/plantuml-myst@main
+        with:
+          proyecto: .
+
       - name: Instalar MyST
         run: npm install -g mystmd
 
+      # Con ~1600 páginas y los plugins de diagramas, el build pasa los 6 GB: el heap por
+      # omisión de Node no alcanza.
       - name: Construir el HTML
+        env:
+          NODE_OPTIONS: --max-old-space-size=10240
         run: myst build --html
 
       # Los paquetes y el catálogo con URL estable (<sitio>/paquetes/catalogo.json),
