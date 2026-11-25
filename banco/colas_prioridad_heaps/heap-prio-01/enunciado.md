@@ -12,6 +12,15 @@ La interfaz pública está declarada en `heap-prio-01.h`. Las funciones que cons
 min_heap_t h; heap_init(&h); heap_push(&h, 7); heap_push(&h, -2); heap_push(&h, 4); int x; assert(heap_pop(&h,&x) && x==-2); assert(heap_pop(&h,&x) && x==4); assert(heap_pop(&h,&x) && x==7); assert(!heap_pop(&h,&x)); for (int i=200;i>=0;i--) heap_push(&h,i); assert(h.tamano==201 && h.capacidad>=201); for(int i=0;i<=200;i++) assert(heap_pop(&h,&x) && x==i); heap_destroy(&h);
 ```
 
+```{dibu}
+:caption: El min-heap del ejemplo: `heap_push` de `7`, `-2` y `4` (cada valor nuevo sube mientras sea menor que su padre) y un `heap_pop`, que extrae `-2` y hunde el último elemento desde la raíz.
+type: heap
+kind: min
+values: [7, -2, 4]
+ops: ["extract"]
+steps: true
+```
+
 ## Requisitos
 
 - Mantener el invariante del heap después de cada operación.

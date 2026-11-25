@@ -12,6 +12,14 @@ La interfaz pública está declarada en `heap-prio-03.h`. Los arreglos usan capa
 int a[]={4,1,7,1,-3}; heapsort(a,5); int e[]={-3,1,1,4,7}; for(size_t i=0;i<5;i++) assert(a[i]==e[i]); heapsort(a,0);
 ```
 
+```{dibu}
+:caption: Primera fase de heapsort sobre `{4, 1, 7, 1, -3}`: heapify de un max-heap en el mismo arreglo. La segunda fase intercambia repetidamente la raíz (el máximo) con el último elemento del heap y lo achica en uno.
+type: heap
+kind: max
+build: heapify
+values: [4, 1, 7, 1, -3]
+```
+
 ## Requisitos
 
 - Mantener el invariante del heap después de cada operación.

@@ -3,3 +3,9 @@
 Incluye el tipo compartido `../arbol_binario_common.h`. Implemente `inorder`, `preorder` y `postorder`; cada una recibe una raíz y un `FILE *` de salida, imprime valores separados por espacios y en el orden indicado por el nombre. Si la raíz o el stream son `NULL`, no imprime nada. `liberar_arbol` libera recursivamente los nodos en postorden y acepta `NULL`.
 
 Para una raíz 10 con hijo izquierdo 5 y derecho 20, los resultados son `5 10 20 `, `10 5 20 ` y `5 20 10 ` respectivamente. El llamador conserva ownership del árbol hasta invocar `liberar_arbol`.
+
+```{dibu}
+:caption: Para este árbol, `inorder` imprime `3 5 7 10 20 30 `, `preorder` imprime `10 5 3 7 20 30 ` y `postorder` imprime `3 7 5 30 20 10 `.
+type: tree
+values: [10, 5, 20, 3, 7, "", 30]
+```

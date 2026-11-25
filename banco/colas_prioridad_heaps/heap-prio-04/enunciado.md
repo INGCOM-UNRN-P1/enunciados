@@ -12,6 +12,15 @@ La interfaz pública está declarada en `heap-prio-04.h`. Los arreglos usan capa
 int a[]={9,4,7,1,-2,6}; heapify_min(a,6); assert(es_min_heap(a,6)); assert(a[0]==-2); heapify_min(a,0);
 ```
 
+```{dibu}
+:caption: Heapify de Floyd sobre `{9, 4, 7, 1, -2, 6}`: se hunde cada nodo interno, del último al primero, hasta que todo el arreglo cumple el invariante de min-heap.
+type: heap
+kind: min
+build: heapify
+values: [9, 4, 7, 1, -2, 6]
+steps: true
+```
+
 ## Requisitos
 
 - Mantener el invariante del heap después de cada operación.
