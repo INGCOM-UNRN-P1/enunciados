@@ -14,6 +14,13 @@ site:
 project:
   id: 6e43370e-2e12-4fcb-b27e-2c649fd78219
   title: Programación 1 - Repositorio de enunciados
+  plugins:
+    # dibu: dibuja los bloques ```estructura``` / ```statics``` y la directiva {dibu}
+    # https://github.com/INGCOM-UNRN/dibu-myst
+    - plugins/dibu-myst.mjs
+    # PlantUML: dibuja los bloques ```plantuml``` / ```puml``` y la directiva {plantuml}
+    # https://github.com/INGCOM-UNRN/plantuml-myst
+    - plugins/plantuml-myst.mjs
   # description:
   # keywords: []
   github: https://github.com/INGCOM-UNRN-P1/enunciados
