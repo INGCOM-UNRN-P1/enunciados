@@ -24,6 +24,22 @@ Matriz $A^T$ (3x2):
 
 ::::
 
+```{dibu}
+:caption: `entrada` y `salida` son matrices planas, fila por fila. El elemento de la fila `i` y columna `j` de la entrada, `entrada[i * columnas + j]`, va a `salida[j * filas + i]`; por ejemplo, el `3` pasa de `entrada[0 * 3 + 2]` a `salida[2 * 2 + 0]`.
+- type: matrix
+  title: "entrada (2 × 3)"
+  variant: flat
+  name: entrada
+  values: [[1, 2, 3], [4, 5, 6]]
+  highlight: [[0, 2]]
+- type: matrix
+  title: "salida (3 × 2)"
+  variant: flat
+  name: salida
+  values: [[1, 4], [2, 5], [3, 6]]
+  highlight: [[2, 0]]
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

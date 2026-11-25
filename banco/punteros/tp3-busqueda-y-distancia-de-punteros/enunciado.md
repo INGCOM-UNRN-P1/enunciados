@@ -27,3 +27,11 @@ el valor no aparece; si aparece varias veces, devuelve la primera posición.
 Para `distancia_punteros`, los punteros no nulos deben apuntar al mismo arreglo
 o a una posición inmediatamente posterior; devuelve -1 ante un puntero nulo,
 una distancia negativa o una distancia que no cabe en `int`.
+
+```{dibu}
+:caption: `buscar_primero(arreglo, 5, 2)` devuelve la dirección de la primera aparición del `2` (`&arreglo[2]`), aunque haya otra en la posición 4. Después, `distancia_punteros(arreglo, resultado)` vale `resultado - arreglo`, es decir, `2`.
+type: array
+values: [5, 8, 2, 9, 2]
+pointers: "arreglo:0, resultado:2"
+showAddresses: true
+```

@@ -9,6 +9,13 @@
 - **Responsabilidad del alumno**: Prototipos y documentación en `recorrido.h`,
   lógica en `recorrido.c`, demostración en `main.c` y suite en `prueba.c`.
 
+```{dibu}
+:caption: `invertir_arreglo` con dos punteros: `izq` empieza en el primer elemento y `der` en el último; en cada paso se intercambian los valores apuntados y los punteros avanzan uno hacia el otro, hasta cruzarse.
+type: array
+values: [1, 2, 3, 4, 5, 6]
+pointers: "izq:0, der:5"
+```
+
 Usa la biblioteca del ejercicio `tp3-libpunteros`.
 
 ### 📋 Contrato de las Funciones

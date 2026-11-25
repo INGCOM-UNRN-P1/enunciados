@@ -8,6 +8,18 @@ Comandos:
 - `CLEAR`: Vacía el vector reseteando su tamaño a 0.
 - `EXIT`: Libera memoria y termina.
 
+```{dibu}
+:caption: Crecimiento del vector, que empieza con capacidad 4. Con el bloque lleno, `PUSH 5` duplica la capacidad con `realloc` antes de agregar: `SIZE` pasa de `LEN: 4 | CAP: 4` a `LEN: 5 | CAP: 8`.
+- type: array
+  title: "Antes de PUSH 5: LEN 4, CAP 4"
+  values: [1, 2, 3, 4]
+  capacity: 4
+- type: array
+  title: "Después de PUSH 5: LEN 5, CAP 8"
+  values: [1, 2, 3, 4, 5]
+  capacity: 8
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

@@ -10,6 +10,23 @@ bool matriz_irregular_crear(matriz_irregular_t *m, const size_t *columnas, size_
 
 Las funciones auxiliares y las reglas de propiedad de memoria están declaradas en el header del ejercicio. En caso de error de reserva, las funciones que devuelven punteros retornan `NULL`; las funciones booleanas retornan `false`.
 
+```{dibu}
+:caption: `matriz_irregular_crear(&m, (size_t[]){3, 1, 2}, 3)`: `m.datos` apunta a un arreglo de `filas` punteros y cada fila es un bloque propio del largo indicado en `m.columnas`. Para liberar, primero cada fila y después los dos arreglos.
+type: matrix
+variant: jagged
+name: datos
+values: [[0, 0, 0], [0], [0, 0]]
+lengthsName: columnas
+zones: true
+owner:
+  name: m
+  type: matriz_irregular_t
+  fields:
+    - "filas = 3"
+    - "columnas -> lengths"
+    - "datos -> rows"
+```
+
 ### Casos a contemplar
 
 - Entradas vacías y punteros nulos cuando la interfaz los admite.

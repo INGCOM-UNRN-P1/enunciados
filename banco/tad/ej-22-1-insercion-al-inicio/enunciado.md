@@ -7,6 +7,16 @@ operación debe tener complejidad $O(1)$.
 bool insertar_al_inicio(lista_t *lista, int dato);
 ```
 
+```{dibu}
+:caption: `insertar_al_inicio(lista, 5)`: el nodo nuevo apunta al que era el primero y pasa a ser la cabeza. No hace falta recorrer la lista, por eso es $O(1)$.
+- type: linked_list
+  title: Antes
+  values: [7, 3]
+- type: linked_list
+  title: Después de insertar_al_inicio(lista, 5)
+  values: [5, 7, 3]
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

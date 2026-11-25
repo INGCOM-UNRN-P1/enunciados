@@ -14,6 +14,15 @@ Instrucciones soportadas:
 - `PEEK`: Muestra el tope sin desapilar.
 - `HALT`: Finaliza la ejecución.
 
+```{dibu}
+:caption: La pila durante `PUSH 6`, `PUSH 2`, `SUB`, `DUP`, `MUL`. En `SUB` se desapila `A = 2` y después `B = 6`, y se apila `B - A = 4`; `DUP` copia el tope y `MUL` deja `16`.
+type: trace_table
+operationHeader: instrucción
+operations: ["PUSH 6", "PUSH 2", "SUB", "DUP", "MUL"]
+columns: ["pila (base → tope)"]
+rows: [["6"], ["6 2"], ["4"], ["4 4"], ["16"]]
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

@@ -7,6 +7,17 @@ manera destructiva (in-place, $O(n)$ tiempo, $O(1)$ memoria).
 void lista_invertir(lista_t *lista);
 ```
 
+```{dibu}
+:caption: `lista_invertir` sobre `1 → 2 → 3 → 4`: se recorre una sola vez con tres punteros (anterior, actual y siguiente) dando vuelta cada enlace; los nodos no se mueven ni se copian, sólo cambian sus punteros.
+- type: linked_list
+  title: Antes
+  values: [1, 2, 3, 4]
+  pointers: "ant:0, actual:1"
+- type: linked_list
+  title: Después
+  values: [4, 3, 2, 1]
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

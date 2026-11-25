@@ -4,7 +4,33 @@ Calculá C(n,k) = n! / (k! × (n-k)!) recursivamente.
 - Identidad de Pascal: `C(n,k) = C(n-1,k-1) + C(n-1,k)`
 - Casos base: `C(n,0) = 1`, `C(n,n) = 1`
 
-
+```{dibu}
+:caption: Árbol de llamadas de `C(4,2)` con la identidad de Pascal: cada llamada suma lo que devuelven sus dos hijas y las hojas son casos base. `C(2,1)` se resuelve dos veces.
+type: call_tree
+highlight: ["C(2,1)"]
+root:
+  call: "C(4,2)"
+  returns: 6
+  children:
+    - call: "C(3,1)"
+      returns: 3
+      children:
+        - {call: "C(2,0)", returns: 1}
+        - call: "C(2,1)"
+          returns: 2
+          children:
+            - {call: "C(1,0)", returns: 1}
+            - {call: "C(1,1)", returns: 1}
+    - call: "C(3,2)"
+      returns: 3
+      children:
+        - call: "C(2,1)"
+          returns: 2
+          children:
+            - {call: "C(1,0)", returns: 1}
+            - {call: "C(1,1)", returns: 1}
+        - {call: "C(2,2)", returns: 1}
+```
 
 ---
 

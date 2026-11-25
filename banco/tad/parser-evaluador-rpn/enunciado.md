@@ -9,6 +9,15 @@ Para cada línea leída:
 - Si la sintaxis es inválida (faltan operandos o sobran valores al final), imprime `ERROR: SINTAXIS`.
 - El comando `EXIT` termina el programa.
 
+```{dibu}
+:caption: La pila al evaluar `3 4 + 2 *`: cada número se apila; cada operador desapila dos valores, opera y apila el resultado. Al final queda un único elemento y se imprime `RES: 14`.
+type: trace_table
+operationHeader: token
+operations: ["3", "4", "+", "2", "*"]
+columns: ["pila (base → tope)"]
+rows: [["3"], ["3 4"], ["7"], ["7 2"], ["14"]]
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

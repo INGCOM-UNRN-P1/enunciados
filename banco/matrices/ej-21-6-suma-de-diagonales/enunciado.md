@@ -25,6 +25,14 @@ Suma Diagonal Secundaria: `3 + 5 + 7 = 15`
 
 ::::
 
+```{dibu}
+:caption: En una matriz de `n × n`, la diagonal principal son las celdas con `i == j` y la secundaria las que cumplen `i + j == n - 1`. Con `n` impar, la celda central pertenece a las dos.
+type: matrix
+values: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+showIndices: true
+highlight: [[0, 0], [1, 1], [2, 2], [0, 2], [2, 0]]
+```
+
 ### 📋 Contrato de las Funciones
 
 ```c

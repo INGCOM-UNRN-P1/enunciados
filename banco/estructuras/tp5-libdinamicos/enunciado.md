@@ -16,6 +16,14 @@ typedef struct arreglo_dinamico {
 | `cantidad` | `size_t` | Cantidad de elementos enteros válidos almacenados. |
 | `capacidad` | `size_t` | Capacidad física total reservada (alcanza para `capacidad` enteros sin realocar). |
 
+```{dibu}
+:caption: Un `arreglo_dinamico_t` con `cantidad = 3` y `capacidad = 6`: `datos` apunta a un bloque de 6 enteros, de los que sólo los 3 primeros son válidos. Agregar al final no realoca hasta que `cantidad == capacidad`.
+type: array
+title: datos
+values: [4, 8, 15]
+capacity: 6
+```
+
 #
 
 ### 📋 Contrato de las Funciones

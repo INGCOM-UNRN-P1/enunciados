@@ -8,6 +8,17 @@ una cadena independiente en heap.
 - `lista_cadenas_destruir(char **lista, size_t cantidad)`: libera cada cadena y
   luego el arreglo.
 
+```{dibu}
+:caption: Una lista con `cantidad = 3` después de agregar `"sol"`, `"de"` y `"mayo"`: `lista` apunta a un arreglo de `char *` y cada cadena es una copia propia en el heap, terminada en `'\0'`. `lista_cadenas_destruir` libera primero cada cadena y después el arreglo.
+type: matrix
+variant: jagged
+name: lista
+elementType: char
+values: [["s", "o", "l"], ["d", "e"], ["m", "a", "y", "o"]]
+sentinel: "'\\0'"
+showLengths: false
+```
+
 > [!NOTE] `char **` es el tipo de `argv` en `main(int argc, char **argv)`. Este
 > ejercicio generaliza ese patrón.
 
