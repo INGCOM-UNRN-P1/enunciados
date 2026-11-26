@@ -48,7 +48,7 @@ jobs:
       - name: Páginas, TOC, paquetes .ripkg y catálogo
         run: uvx --from "$DECKARD" deckard export myst --apunte .apunte
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: "24"
 
@@ -74,7 +74,7 @@ jobs:
       - name: Publicar paquetes y catálogo
         run: cp -r sitio/paquetes _build/html/paquetes
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _build/html
 
@@ -87,4 +87,4 @@ jobs:
       url: ${{ steps.despliegue.outputs.page_url }}
     steps:
       - id: despliegue
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
